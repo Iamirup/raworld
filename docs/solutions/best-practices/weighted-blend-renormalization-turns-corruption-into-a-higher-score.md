@@ -32,7 +32,7 @@ tags:
 
 ## Problem
 
-`weightedBlend` — the primitive every WorldMonitor resilience dimension is built
+`weightedBlend` — the primitive every RaWorld resilience dimension is built
 on — drops any component slot whose score is `null` and divides by the weight
 that survived:
 

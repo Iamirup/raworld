@@ -90,7 +90,7 @@ test.describe('2D basemap with enforced CSP', () => {
 document.documentElement.dataset.cspViolations='0';document.addEventListener('securitypolicyviolation',()=>document.documentElement.dataset.cspViolations=String(Number(document.documentElement.dataset.cspViolations)+1));</script>`);
     await page.setViewportSize({ width: 1200, height: 1000 });
     await page.goto(origin);
-    await page.setContent(`<iframe title="WorldMonitor plugin" style="border:0;width:100%;height:1000px" sandbox="allow-scripts"></iframe><script>
+    await page.setContent(`<iframe title="RaWorld plugin" style="border:0;width:100%;height:1000px" sandbox="allow-scripts"></iframe><script>
       const frame=document.querySelector('iframe');window.calls=[];window.addEventListener('message',e=>{if(e.source!==frame.contentWindow)return;const m=e.data;window.calls.push(m);const send=o=>frame.contentWindow.postMessage({jsonrpc:'2.0',...o},'*');
       if(m.method==='ui/initialize')send(window.rejectInit?{id:m.id,error:{code:-32000,message:'Fixture initialization failed'}}:{id:m.id,result:{hostCapabilities:{},hostContext:{theme:'dark'}}});
       if(m.method==='ui/notifications/initialized')send({method:'ui/notifications/tool-result',params:{structuredContent:${JSON.stringify(mapPayload)}}});});frame.srcdoc=${JSON.stringify(strictHtml).replace(/</g, '\\u003c')};</script>`);
@@ -144,7 +144,7 @@ document.documentElement.dataset.cspViolations='0';document.addEventListener('se
 });
 test.afterAll(async () => { if (dist) await rm(dist, { recursive: true, force: true }); });
 
-test('real WorldMonitor panels, search, map and host refresh in an opaque sandbox', async ({ page }, testInfo) => {
+test('real RaWorld panels, search, map and host refresh in an opaque sandbox', async ({ page }, testInfo) => {
   test.setTimeout(300_000);
   await page.addInitScript(() => {
     const getContext = HTMLCanvasElement.prototype.getContext;
@@ -173,7 +173,7 @@ test('real WorldMonitor panels, search, map and host refresh in an opaque sandbo
   });
   await page.setViewportSize({ width: 1200, height: 1000 });
   await page.goto(origin);
-  await page.setContent(`<iframe title="WorldMonitor plugin" style="border:0;width:100%;height:1100px" sandbox="allow-scripts"></iframe><script>
+  await page.setContent(`<iframe title="RaWorld plugin" style="border:0;width:100%;height:1100px" sandbox="allow-scripts"></iframe><script>
   const frame=document.querySelector('iframe');window.calls=[];window.hazards={isError:true};
   window.sendResult=result=>frame.contentWindow.postMessage({jsonrpc:'2.0',method:'ui/notifications/tool-result',params:result},'*');
   window.addEventListener('message',e=>{if(e.source!==frame.contentWindow)return;const m=e.data;window.calls.push(m);const send=o=>frame.contentWindow.postMessage({jsonrpc:'2.0',...o},'*');

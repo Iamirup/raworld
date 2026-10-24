@@ -5864,13 +5864,12 @@ export class DeckGLMap {
       <div class="toggle-list" style="max-height: 32vh; overflow-y: auto; scrollbar-width: thin;">
         ${layerConfig.map(({ key, label, icon, premium, explainLabel, hasExplanation }) => {
           const isLocked = premium === 'locked' && !premiumUnlocked;
-          const isEnhanced = premium === 'enhanced' && !premiumUnlocked;
           return `
           <div class="layer-toggle-row" data-layer="${key}">
             <label class="layer-toggle${isLocked ? ' layer-toggle-locked' : ''}" data-layer="${key}">
               <input type="checkbox" ${this.state.layers[key as keyof MapLayers] ? 'checked' : ''}${isLocked ? ' disabled' : ''}>
               <span class="toggle-icon">${icon}</span>
-              <span class="toggle-label">${label}${isLocked ? ' \uD83D\uDD12' : ''}${isEnhanced ? ' <span class="layer-pro-badge">PRO</span>' : ''}</span>
+              <span class="toggle-label">${label}${isLocked ? ' \uD83D\uDD12' : ''}</span>
             </label>
             <button type="button" class="layer-explain-btn${hasExplanation ? ' has-layer-explanation' : ''}" data-layer="${key}" aria-label="${explainLabel}">i</button>
           </div>`;
@@ -5880,7 +5879,7 @@ export class DeckGLMap {
 
     const authorBadge = document.createElement('div');
     authorBadge.className = 'map-author-badge';
-    authorBadge.textContent = '© Elie Habib · Someone™';
+    authorBadge.textContent = '© RaWorld';
     toggles.appendChild(authorBadge);
 
     this.container.appendChild(toggles);

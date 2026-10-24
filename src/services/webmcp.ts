@@ -15,7 +15,6 @@
 //   5. list_dashboard_panels()    — pages the canonical panel catalog.
 //   6. switch_monitor()           — switches World/Tech/Finance/Commodity/Energy/Good News.
 //   7. open_settings()            — opens the settings overlay.
-//   8. open_alerts()              — opens the alerts/notifications tab.
 //   9. open_dashboard_panel()     — opens an already-live panel.
 //  10. set_panel_enabled()        — enables or disables a catalog panel.
 //  11. get_panel_layout()         — reads region order, collapse, fullscreen.
@@ -39,12 +38,8 @@
 //  29. open_mission_picker()      — opens the mission preset picker.
 //  30. list_followed_countries()  — reads the current followed-country list.
 //  31. set_country_followed()     — follows or unfollows one country.
-//  32. get_access_context()       — reads signed-out / loading / signed-in access.
-//  33. open_sign_in()             — opens the existing Clerk sign-in dialog.
 //
-// No tool is conditionally registered. Live controls re-check auth and
-// entitlement through the agent-bus applier on every invocation, so a single
-// registration remains correct across sign-in/sign-out.
+// No tool is conditionally registered.
 //
 // Scanner compatibility: WebMCP scanners probe for
 // `document.modelContext.registerTool` invocations during initial page load.
@@ -155,9 +150,6 @@ export interface WebMcpAppBindings {
   openSettings(
     options?: WebMcpExecutionOptions,
   ): WebMcpNavigationResult | Promise<WebMcpNavigationResult>;
-  openAlerts(
-    options?: WebMcpExecutionOptions,
-  ): WebMcpNavigationResult | Promise<WebMcpNavigationResult>;
   applyDashboardAction(
     action: unknown,
     options?: WebMcpExecutionOptions,
@@ -224,12 +216,6 @@ export interface WebMcpAppBindings {
     fullscreen: unknown,
     options?: WebMcpExecutionOptions,
   ): PanelLayoutMutationResult | Promise<PanelLayoutMutationResult>;
-  getAccessContext(
-    options?: WebMcpExecutionOptions,
-  ): AccessContextSnapshot | Promise<AccessContextSnapshot>;
-  openSignIn(
-    options?: WebMcpExecutionOptions,
-  ): OpenSignInResult | Promise<OpenSignInResult>;
 }
 
 export interface ApplyMissionPresetResult {
@@ -350,7 +336,7 @@ export interface PanelTabSelectionResult {
 export const WEBMCP_MONITOR_KEYS = SITE_VARIANTS;
 
 export type WebMcpMonitorKey = SiteVariant;
-export type WebMcpNavDestination = WebMcpMonitorKey | 'settings' | 'alerts' | 'mission_picker';
+export type WebMcpNavDestination = WebMcpMonitorKey | 'settings' | 'mission_picker';
 export type WebMcpMonitorNavigation = 'none' | 'reload' | 'assign';
 
 export interface WebMcpNavigationResult {
@@ -365,30 +351,6 @@ export interface WebMcpNavigationResult {
   context: DashboardContextSnapshot;
 }
 
-export type WebMcpAccountState = 'signed_out' | 'loading' | 'signed_in';
-export type WebMcpClerkState = 'unavailable' | 'loading' | 'ready';
-export type WebMcpProductTier = 'anonymous' | 'free' | 'pro' | 'unknown';
-
-export interface AccessContextSnapshot {
-  accountState: WebMcpAccountState;
-  clerk: WebMcpClerkState;
-  productTier: WebMcpProductTier;
-  capabilities: {
-    premiumAccess: boolean;
-    apiAccess: boolean;
-    mcpAccess: boolean;
-    dataExport: boolean;
-  };
-  limits: {
-    enabledPanels: { used: number; cap: number | null };
-    dashboardTabs: { used: number; cap: number | null; canCreate: boolean };
-  };
-}
-
-export type OpenSignInResult =
-  | { ok: true; status: 'opened' }
-  | { ok: true; status: 'already_open'; reason: 'already_open' }
-  | { ok: false; status: 'denied'; reason: 'clerk_unavailable' };
 
 export type DashboardActionStatus = 'applied' | 'denied' | 'invalid' | 'skipped';
 
@@ -534,7 +496,6 @@ export const WEBMCP_TOOL_CANCELLATION_POLICY: Readonly<
   >
 > = Object.freeze({
   [WEBMCP_SPA_TOOL.getDashboardContext]: 'read-only',
-  [WEBMCP_SPA_TOOL.getAccessContext]: 'read-only',
   [WEBMCP_SPA_TOOL.listMapLayers]: 'read-only',
   [WEBMCP_SPA_TOOL.listDashboardPanels]: 'read-only',
   [WEBMCP_SPA_TOOL.searchDashboard]: 'read-only',
@@ -542,8 +503,6 @@ export const WEBMCP_TOOL_CANCELLATION_POLICY: Readonly<
   [WEBMCP_SPA_TOOL.openSearch]: 'view-state',
   [WEBMCP_SPA_TOOL.switchMonitor]: 'cancellation-required',
   [WEBMCP_SPA_TOOL.openSettings]: 'view-state',
-  [WEBMCP_SPA_TOOL.openAlerts]: 'view-state',
-  [WEBMCP_SPA_TOOL.openSignIn]: 'view-state',
   [WEBMCP_SPA_TOOL.openDashboardPanel]: 'view-state',
   [WEBMCP_SPA_TOOL.setPanelEnabled]: 'cancellation-required',
   [WEBMCP_SPA_TOOL.setPanelCollapsed]: 'cancellation-required',
@@ -616,42 +575,39 @@ const SEARCH_RESULT_TYPE_BUCKETS = new Set([
   'flight',
 ]);
 const TOOL_FAILURE_MESSAGES: Record<WebMcpSpaToolName, string> = {
-  openCountryBrief: 'World Monitor could not open that country brief.',
-  openSearch: 'World Monitor could not open search.',
-  get_dashboard_context: 'World Monitor could not read dashboard context.',
-  list_map_layers: 'World Monitor could not list map layers.',
-  list_dashboard_panels: 'World Monitor could not list dashboard panels.',
-  switch_monitor: 'World Monitor could not switch monitors.',
-  open_settings: 'World Monitor could not open settings.',
-  open_alerts: 'World Monitor could not open alerts.',
-  open_dashboard_panel: 'World Monitor could not open that dashboard panel.',
-  set_panel_enabled: 'World Monitor could not update that dashboard panel.',
-  get_panel_layout: 'World Monitor could not read the panel layout.',
-  set_panel_collapsed: 'World Monitor could not update that panel collapse state.',
-  move_panel: 'World Monitor could not move that panel.',
-  set_panel_fullscreen: 'World Monitor could not update that panel fullscreen state.',
-  set_map_view: 'World Monitor could not move the map.',
-  set_map_layers: 'World Monitor could not update map layers.',
-  set_time_range: 'World Monitor could not set the map time range.',
-  focus_country: 'World Monitor could not focus that country.',
-  set_map_mode: 'World Monitor could not switch the map mode.',
-  search_dashboard: 'World Monitor could not search the dashboard.',
-  open_search_result: 'World Monitor could not open that search result.',
-  list_dashboard_tabs: 'World Monitor could not list dashboard tabs.',
-  select_dashboard_tab: 'World Monitor could not select that dashboard tab.',
-  create_dashboard_tab: 'World Monitor could not create that dashboard tab.',
-  rename_dashboard_tab: 'World Monitor could not rename that dashboard tab.',
-  delete_dashboard_tab: 'World Monitor could not delete that dashboard tab.',
-  list_mission_presets: 'World Monitor could not list mission presets.',
-  apply_mission_preset: 'World Monitor could not apply that mission preset.',
-  open_mission_picker: 'World Monitor could not open the mission picker.',
-  list_followed_countries: 'World Monitor could not list followed countries.',
-  set_country_followed: 'World Monitor could not update that followed country.',
-  get_access_context: 'World Monitor could not read access context.',
-  open_sign_in: 'World Monitor could not open sign-in.',
+  openCountryBrief: 'RaWorld could not open that country brief.',
+  openSearch: 'RaWorld could not open search.',
+  get_dashboard_context: 'RaWorld could not read dashboard context.',
+  list_map_layers: 'RaWorld could not list map layers.',
+  list_dashboard_panels: 'RaWorld could not list dashboard panels.',
+  switch_monitor: 'RaWorld could not switch monitors.',
+  open_settings: 'RaWorld could not open settings.',
+  open_dashboard_panel: 'RaWorld could not open that dashboard panel.',
+  set_panel_enabled: 'RaWorld could not update that dashboard panel.',
+  get_panel_layout: 'RaWorld could not read the panel layout.',
+  set_panel_collapsed: 'RaWorld could not update that panel collapse state.',
+  move_panel: 'RaWorld could not move that panel.',
+  set_panel_fullscreen: 'RaWorld could not update that panel fullscreen state.',
+  set_map_view: 'RaWorld could not move the map.',
+  set_map_layers: 'RaWorld could not update map layers.',
+  set_time_range: 'RaWorld could not set the map time range.',
+  focus_country: 'RaWorld could not focus that country.',
+  set_map_mode: 'RaWorld could not switch the map mode.',
+  search_dashboard: 'RaWorld could not search the dashboard.',
+  open_search_result: 'RaWorld could not open that search result.',
+  list_dashboard_tabs: 'RaWorld could not list dashboard tabs.',
+  select_dashboard_tab: 'RaWorld could not select that dashboard tab.',
+  create_dashboard_tab: 'RaWorld could not create that dashboard tab.',
+  rename_dashboard_tab: 'RaWorld could not rename that dashboard tab.',
+  delete_dashboard_tab: 'RaWorld could not delete that dashboard tab.',
+  list_mission_presets: 'RaWorld could not list mission presets.',
+  apply_mission_preset: 'RaWorld could not apply that mission preset.',
+  open_mission_picker: 'RaWorld could not open the mission picker.',
+  list_followed_countries: 'RaWorld could not list followed countries.',
+  set_country_followed: 'RaWorld could not update that followed country.',
 };
 export const WEBMCP_UNSUPPORTED_CANCELLATION_MESSAGE =
-  'This browser cannot cancel work already running in the page, so World Monitor '
+  'This browser cannot cancel work already running in the page, so RaWorld '
   + 'will not run tools whose effects can outlive cancellation. Read-only and '
   + 'reversible view-state dashboard tools still work.';
 
@@ -1098,51 +1054,6 @@ function boundDashboardCompatibility(
   };
 }
 
-const ACCOUNT_STATES = new Set<WebMcpAccountState>(['signed_out', 'loading', 'signed_in']);
-const CLERK_STATES = new Set<WebMcpClerkState>(['unavailable', 'loading', 'ready']);
-const PRODUCT_TIERS = new Set<WebMcpProductTier>(['anonymous', 'free', 'pro', 'unknown']);
-
-function oneOf<T extends string>(value: unknown, allowed: ReadonlySet<T>, fallback: T): T {
-  return typeof value === 'string' && allowed.has(value as T) ? value as T : fallback;
-}
-
-function optionalCap(value: unknown): number | null {
-  if (value === null || value === undefined) return null;
-  return typeof value === 'number' && Number.isFinite(value) && value >= 0
-    ? Math.floor(value)
-    : null;
-}
-
-export function boundWebMcpAccessContext(
-  snapshot: AccessContextSnapshot,
-  targetCancellationSupported: boolean,
-): Record<string, unknown> {
-  const enabledPanels = snapshot.limits?.enabledPanels;
-  const dashboardTabs = snapshot.limits?.dashboardTabs;
-  return {
-    accountState: oneOf(snapshot.accountState, ACCOUNT_STATES, 'loading'),
-    clerk: oneOf(snapshot.clerk, CLERK_STATES, 'unavailable'),
-    productTier: oneOf(snapshot.productTier, PRODUCT_TIERS, 'unknown'),
-    capabilities: {
-      premiumAccess: snapshot.capabilities?.premiumAccess === true,
-      apiAccess: snapshot.capabilities?.apiAccess === true,
-      mcpAccess: snapshot.capabilities?.mcpAccess === true,
-      dataExport: snapshot.capabilities?.dataExport === true,
-    },
-    limits: {
-      enabledPanels: {
-        used: Math.max(0, Math.floor(boundedNumber(enabledPanels?.used))),
-        cap: optionalCap(enabledPanels?.cap),
-      },
-      dashboardTabs: {
-        used: Math.max(0, Math.floor(boundedNumber(dashboardTabs?.used))),
-        cap: optionalCap(dashboardTabs?.cap),
-        canCreate: dashboardTabs?.canCreate === true,
-      },
-    },
-    targetCancellationSupported: targetCancellationSupported === true,
-  };
-}
 
 function boundDashboardActionResult(result: DashboardActionResult): Record<string, unknown> & {
   ok: boolean;
@@ -1213,15 +1124,6 @@ function boundDashboardSearchResult(result: DashboardSearchResponse): DashboardS
   return bounded;
 }
 
-function boundOpenSignInResult(result: OpenSignInResult): OpenSignInResult {
-  if (result?.ok === true && result.status === 'already_open') {
-    return { ok: true, status: 'already_open', reason: 'already_open' };
-  }
-  if (result?.ok === true && result.status === 'opened') {
-    return { ok: true, status: 'opened' };
-  }
-  return { ok: false, status: 'denied', reason: 'clerk_unavailable' };
-}
 
 function boundSearchOpenResult(result: DashboardSearchOpenResult): DashboardSearchOpenResult {
   const opened = result.ok === true && result.status === 'opened';
@@ -1574,9 +1476,6 @@ function boundDashboardTabList(
   const activeTabId = boundedText(snapshot.activeTabId, 64);
   const canCreate = snapshot.canCreate === true;
   const cap = snapshot.cap === null || typeof snapshot.cap === 'number' ? snapshot.cap : null;
-  const createBlockReason = snapshot.createBlockReason
-    ? boundedText(snapshot.createBlockReason, 32) as DashboardTabListSnapshot['createBlockReason']
-    : undefined;
 
   let startIndex = 0;
   if (cursor !== undefined) {
@@ -1607,7 +1506,6 @@ function boundDashboardTabList(
     tabsTruncated: nextCursor !== undefined || snapshot.tabsTruncated === true,
     canCreate,
     cap,
-    ...(createBlockReason ? { createBlockReason } : {}),
     ...(nextCursor ? { nextCursor: boundedText(nextCursor, 64) } : {}),
   });
 
@@ -1650,7 +1548,6 @@ function boundDashboardTabMutation(result: DashboardTabMutationResult): Dashboar
     ...(typeof result.tabCount === 'number' ? { tabCount: Math.max(0, Math.floor(result.tabCount)) } : {}),
     ...(typeof result.canCreate === 'boolean' ? { canCreate: result.canCreate } : {}),
     ...(result.cap === null || typeof result.cap === 'number' ? { cap: result.cap } : {}),
-    ...(result.lockReason ? { lockReason: boundedText(result.lockReason, 32) as DashboardTabMutationResult['lockReason'] } : {}),
   };
   if (JSON.stringify(bounded).length > MAX_OUTPUT_CHARS) {
     throw new SafeWebMcpError('Dashboard tab result exceeded the safe output limit.');
@@ -1896,7 +1793,7 @@ export function buildWebMcpTools(
       name: WEBMCP_SPA_TOOL.openSearch,
       title: 'Open Search',
       description:
-        'Open the global search command palette so the user can find countries, signals, alerts, and other entities tracked by World Monitor.',
+        'Open the global search command palette so the user can find countries, signals, alerts, and other entities tracked by RaWorld.',
       inputSchema: {
         type: 'object',
         properties: {},
@@ -2115,34 +2012,10 @@ export function buildWebMcpTools(
       }, trackEvent),
     },
     {
-      name: WEBMCP_SPA_TOOL.openAlerts,
-      title: 'Open Alerts',
-      description:
-        'Open the alerts notifications tab through the same settings path the visible UI uses. Opening alerts does not change their contents. Unavailable dashboards return a stable reason without account details.',
-      inputSchema: {
-        type: 'object',
-        properties: {},
-        additionalProperties: false,
-      },
-      annotations: { readOnlyHint: false },
-      execute: withBindings(WEBMCP_SPA_TOOL.openAlerts, async (args, extra) => {
-        if (!hasOnlyOwnKeys(args, [])) {
-          return boundDashboardNavigationResult({
-            ok: false,
-            status: 'invalid',
-            reason: 'malformed_arguments',
-            message: 'open_alerts does not accept arguments.',
-            context: await currentNavigationContext(app, extra),
-          });
-        }
-        return boundDashboardNavigationResult(await app.openAlerts(extra));
-      }, trackEvent),
-    },
-    {
       name: WEBMCP_SPA_TOOL.openDashboardPanel,
       title: 'Open Dashboard Panel',
       description:
-        'Open and scroll to an already-live, currently enabled dashboard panel through the same entitlement-aware control path used by World Monitor. For the commodities panel, tab can also select commodities, physical, fx, or xau through the same tab path used by a person. Disabled panels return panel_disabled. Use set_panel_enabled to change whether a catalog panel is enabled; this tool does not enable panels itself.',
+        'Open and scroll to an already-live, currently enabled dashboard panel through the same entitlement-aware control path used by RaWorld. For the commodities panel, tab can also select commodities, physical, fx, or xau through the same tab path used by a person. Disabled panels return panel_disabled. Use set_panel_enabled to change whether a catalog panel is enabled; this tool does not enable panels itself.',
       inputSchema: {
         type: 'object',
         properties: {
@@ -2483,7 +2356,7 @@ export function buildWebMcpTools(
       name: WEBMCP_SPA_TOOL.setMapLayers,
       title: 'Set Map Layers',
       description:
-        'Enable or disable explicit visible map layers through World Monitor’s variant, renderer, and entitlement-aware control path.',
+        'Enable or disable explicit visible map layers through RaWorld’s variant, renderer, and entitlement-aware control path.',
       inputSchema: {
         type: 'object',
         properties: {
@@ -2598,7 +2471,7 @@ export function buildWebMcpTools(
       name: WEBMCP_SPA_TOOL.searchDashboard,
       title: 'Search Dashboard',
       description:
-        'Search the current World Monitor country, signal, map, panel, finance, and action indexes without opening the command palette or changing the dashboard. executable is true only when live dashboard state and this host’s cancellation support both allow the bound effect.',
+        'Search the current RaWorld country, signal, map, panel, finance, and action indexes without opening the command palette or changing the dashboard. executable is true only when live dashboard state and this host’s cancellation support both allow the bound effect.',
       inputSchema: {
         type: 'object',
         properties: {
@@ -3068,42 +2941,6 @@ export function buildWebMcpTools(
         return boundFollowedCountryMutation(
           await app.setCountryFollowed(args.iso2, args.followed, extra),
         );
-      }, trackEvent),
-    },
-    {
-      name: WEBMCP_SPA_TOOL.getAccessContext,
-      title: 'Get Access Context',
-      description:
-        'Read whether this tab is signed out, still loading account state, or signed in. Returns product tier, capability flags, panel and dashboard-tab limits, and whether the host can cancel tools. Contains no names, emails, account IDs, tokens, or session details.',
-      inputSchema: {
-        type: 'object',
-        properties: {},
-        additionalProperties: false,
-      },
-      annotations: { readOnlyHint: true },
-      execute: withBindings(WEBMCP_SPA_TOOL.getAccessContext, async (_args, extra) => (
-        boundWebMcpAccessContext(await app.getAccessContext(extra), Boolean(extra?.signal))
-      ), trackEvent),
-    },
-    {
-      name: WEBMCP_SPA_TOOL.openSignIn,
-      title: 'Open Sign In',
-      description:
-        'Open the existing Clerk sign-in dialog on this page. Does not accept credentials, one-time codes, or provider choices. Returns a stable reason when Clerk is unavailable or the dialog is already open.',
-      inputSchema: {
-        type: 'object',
-        properties: {},
-        additionalProperties: false,
-      },
-      annotations: { readOnlyHint: false },
-      execute: withBindings(WEBMCP_SPA_TOOL.openSignIn, async (args, extra) => {
-        if (!hasOnlyOwnKeys(args, [])) {
-          throw new SafeWebMcpError(
-            'open_sign_in does not accept credentials or other arguments.',
-            'validation',
-          );
-        }
-        return boundOpenSignInResult(await app.openSignIn(extra));
       }, trackEvent),
     },
   ];

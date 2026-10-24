@@ -127,7 +127,7 @@ const REAL_VIOLATIONS = [
     id: '710000011Z',
     shortId: 'WORLDMONITOR-11Z',
     statusDetails: {
-      inCommit: { id: 'c0ffee1234567890', author: { ...ACTOR }, repository: { name: 'koala73/worldmonitor' } },
+      inCommit: { id: 'c0ffee1234567890', author: { ...ACTOR }, repository: { name: 'Iamirup/raworld' } },
       actor: { ...ACTOR },
     },
   }),

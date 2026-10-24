@@ -20,7 +20,7 @@
  * in PRODUCT_CATALOG; only deliberately public facts belong here.
  */
 export const PUBLIC_PRODUCT_METADATA = {
-  name: "World Monitor",
+  name: "RaWorld",
   lifecycle: "launched",
   canonicalUrl: "https://www.worldmonitor.app/",
   pricingUrl: "https://www.worldmonitor.app/pro#pricing",
@@ -395,7 +395,7 @@ export const PRODUCT_CATALOG: Record<string, CatalogEntry> = {
     features: PRO_FEATURES,
     marketingFeatures: [
       "Everything in Free — panels, sources & followed countries uncapped",
-      "WM Analyst chat + AI stock analysis & backtesting",
+      "RaWorld Analyst chat + AI stock analysis & backtesting",
       "Cost-shock modelling & supply-chain stress tests",
       "Intel memory — historical search, timelines & similar events",
       "Physical metals divergence, minerals concentration & sovereign debt data",

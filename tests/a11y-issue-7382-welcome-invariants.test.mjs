@@ -16,7 +16,7 @@ const pressNav = read('pro-test/src/components/PressFooterNav.tsx');
 const app = read('pro-test/src/App.tsx');
 const blogBase = read('blog-site/src/layouts/Base.astro');
 
-/** Marketing chrome that renders the WORLD MONITOR lockup. */
+/** Marketing chrome that renders the RAWORLD lockup. */
 const LOCKUP_SOURCES = Object.entries({
   'pro-test/src/components/Logo.tsx': logo,
   'pro-test/src/components/Footer.tsx': footer,
@@ -39,9 +39,9 @@ describe('welcome a11y invariants (#7382)', () => {
     assert.match(pressNav, /text-wm-muted/);
   });
 
-  it('names the home control from visible WORLD MONITOR text (no mismatched aria-label)', () => {
+  it('names the home control from visible RAWORLD text (no mismatched aria-label)', () => {
     assert.doesNotMatch(logo, /aria-label=/);
-    assert.match(logo, /WORLD MONITOR/);
+    assert.match(logo, /RAWORLD/);
     assert.match(logo, /aria-hidden="true"/);
   });
 

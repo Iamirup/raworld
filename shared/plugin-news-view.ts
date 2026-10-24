@@ -30,7 +30,7 @@ export function parseNewsDashboardRequest(input: Record<string, unknown>) {
 export const PLUGIN_NEWS_VIEW_INPUT_SCHEMA = {
   type: 'object',
   properties: {
-    query: { type: 'string', maxLength: 200, description: 'Open the existing WorldMonitor search with this query.' },
+    query: { type: 'string', maxLength: 200, description: 'Open the existing RaWorld search with this query.' },
     source: { type: 'string', maxLength: 200, description: 'Show only items from one feed source, matched exactly against each item\'s source name. Omit for all sources.' },
     category: { type: 'string', maxLength: 80, description: 'Show only one news panel (category id such as "conflict" or "economy"); an unknown id is reported in the receipt. Omit for all panels.' },
     country: { type: 'string', pattern: '^[A-Z]{2}$', description: 'Uppercase ISO 3166-1 alpha-2 code. Keeps items that mention that country and enables the country-brief control.' },

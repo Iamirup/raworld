@@ -128,7 +128,7 @@ export function createCountryBriefOutput(snapshot: BriefOutputSnapshot, kind: 's
   let selectedTopic: BriefTopic = 'all';
   let slide = 0;
   const selected = () => snapshot.sections.filter(section => selectedTopic === 'all' || section.topics.includes(selectedTopic));
-  const heading = () => h('header', {}, h('p', { className: 'cdp-country-subtitle' }, 'WORLD MONITOR · COUNTRY BRIEF'),
+  const heading = () => h('header', {}, h('p', { className: 'cdp-country-subtitle' }, 'RAWORLD · COUNTRY BRIEF'),
     h('h1', {}, snapshot.country), h('p', { className: 'cdp-measure-note' }, `Captured ${new Date(snapshot.capturedAt).toLocaleString()} · ${snapshot.code}`));
   const renderReport = (): void => {
     const sections = selected();
@@ -410,7 +410,7 @@ export function renderCommodityBrief(snapshot: import('@/types/decision-brief').
       h('p', {}, `Retrieved ${snapshot.capturedAt}`),
       ...snapshot.evidence.map(e => h('p', { id: e.id }, `[${e.id}] ${e.label}: ${e.value === null ? 'Unknown' : e.value} ${e.unit} · `,
         h('a', { href: e.sourceUrl, target: '_blank', rel: 'noopener noreferrer' }, e.source), ` · observed ${e.observedAt ?? 'unknown'}`)),
-      h('p', {}, 'Route basis: WorldMonitor country port clusters and trade-route registry; geographic model, observation date unknown.'),
+      h('p', {}, 'Route basis: RaWorld country port clusters and trade-route registry; geographic model, observation date unknown.'),
       h('h3', {}, 'Limitations'), h('ul', {}, ...snapshot.caveats.map(c => h('li', {}, c)))));
   const data = h('script', { type: 'application/json', id: 'commodity-brief-snapshot' });
   data.textContent = JSON.stringify(snapshot).replace(/</g, '\\u003c');

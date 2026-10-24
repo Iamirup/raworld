@@ -17,7 +17,6 @@ export default defineConfig({
     'import.meta.env.VITE_COUNTRY_OVERRIDES_URL': JSON.stringify('/data/country-boundary-overrides.geojson'),
     __APP_VERSION__: JSON.stringify(pkg.version),
     __BUILD_HASH__: JSON.stringify(process.env.VERCEL_GIT_COMMIT_SHA ?? 'dev'),
-    __CLERK_JS_VERSION__: JSON.stringify(pkg.dependencies['@clerk/clerk-js'].replace(/^[\^~>=<\s]*/, '')),
   },
   worker: { format: 'es' },
   build: {

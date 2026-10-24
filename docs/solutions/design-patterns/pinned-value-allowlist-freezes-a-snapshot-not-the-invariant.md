@@ -151,7 +151,7 @@ The generalizable trigger is a bug report that enumerates. When an issue says "t
 
 A second-order payoff: the same review pass found the variant-dashboard rewriter anchored on the first *textual* `"url"` after its type anchor rather than the node's own property, so a valid reordering that moves `offers` ahead of it rewrites `offers[0].url` — one match, so the count bound accepts it and the wrong field changes silently. Anchoring on the node's own indentation makes a reorder match zero times and throw. The pattern is the same one as §1: a bound that counts matches cannot tell you *which* thing matched, exactly as an allowlist of values cannot tell you about the values it does not list.
 
-Verified at PR [#7622](https://github.com/koala73/worldmonitor/pull/7622): 1873 tests across the suites touching these surfaces, `WM_EXPECT_BUILT_OUTPUT=1`, zero skips, plus the seven-attack mutation harness above.
+Verified at PR [#7622](https://github.com/Iamirup/raworld/pull/7622): 1873 tests across the suites touching these surfaces, `WM_EXPECT_BUILT_OUTPUT=1`, zero skips, plus the seven-attack mutation harness above.
 
 ## Related
 
@@ -160,4 +160,4 @@ Verified at PR [#7622](https://github.com/koala73/worldmonitor/pull/7622): 1873 
 - [Checks must fail closed when they lose their target](../best-practices/checks-must-fail-closed-when-they-lose-their-target.md) — the floor assertion in §3 exists for this reason: discovery that finds nothing must not read as agreement.
 - [Key-existence checks cannot detect stale translations](../logic-errors/key-existence-checks-cannot-detect-stale-translations.md) — shape checks compare key sets, so a wrong value is invisible by construction; §1 is the value-set analogue.
 
-Issues: [#7611](https://github.com/koala73/worldmonitor/issues/7611) (the contradiction), PR [#7622](https://github.com/koala73/worldmonitor/pull/7622) (this work).
+Issues: [#7611](https://github.com/Iamirup/raworld/issues/7611) (the contradiction), PR [#7622](https://github.com/Iamirup/raworld/pull/7622) (this work).

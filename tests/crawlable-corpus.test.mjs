@@ -929,7 +929,7 @@ describe('Dataset spatialCoverage Google contract', () => {
       creator: {
         '@id': 'https://www.worldmonitor.app/#organization',
         '@type': 'Organization',
-        name: 'World Monitor',
+        name: 'RaWorld',
       },
       license: 'https://www.worldmonitor.app/docs/terms',
       spatialCoverage,
@@ -972,7 +972,7 @@ function assertDataCatalogPresent(html, route) {
   const CANONICAL_ORG_ROLE = {
     '@id': 'https://www.worldmonitor.app/#organization',
     '@type': 'Organization',
-    name: 'World Monitor',
+    name: 'RaWorld',
     url: 'https://www.worldmonitor.app/',
   };
   assert.deepEqual(
@@ -1222,7 +1222,7 @@ describe('crawlable corpus generator', () => {
       () => buildMicrostateCoverageStory({
         country: tuvalu,
         capturedAt: STORY_CAPTURED_AT,
-        methodologyFormula: 'World Monitor CRI v3',
+        methodologyFormula: 'RaWorld CRI v3',
       }),
       /TV coverage story cites dimensions that are no longer coverage gaps: externalDebtCoverage/,
     );
@@ -1237,7 +1237,7 @@ describe('crawlable corpus generator', () => {
       () => buildMicrostateCoverageStory({
         country: tuvalu,
         capturedAt: STORY_CAPTURED_AT,
-        methodologyFormula: 'World Monitor CRI v3',
+        methodologyFormula: 'RaWorld CRI v3',
       }),
       /TV coverage story requires displayed coverage below the 65% publication floor/,
     );
@@ -1256,7 +1256,7 @@ describe('crawlable corpus generator', () => {
       () => buildMicrostateCoverageStory({
         country: sanMarino,
         capturedAt: STORY_CAPTURED_AT,
-        methodologyFormula: 'World Monitor CRI v3',
+        methodologyFormula: 'RaWorld CRI v3',
       }),
       /SM coverage story has stale source-gap claims: socialCohesion: imputation class "unmonitored" \(expected "source-failure"\)/,
     );
@@ -1284,7 +1284,7 @@ describe('crawlable corpus generator', () => {
     const buildStory = (country) => buildMicrostateCoverageStory({
       country,
       capturedAt: STORY_CAPTURED_AT,
-      methodologyFormula: 'World Monitor CRI v3',
+      methodologyFormula: 'RaWorld CRI v3',
     });
     const baselineGapCount = Number(
       buildStory(structuredClone(baseline)).introduction.match(/yet (\d+) dimension gaps/)?.[1],
@@ -1320,7 +1320,7 @@ describe('crawlable corpus generator', () => {
       () => buildMicrostateCoverageStory({
         country: macau,
         capturedAt: STORY_CAPTURED_AT,
-        methodologyFormula: 'World Monitor CRI v3',
+        methodologyFormula: 'RaWorld CRI v3',
       }),
       /MO coverage story cites dimensions that no longer have observed readings: tradePolicy/,
     );
@@ -1333,13 +1333,13 @@ describe('crawlable corpus generator', () => {
     const story = buildMicrostateCoverageStory({
       country: tuvalu,
       capturedAt: STORY_CAPTURED_AT,
-      methodologyFormula: 'World Monitor CRI v3',
+      methodologyFormula: 'RaWorld CRI v3',
     });
 
     const analysis = renderCountryAnalysis({
       country: tuvalu,
       capturedAt: STORY_CAPTURED_AT,
-      methodologyFormula: 'World Monitor CRI v3',
+      methodologyFormula: 'RaWorld CRI v3',
       rankedCount: 0,
     });
 
@@ -1355,7 +1355,7 @@ describe('crawlable corpus generator', () => {
     const story = buildMicrostateCoverageStory({
       country: sanMarino,
       capturedAt: STORY_CAPTURED_AT,
-      methodologyFormula: 'World Monitor CRI v3',
+      methodologyFormula: 'RaWorld CRI v3',
     });
 
     assert.match(story.evidence, /Liquid-reserve adequacy \d+(?:\.\d+)? \(\d+%\)/);
@@ -1938,11 +1938,11 @@ describe('crawlable corpus generator', () => {
         !text.includes(data.resilience.methodologyFormula),
         'the scoring formula id is machine metadata, not reader prose',
       );
-      assert.match(text, /World Monitor reference pages\. Dated snapshots are published here; live readings are labelled separately\./);
+      assert.match(text, /RaWorld reference pages\. Dated snapshots are published here; live readings are labelled separately\./);
       assert.match(text, /Enable JavaScript to load the live reading\./);
       assert.match(text, /Egypt has no dedicated crisis tracker; the \d+ trackers cover selected crises\. That is a coverage limit, not a statement about risk\./);
       assert.match(text, /Scores come from the \w+ \d{1,2}, \d{4} snapshot\. /);
-      assert.match(text, /Source: World Monitor Country Resilience Index snapshot, \w+ \d{1,2}, \d{4}\./);
+      assert.match(text, /Source: RaWorld Country Resilience Index snapshot, \w+ \d{1,2}, \d{4}\./);
       // Peers are ordered by rank distance, so each carries its rank.
       assert.match(text, /Nearest ranked peers: .*?\(#\d+, \d+(?:\.\d+)?\)/);
       // The machine-readable source path stays on the element for auditors.
@@ -2033,7 +2033,7 @@ describe('crawlable corpus generator', () => {
       resolve(repoRoot, '.github/workflows/crawlable-pulse-refresh.yml'),
       'utf8',
     );
-    const guardIndex = workflow.indexOf('- name: Require WorldMonitor API key');
+    const guardIndex = workflow.indexOf('- name: Require RaWorld API key');
     const freezeIndex = workflow.indexOf('- name: Freeze the current pulse');
     assert.ok(guardIndex >= 0, 'the pulse refresh workflow must guard its required API key');
     assert.ok(freezeIndex > guardIndex, 'the required-key guard must run before the freeze command');
@@ -2252,7 +2252,7 @@ describe('crawlable corpus generator', () => {
     for (const page of pages) {
       const html = read(outDir, page);
       assert.match(html, /<p class="byline">/, `${page} must render a byline`);
-      assert.match(html, /World Monitor research team/, `${page} must name who maintains it`);
+      assert.match(html, /RaWorld research team/, `${page} must name who maintains it`);
       assert.match(html, /href="\/docs\/corrections"/, `${page} byline must link the corrections log`);
       // #8603: /docs is a 307 to /docs/documentation, so the byline must name
       // a 200 methodology page instead of the docs root.
@@ -2274,12 +2274,12 @@ describe('crawlable corpus generator', () => {
       .replace(/<style\b[^>]*>[\s\S]*?<\/style\b[^>]*>/gi, ' ')
       .replace(/<[^>]+>/g, ' ');
     for (const [page, expected] of [
-      ['chokepoints/index.html', /Sources: World Monitor weekly pulse snapshot and World Monitor chokepoint registry/],
+      ['chokepoints/index.html', /Sources: RaWorld weekly pulse snapshot and RaWorld chokepoint registry/],
       ['chokepoints/index.html', /Baseline source: U\.S\. EIA World Oil Transit Chokepoints \(2023\)/],
-      ['crises/index.html', /Scope source:\s+World Monitor crisis registry/],
-      ['chokepoints/strait-of-hormuz/index.html', /World Monitor chokepoint registry and trade-route reference/],
-      ['crises/red-sea-security/index.html', /World Monitor weekly pulse snapshot/],
-      ['tools/signal-convergence/index.html', /World Monitor weekly pulse snapshot/],
+      ['crises/index.html', /Scope source:\s+RaWorld crisis registry/],
+      ['chokepoints/strait-of-hormuz/index.html', /RaWorld chokepoint registry and trade-route reference/],
+      ['crises/red-sea-security/index.html', /RaWorld weekly pulse snapshot/],
+      ['tools/signal-convergence/index.html', /RaWorld weekly pulse snapshot/],
     ]) {
       const html = read(outDir, page);
       const text = visibleText(html);
@@ -2289,10 +2289,10 @@ describe('crawlable corpus generator', () => {
     }
     const repoPath = /docs\/[\w./-]+|CHANGELOG\.md/;
     for (const [page, expected, provenance] of [
-      ['accuracy/index.html', /Source: World Monitor forecast scorecard snapshot/, /data-snapshot-source="docs\/snapshots\/[^"]+"/],
-      ['research/strait-of-hormuz-transit-report-2026-07/index.html', /Snapshot: World Monitor chokepoint transit snapshot, retrieved \d{4}-\d{2}-\d{2}\./, /data-snapshot-source="docs\/snapshots\/[^"]+"/],
+      ['accuracy/index.html', /Source: RaWorld forecast scorecard snapshot/, /data-snapshot-source="docs\/snapshots\/[^"]+"/],
+      ['research/strait-of-hormuz-transit-report-2026-07/index.html', /Snapshot: RaWorld chokepoint transit snapshot, retrieved \d{4}-\d{2}-\d{2}\./, /data-snapshot-source="docs\/snapshots\/[^"]+"/],
       ['tools/signal-convergence/index.html', /Cited from the\s+Geographic Convergence Detection methodology/, /data-snapshot-source="docs\/geographic-convergence\.mdx"/],
-      ['reference/changelog/index.html', /Source: World Monitor release notes/, /data-snapshot-source="CHANGELOG\.md"/],
+      ['reference/changelog/index.html', /Source: RaWorld release notes/, /data-snapshot-source="CHANGELOG\.md"/],
     ]) {
       const html = read(outDir, page);
       // Release notes legitimately name repository files, so judge only the
@@ -2803,7 +2803,7 @@ describe('crawlable corpus generator', () => {
       // The repo path is machine attribution, kept on the element; readers get
       // the snapshot's name and date.
       assert.ok(norway.includes(`data-snapshot-source="${manifest.sources.resilienceSnapshot}"`));
-      assert.match(norway, /Source: World Monitor Country Resilience Index snapshot, \w+ \d{1,2}, \d{4}\./);
+      assert.match(norway, /Source: RaWorld Country Resilience Index snapshot, \w+ \d{1,2}, \d{4}\./);
       assert.match(
         norway,
         /<span>Overall score<\/span><strong>75\.4<\/strong>/,
@@ -2834,7 +2834,7 @@ describe('crawlable corpus generator', () => {
       assert.match(norway, /data-live-trend>Unavailable/);
       const ukraine = read(outDir, 'countries/ukraine/index.html');
       assert.match(ukraine, new RegExp(`<meta name="lastmod" content="${ciiCountriesLastmod}">`));
-      assert.match(ukraine, /<title>Ukraine Instability Index &amp; Country Risk \| World Monitor<\/title>/);
+      assert.match(ukraine, /<title>Ukraine Instability Index &amp; Country Risk \| RaWorld<\/title>/);
       assert.match(ukraine, /<h1>Ukraine Country Instability Index<\/h1>/);
       assert.match(ukraine, /Ukraine's Country Instability Index is <strong>\d+\/100 &middot; [^<]+<\/strong>/);
       assert.match(ukraine, /<summary>What is Ukraine&#39;s Country Instability Index\?<\/summary>/);
@@ -2895,13 +2895,13 @@ describe('crawlable corpus generator', () => {
         methodologyDoc,
         /^The Country Instability Index answers one operational question:$/m,
       );
-      assert.match(ciiIndex, /<title>Country Instability Index: Live Rankings \| World Monitor<\/title>/);
+      assert.match(ciiIndex, /<title>Country Instability Index: Live Rankings \| RaWorld<\/title>/);
       assert.match(ciiIndex, /<h1>Country Instability Index<\/h1>/);
       assert.match(ciiIndex, new RegExp(`<meta name="lastmod" content="${ciiIndexLastmod}">`));
       assert.match(ciiIndex, /data-cii-methodology-version="v8"/);
       // Reader copy names the snapshot and the live reading; the repo path and
       // the conflated "stable or unavailable" cell stay off the page.
-      assert.match(ciiIndex, /Source: World Monitor Country Instability Index snapshot, \w+ \d{1,2}, \d{4}\./);
+      assert.match(ciiIndex, /Source: RaWorld Country Instability Index snapshot, \w+ \d{1,2}, \d{4}\./);
       assert.ok(ciiIndex.includes(`data-snapshot-source="${manifest.sources.livePulseSnapshot}"`));
       assert.match(ciiIndex, /Enable JavaScript to load the live reading\./);
       assert.doesNotMatch(ciiIndex, /stable or unavailable|API result/i);
@@ -2958,7 +2958,7 @@ describe('crawlable corpus generator', () => {
       assert.deepEqual(ciiCollection?.mainEntity, {
         '@id': 'https://www.worldmonitor.app/country-instability-index/#dataset',
       });
-      assert.equal(ciiDataset?.measurementTechnique, 'World Monitor CII v8');
+      assert.equal(ciiDataset?.measurementTechnique, 'RaWorld CII v8');
       assert.deepEqual(ciiDataset?.mainEntity, {
         '@id': 'https://www.worldmonitor.app/country-instability-index/#ranking',
       });
@@ -3025,7 +3025,7 @@ describe('crawlable corpus generator', () => {
       assert.deepEqual(ukrainePage?.mainEntity, {
         '@id': 'https://www.worldmonitor.app/countries/ukraine/#cii-dataset',
       });
-      assert.equal(ukraineCiiDataset?.measurementTechnique, 'World Monitor CII v8');
+      assert.equal(ukraineCiiDataset?.measurementTechnique, 'RaWorld CII v8');
       assert.equal(ukraineCiiDataset?.spatialCoverage?.['@type'], 'Place');
       assert.ok(ukraineResilienceDataset, 'CII country pages must retain the CRI Dataset');
       assert.ok(norway.includes(liveScriptTag), 'country live script must match the production CSP nonce');
@@ -3430,7 +3430,7 @@ describe('crawlable corpus generator', () => {
       const dprk = read(outDir, 'countries/north-korea/index.html');
       assert.match(
         dprk,
-        /<title>North Korea Instability Index &amp; Country Risk \| World Monitor<\/title>/,
+        /<title>North Korea Instability Index &amp; Country Risk \| RaWorld<\/title>/,
       );
 
       // The expectation is derived from the snapshot, NOT from a copy of the
@@ -4110,7 +4110,7 @@ describe('crawlable corpus generator', () => {
       assert.deepEqual(chokepointDataset.creator, {
         '@id': 'https://www.worldmonitor.app/#organization',
         '@type': 'Organization',
-        name: 'World Monitor',
+        name: 'RaWorld',
         url: 'https://www.worldmonitor.app/',
       });
       assert.ok(chokepointDataset.license);
@@ -4158,7 +4158,7 @@ describe('crawlable corpus generator', () => {
         assert.equal(schemaQuestion?.acceptedAnswer?.text, visibleAnswer);
       }
       const scoreAnswer = chokepointFaq.mainEntity.find(
-        (entry) => entry.name === 'How does World Monitor score chokepoint status?',
+        (entry) => entry.name === 'How does RaWorld score chokepoint status?',
       )?.acceptedAnswer?.text;
       // Exact clauses, not per-label presence: a hand-written answer that keeps
       // all four inputs and splices PortWatch movement in as a fifth passes any
@@ -4321,7 +4321,7 @@ describe('crawlable corpus generator', () => {
           assert.deepEqual(dataset[field], detail[field], `${dataset['@id']} ${field} must match its detail page`);
         }
       }
-      assert.match(sourcesPage, /<h1>See every source behind World Monitor\.<\/h1>/);
+      assert.match(sourcesPage, /<h1>See every source behind RaWorld\.<\/h1>/);
       assert.match(sourcesPage, /<link rel="canonical" href="https:\/\/www\.worldmonitor\.app\/sources\/">/);
       assert.doesNotMatch(sourcesPage, /id="app"/, 'sources page must be raw static HTML, not the SPA shell');
       // The hero counts render from the committed attribution manifest with the
@@ -4558,7 +4558,7 @@ describe('crawlable corpus generator', () => {
       const hormuzPassage = hormuz.match(/data-chokepoint-open-status>([^<]*)</)?.[1] ?? '';
       assert.match(
         hormuzPassage,
-        /^As of .+ (?:World Monitor cannot verify operational passage status from this snapshot|The (?:Green|Yellow|Red) disruption score is a risk signal; it does not verify unrestricted passage or operational closure)\.$/,
+        /^As of .+ (?:RaWorld cannot verify operational passage status from this snapshot|The (?:Green|Yellow|Red) disruption score is a risk signal; it does not verify unrestricted passage or operational closure)\.$/,
         'the passage answers from source coverage',
       );
       assert.doesNotMatch(
@@ -5163,7 +5163,7 @@ describe('crawlable corpus generator', () => {
         compareHubLd.find((entry) => entry['@type'] === 'CollectionPage'),
         'compare hub CollectionPage',
       );
-      assert.match(compareHub, /<h1>Compare World Monitor<\/h1>/);
+      assert.match(compareHub, /<h1>Compare RaWorld<\/h1>/);
       for (const page of COMPARISON_PAGES) {
         assert.match(compareHub, new RegExp('href="' + page.path.replaceAll('/', '/') + '"'));
       }
@@ -5178,7 +5178,7 @@ describe('crawlable corpus generator', () => {
           h1.toLowerCase().includes(page.h1.toLowerCase()),
           page.slug + ' H1 must contain its own h1 string',
         );
-        assert.match(html, /<title>[^<]*World Monitor[^<]*<\/title>/);
+        assert.match(html, /<title>[^<]*RaWorld[^<]*<\/title>/);
         assert.ok(
           ld.some((entry) => entry['@type'] === 'WebPage'),
           page.slug + ' must emit WebPage JSON-LD',
@@ -5222,7 +5222,7 @@ describe('crawlable corpus generator', () => {
       const riskDashboards = read(outDir, 'compare/best-geopolitical-risk-dashboards/index.html');
       assert.match(riskDashboards, /Self-serve real-time monitoring with an API and MCP server/i);
       assert.match(riskDashboards, /<a href="\/blog\/authors\/elie-habib\/" rel="author">Elie Habib<\/a>/);
-      assert.match(riskDashboards, /<h3 data-rank="1">1\. World Monitor, best for /);
+      assert.match(riskDashboards, /<h3 data-rank="1">1\. RaWorld, best for /);
       assert.ok(
         jsonLdObjects(riskDashboards).some((entry) => entry['@type'] === 'BlogPosting'),
         'the buyer\'s shortlist must emit BlogPosting JSON-LD',
@@ -5263,7 +5263,7 @@ describe('crawlable corpus generator', () => {
       }
       // First data row must carry both a product cell and a real price cell.
       assert.ok(
-        compareHub.includes('<td>World Monitor</td><td>$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)</td>'),
+        compareHub.includes('<td>RaWorld</td><td>$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)</td>'),
         'hub master matrix first row must carry Product and Price cells',
       );
 
@@ -5285,7 +5285,7 @@ describe('crawlable corpus generator', () => {
       assert.deepEqual(
         liveuamapDefinition.itemList,
         [
-          { name: 'World Monitor', position: 1 },
+          { name: 'RaWorld', position: 1 },
           { name: 'Liveuamap', position: 2 },
           { name: 'Deep State Map', position: 3 },
           { name: 'ACLED', position: 4 },
@@ -5310,7 +5310,7 @@ describe('crawlable corpus generator', () => {
       ];
       const mcpColumn = COMPARISON_MATRIX_COLUMNS.indexOf('MCP server');
       const verifiedMcpProducts = [
-        'World Monitor',
+        'RaWorld',
         'GDELT',
         'war-dashboard-data',
         'world-intel-mcp',
@@ -5330,7 +5330,7 @@ describe('crawlable corpus generator', () => {
         }
       }
 
-      const worldMonitorRows = comparisonRows.filter((row) => row[0].startsWith('World Monitor'));
+      const worldMonitorRows = comparisonRows.filter((row) => row[0].startsWith('RaWorld'));
       for (const row of worldMonitorRows) {
         assert.equal(
           row[2],
@@ -6297,7 +6297,7 @@ describe('country recent developments', () => {
       assert.ok(html.includes('<a href="https://www.worldmonitor.app/chokepoints/bab-el-mandeb/">E2 · Bab el-Mandeb: Bab el-Mandeb</a>'));
       assert.ok(html.includes('<time datetime="2026-09-02T11:00:00.000Z">September 2, 2026</time>'));
       assert.ok(!html.includes('E3 · Polymarket'), 'only cited data points are listed');
-      assert.ok(html.includes('Automated summary of 1 cited report and 2 World Monitor data points'));
+      assert.ok(html.includes('Automated summary of 1 cited report and 2 RaWorld data points'));
       assert.doesNotMatch(html, /test-model|do not establish|withheld/);
       assertCountryDevelopmentsRendered({ pagePath: '/countries/sudan/', html, developments, countryCode: 'SD', countryName: 'Sudan' });
       assertCountryBriefPresentation({ pagePath: '/countries/sudan/', html, sources: developments.brief.sources, evidence: EVIDENCE });
@@ -7111,7 +7111,7 @@ describe('country recent developments', () => {
   it('passes frozen developments through to the dataset download', () => {
     const base = {
       capturedAt: STORY_CAPTURED_AT,
-      methodologyFormula: 'World Monitor CRI v3',
+      methodologyFormula: 'RaWorld CRI v3',
       rankedCount: 100,
       snapshotPath: 'docs/snapshots/resilience-ranking-2026-08-29.json',
     };
@@ -7243,7 +7243,7 @@ describe('GEO residue #7616 (U5 sources DataCatalog)', () => {
           name: 'Ukraine war tracker',
           description: 'Monthly country-level conflict summaries for the Ukraine war corpus entry, with bounded coverage and provenance.',
           url: 'https://www.worldmonitor.app/crises/ukraine-war/',
-          creator: { '@id': 'https://www.worldmonitor.app/#organization', '@type': 'Organization', name: 'World Monitor' },
+          creator: { '@id': 'https://www.worldmonitor.app/#organization', '@type': 'Organization', name: 'RaWorld' },
           license: 'https://www.worldmonitor.app/docs/terms',
           distribution: [{ '@type': 'DataDownload', contentUrl: 'https://www.worldmonitor.app/crises/ukraine-war/tracker.json' }],
         },
@@ -7273,8 +7273,8 @@ describe('GEO residue #7616 (U5 sources DataCatalog)', () => {
       /Catalog last updated 2026-09-03 · 747 active providers across 760 source hosts/,
       'visible catalog line must show the date with live counts',
     );
-    assert.match(body, /<h2[^>]*>Where does World Monitor get its data\?<\/h2>/);
-    const answer = body.match(/<h2[^>]*>Where does World Monitor get its data\?<\/h2>\s*<p>([\s\S]*?)<\/p>/);
+    assert.match(body, /<h2[^>]*>Where does RaWorld get its data\?<\/h2>/);
+    const answer = body.match(/<h2[^>]*>Where does RaWorld get its data\?<\/h2>\s*<p>([\s\S]*?)<\/p>/);
     assert.ok(answer, 'the data-source question needs an extractable answer paragraph');
     const words = answer[1].replace(/<[^>]+>/g, '').trim().split(/\s+/).length;
     assert.ok(words >= 40 && words <= 60, `answer must be 40-60 words, got ${words}`);
@@ -7701,7 +7701,7 @@ describe('chokepoint disruption-score methodology', () => {
   const FINANCE_DATA = 'docs/finance-data.mdx';
   const ZH_FINANCE_DATA = 'docs/zh/finance-data.mdx';
   const RELAY = 'scripts/ais-relay.cjs';
-  const SCORE_HEADING = 'How WorldMonitor scores chokepoint status';
+  const SCORE_HEADING = 'How RaWorld scores chokepoint status';
   const englishList = (items) => `${items.slice(0, -1).join(', ')}, and ${items.at(-1)}`;
   const englishContextOnly = englishList(CHOKEPOINT_SCORE_CONTEXT_ONLY);
   const EN_METHODOLOGY_EXCLUSION = `Those four terms are the whole formula. ${englishContextOnly} are published as context and never enter the score.`;
@@ -8004,7 +8004,7 @@ it('retains API country-name aliases through the final country page renderer', a
     ];
     const evidence = [{
       id: 'E1', kind: 'advisory', label: 'Travel advisory', value: 'Exercise Increased Caution', asOf: capturedAt,
-      factText: `The most severe government travel advisory World Monitor tracks for ${name} is Exercise Increased Caution.`,
+      factText: `The most severe government travel advisory RaWorld tracks for ${name} is Exercise Increased Caution.`,
     }];
     const rendered = renderEvidenceGroundedCountryBrief(JSON.stringify({
       situation: [{ text: `${name} announces new trade rules.`, sources: [1] }],

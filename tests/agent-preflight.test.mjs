@@ -47,7 +47,7 @@ function readyChecks() {
   };
 }
 
-function localRunner(root, { offline = true, status = '', detached = false, behind = false, origin = 'https://github.com/koala73/worldmonitor.git' } = {}) {
+function localRunner(root, { offline = true, status = '', detached = false, behind = false, origin = 'https://github.com/Iamirup/raworld.git' } = {}) {
   const calls = [];
   const runner = (file, args) => {
     const command = args.join(' ');
@@ -74,7 +74,7 @@ function localRunner(root, { offline = true, status = '', detached = false, behi
       if (command === 'worktree list --porcelain') return result(`worktree ${root}\nHEAD ${headOid}\n\nworktree /other/issue-123\nHEAD ${headOid}\nbranch refs/heads/codex/agent-tools\n`);
     }
     if (args[0] === 'auth') return result('', offline ? 1 : 0);
-    if (args[0] === 'api' && args.includes(`repos/koala73/worldmonitor/commits/${headOid}/pulls`)) return result('[]');
+    if (args[0] === 'api' && args.includes(`repos/Iamirup/raworld/commits/${headOid}/pulls`)) return result('[]');
     if (args[0] === 'pr' && args[1] === 'list') return result('[]', offline ? 1 : 0);
     throw new Error(`Unexpected command: ${file} ${command}`);
   };
@@ -398,7 +398,7 @@ describe('agent preflight', () => {
           return { status: 0, stderr: '', stdout: 'codex/agent-tools\n' };
         }
         if (command === 'remote get-url origin') {
-          return { status: 0, stderr: '', stdout: 'https://github.com/koala73/worldmonitor.git\n' };
+          return { status: 0, stderr: '', stdout: 'https://github.com/Iamirup/raworld.git\n' };
         }
         if (command === 'rev-parse HEAD' || command === 'rev-parse origin/main') {
           return { status: 0, stderr: '', stdout: `${headOid}\n` };
@@ -418,7 +418,7 @@ describe('agent preflight', () => {
         return { status: 0, stderr: '', stdout: '' };
       }
       if (args[0] === 'auth') return { status: 0, stderr: '', stdout: '' };
-      if (args[0] === 'api' && args.includes(`repos/koala73/worldmonitor/commits/${headOid}/pulls`)) {
+      if (args[0] === 'api' && args.includes(`repos/Iamirup/raworld/commits/${headOid}/pulls`)) {
         return { status: 0, stderr: '', stdout: '[]' };
       }
       throw new Error(`Unexpected command: ${file} ${args.join(' ')}`);
@@ -461,7 +461,7 @@ describe('agent preflight', () => {
           return { status: 0, stderr: '', stdout: 'codex/agent-tools\n' };
         }
         if (command === 'remote get-url origin') {
-          return { status: 0, stderr: '', stdout: 'https://github.com/koala73/worldmonitor.git\n' };
+          return { status: 0, stderr: '', stdout: 'https://github.com/Iamirup/raworld.git\n' };
         }
         if (command === 'rev-parse HEAD' || command === 'rev-parse origin/main') {
           return { status: 0, stderr: '', stdout: `${headOid}\n` };
@@ -477,7 +477,7 @@ describe('agent preflight', () => {
         return { status: 0, stderr: '', stdout: '' };
       }
       if (args[0] === 'auth') return { status: 0, stderr: '', stdout: '' };
-      if (args[0] === 'api' && args.includes(`repos/koala73/worldmonitor/commits/${headOid}/pulls`)) {
+      if (args[0] === 'api' && args.includes(`repos/Iamirup/raworld/commits/${headOid}/pulls`)) {
         return { status: 0, stderr: '', stdout: '[]' };
       }
       throw new Error(`Unexpected command: ${file} ${command}`);

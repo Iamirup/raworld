@@ -444,7 +444,7 @@ paths:
                   in: query
                   description: Event description or body text.
                   required: false
-                  example: "Example WorldMonitor observation."
+                  example: "Example RaWorld observation."
                   schema:
                     type: string
                 - name: source
@@ -1907,7 +1907,7 @@ paths:
                                 "error": "example"
                                 "messages":
                                     - "channelId": "example-id"
-                                      "channelName": "WorldMonitor Analyst"
+                                      "channelName": "RaWorld Analyst"
                                       "id": "example-id"
                                       "mediaUrls":
                                           - "https://example.com/worldmonitor"
@@ -2048,7 +2048,7 @@ paths:
                                 "error": "example"
                                 "posts":
                                     - "accountId": "example-id"
-                                      "accountName": "WorldMonitor Analyst"
+                                      "accountName": "RaWorld Analyst"
                                       "contentState": "example"
                                       "facts":
                                           - "example"
@@ -2163,7 +2163,7 @@ paths:
                   in: query
                   description: Company name, such as "Apple Inc".
                   required: false
-                  example: "WorldMonitor Analyst"
+                  example: "RaWorld Analyst"
                   schema:
                     type: string
                 - name: ticker
@@ -3268,7 +3268,7 @@ paths:
                                     - "confidence": "example"
                                       "direction": "example"
                                       "driver": "example"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "narrative": "example"
                                 "degraded": true
                                 "emptyReason": "example"
@@ -4104,7 +4104,7 @@ paths:
                                         "allianceCohesion": 1.5
                                         "buffers":
                                             - "axis": "example"
-                                              "description": "Example WorldMonitor observation."
+                                              "description": "Example RaWorld observation."
                                               "evidenceIds":
                                                   - "example"
                                               "magnitude": 1.5
@@ -5063,12 +5063,12 @@ components:
             type: apiKey
             in: header
             name: X-WorldMonitor-Key
-            description: User-issued WorldMonitor API key.
+            description: User-issued RaWorld API key.
         ApiKeyHeader:
             type: apiKey
             in: header
             name: X-Api-Key
-            description: Alias header for the WorldMonitor API key (X-WorldMonitor-Key).
+            description: Alias header for the RaWorld API key (X-WorldMonitor-Key).
         BearerAuth:
             type: http
             scheme: bearer
@@ -8418,7 +8418,7 @@ components:
                     description: TLE line 2.
             required:
                 - id
-            description: Satellite represents an orbital asset tracked by WorldMonitor.
+            description: Satellite represents an orbital asset tracked by RaWorld.
         ListGpsInterferenceRequest:
             type: object
             properties:
@@ -10683,7 +10683,7 @@ components:
                     type: integer
                     format: int64
                     description: |-
-                        When WorldMonitor stored the event, Unix epoch milliseconds. Distinct from
+                        When RaWorld stored the event, Unix epoch milliseconds. Distinct from
                          occurred_at for backfills, and the field retention ages rows out by.. Warning: Values > 2^53 may lose precision in JavaScript
                 score:
                     type: number

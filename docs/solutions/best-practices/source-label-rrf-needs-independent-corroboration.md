@@ -15,13 +15,13 @@ tags: [ranking, reciprocal-rank-fusion, corroboration, syndication, freshness, r
 
 ## Decision
 
-**Reject promotion of the current naive source-label reciprocal-rank-fusion (RRF) candidate. Defer any RRF-based ranking change until the reconsideration prerequisites below are met.** This is a decision about the candidate method, not a rejection, closure, or comment on issue [#5991](https://github.com/koala73/worldmonitor/issues/5991).
+**Reject promotion of the current naive source-label reciprocal-rank-fusion (RRF) candidate. Defer any RRF-based ranking change until the reconsideration prerequisites below are met.** This is a decision about the candidate method, not a rejection, closure, or comment on issue [#5991](https://github.com/Iamirup/raworld/issues/5991).
 
-This record makes the discovery result durable. It does not implement ranking, add a ranking abstraction, change runtime configuration, or expand into [#5992](https://github.com/koala73/worldmonitor/issues/5992).
+This record makes the discovery result durable. It does not implement ranking, add a ranking abstraction, change runtime configuration, or expand into [#5992](https://github.com/Iamirup/raworld/issues/5992).
 
 ## User surface and failure
 
-The affected surface is the delayed WorldMonitor Brief/digest ranking that feeds the user's capped story cards and digest notifications. The ranking is supposed to keep high-importance, fresh developments visible while grouping related stories.
+The affected surface is the delayed RaWorld Brief/digest ranking that feeds the user's capped story cards and digest notifications. The ranking is supposed to keep high-importance, fresh developments visible while grouping related stories.
 
 The failure mode is **syndication being counted as independent corroboration**. In the fixed sample, a Spain–Morocco story has 18 hydrated feed labels and 42 merged title variants, but `entityCorroborationCount=0` because the configured entity-level heuristic did not fire. A raw source-label vote treats that breadth as ranking evidence and moves it from baseline position 12 to RRF position 3. The same candidate removes a fresh 2.26-hour-old score-63 story and a 5.17-hour-old score-69 story from the top 12. That is a user-visible freshness and quality regression, not evidence that the Spain–Morocco event deserves promotion.
 

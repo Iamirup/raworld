@@ -83,7 +83,7 @@ paths:
                                                 "projectedProbability": 0.62
                                                 "rounds":
                                                     - {}
-                                                "summary": "Example WorldMonitor observation."
+                                                "summary": "Example RaWorld observation."
                                           "changeItems":
                                               - "example"
                                       "confidence": 0.82
@@ -743,12 +743,12 @@ components:
             type: apiKey
             in: header
             name: X-WorldMonitor-Key
-            description: User-issued WorldMonitor API key.
+            description: User-issued RaWorld API key.
         ApiKeyHeader:
             type: apiKey
             in: header
             name: X-Api-Key
-            description: Alias header for the WorldMonitor API key (X-WorldMonitor-Key).
+            description: Alias header for the RaWorld API key (X-WorldMonitor-Key).
         BearerAuth:
             type: http
             scheme: bearer

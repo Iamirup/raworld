@@ -1,12 +1,12 @@
 ---
 title: "Terminal Dashboard"
-description: "Run World Monitor in your terminal: live world map, news, markets, conflict, military flights, cyber, climate, prediction markets and live TV, with mouse support and colour themes. No API key needed."
+description: "Run RaWorld in your terminal: live world map, news, markets, conflict, military flights, cyber, climate, prediction markets and live TV, with mouse support and colour themes. No API key needed."
 ---
 
-World Monitor also runs as a full-screen dashboard in your terminal. It ships in the [`worldmonitor`](https://www.npmjs.com/package/worldmonitor) npm package next to the [command-line client](/cli), needs no API key, and shows the same live data as the [web dashboard](https://www.worldmonitor.app/dashboard): a world map, ranked news, markets, conflict and instability, military flights and shipping, cyber threats, climate hazards, prediction markets, live TV and webcams, and platform health.
+RaWorld also runs as a full-screen dashboard in your terminal. It ships in the [`worldmonitor`](https://www.npmjs.com/package/worldmonitor) npm package next to the [command-line client](/cli), needs no API key, and shows the same live data as the [web dashboard](https://www.worldmonitor.app/dashboard): a world map, ranked news, markets, conflict and instability, military flights and shipping, cyber threats, climate hazards, prediction markets, live TV and webcams, and platform health.
 
 <Frame caption="Overview: the live world map with quakes, conflict, unrest, hazards, fires, cyber and outage markers, the AI world brief, ranked top stories, a market strip and theater posture.">
-  <img src="/images/tui/overview.webp" alt="World Monitor terminal dashboard, Overview view" />
+  <img src="/images/tui/overview.webp" alt="RaWorld terminal dashboard, Overview view" />
 </Frame>
 
 ## Start it
@@ -20,7 +20,7 @@ worldmonitor                # open the dashboard (same as `worldmonitor tui`)
 Running `worldmonitor` with no arguments in an interactive terminal opens the dashboard. In a pipe, a script or CI it prints the help text instead, so existing automation is unaffected. Press `q` to quit; the terminal is restored as it was.
 
 <Frame caption="Startup: the dashboard connects to the API and loads each data tier before the first view appears. Press Esc, Enter or Space to skip it.">
-  <img src="/images/tui/boot.webp" alt="Startup screen with the World Monitor logo and loading progress" />
+  <img src="/images/tui/boot.webp" alt="Startup screen with the RaWorld logo and loading progress" />
 </Frame>
 
 ### Requirements
@@ -237,7 +237,7 @@ Data refreshes in the background: the fast tier every minute, news and health ev
 worldmonitor web
 ```
 
-Opens [worldmonitor.app/dashboard](https://www.worldmonitor.app/dashboard) in your browser. Inside a clone of the World Monitor repository it starts the local development server (`npm run dev`) instead and opens the local URL.
+Opens [worldmonitor.app/dashboard](https://www.worldmonitor.app/dashboard) in your browser. Inside a clone of the RaWorld repository it starts the local development server (`npm run dev`) instead and opens the local URL.
 
 | Flag | Effect |
 |---|---|

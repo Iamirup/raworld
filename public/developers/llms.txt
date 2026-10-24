@@ -1,6 +1,6 @@
-# World Monitor Developer Portal
+# RaWorld Developer Portal
 
-> Section-scoped llms.txt for the developer surface — the MCP server, REST API, SDKs, CLI, sandbox, and agent skills that expose World Monitor's real-time global-intelligence data as structured JSON. Fetch this file instead of the site-wide briefing when the task is "build against or integrate World Monitor".
+> Section-scoped llms.txt for the developer surface — the MCP server, REST API, SDKs, CLI, sandbox, and agent skills that expose RaWorld's real-time global-intelligence data as structured JSON. Fetch this file instead of the site-wide briefing when the task is "build against or integrate RaWorld".
 
 All developer surfaces share one tool inventory and one subscription auth model (API key `X-WorldMonitor-Key: wm_<40-hex>` or OAuth 2.1 `scope=mcp`). `get_sources` is the sole credential-free, daily-quota-free MCP data tool; anonymous calls use a separate fail-closed 10/minute/IP ceiling. Every other MCP data tool is subscription-gated. Every surface returns source-attributed structured JSON and supports server-side JMESPath projection.
 
@@ -11,9 +11,9 @@ All developer surfaces share one tool inventory and one subscription auth model 
 - [REST API](https://www.worldmonitor.app/docs/api-reference): OpenAPI 3.1 contract at https://www.worldmonitor.app/openapi.yaml (JSON: https://www.worldmonitor.app/openapi.json) · API catalog (RFC 9727): https://worldmonitor.app/.well-known/api-catalog
 - [Incident feed](https://www.worldmonitor.app/docs/incident-feed): the conflict, unrest, news-cluster and event-history endpoints for feeding incidents into your own app — record fields, filters, retention per feed, signed webhooks, SDK calls and self-serve plans
 - [CLI](https://www.npmjs.com/package/worldmonitor): `npx worldmonitor tools` lists every tool with no key; `npm install -g worldmonitor` installs the command
-- [SDKs](https://www.worldmonitor.app/sdks.md): Python `pip install worldmonitor-sdk` · Ruby `gem install worldmonitor` · Go `go get github.com/koala73/worldmonitor/sdk/go` · JavaScript (npm `worldmonitor`)
-- [Agent Skills](https://worldmonitor.app/.well-known/agent-skills/index.json): installable skills manifest — `npx skills add koala73/worldmonitor`
-- [Agent Plugin metadata](https://www.worldmonitor.app/plugin.json): public metadata for the Agent Plugins 1.0.0 repository package. Install from https://github.com/koala73/worldmonitor (root `plugin.json`, `mcp.json`, and `skills/*/SKILL.md` live in the repository, not as sibling HTTP files)
+- [SDKs](https://www.worldmonitor.app/sdks.md): Python `pip install worldmonitor-sdk` · Ruby `gem install worldmonitor` · Go `go get github.com/Iamirup/raworld/sdk/go` · JavaScript (npm `worldmonitor`)
+- [Agent Skills](https://worldmonitor.app/.well-known/agent-skills/index.json): installable skills manifest — `npx skills add Iamirup/raworld`
+- [Agent Plugin metadata](https://www.worldmonitor.app/plugin.json): public metadata for the Agent Plugins 1.0.0 repository package. Install from https://github.com/Iamirup/raworld (root `plugin.json`, `mcp.json`, and `skills/*/SKILL.md` live in the repository, not as sibling HTTP files)
 
 ## Test Without a Key
 
@@ -32,4 +32,4 @@ All developer surfaces share one tool inventory and one subscription auth model 
 
 - [Site-wide llms.txt](https://www.worldmonitor.app/llms.txt) · [API section](https://www.worldmonitor.app/api/llms.txt) · [Docs section](https://www.worldmonitor.app/docs/llms.txt) · [Blog section](https://www.worldmonitor.app/blog/llms.txt)
 - [Developer portal (human)](https://www.worldmonitor.app/developers.md) · [agents.md](https://www.worldmonitor.app/agents.md)
-- [World Monitor brand identity](https://www.worldmonitor.app/world-monitor.md) · [REST versioning and deprecation](https://www.worldmonitor.app/api-versioning.md)
+- [RaWorld brand identity](https://www.worldmonitor.app/world-monitor.md) · [REST versioning and deprecation](https://www.worldmonitor.app/api-versioning.md)

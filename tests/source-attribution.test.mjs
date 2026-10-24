@@ -387,7 +387,7 @@ test('GTA Update records permission but stays inactive pending activation gates'
   assert.ok(entry, 'gtaupdate.com must have a generated attribution row');
   assert.equal(entry.status, 'reviewed');
   assert.equal(entry.provider, 'GTA Update');
-  assert.match(entry.license, /Reuse permission held by WorldMonitor/);
+  assert.match(entry.license, /Reuse permission held by RaWorld/);
   assert.match(entry.license, /upstream provenance/);
   assert.equal(entry.catalogActive, false);
   assert.equal(activeSourceAttributionEntries(manifest).some((row) => row.host === 'gtaupdate.com'), false);
@@ -1211,7 +1211,7 @@ test('a curated exclusion keeps its reviewer-written credit', () => {
   const curated = {
     host: 'api.axiom.co',
     provider: 'Axiom',
-    license: 'Excluded: World Monitor operational telemetry, not an external data provider',
+    license: 'Excluded: RaWorld operational telemetry, not an external data provider',
     attribution: 'Not an upstream dataset.',
     observed: true,
     kind: 'structured',

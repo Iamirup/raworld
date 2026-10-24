@@ -42,7 +42,7 @@ paths:
                                     - "example-id"
                                 "locations":
                                     - "example"
-                                "name": "WorldMonitor Analyst"
+                                "name": "RaWorld Analyst"
                         schema:
                             $ref: '#/components/schemas/CreateMonitoredCompanyRequest'
                 required: true
@@ -238,7 +238,7 @@ paths:
                                       "value": "example"
                                 "customerReference": "example"
                                 "domicileCountry": "DOMICILE_COUNTRY_US"
-                                "name": "WorldMonitor Analyst"
+                                "name": "RaWorld Analyst"
                                 "removeClaimIds":
                                     - "cm_claim_01ARZ3NDEKTSV4RRFFQ69G5FAV"
                         schema:
@@ -623,7 +623,7 @@ paths:
                                         - "example-id"
                                     "locations":
                                         - "example"
-                                    "name": "WorldMonitor Analyst"
+                                    "name": "RaWorld Analyst"
                                   "ordinal": 0
                         schema:
                             $ref: '#/components/schemas/ImportMonitoredCompanyBatchRequest'
@@ -1600,12 +1600,12 @@ components:
             type: apiKey
             in: header
             name: X-WorldMonitor-Key
-            description: User-issued WorldMonitor API key.
+            description: User-issued RaWorld API key.
         ApiKeyHeader:
             type: apiKey
             in: header
             name: X-Api-Key
-            description: Alias header for the WorldMonitor API key (X-WorldMonitor-Key).
+            description: Alias header for the RaWorld API key (X-WorldMonitor-Key).
     schemas:
         JmespathProjectionError:
             description: Returned when a REST jmespath projection is invalid or exceeds the expression/output byte limits.
@@ -1813,7 +1813,7 @@ components:
                 companyId:
                     type: string
                     pattern: ^cm_company_[0-9A-HJKMNP-TV-Z]{26}$
-                    description: Stable WorldMonitor logical ID; never a storage-layer document ID.
+                    description: Stable RaWorld logical ID; never a storage-layer document ID.
                 name:
                     type: string
                 domicileCountry:
@@ -1869,7 +1869,7 @@ components:
                 claimId:
                     type: string
                     pattern: ^cm_claim_[0-9A-HJKMNP-TV-Z]{26}$
-                    description: Stable WorldMonitor logical ID; never a storage-layer document ID.
+                    description: Stable RaWorld logical ID; never a storage-layer document ID.
                 type:
                     type: string
                     enum:
@@ -2178,7 +2178,7 @@ components:
                 impactId:
                     type: string
                     pattern: ^cm_impact_[0-9A-HJKMNP-TV-Z]{26}$
-                    description: Stable WorldMonitor logical IDs; never storage-layer document IDs.
+                    description: Stable RaWorld logical IDs; never storage-layer document IDs.
                 eventId:
                     type: string
                     pattern: ^cm_event_[0-9A-HJKMNP-TV-Z]{26}$
@@ -2343,7 +2343,7 @@ components:
                 eventId:
                     type: string
                     pattern: ^cm_event_[0-9A-HJKMNP-TV-Z]{26}$
-                    description: Stable WorldMonitor logical ID; never a storage-layer document ID.
+                    description: Stable RaWorld logical ID; never a storage-layer document ID.
                 revision:
                     type: integer
                     minimum: 1
@@ -2373,7 +2373,7 @@ components:
                 evidenceId:
                     type: string
                     pattern: ^cm_evidence_[0-9A-HJKMNP-TV-Z]{26}$
-                    description: Stable WorldMonitor logical ID; never a storage-layer document ID.
+                    description: Stable RaWorld logical ID; never a storage-layer document ID.
                 provider:
                     type: string
                     enum:

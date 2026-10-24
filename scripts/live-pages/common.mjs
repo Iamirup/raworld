@@ -14,7 +14,7 @@ export { escapeHtml, formatStaticDateTime };
 const AUTHOR = Object.freeze({
   '@id': 'https://www.worldmonitor.app/#organization',
   '@type': 'Organization',
-  name: 'World Monitor',
+  name: 'RaWorld',
   url: 'https://www.worldmonitor.app/',
 });
 

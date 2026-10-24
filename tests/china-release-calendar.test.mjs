@@ -1310,7 +1310,7 @@ describe('NBS proxy fallback', () => {
     });
     assert.deepEqual(sleeps, []);
     assert.deepEqual(proxied, [NBS_CALENDAR_INDEX_URL, CALENDAR_PAGE_URL].map((url) => ({
-      url, userAgent: 'WorldMonitor/2.10 (+https://worldmonitor.app)', aborted: false,
+      url, userAgent: 'RaWorld/2.10 (+https://worldmonitor.app)', aborted: false,
     })));
     assert.deepEqual(logs, ['index', 'calendar'].map((resource) => ({
       event: 'china_calendar_transport_failure', host: 'www.stats.gov.cn',

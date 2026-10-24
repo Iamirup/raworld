@@ -215,7 +215,7 @@ describe('production sitemap verifier helpers', () => {
       [docsSitemap, '<urlset><url><loc>https://www.worldmonitor.app/docs/</loc></url></urlset>'],
       ['https://www.worldmonitor.app/blog/', '<html><head><link rel="canonical" href="https://www.worldmonitor.app/blog/"></head></html>'],
       ['https://www.worldmonitor.app/docs/', '<html><head><link rel="canonical" href="https://www.worldmonitor.app/docs/"></head></html>'],
-      [mcpUrl, '# World Monitor MCP'],
+      [mcpUrl, '# RaWorld MCP'],
     ]);
     for (const path of ['/docs/country-instability-index', '/docs/zh/country-instability-index']) {
       const url = `https://www.worldmonitor.app${path}`;
@@ -351,7 +351,7 @@ describe('production sitemap verifier helpers', () => {
 
     assert.equal(result.passed, false);
     assert.ok(result.errors.some((error) => /unexpected sitemap/.test(error)));
-    assert.ok(result.errors.some((error) => /allowed canonical WorldMonitor URL/.test(error)));
+    assert.ok(result.errors.some((error) => /allowed canonical RaWorld URL/.test(error)));
     assert.ok(!fetches.includes(unexpectedSitemap));
     assert.ok(!fetches.includes('https://attacker.example/private'));
   });

@@ -80,7 +80,7 @@ export function parseArgs(argv = []) {
 export function printHelp() {
   console.log(`Usage: node scripts/bootstrap-worktree.mjs [options]
 
-Bootstrap ignored local state for a fresh WorldMonitor worktree.
+Bootstrap ignored local state for a fresh RaWorld worktree.
 
 Options:
   --env-source <dir>  Source repo root for .env.local/.env links.

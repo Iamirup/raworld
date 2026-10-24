@@ -126,10 +126,10 @@ export function formatDigestHtml(stories, nowMs, options = {}) {
             <table cellpadding="0" cellspacing="0" border="0">
               <tr>
                 <td style="width: 36px; height: 36px; vertical-align: middle;">
-                  <img src="https://www.worldmonitor.app/favico/android-chrome-192x192.png" width="36" height="36" alt="WorldMonitor" style="border-radius: 50%; display: block;" />
+                  <img src="https://www.worldmonitor.app/favico/android-chrome-192x192.png" width="36" height="36" alt="RaWorld" style="border-radius: 50%; display: block;" />
                 </td>
                 <td style="padding-left: 10px;">
-                  <div style="font-size: 15px; font-weight: 800; color: #fff; letter-spacing: -0.3px;">WORLD MONITOR</div>
+                  <div style="font-size: 15px; font-weight: 800; color: #fff; letter-spacing: -0.3px;">RAWORLD</div>
                 </td>
               </tr>
             </table>
@@ -167,7 +167,7 @@ export function formatDigestHtml(stories, nowMs, options = {}) {
     <div style="background: #0a0a0a; border-top: 1px solid #1a1a1a; padding: 20px 36px; text-align: center;">
       <div style="margin-bottom: 12px;">
         <a href="https://x.com/worldmonitorai" style="color: #555; text-decoration: none; font-size: 11px; margin: 0 10px;">X / Twitter</a>
-        <a href="https://github.com/koala73/worldmonitor" style="color: #555; text-decoration: none; font-size: 11px; margin: 0 10px;">GitHub</a>
+        <a href="https://github.com/Iamirup/raworld" style="color: #555; text-decoration: none; font-size: 11px; margin: 0 10px;">GitHub</a>
       </div>
       <p style="font-size: 10px; color: #444; margin: 0; line-height: 1.5;">
         <a href="https://worldmonitor.app" style="color: #4ade80; text-decoration: none;">worldmonitor.app</a>
@@ -194,7 +194,7 @@ export function injectBriefCta(html, magazineUrl) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
   const ctaHtml = `<div style="margin:0 0 24px 0;">
-<a href="${escapedUrl}" style="display:inline-block;background:#f2ede4;color:#0a0a0a;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:0.08em;padding:14px 22px;border-radius:4px;">Open your WorldMonitor Brief →</a>
+<a href="${escapedUrl}" style="display:inline-block;background:#f2ede4;color:#0a0a0a;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:0.08em;padding:14px 22px;border-radius:4px;">Open your RaWorld Brief →</a>
 <div style="margin-top:10px;font-size:11px;color:#888;line-height:1.5;">Your personalised editorial magazine. Opens in the browser — scroll or swipe through today's threads.</div>
 </div>`;
   return html.replace('<div data-brief-cta-slot></div>', ctaHtml);

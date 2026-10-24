@@ -650,7 +650,7 @@ describe("webhook processWebhookEvent", () => {
       });
 
     expect(subjects).toHaveLength(2);
-    expect(subjects.some((subject) => subject.startsWith("Welcome to World Monitor"))).toBe(true);
+    expect(subjects.some((subject) => subject.startsWith("Welcome to RaWorld"))).toBe(true);
     expect(subjects.some((subject) => subject.startsWith("[WM] New User Subscribed"))).toBe(true);
     expect(subjects.every((subject) => !subject.includes("Welcome back"))).toBe(true);
   });
@@ -688,13 +688,13 @@ describe("webhook processWebhookEvent", () => {
         html: string;
       });
 
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["test@example.com"]);
-    expect(welcome?.subject).toBe("Welcome to World Monitor Pro Business (Monthly)");
+    expect(welcome?.subject).toBe("Welcome to RaWorld Pro Business (Monthly)");
     // Pro shell markers — headline, CTA, and a Pro-only feature card.
     expect(welcome?.html).toContain("your intel, delivered");
     expect(welcome?.html).toContain("Open My Brief");
-    expect(welcome?.html).toContain("WM Analyst");
+    expect(welcome?.html).toContain("RaWorld Analyst");
     // The generic fallback grid must not appear.
     expect(welcome?.html).not.toContain("Full API Access");
   });
@@ -748,7 +748,7 @@ describe("webhook processWebhookEvent", () => {
     expect(sends).toHaveLength(3);
 
     // Welcome goes to the address that can actually sign in, and names it.
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["login@example.com"]);
     expect(welcome?.html).toContain("login@example.com");
 
@@ -808,7 +808,7 @@ describe("webhook processWebhookEvent", () => {
     // Exactly the historical pair: user welcome + admin notification. No
     // pointer email, no duplicate sends.
     expect(sends).toHaveLength(2);
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["test@example.com"]);
   });
 
@@ -849,7 +849,7 @@ describe("webhook processWebhookEvent", () => {
         subject: string;
       });
 
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["login@example.com"]);
     // Welcome + admin only — the empty checkout email must not produce a
     // pointer send.
@@ -909,7 +909,7 @@ describe("webhook processWebhookEvent", () => {
     // ever sent), and despite its rejection the welcome and the admin
     // notification both fired.
     expect(sends.some((send) => send.to[0] === "checkout@example.com")).toBe(true);
-    expect(sends.some((send) => send.subject.startsWith("Welcome to World Monitor"))).toBe(true);
+    expect(sends.some((send) => send.subject.startsWith("Welcome to RaWorld"))).toBe(true);
     expect(sends.some((send) => send.subject.startsWith("[WM] New User Subscribed"))).toBe(true);
   });
 
@@ -1021,7 +1021,7 @@ describe("webhook processWebhookEvent", () => {
     // Same inbox in different casing is NOT a divergence: welcome + admin
     // only, no pointer, no third email into the user's own inbox.
     expect(sends).toHaveLength(2);
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["login@example.com"]);
   });
 
@@ -1060,7 +1060,7 @@ describe("webhook processWebhookEvent", () => {
       });
 
     expect(sends).toHaveLength(2);
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["test@example.com"]);
   });
 
@@ -1126,7 +1126,7 @@ describe("webhook processWebhookEvent", () => {
         html: string;
       });
 
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["fresh@example.com"]);
     expect(welcome?.html).toContain("fresh@example.com");
     // The abandoned address receives nothing at all.
@@ -1200,7 +1200,7 @@ describe("webhook processWebhookEvent", () => {
         subject: string;
       });
 
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["newest@example.com"]);
     expect(sends.every((send) => send.to[0] !== "abandoned@example.com")).toBe(true);
   });
@@ -1264,7 +1264,7 @@ describe("webhook processWebhookEvent", () => {
         subject: string;
       });
 
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["newest@example.com"]);
     expect(sends.every((send) => send.to[0] !== "abandoned@example.com")).toBe(true);
   });
@@ -1327,7 +1327,7 @@ describe("webhook processWebhookEvent", () => {
 
     // Welcome + admin only — one inbox, so no sign-in pointer.
     expect(sends).toHaveLength(2);
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["checkout@example.com"]);
   });
 
@@ -1443,7 +1443,7 @@ describe("webhook processWebhookEvent", () => {
         subject: string;
       });
 
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["login@example.com"]);
     // Whitelist rather than blacklist: every recipient must be one of the three
     // legitimate inboxes (login, checkout pointer, admin alert), so no
@@ -1515,7 +1515,7 @@ describe("webhook processWebhookEvent", () => {
         to: string[];
         subject: string;
       });
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["current@example.com"]);
 
     // And it did so silently. Pinning the ABSENCE of the tamper warning is the
@@ -1589,7 +1589,7 @@ describe("webhook processWebhookEvent", () => {
         subject: string;
       });
 
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["login@example.com"]);
   });
 
@@ -1871,7 +1871,7 @@ describe("webhook processWebhookEvent", () => {
 
     // ...and so did the welcome. The anon-signed address never verifies against
     // the reassigned userId, so it cannot redirect a real account's mail.
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["realowner@example.com"]);
     expect(sends.every((send) => send.to[0] !== "anon-typed@example.com")).toBe(true);
   });
@@ -1920,7 +1920,7 @@ describe("webhook processWebhookEvent", () => {
         subject: string;
       });
 
-    const welcome = sends.find((send) => send.subject.startsWith("Welcome to World Monitor"));
+    const welcome = sends.find((send) => send.subject.startsWith("Welcome to RaWorld"));
     expect(welcome?.to).toEqual(["fresh@example.com"]);
   });
 

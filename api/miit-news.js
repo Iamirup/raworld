@@ -134,7 +134,7 @@ export default async function handler(req, ctx) {
     } catch { /* The source remains readable when Redis is unavailable. */ }
     if (!items) {
       const response = await fetch(SOURCE_URL, {
-        headers: { 'User-Agent': 'WorldMonitor/1.0 (+https://worldmonitor.app)', Accept: 'text/html' },
+        headers: { 'User-Agent': 'RaWorld/1.0 (+https://worldmonitor.app)', Accept: 'text/html' },
         redirect: 'manual',
         signal: AbortSignal.timeout(10000),
       });

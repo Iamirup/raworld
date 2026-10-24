@@ -1,6 +1,6 @@
 import { readRawJsonFromUpstash, setCachedData } from './_upstash-json.js';
 
-const RELEASES_URL = 'https://api.github.com/repos/koala73/worldmonitor/releases/latest';
+const RELEASES_URL = 'https://api.github.com/repos/Iamirup/raworld/releases/latest';
 // App-owned self-cache (#7674): this module is its only writer, so read and
 // write ride the deployment-prefixed helper default.
 const CACHE_KEY = 'github:latest-release:v1';

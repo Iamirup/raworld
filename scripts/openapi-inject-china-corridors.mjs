@@ -368,7 +368,7 @@ function responseExample() {
               status: 'known',
               value: {
                 id: 'publisher:worldmonitor-derived',
-                name: 'WorldMonitor derived output',
+                name: 'RaWorld derived output',
                 type: 'derived_output',
                 registryReference: null,
               },

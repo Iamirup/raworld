@@ -43,7 +43,7 @@ const STYLES = `
 const BODY = `
   <div class="head">
     <div class="title" id="natural-heading" role="heading" aria-level="1" tabindex="-1">Natural Disasters</div>
-    <div class="badge">WorldMonitor Hazards</div>
+    <div class="badge">RaWorld Hazards</div>
   </div>
   <div class="empty" id="empty">Waiting for hazard data…</div>
   <div id="card" style="display:none">
@@ -607,7 +607,7 @@ const RENDER = `
 `;
 
 export const NATURAL_DISASTERS_APP_HTML = buildAppHtml({
-  title: 'Natural Disasters — WorldMonitor',
+  title: 'Natural Disasters — RaWorld',
   appName: 'worldmonitor-natural-disasters',
   styles: STYLES,
   body: BODY,

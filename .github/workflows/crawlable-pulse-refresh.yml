@@ -37,7 +37,7 @@ concurrency:
 
 jobs:
   refresh:
-    if: (github.event_name != 'schedule' || github.repository == 'koala73/worldmonitor')
+    if: (github.event_name != 'schedule' || github.repository == 'Iamirup/raworld')
     runs-on: ubuntu-latest
     # The freeze fetches five digest variants, tops every under-filled country
     # up from the per-country GDELT index (~190 requests, ~50 minutes if every
@@ -95,7 +95,7 @@ jobs:
       - name: Install dependencies
         if: steps.reconcile.outputs.skip != 'true'
         run: npm ci --ignore-scripts
-      - name: Require WorldMonitor API key
+      - name: Require RaWorld API key
         if: steps.reconcile.outputs.skip != 'true'
         env:
           WORLDMONITOR_API_KEY: ${{ secrets.WORLDMONITOR_API_KEY }}

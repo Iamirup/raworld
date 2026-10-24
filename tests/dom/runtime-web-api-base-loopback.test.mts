@@ -95,7 +95,7 @@ describe('getConfiguredWebApiBaseUrl on a loopback page', () => {
     expect(runtime.getConfiguredWebApiBaseUrl()).toBe('http://127.0.0.1:8787');
   });
 
-  it('leaves a deployed WorldMonitor page pointed at the configured base', async () => {
+  it('leaves a deployed RaWorld page pointed at the configured base', async () => {
     const runtime = await loadRuntimeWith({
       apiBase: REMOTE_API,
       hostname: 'www.worldmonitor.app',
@@ -192,7 +192,7 @@ describe('installWebApiRedirect on numeric loopback bases', () => {
   }
 });
 
-describe('installWebApiRedirect on deployed WorldMonitor pages', () => {
+describe('installWebApiRedirect on deployed RaWorld pages', () => {
   const originalFetch = window.fetch;
 
   beforeEach(() => {

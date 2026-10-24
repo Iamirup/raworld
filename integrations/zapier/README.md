@@ -1,8 +1,8 @@
-# WorldMonitor Zapier integration
+# RaWorld Zapier integration
 
-This folder is a [Zapier Platform CLI](https://docs.zapier.com/integrations/build-cli/overview) app. It calls the public WorldMonitor REST API with an API key. It does not import browser, server, or Edge code from the rest of this repository.
+This folder is a [Zapier Platform CLI](https://docs.zapier.com/integrations/build-cli/overview) app. It calls the public RaWorld REST API with an API key. It does not import browser, server, or Edge code from the rest of this repository.
 
-WorldMonitor users who already have an API Starter or API Business key can connect Zapier to instant breaking-news, large-market-move, natural-hazard, chokepoint-disruption and country-risk-surge alerts, keyword news search, the strategic risk overview, country risk, chokepoint status, latest conflict events, and new disease-outbreak alerts.
+RaWorld users who already have an API Starter or API Business key can connect Zapier to instant breaking-news, large-market-move, natural-hazard, chokepoint-disruption and country-risk-surge alerts, keyword news search, the strategic risk overview, country risk, chokepoint status, latest conflict events, and new disease-outbreak alerts.
 
 The app is registered on Zapier as integration 248027 and `.zapierapprc` links this folder to it. Version 1.1.0 is pushed and every live Zap runs on it; 1.2.0 (this folder) is not pushed yet. Pushing is an account step Elie does, after the relay, the shipping webhook worker and the API sender are deployed and a real delivery of each new event has been observed carrying `X-WM-Signature-V2`; 1.2.0 accepts nothing else.
 
@@ -27,13 +27,13 @@ The app is registered on Zapier as integration 248027 and `.zapierapprc` links t
 
 ### Instant triggers
 
-The five instant triggers are REST hooks on the WorldMonitor event webhooks (`docs/api-shipping-v2.mdx`). They need an API plan key: `POST /api/v2/shipping/webhooks` requires the `apiAccess` entitlement.
+The five instant triggers are REST hooks on the RaWorld event webhooks (`docs/api-shipping-v2.mdx`). They need an API plan key: `POST /api/v2/shipping/webhooks` requires the `apiAccess` entitlement.
 
 Two kinds of event share the plumbing. Chokepoint disruption and country risk surge are threshold events: the server re-evaluates a condition every 5 minutes and one crossing is one delivery. Breaking news, large market move and natural hazard are occurrence events: each is delivered once per story, move or hazard (`eventId` in the body: `rss_` for a story link, `mkt_` for a symbol, direction and severity band per UTC day, `eq:` or `nat:` plus the feed's own id for a hazard), a failed delivery is retried every 5 minutes under the same `X-WM-Delivery-Id` (for two hours, a day for hazards) and then dropped, and each Zap receives at most 20 deliveries an hour and 100 a day (30 and 150 for hazards; overflow is dropped and counted on the server, never batched). Their filters travel in the registration body's `scope` object, validated by the server against the event's `inputSchema` in the registry; a filter the event does not define is a 400 that the Zap editor shows verbatim.
 
 - New Breaking News Alert: `keywords` (whole words, any-of, up to 20), `categories` (the classifier's 14 categories), `countries` (ISO 3166-1 alpha-2; a headline the relay could not attribute to a country never matches a country filter), `importance_floor` (default 69), `severity_floor` (default high, which is every headline the relay queues). Deliveries carry `countryCodes` and `matchedKeywords`; sample rows come from the public digest, which has no country attribution, so their `countryCodes` is empty.
-- New Large Market Move: `asset_classes`, `symbols` (as WorldMonitor lists them, upper-cased), `min_abs_pct` (default 10; the relay only publishes moves of 5 percent or more, 10 for crypto), `direction`. Sample rows are the largest current moves and ignore the percent floor.
-- New Natural Hazard: `hazard_types` (`earthquakes` and the natural-events categories), `min_magnitude` (earthquakes only, default 5.5), `min_alert_level` (GDACS events only, default Orange, which is every GDACS event WorldMonitor stores; an escalation from Orange to Red is a second delivery), `countries` (a hazard placed in no country, such as a mid-ocean quake, never matches a country filter). A hazard is new when the server first sees it: earthquakes from USGS and Earthquakes Canada, storms, wildfires, floods, volcanoes and other events from NASA EONET, GDACS, the National Hurricane Center and the western-Pacific cyclone feed. A quake revised across `min_magnitude` after it was first seen is not delivered, and another agency's copy of a quake or storm already seen is not a new hazard. Deliveries carry `countryCodes`; sample rows come from the two list RPCs, which carry no country, so their `countryCodes` is empty and the country filter is not applied to them.
+- New Large Market Move: `asset_classes`, `symbols` (as RaWorld lists them, upper-cased), `min_abs_pct` (default 10; the relay only publishes moves of 5 percent or more, 10 for crypto), `direction`. Sample rows are the largest current moves and ignore the percent floor.
+- New Natural Hazard: `hazard_types` (`earthquakes` and the natural-events categories), `min_magnitude` (earthquakes only, default 5.5), `min_alert_level` (GDACS events only, default Orange, which is every GDACS event RaWorld stores; an escalation from Orange to Red is a second delivery), `countries` (a hazard placed in no country, such as a mid-ocean quake, never matches a country filter). A hazard is new when the server first sees it: earthquakes from USGS and Earthquakes Canada, storms, wildfires, floods, volcanoes and other events from NASA EONET, GDACS, the National Hurricane Center and the western-Pacific cyclone feed. A quake revised across `min_magnitude` after it was first seen is not delivered, and another agency's copy of a quake or storm already seen is not a new hazard. Deliveries carry `countryCodes`; sample rows come from the two list RPCs, which carry no country, so their `countryCodes` is empty and the country filter is not applied to them.
 
 - `performSubscribe` registers the Zap's target URL and returns `{ id, subscriberId, secret, eventType, expiration_date }`. Zapier stores it as `bundle.subscribeData`. `expiration_date` is 29 days out so Zapier re-subscribes before the server's 30-day subscription TTL.
 - `perform` requires `X-WM-Signature-V2` on every delivery: `sha256=HMAC-SHA256(secret, timestamp.deliveryId.event.rawBody)` over the exact header strings and body bytes, compared in constant time, with `X-WM-Timestamp` within 300 seconds of Zapier's clock and well-formed `X-WM-Delivery-Id` and `X-WM-Event`. There is no fallback to the legacy body-only `X-WM-Signature`: a delivery without V2, one that does not verify, a stale timestamp, or a Zap with no stored secret raises an error instead of running the Zap. Zaps on an earlier version keep that version's code until they are migrated to 1.2.0. The row `id` is `X-WM-Delivery-Id`: the worker mints it once per crossing and reuses it on retries, so a later step can dedupe on it. Zapier itself does not dedupe REST-hook deliveries: a retried POST runs the Zap again with the same id. The server's per-subscriber hysteresis and cooldown decide what is sent.
@@ -124,10 +124,10 @@ Elie submits the public listing. Work through [Zapier integration publishing req
 
 ### Branding
 
-- App name is `WorldMonitor`. Do not add "app" or "integration".
-- Description follows `WorldMonitor is a...` and stays under 160 characters. Example: `WorldMonitor is a real-time global intelligence dashboard for geopolitics, military activity, markets, climate, and maritime risk.`
+- App name is `RaWorld`. Do not add "app" or "integration".
+- Description follows `RaWorld is a...` and stays under 160 characters. Example: `RaWorld is a real-time global intelligence dashboard for geopolitics, military activity, markets, climate, and maritime risk.`
 - Homepage is `https://www.worldmonitor.app`, not the dashboard login page.
-- Logo is a square transparent PNG, at least 512x512 px and 72 DPI. Center the mark in the square. Do not put the word WorldMonitor in the image.
+- Logo is a square transparent PNG, at least 512x512 px and 72 DPI. Center the mark in the square. Do not put the word RaWorld in the image.
 - Primary color is a brand color other than `#FFFFFF`.
 - Category should match the product today. Business Intelligence / Dashboards or News & Lifestyle is closer than a narrow AI category.
 
@@ -139,7 +139,7 @@ Elie submits the public listing. Work through [Zapier integration publishing req
 
 ### Test account
 
-- Create a non-expiring WorldMonitor account for `integration-testing@zapier.com`.
+- Create a non-expiring RaWorld account for `integration-testing@zapier.com`.
 - Sign-up sends a verification code to that address, which only Zapier reads. Create the user in the Clerk dashboard with the email marked verified instead.
 - Comp the account to `api_starter` with `payments/billing:grantComplimentaryEntitlement`, so Zapier staff can create a `wm_` key. Pro plans cannot create API keys.
 - Zapier must be able to change the password unless the account is passwordless.

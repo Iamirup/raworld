@@ -21,56 +21,56 @@ const PROVIDER_COUNT = computeStats().sourceAttribution.providerCount.toLocaleSt
 // (6-hour transit refresh), and supply-chain/v1/get-chokepoint-status.ts.
 export const COMPARISON_MEASUREMENTS = {
   hub: [
-    'World Monitor combines separate measurements rather than treating every map marker as the same kind of evidence. GDELT supplies news and event data in 15-minute batches; UCDP supplies coded conflict events from annual GED and monthly Candidate releases; AISStream supplies streaming vessel positions. These sources answer different questions: reported attention, recorded violence, and observed traffic. Their timestamps and geographic coverage can differ even when they appear together on the dashboard.',
+    'RaWorld combines separate measurements rather than treating every map marker as the same kind of evidence. GDELT supplies news and event data in 15-minute batches; UCDP supplies coded conflict events from annual GED and monthly Candidate releases; AISStream supplies streaming vessel positions. These sources answer different questions: reported attention, recorded violence, and observed traffic. Their timestamps and geographic coverage can differ even when they appear together on the dashboard.',
     'worldmonitor.app holds no ACLED data, so its conflict layer rests on UCDP and GDELT rather than on ACLED-coded events. Maritime monitoring covers ' + CHOKEPOINT_COUNT + ' maritime chokepoints from the shared registry. Check the country snapshot below for dated risk context; it is not a simultaneous capture of every feed.',
   ],
   'liveuamap-alternatives': [
-    'World Monitor places UCDP coded violence alongside GDELT news context. UCDP distinguishes state-based, non-state, and one-sided violence. GDELT provides reported developments. A headline and a coded event can describe the same incident, so adding their totals would not produce a reliable count of unique attacks.',
+    'RaWorld places UCDP coded violence alongside GDELT news context. UCDP distinguishes state-based, non-state, and one-sided violence. GDELT provides reported developments. A headline and a coded event can describe the same incident, so adding their totals would not produce a reliable count of unique attacks.',
     'GDELT ingestion follows 15-minute batches; source publication can lag that interval. UCDP annual GED and monthly Candidate releases provide slower historical evidence. The linked country snapshot shows the risk context available at capture time. It does not certify frontline positions or make every report independently verified.',
   ],
   'best-geopolitical-risk-dashboards': [
-    'World Monitor presents country instability alongside the evidence that gives a score context. GDELT supplies news and event data, UCDP supplies coded violence, and IMF PortWatch supplies daily vessel-transit history for maritime monitoring. These series measure different activity: news volume is not a count of casualties, and a shipping slowdown is not a probability of conflict. Read the published country score with its method version and observation time.',
-    'GDELT batches arrive on a 15-minute cycle. World Monitor refreshes PortWatch history every 6 hours, while UCDP Candidate releases are monthly. Faster dashboard access cannot remove those source delays. The dated country snapshot below supports a reproducible comparison; missing or partial evidence must remain visible when interpreting a country ranking.',
+    'RaWorld presents country instability alongside the evidence that gives a score context. GDELT supplies news and event data, UCDP supplies coded violence, and IMF PortWatch supplies daily vessel-transit history for maritime monitoring. These series measure different activity: news volume is not a count of casualties, and a shipping slowdown is not a probability of conflict. Read the published country score with its method version and observation time.',
+    'GDELT batches arrive on a 15-minute cycle. RaWorld refreshes PortWatch history every 6 hours, while UCDP Candidate releases are monthly. Faster dashboard access cannot remove those source delays. The dated country snapshot below supports a reproducible comparison; missing or partial evidence must remain visible when interpreting a country ranking.',
   ],
   'worldmonitor-vs-liveuamap': [
-    'World Monitor builds its conflict view from UCDP coded events, then adds GDELT reporting and AISStream vessel observations as separate context. UCDP provides coded violence categories: state-based, non-state and one-sided violence. AIS positions describe reported vessel movements, not confirmation that a nearby conflict caused a disruption. This separation matters when comparing a multi-domain dashboard with a conflict-event map.',
+    'RaWorld builds its conflict view from UCDP coded events, then adds GDELT reporting and AISStream vessel observations as separate context. UCDP provides coded violence categories: state-based, non-state and one-sided violence. AIS positions describe reported vessel movements, not confirmation that a nearby conflict caused a disruption. This separation matters when comparing a multi-domain dashboard with a conflict-event map.',
     'GDELT ingestion follows 15-minute batches; UCDP Candidate releases are monthly; AISStream sends vessel messages as they arrive. None of these intervals guarantees immediate reporting of an incident. The linked country snapshot records dated risk context, so a reader can distinguish the captured assessment from later live developments.',
   ],
   'worldmonitor-vs-acled': [
-    'World Monitor does not hold ACLED data or reproduce its coding operation. Its conflict layer uses UCDP, a separately coded violence series, and GDELT news context. A self-hosted deployment with its own ACLED credentials can add ACLED events; worldmonitor.app has none. These inputs retain different definitions and publication delays; their presence on one dashboard does not make them a single interchangeable event dataset.',
+    'RaWorld does not hold ACLED data or reproduce its coding operation. Its conflict layer uses UCDP, a separately coded violence series, and GDELT news context. A self-hosted deployment with its own ACLED credentials can add ACLED events; worldmonitor.app has none. These inputs retain different definitions and publication delays; their presence on one dashboard does not make them a single interchangeable event dataset.',
     'GDELT ingestion follows 15-minute batches. UCDP combines annual GED and monthly Candidate releases. The dated country snapshot below documents downstream risk context; it is not an ACLED archive or a substitute for the ACLED event records and license.',
   ],
   'worldmonitor-vs-gdelt': [
-    'World Monitor ingests GDELT bulk event and Global Knowledge Graph batches to prepare country news and topic views. The materializer checks that event and GKG batches cover matching time intervals before publishing them. This turns the upstream stream into bounded dashboard results, rather than exposing the complete GDELT archive. A country news count describes reporting activity; it cannot by itself establish how many distinct incidents occurred.',
+    'RaWorld ingests GDELT bulk event and Global Knowledge Graph batches to prepare country news and topic views. The materializer checks that event and GKG batches cover matching time intervals before publishing them. This turns the upstream stream into bounded dashboard results, rather than exposing the complete GDELT archive. A country news count describes reporting activity; it cannot by itself establish how many distinct incidents occurred.',
     'The ingestion schedule follows 15-minute GDELT batches, and source gaps can delay publication. UCDP coded violence remains a separate source with annual GED and monthly Candidate releases. The linked country snapshot provides a dated downstream reference. Its capture date must not be mistaken for the event date of each GDELT article.',
   ],
   'worldmonitor-vs-dataminr': [
-    'World Monitor derives its public monitoring context from named feeds, including GDELT news and event batches, UCDP coded conflict events, and USGS earthquake observations. The earthquake pipeline also reads Natural Resources Canada. These streams provide reported developments and measured hazards; they do not establish access to a proprietary social-data firehose. A displayed report should be checked against its original source before a team treats it as an operational alert.',
+    'RaWorld derives its public monitoring context from named feeds, including GDELT news and event batches, UCDP coded conflict events, and USGS earthquake observations. The earthquake pipeline also reads Natural Resources Canada. These streams provide reported developments and measured hazards; they do not establish access to a proprietary social-data firehose. A displayed report should be checked against its original source before a team treats it as an operational alert.',
     'GDELT ingestion runs on a 15-minute cycle, UCDP Candidate releases are monthly, and the earthquake worker is scheduled every 5 minutes. These are collection schedules, not guaranteed detection times. The dated country snapshot below gives reproducible risk context for comparison with live alerting products, without implying an alert-delivery SLA.',
   ],
   'worldmonitor-vs-recorded-future': [
-    'World Monitor uses feeds including abuse.ch Feodo Tracker and URLhaus for cyber indicators, with GDELT reporting and UCDP conflict events providing separate geopolitical context. Feodo identifies reported command-and-control infrastructure; URLhaus supplies reported malicious URLs and requires configured access. An indicator location is not proof of an attacker\'s location or attribution. These feeds do not constitute a complete enterprise investigation record.',
+    'RaWorld uses feeds including abuse.ch Feodo Tracker and URLhaus for cyber indicators, with GDELT reporting and UCDP conflict events providing separate geopolitical context. Feodo identifies reported command-and-control infrastructure; URLhaus supplies reported malicious URLs and requires configured access. An indicator location is not proof of an attacker\'s location or attribution. These feeds do not constitute a complete enterprise investigation record.',
     'The cyber worker is scheduled every 2 hours; GDELT ingestion follows 15-minute batches and UCDP Candidate releases are monthly. Results depend on source access and successful refresh. Check the observation time on each indicator. The linked country snapshot is dated geopolitical context, not a frozen cyber-indicator archive or a claim about enterprise threat coverage.',
   ],
   'worldmonitor-vs-deepstatemap': [
-    'World Monitor uses UCDP coded violence and GDELT reporting to place Ukraine developments in wider country and regional context. UCDP event locations describe coded incidents; they are not a continuously surveyed front line. News locations likewise indicate where reporting concerns an event, rather than verified control of each settlement. Readers should keep that distinction when comparing event markers with analyst-maintained territorial geometry.',
+    'RaWorld uses UCDP coded violence and GDELT reporting to place Ukraine developments in wider country and regional context. UCDP event locations describe coded incidents; they are not a continuously surveyed front line. News locations likewise indicate where reporting concerns an event, rather than verified control of each settlement. Readers should keep that distinction when comparing event markers with analyst-maintained territorial geometry.',
     'GDELT ingestion follows 15-minute batches. UCDP annual GED and monthly Candidate releases have longer publication delays. The dated country snapshot below supports review of the captured instability context. It cannot confirm current unit positions, tactical movement, or territorial control at the time a reader opens this page.',
   ],
   'mcp-servers-for-geopolitical-data': [
-    'World Monitor\'s MCP interface exposes source-backed datasets rather than making the language model the original observer. Maritime results draw on AISStream vessel observations and IMF PortWatch transit history; conflict context comes from UCDP; news views use GDELT. A tool response must be interpreted with the dataset\'s observation time and availability fields. Calling a tool now does not mean that every upstream measurement was made now.',
+    'RaWorld\'s MCP interface exposes source-backed datasets rather than making the language model the original observer. Maritime results draw on AISStream vessel observations and IMF PortWatch transit history; conflict context comes from UCDP; news views use GDELT. A tool response must be interpreted with the dataset\'s observation time and availability fields. Calling a tool now does not mean that every upstream measurement was made now.',
     'GDELT ingestion follows 15-minute batches and PortWatch transit history refreshes every 6 hours. Coverage differs by tool and source, even though they share an interface. The dated country snapshot below is a reproducible example of published risk context, not a guarantee that every MCP result has the same timestamp.',
   ],
   'chokepoint-monitoring-tools': [
-    'World Monitor combines IMF PortWatch daily transit history, AISStream vessel crossings over a rolling 24-hour window, and NGA navigational warnings. Its shared registry defines ' + CHOKEPOINT_COUNT + ' maritime chokepoints. PortWatch supports week-on-week traffic comparisons; AISStream supplies observed crossings; NGA adds safety notices. The disruption score combines traffic anomalies, nearby warnings, AIS disruptions, and threat baselines. A high score signals risk, not verified closure.',
-    'World Monitor refreshes PortWatch history every 6 hours. AISStream messages arrive continuously, while the combined status response uses a 5-minute cache. Upstream reporting can lag those schedules, and missing AIS coverage is not proof of zero traffic. The snapshot below preserves the captured status and source availability for each monitored waterway; it is not a vessel-level archive.',
+    'RaWorld combines IMF PortWatch daily transit history, AISStream vessel crossings over a rolling 24-hour window, and NGA navigational warnings. Its shared registry defines ' + CHOKEPOINT_COUNT + ' maritime chokepoints. PortWatch supports week-on-week traffic comparisons; AISStream supplies observed crossings; NGA adds safety notices. The disruption score combines traffic anomalies, nearby warnings, AIS disruptions, and threat baselines. A high score signals risk, not verified closure.',
+    'RaWorld refreshes PortWatch history every 6 hours. AISStream messages arrive continuously, while the combined status response uses a 5-minute cache. Upstream reporting can lag those schedules, and missing AIS coverage is not proof of zero traffic. The snapshot below preserves the captured status and source availability for each monitored waterway; it is not a vessel-level archive.',
   ],
   'free-geopolitical-risk-dashboards': [
-    'World Monitor\'s free dashboard displays measurements from named public sources, including GDELT news and events, UCDP coded violence, and USGS earthquakes. The earthquake pipeline also uses Natural Resources Canada. Free access does not make every source equally complete: reported news, coded conflict, and instrument-detected seismic events have different observation methods and geographic gaps. A quiet map alone cannot establish that a country has no risk.',
+    'RaWorld\'s free dashboard displays measurements from named public sources, including GDELT news and events, UCDP coded violence, and USGS earthquakes. The earthquake pipeline also uses Natural Resources Canada. Free access does not make every source equally complete: reported news, coded conflict, and instrument-detected seismic events have different observation methods and geographic gaps. A quiet map alone cannot establish that a country has no risk.',
     'GDELT ingestion follows 15-minute batches and the earthquake worker runs every 5 minutes. UCDP annual GED and monthly Candidate releases provide slower conflict evidence. The dated country snapshot below lets readers inspect published risk context without relying on the current screen. Check its observation times and the source coverage before treating a displayed ranking as current.',
   ],
   'travel-risk-intelligence-vs-assistance': [
-    'World Monitor provides travel-risk context from country advisories, conflict reporting, and observed hazards. GDELT supplies news and event data, UCDP supplies coded conflict events, and the earthquake pipeline reads USGS and Natural Resources Canada. These observations can help a traveler identify a development that needs investigation. They do not establish whether a particular road, hotel, airport, or evacuation route is safe.',
-    'GDELT ingestion follows 15-minute batches, and earthquake collection runs every 5 minutes. Official advisory publication follows the issuing authority\'s schedule. The dated country snapshot below records captured instability context. Check current official advice before travel; World Monitor does not dispatch assistance, arrange medical evacuation, or manage an emergency case.',
+    'RaWorld provides travel-risk context from country advisories, conflict reporting, and observed hazards. GDELT supplies news and event data, UCDP supplies coded conflict events, and the earthquake pipeline reads USGS and Natural Resources Canada. These observations can help a traveler identify a development that needs investigation. They do not establish whether a particular road, hotel, airport, or evacuation route is safe.',
+    'GDELT ingestion follows 15-minute batches, and earthquake collection runs every 5 minutes. Official advisory publication follows the issuing authority\'s schedule. The dated country snapshot below records captured instability context. Check current official advice before travel; RaWorld does not dispatch assistance, arrange medical evacuation, or manage an emergency case.',
   ],
 };
 
@@ -79,8 +79,8 @@ function methodology(
   recheck = 'Vendors change SKUs, so re-check the linked vendor page before you buy.',
 ) {
   return [
-    `Prices and capability cells on this page were checked on ${CHECKED_ON} from each named vendor's public pricing, product, or API documentation and from World Monitor's published catalog at /pricing, /mcp, and /compare/. ${focus} Where a vendor publishes a list price or quota, the matrix uses that figure. Where a vendor does not publish list pricing, the cell is "Undisclosed (enterprise-negotiated)". This family never substitutes a third-party estimate for a missing list price.`,
-    `World Monitor prices on every row are the public catalog: $0 for the dashboard with no signup, Pro from $39.99/month including MCP access, and API Starter from $99.99/month for 1,000 requests/day. Third-party MCP status is Yes only when a public server or community implementation is documented; otherwise it is Unverified. Signup walls, archive depth, and domain coverage were read from product or docs pages. This page is committed copy with a dated lastmod. ${recheck}`,
+    `Prices and capability cells on this page were checked on ${CHECKED_ON} from each named vendor's public pricing, product, or API documentation and from RaWorld's published catalog at /pricing, /mcp, and /compare/. ${focus} Where a vendor publishes a list price or quota, the matrix uses that figure. Where a vendor does not publish list pricing, the cell is "Undisclosed (enterprise-negotiated)". This family never substitutes a third-party estimate for a missing list price.`,
+    `RaWorld prices on every row are the public catalog: $0 for the dashboard with no signup, Pro from $39.99/month including MCP access, and API Starter from $99.99/month for 1,000 requests/day. Third-party MCP status is Yes only when a public server or community implementation is documented; otherwise it is Unverified. Signup walls, archive depth, and domain coverage were read from product or docs pages. This page is committed copy with a dated lastmod. ${recheck}`,
   ];
 }
 
@@ -90,14 +90,14 @@ export const COMPARE_HUB_NARRATIVE = {
     heading: 'How to choose a comparison',
     paragraphs: [
       'Start with the task you need to complete. Compare tools with the same criteria, then consult the named vendor\'s current documentation for the capabilities that matter to you.',
-      "For global multi-domain monitoring, open Best Geopolitical Risk Intelligence Platforms in 2026: The Buyer's Shortlist. For structured historical conflict research, open World Monitor vs ACLED. For Ukraine frontline detail, open World Monitor vs Deep State Map.",
+      "For global multi-domain monitoring, open Best Geopolitical Risk Intelligence Platforms in 2026: The Buyer's Shortlist. For structured historical conflict research, open RaWorld vs ACLED. For Ukraine frontline detail, open RaWorld vs Deep State Map.",
       'For programmatic API or MCP access, open MCP Servers for Geopolitical Data. For monitoring versus travel assistance, open Travel Risk Intelligence vs Assistance. Check the detailed comparison\'s dated methodology, then confirm the current price or capability with the vendor because both can change.',
     ],
   },
   concessions: {
     heading: 'What we concede on purpose',
     paragraphs: [
-      'ACLED wins historical coded-event depth, academic citability, and downloadable structured datasets. GDELT wins raw archive volume back to 1979. Deep State Map wins Ukraine frontline granularity maintained by analysts. Dataminr wins proprietary social ingestion and real-time alerting under an enterprise SLA. Recorded Future wins enterprise threat-intelligence depth across cyber, physical, and geopolitical risk. IMF PortWatch wins chokepoint coverage (28 to our ' + CHOKEPOINT_COUNT + '), bulk download, and IMF plus Oxford authority at zero cost. International SOS wins assistance delivery: 27 centers, medical evacuation, and case response. World Monitor has no assistance centers, no medical evacuation, and no case response, and the travel page says so.',
+      'ACLED wins historical coded-event depth, academic citability, and downloadable structured datasets. GDELT wins raw archive volume back to 1979. Deep State Map wins Ukraine frontline granularity maintained by analysts. Dataminr wins proprietary social ingestion and real-time alerting under an enterprise SLA. Recorded Future wins enterprise threat-intelligence depth across cyber, physical, and geopolitical risk. IMF PortWatch wins chokepoint coverage (28 to our ' + CHOKEPOINT_COUNT + '), bulk download, and IMF plus Oxford authority at zero cost. International SOS wins assistance delivery: 27 centers, medical evacuation, and case response. RaWorld has no assistance centers, no medical evacuation, and no case response, and the travel page says so.',
       'Those concessions are the credibility argument. A page that swept every column would read as marketing, and marketing is the thing this family is built not to be. If you need the cell they win, buy them. If you need a no-signup multi-domain watch with published prices, REST from $99.99/month, and MCP from Pro at $39.99/month, stay on the child page and read the rest of the matrix.',
     ],
   },
@@ -117,14 +117,14 @@ export const COMPARISON_NARRATIVES = {
   'liveuamap-alternatives': {
     heading: 'Who these Liveuamap alternatives actually are',
     headingProse: [
-      'A Liveuamap alternative is not automatically a Liveuamap replacement. Some of these products are conflict maps. Some are coded-event datasets. Some are campaign assessments. One is a satellite damage shop. Ranking them on a single "best map" axis hides the actual job each one does. The blocks below say what each product is, who it is for, and when it should beat World Monitor.',
+      'A Liveuamap alternative is not automatically a Liveuamap replacement. Some of these products are conflict maps. Some are coded-event datasets. Some are campaign assessments. One is a satellite damage shop. Ranking them on a single "best map" axis hides the actual job each one does. The blocks below say what each product is, who it is for, and when it should beat RaWorld.',
     ],
     competitorProfiles: [
       {
-        name: 'World Monitor',
+        name: 'RaWorld',
         paragraphs: [
-          'World Monitor is the pick when the reason you searched is coverage: every theatre rather than one, and conflict next to shipping, aviation, markets, cables and seismic signals. The map is free with no signup. Each panel names its source, and news items carry badges for the outlet\'s editorial tier, propaganda risk and state affiliation where they apply, so a reader can check where a marker came from.',
-          'It also answers the second reason teams leave a map: they want to be told. On Pro, alert rules filter by country, event type and severity and deliver to Slack, Microsoft Teams, Discord, Telegram, email or a webhook signed with HMAC-SHA256, in real time or as a daily digest. Real-time alerts link to the original report, and email digests link every item. Alerts are scoped by country, not by a radius around a site, and World Monitor aggregates published reports rather than verifying events on the ground.',
+          'RaWorld is the pick when the reason you searched is coverage: every theatre rather than one, and conflict next to shipping, aviation, markets, cables and seismic signals. The map is free with no signup. Each panel names its source, and news items carry badges for the outlet\'s editorial tier, propaganda risk and state affiliation where they apply, so a reader can check where a marker came from.',
+          'It also answers the second reason teams leave a map: they want to be told. On Pro, alert rules filter by country, event type and severity and deliver to Slack, Microsoft Teams, Discord, Telegram, email or a webhook signed with HMAC-SHA256, in real time or as a daily digest. Real-time alerts link to the original report, and email digests link every item. Alerts are scoped by country, not by a radius around a site, and RaWorld aggregates published reports rather than verifying events on the ground.',
         ],
       },
       {
@@ -200,28 +200,28 @@ export const COMPARISON_NARRATIVES = {
     ),
     usageHeading: 'How to use this Liveuamap alternatives list',
     usageProse: [
-      'Print the job on a sticky note before you rank logos. If the note says "conflict headlines on a familiar map," Liveuamap is still the default and the rest of this list is optional. If it says "citable events from 1997," stop scrolling at ACLED. If it says "Ukraine lines," stop at Deep State Map. If it says "satellite damage," stop at UNOSAT. If it says "monthly analyst status on 70 conflicts," stop at CrisisWatch. Only if the note says "conflict plus shipping, aviation, and markets, with a published API" should World Monitor be the first row you argue for.',
+      'Print the job on a sticky note before you rank logos. If the note says "conflict headlines on a familiar map," Liveuamap is still the default and the rest of this list is optional. If it says "citable events from 1997," stop scrolling at ACLED. If it says "Ukraine lines," stop at Deep State Map. If it says "satellite damage," stop at UNOSAT. If it says "monthly analyst status on 70 conflicts," stop at CrisisWatch. Only if the note says "conflict plus shipping, aviation, and markets, with a published API" should RaWorld be the first row you argue for.',
       'Keep two tabs open when the job is mixed. A fusion dashboard does not make ACLED\'s EULA go away. A coded dataset does not draw AIS. The failure mode for this query is buying one product to do four jobs. Use the concession list as the shopping list for the jobs you are not buying from us.',
     ],
     whyWeWinBody: [
-      'The fusion claim is the one Liveuamap cannot match by adding a SKU. World Monitor puts conflict next to maritime AIS, aviation, markets, cables, and seismic signals on one free map, then sells the same picture programmatically: API Starter at $99.99/month for 1,000 requests/day, MCP from Pro at $39.99/month. That is five times Liveuamap Pro\'s daily quota at a lower list price, with domains Liveuamap does not track.',
+      'The fusion claim is the one Liveuamap cannot match by adding a SKU. RaWorld puts conflict next to maritime AIS, aviation, markets, cables, and seismic signals on one free map, then sells the same picture programmatically: API Starter at $99.99/month for 1,000 requests/day, MCP from Pro at $39.99/month. That is five times Liveuamap Pro\'s daily quota at a lower list price, with domains Liveuamap does not track.',
       'We still lose cells on purpose. ACLED remains the citable archive. ISW remains the campaign narrator. UNOSAT remains the satellite damage shop. Deep State Map remains the Ukraine geometry. The win is the no-signup multi-domain watch plus a published programmatic path, not a sweep of every column.',
     ],
     extraFaqs: [
-      ['Is Liveuamap still worth using?', 'Yes, when you want a familiar conflict-headline map and region-specific variants. Use World Monitor when you also need maritime, aviation, market, or infrastructure context, or when you need a cheaper published API quota.'],
-      ['Does World Monitor show the same conflict events as Liveuamap?', 'Not as a mirror. World Monitor fuses attributed public feeds, including conflict sources, with other domains. Treat it as a multi-domain watch, not as a pixel-for-pixel Liveuamap clone.'],
-      ['Which alternative is best for academic citation?', 'ACLED, for coded events with a documented archive from 1997 and a license path. World Monitor is a live watch, not a citable event dataset in the ACLED sense.'],
-      ['Which alternative is best for Ukraine frontline detail?', 'Deep State Map. Its analyst-maintained geometry is more granular than a global dashboard. World Monitor covers Ukraine as one theatre among many.'],
-      ['Do any of these alternatives include maritime and aviation data?', 'World Monitor does, on the free dashboard. Liveuamap, ConflictZone.io, ISW, CrisisWatch, and UNOSAT do not fuse those domains into the same product.'],
-      ['Is there an open-source Liveuamap alternative?', 'World Monitor is AGPL-3.0. ACLED is a licensed dataset, not open source. Liveuamap is proprietary. Open source is the wrong axis if what you need is Liveuamap\'s headline map specifically.'],
-      ['How often should I re-check these prices?', 'Whenever you buy. This page was checked on 5 September 2026. Liveuamap and World Monitor publish list prices; those can move. Enterprise rows stay undisclosed until the vendor publishes a number.'],
+      ['Is Liveuamap still worth using?', 'Yes, when you want a familiar conflict-headline map and region-specific variants. Use RaWorld when you also need maritime, aviation, market, or infrastructure context, or when you need a cheaper published API quota.'],
+      ['Does RaWorld show the same conflict events as Liveuamap?', 'Not as a mirror. RaWorld fuses attributed public feeds, including conflict sources, with other domains. Treat it as a multi-domain watch, not as a pixel-for-pixel Liveuamap clone.'],
+      ['Which alternative is best for academic citation?', 'ACLED, for coded events with a documented archive from 1997 and a license path. RaWorld is a live watch, not a citable event dataset in the ACLED sense.'],
+      ['Which alternative is best for Ukraine frontline detail?', 'Deep State Map. Its analyst-maintained geometry is more granular than a global dashboard. RaWorld covers Ukraine as one theatre among many.'],
+      ['Do any of these alternatives include maritime and aviation data?', 'RaWorld does, on the free dashboard. Liveuamap, ConflictZone.io, ISW, CrisisWatch, and UNOSAT do not fuse those domains into the same product.'],
+      ['Is there an open-source Liveuamap alternative?', 'RaWorld is AGPL-3.0. ACLED is a licensed dataset, not open source. Liveuamap is proprietary. Open source is the wrong axis if what you need is Liveuamap\'s headline map specifically.'],
+      ['How often should I re-check these prices?', 'Whenever you buy. This page was checked on 5 September 2026. Liveuamap and RaWorld publish list prices; those can move. Enterprise rows stay undisclosed until the vendor publishes a number.'],
     ],
   },
 
   'worldmonitor-vs-liveuamap': {
     heading: 'Liveuamap alternatives',
     headingProse: [
-      'This head-to-head is the programmatic one. Both products publish API prices, which is rare in this category and is why the page can table real numbers on both sides instead of hiding behind "enterprise." Liveuamap remains a strong conflict-headline map. World Monitor is the alternative when the job is quota, price, or domains beyond conflict.',
+      'This head-to-head is the programmatic one. Both products publish API prices, which is rare in this category and is why the page can table real numbers on both sides instead of hiding behind "enterprise." Liveuamap remains a strong conflict-headline map. RaWorld is the alternative when the job is quota, price, or domains beyond conflict.',
     ],
     competitorProfiles: [
       {
@@ -235,45 +235,45 @@ export const COMPARISON_NARRATIVES = {
     evaluationHeading: 'What to look for in a Liveuamap alternative',
     evaluationProse: [
       'Demand published numbers. A Liveuamap alternative that will not quote an API price is not competing on the axis that makes this page possible. Compare list price, daily quota, and whether the free canvas requires signup. Then compare domain coverage: conflict only, or conflict plus the infrastructure and market layers that turn a headline into a decision.',
-      'Score latency honestly. Liveuamap runs a live news feed but publishes no latency figure. World Monitor is source-dependent: live and minute-level feeds plus slower datasets. If your only feed is conflict pins, Liveuamap\'s cadence is enough. If you also watch transits and airspace, a single conflict timer is the wrong SLA.',
+      'Score latency honestly. Liveuamap runs a live news feed but publishes no latency figure. RaWorld is source-dependent: live and minute-level feeds plus slower datasets. If your only feed is conflict pins, Liveuamap\'s cadence is enough. If you also watch transits and airspace, a single conflict timer is the wrong SLA.',
       'Keep the concession in view. Region-specific variants and a lighter ad-funded free experience are real Liveuamap wins. An alternative that cannot name them is selling, not comparing. The right alternative is the one that beats Liveuamap on the cell you actually failed — quota, price, or domains — without pretending to beat it on nostalgia.',
     ],
     switchHeading: 'Why teams switch from Liveuamap',
     switchProse: [
-      'The API math is the clean trigger. $150/month for 200 requests/day is a hard ceiling for anyone polling a watch. World Monitor API Starter is $99.99/month for 1,000 requests/day. That comparison only exists because both vendors publish. Teams that hit 200 calls stop arguing about the map and start arguing about the invoice.',
+      'The API math is the clean trigger. $150/month for 200 requests/day is a hard ceiling for anyone polling a watch. RaWorld API Starter is $99.99/month for 1,000 requests/day. That comparison only exists because both vendors publish. Teams that hit 200 calls stop arguing about the map and start arguing about the invoice.',
       'The other trigger is a missing layer. A conflict pin without the strait, the airspace, or the market move is an incomplete desk. Liveuamap does not fuse those domains. When a desk is asked "what else moved," the map that only does conflict becomes the thing they search to replace, even if they keep it open in another tab.',
     ],
     methodologyProse: methodology(
-      'Liveuamap API Pro and Enterprise figures were read from liveuamap.com/promo/api on the check date. World Monitor API Starter figures were read from the public catalog.',
+      'Liveuamap API Pro and Enterprise figures were read from liveuamap.com/promo/api on the check date. RaWorld API Starter figures were read from the public catalog.',
     ),
     usageHeading: 'How to use this Liveuamap head-to-head',
     usageProse: [
       'If you only need conflict headlines and you already know the Liveuamap UI, this page is not a reason to churn. Bookmark the API numbers, keep the map, and come back when quota or missing domains actually hurt. If you are choosing an API this quarter, ignore brand familiarity and compare $99.99 for 1,000 requests/day against $150 for 200. That arithmetic is the whole head-to-head.',
     ],
     whyWeWinBody: [
-      'The programmatic cell is the one this page is willing to argue. World Monitor API Starter undercuts Liveuamap Pro on price and multiplies the daily quota by five, and the free dashboard adds maritime AIS, aviation, markets, and cyber that Liveuamap does not track. That is a comparison with numbers on both sides, not a slogan.',
+      'The programmatic cell is the one this page is willing to argue. RaWorld API Starter undercuts Liveuamap Pro on price and multiplies the daily quota by five, and the free dashboard adds maritime AIS, aviation, markets, and cyber that Liveuamap does not track. That is a comparison with numbers on both sides, not a slogan.',
       'Liveuamap still wins familiarity, region-specific variants, and a lighter ad-funded free map. Keep it if those cells are the job. Switch when the job is quota, price, or multi-domain context, which is the only win this page claims.',
     ],
     extraFaqs: [
-      ['Can I keep Liveuamap and add World Monitor?', 'Yes. Many desks keep Liveuamap for conflict headlines and add World Monitor for fusion and API quota. This page is a comparison, not an ultimatum.'],
-      ['Does World Monitor have region-specific map variants like Liveuamap?', 'No. That is a Liveuamap win, listed in the concession. World Monitor is a global multi-domain canvas.'],
-      ['Is the World Monitor dashboard really free?', 'Yes. No signup and no card for the public dashboard. Paid tiers are Pro (MCP from $39.99/month) and API Starter ($99.99/month for 1,000 requests/day).'],
-      ['Does Liveuamap offer MCP access?', 'Not that we can verify from public pages. The cell is Unverified. World Monitor MCP access starts at Pro.'],
-      ['Which product is better for a public website embed?', 'Depends on the story. Liveuamap is the familiar conflict embed. World Monitor is the embed when the story includes shipping, aviation, or markets next to the conflict pin.'],
+      ['Can I keep Liveuamap and add RaWorld?', 'Yes. Many desks keep Liveuamap for conflict headlines and add RaWorld for fusion and API quota. This page is a comparison, not an ultimatum.'],
+      ['Does RaWorld have region-specific map variants like Liveuamap?', 'No. That is a Liveuamap win, listed in the concession. RaWorld is a global multi-domain canvas.'],
+      ['Is the RaWorld dashboard really free?', 'Yes. No signup and no card for the public dashboard. Paid tiers are Pro (MCP from $39.99/month) and API Starter ($99.99/month for 1,000 requests/day).'],
+      ['Does Liveuamap offer MCP access?', 'Not that we can verify from public pages. The cell is Unverified. RaWorld MCP access starts at Pro.'],
+      ['Which product is better for a public website embed?', 'Depends on the story. Liveuamap is the familiar conflict embed. RaWorld is the embed when the story includes shipping, aviation, or markets next to the conflict pin.'],
       ['Are these prices monthly or annual?', 'The figures quoted here are the published monthly list prices as of 5 September 2026. Confirm the vendor page for annual discounts before you buy.'],
     ],
   },
 
   'worldmonitor-vs-acled': {
     headingProse: [
-      'ACLED is the named company on this URL, and it is not a mapping startup. It is a coded conflict-event dataset with academic citability, a license wall for commercial use, and an archive from 1997. World Monitor is a live multi-domain watch built on UCDP and GDELT; worldmonitor.app holds no ACLED data, and a self-hosted deployment with its own ACLED credentials can add ACLED events. The honest product relationship is complement, not replacement, and the rest of the page is written to that fact.',
+      'ACLED is the named company on this URL, and it is not a mapping startup. It is a coded conflict-event dataset with academic citability, a license wall for commercial use, and an archive from 1997. RaWorld is a live multi-domain watch built on UCDP and GDELT; worldmonitor.app holds no ACLED data, and a self-hosted deployment with its own ACLED credentials can add ACLED events. The honest product relationship is complement, not replacement, and the rest of the page is written to that fact.',
     ],
     competitorProfiles: [
       {
         name: 'ACLED',
         paragraphs: [
           'The Armed Conflict Location & Event Data Project codes political violence and protest events for researchers, international organizations, and commercial subscribers. Open access provides real-time aggregated data without API access. Research, Partner, and Enterprise tiers add API access and more detailed event data. myACLED is the account wall. Commercial use requires a license under the ACLED EULA. Latency is tier-dependent: real-time aggregated down to weekly disaggregated data.',
-          'ACLED wins on three cells World Monitor will not pretend to own: historical depth from 1997, academic citability, and downloadable structured datasets. If your output is a paper, a model, or a licensed commercial product that needs ACLED\'s event ontology, you should buy ACLED. If your output is a no-signup watch across conflict plus maritime, aviation, and markets, you should not uninstall ACLED to get that — you should put World Monitor on top.',
+          'ACLED wins on three cells RaWorld will not pretend to own: historical depth from 1997, academic citability, and downloadable structured datasets. If your output is a paper, a model, or a licensed commercial product that needs ACLED\'s event ontology, you should buy ACLED. If your output is a no-signup watch across conflict plus maritime, aviation, and markets, you should not uninstall ACLED to get that — you should put RaWorld on top.',
           'Who should pick ACLED: researchers, NGOs, and firms that need citable coded events and can satisfy the EULA. Who should not: teams that only needed a live map and got sent to a dataset. The failure mode is treating ACLED as a dashboard alternative. It is a dataset. This page keeps it in that job.',
         ],
       },
@@ -293,14 +293,14 @@ export const COMPARISON_NARRATIVES = {
       'ACLED access, API availability, and commercial-use rules were read from public myACLED and EULA pages. This page does not invent a complimentary access SKU or a Creative Commons non-commercial license; those are not the current public terms we can cite.',
     ),
     whyWeWinBody: [
-      'World Monitor\'s job on this page is the live layer ACLED is not selling: no signup, conflict plus adjacent domains, REST from $99.99/month, MCP from Pro. It sits beside ACLED rather than asking you to delete ACLED. That is the only win that does not insult the archive.',
+      'RaWorld\'s job on this page is the live layer ACLED is not selling: no signup, conflict plus adjacent domains, REST from $99.99/month, MCP from Pro. It sits beside ACLED rather than asking you to delete ACLED. That is the only win that does not insult the archive.',
       'If you need 1997–present coded events, a downloadable dataset, and a citation that survives peer review, ACLED still wins and should. The complement framing is the product. A replacement framing would be a lie, and it would not survive the concession list.',
     ],
     extraFaqs: [
-      ['Does World Monitor include ACLED data?', 'Not on worldmonitor.app, which uses UCDP and GDELT; a self-hosted deployment with its own ACLED credentials can add ACLED events. That is why this page calls World Monitor a complement, not a replacement.'],
-      ['Can I download ACLED-style event tables from World Monitor?', 'No. Downloadable structured ACLED datasets are an ACLED product, behind ACLED terms. World Monitor is a live watch and API, not an ACLED redistribution.'],
-      ['Does ACLED require an account?', 'myACLED does. Open access and the paid tiers have different rules. The World Monitor public dashboard does not require an account.'],
-      ['Is ACLED open source?', 'No. ACLED data is under the ACLED EULA. World Monitor the software is AGPL-3.0; that license does not make ACLED data open.'],
+      ['Does RaWorld include ACLED data?', 'Not on worldmonitor.app, which uses UCDP and GDELT; a self-hosted deployment with its own ACLED credentials can add ACLED events. That is why this page calls RaWorld a complement, not a replacement.'],
+      ['Can I download ACLED-style event tables from RaWorld?', 'No. Downloadable structured ACLED datasets are an ACLED product, behind ACLED terms. RaWorld is a live watch and API, not an ACLED redistribution.'],
+      ['Does ACLED require an account?', 'myACLED does. Open access and the paid tiers have different rules. The RaWorld public dashboard does not require an account.'],
+      ['Is ACLED open source?', 'No. ACLED data is under the ACLED EULA. RaWorld the software is AGPL-3.0; that license does not make ACLED data open.'],
       ['Who should not switch away from ACLED?', 'Anyone whose output is a citable event dataset or a commercial product that depends on ACLED\'s ontology. Keep the license. Add a live watch if you need one.'],
       ['What does "tier-dependent latency" mean?', 'ACLED\'s real-time aggregated versus weekly disaggregated access depends on the tier you are on. Read the current myACLED terms; this page will not flatten them into one SLA.'],
     ],
@@ -309,7 +309,7 @@ export const COMPARISON_NARRATIVES = {
   'worldmonitor-vs-gdelt': {
     heading: 'GDELT alternatives',
     headingProse: [
-      'The GDELT Project is a firehose. It gives you global news event data in 15-minute batches, a keyless DOC 2.0 REST path, and BigQuery for bulk, with an archive to 1979. World Monitor is a curation layer: scored indices, hotspots, and convergence cues across conflict, maritime, aviation, and markets. The comparison is raw volume versus ready-to-act context, not two dashboards with different skins.',
+      'The GDELT Project is a firehose. It gives you global news event data in 15-minute batches, a keyless DOC 2.0 REST path, and BigQuery for bulk, with an archive to 1979. RaWorld is a curation layer: scored indices, hotspots, and convergence cues across conflict, maritime, aviation, and markets. The comparison is raw volume versus ready-to-act context, not two dashboards with different skins.',
     ],
     competitorProfiles: [
       {
@@ -323,14 +323,14 @@ export const COMPARISON_NARRATIVES = {
         name: 'GDELT Cloud',
         paragraphs: [
           'GDELT Cloud (gdeltcloud.com) is a separate commercial product, not the GDELT Project\'s free REST path. It sells event monitoring built on GDELT: events grouped into stories and connected to entities such as companies and facilities, delivered through an API, an MCP server and saved monitors, with self-serve plans and published prices.',
-          'Pick GDELT Cloud when the reason you are leaving raw GDELT is noise and you want cleaner GDELT-derived events and story clusters in one product. Pick World Monitor when you also need non-news signals (ship transits, flights, outages, hazards, markets) on the same map, country and severity alert rules delivered to Slack, Microsoft Teams, Discord, Telegram, email or a signed webhook, and a public source inventory with an editorial tier on each outlet.',
+          'Pick GDELT Cloud when the reason you are leaving raw GDELT is noise and you want cleaner GDELT-derived events and story clusters in one product. Pick RaWorld when you also need non-news signals (ship transits, flights, outages, hazards, markets) on the same map, country and severity alert rules delivered to Slack, Microsoft Teams, Discord, Telegram, email or a signed webhook, and a public source inventory with an editorial tier on each outlet.',
         ],
       },
       {
         name: 'war-dashboard-data and world-intel-mcp',
         paragraphs: [
           'These are GDELT-based dashboard and MCP projects. They wrap the firehose in a UI or a tool surface you host. They inherit GDELT\'s cadence (15-minute batches) and GDELT\'s volume. They are not a second event ontology; they are packaging.',
-          `Pick them when you want to self-host a GDELT surface. Pick World Monitor when you want ${PROVIDER_COUNT} attributed providers curated into scored indices, including GDELT-derived signals, without running the wrapper yourself.`,
+          `Pick them when you want to self-host a GDELT surface. Pick RaWorld when you want ${PROVIDER_COUNT} attributed providers curated into scored indices, including GDELT-derived signals, without running the wrapper yourself.`,
         ],
       },
     ],
@@ -350,33 +350,33 @@ export const COMPARISON_NARRATIVES = {
     ),
     usageHeading: 'How to use this GDELT comparison',
     usageProse: [
-      'Keep GDELT if you have a BigQuery workflow and you need 1979. Add World Monitor if you need a scored watch today. Replace GDELT only if you have measured that you never query the archive — most teams that think they can replace it still come back for a historical pull. Self-hosted wrappers are a third path: they do not add a new dataset, they add a process you have to run.',
+      'Keep GDELT if you have a BigQuery workflow and you need 1979. Add RaWorld if you need a scored watch today. Replace GDELT only if you have measured that you never query the archive — most teams that think they can replace it still come back for a historical pull. Self-hosted wrappers are a third path: they do not add a new dataset, they add a process you have to run.',
     ],
     whyWeWinBody: [
-      'World Monitor ships the meaning layer: scored indices, hotspots, and convergence cues across conflict, maritime, aviation, and markets, with GDELT-derived signals in the mix. You do not have to build that interpretation on top of a 15-minute firehose to get a watch you can act on.',
+      'RaWorld ships the meaning layer: scored indices, hotspots, and convergence cues across conflict, maritime, aviation, and markets, with GDELT-derived signals in the mix. You do not have to build that interpretation on top of a 15-minute firehose to get a watch you can act on.',
       'GDELT still wins archive depth and raw volume. war-dashboard-data and world-intel-mcp still win a self-hosted GDELT surface. The win here is curation and multi-domain context, with REST from $99.99/month and MCP from $39.99/month, not a bigger news dump.',
     ],
     extraFaqs: [
-      ['Is GDELT free?', 'DOC 2.0 REST is free and keyless. BigQuery for bulk needs a Google account and is billed as Google Cloud usage. World Monitor\'s dashboard is free; its API and MCP are paid catalog SKUs.'],
-      ['Does World Monitor replace GDELT BigQuery?', 'No. If you need decades of raw events in BigQuery, stay on GDELT. World Monitor is the scored, current watch.'],
-      ['How often does GDELT update?', '15-minute global batches. World Monitor cadence is source-dependent and includes live and minute-level feeds plus slower datasets.'],
+      ['Is GDELT free?', 'DOC 2.0 REST is free and keyless. BigQuery for bulk needs a Google account and is billed as Google Cloud usage. RaWorld\'s dashboard is free; its API and MCP are paid catalog SKUs.'],
+      ['Does RaWorld replace GDELT BigQuery?', 'No. If you need decades of raw events in BigQuery, stay on GDELT. RaWorld is the scored, current watch.'],
+      ['How often does GDELT update?', '15-minute global batches. RaWorld cadence is source-dependent and includes live and minute-level feeds plus slower datasets.'],
       ['What is world-intel-mcp in this comparison?', 'A GDELT-based MCP project you self-host. It is packaging for the firehose, not a separate event universe.'],
-      ['Does World Monitor ingest GDELT?', `It ingests GDELT-derived signals among ${PROVIDER_COUNT} attributed providers. That is curation, not a full GDELT mirror.`],
+      ['Does RaWorld ingest GDELT?', `It ingests GDELT-derived signals among ${PROVIDER_COUNT} attributed providers. That is curation, not a full GDELT mirror.`],
       ['Should I use both?', 'Yes, when you need both the archive and the live scored layer. This page is written for that split.'],
     ],
   },
 
   'worldmonitor-vs-dataminr': {
     headingProse: [
-      'Dataminr is an enterprise alerting company. It ingests proprietary social and public data, sells real-time alerting under contracts with a published availability SLA, and does not publish list pricing. World Monitor is the public-source, published-price end of the same "tell me when something breaks" query. The page names what Dataminr wins, then names the only cells a transparent product can win: price, access, and an open catalog.',
+      'Dataminr is an enterprise alerting company. It ingests proprietary social and public data, sells real-time alerting under contracts with a published availability SLA, and does not publish list pricing. RaWorld is the public-source, published-price end of the same "tell me when something breaks" query. The page names what Dataminr wins, then names the only cells a transparent product can win: price, access, and an open catalog.',
     ],
     competitorProfiles: [
       {
         name: 'Dataminr',
         paragraphs: [
           'Dataminr (Pulse and related enterprise products) sells real-time alerting to newsrooms, corporations, and the public sector. The distinctive cells are proprietary social-data ingestion, real-time alerting under a published availability SLA, and enterprise integration support. Those cells are why it wins procurement in rooms that already have a security budget. The company does not publish list pricing; licenses are negotiated. This page will not invent a number to fill that silence.',
-          'Who should pick Dataminr: organizations that need proprietary social firehoses, contractual SLAs, and a vendor that will sit in the incident channel. Who should pick something else: teams that cannot or will not sign an undisclosed enterprise contract, and teams that need a transparent public-source watch they can open without a salesperson. World Monitor is in the second set. It is not a Dataminr clone at a lower SLA.',
-          `The category error is treating "alerting" as one product. Dataminr alerts from a proprietary stack. World Monitor alerts from ${PROVIDER_COUNT} attributed public providers. Speed and exclusivity versus transparency and price is the trade, and both sides of the trade are real.`,
+          'Who should pick Dataminr: organizations that need proprietary social firehoses, contractual SLAs, and a vendor that will sit in the incident channel. Who should pick something else: teams that cannot or will not sign an undisclosed enterprise contract, and teams that need a transparent public-source watch they can open without a salesperson. RaWorld is in the second set. It is not a Dataminr clone at a lower SLA.',
+          `The category error is treating "alerting" as one product. Dataminr alerts from a proprietary stack. RaWorld alerts from ${PROVIDER_COUNT} attributed public providers. Speed and exclusivity versus transparency and price is the trade, and both sides of the trade are real.`,
         ],
       },
     ],
@@ -392,25 +392,25 @@ export const COMPARISON_NARRATIVES = {
       'The second trigger is scope. Some teams do not need proprietary social ingestion. They need a public-source watch with an API, an MCP server, and no signup wall for the canvas. Those teams are not "settling." They are refusing to buy a cell they will not use. This page is for that refusal, with Dataminr\'s actual wins left on the table.',
     ],
     methodologyProse: methodology(
-      'Dataminr pricing is marked undisclosed because no public list price was found on the check date. No third-party estimate is used. World Monitor prices are the public catalog only.',
+      'Dataminr pricing is marked undisclosed because no public list price was found on the check date. No third-party estimate is used. RaWorld prices are the public catalog only.',
     ),
     whyWeWinBody: [
-      `World Monitor publishes the prices Dataminr does not: $0 for the dashboard, Pro from $39.99/month with MCP, API Starter from $99.99/month. The data is ${PROVIDER_COUNT} attributed public providers rather than a proprietary social stack. That is the transparency trade: you can verify the cells, and you give up Dataminr's exclusivity and SLA.`,
+      `RaWorld publishes the prices Dataminr does not: $0 for the dashboard, Pro from $39.99/month with MCP, API Starter from $99.99/month. The data is ${PROVIDER_COUNT} attributed public providers rather than a proprietary social stack. That is the transparency trade: you can verify the cells, and you give up Dataminr's exclusivity and SLA.`,
       'Dataminr still wins proprietary ingestion, real-time alerting under an SLA, and enterprise integration. If those cells are the job, this page is not a reason to churn. If the job is a public-source watch you can buy from a catalog, it is.',
     ],
     extraFaqs: [
-      ['How much does Dataminr cost?', 'Dataminr does not publish list pricing. This page will not guess. World Monitor publishes $0 / $39.99 / $99.99 catalog SKUs.'],
-      ['Is World Monitor as fast as Dataminr?', 'Not as an SLA. Dataminr sells proprietary real-time alerting under enterprise contracts, though it publishes no latency figure. World Monitor cadence is source-dependent across public feeds.'],
-      ['Does World Monitor ingest social media the way Dataminr does?', 'No. Dataminr\'s proprietary social ingestion is a conceded cell. World Monitor uses attributed public providers.'],
-      ['Can a newsroom use World Monitor instead of Dataminr?', 'For a public-source watch, yes. For contractual alerting SLAs and proprietary social detection, no. Many rooms will keep Dataminr and add a public canvas.'],
-      ['Does World Monitor require an enterprise contract?', 'No. The dashboard is free without signup. Dataminr licenses are enterprise-negotiated. That is a different access model, not a free Dataminr.'],
+      ['How much does Dataminr cost?', 'Dataminr does not publish list pricing. This page will not guess. RaWorld publishes $0 / $39.99 / $99.99 catalog SKUs.'],
+      ['Is RaWorld as fast as Dataminr?', 'Not as an SLA. Dataminr sells proprietary real-time alerting under enterprise contracts, though it publishes no latency figure. RaWorld cadence is source-dependent across public feeds.'],
+      ['Does RaWorld ingest social media the way Dataminr does?', 'No. Dataminr\'s proprietary social ingestion is a conceded cell. RaWorld uses attributed public providers.'],
+      ['Can a newsroom use RaWorld instead of Dataminr?', 'For a public-source watch, yes. For contractual alerting SLAs and proprietary social detection, no. Many rooms will keep Dataminr and add a public canvas.'],
+      ['Does RaWorld require an enterprise contract?', 'No. The dashboard is free without signup. Dataminr licenses are enterprise-negotiated. That is a different access model, not a free Dataminr.'],
       ['Why is Dataminr\'s price cell undisclosed?', 'Because we could not cite a vendor list price on 5 September 2026. Undisclosed is the honest cell. A fabricated dollar figure would contradict this site\'s own comparison rules.'],
     ],
   },
 
   'worldmonitor-vs-recorded-future': {
     headingProse: [
-      'Recorded Future is an enterprise intelligence platform across cyber, physical threat, geopolitical, country risk, and travel safety. It is not a shop that stops at cyber, and this page will not describe it that way. Flare and MISP sit on the same table because "Recorded Future alternatives" in search is a mixed bag of dark-web exposure tools and threat-intel sharing. World Monitor is the public-source, published-price, multi-domain dashboard in that mix — not a replacement for an enterprise intelligence platform.',
+      'Recorded Future is an enterprise intelligence platform across cyber, physical threat, geopolitical, country risk, and travel safety. It is not a shop that stops at cyber, and this page will not describe it that way. Flare and MISP sit on the same table because "Recorded Future alternatives" in search is a mixed bag of dark-web exposure tools and threat-intel sharing. RaWorld is the public-source, published-price, multi-domain dashboard in that mix — not a replacement for an enterprise intelligence platform.',
     ],
     competitorProfiles: [
       {
@@ -423,7 +423,7 @@ export const COMPARISON_NARRATIVES = {
       {
         name: 'Flare',
         paragraphs: [
-          'Flare focuses on cyber exposure and dark-web monitoring. Pricing is an undisclosed subscription. It is not a geopolitical dashboard. It wins the dark-web cell that neither World Monitor nor a general news map is trying to own.',
+          'Flare focuses on cyber exposure and dark-web monitoring. Pricing is an undisclosed subscription. It is not a geopolitical dashboard. It wins the dark-web cell that neither RaWorld nor a general news map is trying to own.',
           'Pick Flare for exposure monitoring. Do not pick it as a Recorded Future geopolitical substitute; that is a different module of a different platform.',
         ],
       },
@@ -431,7 +431,7 @@ export const COMPARISON_NARRATIVES = {
         name: 'MISP',
         paragraphs: [
           'MISP is open-source threat-intel sharing you self-host. It is free as software, costly as operations. The job is structured indicator sharing across communities, not a multi-domain situational picture and not a hosted SaaS SLA.',
-          'Pick MISP when you need to share IOCs with a community and can run the stack. It is AGPL-family open source, like World Monitor the software, but the products are not interchangeable.',
+          'Pick MISP when you need to share IOCs with a community and can run the stack. It is AGPL-family open source, like RaWorld the software, but the products are not interchangeable.',
         ],
       },
     ],
@@ -439,27 +439,27 @@ export const COMPARISON_NARRATIVES = {
     evaluationProse: [
       'Split the platform before you shop. Recorded Future alternatives might mean cheaper cyber TI, a dark-web scanner, a sharing community, or a public geopolitical dashboard. Those are four buys. A page that ranks them as one ladder is how enterprises overpay and how startups overclaim.',
       'For the intelligence-platform job, score source mix (proprietary and licensed versus public attributed), indicator scoring, integrations, travel and physical coverage, and whether list pricing exists. For the dashboard job, score signup, live domains, REST, MCP, and license. Do not let a strong cyber module win a geopolitical-map query, and do not let a free map win an indicator-scoring query.',
-      'Require the vendor to say what they are not. Recorded Future is not a free canvas. World Monitor is not a per-indicator TI platform. Flare is not a country-risk desk. MISP is not hosted alerting. Alternatives that cannot utter a negative sentence are not ready to be compared.',
+      'Require the vendor to say what they are not. Recorded Future is not a free canvas. RaWorld is not a per-indicator TI platform. Flare is not a country-risk desk. MISP is not hosted alerting. Alternatives that cannot utter a negative sentence are not ready to be compared.',
     ],
     switchHeading: 'Why teams search for Recorded Future alternatives',
     switchProse: [
       'Price opacity and package size. Recorded Future does not publish list pricing, and the platform spans more modules than a lot of searchers need. A team that wanted geopolitical context and a public API gets a full enterprise TI suite in the demo. The leftover feeling is "this is more than we can buy," which Google hears as "alternatives."',
-      'The other trigger is openness. Security teams that already run MISP, or that need AGPL software they can audit, are not trying to become Recorded Future customers. They are trying to keep sharing infrastructure and add a public watch. Naming that trigger keeps World Monitor in the public-source lane instead of a fake TI-platform lane.',
+      'The other trigger is openness. Security teams that already run MISP, or that need AGPL software they can audit, are not trying to become Recorded Future customers. They are trying to keep sharing infrastructure and add a public watch. Naming that trigger keeps RaWorld in the public-source lane instead of a fake TI-platform lane.',
     ],
     methodologyProse: methodology(
       'Recorded Future is scored from public product descriptions as a multi-domain intelligence platform, not as a product that stops at cyber. No list price was found. Flare and MISP cells were read from public product and project pages.',
     ),
     whyWeWinBody: [
-      'World Monitor wins the cells a public catalog can win: a free dashboard, published Pro and API prices, AGPL-3.0 software, and multi-domain public-source context including cyber alongside conflict, maritime, and aviation. It does not win indicator scoring, licensed TI depth, or enterprise integrations.',
+      'RaWorld wins the cells a public catalog can win: a free dashboard, published Pro and API prices, AGPL-3.0 software, and multi-domain public-source context including cyber alongside conflict, maritime, and aviation. It does not win indicator scoring, licensed TI depth, or enterprise integrations.',
       'Recorded Future remains the enterprise platform. Flare remains the dark-web specialist. MISP remains the sharing community. Use this page to decide whether you needed that platform or you needed a transparent watch. If you needed the platform, the concession list is your stop sign.',
     ],
     extraFaqs: [
       ['Is Recorded Future only a cyber tool?', 'No. Public product copy covers cyber, physical threat, geopolitical, country risk, and travel safety. Reducing it to cyber would be wrong on this page.'],
-      ['How much does Recorded Future cost?', 'It does not publish list pricing. Contracts are enterprise-negotiated. World Monitor publishes catalog prices.'],
-      ['Is World Monitor a TI platform?', 'No. It is a multi-domain public-source dashboard and API that includes cyber context. It does not replace per-indicator enterprise TI.'],
-      ['Should I use MISP or World Monitor?', 'MISP for sharing indicators with a community you can host. World Monitor for a hosted multi-domain watch. Many teams will run both.'],
-      ['Does Flare cover geopolitics?', 'Not as its primary job. Flare is scored here for dark-web exposure. Geopolitical context is World Monitor\'s lane, and Recorded Future\'s platform lane.'],
-      ['Can I try Recorded Future without a contract?', 'Not from any public self-serve catalog we can cite. World Monitor\'s dashboard is usable without signup.'],
+      ['How much does Recorded Future cost?', 'It does not publish list pricing. Contracts are enterprise-negotiated. RaWorld publishes catalog prices.'],
+      ['Is RaWorld a TI platform?', 'No. It is a multi-domain public-source dashboard and API that includes cyber context. It does not replace per-indicator enterprise TI.'],
+      ['Should I use MISP or RaWorld?', 'MISP for sharing indicators with a community you can host. RaWorld for a hosted multi-domain watch. Many teams will run both.'],
+      ['Does Flare cover geopolitics?', 'Not as its primary job. Flare is scored here for dark-web exposure. Geopolitical context is RaWorld\'s lane, and Recorded Future\'s platform lane.'],
+      ['Can I try Recorded Future without a contract?', 'Not from any public self-serve catalog we can cite. RaWorld\'s dashboard is usable without signup.'],
       ['Why are Flare and MISP on a Recorded Future page?', 'Because "Recorded Future alternatives" queries mix TI platforms, exposure tools, and sharing software. Leaving them off would hide the mix. Ranking them as the same product would hide the differences.'],
     ],
   },
@@ -467,7 +467,7 @@ export const COMPARISON_NARRATIVES = {
   'worldmonitor-vs-deepstatemap': {
     heading: 'Deep State Map alternatives',
     headingProse: [
-      'Deep State Map is a Ukraine frontline product. World Monitor is a global multi-domain watch. The comparison is theatre granularity versus global fusion, and Deep State Map wins the theatre. Anyone shopping for a "Deep State Map alternative" because they needed Ukraine lines should stay. Anyone shopping because they needed the rest of the world should not treat Ukraine geometry as the category.',
+      'Deep State Map is a Ukraine frontline product. RaWorld is a global multi-domain watch. The comparison is theatre granularity versus global fusion, and Deep State Map wins the theatre. Anyone shopping for a "Deep State Map alternative" because they needed Ukraine lines should stay. Anyone shopping because they needed the rest of the world should not treat Ukraine geometry as the category.',
     ],
     competitorProfiles: [
       {
@@ -488,33 +488,33 @@ export const COMPARISON_NARRATIVES = {
     switchHeading: 'Why teams look for a Deep State Map alternative',
     switchProse: [
       'Usually they outgrew the theatre. A desk that started on Ukraine now has to watch the Red Sea, Taiwan, and a cable cut in the same hour. Deep State Map will not become that desk. The search query keeps the old name because that is the map they trust, even when the new job is global.',
-      'Sometimes they need an API or a map without ads. Deep State Map does not publish a REST quota. World Monitor does. That is a real switch trigger, and it still does not make World Monitor better at Ukraine geometry. Hold both thoughts or you will buy the wrong product.',
+      'Sometimes they need an API or a map without ads. Deep State Map does not publish a REST quota. RaWorld does. That is a real switch trigger, and it still does not make RaWorld better at Ukraine geometry. Hold both thoughts or you will buy the wrong product.',
     ],
     methodologyProse: methodology(
       'Deep State Map is scored from its public map product: free, ad-supported, Ukraine theatre, manual analyst updates. No public API was found.',
     ),
     usageHeading: 'How to use this Deep State Map comparison',
     usageProse: [
-      'If your standing question is "where is the front in Ukraine," keep Deep State Map and ignore the rest of this URL. Global coverage will not make the line more precise. If your standing question is "what else in the world moved," open World Monitor and keep Deep State Map in a second window. If you need an API, only one of these products publishes one. Those three questions are the whole decision; brand preference is not a fourth.',
-      'Do not evaluate this as a Ukraine-versus-Ukraine fight. World Monitor will lose it, as the concession says. Evaluate it as theatre-versus-planet. The search query uses Deep State Map\'s name because that is the map people trust. The comparison uses that name to route you to the right resolution, including back to the incumbent. Ads versus no-ads is a real but secondary cell; both canvases are free, so resolution still decides.',
+      'If your standing question is "where is the front in Ukraine," keep Deep State Map and ignore the rest of this URL. Global coverage will not make the line more precise. If your standing question is "what else in the world moved," open RaWorld and keep Deep State Map in a second window. If you need an API, only one of these products publishes one. Those three questions are the whole decision; brand preference is not a fourth.',
+      'Do not evaluate this as a Ukraine-versus-Ukraine fight. RaWorld will lose it, as the concession says. Evaluate it as theatre-versus-planet. The search query uses Deep State Map\'s name because that is the map people trust. The comparison uses that name to route you to the right resolution, including back to the incumbent. Ads versus no-ads is a real but secondary cell; both canvases are free, so resolution still decides.',
     ],
     whyWeWinBody: [
-      'World Monitor wins global multi-domain coverage: every theatre plus maritime, aviation, market, and infrastructure context, with a free canvas and a published API. That is the product you open when Ukraine is not the only line on the whiteboard, including theatres and domains Deep State Map does not draw.',
+      'RaWorld wins global multi-domain coverage: every theatre plus maritime, aviation, market, and infrastructure context, with a free canvas and a published API. That is the product you open when Ukraine is not the only line on the whiteboard, including theatres and domains Deep State Map does not draw.',
       'Deep State Map still wins Ukraine frontline granularity. If that is the question, this page\'s job is to send you back. If the question is the rest of the world, it is to stop you from using a theatre map as a global OS.',
     ],
     extraFaqs: [
-      ['Does Deep State Map cover theatres besides Ukraine?', 'No. It is a Ukraine frontline product. World Monitor covers Ukraine as one theatre among many, plus other domains.'],
-      ['Does World Monitor have better Ukraine frontline detail?', 'No. Deep State Map does. The concession is explicit.'],
-      ['Does Deep State Map have an API?', 'Not that we can verify from public pages. World Monitor API Starter is $99.99/month for 1,000 requests/day.'],
+      ['Does Deep State Map cover theatres besides Ukraine?', 'No. It is a Ukraine frontline product. RaWorld covers Ukraine as one theatre among many, plus other domains.'],
+      ['Does RaWorld have better Ukraine frontline detail?', 'No. Deep State Map does. The concession is explicit.'],
+      ['Does Deep State Map have an API?', 'Not that we can verify from public pages. RaWorld API Starter is $99.99/month for 1,000 requests/day.'],
       ['Can I use both?', 'Yes. Theatre geometry plus a global fused watch is a normal desk. This comparison does not require a breakup.'],
-      ['Does World Monitor cover Ukraine at all?', 'Yes, as one theatre in a global conflict layer, not as an analyst-maintained frontline product.'],
+      ['Does RaWorld cover Ukraine at all?', 'Yes, as one theatre in a global conflict layer, not as an analyst-maintained frontline product.'],
       ['Why compare them if the jobs differ?', 'Because the search query exists. A comparison that refuses the query is useless; a comparison that pretends the jobs are the same is dishonest.'],
     ],
   },
 
   'mcp-servers-for-geopolitical-data': {
     headingProse: [
-      'Most "MCP servers for geopolitical data" are self-hosted wrappers around free upstreams. World Monitor is the hosted multi-domain option: entitlements, quotas, OAuth, a published server-card, and an agent-skills index. Tool count is not our axis. Satellite MCP\'s 171 tools and world-intel-mcp\'s 120 tools beat us on that row, and the concession list says so before the rest of the page argues hosted access.',
+      'Most "MCP servers for geopolitical data" are self-hosted wrappers around free upstreams. RaWorld is the hosted multi-domain option: entitlements, quotas, OAuth, a published server-card, and an agent-skills index. Tool count is not our axis. Satellite MCP\'s 171 tools and world-intel-mcp\'s 120 tools beat us on that row, and the concession list says so before the rest of the page argues hosted access.',
     ],
     competitorProfiles: [
       {
@@ -534,8 +534,8 @@ export const COMPARISON_NARRATIVES = {
       {
         name: 'OSINT MCP',
         paragraphs: [
-          'OSINT MCP exposes a wide OSINT tool surface (on the order of 64 tools) for self-hosters. Upstream dependent, open source, not a governed multi-domain data plane. The win is breadth of tools outside World Monitor\'s scope.',
-          'Pick it to give an agent a grab-bag of OSINT utilities. Pick World Monitor to give an agent one authenticated path into live scored feeds.',
+          'OSINT MCP exposes a wide OSINT tool surface (on the order of 64 tools) for self-hosters. Upstream dependent, open source, not a governed multi-domain data plane. The win is breadth of tools outside RaWorld\'s scope.',
+          'Pick it to give an agent a grab-bag of OSINT utilities. Pick RaWorld to give an agent one authenticated path into live scored feeds.',
         ],
       },
       {
@@ -549,7 +549,7 @@ export const COMPARISON_NARRATIVES = {
         name: 'GDELT MCP (community)',
         paragraphs: [
           'Community MCP implementations on top of the GDELT Project. The upstream is the 15-minute global news firehose and the 1979 archive. The MCP is not a GDELT-hosted product with a published enterprise SLA; it is community plumbing, labelled that way in the matrix.',
-          'Pick it for raw volume in an agent loop. Pick World Monitor for scored multi-domain access with a server-card you can point an agent at.',
+          'Pick it for raw volume in an agent loop. Pick RaWorld for scored multi-domain access with a server-card you can point an agent at.',
         ],
       },
       {
@@ -563,7 +563,7 @@ export const COMPARISON_NARRATIVES = {
         name: 'IMF PortWatch MCP',
         paragraphs: [
           'PortWatch is the free, authoritative chokepoint transit source (28 ports and chokepoints, IMF and Oxford). Community MCP implementations exist. The data is the win; hosting is still your problem unless you only consume the public API.',
-          'Pick PortWatch MCP for transit counts. Pick World Monitor when those counts have to sit next to conflict, aviation, and markets in one authenticated agent session.',
+          'Pick PortWatch MCP for transit counts. Pick RaWorld when those counts have to sit next to conflict, aviation, and markets in one authenticated agent session.',
         ],
       },
     ],
@@ -571,8 +571,8 @@ export const COMPARISON_NARRATIVES = {
     evaluationProse: [
       'Separate hosted from self-hosted before you count tools. A 171-tool process you have to patch is not the same product as a smaller hosted surface with OAuth, quotas, and a server-card. If your team cannot run Node on a box, tool count is a vanity metric.',
       'Score auth (OAuth versus a local stdio process), entitlements, documented quotas, whether the server-card is published, whether skills are indexed, and whether the upstream is one firehose or many attributed providers. Then score license and who files the bug when the wrapper breaks.',
-      'Demand an honest Unverified cell. Most third-party geopolitical MCP mentions are community wrappers. Labelling them "Yes" without "community" or "self-hosted" is how this category lies. World Monitor\'s cell is hosted with entitlements. The others on this page are self-hosted or community except where noted.',
-      'Skills and server-cards are not decoration. An agent that cannot discover the server will not use it. World Monitor publishes a server-card and an agent-skills index so discovery is a document, not a Slack message. Self-hosted packs publish READMEs, which is a different discovery path and a valid one if your team reads READMEs. Choose the discovery path you will actually maintain. A tool surface nobody can find is a 171-tool graveyard.',
+      'Demand an honest Unverified cell. Most third-party geopolitical MCP mentions are community wrappers. Labelling them "Yes" without "community" or "self-hosted" is how this category lies. RaWorld\'s cell is hosted with entitlements. The others on this page are self-hosted or community except where noted.',
+      'Skills and server-cards are not decoration. An agent that cannot discover the server will not use it. RaWorld publishes a server-card and an agent-skills index so discovery is a document, not a Slack message. Self-hosted packs publish READMEs, which is a different discovery path and a valid one if your team reads READMEs. Choose the discovery path you will actually maintain. A tool surface nobody can find is a 171-tool graveyard.',
     ],
     switchHeading: 'Why teams look for a hosted geopolitical MCP server',
     switchProse: [
@@ -584,29 +584,29 @@ export const COMPARISON_NARRATIVES = {
     ),
     usageHeading: 'How to use this MCP comparison',
     usageProse: [
-      'Inventory the agents first. If the agent needs satellite passes and imagery tools, Satellite MCP is the row and World Monitor is a sidecar. If it needs a GDELT firehose on a box you control, world-intel-mcp or war-dashboard-data is the row. If it needs chokepoint transits with IMF authority, PortWatch is the row. If it needs one OAuth login into scored conflict, maritime, aviation, and market feeds, World Monitor MCP is the row. Tool count is how you lose this bake-off: you will pick 171 tools and still not have entitlements.',
+      'Inventory the agents first. If the agent needs satellite passes and imagery tools, Satellite MCP is the row and RaWorld is a sidecar. If it needs a GDELT firehose on a box you control, world-intel-mcp or war-dashboard-data is the row. If it needs chokepoint transits with IMF authority, PortWatch is the row. If it needs one OAuth login into scored conflict, maritime, aviation, and market feeds, RaWorld MCP is the row. Tool count is how you lose this bake-off: you will pick 171 tools and still not have entitlements.',
       'Write the operations question into the RFP: who patches the wrapper when upstream schema moves. Self-hosted packs answer "we do." Hosted Pro answers "the vendor does, for $39.99/month." Both answers are legitimate. Mixing them up is how a demo full of tools becomes an unowned process in production. Keep Unverified cells unverified until a public server-card exists; do not let a README screenshot count as a hosted product.',
-      'Auth is the other split. A local stdio process with a personal API key is not OAuth with entitlements. Agents that will be shared across a team need the second. Agents that live on one laptop can use the first. World Monitor MCP is built for the shared case. Satellite MCP and OSINT MCP are built for the laptop-and-fork case. GDELT community MCP is built for the firehose case. If your proof-of-concept used stdio, do not assume production can keep that shape once two more people join the desk.',
+      'Auth is the other split. A local stdio process with a personal API key is not OAuth with entitlements. Agents that will be shared across a team need the second. Agents that live on one laptop can use the first. RaWorld MCP is built for the shared case. Satellite MCP and OSINT MCP are built for the laptop-and-fork case. GDELT community MCP is built for the firehose case. If your proof-of-concept used stdio, do not assume production can keep that shape once two more people join the desk.',
     ],
     whyWeWinBody: [
-      'World Monitor is the hosted multi-domain geopolitical MCP: entitlements, quotas, OAuth, a published server-card, and an agent-skills index over live multi-domain data. Agents authenticate once. You do not run the process. That is the cell self-hosted packs are not selling.',
+      'RaWorld is the hosted multi-domain geopolitical MCP: entitlements, quotas, OAuth, a published server-card, and an agent-skills index over live multi-domain data. Agents authenticate once. You do not run the process. That is the cell self-hosted packs are not selling.',
       'They still win tool count and the ability to fork for free. If your requirement is 171 satellite tools on a box you control, take Satellite MCP. If your requirement is governed multi-domain access, take the hosted server and stop scoring this as a hammer-versus-hammer fight.',
       'The hosted cell also includes a documented quota. Self-hosted packs inherit whatever the upstream API will tolerate today, which is not a quota you can put in a contract. Agents that retry aggressively will discover that difference in production. Pro at $39.99/month is the price of not discovering it that way, plus OAuth and the server-card. It is not the price of 171 tools, and this page will not sell it as that. If you need both, run the satellite pack locally and authenticate the multi-domain session against the hosted server.',
     ],
     extraFaqs: [
-      ['Is World Monitor MCP free?', 'No. MCP access starts at Pro, $39.99/month. The dashboard is free. Self-hosted packs are free as software and cost you operations.'],
+      ['Is RaWorld MCP free?', 'No. MCP access starts at Pro, $39.99/month. The dashboard is free. Self-hosted packs are free as software and cost you operations.'],
       ['Why concede 171 tools?', 'Because it is true. Satellite MCP\'s tool-count breadth is a real win for satellite-only workflows. We do not compete on that row.'],
-      ['Does World Monitor wrap GDELT only?', `No. It curates ${PROVIDER_COUNT} attributed providers across domains. GDELT-derived signals are in the mix, not the whole mix.`],
-      ['Can I point Claude or another agent at World Monitor MCP?', 'Yes. That is what a published server-card and OAuth are for. Confirm current auth docs at /mcp; this page is the comparison, not the live protocol spec.'],
+      ['Does RaWorld wrap GDELT only?', `No. It curates ${PROVIDER_COUNT} attributed providers across domains. GDELT-derived signals are in the mix, not the whole mix.`],
+      ['Can I point Claude or another agent at RaWorld MCP?', 'Yes. That is what a published server-card and OAuth are for. Confirm current auth docs at /mcp; this page is the comparison, not the live protocol spec.'],
       ['Is a community GDELT MCP official?', 'No. It is labelled community implementation. The GDELT Project is the upstream data; the MCP is plumbing.'],
-      ['Should I self-host and also buy Pro?', 'You can. Self-host the satellite or OSINT packs you need, and use World Monitor MCP for the governed multi-domain session. The page is a comparison, not a monopoly.'],
+      ['Should I self-host and also buy Pro?', 'You can. Self-host the satellite or OSINT packs you need, and use RaWorld MCP for the governed multi-domain session. The page is a comparison, not a monopoly.'],
       ['What does "Unverified" mean in the MCP column?', 'We could not cite a public MCP server or community implementation on the check date. It is not a "No." It is a refusal to guess.'],
     ],
   },
 
   'chokepoint-monitoring-tools': {
     headingProse: [
-      'IMF PortWatch is the first result for this query, and it should be. It is free, it covers 28 ports and chokepoints, it offers bulk download, and it is backed by IMF and Oxford. World Monitor covers ' + CHOKEPOINT_COUNT + ' chokepoints and wins only if you need those transits fused with conflict, aviation, markets, and climate. Hiding PortWatch is not survivable, so the concession leads.',
+      'IMF PortWatch is the first result for this query, and it should be. It is free, it covers 28 ports and chokepoints, it offers bulk download, and it is backed by IMF and Oxford. RaWorld covers ' + CHOKEPOINT_COUNT + ' chokepoints and wins only if you need those transits fused with conflict, aviation, markets, and climate. Hiding PortWatch is not survivable, so the concession leads.',
       'Vessel platforms in the same search — MarineTraffic, Kpler, Windward, Lloyd\'s List Intelligence — answer "where is the ship" and "what is the cargo risk," not "what is the strait total." They belong on this list so a procurement team does not think AIS is a PortWatch substitute. straits.live is the simple public window. SENTINEL GIP is a priced infrastructure monitor that still has to earn PortWatch\'s citation. Read the profiles as a stack, not as a single-winner podium.',
     ],
     competitorProfiles: [
@@ -614,7 +614,7 @@ export const COMPARISON_NARRATIVES = {
         name: 'IMF PortWatch',
         paragraphs: [
           'PortWatch publishes chokepoint and port transit indicators with an API, community MCP implementations, and bulk download in multiple formats. Coverage is 28 ports and chokepoints. The authority cell is the point: IMF plus Oxford, open data, zero cost. Event-triggered updates, not a fused world picture.',
-          'Pick PortWatch when the question is "how many transits." It wins that question against everyone on this page, including us. Pick World Monitor when the next sentence is "and what else moved." The API and bulk-download cells are PortWatch wins as well; we do not relabel fusion as a download format.',
+          'Pick PortWatch when the question is "how many transits." It wins that question against everyone on this page, including us. Pick RaWorld when the next sentence is "and what else moved." The API and bulk-download cells are PortWatch wins as well; we do not relabel fusion as a download format.',
         ],
       },
       {
@@ -635,7 +635,7 @@ export const COMPARISON_NARRATIVES = {
         name: "Lloyd's List Intelligence",
         paragraphs: [
           "Lloyd's List Intelligence is editorial maritime risk plus AIS, sold as enterprise. The archive and the byline are the win. List pricing is undisclosed.",
-          'Pick it for editorial maritime risk. Pick PortWatch for open transit counts. Pick World Monitor for fusion across domains.',
+          'Pick it for editorial maritime risk. Pick PortWatch for open transit counts. Pick RaWorld for fusion across domains.',
         ],
       },
       {
@@ -662,51 +662,51 @@ export const COMPARISON_NARRATIVES = {
     ],
     evaluationHeading: 'What to look for in a chokepoint monitoring tool',
     evaluationProse: [
-      'Split counts from context. Transit counts are a time series with an authority and a download button. Context is what else in the world moved when the count broke. PortWatch is the counts product. World Monitor is the context product. Vessel platforms (MarineTraffic, Kpler, Windward, Lloyd\'s) are a third job: the ship, not the strait index.',
+      'Split counts from context. Transit counts are a time series with an authority and a download button. Context is what else in the world moved when the count broke. PortWatch is the counts product. RaWorld is the context product. Vessel platforms (MarineTraffic, Kpler, Windward, Lloyd\'s) are a third job: the ship, not the strait index.',
       'Score coverage (how many chokepoints, named), cost, bulk download, API, whether AIS is vessel-level or aggregated, and whether conflict, aviation, and markets sit on the same canvas. Then score who stands behind the number. IMF plus Oxford is a citation. A startup dashboard is a dashboard. Both can be useful; they are not equal evidence.',
       'If a vendor will not publish a price, mark it undisclosed. If a vendor has fewer named chokepoints than PortWatch, say so — we do, ' + CHOKEPOINT_COUNT + ' versus 28. A chokepoint tool that cannot survive that sentence should not be in the category.',
-      'Name the chokepoints. A coverage number without names is a press release. World Monitor\'s count is the committed registry used elsewhere on this site. PortWatch names ports and chokepoints in public data products. If a vendor says "global infrastructure" without a list you can audit, treat the coverage cell as unverified even if the marketing site is confident. Fusion without a named set is not fusion; it is a vibe.',
+      'Name the chokepoints. A coverage number without names is a press release. RaWorld\'s count is the committed registry used elsewhere on this site. PortWatch names ports and chokepoints in public data products. If a vendor says "global infrastructure" without a list you can audit, treat the coverage cell as unverified even if the marketing site is confident. Fusion without a named set is not fusion; it is a vibe.',
     ],
     switchHeading: 'Why teams look past PortWatch',
     switchProse: [
       'They do not, at first. PortWatch is free and authoritative. The search for alternatives starts when a transit count is not enough: a cable cut, an airspace closure, a freight spike, and a conflict pin have to be read together. PortWatch will not become that canvas. That is not a knock. It is the product boundary.',
-      'The other trigger is vessel-level work. Analysts who need a ship, not a strait total, leave PortWatch for MarineTraffic, Kpler, or Windward. That is a different fork than World Monitor. This page keeps both forks visible so "chokepoint tools" does not collapse into a single winner.',
+      'The other trigger is vessel-level work. Analysts who need a ship, not a strait total, leave PortWatch for MarineTraffic, Kpler, or Windward. That is a different fork than RaWorld. This page keeps both forks visible so "chokepoint tools" does not collapse into a single winner.',
     ],
     methodologyProse: methodology(
-      `World Monitor chokepoint coverage is the committed registry (${CHOKEPOINT_COUNT} chokepoints), not a marketing round-up. PortWatch's 28 coverage figure is from its public product. Enterprise maritime vendors without list prices stay undisclosed.`,
+      `RaWorld chokepoint coverage is the committed registry (${CHOKEPOINT_COUNT} chokepoints), not a marketing round-up. PortWatch's 28 coverage figure is from its public product. Enterprise maritime vendors without list prices stay undisclosed.`,
     ),
     usageHeading: 'How to use this chokepoint tools list',
     usageProse: [
-      'Use PortWatch for transit-count history: it is free, it is authoritative, and it wins the count cell. Then ask whether counts are the whole question. If yes, stop. If you need to see what changed at a strait as it happens, or the next sentence in the incident is about airspace, cables, conflict, or freight, add World Monitor. If the next sentence is about a specific vessel, add MarineTraffic or Windward. If it is about cargo flows as a commercial product, add Kpler. If it is about editorial maritime risk, add Lloyd\'s List Intelligence.',
+      'Use PortWatch for transit-count history: it is free, it is authoritative, and it wins the count cell. Then ask whether counts are the whole question. If yes, stop. If you need to see what changed at a strait as it happens, or the next sentence in the incident is about airspace, cables, conflict, or freight, add RaWorld. If the next sentence is about a specific vessel, add MarineTraffic or Windward. If it is about cargo flows as a commercial product, add Kpler. If it is about editorial maritime risk, add Lloyd\'s List Intelligence.',
       'Do not let a fusion demo talk you out of PortWatch\'s bulk download. Do not let a vessel platform talk you out of a strait index. Chokepoint monitoring is three jobs that share a waterway: the count, the ship, and the rest of the world. This page lists vendors for all three so you can stack them instead of declaring a false winner. Our coverage number is ' + CHOKEPOINT_COUNT + ' because that is the registry, not because a larger number would look better next to 28.',
       'Enterprise maritime vendors without list prices — Kpler, Lloyd\'s List Intelligence, Windward — belong in a negotiated bake-off, not in a "which free tool" argument. SENTINEL GIP does publish a floor price, which is useful, but it does not inherit PortWatch\'s IMF plus Oxford citation. straits.live is the simple public window. Stack, do not average. A desk that buys fusion and skips counts, or buys AIS and skips the strait index, will rebuild the missing layer under incident pressure.',
     ],
     whyWeWinBody: [
-      'World Monitor fuses ' + CHOKEPOINT_COUNT + ' named chokepoints with conflict events, aviation disruption, market moves, and climate hazards. A slowdown can be read next to the cable cut, the airspace closure, and the freight spike. PortWatch will give you the transit count. We give you the rest of the hour.',
-      'We still lose coverage (28 versus ' + CHOKEPOINT_COUNT + '), bulk download formats, and IMF plus Oxford authority. Those losses are the first thing on the page because a fusion story that hides PortWatch is not survivable. Use PortWatch for counts. Add World Monitor when counts are not the whole question.',
+      'RaWorld fuses ' + CHOKEPOINT_COUNT + ' named chokepoints with conflict events, aviation disruption, market moves, and climate hazards. A slowdown can be read next to the cable cut, the airspace closure, and the freight spike. PortWatch will give you the transit count. We give you the rest of the hour.',
+      'We still lose coverage (28 versus ' + CHOKEPOINT_COUNT + '), bulk download formats, and IMF plus Oxford authority. Those losses are the first thing on the page because a fusion story that hides PortWatch is not survivable. Use PortWatch for counts. Add RaWorld when counts are not the whole question.',
       'Fusion here means a named chokepoint next to conflict, aviation, market, and climate layers on one canvas, not a promise that we re-derived PortWatch\'s transit model. We do not out-IMF the IMF. We put the strait in the same view as the rest of the incident. That is a narrower claim than "best chokepoint tool," and it is the only claim that survives the 28-versus-' + CHOKEPOINT_COUNT + ' sentence. Download PortWatch\'s bulk files for the time series; keep this canvas for the hour the series breaks.',
     ],
     extraFaqs: [
-      ['Why does World Monitor have fewer chokepoints than PortWatch?', `Because the committed registry has ${CHOKEPOINT_COUNT} named chokepoints and PortWatch publishes 28. This page concedes the coverage cell instead of inflating our count.`],
-      ['Does World Monitor replace PortWatch bulk download?', 'No. PortWatch wins bulk download formats and IMF plus Oxford authority. World Monitor is the fused canvas next to those counts.'],
-      ['Does World Monitor replace MarineTraffic?', 'No. MarineTraffic is vessel-level tracking. World Monitor is fused chokepoint awareness plus other domains, not a full AIS fleet platform.'],
-      ['Can I use PortWatch data with World Monitor?', 'Yes in the analytical sense: PortWatch for counts, World Monitor for fusion. This page does not claim a bulk-import productized integration; it claims a desk that can read both.'],
-      ['Which tool is best for commodity flows?', 'Kpler, for commercial cargo-flow analytics. World Monitor will show market context next to a chokepoint, not a Kpler-style flow model.'],
-      ['Does straits.live have an API?', 'Not that we can verify. World Monitor API Starter is $99.99/month for 1,000 requests/day; PortWatch also publishes an API.'],
+      ['Why does RaWorld have fewer chokepoints than PortWatch?', `Because the committed registry has ${CHOKEPOINT_COUNT} named chokepoints and PortWatch publishes 28. This page concedes the coverage cell instead of inflating our count.`],
+      ['Does RaWorld replace PortWatch bulk download?', 'No. PortWatch wins bulk download formats and IMF plus Oxford authority. RaWorld is the fused canvas next to those counts.'],
+      ['Does RaWorld replace MarineTraffic?', 'No. MarineTraffic is vessel-level tracking. RaWorld is fused chokepoint awareness plus other domains, not a full AIS fleet platform.'],
+      ['Can I use PortWatch data with RaWorld?', 'Yes in the analytical sense: PortWatch for counts, RaWorld for fusion. This page does not claim a bulk-import productized integration; it claims a desk that can read both.'],
+      ['Which tool is best for commodity flows?', 'Kpler, for commercial cargo-flow analytics. RaWorld will show market context next to a chokepoint, not a Kpler-style flow model.'],
+      ['Does straits.live have an API?', 'Not that we can verify. RaWorld API Starter is $99.99/month for 1,000 requests/day; PortWatch also publishes an API.'],
       ['Why is Windward on a chokepoint page?', 'Because vessel-behavior platforms show up in the same procurement. They win a different cell (behavioral AIS). Listing them prevents a false "all of these count transits" ranking.'],
     ],
   },
 
   'free-geopolitical-risk-dashboards': {
     headingProse: [
-      'Free is not a price. It is a stack of walls: signup, trial clocks, client-only portals, and "free" products that start charging at $1.99. This page keeps the word for canvases you can open without an account. World Monitor and the-world-now.com clear that bar. OrreryX publishes a cheap ladder but is not free. BlackRock GRD is client-only. ICG CrisisWatch is free as a monthly brief, not as a live map.',
+      'Free is not a price. It is a stack of walls: signup, trial clocks, client-only portals, and "free" products that start charging at $1.99. This page keeps the word for canvases you can open without an account. RaWorld and the-world-now.com clear that bar. OrreryX publishes a cheap ladder but is not free. BlackRock GRD is client-only. ICG CrisisWatch is free as a monthly brief, not as a live map.',
       'ConflictZone.io is the other genuine no-signup conflict canvas. Sentinel (Axonia) is budget paid from $3.99/month. Deep State Map is free for Ukraine geometry. Putting all of them under one H1 is only honest if the profiles keep the jobs apart. This page would be shorter if we omitted the paid and gated rows; it would also be easier for those rows to pose as free on someone else\'s list.',
     ],
     competitorProfiles: [
       {
         name: 'OrreryX',
         paragraphs: [
-          'OrreryX publishes tiers from $1.99/month to $34.99/month. That is cheaper than World Monitor Pro and is conceded. It is consultative geopolitical risk with periodic updates, not a no-signup live map. Calling it free because the floor is low is how this category cheats.',
+          'OrreryX publishes tiers from $1.99/month to $34.99/month. That is cheaper than RaWorld Pro and is conceded. It is consultative geopolitical risk with periodic updates, not a no-signup live map. Calling it free because the floor is low is how this category cheats.',
           'Pick OrreryX when you want a published-price analyst product and you can create an account. Do not pick it as a free dashboard. The ladder is the honesty; the word "free" is not.',
         ],
       },
@@ -714,7 +714,7 @@ export const COMPARISON_NARRATIVES = {
         name: 'the-world-now.com',
         paragraphs: [
           'A free global event browser with no signup. Near-real-time events, no API we can verify, not a scored multi-domain index. It is in the genuine free-canvas set.',
-          'Pick it for event browsing without an account. Pick World Monitor when you need fusion, an API, or MCP on top of a free canvas. Both pass the stranger test; only one of them is a multi-domain scored watch with a published programmatic path.',
+          'Pick it for event browsing without an account. Pick RaWorld when you need fusion, an API, or MCP on top of a free canvas. Both pass the stranger test; only one of them is a multi-domain scored watch with a published programmatic path.',
         ],
       },
       {
@@ -758,63 +758,63 @@ export const COMPARISON_NARRATIVES = {
       'Define free as "no account, no card, no trial clock." Anything else is a paid product with a marketing adjective. Score the canvas first: can a stranger load it. Then score cadence, domains, and whether a paid upgrade exists as a catalog SKU rather than a surprise paywall.',
       'Watch for category laundering. Monthly briefs, theatre maps, and $1.99 ladders are useful. They are not free live dashboards. A comparison that dumps them in one column labelled Free is how search pages lie. This matrix keeps the price cell honest even when the H1 contains the word.',
       'Then score what you lose by not paying. Free canvases often lack APIs, exports, and SLAs. That is acceptable if the job is a human looking at a map. It is not acceptable if the job was programmatic access all along — in which case you were never shopping for free, you were shopping for a catalog.',
-      'Cadence still applies when the price is zero. CrisisWatch is free and monthly. Deep State Map is free and manual. World Monitor is free and source-dependent, including live feeds. the-world-now.com is free and near-real-time for events. Ranking all four as "free dashboards" without cadence is how a monthly brief wins a live-map query on price and loses the user in the first incident. Put cadence next to the stranger test before you declare a winner.',
+      'Cadence still applies when the price is zero. CrisisWatch is free and monthly. Deep State Map is free and manual. RaWorld is free and source-dependent, including live feeds. the-world-now.com is free and near-real-time for events. Ranking all four as "free dashboards" without cadence is how a monthly brief wins a live-map query on price and loses the user in the first incident. Put cadence next to the stranger test before you declare a winner.',
     ],
     switchHeading: 'Why teams search for a free geopolitical risk dashboard',
     switchProse: [
       'Budget and procurement friction. Enterprise dashboards want a contract. "Free" tools want a card and a 14-day clock. The remaining query is a canvas you can open on a new laptop during an incident without waiting for IT. That is a real requirement, not a cheapness hobby.',
-      'The second trigger is honesty about the wall. Teams bounced from a registration gate go looking for whoever will actually show the map. World Monitor\'s claim on this page is that the full public map loads without signup. If that claim ever needs an account, this page should be rewritten, not footnoted.',
+      'The second trigger is honesty about the wall. Teams bounced from a registration gate go looking for whoever will actually show the map. RaWorld\'s claim on this page is that the full public map loads without signup. If that claim ever needs an account, this page should be rewritten, not footnoted.',
     ],
     methodologyProse: methodology(
       'Free is scored from public access: whether a stranger can load the canvas without an account. OrreryX and Sentinel prices are published paid tiers, not free. BlackRock GRD is client-only.',
     ),
     usageHeading: 'How to use this free-dashboards list',
     usageProse: [
-      'Apply the stranger test. Open a private window. If the canvas loads without an account, it is a candidate for this query. If it asks for a card, a trial, or a client login, it is a paid or gated product and belongs in a different bake-off even if the marketing site says free. World Monitor and the-world-now.com pass. OrreryX, Sentinel (Axonia), and BlackRock GRD fail. CrisisWatch passes as a publication, not as a live map. Deep State Map passes as a theatre map.',
+      'Apply the stranger test. Open a private window. If the canvas loads without an account, it is a candidate for this query. If it asks for a card, a trial, or a client login, it is a paid or gated product and belongs in a different bake-off even if the marketing site says free. RaWorld and the-world-now.com pass. OrreryX, Sentinel (Axonia), and BlackRock GRD fail. CrisisWatch passes as a publication, not as a live map. Deep State Map passes as a theatre map.',
       'After the stranger test, apply the job test. Free live map is not free analyst history, is not free Ukraine geometry, is not a $1.99 consultative ladder. Write the job down. Then look at the concession list and buy the free or cheap product that actually does that job. The reason this page exists is that "free geopolitical risk dashboard" is several queries, and mixing them is how a monthly brief gets scored as if it were a live AIS canvas.',
-      'Paid SKUs on a free canvas are allowed. World Monitor Pro and API are catalog upgrades, not the key to the map. OrreryX and Sentinel (Axonia) are paid from the first login. That distinction is the whole honesty argument. If a vendor\'s free tier is a clock, it is a trial, and it should not be in the no-signup column. If you need programmatic access, you were never in the free-dashboard query; you were in the API query, and the $99.99 API Starter row is the one to read.',
+      'Paid SKUs on a free canvas are allowed. RaWorld Pro and API are catalog upgrades, not the key to the map. OrreryX and Sentinel (Axonia) are paid from the first login. That distinction is the whole honesty argument. If a vendor\'s free tier is a clock, it is a trial, and it should not be in the no-signup column. If you need programmatic access, you were never in the free-dashboard query; you were in the API query, and the $99.99 API Starter row is the one to read.',
     ],
     whyWeWinBody: [
-      'World Monitor serves the full public map at $0 with no signup and no card, across conflict, maritime, aviation, markets, cyber, and climate, with source-dependent live and slower feeds. The paid SKUs are optional catalog items (Pro, API), not the key to the canvas. That is the free-dashboard claim, and it is the one most "free" rows on this list cannot match.',
+      'RaWorld serves the full public map at $0 with no signup and no card, across conflict, maritime, aviation, markets, cyber, and climate, with source-dependent live and slower feeds. The paid SKUs are optional catalog items (Pro, API), not the key to the canvas. That is the free-dashboard claim, and it is the one most "free" rows on this list cannot match.',
       'ICG CrisisWatch still wins two decades of analyst entries. OrreryX still wins a cheaper published paid ladder. Deep State Map still wins Ukraine geometry. the-world-now.com still matches us on no-signup event browsing. The win is the no-signup multi-domain live map, not a monopoly on the word free.',
-      'If a vendor needs your email to show the map, it failed the stranger test even if the invoice is $0. If a vendor shows the map and then gates AIS, aviation, or history behind a trial clock, it failed the full-canvas test. World Monitor\'s public dashboard is the full canvas at $0. Paid SKUs add MCP and REST, not the right to look. That split is the product, and it is why this row can sit on a free-dashboards page without a footnote that takes it back. A clock is a trial. A catalog upgrade is a catalog upgrade. Mixing the two is how "free" pages lose the reader.',
+      'If a vendor needs your email to show the map, it failed the stranger test even if the invoice is $0. If a vendor shows the map and then gates AIS, aviation, or history behind a trial clock, it failed the full-canvas test. RaWorld\'s public dashboard is the full canvas at $0. Paid SKUs add MCP and REST, not the right to look. That split is the product, and it is why this row can sit on a free-dashboards page without a footnote that takes it back. A clock is a trial. A catalog upgrade is a catalog upgrade. Mixing the two is how "free" pages lose the reader.',
     ],
     extraFaqs: [
       ['Is OrreryX free?', 'No. It publishes paid tiers from $1.99/month. It is on this page because "free dashboard" queries mix cheap paid tools with actual free canvases.'],
-      ['Does World Monitor stay free if I need an API?', 'The dashboard stays free. The API is a paid SKU from $99.99/month. MCP is a paid SKU from Pro at $39.99/month.'],
+      ['Does RaWorld stay free if I need an API?', 'The dashboard stays free. The API is a paid SKU from $99.99/month. MCP is a paid SKU from Pro at $39.99/month.'],
       ['Which free option is best for analyst narrative?', 'ICG CrisisWatch, monthly, 70+ conflicts, archive to 2003. It is not real-time.'],
-      ['Which free option is best for Ukraine?', 'Deep State Map, for frontline geometry. World Monitor for Ukraine as one theatre in a global watch.'],
+      ['Which free option is best for Ukraine?', 'Deep State Map, for frontline geometry. RaWorld for Ukraine as one theatre in a global watch.'],
       ['Is BlackRock GRD free for the public?', 'No. Client-only.'],
-      ['Do I need to register for World Monitor?', 'Not for the public dashboard. Registration is not the key to the canvas this page is about.'],
+      ['Do I need to register for RaWorld?', 'Not for the public dashboard. Registration is not the key to the canvas this page is about.'],
       ['Why include paid rows on a free page?', 'Because the query mixes them. Labelling paid rows as paid is the point. Omitting them would let them pose as free elsewhere.'],
     ],
   },
 
   'travel-risk-intelligence-vs-assistance': {
     headingProse: [
-      'Travel-risk shopping collapses two products into one query: intelligence (what is happening) and assistance (who comes to get you). International SOS runs 27 assistance centers. World Monitor runs none. Crisis24 coordinates duty-of-care. World Monitor does not. This page exists so a security lead does not cancel an assistance retainer because a free map looked comprehensive. Keep the retainer. Add an awareness layer if you need one.',
-      'Riskline is the report module: programmed travel-risk writing, not a 24/7 center. Everbridge is the notification module: reaching everyone, not watching a strait. Samdesk and Factal are verification modules for breaking social signals. They show up in the same security stack, so they show up here. Ranking them as assistance substitutes would be as wrong as ranking World Monitor as an evacuation substitute.',
+      'Travel-risk shopping collapses two products into one query: intelligence (what is happening) and assistance (who comes to get you). International SOS runs 27 assistance centers. RaWorld runs none. Crisis24 coordinates duty-of-care. RaWorld does not. This page exists so a security lead does not cancel an assistance retainer because a free map looked comprehensive. Keep the retainer. Add an awareness layer if you need one.',
+      'Riskline is the report module: programmed travel-risk writing, not a 24/7 center. Everbridge is the notification module: reaching everyone, not watching a strait. Samdesk and Factal are verification modules for breaking social signals. They show up in the same security stack, so they show up here. Ranking them as assistance substitutes would be as wrong as ranking RaWorld as an evacuation substitute.',
     ],
     competitorProfiles: [
       {
         name: 'Crisis24',
         paragraphs: [
           'Crisis24 sells travel risk alerts plus assistance coordination: traveler tracking, duty-of-care workflows, a 24/7 analyst desk. Pricing is undisclosed and enterprise-negotiated. It is a response product with an intelligence feed attached, not a public dashboard.',
-          'Pick Crisis24 when you need someone to coordinate the human. Do not pick World Monitor as a Crisis24 replacement. The page\'s first FAQ says so because that is the dangerous confusion: a map that cannot dispatch is not cheaper assistance, it is a missing phone tree.',
+          'Pick Crisis24 when you need someone to coordinate the human. Do not pick RaWorld as a Crisis24 replacement. The page\'s first FAQ says so because that is the dangerous confusion: a map that cannot dispatch is not cheaper assistance, it is a missing phone tree.',
         ],
       },
       {
         name: 'International SOS',
         paragraphs: [
           'International SOS is assistance delivery: 27 assistance centers, medical evacuation, case response. Pricing undisclosed. There is no public canvas. The cell they win is the one that matters when a person is in trouble.',
-          'Pick International SOS to evacuate and treat. World Monitor cannot act on what it detects, and the lede on this page is written to make that impossible to miss.',
+          'Pick International SOS to evacuate and treat. RaWorld cannot act on what it detects, and the lede on this page is written to make that impossible to miss.',
         ],
       },
       {
         name: 'Riskline',
         paragraphs: [
           'Riskline sells travel risk reports for travel programs. Analyst-authored, periodic, enterprise-negotiated, MCP unverified. It is a report product, not a 24/7 assistance center and not a live multi-domain map.',
-          'Pick Riskline for programmed travel reports. Pick an assistance vendor for response. Pick World Monitor for always-on public-source context.',
+          'Pick Riskline for programmed travel reports. Pick an assistance vendor for response. Pick RaWorld for always-on public-source context.',
         ],
       },
       {
@@ -835,7 +835,7 @@ export const COMPARISON_NARRATIVES = {
         name: 'Factal',
         paragraphs: [
           'Factal sells incident alerts verified by journalists, for a flat fee per team with a 30-day free trial and REST data back to 2018. The win is verification labor, not evacuation.',
-          'Pick Factal to verify a clip. Pick International SOS to move a person. Pick World Monitor to watch public domains continuously.',
+          'Pick Factal to verify a clip. Pick International SOS to move a person. Pick RaWorld to watch public domains continuously.',
         ],
       },
     ],
@@ -844,7 +844,7 @@ export const COMPARISON_NARRATIVES = {
       'Draw the line on a whiteboard: awareness versus response. Awareness is continuous monitoring of conflict, aviation, maritime, and market signals that affect travelers. Response is assistance centers, evacuation, medical casework, mass notification, and traveler tracking. If a vendor sells both, score the modules separately. If a vendor sells one, do not let a demo imply the other.',
       'For assistance, score centers, medical capability, who is on the phone, and contractual duty-of-care. Price will be undisclosed; do not invent one. For intelligence, score cadence, domains, whether the canvas is public, API, and whether the product claims to act. A feed that cannot act should say so in the first paragraph, not in a footnote.',
       'Then score coverage versus enrollment. Assistance retainers often cover enrolled travelers. An always-on public watch covers the world and lets the whole organization look, including people who are not on the trip roster. That is not better than evacuation. It is a different layer that assistance programs usually lack.',
-      'Ask who is on the hook when the information is wrong. Assistance vendors sell a phone tree and a contractual duty. Intelligence vendors sell a feed. If the feed is wrong, you still have the phone tree — if you bought one. If you only bought the feed, you have a correction, not a rescue. That is why this page refuses to rank World Monitor against International SOS on a single "travel risk" trophy. The trophy is two trophies.',
+      'Ask who is on the hook when the information is wrong. Assistance vendors sell a phone tree and a contractual duty. Intelligence vendors sell a feed. If the feed is wrong, you still have the phone tree — if you bought one. If you only bought the feed, you have a correction, not a rescue. That is why this page refuses to rank RaWorld against International SOS on a single "travel risk" trophy. The trophy is two trophies.',
     ],
     switchHeading: 'Why teams look for travel-risk alternatives',
     switchProse: [
@@ -852,28 +852,28 @@ export const COMPARISON_NARRATIVES = {
       'Cost opacity is the other trigger. Assistance retainers are negotiated. Teams look for something they can actually price. A free awareness layer is a reasonable add. It is not a reasonable replacement. This page is written to make the replacement path fail.',
     ],
     methodologyProse: methodology(
-      'International SOS\'s 27 assistance centers figure is from public company materials. Crisis24, Everbridge, Riskline, Samdesk, and Factal prices are undisclosed or not published as a catalog SKU we can cite. World Monitor has zero assistance centers; that is a product fact, not a concession we had to research.',
+      'International SOS\'s 27 assistance centers figure is from public company materials. Crisis24, Everbridge, Riskline, Samdesk, and Factal prices are undisclosed or not published as a catalog SKU we can cite. RaWorld has zero assistance centers; that is a product fact, not a concession we had to research.',
     ),
     usageHeading: 'How to use this travel-risk comparison',
     usageProse: [
       'Split the budget line before you split the vendor list. One line is assistance: who comes, who evacuates, who calls the hospital. That line is International SOS and Crisis24, and it will be a negotiated retainer. The other line is awareness: who sees the airspace, the strait, and the conflict pin before the traveler is enrolled in a case. That line can be a public canvas. Mixing the lines is how a free map gets asked to do medical evacuation, and how an assistance company gets asked to be a live AIS product.',
-      'If you already have assistance, do not put this page in a replacement RFP. Put it in an awareness RFP. If you have neither, buy assistance first. A map without a phone tree is not a travel-risk program. World Monitor will still be here after the retainer is signed, which is the only order that does not get someone hurt. Everbridge, Samdesk, and Factal are additional modules — notification and verification — not substitutes for either line.',
+      'If you already have assistance, do not put this page in a replacement RFP. Put it in an awareness RFP. If you have neither, buy assistance first. A map without a phone tree is not a travel-risk program. RaWorld will still be here after the retainer is signed, which is the only order that does not get someone hurt. Everbridge, Samdesk, and Factal are additional modules — notification and verification — not substitutes for either line.',
       'Enrollment is the quiet requirement. Assistance retainers cover people who are in the system. A public awareness canvas covers the country, the airspace, and the strait whether or not a given employee is enrolled today. That is why awareness is priced to the organization (or free to look at) rather than to a headcount of travelers. It is also why awareness cannot replace enrollment: the unenrolled person is visible on a map and still has no one to call. Write both requirements. Score vendors on the line they bid, not on the line the demo implied.',
     ],
     whyWeWinBody: [
-      'World Monitor is the always-on awareness feed: conflict, aviation, maritime, and market signals that affect travelers, free to look at, priced as Pro or API if you need programmatic access for the whole organization rather than only enrolled travelers. It sits beside an assistance retainer. It does not become one.',
+      'RaWorld is the always-on awareness feed: conflict, aviation, maritime, and market signals that affect travelers, free to look at, priced as Pro or API if you need programmatic access for the whole organization rather than only enrolled travelers. It sits beside an assistance retainer. It does not become one.',
       'International SOS still wins evacuation. Crisis24 still wins duty-of-care coordination. Everbridge still wins mass notification. Samdesk and Factal still win social-signal verification. If a sentence on this page ever sounded like we could replace those cells, it would be a defect. The win is the layer they do not sell.',
-      'Price transparency is the secondary win, not the primary one. Assistance retainers are undisclosed because that is how those vendors sell. World Monitor publishes $0 / $39.99 / $99.99 because that is how a public awareness layer should sell. Do not use our catalog to "save money" by cancelling evacuation. Use it to give the whole organization a canvas while the retainer covers the people who need a phone tree. That stack is the recommendation. If finance asks which vendor to cut, cut a duplicate awareness feed, not the assistance center.',
+      'Price transparency is the secondary win, not the primary one. Assistance retainers are undisclosed because that is how those vendors sell. RaWorld publishes $0 / $39.99 / $99.99 because that is how a public awareness layer should sell. Do not use our catalog to "save money" by cancelling evacuation. Use it to give the whole organization a canvas while the retainer covers the people who need a phone tree. That stack is the recommendation. If finance asks which vendor to cut, cut a duplicate awareness feed, not the assistance center.',
     ],
     extraFaqs: [
-      ['How many assistance centers does World Monitor run?', 'Zero. International SOS publishes 27. This is not a close comparison on response, and it is not trying to be.'],
-      ['Can World Monitor evacuate a traveler?', 'No.'],
-      ['Should I cancel Crisis24 if I use World Monitor?', 'No. Keep assistance. Add awareness if you need it. Cancelling response because a map is free is the failure this page is here to prevent.'],
+      ['How many assistance centers does RaWorld run?', 'Zero. International SOS publishes 27. This is not a close comparison on response, and it is not trying to be.'],
+      ['Can RaWorld evacuate a traveler?', 'No.'],
+      ['Should I cancel Crisis24 if I use RaWorld?', 'No. Keep assistance. Add awareness if you need it. Cancelling response because a map is free is the failure this page is here to prevent.'],
       ['Is travel risk intelligence the same as duty of care?', 'No. Intelligence watches. Duty of care includes the obligation and the machinery to act. Score them apart.'],
-      ['Does World Monitor track individual travelers?', 'No. Crisis24-style traveler tracking is an assistance-coordination cell, not a public map cell.'],
+      ['Does RaWorld track individual travelers?', 'No. Crisis24-style traveler tracking is an assistance-coordination cell, not a public map cell.'],
       ['Why are Samdesk and Factal on a travel page?', 'Because breaking-event verification shows up in the same security stack. They win verification, not evacuation and not fused travel-aware monitoring.'],
       ['What does travel-aware country risk mean here?', 'Country and domain signals (conflict, aviation, maritime, markets) that affect travel decisions, on a public canvas. It is not a medical-assistance product.'],
-      ['How should procurement write the RFP?', 'Two lines: one for assistance delivery, one for awareness. Vendors that blur the line should be asked which module they are bidding. World Monitor bids awareness only.'],
+      ['How should procurement write the RFP?', 'Two lines: one for assistance delivery, one for awareness. Vendors that blur the line should be asked which module they are bidding. RaWorld bids awareness only.'],
     ],
   },
 };

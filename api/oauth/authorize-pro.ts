@@ -127,9 +127,9 @@ function htmlError(
   extraHeaders: Record<string, string> = {},
 ): Response {
   return new Response(
-    `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Error &#x2014; WorldMonitor MCP</title>
+    `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Error &#x2014; RaWorld MCP</title>
 <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:ui-monospace,'SF Mono','Cascadia Code',monospace;background:#0a0a0a;color:#e8e8e8;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem}.wm-logo{display:flex;align-items:center;gap:.5rem;margin-bottom:2rem;text-decoration:none}.wm-logo svg{color:#2d8a6e}.wm-logo-text{font-size:.75rem;color:#555;letter-spacing:.1em;text-transform:uppercase}.card{width:100%;max-width:420px;background:#111;border:1px solid #1e1e1e;padding:2rem}h1{font-size:.95rem;font-weight:600;color:#ef4444;margin-bottom:.75rem;letter-spacing:.02em}p{font-size:.85rem;color:#666;line-height:1.6}.back{display:inline-block;margin-top:1.5rem;font-size:.75rem;color:#444;text-decoration:none;letter-spacing:.03em}.back:hover{color:#888}.footer{margin-top:1.5rem;font-size:.7rem;color:#2a2a2a;text-align:center}.footer a{color:#333;text-decoration:none}.footer a:hover{color:#555}</style></head>
-<body><a href="https://www.worldmonitor.app" class="wm-logo" target="_blank" rel="noopener">${GLOBE_SVG}<span class="wm-logo-text">WorldMonitor MCP</span></a>
+<body><a href="https://www.worldmonitor.app" class="wm-logo" target="_blank" rel="noopener">${GLOBE_SVG}<span class="wm-logo-text">RaWorld MCP</span></a>
 <div class="card"><h1>${escapeHtml(title)}</h1><p>${escapeHtml(detail)}</p><a href="#" id="back" class="back">&#8592; go back</a></div>
 <script>document.getElementById('back').addEventListener('click',function(e){e.preventDefault();history.back();});</script>
 <p class="footer"><a href="https://www.worldmonitor.app" target="_blank" rel="noopener">worldmonitor.app</a></p>
@@ -141,7 +141,7 @@ function htmlError(
 function proRequiredPage(): Response {
   return htmlError(
     'Pro Subscription Required',
-    'A WorldMonitor Pro subscription is required for this connection. Please subscribe and try again.',
+    'A RaWorld Pro subscription is required for this connection. Please subscribe and try again.',
     403,
   );
 }
@@ -173,7 +173,7 @@ function billingVerificationPage(
   if (!denial.retryable) {
     return htmlError(
       'Subscription Lapsed',
-      'Your WorldMonitor Pro subscription is no longer active, so this connection '
+      'Your RaWorld Pro subscription is no longer active, so this connection '
       + 'cannot be authorized. Renew your subscription at worldmonitor.app, then '
       + 'start the connection again from your MCP client.',
       403,
@@ -183,7 +183,7 @@ function billingVerificationPage(
   headers['Retry-After'] = String(denial.retryAfterSeconds);
   return htmlError(
     'Verifying Your Subscription',
-    `We could not confirm your WorldMonitor Pro subscription just now — this is `
+    `We could not confirm your RaWorld Pro subscription just now — this is `
     + `temporary and does not mean your subscription has a problem. Wait about `
     + `${denial.retryAfterSeconds} seconds, then start the connection again from your `
     + `MCP client. (This authorization session is single-use, so it has to be `

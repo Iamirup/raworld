@@ -202,7 +202,7 @@ export function normalizeBriefText(text, { countryCode = '', countryName = '' } 
 // Check whole paragraphs/bullets against EACH cited source: this deliberately
 // withholds mixed-source paragraphs when per-sentence attribution is ambiguous.
 // Uncited lines must still ground their names in the retained source set.
-// A line citing World Monitor evidence ([E1]) is one claim over everything it
+// A line citing RaWorld evidence ([E1]) is one claim over everything it
 // cites: its names must appear in the cited titles or fact texts, and its
 // numbers in the cited fact texts, mirroring the server's claim validator.
 export function briefCitationGroundingGap(brief, country = {}, { requireHeadlineCitation = true } = {}) {

@@ -54,5 +54,5 @@ Pass that validator to `runSeed` in `scripts/seed-china-macro.mjs`. Add a regres
 
 ## Related Issues
 
-- [Issue #5275](https://github.com/koala73/worldmonitor/issues/5275)
-- [PR #5294](https://github.com/koala73/worldmonitor/pull/5294) (open at documentation time)
+- [Issue #5275](https://github.com/Iamirup/raworld/issues/5275)
+- [PR #5294](https://github.com/Iamirup/raworld/pull/5294) (open at documentation time)

@@ -41,10 +41,10 @@ function cancellationEmailShell(
     <table cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto 32px;">
       <tr>
         <td style="width: 40px; height: 40px; vertical-align: middle;">
-          <img src="https://www.worldmonitor.app/favico/android-chrome-192x192.png" width="40" height="40" alt="WorldMonitor" style="border-radius: 50%; display: block;" />
+          <img src="https://www.worldmonitor.app/favico/android-chrome-192x192.png" width="40" height="40" alt="RaWorld" style="border-radius: 50%; display: block;" />
         </td>
         <td style="padding-left: 12px;">
-          <div style="font-size: 16px; font-weight: 800; color: #fff; letter-spacing: -0.5px;">WORLD MONITOR</div>
+          <div style="font-size: 16px; font-weight: 800; color: #fff; letter-spacing: -0.5px;">RAWORLD</div>
         </td>
       </tr>
     </table>
@@ -86,13 +86,13 @@ export function buildCancellationConfirmEmail(
   const until = accessUntil === undefined ? null : formatAccessEndDate(accessUntil);
   const untilPhrase = until ? `until ${until}` : "until the end of your paid period";
   return {
-    subject: `Your World Monitor ${planName} access continues ${untilPhrase}`,
+    subject: `Your RaWorld ${planName} access continues ${untilPhrase}`,
     html: cancellationEmailShell(
       `Your access continues ${untilPhrase}.`,
       `<p style="font-size: 14px; color: #999; margin: 0; line-height: 1.5;">We've cancelled the renewal on your ${planName} subscription — you won't be charged again. Nothing is switched off today: your ${planName} access keeps working ${untilPhrase}, the period you've already paid for. After that, this subscription ends.</p>`,
       "Open dashboard",
       ctaUrl,
-      "You're receiving this because you cancelled a World Monitor subscription. No further charges will be taken.",
+      "You're receiving this because you cancelled a RaWorld subscription. No further charges will be taken.",
     ),
   };
 }

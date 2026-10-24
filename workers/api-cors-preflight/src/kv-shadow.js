@@ -89,7 +89,7 @@ export async function emit(env, event) {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
-        'User-Agent': 'WorldMonitor Bootstrap KV Shadow/1.0',
+        'User-Agent': 'RaWorld Bootstrap KV Shadow/1.0',
       },
       body: JSON.stringify([{ _time: new Date().toISOString(), ...event }]),
       signal: controller.signal,

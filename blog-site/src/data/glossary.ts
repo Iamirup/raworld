@@ -2,7 +2,7 @@
  * Glossary of global-intelligence / OSINT terms rendered as crawlable
  * DefinedTerm pages under /blog/glossary (#4960 — content corpus).
  *
- * Every definition is sourced from WorldMonitor's own methodology docs or
+ * Every definition is sourced from RaWorld's own methodology docs or
  * product surfaces — do NOT invent capabilities here. In particular, no term
  * may claim forecast calibration / Brier scoring, which does not exist yet
  * (see issue #4930). This file is pure TypeScript (no `astro:` imports) so the
@@ -49,7 +49,7 @@ export interface GlossaryTerm {
   metaDescription?: string;
   /**
    * Optional <title> when the term's searchers want more than a definition,
-   * such as a live reading. At most 60 characters, ending "| World Monitor".
+   * such as a live reading. At most 60 characters, ending "| RaWorld".
    */
   metaTitle?: string;
   /** Body paragraphs. First paragraph should restate the crisp definition. */
@@ -92,9 +92,9 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     abbr: 'CII',
     category: 'Scoring & Indices',
     short:
-      'The Country Instability Index (CII) is a high-frequency instability score WorldMonitor maintains for 31 Tier-1 countries by blending editorial baseline with live event pressure.',
+      'The Country Instability Index (CII) is a high-frequency instability score RaWorld maintains for 31 Tier-1 countries by blending editorial baseline with live event pressure.',
     body: [
-      'The Country Instability Index (CII) is a high-frequency instability score that WorldMonitor maintains for the 31 Tier-1 countries tracked by its Strategic Risk system. Rather than relying on static ratings, CII blends a curated editorial baseline with live event pressure — unrest, conflict, security, and information signals — and publishes a signed 24-hour movement delta so operators can see which direction a country is moving.',
+      'The Country Instability Index (CII) is a high-frequency instability score that RaWorld maintains for the 31 Tier-1 countries tracked by its Strategic Risk system. Rather than relying on static ratings, CII blends a curated editorial baseline with live event pressure — unrest, conflict, security, and information signals — and publishes a signed 24-hour movement delta so operators can see which direction a country is moving.',
       'Tier-1 membership is curated rather than algorithmic: a country is included when it has sustained global-risk relevance, active or recent armed conflict, severe domestic instability, or high regional escalation potential. The score is computed server-side and exposed through the GetRiskScores RPC and the get_country_risk MCP tool.',
     ],
     related: ['country-resilience-index', 'strategic-risk', 'focal-point-detection'],
@@ -127,9 +127,9 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: 'Strategic Risk',
     category: 'Scoring & Indices',
     short:
-      'Strategic Risk is WorldMonitor’s composite triage layer that synthesizes instability, convergence, infrastructure, theater posture, sanctions, and breaking-news into one headline risk read.',
+      'Strategic Risk is RaWorld’s composite triage layer that synthesizes instability, convergence, infrastructure, theater posture, sanctions, and breaking-news into one headline risk read.',
     body: [
-      'Strategic Risk is WorldMonitor’s composite triage layer for global risk. Its server-published headline score is a top-five Country Instability Index roll-up, around which the panel layers additional convergence, infrastructure cascade, theater posture, breaking-news, sanctions, and radiation-watch context.',
+      'Strategic Risk is RaWorld’s composite triage layer for global risk. Its server-published headline score is a top-five Country Instability Index roll-up, around which the panel layers additional convergence, infrastructure cascade, theater posture, breaking-news, sanctions, and radiation-watch context.',
       'The purpose is fast triage: rather than reading each intelligence module separately, an operator sees one fused assessment that flags where multiple independent signals are pointing at the same place at the same time.',
     ],
     related: ['country-instability-index', 'geographic-convergence', 'infrastructure-cascade', 'pentagon-pizza-index'],
@@ -156,15 +156,15 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     slug: 'pentagon-pizza-index',
     term: 'Pentagon Pizza Index',
     category: 'Scoring & Indices',
-    metaTitle: 'Pentagon Pizza Index: Live Tracker & Method | World Monitor',
+    metaTitle: 'Pentagon Pizza Index: Live Tracker & Method | RaWorld',
     metaDescription:
       'The Pentagon Pizza Index reads pizza-shop busyness near the Pentagon as a crisis tell. See the live level, how it is scored, and why it is not a forecast.',
     short:
       'The Pentagon Pizza Index is an OSINT folk indicator: unusual busyness at pizza places near the Pentagon, read as a hint of late-night crisis work.',
     body: [
       'The Pentagon Pizza Index is an open-source-intelligence folk indicator. The idea is simple: when defense staff work late on a developing crisis, pizza places near the Pentagon get busier than usual for that hour, and the surge is visible to the public before any official statement. The notion comes from Washington lore of the Cold War and the 1990s, and it resurfaced on social media in recent years as people began posting Pentagon-area pizza traffic during international crises.',
-      'World Monitor computes its own version of the index from live busyness at pizza venues around the Pentagon. PizzINT supplies the venue data, with BestTime as the fallback, and the same rule applies to both. A venue counts only when it is open, at least 150% as busy as its usual level for that hour, and at least 25 busyness points above its forecast, and only after three consecutive 15-minute readings. A normal lunch rush or a single blip does not register.',
-      'Each sustained spike adds up to 25 points. The total maps to a DEFCON-style level: 5 (Normal Activity), 4 (Above Normal), 3 (Elevated Activity), 2 (High Activity) or 1 (Maximum Activity). The level appears next to a pizza icon in the header of the World Monitor dashboard, with each venue’s reading against its usual level. A venue that is closed or not reporting shows NO DATA rather than a guessed value.',
+      'RaWorld computes its own version of the index from live busyness at pizza venues around the Pentagon. PizzINT supplies the venue data, with BestTime as the fallback, and the same rule applies to both. A venue counts only when it is open, at least 150% as busy as its usual level for that hour, and at least 25 busyness points above its forecast, and only after three consecutive 15-minute readings. A normal lunch rush or a single blip does not register.',
+      'Each sustained spike adds up to 25 points. The total maps to a DEFCON-style level: 5 (Normal Activity), 4 (Above Normal), 3 (Elevated Activity), 2 (High Activity) or 1 (Maximum Activity). The level appears next to a pizza icon in the header of the RaWorld dashboard, with each venue’s reading against its usual level. A venue that is closed or not reporting shows NO DATA rather than a guessed value.',
       'The level describes restaurant activity, not military readiness, and its thresholds are heuristic rather than a validated predictor of geopolitical events. The same panel shows GDELT-based tension scores for country pairs such as USA–Iran and USA–China, so a busy night can be read against other signals instead of on its own.',
     ],
     related: ['strategic-risk', 'osint'],
@@ -177,12 +177,12 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       {
         question: 'Does the Pentagon Pizza Index predict military action?',
         answer:
-          'No one has shown that it does. Lists of crises the index is said to have predicted are anecdotes collected after the fact, and a busy night near the Pentagon has many ordinary causes. World Monitor reports restaurant activity against each venue’s usual level for that hour, keeps venue readings for 90 days so the baselines can be checked, and reads the level next to other signals rather than as a forecast.',
+          'No one has shown that it does. Lists of crises the index is said to have predicted are anecdotes collected after the fact, and a busy night near the Pentagon has many ordinary causes. RaWorld reports restaurant activity against each venue’s usual level for that hour, keeps venue readings for 90 days so the baselines can be checked, and reads the level next to other signals rather than as a forecast.',
       },
       {
         question: 'Why does the page sometimes show no current reading?',
         answer:
-          'The level needs at least one open venue with a fresh live busyness reading. Late at night most venues are closed, and the venue-data providers sometimes stop sending live readings. World Monitor then shows no current reading instead of a guessed level.',
+          'The level needs at least one open venue with a fresh live busyness reading. Late at night most venues are closed, and the venue-data providers sometimes stop sending live readings. RaWorld then shows no current reading instead of a guessed level.',
       },
     ],
   },
@@ -195,7 +195,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     short:
       'Focal point detection correlates news entities with live map signals to identify the main characters — people, places, and organizations — driving current events.',
     body: [
-      'Focal point detection is WorldMonitor’s intelligence-synthesis layer. A focal point is an entity — a person, place, or organization — that appears in both news coverage and map signals at the same time. Surfacing those overlaps identifies the "main characters" driving the current situation.',
+      'Focal point detection is RaWorld’s intelligence-synthesis layer. A focal point is an entity — a person, place, or organization — that appears in both news coverage and map signals at the same time. Surfacing those overlaps identifies the "main characters" driving the current situation.',
       'The detector enriches AI analysis with this cross-referenced context, so a generated brief reasons about entities that are simultaneously in the headlines and on the map, rather than treating text and geospatial signals as separate worlds.',
     ],
     related: ['geographic-convergence', 'world-brief', 'threat-classification'],
@@ -222,7 +222,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     short:
       'An infrastructure cascade is a modeled chain reaction where disrupting one critical node — cable, pipeline, port, or chokepoint — threatens downstream systems.',
     body: [
-      'An infrastructure cascade is a chain reaction across dependent critical systems. WorldMonitor models the dependency graph linking cables, pipelines, ports, and chokepoints so that damage or disruption at one node can be traced to the downstream nodes it puts at risk.',
+      'An infrastructure cascade is a chain reaction across dependent critical systems. RaWorld models the dependency graph linking cables, pipelines, ports, and chokepoints so that damage or disruption at one node can be traced to the downstream nodes it puts at risk.',
       'Cascade incidents feed the Strategic Risk score and the alert-fusion pipeline: cascade alerts are merged with convergence alerts, CII spikes, sanctions pressure, and radiation watch when they occur close together in time and space, so a single fused alert captures a multi-domain event.',
     ],
     related: ['geographic-convergence', 'strategic-risk', 'maritime-chokepoint'],
@@ -237,7 +237,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     short:
       'A hotspot is a watched location whose displayed activity level is computed in real time from news correlation, not a fixed static threat rating.',
     body: [
-      'A hotspot is a location WorldMonitor watches continuously. Crucially, a hotspot’s activity level is not a static threat rating — it is calculated in real time based on how strongly current news correlates with the keywords that define that location.',
+      'A hotspot is a location RaWorld watches continuously. Crucially, a hotspot’s activity level is not a static threat rating — it is calculated in real time based on how strongly current news correlates with the keywords that define that location.',
       'This keeps the map honest: a normally quiet location lights up only when live coverage says something is actually happening there, and a chronically tense location can read as calm during a genuine lull.',
     ],
     related: ['geographic-convergence', 'focal-point-detection'],
@@ -252,7 +252,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     short:
       'Threat classification is the hybrid AI step that labels incoming events by type and severity using fast rules plus model-based analysis.',
     body: [
-      'Threat classification is the step that turns raw incoming events into a structured, labelled feed. WorldMonitor uses a hybrid approach: fast rule-based tagging handles the common, unambiguous cases, while model-based classification handles nuance and ambiguity.',
+      'Threat classification is the step that turns raw incoming events into a structured, labelled feed. RaWorld uses a hybrid approach: fast rule-based tagging handles the common, unambiguous cases, while model-based classification handles nuance and ambiguity.',
       'Consistent type and severity labels are what make downstream correlation possible — convergence detection, focal-point synthesis, and Strategic Risk all depend on events already being classified into comparable categories.',
     ],
     related: ['focal-point-detection', 'world-brief'],
@@ -267,7 +267,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       'A maritime chokepoint is a narrow passage through which a large share of global trade, energy, food, or military movement must pass.',
     body: [
       'A maritime chokepoint is a narrow passage where a large share of global trade, energy, food, or military movement must pass through a small physical space. If ships can choose among several similar routes, a disruption is manageable; when many routes collapse into one narrow passage, the same disruption can become systemic.',
-      'The essential idea is that a chokepoint is where geography removes optionality — the risk is not just today’s traffic, but how little room the system has when that traffic changes. WorldMonitor tracks 13 waterways, of which seven currently publish live flow estimates.',
+      'The essential idea is that a chokepoint is where geography removes optionality — the risk is not just today’s traffic, but how little room the system has when that traffic changes. RaWorld tracks 13 waterways, of which seven currently publish live flow estimates.',
     ],
     related: ['strait-of-hormuz', 'strait-of-malacca', 'suez-canal', 'ais', 'chokepoint-congestion'],
     learnMore: [
@@ -284,7 +284,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       'The Strait of Hormuz is the Gulf exit chokepoint for about 20% of seaborne crude oil.',
     body: [
       'The Strait of Hormuz is the narrow waterway connecting the Persian Gulf to the Gulf of Oman and the open ocean. It is the single most closely watched energy chokepoint on Earth because about 20% of the world’s seaborne crude oil — and a large share of liquefied natural gas — has no alternative route out of the Gulf.',
-      'In WorldMonitor, Hormuz is one of the chokepoints with live flow estimates: vessel activity, congestion, and disruption signals are correlated against energy markets so an operator can see whether a Gulf tension event has a plausible transmission path into oil and gas prices.',
+      'In RaWorld, Hormuz is one of the chokepoints with live flow estimates: vessel activity, congestion, and disruption signals are correlated against energy markets so an operator can see whether a Gulf tension event has a plausible transmission path into oil and gas prices.',
     ],
     related: ['maritime-chokepoint', 'ais', 'chokepoint-congestion'],
     learnMore: [
@@ -315,7 +315,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       'The Suez Canal is the artificial waterway linking the Mediterranean and the Red Sea that lets shipping move between Europe and Asia without rounding Africa.',
     body: [
       'The Suez Canal connects the Mediterranean Sea to the Red Sea, providing the shortest maritime route between Europe and Asia and removing the need to sail around the Cape of Good Hope. Its southern approach runs through the Bab-el-Mandeb strait, so instability in the Red Sea affects both.',
-      'As a chokepoint, Suez concentrates a large share of Europe–Asia trade into a single canal; a blockage or a security threat that reroutes traffic around Africa adds days of transit and materially raises freight costs, which WorldMonitor tracks alongside the physical disruption signals.',
+      'As a chokepoint, Suez concentrates a large share of Europe–Asia trade into a single canal; a blockage or a security threat that reroutes traffic around Africa adds days of transit and materially raises freight costs, which RaWorld tracks alongside the physical disruption signals.',
     ],
     related: ['maritime-chokepoint', 'strait-of-malacca', 'chokepoint-congestion'],
     learnMore: [
@@ -332,7 +332,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       'AIS (Automatic Identification System) is the transponder standard that broadcasts a ship’s identity, position, and course for tracking vessel traffic through chokepoints.',
     body: [
       'The Automatic Identification System (AIS) is a maritime transponder standard that continuously broadcasts a vessel’s identity, position, speed, and course. It exists for collision avoidance, but it also makes near-real-time ship tracking possible for anyone receiving the signals.',
-      'WorldMonitor uses AIS positions to watch tanker and cargo movement inside chokepoint bounding boxes, detect congestion, and flag disruptions such as coverage gaps. Because AIS can be switched off or spoofed, sudden gaps are themselves treated as a signal worth surfacing.',
+      'RaWorld uses AIS positions to watch tanker and cargo movement inside chokepoint bounding boxes, detect congestion, and flag disruptions such as coverage gaps. Because AIS can be switched off or spoofed, sudden gaps are themselves treated as a signal worth surfacing.',
     ],
     related: ['maritime-chokepoint', 'chokepoint-congestion', 'strait-of-hormuz'],
   },
@@ -343,7 +343,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     short:
       'Chokepoint congestion is an above-normal build-up of vessel traffic waiting to transit a strait or canal, detected from AIS as an early disruption sign.',
     body: [
-      'Chokepoint congestion is an above-baseline accumulation of ships waiting to transit a strait or canal. WorldMonitor detects it from AIS activity inside each chokepoint’s bounding box and treats a congestion spike as one of its AIS disruption types.',
+      'Chokepoint congestion is an above-baseline accumulation of ships waiting to transit a strait or canal. RaWorld detects it from AIS activity inside each chokepoint’s bounding box and treats a congestion spike as one of its AIS disruption types.',
       'Congestion is an early-warning signal: queues often build before a disruption becomes headline news, so a rising congestion reading at Hormuz, Suez, or Malacca can precede the trade and energy-price effects that follow.',
     ],
     related: ['maritime-chokepoint', 'ais', 'strait-of-hormuz'],
@@ -359,7 +359,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       'Open-source intelligence (OSINT) is intelligence produced from publicly available sources — news, social media, imagery, transponder feeds, and public records.',
     body: [
       'Open-source intelligence (OSINT) is intelligence derived entirely from publicly available information: news reporting, social media, satellite and aerial imagery, ship and aircraft transponders, and public records. Its power comes not from secrecy but from correlation — combining many open signals into a picture no single source shows.',
-      'WorldMonitor is an OSINT platform by construction: every layer is sourced from public feeds with documented provenance, which is what lets it publish source-attributed briefs and scores that a reader can trace back to the underlying evidence.',
+      'RaWorld is an OSINT platform by construction: every layer is sourced from public feeds with documented provenance, which is what lets it publish source-attributed briefs and scores that a reader can trace back to the underlying evidence.',
     ],
     related: ['provenance', 'world-brief', 'focal-point-detection'],
     learnMore: [
@@ -374,7 +374,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       'Provenance is the documented chain from a published score or brief back to the specific public sources it was built from.',
     body: [
       'Provenance, or source attribution, is the discipline of keeping a documented chain from every published output back to the specific public sources behind it. For an OSINT product it is the difference between an assertion and a citation.',
-      'WorldMonitor carries provenance through its briefs, scores, and cached operational data with documented methodology, so a reader — or an AI agent consuming the API — can see not just what the platform concluded but which sources support it.',
+      'RaWorld carries provenance through its briefs, scores, and cached operational data with documented methodology, so a reader — or an AI agent consuming the API — can see not just what the platform concluded but which sources support it.',
     ],
     related: ['osint', 'world-brief'],
   },
@@ -383,9 +383,9 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: 'World Brief',
     category: 'OSINT & Methodology',
     short:
-      'The World Brief is WorldMonitor’s AI-generated, source-attributed summary of the current global situation, synthesized from correlated live signals.',
+      'The World Brief is RaWorld’s AI-generated, source-attributed summary of the current global situation, synthesized from correlated live signals.',
     body: [
-      'The World Brief is a source-attributed situational summary generated from WorldMonitor’s correlated live signals — news, map events, focal points, and classified threats. It answers "what is happening right now, globally" in a form an operator or an agent can consume directly.',
+      'The World Brief is a source-attributed situational summary generated from RaWorld’s correlated live signals — news, map events, focal points, and classified threats. It answers "what is happening right now, globally" in a form an operator or an agent can consume directly.',
       'It is available through the get_world_brief MCP tool and the dashboard, and it draws on the same focal-point and classification layers that power the map, so the narrative and the geospatial view stay consistent.',
     ],
     related: ['focal-point-detection', 'threat-classification', 'provenance', 'osint'],
@@ -398,7 +398,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
       'A prediction market is a marketplace where participants trade contracts on future event outcomes, and the price acts as a crowd-sourced probability estimate.',
     body: [
       'A prediction market is a marketplace in which participants buy and sell contracts tied to the outcome of a future event. Because a contract pays out based on what actually happens, its trading price behaves as a continuously updated, crowd-sourced probability for that outcome.',
-      'WorldMonitor surfaces prediction-market context — for example via the get_prediction_markets tool — as an external probability signal to sit alongside its own scenario forecasts, giving a market-implied read on geopolitical questions next to the platform’s analysis.',
+      'RaWorld surfaces prediction-market context — for example via the get_prediction_markets tool — as an external probability signal to sit alongside its own scenario forecasts, giving a market-implied read on geopolitical questions next to the platform’s analysis.',
     ],
     related: ['world-brief', 'strategic-risk'],
     learnMore: [

@@ -594,7 +594,7 @@ async function probeDiscovery(host) {
       fail(host, 'GET /mcp (crawler)', `guide lacks "Vary: Accept" (got "${res.headers.get('vary')}")`);
     } else if (!/\bLast-Event-ID\b/i.test(res.headers.get('vary') ?? '')) {
       fail(host, 'GET /mcp (crawler)', `guide lacks "Vary: Last-Event-ID" (got "${res.headers.get('vary')}")`);
-    } else if (!text.includes('World Monitor MCP Server')) {
+    } else if (!text.includes('RaWorld MCP Server')) {
       fail(host, 'GET /mcp (crawler)', 'body is not the mcp-server.md guide');
     } else {
       ok(host, 'GET /mcp (crawler)', '200 markdown guide');

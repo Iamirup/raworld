@@ -26,7 +26,7 @@ tags: [umami, analytics, sentry, alerting, alert-fatigue, bot-filter, observabil
 
 ## Problem
 
-PR #5964 added a browser-side Sentry warning for every Umami collector write failure. It fired 45 events across 24 users in its first 32 minutes and caught **zero** instances of the umami#4183 `session_data` race it was built to detect. Most of the "failures" were HTTP 200 successes, and most of those came from WorldMonitor's own crawler.
+PR #5964 added a browser-side Sentry warning for every Umami collector write failure. It fired 45 events across 24 users in its first 32 minutes and caught **zero** instances of the umami#4183 `session_data` race it was built to detect. Most of the "failures" were HTTP 200 successes, and most of those came from RaWorld's own crawler.
 
 ## Symptoms
 

@@ -36,7 +36,7 @@ tags:
 
 ## Problem
 
-WorldMonitor's authenticated OpenSky account exhausts its entire 4,000 credit/day quota
+RaWorld's authenticated OpenSky account exhausts its entire 4,000 credit/day quota
 every day, so `/states/all` returns `429` for most of each day. The burn is invisible in
 normal operation because Wingbits carries the flight surface — the cost is a dead fallback
 and a permanently rate-limited account, not a broken panel.

@@ -1,7 +1,7 @@
 ---
-title: "Build on World Monitor: APIs and Developer Platform"
-description: "Build intelligence apps on World Monitor's typed API: generated services, Protocol Buffers, edge functions, and TypeScript clients. AGPL-3.0."
-metaTitle: "Developer API & Open Source Platform | World Monitor"
+title: "Build on RaWorld: APIs and Developer Platform"
+description: "Build intelligence apps on RaWorld's typed API: generated services, Protocol Buffers, edge functions, and TypeScript clients. AGPL-3.0."
+metaTitle: "Developer API & Open Source Platform | RaWorld"
 keywords: "open source intelligence API, OSINT API free, geopolitical data API, intelligence platform developer, proto-first API architecture"
 audience: "Developers, data engineers, startup builders, academic researchers, open-source contributors"
 heroImage: "/blog/images/blog/build-on-worldmonitor-developer-api-open-source.jpg"
@@ -11,11 +11,11 @@ modifiedDate: "2026-10-18"
 
 Most intelligence platforms are walled gardens. You pay for access, you use their interface, and if you want to build something custom, you're out of luck. The data is locked behind a UI.
 
-World Monitor is designed differently. The entire intelligence platform, every data feed, every scoring algorithm, every aggregation pipeline, is built on a **typed API layer** that developers can use, extend, and build upon.
+RaWorld is designed differently. The entire intelligence platform, every data feed, every scoring algorithm, every aggregation pipeline, is built on a **typed API layer** that developers can use, extend, and build upon.
 
 ## Proto-First Architecture
 
-World Monitor uses **Protocol Buffers (protobuf)** as the single source of truth for all API contracts. The codebase contains:
+RaWorld uses **Protocol Buffers (protobuf)** as the single source of truth for all API contracts. The codebase contains:
 
 - **Protocol Buffer definitions** defining every data structure and service
 - **Typed service domains** covering all intelligence verticals
@@ -38,11 +38,11 @@ Protocol Buffers enforce a contract between client and server that can't drift:
 - **Code generation:** TypeScript clients are generated, not handwritten. Zero chance of client/server mismatch.
 - **Documentation:** The proto file IS the documentation. Field names, types, and comments are the API spec.
 
-For developers building on World Monitor, this means you can trust the API contracts completely. If the proto says a field is `int64`, it's `int64`. If it says `repeated string`, it's an array of strings.
+For developers building on RaWorld, this means you can trust the API contracts completely. If the proto says a field is `int64`, it's `int64`. If it says `repeated string`, it's an array of strings.
 
 ## Service Domains
 
-World Monitor's API is organized into domain-specific services:
+RaWorld's API is organized into domain-specific services:
 
 | Domain | What It Covers |
 |--------|---------------|
@@ -104,7 +104,7 @@ For example:
 - `api.worldmonitor.app/api/conflict/v1/events` for conflict data
 - `api.worldmonitor.app/api/intelligence/v1/cii` for Country Instability Index scores
 
-## Building with World Monitor's API
+## Building with RaWorld's API
 
 ### Custom Dashboards
 
@@ -118,7 +118,7 @@ const cii = await intelligenceClient.getCII({ countries: ['US', 'CN', 'RU'] });
 
 ### Data Pipelines
 
-Feed World Monitor data into your own analytics:
+Feed RaWorld data into your own analytics:
 
 - Pull conflict events into a data warehouse for historical analysis
 - Stream market data alongside geopolitical scores for correlation studies
@@ -130,11 +130,11 @@ Academic researchers can use the API programmatically:
 
 - Study the relationship between news velocity and conflict escalation
 - Analyze prediction market accuracy against actual outcomes (see [prediction markets and AI forecasting](/blog/posts/prediction-markets-ai-forecasting-geopolitics/))
-- Build custom scoring models using World Monitor's raw data feeds
+- Build custom scoring models using RaWorld's raw data feeds
 
 ### Mobile Apps
 
-Build a mobile app that consumes World Monitor's API for a custom mobile intelligence experience. The OpenAPI spec makes it accessible from any language (Swift, Kotlin, Python, Go).
+Build a mobile app that consumes RaWorld's API for a custom mobile intelligence experience. The OpenAPI spec makes it accessible from any language (Swift, Kotlin, Python, Go).
 
 ### Slack/Teams Bots
 
@@ -147,16 +147,16 @@ Build alerting bots that post to your team channel when:
 
 ## Developer Resources
 
-Every developer surface has a dedicated, named page you can jump to directly — the [World Monitor Developer Portal](https://www.worldmonitor.app/developers.md) links them all in one place:
+Every developer surface has a dedicated, named page you can jump to directly — the [RaWorld Developer Portal](https://www.worldmonitor.app/developers.md) links them all in one place:
 
-- **[World Monitor MCP Server](https://www.worldmonitor.app/mcp-server.md)** — the recommended agent surface at `https://worldmonitor.app/mcp`, with a live tool registry over Streamable HTTP. Connect Claude, Cursor, or any MCP client. See the [MCP Overview](https://www.worldmonitor.app/docs/mcp-overview) for auth and the full catalog.
-- **[World Monitor OpenAPI Specification](https://www.worldmonitor.app/openapi.md)** — the OpenAPI 3.1 contract for the REST API ([openapi.yaml](https://www.worldmonitor.app/openapi.yaml) / [openapi.json](https://www.worldmonitor.app/openapi.json)), so you can generate a typed client in any language.
-- **[World Monitor SDKs](https://www.worldmonitor.app/sdks.md)** — official zero-dependency client libraries for Python, Ruby, Go, and JavaScript, plus the [`worldmonitor` CLI](https://www.worldmonitor.app/docs/cli).
-- **World Monitor API docs** — the full [developer documentation](https://www.worldmonitor.app/docs/documentation) site, with an [MCP Quickstart](https://www.worldmonitor.app/docs/mcp-quickstart) and [agent auth walkthrough](https://www.worldmonitor.app/auth.md).
+- **[RaWorld MCP Server](https://www.worldmonitor.app/mcp-server.md)** — the recommended agent surface at `https://worldmonitor.app/mcp`, with a live tool registry over Streamable HTTP. Connect Claude, Cursor, or any MCP client. See the [MCP Overview](https://www.worldmonitor.app/docs/mcp-overview) for auth and the full catalog.
+- **[RaWorld OpenAPI Specification](https://www.worldmonitor.app/openapi.md)** — the OpenAPI 3.1 contract for the REST API ([openapi.yaml](https://www.worldmonitor.app/openapi.yaml) / [openapi.json](https://www.worldmonitor.app/openapi.json)), so you can generate a typed client in any language.
+- **[RaWorld SDKs](https://www.worldmonitor.app/sdks.md)** — official zero-dependency client libraries for Python, Ruby, Go, and JavaScript, plus the [`worldmonitor` CLI](https://www.worldmonitor.app/docs/cli).
+- **RaWorld API docs** — the full [developer documentation](https://www.worldmonitor.app/docs/documentation) site, with an [MCP Quickstart](https://www.worldmonitor.app/docs/mcp-quickstart) and [agent auth walkthrough](https://www.worldmonitor.app/auth.md).
 
 ## Self-Hosting
 
-World Monitor is AGPL-3.0. You can self-host the entire platform, including [local AI capabilities that run without cloud dependencies](/blog/posts/ai-powered-intelligence-without-the-cloud/):
+RaWorld is AGPL-3.0. You can self-host the entire platform, including [local AI capabilities that run without cloud dependencies](/blog/posts/ai-powered-intelligence-without-the-cloud/):
 
 **Frontend:** React + TypeScript + Vite. Standard `npm install && npm run build`.
 
@@ -187,7 +187,7 @@ The proto-first architecture makes contributing safe: the type system catches co
 
 ## The Developer Stack
 
-For reference, World Monitor is built with:
+For reference, RaWorld is built with:
 
 | Layer | Technology |
 |-------|-----------|
@@ -204,11 +204,11 @@ For reference, World Monitor is built with:
 | i18n | i18next localization |
 | Testing | Vitest, Playwright |
 
-## Why Build on World Monitor?
+## Why Build on RaWorld?
 
-The intelligence industry has a consolidation problem. A handful of vendors control the data, the algorithms, and the interfaces. Analysts are locked into ecosystems they can't customize, audit, or extend. See how World Monitor [compares to traditional intelligence tools](/blog/posts/worldmonitor-vs-traditional-intelligence-tools/) in practice.
+The intelligence industry has a consolidation problem. A handful of vendors control the data, the algorithms, and the interfaces. Analysts are locked into ecosystems they can't customize, audit, or extend. See how RaWorld [compares to traditional intelligence tools](/blog/posts/worldmonitor-vs-traditional-intelligence-tools/) in practice.
 
-World Monitor's open, typed, proto-first architecture is the alternative:
+RaWorld's open, typed, proto-first architecture is the alternative:
 
 - **Audit everything:** Every scoring algorithm, every data pipeline, every API contract is in the codebase
 - **Extend anything:** Add data sources, build custom panels, create new service domains
@@ -216,14 +216,14 @@ World Monitor's open, typed, proto-first architecture is the alternative:
 - **Deploy anywhere:** Edge functions, self-hosted, or desktop
 - **Own your intelligence:** No vendor lock-in, no API key revocation, no price hikes
 
-The intelligence platform of the future isn't a product. It's an ecosystem. World Monitor is building the foundation.
+The intelligence platform of the future isn't a product. It's an ecosystem. RaWorld is building the foundation.
 
-Building an AI agent instead of an app? The same platform is exposed as a Model Context Protocol server with a live tool registry. See [how to connect Claude and other agents to World Monitor's MCP server](/blog/posts/worldmonitor-mcp-server-ai-agents-real-time-intelligence/).
+Building an AI agent instead of an app? The same platform is exposed as a Model Context Protocol server with a live tool registry. See [how to connect Claude and other agents to RaWorld's MCP server](/blog/posts/worldmonitor-mcp-server-ai-agents-real-time-intelligence/).
 
 ## Frequently Asked Questions
 
-**Is the World Monitor API free to use?**
-Yes. World Monitor is AGPL-3.0 open source. You can use the public API at api.worldmonitor.app or self-host the entire stack. There are no API keys required for public endpoints and no usage fees.
+**Is the RaWorld API free to use?**
+Yes. RaWorld is AGPL-3.0 open source. You can use the public API at api.worldmonitor.app or self-host the entire stack. There are no API keys required for public endpoints and no usage fees.
 
 **What languages can I use to consume the API?**
 Any language that supports HTTP. The auto-generated OpenAPI spec provides compatibility with Swift, Kotlin, Python, Go, Java, and more. TypeScript clients are generated directly from the proto files for first-class type safety.
@@ -233,4 +233,4 @@ Define your data structures in a proto file, implement a handler function, wire 
 
 ---
 
-**Start building at [github.com/koala73/worldmonitor](https://github.com/koala73/worldmonitor). Generated services, Protocol Buffer definitions, and a global intelligence dataset are ready for your application.**
+**Start building at [github.com/Iamirup/raworld](https://github.com/Iamirup/raworld). Generated services, Protocol Buffer definitions, and a global intelligence dataset are ready for your application.**

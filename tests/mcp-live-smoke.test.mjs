@@ -156,7 +156,7 @@ function createHealthyFixtureServer({ onTransportList, skillFor = (origin) => `$
       if (req.headers.accept?.toLowerCase() === 'text/event-stream') {
         res.writeHead(405).end();
       } else {
-        res.writeHead(200, commonGuideHeaders).end('World Monitor MCP Server');
+        res.writeHead(200, commonGuideHeaders).end('RaWorld MCP Server');
       }
       return;
     }

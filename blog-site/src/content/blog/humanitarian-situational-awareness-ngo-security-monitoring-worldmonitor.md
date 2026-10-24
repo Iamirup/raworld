@@ -1,7 +1,7 @@
 ---
 title: "Humanitarian Situational Awareness Workflow"
 description: "A field-security workflow for NGOs using displacement, humanitarian summaries, advisories, disease alerts, disasters, and country-risk context."
-metaTitle: "Humanitarian Situational Awareness Workflow | WorldMonitor"
+metaTitle: "Humanitarian Situational Awareness Workflow | RaWorld"
 keywords: "humanitarian situational awareness, NGO security monitoring, displacement monitoring, humanitarian risk dashboard, field security workflow"
 audience: "NGO security teams, humanitarian operations leads, field program managers, crisis analysts"
 heroImage: "/blog/images/blog/humanitarian-situational-awareness-ngo-security-monitoring-worldmonitor.jpg"
@@ -21,7 +21,7 @@ The hard part is not finding bad news. The hard part is keeping different kinds 
 - country instability and resilience context
 - infrastructure or route disruptions that affect access
 
-WorldMonitor is not a replacement for field judgment, local partners, duty-of-care procedures, or official security channels. It is a situational-awareness layer: a way to put several public and operational signals into one workflow so the daily review is less ad hoc.
+RaWorld is not a replacement for field judgment, local partners, duty-of-care procedures, or official security channels. It is a situational-awareness layer: a way to put several public and operational signals into one workflow so the daily review is less ad hoc.
 
 ## Start with the decision
 
@@ -43,13 +43,13 @@ A practical 15-minute review can run like this.
 
 First, scan country and region watchlists. Use the instability score to see acute stress and the resilience score to see structural capacity. A high-stress country with stronger public-service and recovery capacity may need a different response than a lower-stress country with weak health, logistics, or state-continuity indicators.
 
-Second, check displacement context. WorldMonitor's displacement summary aggregates refugee, asylum-seeker, IDP, stateless, origin, asylum, and flow perspectives from the available displacement dataset. For NGO operations, displacement is both a humanitarian outcome and an access signal. Large flows can change shelter demand, road conditions, border pressure, and partner capacity.
+Second, check displacement context. RaWorld's displacement summary aggregates refugee, asylum-seeker, IDP, stateless, origin, asylum, and flow perspectives from the available displacement dataset. For NGO operations, displacement is both a humanitarian outcome and an access signal. Large flows can change shelter demand, road conditions, border pressure, and partner capacity.
 
 Third, review humanitarian conflict summaries. The conflict service includes HAPI/HDX-backed humanitarian summary surfaces, which are useful for separating ordinary news volume from operationally relevant humanitarian event counts.
 
 Fourth, check health and disaster overlays. Disease Outbreaks aggregates WHO Disease Outbreak News, CDC HAN, Outbreak News Today, and a ProMED-backed tracker. Natural-disaster views add earthquakes, fires, severe weather, volcanoes, and related hazards. These signals do not tell you what to do by themselves, but they tell you where a program plan should be rechecked.
 
-Fifth, review advisories. Security and travel advisories are not a complete risk model, but they are a governance input. They tell you when governments or public-health bodies have moved their public posture. In WorldMonitor, advisory levels also affect risk scoring, with provenance separated where possible.
+Fifth, review advisories. Security and travel advisories are not a complete risk model, but they are a governance input. They tell you when governments or public-health bodies have moved their public posture. In RaWorld, advisory levels also affect risk scoring, with provenance separated where possible.
 
 ## Do not collapse everything into one red score
 
@@ -93,13 +93,13 @@ Every daily review should leave a compact record:
 - action owner
 - next check time
 
-The source-freshness note is essential. "No new displacement change" means something different when the displacement dataset is fresh versus stale. WorldMonitor surfaces upstream availability and freshness in several services so teams can avoid mistaking missing data for calm conditions.
+The source-freshness note is essential. "No new displacement change" means something different when the displacement dataset is fresh versus stale. RaWorld surfaces upstream availability and freshness in several services so teams can avoid mistaking missing data for calm conditions.
 
 For neighboring workflows, combine this with [country risk monitoring for due diligence](/blog/posts/country-risk-monitoring-due-diligence-worldmonitor/) and [natural-disaster monitoring](/blog/posts/natural-disaster-monitoring-earthquakes-fires-volcanoes/).
 
 ## Source transparency
 
-WorldMonitor's humanitarian-adjacent workflow draws from public and authoritative sources where available: displacement datasets, HAPI/HDX humanitarian summaries, WHO and CDC health alerts, disaster feeds, security advisories, conflict/event sources, and country-risk/resilience scoring.
+RaWorld's humanitarian-adjacent workflow draws from public and authoritative sources where available: displacement datasets, HAPI/HDX humanitarian summaries, WHO and CDC health alerts, disaster feeds, security advisories, conflict/event sources, and country-risk/resilience scoring.
 
 None of those sources should erase local knowledge. A country office, local partner, logistics coordinator, or health lead can see conditions that public feeds miss. The dashboard's job is to make the review more consistent, not to overrule the people closest to the work.
 
@@ -107,7 +107,7 @@ Primary reference surfaces include the [HDX Humanitarian API](https://data.humda
 
 ## Frequently Asked Questions
 
-**Can WorldMonitor replace an NGO security platform?**
+**Can RaWorld replace an NGO security platform?**
 
 No. Treat it as an open situational-awareness layer that helps structure a review. It does not replace duty-of-care policy, local security networks, official guidance, or field confirmation.
 

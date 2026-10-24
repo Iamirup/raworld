@@ -46,9 +46,7 @@ import {
   FREE_TIER_FOLLOW_LIMIT,
   type FollowMutationResult,
 } from '@/services/followed-countries';
-import { WEB_APP_ORIGIN } from '@/config/web-origin';
 import { onEntitlementChange } from '@/services/entitlements';
-import { openExternalUrl } from '@/services/external-navigation';
 import { escapeHtml } from '@/utils/sanitize';
 import { setTrustedHtml, trustedHtml } from '@/utils/dom-utils';
 
@@ -82,92 +80,6 @@ export interface FollowButtonHandle {
    * click listener. Safe to call twice.
    */
   attach: (host: HTMLElement) => () => void;
-}
-
-// ---------------------------------------------------------------------------
-// Test-injection seam: upgrade-modal trigger
-// ---------------------------------------------------------------------------
-//
-// In production, the `FREE_CAP` branch dynamically imports clerk +
-// checkout (the same lazy path `notifications-settings.ts` uses for the
-// "Upgrade to Pro" button). Tests inject a synchronous fake here so
-// they can assert the trigger was called without spinning up the real
-// import graph.
-
-type UpgradeTrigger = (source: string) => void;
-
-/**
- * Last-resort upgrade destination when the lazy checkout path is
- * unavailable. Absolute, and routed through `openExternalUrl`: the bare
- * relative `/pro#pricing` this replaced resolved against `tauri://localhost`
- * in the desktop WebView, where no such route exists (#5911). Never throws —
- * every call site here is already a fallback.
- */
-function openProPricingPage(): void {
-  void openExternalUrl(`${WEB_APP_ORIGIN}/pro#pricing`).catch(() => {
-    /* swallow — non-browser env, or the OS opener refused */
-  });
-}
-
-let _upgradeTrigger: UpgradeTrigger = (source) => {
-  // Match the notifications-settings.ts pattern: try sign-in first if no
-  // user, otherwise drop into checkout. If anything fails we fall back
-  // to the `/pro` page (consistent w/ ProBanner CTA).
-  try {
-    void import('@/services/clerk').then((clerk) => {
-      const user = clerk.getCurrentClerkUser?.();
-      if (!user) {
-        const opener = clerk.openSignIn;
-        if (typeof opener === 'function') {
-          opener();
-          return;
-        }
-      }
-      // Signed-in OR no openSignIn helper — go straight to checkout.
-      void import('@/services/checkout')
-        .then((checkout) =>
-          import('@/config/products').then((products) => {
-            const product = (products as { DEFAULT_UPGRADE_PRODUCT?: unknown })
-              .DEFAULT_UPGRADE_PRODUCT;
-            if (product && typeof checkout.startCheckout === 'function') {
-              checkout.startCheckout(
-                product as Parameters<typeof checkout.startCheckout>[0],
-              );
-            } else {
-              openProPricingPage();
-            }
-          }),
-        )
-        .catch(() => {
-          openProPricingPage();
-        });
-    });
-  } catch {
-    try {
-      openProPricingPage();
-    } catch {
-      /* swallow — non-browser env */
-    }
-  }
-  // `source` is informational; analytics integration is App-level.
-  // We deliberately don't pull in `@/services/analytics` here to avoid
-  // a heavy import chain on the button factory.
-  void source;
-};
-
-/**
- * Test-only override for the upgrade-modal trigger. Pass `null` to
- * restore the production lazy-import path.
- */
-export function _setUpgradeTriggerForTests(fn: UpgradeTrigger | null): void {
-  _upgradeTrigger = fn ?? ((source) => {
-    void source;
-    try {
-      openProPricingPage();
-    } catch {
-      /* swallow */
-    }
-  });
 }
 
 // ---------------------------------------------------------------------------
@@ -259,7 +171,7 @@ function renderHtml(state: ButtonViewState, props: FollowButtonProps): string {
   }
 
   // Not followed.
-  const tooltip = state.atCap ? 'Upgrade to follow more' : `Follow ${displayName}`;
+  const tooltip = `Follow ${displayName}`;
   return (
     `<button type="button" class="wm-follow-btn ${sizeCls} wm-follow-btn--unfollowed${
       state.atCap ? ' wm-follow-btn--at-cap' : ''
@@ -427,20 +339,6 @@ async function onClick(
 
   switch (result.reason) {
     case 'FREE_CAP':
-      // Country Watcher's honest conversion trigger (plan U6/R12): the cap
-      // hit is the upgrade moment, so it joins the funnel as a gate-hit.
-      void import('@/services/analytics')
-        .then((analytics) => analytics.trackGateHit('limits.followed_countries'))
-        .catch(() => {});
-      try {
-        _upgradeTrigger('follow-cap');
-      } catch (err) {
-        console.warn('[follow-button] upgrade trigger failed:', err);
-      }
-      // Re-render so the tooltip / aria-label settles back to the
-      // "Upgrade to follow more" state if it wasn't already there.
-      rerenderForFailure();
-      return;
     case 'HANDOFF_PENDING':
     case 'ENTITLEMENT_LOADING':
     case 'DISABLED':

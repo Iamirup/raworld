@@ -455,7 +455,7 @@ export class App {
     s.fill(r, ' ', { bg: t.bg });
     const glow = this.anim ? mix(t.glow[0], t.glow[1], pulse(now, 2400)) : t.accent;
     s.text(r.x + 1, r.y, '◢', { fg: glow, bg: t.bg });
-    s.text(r.x + 3, r.y, 'WORLD MONITOR', { fg: t.text, bg: t.bg, attr: ATTR.BOLD });
+    s.text(r.x + 3, r.y, 'RAWORLD', { fg: t.text, bg: t.bg, attr: ATTR.BOLD });
     s.text(r.x + 17, r.y, '// terminal', { fg: t.dim, bg: t.bg });
     const d = new Date(now);
     const clock = `${d.toISOString().slice(11, 19)}Z`;
@@ -537,7 +537,7 @@ export class App {
   }
 
   title() {
-    return setTitle('World Monitor');
+    return setTitle('RaWorld');
   }
 }
 

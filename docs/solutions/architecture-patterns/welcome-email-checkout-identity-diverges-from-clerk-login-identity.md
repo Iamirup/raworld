@@ -37,7 +37,7 @@ tags:
 
 A support email arrived on 2026-08-08 with the subject energy of a chargeback: *"URGENT! Account not working after payment! … I hope this is not a scam!"* The customer had paid, and the login screen told them the account was not known.
 
-Nothing was broken. The payment succeeded, the entitlement was written correctly, and the welcome email was delivered and clicked. What failed was identity: the buyer received a "your subscription is now active" email at one address, tried to sign in with that address, and World Monitor had never heard of it. Their actual account was registered under a different address entirely.
+Nothing was broken. The payment succeeded, the entitlement was written correctly, and the welcome email was delivered and clicked. What failed was identity: the buyer received a "your subscription is now active" email at one address, tried to sign in with that address, and RaWorld had never heard of it. Their actual account was registered under a different address entirely.
 
 This is not a regression, and no amount of staring at the entitlement pipeline finds it — the pipeline is green the whole way through. It is a design seam between the billing provider's notion of a customer (an email typed at checkout) and Clerk's notion of a user (an email that owns a sign-in). Any user who keeps aliases — and privacy-minded users keep many — can land on the wrong side of it.
 
@@ -51,7 +51,7 @@ Run these in order. The point of the order is that each step narrows the failure
 
 **(a) Resolve the Dodo customer.** Look them up by `cus_…` id if the ticket carries one, or by `?email=` using every address in the thread. Note that the billing email here is whatever the buyer typed into the checkout form — it is *not* authenticated and it is *not* an account.
 
-**(b) Read `metadata.wm_user_id` on the subscription and payment records.** This is the ground truth for "who bought this," and it is independent of any email. WorldMonitor stamps the signed Clerk identity onto the checkout session at `convex/payments/checkout.ts:201-202`:
+**(b) Read `metadata.wm_user_id` on the subscription and payment records.** This is the ground truth for "who bought this," and it is independent of any email. RaWorld stamps the signed Clerk identity onto the checkout session at `convex/payments/checkout.ts:201-202`:
 
 ```ts
 metadata.wm_user_id = user.userId;
@@ -136,7 +136,7 @@ The 2026-08-08 case, end to end, as the recipe runs:
 
 **(d)** Convex entitlement for `user_3HK…`: `planKey` `pro_business_annual`, `validUntil` ≈ 2027-08-07, tier 1. Correct — and notably *not* downgraded by the failed API Starter attempt.
 
-**(e)** Resend shows "Welcome to World Monitor Pro Business (Annual)" delivered 2026-08-07 20:21:05 to `webapps_wsr@…`, `last_event=clicked` (the Resend dashboard row is findable by recipient + subject + timestamp). The click is the missing link in the story: the buyer read the mail at the checkout alias, followed its sign-in CTA, and tried that alias at the login screen.
+**(e)** Resend shows "Welcome to RaWorld Pro Business (Annual)" delivered 2026-08-07 20:21:05 to `webapps_wsr@…`, `last_event=clicked` (the Resend dashboard row is findable by recipient + subject + timestamp). The click is the missing link in the story: the buyer read the mail at the checkout alias, followed its sign-in CTA, and tried that alias at the login screen.
 
 Verdict in one line: entitlement correct + login email ≠ checkout email → identity mix-up, not a regression. The reply names `crypto_wsr@…` as the login address and explains the email-code sign-in. The product fix is issue #6330.
 

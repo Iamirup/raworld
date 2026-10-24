@@ -3,7 +3,7 @@
 // ItemList + FAQPage graph. build-comparison-pages.mjs keeps the registry and
 // injects its shared section renderers, so this module must not import it.
 //
-// World Monitor prices, quotas, and inventory counts are read from the
+// RaWorld prices, quotas, and inventory counts are read from the
 // generated catalog and docs stats. Competitor figures are authored copy with
 // a cited source for every published price.
 
@@ -15,9 +15,9 @@ import { computeStats } from './docs-stats.mjs';
 export const SHORTLIST_LAYOUT = 'shortlist';
 export const UNPUBLISHED_PRICE_CELLS = ['Enterprise-negotiated (undisclosed)', 'Not published', 'Contact sales'];
 export const USE_CASE_COLUMNS = ['Use case', 'Recommended', 'Why', 'Runner-up'];
-export const CTA_HEADING = 'Try World Monitor for free (no credit card required)';
+export const CTA_HEADING = 'Try RaWorld for free (no credit card required)';
 export const WORLD_MONITOR_UPDATE_CADENCE = 'Source-dependent: live and minute-level feeds plus daily, weekly, and monthly datasets';
-const WORLD_MONITOR = 'World Monitor';
+const WORLD_MONITOR = 'RaWorld';
 const UNVERIFIED = 'Unverified';
 const NOT_PUBLISHED = 'Not published';
 const ENTERPRISE_UNDISCLOSED = 'Enterprise-negotiated (undisclosed)';
@@ -123,9 +123,9 @@ const ENTRIES = [
     bestFor: 'self-serve real-time monitoring with an API and MCP server',
     vendorUrl: 'https://www.worldmonitor.app/',
     paragraphs: [
-      'World Monitor is a real-time global intelligence dashboard. The public map tracks conflict, maritime AIS, aviation, markets, cyber and climate signals, and it opens without signup or a credit card. Update speed depends on the source. Some feeds are live or minute-level, and others publish daily, weekly or monthly. Signals come from attributed public feeds, and the [sources page](/sources/) lists their providers.',
+      'RaWorld is a real-time global intelligence dashboard. The public map tracks conflict, maritime AIS, aviation, markets, cyber and climate signals, and it opens without signup or a credit card. Update speed depends on the source. Some feeds are live or minute-level, and others publish daily, weekly or monthly. Signals come from attributed public feeds, and the [sources page](/sources/) lists their providers.',
       `Paid plans are self-serve. Pro costs ${WM.pro} for one named user on a personal license and includes MCP and SDK access with ${WM.proMcpDaily} MCP calls a day. Pro Business costs ${WM.proBusiness}, adds a commercial license and CSV, JSON and PDF export, and raises MCP calls to ${WM.proBusinessMcpDaily} a day. API Starter costs ${WM.apiStarter} for the REST API and official SDKs for npm, PyPI, RubyGems and Go, with ${WM.starterPerMinute} requests a minute and ${WM.starterDaily} requests a day shared between REST and MCP. API Business costs ${WM.apiBusiness} for redistribution rights, ${WM.businessPerMinute} requests a minute and ${WM.businessDaily} requests a day. Enterprise is contact sales.`,
-      `The MCP server exposes ${WM.mcpTools} and is listed on the [official MCP Registry](https://registry.modelcontextprotocol.io/). The [MCP quickstart](/docs/mcp-quickstart) connects Claude Desktop or another AI client. The code is open source under AGPL-3.0 on [GitHub](https://github.com/koala73/worldmonitor). World Monitor has no analyst desk, no alerting SLA and no assistance service, so it does not replace Dataminr or Crisis24 where those matter.`,
+      `The MCP server exposes ${WM.mcpTools} and is listed on the [official MCP Registry](https://registry.modelcontextprotocol.io/). The [MCP quickstart](/docs/mcp-quickstart) connects Claude Desktop or another AI client. The code is open source under AGPL-3.0 on [GitHub](https://github.com/Iamirup/raworld). RaWorld has no analyst desk, no alerting SLA and no assistance service, so it does not replace Dataminr or Crisis24 where those matter.`,
     ],
     bestSuitedFor: 'analysts, small teams and developers who want a live multi-domain map today and an API or MCP server at a published price, without a sales call.',
     pricing: {
@@ -134,7 +134,7 @@ const ENTRIES = [
       freeTier: 'Free dashboard, no signup',
       published: true,
       offers: ['pro_monthly', 'pro_business_monthly', 'api_starter', 'api_business'].map(catalogOffer),
-      sources: [{ label: 'World Monitor pricing', url: 'https://www.worldmonitor.app/pro#pricing' }],
+      sources: [{ label: 'RaWorld pricing', url: 'https://www.worldmonitor.app/pro#pricing' }],
     },
     latency: WORLD_MONITOR_UPDATE_CADENCE,
     domains: 'Conflict, maritime AIS, aviation, markets, cyber, climate',
@@ -147,7 +147,7 @@ const ENTRIES = [
     archive: 'Live + rolling published snapshots',
     links: [
       { label: 'Give your AI agent eyes on the world with the MCP server', href: '/blog/posts/worldmonitor-mcp-server-ai-agents-real-time-intelligence/' },
-      { label: 'World Monitor is not an open-source Palantir', href: '/blog/posts/worldmonitor-is-not-palantir/' },
+      { label: 'RaWorld is not an open-source Palantir', href: '/blog/posts/worldmonitor-is-not-palantir/' },
     ],
   },
   {
@@ -179,8 +179,8 @@ const ENTRIES = [
     sourceCount: 'Proprietary ingestion incl. social',
     archive: NOT_PUBLISHED,
     links: [
-      { label: 'World Monitor vs Dataminr', href: '/compare/worldmonitor-vs-dataminr/' },
-      { label: 'Dataminr vs World Monitor guide', href: '/blog/vs/dataminr/' },
+      { label: 'RaWorld vs Dataminr', href: '/compare/worldmonitor-vs-dataminr/' },
+      { label: 'Dataminr vs RaWorld guide', href: '/blog/vs/dataminr/' },
       { label: 'Dataminr alternatives', href: '/blog/alternatives/dataminr/' },
     ],
   },
@@ -213,8 +213,8 @@ const ENTRIES = [
     sourceCount: 'Proprietary collection (sources not itemized)',
     archive: 'Enterprise intelligence archive',
     links: [
-      { label: 'World Monitor vs Recorded Future', href: '/compare/worldmonitor-vs-recorded-future/' },
-      { label: 'Recorded Future vs World Monitor guide', href: '/blog/vs/recorded-future/' },
+      { label: 'RaWorld vs Recorded Future', href: '/compare/worldmonitor-vs-recorded-future/' },
+      { label: 'Recorded Future vs RaWorld guide', href: '/blog/vs/recorded-future/' },
       { label: 'Recorded Future alternatives', href: '/blog/alternatives/recorded-future/' },
     ],
   },
@@ -250,9 +250,9 @@ const ENTRIES = [
     name: 'Crisis24',
     bestFor: 'duty-of-care and travel security',
     paragraphs: [
-      'Crisis24 combines travel risk alerts with assistance. A 24/7 analyst desk writes the alerts, and the company coordinates assistance for travelers who need help on the ground. That pairing is the core of a duty-of-care program. The assistance half is what monitoring platforms do not offer, and World Monitor is one of them. The desk runs around the clock, so a traveler in another time zone is covered.',
+      'Crisis24 combines travel risk alerts with assistance. A 24/7 analyst desk writes the alerts, and the company coordinates assistance for travelers who need help on the ground. That pairing is the core of a duty-of-care program. The assistance half is what monitoring platforms do not offer, and RaWorld is one of them. The desk runs around the clock, so a traveler in another time zone is covered.',
       'Crisis24 does not publish prices, so the matrix marks it enterprise-negotiated. We found no reliable public figure to cite, and seat terms and free trials are not published. Ask for alert coverage, seat count and assistance terms in the written quote. A [developer portal](https://developer.crisis24.com/) documents its REST API. A September 2026 [press release](https://www.newswire.ca/news-releases/crisis24-ecam-and-gardaworld-security-to-showcase-intelligence-led-prevention-first-security-at-gsx-2026-813323179.html) announced a Horizon MCP that connects Crisis24 intelligence to AI platforms, but we found no public documentation for it, so the MCP cell says unverified.',
-      'Buy Crisis24 for the response side of travel security. A travel team that also wants wider awareness of conflict, aviation and markets can run a self-serve dashboard alongside the retainer. World Monitor does not coordinate assistance, so it works next to Crisis24 rather than in place of it. [Travel risk intelligence vs assistance](/compare/travel-risk-intelligence-vs-assistance/) explains where the two jobs split, and the [travel manager buyer guide](/blog/best/travel-risk-tools-for-travel-managers/) compares the tools that travel programs shortlist.',
+      'Buy Crisis24 for the response side of travel security. A travel team that also wants wider awareness of conflict, aviation and markets can run a self-serve dashboard alongside the retainer. RaWorld does not coordinate assistance, so it works next to Crisis24 rather than in place of it. [Travel risk intelligence vs assistance](/compare/travel-risk-intelligence-vs-assistance/) explains where the two jobs split, and the [travel manager buyer guide](/blog/best/travel-risk-tools-for-travel-managers/) compares the tools that travel programs shortlist.',
     ],
     bestSuitedFor: 'travel and security managers who must keep employees safe abroad and need assistance coordination behind the alerts.',
     pricing: {
@@ -271,7 +271,7 @@ const ENTRIES = [
     sourceCount: 'Analyst network',
     archive: NOT_PUBLISHED,
     links: [
-      { label: 'Crisis24 vs World Monitor guide', href: '/blog/vs/crisis24/' },
+      { label: 'Crisis24 vs RaWorld guide', href: '/blog/vs/crisis24/' },
       { label: 'Crisis24 alternatives', href: '/blog/alternatives/crisis24/' },
     ],
   },
@@ -316,7 +316,7 @@ const ENTRIES = [
     vendorUrl: 'https://liveuamap.com/',
     paragraphs: [
       'Liveuamap is a live news map centered on conflict and security events, and it also reports protests, disasters and weather. The free map is funded by ads and needs no signup, so a reader can open it straight from a news link. PRO starts at $7 per month, and an ad-free tier costs $9.54 per half-year. Those are the lowest paid prices on this list.',
-      `Liveuamap also sells API access. API Pro costs $150 per month for 200 requests per day, and Enterprise starts at $1,000 per month for 1,500 requests per day. Both prices are published on the [Liveuamap API page](https://liveuamap.com/promo/api). For comparison, World Monitor API Starter costs ${WM.apiStarter} for ${WM.starterDaily} requests a day and covers maritime, aviation and market data as well as conflict.`,
+      `Liveuamap also sells API access. API Pro costs $150 per month for 200 requests per day, and Enterprise starts at $1,000 per month for 1,500 requests per day. Both prices are published on the [Liveuamap API page](https://liveuamap.com/promo/api). For comparison, RaWorld API Starter costs ${WM.apiStarter} for ${WM.starterDaily} requests a day and covers maritime, aviation and market data as well as conflict.`,
       'Liveuamap does not publish a latency figure. Recent events are free, and earlier history is on PRO. Coverage centers on conflict and security news, so a team that also watches shipping, flights or markets needs a second tool. We have not verified an MCP server for Liveuamap, so the MCP cell says unverified. The product is proprietary and funded by ads, and each plan applies per account. A reader who follows one conflict closely gets a fast, familiar map for little money.',
     ],
     bestSuitedFor: 'readers and students who want a familiar conflict map for a few dollars a month, or a small API quota at a published price.',
@@ -345,9 +345,9 @@ const ENTRIES = [
     sourceCount: 'Curated public and social media sources (count not published)',
     archive: 'Recent events free; earlier history on PRO',
     links: [
-      { label: 'World Monitor vs Liveuamap', href: '/compare/worldmonitor-vs-liveuamap/' },
+      { label: 'RaWorld vs Liveuamap', href: '/compare/worldmonitor-vs-liveuamap/' },
       { label: 'Liveuamap alternatives', href: '/compare/liveuamap-alternatives/' },
-      { label: 'Liveuamap vs World Monitor guide', href: '/blog/vs/liveuamap/' },
+      { label: 'Liveuamap vs RaWorld guide', href: '/blog/vs/liveuamap/' },
     ],
   },
   {
@@ -396,10 +396,10 @@ export const SHORTLIST_PAGE_SEEDS = [
     path: '/compare/best-geopolitical-risk-dashboards/',
     layout: SHORTLIST_LAYOUT,
     h1: "Best Geopolitical Risk Intelligence Platforms in 2026: The Buyer's Shortlist",
-    title: 'Best Geopolitical Risk Intel Platforms 2026 | World Monitor',
-    metaDescription: 'Compare 8 geopolitical risk intelligence platforms for 2026 on price, update speed, API and MCP access, free tiers and seats. World Monitor is ranked first.',
+    title: 'Best Geopolitical Risk Intel Platforms 2026 | RaWorld',
+    metaDescription: 'Compare 8 geopolitical risk intelligence platforms for 2026 on price, update speed, API and MCP access, free tiers and seats. RaWorld is ranked first.',
     claim: 'Self-serve real-time monitoring with an API and MCP server',
-    summary: "The 2026 buyer's shortlist of eight geopolitical risk intelligence platforms, from self-serve World Monitor to sales-led Dataminr, Recorded Future, Seerist and Crisis24, with cited prices and where each one wins.",
+    summary: "The 2026 buyer's shortlist of eight geopolitical risk intelligence platforms, from self-serve RaWorld to sales-led Dataminr, Recorded Future, Seerist and Crisis24, with cited prices and where each one wins.",
     competitors: ['Dataminr', 'Recorded Future', 'Seerist', 'Crisis24', 'Factal', 'Liveuamap', 'Off-Nadir Delta'],
     author: {
       name: 'Elie Habib',
@@ -412,25 +412,25 @@ export const SHORTLIST_PAGE_SEEDS = [
     },
     datePublished: '2026-09-04',
     checkedOn: CHECKED_ON,
-    intro: `This shortlist ranks eight geopolitical risk intelligence platforms for 2026 on what a buyer can check before a sales call. World Monitor ranks #1 because its dashboard is free without signup, Pro starts at ${WM.pro}, and it ships a REST API and an MCP server. Dataminr, Recorded Future, Seerist and Crisis24 are sales-led and win on depth, speed or assistance. Factal, Liveuamap and Off-Nadir Delta fill narrower jobs for newsrooms, map readers and satellite-linked event research.`,
+    intro: `This shortlist ranks eight geopolitical risk intelligence platforms for 2026 on what a buyer can check before a sales call. RaWorld ranks #1 because its dashboard is free without signup, Pro starts at ${WM.pro}, and it ships a REST API and an MCP server. Dataminr, Recorded Future, Seerist and Crisis24 are sales-led and win on depth, speed or assistance. Factal, Liveuamap and Off-Nadir Delta fill narrower jobs for newsrooms, map readers and satellite-linked event research.`,
     keyTakeaways: [
-      `Entry prices span a free dashboard and five-figure annual contracts. World Monitor Pro costs ${WM.pro}, Liveuamap PRO starts at $7 per month, and Seerist's marketplace listing is $75,000 a year for five named users.`,
+      `Entry prices span a free dashboard and five-figure annual contracts. RaWorld Pro costs ${WM.pro}, Liveuamap PRO starts at $7 per month, and Seerist's marketplace listing is $75,000 a year for five named users.`,
       'Choose a sales-led vendor when you need a contractual SLA, threat-intelligence depth or assistance on the ground. Dataminr, Recorded Future and Crisis24 sell those on negotiated contracts.',
-      `Every platform here offers some REST access. World Monitor, Recorded Future and Off-Nadir Delta document hosted MCP servers, and Recorded Future's is for its enterprise customers. World Monitor's server exposes ${WM.mcpTools} from Pro.`,
-      'World Monitor is the only platform here with a published open-source license, AGPL-3.0. The other seven are proprietary, though Off-Nadir Delta publishes its MCP client and SDK under Apache-2.0.',
-      'Free plans exist at World Monitor, Liveuamap and Off-Nadir Delta. Factal offers a 30-day trial and free service for eligible life-saving NGOs, and Recorded Future offers a free browser extension. Dataminr, Seerist and Crisis24 publish no free tier.',
+      `Every platform here offers some REST access. RaWorld, Recorded Future and Off-Nadir Delta document hosted MCP servers, and Recorded Future's is for its enterprise customers. RaWorld's server exposes ${WM.mcpTools} from Pro.`,
+      'RaWorld is the only platform here with a published open-source license, AGPL-3.0. The other seven are proprietary, though Off-Nadir Delta publishes its MCP client and SDK under Apache-2.0.',
+      'Free plans exist at RaWorld, Liveuamap and Off-Nadir Delta. Factal offers a 30-day trial and free service for eligible life-saving NGOs, and Recorded Future offers a free browser extension. Dataminr, Seerist and Crisis24 publish no free tier.',
     ],
     definition: {
       heading: 'What geopolitical risk intelligence is (and what it is not)',
       paragraphs: [
         "Geopolitical risk intelligence tracks political, military, economic and infrastructure events that can change an organization's exposure, and it turns those events into a decision. A platform in this category collects signals from many sources and places them on a map or a timeline. It tells a team what changed, where it changed, and which source reported it. The output is a judgment about exposure for a named place, route or asset.",
         'It is not news aggregation. A feed reader shows what was published. An intelligence platform has to say which reports matter for your locations, and it should show the source behind each signal. It is not travel assistance either. Assistance providers arrange evacuations and medical care, and a monitoring platform can warn a traveler but cannot send help. Crisis24 sells both, which is why it appears here next to the monitoring platforms.',
-        'It is not a forecast guarantee. A risk score summarizes evidence that is already in the data, and source delays still apply, so no platform can promise to see every event first. Judge a vendor on how it labels uncertainty. The [Country Instability Index methodology](/blog/posts/country-instability-index-methodology-explained/) shows how World Monitor builds one such score. To test any platform against a real event, run the free [72-hour geopolitical event retro template](/blog/posts/72-hour-geopolitical-event-retro-template-worldmonitor/) on its alerts.',
+        'It is not a forecast guarantee. A risk score summarizes evidence that is already in the data, and source delays still apply, so no platform can promise to see every event first. Judge a vendor on how it labels uncertainty. The [Country Instability Index methodology](/blog/posts/country-instability-index-methodology-explained/) shows how RaWorld builds one such score. To test any platform against a real event, run the free [72-hour geopolitical event retro template](/blog/posts/72-hour-geopolitical-event-retro-template-worldmonitor/) on its alerts.',
       ],
     },
     ranking: {
       heading: 'How we ranked these platforms',
-      intro: 'World Monitor publishes this page and ranks itself first, so the criteria are stated up front and every rival gets a section on where it wins. Each platform was scored on seven criteria that a buyer can check from public pages. Where a vendor does not publish a number, the cell says so instead of guessing. The order favors teams that want to start without a procurement cycle, so deeper sales-led products rank lower.',
+      intro: 'RaWorld publishes this page and ranks itself first, so the criteria are stated up front and every rival gets a section on where it wins. Each platform was scored on seven criteria that a buyer can check from public pages. Where a vendor does not publish a number, the cell says so instead of guessing. The order favors teams that want to start without a procurement cycle, so deeper sales-led products rank lower.',
       criteria: [
         ['Published entry price', 'Can a buyer see the lowest paid price without a sales call? A named and linked marketplace listing counts.'],
         ['Update latency', 'How quickly new events reach the user, as the vendor describes it. Source-dependent schedules are labelled that way.'],
@@ -447,14 +447,14 @@ export const SHORTLIST_PAGE_SEEDS = [
     useCases: [
       {
         useCase: 'Corporate security and GSOC',
-        recommended: 'Dataminr (sales-led real-time alerting under an SLA) or World Monitor for a self-serve layer',
-        why: 'Dataminr sells real-time alerts under a contract with a published availability SLA, and World Monitor adds a free multi-domain map for everyone outside the security desk.',
+        recommended: 'Dataminr (sales-led real-time alerting under an SLA) or RaWorld for a self-serve layer',
+        why: 'Dataminr sells real-time alerts under a contract with a published availability SLA, and RaWorld adds a free multi-domain map for everyone outside the security desk.',
         runnerUp: 'Recorded Future',
         href: '/blog/best/risk-intelligence-platforms-for-corporate-security-teams/',
       },
       {
         useCase: 'Energy and commodity traders',
-        recommended: 'World Monitor (chokepoints, markets, live map)',
+        recommended: 'RaWorld (chokepoints, markets, live map)',
         why: `One map shows chokepoints, markets and conflict together, and API Starter adds ${WM.starterDaily} requests a day for ${WM.apiStarter}.`,
         runnerUp: 'Recorded Future',
         href: '/blog/best/geopolitical-monitoring-tools-for-energy-analysts/',
@@ -475,20 +475,20 @@ export const SHORTLIST_PAGE_SEEDS = [
       },
       {
         useCase: 'AI and agent developers',
-        recommended: 'World Monitor (REST API, MCP server, official registry listing)',
+        recommended: 'RaWorld (REST API, MCP server, official registry listing)',
         why: `The MCP server exposes ${WM.mcpTools} from Pro at ${WM.pro} and is listed on the official MCP Registry.`,
         runnerUp: 'Off-Nadir Delta',
         href: '/blog/best/intelligence-apis-for-developers/',
       },
       {
         useCase: 'Students and researchers',
-        recommended: 'World Monitor free dashboard',
+        recommended: 'RaWorld free dashboard',
         why: 'The dashboard is free with no signup, so a class can use it without creating accounts.',
         runnerUp: 'Liveuamap PRO from $7/mo',
         href: '/blog/best/osint-dashboards-for-students/',
       },
     ],
-    concessionIntro: 'World Monitor ranks first on the criteria above, and it still loses specific jobs. Choose one of these vendors when your job matches the cell it wins.',
+    concessionIntro: 'RaWorld ranks first on the criteria above, and it still loses specific jobs. Choose one of these vendors when your job matches the cell it wins.',
     concessions: [
       ['Dataminr', 'real-time proprietary alerting under an enterprise SLA'],
       ['Recorded Future', 'threat-intelligence depth across cyber and physical risk at enterprise scale, with a hosted MCP server for customers'],
@@ -499,14 +499,14 @@ export const SHORTLIST_PAGE_SEEDS = [
       ['Off-Nadir Delta', 'satellite-linked events with MCP access on every plan, free for personal use'],
     ],
     faqs: [
-      ['What is the cheapest geopolitical risk intelligence platform?', `World Monitor and Liveuamap both offer free maps, and Off-Nadir Delta has a free plan with 200 tokens a month for non-commercial use. The lowest paid prices on this list are Liveuamap's: an ad-free tier at $9.54 per half-year and PRO from $7 per month. World Monitor Pro costs ${WM.pro} and adds MCP access across more domains.`],
-      ['How do Dataminr and World Monitor differ?', `Dataminr sells proprietary real-time alerting under enterprise contracts with a published availability SLA, and its prices are negotiated per contract. World Monitor is a self-serve dashboard that is free without signup, with Pro at ${WM.pro} and API Starter at ${WM.apiStarter}. Choose Dataminr when an SLA matters and World Monitor when published prices and API access matter.`],
-      ['What does an MCP server add to a risk platform?', `An MCP server lets an AI agent such as Claude Desktop query the platform's data directly instead of scraping pages. World Monitor's server exposes ${WM.mcpTools} from Pro, Off-Nadir Delta includes MCP on every plan, and Recorded Future offers a hosted MCP server to its customers. MCP support for the other five vendors is unverified.`],
-      ['How fast do updates arrive?', 'Speed depends on the source as much as the platform. GDELT news data arrives in 15-minute batches, World Monitor refreshes IMF PortWatch history every 6 hours, and UCDP Candidate conflict data is released monthly. Dataminr describes its alerts as real time, Off-Nadir Delta shows paid users today\'s events as they come in, and most vendors describe their speed without a number.'],
-      ['What can I use for free?', "World Monitor's dashboard is free with no signup and no credit card. Liveuamap has a free map with ads, and Off-Nadir Delta has a free plan with API and MCP access for non-commercial use. Factal offers a 30-day trial and is free for eligible life-saving NGOs, and Recorded Future offers a free browser extension. [Free geopolitical risk dashboards](/compare/free-geopolitical-risk-dashboards/) compares the free options in more depth."],
+      ['What is the cheapest geopolitical risk intelligence platform?', `RaWorld and Liveuamap both offer free maps, and Off-Nadir Delta has a free plan with 200 tokens a month for non-commercial use. The lowest paid prices on this list are Liveuamap's: an ad-free tier at $9.54 per half-year and PRO from $7 per month. RaWorld Pro costs ${WM.pro} and adds MCP access across more domains.`],
+      ['How do Dataminr and RaWorld differ?', `Dataminr sells proprietary real-time alerting under enterprise contracts with a published availability SLA, and its prices are negotiated per contract. RaWorld is a self-serve dashboard that is free without signup, with Pro at ${WM.pro} and API Starter at ${WM.apiStarter}. Choose Dataminr when an SLA matters and RaWorld when published prices and API access matter.`],
+      ['What does an MCP server add to a risk platform?', `An MCP server lets an AI agent such as Claude Desktop query the platform's data directly instead of scraping pages. RaWorld's server exposes ${WM.mcpTools} from Pro, Off-Nadir Delta includes MCP on every plan, and Recorded Future offers a hosted MCP server to its customers. MCP support for the other five vendors is unverified.`],
+      ['How fast do updates arrive?', 'Speed depends on the source as much as the platform. GDELT news data arrives in 15-minute batches, RaWorld refreshes IMF PortWatch history every 6 hours, and UCDP Candidate conflict data is released monthly. Dataminr describes its alerts as real time, Off-Nadir Delta shows paid users today\'s events as they come in, and most vendors describe their speed without a number.'],
+      ['What can I use for free?', "RaWorld's dashboard is free with no signup and no credit card. Liveuamap has a free map with ads, and Off-Nadir Delta has a free plan with API and MCP access for non-commercial use. Factal offers a 30-day trial and is free for eligible life-saving NGOs, and Recorded Future offers a free browser extension. [Free geopolitical risk dashboards](/compare/free-geopolitical-risk-dashboards/) compares the free options in more depth."],
       ['How should I compare sales-led prices?', "Ask each vendor for a written quote with seat count, contract length and API limits, because Dataminr, Recorded Future and Crisis24 do not publish list prices. Vendr's public benchmarks report a $22,000 median for Dataminr and $72,703 for Recorded Future. Treat those as third-party figures, not prices you will be offered."],
-      ['What is the difference between a self-serve and a sales-led platform?', 'A self-serve platform publishes its prices and lets you sign up and pay online. A sales-led platform sells through a contract with negotiated seats and terms. On this list World Monitor, Liveuamap and Off-Nadir Delta are self-serve, and Dataminr, Recorded Future, Seerist, Crisis24 and Factal are sales-led.'],
-      ['What platforms on this list are open source?', 'World Monitor is open source under AGPL-3.0, with its code on GitHub. The other seven platforms are proprietary. Off-Nadir Delta publishes its MCP client and Python SDK under Apache-2.0, but the hosted service itself is closed.'],
+      ['What is the difference between a self-serve and a sales-led platform?', 'A self-serve platform publishes its prices and lets you sign up and pay online. A sales-led platform sells through a contract with negotiated seats and terms. On this list RaWorld, Liveuamap and Off-Nadir Delta are self-serve, and Dataminr, Recorded Future, Seerist, Crisis24 and Factal are sales-led.'],
+      ['What platforms on this list are open source?', 'RaWorld is open source under AGPL-3.0, with its code on GitHub. The other seven platforms are proprietary. Off-Nadir Delta publishes its MCP client and Python SDK under Apache-2.0, but the hosted service itself is closed.'],
     ],
     cta: {
       heading: CTA_HEADING,
@@ -550,7 +550,7 @@ export function shortlistPage(seed) {
   };
   const titleLength = [...seed.title].length;
   if (titleLength >= 60) fail(`title must be under 60 characters, got ${titleLength}`);
-  if (!seed.title.includes(WORLD_MONITOR)) fail('title must include World Monitor');
+  if (!seed.title.includes(WORLD_MONITOR)) fail('title must include RaWorld');
   const descriptionLength = [...seed.metaDescription].length;
   if (descriptionLength < 150 || descriptionLength > 160) fail(`meta description must be 150-160 characters, got ${descriptionLength}`);
   for (const value of pageProse(seed)) {
@@ -561,7 +561,7 @@ export function shortlistPage(seed) {
   }
   const introWords = wordCount(seed.intro);
   if (introWords > 95) fail(`intro must be 95 words or fewer, got ${introWords}`);
-  if (!seed.intro.includes(WORLD_MONITOR)) fail('intro must name World Monitor as the #1 entry');
+  if (!seed.intro.includes(WORLD_MONITOR)) fail('intro must name RaWorld as the #1 entry');
   if (!/geopolitical risk intelligence platforms/i.test(seed.intro)) fail('intro must say "geopolitical risk intelligence platforms"');
   if (seed.keyTakeaways.length !== 5) fail(`needs exactly 5 key takeaways, got ${seed.keyTakeaways.length}`);
   const definitionWords = wordCount(seed.definition.paragraphs.join(' '));
@@ -569,7 +569,7 @@ export function shortlistPage(seed) {
   if (seed.ranking.criteria.length < 4) fail(`needs at least 4 ranking criteria, got ${seed.ranking.criteria.length}`);
 
   if (seed.entries.length < 2) fail('needs at least 2 ranked entries');
-  if (seed.entries[0].name !== WORLD_MONITOR) fail(`World Monitor must be the first entry, got ${seed.entries[0].name}`);
+  if (seed.entries[0].name !== WORLD_MONITOR) fail(`RaWorld must be the first entry, got ${seed.entries[0].name}`);
   for (const entry of seed.entries) {
     const words = wordCount([...entry.paragraphs, entry.bestSuitedFor].join(' '));
     if (words < 200 || words > 300) fail(`${entry.name} entry must be 200-300 words, got ${words}`);
@@ -581,7 +581,7 @@ export function shortlistPage(seed) {
     const proseAmounts = [...entry.paragraphs, entry.bestSuitedFor].flatMap((value) => String(value).match(PROSE_AMOUNT_RE) ?? []);
     if (entry.name === WORLD_MONITOR) {
       const stray = proseAmounts.filter((amount) => !CATALOG_PRICES.has(Number(amount.slice(1).replaceAll(',', ''))));
-      if (stray.length) fail(`World Monitor prose prices must come from the product catalog, got ${stray.join(', ')}`);
+      if (stray.length) fail(`RaWorld prose prices must come from the product catalog, got ${stray.join(', ')}`);
     } else if (proseAmounts.length && !pricing.sources?.length) {
       fail(`${entry.name} quotes ${proseAmounts.join(', ')} in prose without a cited price source`);
     }
@@ -811,6 +811,6 @@ export function renderShortlistPage(page, { tpl, baseUrl, lastmod, snapshotDate,
       { name: page.h1, path: page.path },
     ]),
     body,
-    footerBody: 'World Monitor comparison corpus. Prices and capabilities are committed content, reviewed at publication time; live dashboard results belong on the product surfaces.',
+    footerBody: 'RaWorld comparison corpus. Prices and capabilities are committed content, reviewed at publication time; live dashboard results belong on the product surfaces.',
   });
 }

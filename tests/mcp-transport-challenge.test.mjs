@@ -4,7 +4,7 @@
  * `/mcp` used to complete `initialize` anonymously and only answer `401` once a
  * client called a paid tool. Hosted connectors (`grok-connectors-manager`,
  * Cursor's agent backend) decide whether a server needs sign-in from how their
- * opening `initialize` is answered: a `200` recorded WorldMonitor as "connected,
+ * opening `initialize` is answered: a `200` recorded RaWorld as "connected,
  * nothing to authenticate", so the later `401` had no authorization server
  * behind it and their sign-in control never worked ("Could not obtain
  * authentication URL"). Over 48 hours of production traffic 79% of Claude's

@@ -35,7 +35,7 @@ function evidence(decision, overrides = {}) {
           headSha: HEAD,
           owner: 'github-run:31181545167:2',
           producer: {
-            repository: 'koala73/worldmonitor',
+            repository: 'Iamirup/raworld',
             workflow: 'railway-deploy-trigger.yml',
             runId: '31181545167',
             runAttempt: 2,
@@ -123,8 +123,8 @@ function githubClient({
           status: active ? 'in_progress' : 'completed',
           conclusion: active ? null : 'failure',
           display_title: `Railway reconciliation ${PRIOR_ID}`,
-          repository: { full_name: 'koala73/worldmonitor' },
-          head_repository: { full_name: 'koala73/worldmonitor', fork: false },
+          repository: { full_name: 'Iamirup/raworld' },
+          head_repository: { full_name: 'Iamirup/raworld', fork: false },
           ...runOverrides,
         }],
       });
@@ -140,8 +140,8 @@ function githubClient({
         status: active ? 'in_progress' : 'completed',
         conclusion: active ? null : 'failure',
         display_title: `Railway reconciliation ${PRIOR_ID}`,
-        repository: { full_name: 'koala73/worldmonitor' },
-        head_repository: { full_name: 'koala73/worldmonitor', fork: false },
+        repository: { full_name: 'Iamirup/raworld' },
+        head_repository: { full_name: 'Iamirup/raworld', fork: false },
         ...runOverrides,
       });
     }
@@ -160,7 +160,7 @@ function githubClient({
     throw new Error(`unexpected GitHub request: ${url}`);
   };
   return new ReadOnlyGitHubClient({
-    repository: 'koala73/worldmonitor',
+    repository: 'Iamirup/raworld',
     token: 'read-token',
     fetchImpl,
   });
@@ -348,11 +348,11 @@ describe('read-only GitHub recovery proof', () => {
   it('rejects non-allowlisted methods and endpoints', async () => {
     const github = githubClient();
     await assert.rejects(
-      github.request('POST', '/repos/koala73/worldmonitor/actions/workflows/railway-deploy-trigger.yml/dispatches'),
+      github.request('POST', '/repos/Iamirup/raworld/actions/workflows/railway-deploy-trigger.yml/dispatches'),
       (error) => error.code === 'GITHUB_ROUTE_FORBIDDEN',
     );
     await assert.rejects(
-      github.request('GET', '/repos/koala73/worldmonitor/actions/runs/1/cancel'),
+      github.request('GET', '/repos/Iamirup/raworld/actions/runs/1/cancel'),
       (error) => error.code === 'GITHUB_ROUTE_FORBIDDEN',
     );
   });
@@ -621,8 +621,8 @@ describe('read-only GitHub recovery proof', () => {
           : [{ id: 31181545167, run_attempt: 1, status: 'completed', conclusion: 'failure', display_title: PRIOR_ID,
             event: 'workflow_dispatch', head_branch: 'main', head_sha: HEAD,
             path: '.github/workflows/railway-deploy-trigger.yml',
-            repository: { full_name: 'koala73/worldmonitor' },
-            head_repository: { full_name: 'koala73/worldmonitor', fork: false } }];
+            repository: { full_name: 'Iamirup/raworld' },
+            head_repository: { full_name: 'Iamirup/raworld', fork: false } }];
         return responseJson({ total_count: 101, workflow_runs });
       }
       if (parsed.pathname.endsWith('/actions/runs/31181545167/attempts/1/jobs')) {
@@ -637,7 +637,7 @@ describe('read-only GitHub recovery proof', () => {
       throw new Error(`unexpected GitHub request: ${url}`);
     };
     const github = new ReadOnlyGitHubClient({
-      repository: 'koala73/worldmonitor', token: 'read-token', fetchImpl,
+      repository: 'Iamirup/raworld', token: 'read-token', fetchImpl,
     });
     await buildRecoveryProof(request('resolve_pre_mutation_hold', {
       evidence: {
@@ -706,7 +706,7 @@ describe('read-only GitHub recovery proof', () => {
   it('fails closed at the recovery page and request-time budgets', async () => {
     let pages = 0;
     const paged = new ReadOnlyGitHubClient({
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       token: 'read-token',
       fetchImpl: async (url) => {
         const parsed = new URL(url);
@@ -728,7 +728,7 @@ describe('read-only GitHub recovery proof', () => {
     assert.equal(pages, RECOVERY_GITHUB_MAX_PAGES);
 
     const stalled = new ReadOnlyGitHubClient({
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       token: 'read-token',
       requestTimeoutMs: 5,
       fetchImpl: async (_url, { signal }) => new Promise((_resolve, reject) => {
@@ -736,7 +736,7 @@ describe('read-only GitHub recovery proof', () => {
       }),
     });
     await assert.rejects(
-      stalled.request('GET', '/repos/koala73/worldmonitor/git/ref/heads/main'),
+      stalled.request('GET', '/repos/Iamirup/raworld/git/ref/heads/main'),
       (error) => error.code === 'GITHUB_EVIDENCE_TIMEOUT',
     );
   });

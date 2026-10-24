@@ -428,7 +428,7 @@ describe('parseWhyMattersV2 — analyst output validator', () => {
 
   it('rejects raw forecast-probability disclosures but preserves ordinary sourced percentages', () => {
     const forecastLeak =
-      "WorldMonitor's internal forecast assigns an 84% probability to a Strait of Hormuz disruption, which would intensify regional shipping risk. " +
+      "RaWorld's internal forecast assigns an 84% probability to a Strait of Hormuz disruption, which would intensify regional shipping risk. " +
       'That projection is not a reader-facing fact and must fall through to the next generation layer.';
     const likelyLeak =
       'A disruption is 84% likely according to the forecast, creating an immediate risk of higher insurance costs across Gulf shipping routes. ' +
@@ -439,7 +439,7 @@ describe('parseWhyMattersV2 — analyst output validator', () => {
         description: 'Carriers are reviewing transit plans after new regional threats.',
         source: 'Reuters',
       },
-      privateForecasts: 'WorldMonitor disruption model: Strait closure remains 84% likely.',
+      privateForecasts: 'RaWorld disruption model: Strait closure remains 84% likely.',
     };
     assert.equal(parseWhyMattersV2(forecastLeak, provenance), null);
     assert.equal(parseWhyMattersV2(likelyLeak, provenance), null);
@@ -880,7 +880,7 @@ describe('buildAnalystWhyMattersPrompt — shape and budget', () => {
       macroSignals: '',
       degraded: false,
     });
-    assert.doesNotMatch(user, /# Live WorldMonitor Context/);
+    assert.doesNotMatch(user, /# Live RaWorld Context/);
   });
 
   it('truncates context to stay under budget', () => {
@@ -1149,7 +1149,7 @@ describe('sectionsForCategory — structural relevance gating', () => {
             worldBrief: 'US-Iran ceasefire talks remain fragile around the Strait of Hormuz.',
             countryBrief: 'Local institutions are handling the reported event.',
             riskScores: 'Domestic stability risk is moderate.',
-            forecasts: 'WorldMonitor forecast: Hormuz traffic disruption remains 84% likely.',
+            forecasts: 'RaWorld forecast: Hormuz traffic disruption remains 84% likely.',
             marketData: 'Oil trades at $87.',
             macroSignals: 'FX stress remains elevated.',
             degraded: false,
@@ -1177,7 +1177,7 @@ describe('sectionsForCategory — structural relevance gating', () => {
         worldBrief: 'US-Iran ceasefire talks remain fragile around the Strait of Hormuz.',
         countryBrief: 'Iranian forces remain on high alert.',
         riskScores: 'Regional stability risk is severe.',
-        forecasts: 'WorldMonitor forecast: Hormuz traffic disruption remains elevated.',
+        forecasts: 'RaWorld forecast: Hormuz traffic disruption remains elevated.',
         marketData: 'Oil trades at $87.',
         macroSignals: 'FX stress remains elevated.',
         degraded: false,

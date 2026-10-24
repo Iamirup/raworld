@@ -1,9 +1,9 @@
 ---
 title: "燃料短缺警报方法论"
-description: "World Monitor 如何依据分层证据标准策展并发布燃料短缺警报，覆盖喷气燃料、汽油、柴油与取暖油四类主要品种，详解证据来源、阈值判定逻辑、地理归属规则与当前的人工维护现状，帮助能源与物流团队及时识别区域性供应链风险与突发短缺信号。"
+description: "RaWorld 如何依据分层证据标准策展并发布燃料短缺警报，覆盖喷气燃料、汽油、柴油与取暖油四类主要品种，详解证据来源、阈值判定逻辑、地理归属规则与当前的人工维护现状，帮助能源与物流团队及时识别区域性供应链风险与突发短缺信号。"
 ---
 
-_本方法论由 World Monitor 创始人 [Elie Habib](https://www.worldmonitor.app/blog/authors/elie-habib/) 维护。已发布的修订记录在[更正日志](/zh/corrections)中。_
+_本方法论由 RaWorld 创始人 [Elie Habib](https://www.worldmonitor.app/blog/authors/elie-habib/) 维护。已发布的修订记录在[更正日志](/zh/corrections)中。_
 
 ## 从这里开始
 
@@ -105,7 +105,7 @@ _本方法论由 World Monitor 创始人 [Elie Habib](https://www.worldmonitor.a
 
 一个 `energy_asset_overrides` 持久化层是设计好的紧急界面，用于读者标记分类明显错误的罕见情况。写入将是仅管理员、非关键路径——默认流程将保持不变，且每次覆盖都会向修订日志发出一个 `override` 触发条目。
 
-**状态（v1 上线）：** 覆盖持久化层尚未实现。读者标记的更正目前通过 [GitHub issues](https://github.com/koala73/worldmonitor/issues) 人工处理；一旦该层随分类器上线，将通过自动化的覆盖路径流转。请参阅 [`/corrections`](/zh/corrections) 了解计划中覆盖条目的形状。
+**状态（v1 上线）：** 覆盖持久化层尚未实现。读者标记的更正目前通过 [GitHub issues](https://github.com/Iamirup/raworld/issues) 人工处理；一旦该层随分类器上线，将通过自动化的覆盖路径流转。请参阅 [`/corrections`](/zh/corrections) 了解计划中覆盖条目的形状。
 
 ## 已知限制
 
@@ -119,4 +119,4 @@ _本方法论由 World Monitor 创始人 [Elie Habib](https://www.worldmonitor.a
 （每次层级变更都会附带其触发器——`classifier` / `source`
 / `decay` / `override`——以及使用的来源）。写入条目的分类器
 将在上线后发布；更正目前通过
-[GitHub issues](https://github.com/koala73/worldmonitor/issues) 人工处理。
+[GitHub issues](https://github.com/Iamirup/raworld/issues) 人工处理。

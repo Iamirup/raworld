@@ -84,9 +84,9 @@ The remaining sections record the original incident and remediation.
 
 ## Problem
 
-WorldMonitor's documented triage doctrine was resolve by shipping. Put a `Fixes` marker naming a Sentry short ID in the commit message or the PR body and let the Sentry GitHub integration close the issue. The integration does not issue a plain resolve. It resolves the issue `inRelease: <commit-sha>`.
+RaWorld's documented triage doctrine was resolve by shipping. Put a `Fixes` marker naming a Sentry short ID in the commit message or the PR body and let the Sentry GitHub integration close the issue. The integration does not issue a plain resolve. It resolves the issue `inRelease: <commit-sha>`.
 
-Sentry reopens a release-pinned issue only when an event arrives in a release **newer** than the pin. WorldMonitor's two instrumented surfaces do not agree on what a release is.
+Sentry reopens a release-pinned issue only when an event arrives in a release **newer** than the pin. RaWorld's two instrumented surfaces do not agree on what a release is.
 
 The browser bundle keeps a stable semver release and carries the SHA beside it. `src/bootstrap/sentry-build-metadata.ts:22` builds the release as `worldmonitor@${appVersion}`, `package.json:4` pins that version at `2.10.0`, and the commit SHA goes to `dist` at `sentry-build-metadata.ts:28` plus a `build_sha` tag at `sentry-build-metadata.ts:31`. Every browser event therefore lands in `worldmonitor@2.10.0`.
 

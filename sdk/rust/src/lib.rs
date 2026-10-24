@@ -9,7 +9,7 @@ use std::{env, error, fmt, time::Duration};
 
 /// The crate version, also used in the User-Agent.
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
-/// Identifies the SDK to the World Monitor API edge.
+/// Identifies the SDK to the RaWorld API edge.
 pub const USER_AGENT: &str = concat!(
     "worldmonitor-rust/",
     env!("CARGO_PKG_VERSION"),

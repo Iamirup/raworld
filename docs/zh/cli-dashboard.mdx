@@ -1,12 +1,12 @@
 ---
 title: "终端仪表盘"
-description: "在终端中运行 World Monitor：实时世界地图、新闻、市场、冲突、军机、网络威胁、气候、预测市场与直播电视，支持鼠标与配色主题，无需 API 密钥。"
+description: "在终端中运行 RaWorld：实时世界地图、新闻、市场、冲突、军机、网络威胁、气候、预测市场与直播电视，支持鼠标与配色主题，无需 API 密钥。"
 ---
 
-World Monitor 也可以在终端中以全屏仪表盘的形式运行。它与[命令行客户端](/zh/cli)一同包含在 [`worldmonitor`](https://www.npmjs.com/package/worldmonitor) npm 包中，无需 API 密钥，显示的实时数据与[网页仪表盘](https://www.worldmonitor.app/dashboard)相同：世界地图、新闻排名、市场、冲突与不稳定性、军机与航运、网络威胁、气候灾害、预测市场、直播电视与网络摄像头，以及平台健康状况。
+RaWorld 也可以在终端中以全屏仪表盘的形式运行。它与[命令行客户端](/zh/cli)一同包含在 [`worldmonitor`](https://www.npmjs.com/package/worldmonitor) npm 包中，无需 API 密钥，显示的实时数据与[网页仪表盘](https://www.worldmonitor.app/dashboard)相同：世界地图、新闻排名、市场、冲突与不稳定性、军机与航运、网络威胁、气候灾害、预测市场、直播电视与网络摄像头，以及平台健康状况。
 
 <Frame caption="Overview：实时世界地图（地震、冲突、骚乱、灾害、火点、网络与断网标记）、AI 世界简报、热点新闻排名、市场行情与战区态势。">
-  <img src="/images/tui/overview.webp" alt="World Monitor 终端仪表盘的 Overview 视图" />
+  <img src="/images/tui/overview.webp" alt="RaWorld 终端仪表盘的 Overview 视图" />
 </Frame>
 
 ## 启动
@@ -20,7 +20,7 @@ worldmonitor                # open the dashboard (same as `worldmonitor tui`)
 在交互式终端中不带参数运行 `worldmonitor` 会打开仪表盘。在管道、脚本或 CI 中则会打印帮助信息，因此现有的自动化不受影响。按 `q` 退出，终端会恢复原状。
 
 <Frame caption="启动画面：仪表盘连接 API 并依次加载各数据层，随后显示第一个视图。按 Esc、Enter 或空格键可跳过。">
-  <img src="/images/tui/boot.webp" alt="显示 World Monitor 标志与加载进度的启动画面" />
+  <img src="/images/tui/boot.webp" alt="显示 RaWorld 标志与加载进度的启动画面" />
 </Frame>
 
 ### 运行要求
@@ -237,7 +237,7 @@ Brief 视图把 AI 世界简报做成一个页面：左侧是简报段落与编�
 worldmonitor web
 ```
 
-在浏览器中打开 [worldmonitor.app/dashboard](https://www.worldmonitor.app/dashboard)。如果在 World Monitor 仓库的克隆目录中运行，则会启动本地开发服务器（`npm run dev`）并打开本地地址。
+在浏览器中打开 [worldmonitor.app/dashboard](https://www.worldmonitor.app/dashboard)。如果在 RaWorld 仓库的克隆目录中运行，则会启动本地开发服务器（`npm run dev`）并打开本地地址。
 
 | 参数 | 作用 |
 |---|---|

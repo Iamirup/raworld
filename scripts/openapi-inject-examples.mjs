@@ -685,7 +685,7 @@ function stringExample(name, schema = {}, context = {}) {
   if (key.includes('assetid')) return constrainedString('asset-example-1', schema);
   if (key.includes('vessel') || key.includes('mmsi')) return constrainedString('123456789', schema);
   if (key.includes('ticker') || key.includes('symbol')) return constrainedString('AAPL', schema);
-  if (key.includes('fullname')) return constrainedString('koala73/worldmonitor', schema);
+  if (key.includes('fullname')) return constrainedString('Iamirup/raworld', schema);
   if (key.includes('provider')) return constrainedString('worldmonitor', schema);
   if (description.includes('iata')) return constrainedString(key.includes('destination') || key.includes('arrival') ? 'LHR' : 'JFK', schema);
   if (description.includes('iso 4217') || key.includes('currency')) return constrainedString('USD', schema);
@@ -732,9 +732,9 @@ function stringExample(name, schema = {}, context = {}) {
     if (description.includes('pipeline')) return constrainedString('pipeline', schema);
     return constrainedString('all', schema);
   }
-  if (key.includes('name')) return constrainedString('WorldMonitor Analyst', schema);
+  if (key.includes('name')) return constrainedString('RaWorld Analyst', schema);
   if (key.includes('message') || key.includes('summary') || key.includes('description')) {
-    return constrainedString('Example WorldMonitor observation.', schema);
+    return constrainedString('Example RaWorld observation.', schema);
   }
   if (key === 'id' || key.endsWith('id') || key.includes('identifier')) return constrainedString('example-id', schema);
   return constrainedString('example', schema);
@@ -997,7 +997,7 @@ function getSearchFactChecksExample() {
       claimReviewed: 'A synthetic example claim, similar to the claim checked',
     }],
     state: 'ok',
-    caveat: 'Ratings are the fact-checkers\' own, quoted with attribution from IFCN-verified signatories. WorldMonitor does not rate claims, and a rating never changes the coverage result above.',
+    caveat: 'Ratings are the fact-checkers\' own, quoted with attribution from IFCN-verified signatories. RaWorld does not rate claims, and a rating never changes the coverage result above.',
   };
 }
 

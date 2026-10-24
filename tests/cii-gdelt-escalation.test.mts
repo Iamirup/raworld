@@ -1,4 +1,4 @@
-// WorldMonitor has no ACLED access, so the CII Conflict and Unrest components
+// RaWorld has no ACLED access, so the CII Conflict and Unrest components
 // had no live event input: acledScore, fatalityScore, civilianBoost and the
 // protest/riot terms all read the ACLED API, which returns nothing without a
 // token. In October 2026 Houthi strikes hit Riyadh and Dammam and France had

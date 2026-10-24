@@ -210,7 +210,7 @@ describe('verify_claim MCP tool', () => {
     assert.equal(result.state, 'corroborated', 'a rating never changes the coverage state');
     assert.equal(result.factChecks.state, 'ok');
     assert.equal(result.factChecks.label, 'A published fact-check of a similar claim');
-    assert.match(result.factChecks.caveat, /WorldMonitor does not rate claims/);
+    assert.match(result.factChecks.caveat, /RaWorld does not rate claims/);
     assert.deepEqual(result.factChecks.items, [FACT_CHECK]);
     // The same lookup SearchFactChecks serves /verify, run in-process: no
     // second gateway request (and no second billed unit).

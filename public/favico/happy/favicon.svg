@@ -1,25 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#7A9F6B"/>
-      <stop offset="100%" stop-color="#5C7F4E"/>
-    </linearGradient>
-    <linearGradient id="globe" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#D4B86A"/>
-      <stop offset="100%" stop-color="#C4A35A"/>
-    </linearGradient>
+    <radialGradient id="g" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#0d1820"/><stop offset="100%" stop-color="#000"/>
+    </radialGradient>
   </defs>
-  <!-- Background circle -->
-  <circle cx="256" cy="256" r="256" fill="url(#bg)"/>
-  <!-- Globe body -->
-  <circle cx="256" cy="256" r="160" fill="none" stroke="url(#globe)" stroke-width="18"/>
-  <!-- Equator -->
-  <ellipse cx="256" cy="256" rx="160" ry="40" fill="none" stroke="url(#globe)" stroke-width="12"/>
-  <!-- Prime meridian -->
-  <ellipse cx="256" cy="256" rx="40" ry="160" fill="none" stroke="url(#globe)" stroke-width="12"/>
-  <!-- Tropic lines -->
-  <ellipse cx="256" cy="196" rx="140" ry="30" fill="none" stroke="url(#globe)" stroke-width="8" opacity="0.6"/>
-  <ellipse cx="256" cy="316" rx="140" ry="30" fill="none" stroke="url(#globe)" stroke-width="8" opacity="0.6"/>
-  <!-- Accent dot - sun -->
-  <circle cx="340" cy="172" r="24" fill="#D4B86A" opacity="0.9"/>
+  <circle cx="256" cy="256" r="244" fill="url(#g)" stroke="#b9d8eb" stroke-opacity=".55" stroke-width="10"/>
+  <g fill="none" stroke="#8bc9ed" stroke-opacity=".55" stroke-width="9">
+    <ellipse cx="256" cy="256" rx="96" ry="210"/>
+    <path d="M52 256H460"/>
+    <path d="M86 150H426M86 362H426" stroke-opacity=".35"/>
+  </g>
+  <circle cx="256" cy="256" r="118" fill="none" stroke="#d5edff" stroke-width="16"/>
+  <circle cx="256" cy="256" r="46" fill="#48d6a0"/>
 </svg>

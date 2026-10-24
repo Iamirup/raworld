@@ -97,7 +97,7 @@ export const REPRESENTATIVE_FIXTURE_CONTRACTS = Object.freeze({
 // regenerate a smaller or less complete payload that it will also accept.
 const representativeMarketQuotes = Object.freeze(Array.from({ length: 93 }, (_, index) => Object.freeze({
   symbol: `WM${String(index).padStart(3, '0')}`,
-  name: `WorldMonitor Representative Equity ${index}`,
+  name: `RaWorld Representative Equity ${index}`,
   price: 1000 + (index * 1.25),
   change: ((index % 9) - 4) / 10,
 })));

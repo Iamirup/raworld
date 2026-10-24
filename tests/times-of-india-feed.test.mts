@@ -89,7 +89,7 @@ describe('Times of India licensed India feed', () => {
     assert.ok(entry, `attribution manifest missing ${HOST}`);
     assert.equal(entry.provider, SOURCE);
     assert.equal(entry.status, 'reviewed');
-    assert.match(entry.license, /World Monitor agreement/);
+    assert.match(entry.license, /RaWorld agreement/);
     assert.equal(entry.attribution, `Credit ${SOURCE} and link to the original item.`);
     assert.deepEqual(
       entry.references.map((reference) => reference.path).sort(),

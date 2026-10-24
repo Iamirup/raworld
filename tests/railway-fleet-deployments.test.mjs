@@ -145,7 +145,7 @@ describe('immutable native-autodeploy fleet', () => {
     { id: 'svc-a', name: 'seed-a' },
     { id: 'svc-b', name: 'relay-b' },
   ];
-  const live = (id, name, repo = 'koala73/worldmonitor') => ({
+  const live = (id, name, repo = 'Iamirup/raworld') => ({
     id,
     name,
     source: { repo, image: null },
@@ -188,7 +188,7 @@ describe('immutable native-autodeploy fleet', () => {
     const path = join(directory, 'fleet.json');
     const valid = {
       version: 1,
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       acceptedHead: 'a'.repeat(40),
       acceptedRunId: 123,
       services: expected,
@@ -285,7 +285,7 @@ describe('immutable native-autodeploy fleet', () => {
     );
     assert.throws(
       () => selectExpectedRepositoryServices([
-        { ...live('svc-a', 'seed-a'), source: { repo: 'koala73/worldmonitor', image: 'postgres:17' } },
+        { ...live('svc-a', 'seed-a'), source: { repo: 'Iamirup/raworld', image: 'postgres:17' } },
         live('svc-b', 'relay-b'),
       ], expected),
       /seed-a.*repository source/i,

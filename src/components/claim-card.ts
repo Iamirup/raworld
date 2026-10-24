@@ -17,7 +17,7 @@ export function claimVerdictView(card: ClaimCard): VerdictView {
   if (card.state === 'not-found') {
     return {
       tone: 'not-found',
-      title: 'Not in WorldMonitor\'s current sources',
+      title: 'Not in RaWorld\'s current sources',
       body: 'No headline in the live digest reports this. That does not make it false: it may be too new, too local, or worded differently. Try the key names and numbers.',
     };
   }

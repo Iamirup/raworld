@@ -16,8 +16,8 @@ const related = term.related.map((slug) => bySlug.get(slug)).filter((t) => t != 
 const pageUrl = `https://www.worldmonitor.app/blog/glossary/${term.slug}/`;
 const termLabel = `${term.term}${term.abbr ? ` (${term.abbr})` : ''}`;
 const metaTitle = term.abbr
-  ? `${term.abbr} Definition | World Monitor`
-  : `${term.term} Definition | World Monitor`;
+  ? `${term.abbr} Definition | RaWorld`
+  : `${term.term} Definition | RaWorld`;
 const titleTag = term.metaTitle ?? metaTitle;
 const description = term.metaDescription ?? term.short;
 const metaDescription = description.length <= 160
@@ -48,7 +48,7 @@ const jsonLd = {
     inLanguage: 'en-US',
     inDefinedTermSet: {
       '@type': 'DefinedTermSet',
-      name: 'World Monitor Global Intelligence Glossary',
+      name: 'RaWorld Global Intelligence Glossary',
       url: 'https://www.worldmonitor.app/blog/glossary/',
     },
   },
@@ -118,7 +118,7 @@ const faqLd = {
           <span class="live-reading-status" data-live-status>Loading the live level…</span>
         </div>
         <p class="live-reading-fallback" data-live-fallback>
-          The current level loads in your browser from World Monitor’s live feed, refreshed every 15 minutes.
+          The current level loads in your browser from RaWorld’s live feed, refreshed every 15 minutes.
           It also appears next to the pizza icon in the <a href="/dashboard">dashboard header</a>.
         </p>
         <div class="live-reading-body" data-live-grid hidden aria-busy="true">
@@ -199,7 +199,7 @@ const faqLd = {
     <div class="cta-banner glossary-cta">
       <h3>See it live</h3>
       <p>
-        World Monitor tracks this and hundreds of other signals in real time on one map —
+        RaWorld tracks this and hundreds of other signals in real time on one map —
         free, no account required.
       </p>
       <a href="https://www.worldmonitor.app" class="btn" target="_blank" rel="noopener noreferrer">

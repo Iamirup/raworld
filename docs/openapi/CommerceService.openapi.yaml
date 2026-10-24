@@ -9,7 +9,7 @@ openapi: 3.1.0
 info:
     title: CommerceService API
     version: 1.0.0
-    description: Public pricing catalog for World Monitor plans. The catalog endpoint is keyless and read-only; agents evaluating the product should prefer it over scraping pricing prose.
+    description: Public pricing catalog for RaWorld plans. The catalog endpoint is keyless and read-only; agents evaluating the product should prefer it over scraping pricing prose.
 servers:
     - url: https://www.worldmonitor.app
 paths:

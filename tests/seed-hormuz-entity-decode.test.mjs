@@ -1,4 +1,4 @@
-// seed-hormuz entity-decode regression (koala73/worldmonitor#5436).
+// seed-hormuz entity-decode regression (Iamirup/raworld#5436).
 //
 // The seeder's private decoder ran `.replace(/&amp;/g, '&')` BEFORE the
 // `&lt;`/`&gt;` replaces, so one call decoded TWO levels: text a publisher

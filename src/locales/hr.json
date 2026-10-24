@@ -42,16 +42,15 @@
     "phaseError": "Greška",
     "previewCheckingHeading": "Povezivanje graditelja widgeta",
     "previewReadyHeading": "Opiši widget koji želiš",
-    "previewFetchingHeading": "Preuzimanje uživo WorldMonitor podataka",
+    "previewFetchingHeading": "Preuzimanje uživo RaWorld podataka",
     "previewComposingHeading": "Sastavljanje rasporeda widgeta",
     "previewErrorHeading": "Prikaz treba pažnju",
     "previewCheckingCopy": "Provjeravamo tvoj ključ widgeta i dostupnost pozadine prije omogućavanja generiranja.",
     "previewReadyCopy": "Koristi primjer upita ili opiši točan direktan prikaz koji želiš. Prikaz će se ažurirati ovdje prije nego što ga spremiš.",
-    "previewFetchingCopy": "Agent poziva odobrene WorldMonitor krajnje točke i oblikuje skup podataka za widget.",
+    "previewFetchingCopy": "Agent poziva odobrene RaWorld krajnje točke i oblikuje skup podataka za widget.",
     "previewComposingCopy": "Prikaz se prikazuje s najnovijim uživo podacima i stilizacijom nadzorne ploče.",
     "previewErrorCopy": "Ispravi problem, zatim pokušaj ponovno. Tvoji postojeći widgeti nisu na udaru.",
     "createInteractive": "Kreiraj interaktivni widget",
-    "proBadge": "PRO",
     "preflightProUnavailable": "PRO widget agent nije dostupan. Provjeri PRO_WIDGET_KEY na serveru.",
     "preflightInvalidProKey": "PRO ključ odbijen. Ažuriraj wm-pro-key i ponovno učitaj.",
     "preflightProSubscriptionRequired": "Potrebna Pro pretplata. Ako si se upravo nadogradio, osvježi stranicu; inače kontaktiraj podršku.",
@@ -270,7 +269,6 @@
     "foodStocksHelp": "USDA Production, Supply and Distribution rezerve roba prema omjeru zaliha i korištenja po godini tržišta, sa svjetskim omjerom kao referencom. FAOSTAT Food Balances daje proizvodnju i domaću ponudu kada Production, Supply and Distribution nema kompletan popis zemlje.",
     "loadingFoodStocks": "Loading food stocks…",
     "foodStocksUnavailable": "Food stocks unavailable.",
-    "foodStocksProLocked": "Upgrade to PRO for commodity stocks-to-use",
     "foodStocksCommodity": "Commodity",
     "foodStocksMarketingYear": "Marketing year",
     "foodStocksRatio": "Stocks-to-use",
@@ -288,7 +286,6 @@
       "help": "Starosna struktura, obrazovna dinamika i kapacitet industrijskog radnog kontingenta prema UN World Population Prospects, UNESCO Institute for Statistics, World Bank World Development Indicators i ILOSTAT.",
       "loading": "Loading demographics and workforce data…",
       "unavailable": "Demographics and workforce data unavailable.",
-      "proLocked": "Upgrade to PRO for demographics and workforce data",
       "notAvailable": "Not available",
       "ageStructure": "Age structure",
       "education": "Education pipeline",
@@ -314,7 +311,6 @@
       "help": "Zamrznute v1 dokazne ocjene za hranu, energiju, demografiju, tehnologiju i obranu. Proširite red za pregled ulaznih podataka, izvora i razloga nedostajućih podataka.",
       "loading": "Učitavanje petofaktorske ocjene…",
       "unavailable": "Petofaktorska ocjena nije dostupna.",
-      "proLocked": "Nadogradite na PRO za petofaktorsku ocjenu otpornosti",
       "insufficient": "Nedovoljno podataka",
       "notAvailable": "Nije dostupno",
       "noEvidence": "Nema dostupnih dokaza za ovaj stup.",
@@ -371,9 +367,7 @@
         "defense_supplierDiversity": "Diverzifikacija dobavljača oružja"
       }
     },
-    "defenseIndustrialBase": {
-      "proLocked": "Nadogradi na PRO za ovisnost dobavljača oružja i vojnu kapacitetu"
-    }
+    "defenseIndustrialBase": {}
   },
   "header": {
     "world": "SVIJET",
@@ -785,8 +779,7 @@
       "alertTitle": {
         "configured": "Desktop postavke konfigurisane",
         "needsKeys": "Konfiguriši API ključeve da otključaš funkcije",
-        "some": "Neke funkcije trebaju API ključeve",
-        "pro": "World Monitor Pro je aktivan"
+        "some": "Neke funkcije trebaju API ključeve"
       },
       "summary": {
         "desktop": "Desktop režim",
@@ -815,18 +808,13 @@
         "NASA_FIRMS_API_KEY": "Sustav za upravljanje informacijama o požarima.",
         "OLLAMA_API_URL": "npr. http://127.0.0.1:11434 (Ollama) ili http://127.0.0.1:1234/v1 (LM Studio) — OpenAI-kompatibilan endpoint.",
         "OLLAMA_MODEL": "npr. llama3.1:8b — tag modela za summarizaciju."
-      },
-      "proCloud": "Značajke bez lokalnog API ključa koriste World Monitor cloud podatke.",
-      "skipSetupPro": "Preskoči postavu: prijavite se s World Monitor Pro za korištenje cloud podataka umjesto svojih API ključeva.",
-      "getPro": "Uzmi World Monitor Pro"
+      }
     },
     "settingsWindow": {
       "shellTitle": "Postavke Svjetskog monitoringa",
       "shellSearchPlaceholder": "Pretraži postavke...",
       "shellCancel": "Odustani",
       "shellSaveClose": "Spremi i zatvori",
-      "freePanelLimit": "Besplatni plan: maks {{max}} panela. Nadogradi na PRO za neograničeno.",
-      "freeSourceLimit": "Besplatni plan: maks {{max}} izvora. Nadogradi na PRO za neograničeno.",
       "validating": "Provjera API ključeva...",
       "saved": "Postavke spremljene",
       "failed": "Spremanje neuspješno: {{error}}",
@@ -845,12 +833,6 @@
           "title": "Ključ licence / API ključ",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "description": "Pretplatnici na API Starter i API Business stvaraju ovaj ključ na web nadzornoj ploči putem Settings → API Keys. Ako izgubiš cijeli ključ, opozovi ga i izradi zamjenski."
-        },
-        "dividerOr": "ILI",
-        "register": {
-          "title": "Trebaš API ključ?",
-          "description": "Detaljne upute potraži na worldmonitor.app/docs/api-keys. Ručni API ključevi zahtijevaju plan API Starter ili API Business.",
-          "submitBtn": "Prikaži API planove"
         }
       },
       "table": {
@@ -1100,8 +1082,7 @@
       "refineryStage": "Refine",
       "stageUnavailable": "No published figures for this stage",
       "withheldNote": "W withheld",
-      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them.",
-      "productionProLocked": "Nadogradite se na PRO za udio rudnika i rafinerija po zemlji s koncentracijom (indeks koncentracije proizvođača) po fazi."
+      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them."
     },
     "tradePolicy": {
       "overview": "Pregled",
@@ -1237,7 +1218,7 @@
       "skipToEnd": "Preskoči na kraj"
     },
     "pizzint": {
-      "indexSource": "Indeks: World Monitor · podaci o objektima:",
+      "indexSource": "Indeks: RaWorld · podaci o objektima:",
       "statusNormal": "NORMALNO",
       "statusNoData": "NEMA PODATAKA",
       "statusNoBaseline": "NEMA OSNOVE",
@@ -1246,7 +1227,7 @@
       "defcon": "DEFCON {{level}}",
       "updated": "Ažurirano {{timeAgo}}",
       "tensionsTitle": "Geopolitička napetost",
-      "tensionsSource": "Napetosti: World Monitor na temelju događaja GDELT-a",
+      "tensionsSource": "Napetosti: RaWorld na temelju događaja GDELT-a",
       "insufficientData": "Nedovoljno podataka",
       "pizzaUnavailable": "Aktivnost pizzerija nije dostupna",
       "source": "Izvor:",
@@ -1926,7 +1907,7 @@
       "staleReport": "Zastarjelo izvješće",
       "reported": "Broj",
       "period": "Razdoblje",
-      "movementNote": "Svaki redak zadržava svoj izvor, datum izvješća i mjeru. Broj prisutnih osoba, dolasci i događaji granične kontrole različite su mjere. Izvori se mogu preklapati; ne zbrajajte njihove brojeve. WorldMonitor izvodi ovaj prikaz iz povezanih izvora; to ne podrazumijeva odobrenje pružatelja.",
+      "movementNote": "Svaki redak zadržava svoj izvor, datum izvješća i mjeru. Broj prisutnih osoba, dolasci i događaji granične kontrole različite su mjere. Izvori se mogu preklapati; ne zbrajajte njihove brojeve. RaWorld izvodi ovaj prikaz iz povezanih izvora; to ne podrazumijeva odobrenje pružatelja.",
       "recent": "Nedavno",
       "last30Days": "Posljednjih 30 dana",
       "newThisWeek": "Novo ovaj tjedan",
@@ -2431,7 +2412,7 @@
       "loadError": "Climate News privremeno nije dostupan"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>WM Analyst</strong> AI analitičar sa živim kontekstom kroz geopolitičke, tržišne, vojne i ekonomske domene. Pogonjen s Claude-om sa podacima u realnom vremenu ubrizganim iz aktivnih WorldMonitor feedova."
+      "infoTooltip": "<strong>RaWorld Analyst</strong> AI analitičar sa živim kontekstom kroz geopolitičke, tržišne, vojne i ekonomske domene. Pogonjen s Claude-om sa podacima u realnom vremenu ubrizganim iz aktivnih RaWorld feedova."
     },
     "cotPositioning": {
       "infoTooltip": "<strong>Pozicioniranje futures ugovora</strong> Tjedne neto pozicije komercijalnih trgovaca, velikih spekulanata i malih trgovaca za robe i financijske futures ugovore. Izvor je izvješće Komisije za trgovinu roba futures o obvezama trgovaca, objavljeno petkom."
@@ -2524,7 +2505,7 @@
       "infoTooltip": "<strong>Ekonomski kalendar</strong> Zakazana makroekonomska objavljivanja: indeks cijena potrošačkih dobara, plaće izvan poljoprivrede, bruto domaći proizvod, indeks upravitelja nabave i odluke centralnih banaka. Prikazuje prognozu u odnosu na stvarne vrijednosti u odnosu na prethodnje. Događaji visoke važnosti su istaknutí. Izvor: pružatelji ekonomskih podataka."
     },
     "fsi": {
-      "infoTooltip": "<strong>Indikator financijskog stresa</strong> World Monitor omjer visokorentabilnog kredita i dugoročnih trezorskih obveznica, prilagođen za volatilnost dionica i raspon visokorentabilnog kredita: (HYG / TLT) / (VIX × raspon visokorentabilnog kredita / 100). Ovo nije indeks financijskog stresa Kansas City Feda. Vrijednost od 1,5 ili viša označava nizak stress; ispod 0,3 je visok stress.",
+      "infoTooltip": "<strong>Indikator financijskog stresa</strong> RaWorld omjer visokorentabilnog kredita i dugoročnih trezorskih obveznica, prilagođen za volatilnost dionica i raspon visokorentabilnog kredita: (HYG / TLT) / (VIX × raspon visokorentabilnog kredita / 100). Ovo nije indeks financijskog stresa Kansas City Feda. Vrijednost od 1,5 ili viša označava nizak stress; ispod 0,3 je visok stress.",
       "title": "Indikator financijskog stresa",
       "usFsiValue": "Vrijednost indeksa financijskog stresa SAD-a",
       "cissTitle": "EU CISS (Sustavni stres evrske zone)",
@@ -2583,8 +2564,7 @@
       "dependentCommodities": "Ovisna roba",
       "stateOk": "Trenutačno",
       "stateStale": "Zastarjeli ulaz",
-      "stateInsufficient": "Nedovoljno podataka",
-      "proLocked": "Nadogradi na PRO za bodovanje ranjivosti roba"
+      "stateInsufficient": "Nedovoljno podataka"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>Tracker trgovine kroz Hormuz</strong> Praćenje brodova u realnom vremenu kroz Tjesnac Hormuz, svjetski najkritičniji čvor trgovine naftom. Prati broj tankera, događaje prekida i tjedne promjene toka. Približno 20% globalne ponude nafte prolazi ovdje dnevno.",
@@ -2609,7 +2589,7 @@
       "infoTooltip": "<strong>Makroekonomski indikatori</strong> SAD, eurozona i kineski indikatori cijena, aktivnosti, politike i valuta. Kina zahtijeva trenutnu pokrivenost. Svaki prikaz pokazuje svoj izvor i datum promatranja."
     },
     "monitors": {
-      "infoTooltip": "<strong>Keyword Monitors</strong> Dodajte bilo koji pojam kako biste pratili živu spomenuću vijesti na svim WorldMonitor izvorima. Rezultati se ažuriraju u realnom vremenu dok se upareni članci primaju."
+      "infoTooltip": "<strong>Keyword Monitors</strong> Dodajte bilo koji pojam kako biste pratili živu spomenuću vijesti na svim RaWorld izvorima. Rezultati se ažuriraju u realnom vremenu dok se upareni članci primaju."
     },
     "renewable": {
       "infoTooltip": "<strong>Obnovljiva energija</strong> Udio proizvodnje električne energije iz obnovljivih izvora po regiji i godini, te instalirani kapacitet SAD-a za solarnu energiju, vjetar i ugljen (MW). Izvori: Svjetska banka (EG.ELC.RNEW.ZS) i Američka administracija za energetske informacije."
@@ -2629,108 +2609,11 @@
     "yieldCurve": {
       "infoTooltip": "<strong>Krivulja prinosa i kamatne stope</strong> Krivulja prinosa američkih trezorskih obveznica (2G, 5G, 10G, 30G) i ključni razmaci kamatnih stopa uključujući indikator invertirane krivulje 10G-2G. Prikazuje i kamatne stope eurozaone (EURIBOR, ESTR). Invertirana krivulja je povijesno prethodila recesijama. Izvor: Podaci Federalnih rezervi o ekonomiji."
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro je lansiran",
-      "tagline": "Više signala, manje šuma. Više AI sažetaka. Geopolitički i equity istraživač samo za vas.",
-      "cta": "Nadogradi na Pro →",
-      "dismiss": "Odbaci"
-    },
-    "billingState": {
-      "onHoldDesc": "Plaćanje nije uspjelo. Ažurirajte način plaćanja kako biste vratili premium pristup.",
-      "onHoldBannerMessage": "Plaćanje nije uspjelo. Ažurirajte način plaćanja kako bi vaša pretplata ostala aktivna.",
-      "updatePayment": "Ažuriraj plaćanje",
-      "renewalPendingDesc": "Provjeravamo obnovu vaše pretplate. Premium pristup bit će automatski vraćen nakon potvrde.",
-      "refreshStatus": "Osvježi status",
-      "renewalFailedDesc": "Nismo mogli provjeriti obnovu vaše pretplate. Upravljajte naplatom ili kontaktirajte podršku ako se problem nastavi.",
-      "manageBilling": "Upravljanje naplatom",
-      "lapsedDesc": "Vaša Pro pretplata je istekla. Pretplatite se ponovno kako biste vratili premium pristup.",
-      "resubscribe": "Ponovno se pretplati"
-    },
     "checkoutFailureBanner": {
       "message": "Plaćanje nije moglo biti dovršeno. Nije izvršena nikakva naplata.",
       "retry": "Pokušaj ponovno",
       "retrying": "Ponovno pokušavam…",
       "dismiss": "Odbaci"
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "Korak {{current}} od {{total}}",
-      "closeLabel": "Preskoči postavljanje",
-      "ariaLabel": "Postavljanje aktivacije Pro",
-      "signedInAs": "Prijavljeni ste kao {{email}}",
-      "steps": {
-        "brief": {
-          "heading": "Vaš dnevni pregled, svako jutro",
-          "body": "Kurirani obavještajni pregled u vašem pretincu svako jutro — noćni signali koji su bitni, sažeti u petominutno čitanje.",
-          "confirmCta": "Uključi moj jutarnji pregled",
-          "confirming": "Uključivanje…",
-          "doneNote": "Vaš jutarnji pregled već radi.",
-          "scheduleNote": "Zadržat ćemo vaše trenutno vrijeme dostave.",
-          "summaryLabel": "Jutarnji pregled",
-          "summaryVerified": "Uključeno — počinje s vašim sljedećim jutarnjim pregledom.",
-          "deliverAt": "Dostava u",
-          "previewLoading": "Priprema pregleda vašeg prvog izvještaja…",
-          "previewLabel": "Jutrošnji pregled"
-        },
-        "alerts": {
-          "heading": "Kritična upozorenja",
-          "body": "Primite obavijest u pregledniku kad se dogodi nešto veliko — eskalacije sukoba, tržišni šokovi, nove sankcije. Prilagodite učestalost bilo kada u Postavkama.",
-          "confirmCta": "Omogući upozorenja",
-          "confirming": "Omogućavanje…",
-          "doneNote": "Upozorenja u pregledniku već su uključena.",
-          "blockedNote": "Obavijesti su blokirane u vašem pregledniku. Uključite ih u postavkama stranice u vašem pregledniku kako biste primali upozorenja.",
-          "declinedNote": "Nema problema — nećemo slati obavijesti u pregledniku. Možete ih kasnije uključiti putem postavki stranice u vašem pregledniku.",
-          "summaryLabel": "Kritična upozorenja",
-          "summaryVerified": "Uključeno — kritični signali stizat će do vašeg preglednika."
-        },
-        "power": {
-          "heading": "Vaš Pro komplet alata",
-          "body": "Prilagođeni widgeti, MCP veze i AI istraživač su otključani. Izgradite nadzornu ploču koju stvarno želite pratiti.",
-          "confirmCta": "Istraži Pro alate",
-          "confirming": "Otvaranje…",
-          "doneNote": "Već koristite svoje Pro alate.",
-          "summaryLabel": "Pro komplet alata",
-          "summaryVerified": "Otključano i spremno kad i vi budete.",
-          "channelsNote": "Preferirate Telegram, Slack, Discord ili webhook?",
-          "pointers": {
-            "search": "Pretraži cijelu nadzornu ploču",
-            "widgets": "Izradi prilagođeni widget",
-            "analyst": "Pitaj AI analitičara",
-            "mcpClients": "Postavi MCP",
-            "channels": "Postavite ih u postavkama obavijesti"
-          }
-        }
-      },
-      "status": {
-        "pending": "Nije postavljeno",
-        "inFlight": "Postavljanje…",
-        "verified": "Spremno",
-        "failed": "Nije uspjelo",
-        "blocked": "Blokirano",
-        "unavailable": "Nedostupno",
-        "blockedNote": "Ovo trenutno nije dostupno — možete to postaviti kasnije u postavkama.",
-        "unavailableNote": "Ovo nije dostupno na vašem uređaju — možete to postaviti kasnije.",
-        "failedBody": "Nešto je pošlo po zlu. Možete pokušati ponovno ili to postaviti kasnije u postavkama.",
-        "retry": "Pokušaj ponovno"
-      },
-      "actions": {
-        "skip": "Preskoči za sada",
-        "continue": "Nastavi"
-      },
-      "summary": {
-        "heading": "Sve je spremno",
-        "subVerified": "Evo što radi na vašem računu.",
-        "subPending": "Postavljanje možete dovršiti bilo kada u postavkama.",
-        "linePending": "Još nije postavljeno — dovršite bilo kada u postavkama.",
-        "lineFailed": "Nismo uspjeli ovo postaviti — pokušajte ponovno u postavkama.",
-        "finish": "Idi na moju nadzornu ploču"
-      },
-      "chip": {
-        "message": "Dovršite postavljanje svog Pro računa.",
-        "action": "Dovrši postavljanje",
-        "dismissLabel": "Odbaci"
-      }
     },
     "frameworkSelector": {
       "label": "Analysis Framework",
@@ -2962,20 +2845,10 @@
       }
     },
     "exportGate": {
-      "signedOutDesc": "Prijavite se za izvoz podataka nadzorne ploče kao CSV, JSON ili PDF.",
-      "upgradeDesc": "Izvoz podataka (CSV, JSON, PDF) uključen je u Pro Business.",
-      "upgradeCta": "Nadogradi na Pro Business",
       "lockedAriaLabel": "Izvezi podatke — zaključano. {{reason}}",
       "unlockedAnnouncement": "Izvoz podataka je otključan.",
       "preparingPdf": "Priprema PDF-a…",
       "pdfFailed": "PDF izvješće nije moglo biti generirano. Pokušajte ponovo ili koristite JSON izvoz."
-    },
-    "tabCap": {
-      "signedOutDesc": "Radni prostori bez prijave ograničeni su na {{cap}} kartica. Prijavite se za dodavanje više.",
-      "upgradeDesc": "Dostigli ste ograničenje od {{cap}} kartica nadzorne ploče.",
-      "upgradeCta": "Nadogradi za više",
-      "lockedAriaLabel": "Dodaj karticu — zaključano. {{reason}}",
-      "unlockedAnnouncement": "Ograničenje kartica nadzorne ploče ukinuto."
     },
     "fx": {
       "infoTooltip": "<strong>Devizni tečajevi</strong> Stress rangira 45 valuta po njihovom najvećem padu tijekom 24 mjeseca, s promjenom u 12 mjeseci. Spotirani tečajevi koriste zasebne baze američkog dolara i eura. Tečajevi ruskog rublja su rublje po jedinici. Izvori uključuju Yahoo Finance, Europsku centralnu banku i Banku Rusije.",
@@ -3009,18 +2882,6 @@
       "rubPerUnit": "Rubalja po jedinici",
       "sourceCbr": "Izvor: Središnja banka Rusije"
     },
-    "passkeyOffer": {
-      "title": "Spremi ključ pristupa?",
-      "body": "Sljedeći put se prijavi otiscima prstiju, licem ili PIN-om uređaja — bez lozinke koju trebaš zapamtiti.",
-      "accept": "Spremi ključ pristupa",
-      "dismiss": "Ne sada",
-      "close": "Zatvori",
-      "announce": "Spremi ključ pristupa da se sljedeći put brže prijaviš.",
-      "busy": "Čekam na tvoj uređaj…",
-      "succeeded": "Ključ pristupa je spreman. Možeš ga koristiti sljedeći put kada se prijaviš.",
-      "retryable": "To nije završeno. Možeš pokušati ponovno.",
-      "failed": "Nismo mogli spremiti ključ pristupa na ovaj uređaj."
-    },
     "decisionBrief": {
       "commodityTitle": "Sažetak odluke o sirovinama",
       "commodity": "Sirovina / proizvod",
@@ -3039,8 +2900,7 @@
       "changed": "Odabir je promijenjen. Učitajte oba scenarija prije izvoza.",
       "loading": "Učitavanje oba scenarija…",
       "captured": "Učitano. Provjerite datume opažanja i ograničenja prije preuzimanja.",
-      "failed": "Scenariji se ne mogu učitati. Provjerite pristup i pokušajte ponovno. Nema rezultata za izvoz.",
-      "locked": "Sažetak za odluku dostupan je uz Pro."
+      "failed": "Scenariji se ne mogu učitati. Provjerite pristup i pokušajte ponovno. Nema rezultata za izvoz."
     },
     "liveMedia": {
       "idleStatus": "Pauziran zbog neaktivnosti",
@@ -3769,31 +3629,9 @@
     "panelFontScale": "Veličina teksta",
     "followGlobalFontScale": "Koristi globalnu postavku"
   },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "Zahtijeva ključ World Monitor licence",
-    "signInToUnlock": "Prijavite se da biste otključali premium značajke",
-    "signIn": "Prijavite se za Otključavanje",
-    "upgradeDesc": "Nadogradite se na Pro za potpun pristup premium analitici",
-    "upgradeToPro": "Nadogradite se na Pro",
-    "features": {
-      "orefSirens1": "Upozorenja o raketama i raketama u izraelskom realnom vremenu",
-      "orefSirens2": "Mapiranje zone sirena s klasifikacijom prijetnje",
-      "telegramIntel1": "Kurirani канали otvorenih izvora obavještajnih podataka na Telegramu",
-      "telegramIntel2": "Ažuriranja o konfliktima i geopolitici u blizini realnog vremena",
-      "xIntel1": "Curated public news accounts on X",
-      "xIntel2": "API-fresh posts with official permalinks"
-    }
-  },
   "contextMenu": {
     "openCountryBrief": "Otvori Sažetak Zemlje",
     "copyCoordinates": "Kopiraj Koordinate"
-  },
-  "auth": {
-    "signIn": "Prijava",
-    "createAccount": "Kreiraj račun",
-    "settings": "Postavke",
-    "passkeyOffer": {}
   },
   "mcp": {
     "connectPanel": "Poveži MCP",
@@ -3882,8 +3720,6 @@
     "resilience": "Otpornost",
     "ciiMissing": "CII nije dostupan",
     "resilienceMissing": "Otpornost nije dostupna",
-    "noEvents": "Za ovaj datum nisu zabilježeni odabrani naslovi. To ne dokazuje da nije bilo događaja.",
-    "unlock90": "Otključajte 90 dana uz Pro",
-    "unlock365": "Otključajte 365 dana uz API paket"
+    "noEvents": "Za ovaj datum nisu zabilježeni odabrani naslovi. To ne dokazuje da nije bilo događaja."
   }
 }

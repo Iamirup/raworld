@@ -43,7 +43,7 @@ export function detectPlayer(env = process.env) {
   return { mpv, ytdlp, vo: detectTerminalGraphics(env) };
 }
 
-export function mpvArgs(url, { mode = 'terminal', vo = 'tct', title = 'World Monitor' } = {}) {
+export function mpvArgs(url, { mode = 'terminal', vo = 'tct', title = 'RaWorld' } = {}) {
   const common = [
     `--title=${title}`,
     '--really-quiet',

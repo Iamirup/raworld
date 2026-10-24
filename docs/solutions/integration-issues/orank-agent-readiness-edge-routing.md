@@ -9,7 +9,7 @@ tags: [orank, cloudflare, markdown, api-errors]
 
 # Agent discovery and error responses across Cloudflare and Vercel
 
-The September 5, 2026 orank result was 96/100. Live checks confirmed that `/?mode=agent` already returned the expected JSON. The REST schema contract checks passed. World Monitor has no GraphQL API. A firewall 403 on `/api/graphql` does not establish that an authenticated GraphQL service exists.
+The September 5, 2026 orank result was 96/100. Live checks confirmed that `/?mode=agent` already returned the expected JSON. The REST schema contract checks passed. RaWorld has no GraphQL API. A firewall 403 on `/api/graphql` does not establish that an authenticated GraphQL service exists.
 
 The remaining request paths cross two deployment systems.
 
@@ -23,7 +23,7 @@ All 90 original Markdown links in `llms.txt` were checked with redirect-followin
 
 ## Prepare the Cloudflare change
 
-Set exactly one of `CLOUDFLARE_API_TOKEN` or `CLOUDFLARE_ALL_ACCESS_TOKEN`. Use a token scoped to the WorldMonitor zone with WAF and cache-rule edit permissions. The script can load these names through the standard `loadEnvFile()` path. No credential belongs in the plan or Git.
+Set exactly one of `CLOUDFLARE_API_TOKEN` or `CLOUDFLARE_ALL_ACCESS_TOKEN`. Use a token scoped to the RaWorld zone with WAF and cache-rule edit permissions. The script can load these names through the standard `loadEnvFile()` path. No credential belongs in the plan or Git.
 
 ```sh
 node scripts/cloudflare-agent-readiness.mjs --plan
@@ -63,7 +63,7 @@ PR #7742 merged at `2026-09-05T18:15:08Z`; its delivery notes explicitly said
 Cloudflare had not been changed. The successful Vercel Production deployment
 `6295532865` at `2026-09-06T16:53:52Z` used commit
 `800289c96b2c296893326dd3f54d9ecd6de25e77`, which includes that change.
-The [production sweep](https://github.com/koala73/worldmonitor/actions/runs/34046902572)
+The [production sweep](https://github.com/Iamirup/raworld/actions/runs/34046902572)
 then passed ten checks. Its nine required probe groups did not include API
 User-Agent denials. The standalone readiness checker was not part of that run.
 

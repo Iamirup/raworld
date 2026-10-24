@@ -1,7 +1,7 @@
 /**
- * Publish job: builds compact WorldMonitor snapshot payloads and writes to Redis.
+ * Publish job: builds compact RaWorld snapshot payloads and writes to Redis.
  * Runs as an independent Railway cron service (02:30-05:30 UTC, hourly) after aggregate.
- * This is the handoff point between consumer-prices-core and WorldMonitor.
+ * This is the handoff point between consumer-prices-core and RaWorld.
  */
 import {
   buildBasketSeriesSnapshot,

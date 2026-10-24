@@ -12,10 +12,10 @@ const DELIVERY_ID_HEADER = SIGNATURE.deliveryIdHeader; // X-WM-Delivery-Id
 const SIGNATURE_TOLERANCE_SECONDS = SIGNATURE.toleranceSeconds; // 300
 
 /**
- * Registers the Zap's target URL as a WorldMonitor webhook subscription for
+ * Registers the Zap's target URL as a RaWorld webhook subscription for
  * one event. Zapier stores the returned object as bundle.subscribeData, so it
  * carries the subscriberId (for performUnsubscribe) and the signing secret
- * (for signature verification in perform). WorldMonitor never returns the
+ * (for signature verification in perform). RaWorld never returns the
  * secret again.
  */
 async function subscribe(z, bundle, { eventType, chokepointIds, alertThreshold, minLiveSignal, countries, scope }) {
@@ -30,7 +30,7 @@ async function subscribe(z, bundle, { eventType, chokepointIds, alertThreshold, 
   const response = await z.request({ method: 'POST', url: `${BASE_URL}${PATHS.webhooks}`, body });
   const data = response.data || {};
   if (!data.subscriberId || !data.secret) {
-    throw new z.errors.Error('WorldMonitor did not return a webhook subscription id and secret.', 'SubscribeFailed', 502);
+    throw new z.errors.Error('RaWorld did not return a webhook subscription id and secret.', 'SubscribeFailed', 502);
   }
   const expiresAt = new Date(Date.now() + SUBSCRIPTION_RENEW_DAYS * 86400000);
   return {
@@ -53,7 +53,7 @@ async function unsubscribe(z, bundle) {
   });
   if (response.status === 404) return { subscriberId, deleted: false, reason: 'already removed' };
   if (response.status >= 400) {
-    throw new z.errors.Error(`WorldMonitor refused to delete webhook ${subscriberId}: HTTP ${response.status}`, 'UnsubscribeFailed', response.status);
+    throw new z.errors.Error(`RaWorld refused to delete webhook ${subscriberId}: HTTP ${response.status}`, 'UnsubscribeFailed', response.status);
   }
   return { subscriberId, deleted: true };
 }
@@ -106,7 +106,7 @@ function verifySignatureV2(rawBody, { signature, timestamp, deliveryId, event },
  * body-only X-WM-Signature, which a captured delivery could be replayed under
  * with a new delivery id or with the V2 headers stripped. Both senders sign V2
  * on every delivery, and this version ships only after they do.
- * The row id is the X-WM-Delivery-Id: WorldMonitor mints it once per crossing
+ * The row id is the X-WM-Delivery-Id: RaWorld mints it once per crossing
  * or occurrence and reuses it on retries, so a retried POST carries the same
  * id. Zapier does not dedupe REST-hook deliveries itself.
  */

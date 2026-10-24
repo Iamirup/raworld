@@ -1,13 +1,13 @@
 ---
 title: "桌面应用"
-description: "World Monitor Tauri 桌面应用架构深度详解：涵盖 Rust sidecar 进程管理、系统密钥链安全存储、云端 API 回退策略、离线缓存机制、自动更新流程，以及 Windows、macOS、Linux 的多平台构建、代码签名与公证发布流水线的完整实现细节。"
+description: "RaWorld Tauri 桌面应用架构深度详解：涵盖 Rust sidecar 进程管理、系统密钥链安全存储、云端 API 回退策略、离线缓存机制、自动更新流程，以及 Windows、macOS、Linux 的多平台构建、代码签名与公证发布流水线的完整实现细节。"
 ---
 
 ## 许可
 
-桌面应用由 World Monitor 源代码构建，**其二进制文件依据 AGPL-3.0-only 授权给你** —— 你可以按 AGPL 的条款运行、研究、修改和再分发它。源代码：[github.com/koala73/worldmonitor](https://github.com/koala73/worldmonitor)。每个打包版本都会附带构建时生成的 `resources/notices/THIRD-PARTY-NOTICES.md`，其中收录了它所包含的 npm 包与 Rust crate 的原文声明；随附的 Node.js 运行时在同一目录中携带自己的 `LICENSE`。
+桌面应用由 RaWorld 源代码构建，**其二进制文件依据 AGPL-3.0-only 授权给你** —— 你可以按 AGPL 的条款运行、研究、修改和再分发它。源代码：[github.com/Iamirup/raworld](https://github.com/Iamirup/raworld)。每个打包版本都会附带构建时生成的 `resources/notices/THIRD-PARTY-NOTICES.md`，其中收录了它所包含的 npm 包与 Rust crate 的原文声明；随附的 Node.js 运行时在同一目录中携带自己的 `LICENSE`。
 
-完全使用你自己的 API 密钥与本地来源运行本应用，无需从我们这里获得任何套餐。一旦它获取 World Monitor 数据 —— 云端回退、授权校验或我们的 API —— 该用途即受[最终用户许可协议](/zh/eula)管辖；该协议把桌面端与网页端视为同一份许可，而非两份。
+完全使用你自己的 API 密钥与本地来源运行本应用，无需从我们这里获得任何套餐。一旦它获取 RaWorld 数据 —— 云端回退、授权校验或我们的 API —— 该用途即受[最终用户许可协议](/zh/eula)管辖；该协议把桌面端与网页端视为同一份许可，而非两份。
 
 ## 概览
 
@@ -116,7 +116,7 @@ sidecar 启动时，会读取保险库、解析，并作为环境变量注入。
 
 ### 桌面运行时配置 Schema
 
-World Monitor 桌面端使用一个运行时配置 schema，具备按功能切换的开关与密钥支撑的凭据。
+RaWorld 桌面端使用一个运行时配置 schema，具备按功能切换的开关与密钥支撑的凭据。
 
 ### 密钥
 
@@ -175,7 +175,7 @@ World Monitor 桌面端使用一个运行时配置 schema，具备按功能切�
 - NASA FIRMS：卫星火灾检测返回空状态。
 - Wingbits：航班增强被禁用，仅保留基于启发式的航班分类。
 - AIS / OpenSky 中继：实时追踪功能被干净地禁用。
-- 未配置 World Monitor API 密钥且未以 Pro 登录：云端请求使用匿名会话，桌面端看到的内容与未登录浏览器相同。分级和高级路由仍不可用。
+- 未配置 RaWorld API 密钥且未以 Pro 登录：云端请求使用匿名会话，桌面端看到的内容与未登录浏览器相同。分级和高级路由仍不可用。
 
 ## Sidecar
 
@@ -191,7 +191,7 @@ World Monitor 桌面端使用一个运行时配置 schema，具备按功能切�
 
 ### 动态端口分配
 
-sidecar 默认使用端口 46123，但会优雅地处理 `EADDRINUSE` —— 如果端口被占用（另一个 World Monitor 实例，或任何其他进程），sidecar 会绑定到端口 0 并让 OS 分配一个可用的临时端口。实际绑定的端口会写入一个端口文件（日志目录中的 `sidecar.port`），Rust 宿主在启动时轮询该文件（100 毫秒间隔，5 秒超时）。前端在运行时通过 `get_local_api_port` IPC 命令发现端口，`runtime.ts` 中的 `getApiBaseUrl()` 是规范的访问器 —— 禁止在前端代码中硬编码端口 46123。CSP 的 `connect-src` 指令使用 `http://127.0.0.1:*` 以适配任意端口。
+sidecar 默认使用端口 46123，但会优雅地处理 `EADDRINUSE` —— 如果端口被占用（另一个 RaWorld 实例，或任何其他进程），sidecar 会绑定到端口 0 并让 OS 分配一个可用的临时端口。实际绑定的端口会写入一个端口文件（日志目录中的 `sidecar.port`），Rust 宿主在启动时轮询该文件（100 毫秒间隔，5 秒超时）。前端在运行时通过 `get_local_api_port` IPC 命令发现端口，`runtime.ts` 中的 `getApiBaseUrl()` 是规范的访问器 —— 禁止在前端代码中硬编码端口 46123。CSP 的 `connect-src` 指令使用 `http://127.0.0.1:*` 以适配任意端口。
 
 ### 本地 RSS 代理
 
@@ -225,7 +225,7 @@ sidecar 采用多种弹性模式，以在上游 API 降级时维持数据可用�
 
 桌面应用通过轮询 `worldmonitor.app/api/version` 检查新版本 —— 启动时一次（延迟 5 秒），之后每 6 小时一次。当检测到较新版本时（semver 比较），会出现一个非侵入式的更新徽章，附带指向 GitHub Release 页面的直接链接。
 
-更新提示可按版本忽略 —— 忽略 v2.5.0 不会抑制 v2.6.0 的通知。只发布一个 World Monitor 二进制文件，所有变体均在应用内切换，因此更新器仅按操作系统和架构解析下载（`/api/download?platform=…`），而不按变体解析。
+更新提示可按版本忽略 —— 忽略 v2.5.0 不会抑制 v2.6.0 的通知。只发布一个 RaWorld 二进制文件，所有变体均在应用内切换，因此更新器仅按操作系统和架构解析下载（`/api/download?platform=…`），而不按变体解析。
 
 更新器无法解析的版本会被报告为 `version_unparsable`，绝不会被当作"已是最新"—— 从无法读取的版本静默得出"无更新"的结论，正是单个格式错误的 release 标签能让所有客户端停止更新的原因（#5908）。
 

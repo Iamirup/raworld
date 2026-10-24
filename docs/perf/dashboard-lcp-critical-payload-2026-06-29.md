@@ -2,7 +2,7 @@
 
 ## Scope
 
-Issue: https://github.com/koala73/worldmonitor/issues/4489
+Issue: https://github.com/Iamirup/raworld/issues/4489
 
 This note records the fresh-worktree implementation slice for the dashboard LCP critical-payload plan:
 

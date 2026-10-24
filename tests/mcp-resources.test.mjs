@@ -2137,7 +2137,7 @@ describe('shared MCP notification failures', () => {
     assert.doesNotMatch(resource.description, /framework lens/);
     assert.match(resource.description, /paragraphs/);
     assert.match(resource.description, /grounding sources/);
-    assert.match(resource.description, /cited WorldMonitor data/);
+    assert.match(resource.description, /cited RaWorld data/);
   });
   it('uses strict failure precedence and preserves specific existing soft errors', async () => {
     const cases = [

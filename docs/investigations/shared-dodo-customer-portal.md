@@ -1,7 +1,7 @@
 # Shared Dodo customer portal investigation (#7897)
 
 Date: 2026-09-08. Source revision: `b2a45cbbb9f3bbdac6ca308de4b9f3e45a5dbded`.
-Related: [issue #7897](https://github.com/koala73/worldmonitor/issues/7897).
+Related: [issue #7897](https://github.com/Iamirup/raworld/issues/7897).
 
 ## Conclusion: blocked on provider checkout evidence
 

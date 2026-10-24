@@ -1,4 +1,4 @@
-// GDELT is WorldMonitor's only live conflict-event source (no ACLED access), so
+// GDELT is RaWorld's only live conflict-event source (no ACLED access), so
 // GDELT_COUNTRY_NAMES is the whole country gate for the conflict feed: the bulk
 // mapper drops every material-conflict row whose ActionGeo country is not in it.
 // In October 2026 Houthi strikes hit Riyadh and Dammam, yet the feed carried no

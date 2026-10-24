@@ -2,7 +2,7 @@
   "name": "worldmonitor-zapier",
   "version": "1.2.0",
   "private": true,
-  "description": "WorldMonitor is a real-time global intelligence dashboard for geopolitics, military activity, markets, climate, and maritime risk.",
+  "description": "RaWorld is a real-time global intelligence dashboard for geopolitics, military activity, markets, climate, and maritime risk.",
   "main": "index.js",
   "scripts": {
     "test": "mocha --recursive test --timeout 10000",

@@ -232,7 +232,7 @@ handle_signal() {
 trap cleanup_workspace EXIT
 trap handle_signal HUP INT TERM
 git init --quiet "$workspace" >/dev/null 2>&1 || reject_seed workspace_setup_failed 75
-git -C "$workspace" remote add origin https://github.com/koala73/worldmonitor.git >/dev/null 2>&1 || reject_seed workspace_setup_failed 75
+git -C "$workspace" remote add origin https://github.com/Iamirup/raworld.git >/dev/null 2>&1 || reject_seed workspace_setup_failed 75
 git -C "$workspace" fetch --quiet --depth=1 origin "$WM_ONE_OFF_DEPLOYED_COMMIT" >/dev/null 2>&1 || reject_seed revision_fetch_failed 75
 git -C "$workspace" checkout --quiet --detach FETCH_HEAD >/dev/null 2>&1 || reject_seed revision_checkout_failed 75
 if ! actual_commit="$(git -C "$workspace" rev-parse HEAD 2>/dev/null)"; then

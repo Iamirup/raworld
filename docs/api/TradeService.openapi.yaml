@@ -55,7 +55,7 @@ paths:
                                 "fetchedAt": "2026-01-15T12:00:00Z"
                                 "restrictions":
                                     - "affectedCountry": "US"
-                                      "description": "Example WorldMonitor observation."
+                                      "description": "Example RaWorld observation."
                                       "id": "example-id"
                                       "measureType": "all"
                                       "notifiedAt": "2026-01-15T12:00:00Z"
@@ -227,7 +227,7 @@ paths:
                                       "reportingCountry": "840"
                                 "effectiveTariffRate":
                                     "observationPeriod": "daily"
-                                    "sourceName": "WorldMonitor Analyst"
+                                    "sourceName": "RaWorld Analyst"
                                     "sourceUrl": "https://example.com/worldmonitor"
                                     "tariffRate": 75.25
                                     "updatedAt": "2026-01-15"
@@ -1227,12 +1227,12 @@ components:
             type: apiKey
             in: header
             name: X-WorldMonitor-Key
-            description: User-issued WorldMonitor API key.
+            description: User-issued RaWorld API key.
         ApiKeyHeader:
             type: apiKey
             in: header
             name: X-Api-Key
-            description: Alias header for the WorldMonitor API key (X-WorldMonitor-Key).
+            description: Alias header for the RaWorld API key (X-WorldMonitor-Key).
         BearerAuth:
             type: http
             scheme: bearer

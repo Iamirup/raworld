@@ -38,7 +38,7 @@ The dashboard's "TV screen" (Live News and Live Webcams) looks healthy for a few
 
 These approaches gave wrong or misleading readings during diagnosis.
 
-- **Headless Chromium.** It always gets WorldMonitor's SVG map, never deck.gl (auto memory [claude]), so it does not show what users see. The session used headed Chrome (Playwright `channel: 'chrome'`).
+- **Headless Chromium.** It always gets RaWorld's SVG map, never deck.gl (auto memory [claude]), so it does not show what users see. The session used headed Chrome (Playwright `channel: 'chrome'`).
 - **Synthetic clicks to start playback.** `element.click()` from `page.evaluate` dispatches no `mousedown` or `mousemove`. It started playback without resetting the idle timers. The stop fired at boot+305s, not click+300s, which looks like a shorter timeout than the code sets (observed on production 2026-09-14).
 - **Probing the API with an agent user agent.** Production answers 403 `agent_request_blocked` (`shared/agent-request-policy.json:14`). The probe needs a non-agent UA. `Origin` is optional, but when sent it must be an allowed origin (`api/_cors.js:187-191`).
 - **Testing a handle's `/live` URL from a residential IP.** Those URLs returned HTTP 200 with `videoDetails` and `"isLive":true` for every tested handle except @CNN (observed 2026-09-14). The relay does not fetch from that network, so a residential success says nothing about the production path.

@@ -1,6 +1,6 @@
 ---
 title: "Maps Infrastructure & Geocoding"
-description: "Static map assets, country geometry, forward and reverse geocoding services, and boundary overrides used across World Monitor's map layers."
+description: "Static map assets, country geometry, forward and reverse geocoding services, and boundary overrides used across RaWorld's map layers."
 ---
 
 ## R2 CDN — `maps.worldmonitor.app`
@@ -97,7 +97,7 @@ Common alternate names are mapped in `NAME_ALIASES`:
 
 ## Country Boundary Overrides
 
-The override mechanism lets us improve individual country boundaries without replacing the entire `countries.geojson`. This is the foundation for addressing disputed borders (see [#1044](https://github.com/koala73/worldmonitor/issues/1044)).
+The override mechanism lets us improve individual country boundaries without replacing the entire `countries.geojson`. This is the foundation for addressing disputed borders (see [#1044](https://github.com/Iamirup/raworld/issues/1044)).
 
 ### How It Works
 
@@ -129,7 +129,7 @@ The override mechanism lets us improve individual country boundaries without rep
 ### Crimea attribution
 
 The bundled selection geometry represents Crimea as part of Ukraine (`UA`), as
-specified in [#8609](https://github.com/koala73/worldmonitor/issues/8609). This is
+specified in [#8609](https://github.com/Iamirup/raworld/issues/8609). This is
 country attribution, not a depiction of territorial control.
 
 The correction reuses the exact coordinates in `public/data/countries.geojson`

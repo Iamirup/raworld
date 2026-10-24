@@ -56,7 +56,7 @@ export interface EmbedEntitlementResponse {
 
 /**
  * Fetch wrapper for keyed embed RPCs. Always omits cookies so a logged-in
- * World Monitor viewer cannot authenticate the partner's embed as themselves.
+ * RaWorld viewer cannot authenticate the partner's embed as themselves.
  */
 export function createKeyedEmbedFetch(apiKey: string): typeof fetch {
   return (input, init) => {

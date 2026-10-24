@@ -6,7 +6,7 @@ type PluginDocument = {
 
 export function buildPluginShell(config: PluginDocument): string {
   const args = JSON.stringify(config).replace(/</g, '\\u003c');
-  return `<!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><base href="${config.origin}/"><title>WorldMonitor</title><style>body:has(#pluginBoot){margin:0;background:#141414;color:#eee;font:16px system-ui}#pluginBoot{padding:24px}#pluginBoot button{font:inherit;padding:8px 16px;background:#222;color:inherit;border:1px solid #555;border-radius:4px}</style></head><body><div id="pluginBoot"><p role="status">Loading WorldMonitor…</p></div><script>(${BOOT_SCRIPT})(${args});</script></body></html>`;
+  return `<!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><base href="${config.origin}/"><title>RaWorld</title><style>body:has(#pluginBoot){margin:0;background:#141414;color:#eee;font:16px system-ui}#pluginBoot{padding:24px}#pluginBoot button{font:inherit;padding:8px 16px;background:#222;color:inherit;border:1px solid #555;border-radius:4px}</style></head><body><div id="pluginBoot"><p role="status">Loading RaWorld…</p></div><script>(${BOOT_SCRIPT})(${args});</script></body></html>`;
 }
 
 const BOOT_SCRIPT = String.raw`async function(config) {
@@ -25,7 +25,7 @@ const BOOT_SCRIPT = String.raw`async function(config) {
     notice.id = 'pluginBoot';
     const status = document.createElement('p');
     status.setAttribute('role', 'status');
-    status.textContent = 'WorldMonitor could not load its interface. Retry to load the current version.';
+    status.textContent = 'RaWorld could not load its interface. Retry to load the current version.';
     const retry = document.createElement('button');
     retry.textContent = 'Retry interface';
     retry.onclick = () => { void load(); };
@@ -37,7 +37,7 @@ const BOOT_SCRIPT = String.raw`async function(config) {
     const loading = document.createElement('div');
     loading.id = 'pluginBoot';
     loading.setAttribute('role', 'status');
-    loading.textContent = 'Loading WorldMonitor…';
+    loading.textContent = 'Loading RaWorld…';
     document.body.replaceChildren(loading);
     try {
       const response = await fetch(config.origin + '/plugin/' + config.entry, {

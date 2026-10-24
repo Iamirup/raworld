@@ -175,7 +175,7 @@ const COUNTRY_BBOXES_PATH = 'shared/country-bboxes.js';
 const CRISIS_REGISTRY_PATH = 'shared/crawlable-crises.json';
 // Resolvable provenance for crisis scope citations: the registry is a repo
 // file, so pages link the versioned blob URL instead of the bare repo path.
-const CRISIS_REGISTRY_URL = 'https://github.com/koala73/worldmonitor/blob/main/shared/crawlable-crises.json';
+const CRISIS_REGISTRY_URL = 'https://github.com/Iamirup/raworld/blob/main/shared/crawlable-crises.json';
 const RESEARCH_REPORTS_INDEX_PATH = 'shared/research-reports/index.mjs';
 const SOURCE_ATTRIBUTION_MANIFEST_PATH = 'shared/source-attribution-manifest.json';
 const SOURCE_PAGE_RENDERER_PATH = 'scripts/crawlable-sources-page.mjs';
@@ -260,7 +260,7 @@ export const TOOLS_PAGE_CONTENT_VERSION = '2026-09-10';
 export const RESEARCH_PAGE_CONTENT_VERSION = '2026-09-10';
 const DATASET_LICENSE = {
   '@type': 'CreativeWork',
-  name: 'World Monitor Terms of Service (27 July 2026)',
+  name: 'RaWorld Terms of Service (27 July 2026)',
   url: 'https://www.worldmonitor.app/docs/terms',
 };
 const CII_INDEX_DATASET_DOWNLOAD = 'cii-ranking.json';
@@ -284,7 +284,7 @@ const DATA_CATALOG_FRAGMENT = '#data-catalog';
 export const WORLD_MONITOR_ORG = Object.freeze({
   '@id': 'https://www.worldmonitor.app/#organization',
   '@type': 'Organization',
-  name: 'World Monitor',
+  name: 'RaWorld',
   url: 'https://www.worldmonitor.app/',
 });
 export const WEBSITE_ID = 'https://www.worldmonitor.app/#website';
@@ -745,9 +745,9 @@ export function dataCatalogLd(baseUrl) {
     '@context': SCHEMA_ORG_CONTEXT_URL,
     '@type': 'DataCatalog',
     '@id': dataCatalogId(baseUrl),
-    name: 'World Monitor open data catalog',
+    name: 'RaWorld open data catalog',
     description:
-      'Crawlable World Monitor datasets for country instability, country resilience, maritime chokepoint reference, bounded crisis trackers, and research snapshots, with static downloads generated from committed data.',
+      'Crawlable RaWorld datasets for country instability, country resilience, maritime chokepoint reference, bounded crisis trackers, and research snapshots, with static downloads generated from committed data.',
     url: `${normalizeBaseUrl(baseUrl)}/`,
     publisher: { ...WORLD_MONITOR_ORG },
     creator: { ...WORLD_MONITOR_ORG },
@@ -761,7 +761,7 @@ function includedInDataCatalog(baseUrl) {
   return {
     '@type': 'DataCatalog',
     '@id': dataCatalogId(baseUrl),
-    name: 'World Monitor open data catalog',
+    name: 'RaWorld open data catalog',
   };
 }
 
@@ -1029,7 +1029,7 @@ function propertyValue(name, value) {
 }
 
 const OG_IMAGE_PATH = '/favico/og-image.png';
-const OG_IMAGE_ALT = 'World Monitor — real-time global intelligence dashboard with live markets, geopolitical data, and infrastructure monitoring';
+const OG_IMAGE_ALT = 'RaWorld — real-time global intelligence dashboard with live markets, geopolitical data, and infrastructure monitoring';
 
 function escapeJsonScript(value) {
   return JSON.stringify(value).replace(/</g, '\\u003c');
@@ -1234,18 +1234,18 @@ export function countryMetaDescription({
     // Arab Emirates" made all 24 land in 162-196 and reds the whole build
     // (#7530). The short tail is what keeps a 20-character name in range.
     const contexts = [
-      'with World Monitor country-risk, resilience, advisory, and sanctions context.',
-      'with World Monitor risk, resilience, advisory, and sanctions context.',
-      'alongside World Monitor risk, resilience, advisory, and sanctions context.',
-      'with World Monitor country-risk, resilience, and security context.',
-      'with World Monitor country-risk and resilience context.',
-      'alongside World Monitor country-risk and resilience context.',
-      'with World Monitor risk, resilience and sanctions context.',
-      'with World Monitor risk and resilience context.',
-      'with World Monitor risk context.',
+      'with RaWorld country-risk, resilience, advisory, and sanctions context.',
+      'with RaWorld risk, resilience, advisory, and sanctions context.',
+      'alongside RaWorld risk, resilience, advisory, and sanctions context.',
+      'with RaWorld country-risk, resilience, and security context.',
+      'with RaWorld country-risk and resilience context.',
+      'alongside RaWorld country-risk and resilience context.',
+      'with RaWorld risk, resilience and sanctions context.',
+      'with RaWorld risk and resilience context.',
+      'with RaWorld risk context.',
       // Shortest tail for the "unchanged or not yet measured" clause, which
       // pushed United Arab Emirates to 161+ on every other candidate.
-      'with World Monitor context.',
+      'with RaWorld context.',
     ];
     const candidates = subjects.flatMap((subject) => facts.flatMap(
       (fact) => contexts.map((context) => `${subject} ${fact}, ${context}`),
@@ -1260,27 +1260,27 @@ export function countryMetaDescription({
   ];
   const unpublishedStandings = lowConfidence
     ? [
-      `a low-confidence listing in World Monitor's Country Resilience Index`,
-      `a low-confidence listing in World Monitor's resilience index`,
-      `a low-confidence listing in World Monitor's index`,
-      `a low-confidence World Monitor index listing`,
+      `a low-confidence listing in RaWorld's Country Resilience Index`,
+      `a low-confidence listing in RaWorld's resilience index`,
+      `a low-confidence listing in RaWorld's index`,
+      `a low-confidence RaWorld index listing`,
       `a low-confidence index listing`,
     ]
     : [
-      `an unpublished listing in World Monitor's Country Resilience Index`,
-      `an unpublished listing in World Monitor's resilience index`,
-      `an unpublished listing in World Monitor's index`,
-      `an unpublished World Monitor index listing`,
+      `an unpublished listing in RaWorld's Country Resilience Index`,
+      `an unpublished listing in RaWorld's resilience index`,
+      `an unpublished listing in RaWorld's index`,
+      `an unpublished RaWorld index listing`,
       `an unpublished index listing`,
     ];
   const standings = rank == null
     ? unpublishedStandings
     : [
-      `ranked #${rank} of ${rankedCount} in World Monitor's Country Resilience Index`,
-      `ranked #${rank} of ${rankedCount} in World Monitor's resilience index`,
-      `ranked #${rank} of ${rankedCount} in World Monitor's index`,
-      `#${rank} of ${rankedCount} in World Monitor's resilience index`,
-      `#${rank} of ${rankedCount} in World Monitor's index`,
+      `ranked #${rank} of ${rankedCount} in RaWorld's Country Resilience Index`,
+      `ranked #${rank} of ${rankedCount} in RaWorld's resilience index`,
+      `ranked #${rank} of ${rankedCount} in RaWorld's index`,
+      `#${rank} of ${rankedCount} in RaWorld's resilience index`,
+      `#${rank} of ${rankedCount} in RaWorld's index`,
     ];
   const signals = [
     'with live instability, travel advisories, sanctions and security signals.',
@@ -2274,7 +2274,7 @@ function pageDocument({
     .map((entry) => withPrimaryImage(entry, pageImage))
     .map((entry) => withSpeakableAndGraph(entry, { canonical, breadcrumbId }))
     .map((entry) => withSchemaContext(entry));
-  const renderedNav = headerNav || `        <a href="/">World Monitor</a>
+  const renderedNav = headerNav || `        <a href="/">RaWorld</a>
         <a href="/reference/coverage/">Coverage</a>
         <a href="/sources/">Sources</a>
         <a href="/compare/">Compare</a>
@@ -2287,7 +2287,7 @@ function pageDocument({
         <a href="/use-cases/">Use cases</a>
         <a href="/reference/changelog/">Changelog</a>
         <a href="/blog/glossary/">Glossary</a>`;
-  const renderedFooter = footerBody || 'World Monitor reference pages. Dated snapshots are published here; live readings are labelled separately.';
+  const renderedFooter = footerBody || 'RaWorld reference pages. Dated snapshots are published here; live readings are labelled separately.';
   // The rendered half of #7980. `author` in JSON-LD is what a machine reads;
   // a quality rater and a human reader want a name on the page that publishes
   // the score. Rendered here rather than inside each body so no page family
@@ -2298,7 +2298,7 @@ function pageDocument({
   // /docs/methodology is a 307 too, to a single nowcast page, so it is not a
   // replacement. /docs/algorithms is the scoring-rules page the text names and
   // answers 200. /docs/about and /docs/corrections were probed at 200.
-  const renderedByline = '<p class="byline">Compiled and maintained by the <a href="/docs/about">World Monitor research team</a>. Scoring rules and coverage limits are published in the <a href="/docs/algorithms">methodology documentation</a>; published revisions are recorded in the <a href="/docs/corrections">corrections log</a>.</p>';
+  const renderedByline = '<p class="byline">Compiled and maintained by the <a href="/docs/about">RaWorld research team</a>. Scoring rules and coverage limits are published in the <a href="/docs/algorithms">methodology documentation</a>; published revisions are recorded in the <a href="/docs/corrections">corrections log</a>.</p>';
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -2316,7 +2316,7 @@ function pageDocument({
     <meta property="og:title" content="${escapeHtml(title)}">
     <meta property="og:description" content="${escapeHtml(description)}">
     <meta property="og:url" content="${escapeHtml(canonical)}">
-    <meta property="og:site_name" content="World Monitor">
+    <meta property="og:site_name" content="RaWorld">
     <meta property="og:image" content="${escapeHtml(absoluteUrl(baseUrl, ogImage))}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -2446,13 +2446,13 @@ function renderCountryInstabilityIndexPage({
   const path = '/country-instability-index/';
   const movementClaim = ciiRanking.movementClaim
     ?? livePulseMovementClaim(livePulseSnapshotAgeDays(capturedAt));
-  const description = `See World Monitor's live Country Instability Index rankings, with current scores, ${movementClaim.availableMovement}, severity levels, and update times for ${ciiRanking.entries.length} Tier-1 countries.`;
+  const description = `See RaWorld's live Country Instability Index rankings, with current scores, ${movementClaim.availableMovement}, severity levels, and update times for ${ciiRanking.entries.length} Tier-1 countries.`;
   const datasetId = `${absoluteUrl(baseUrl, path)}#dataset`;
   const rankingId = `${absoluteUrl(baseUrl, path)}#ranking`;
   const versionLabel = `CII ${ciiRanking.methodologyVersion}`;
   const rankingFaq = {
     question: 'Which countries are most unstable right now?',
-    answer: `As of ${formatStaticDateTime(ciiRanking.updatedAt)}, the highest Country Instability Index scores are ${formatProseList(ciiRanking.entries.slice(0, 3).map((entry) => entry.country.name))}. World Monitor derives this ranking from the committed ${versionLabel} pulse for ${ciiRanking.entries.length} monitored countries. The published table can refresh from the current API after the page loads.`,
+    answer: `As of ${formatStaticDateTime(ciiRanking.updatedAt)}, the highest Country Instability Index scores are ${formatProseList(ciiRanking.entries.slice(0, 3).map((entry) => entry.country.name))}. RaWorld derives this ranking from the committed ${versionLabel} pulse for ${ciiRanking.entries.length} monitored countries. The published table can refresh from the current API after the page loads.`,
   };
   const itemList = ciiRanking.entries.map((entry, index) => {
     const url = absoluteUrl(baseUrl, `/countries/${entry.country.slug}/`);
@@ -2475,7 +2475,7 @@ function renderCountryInstabilityIndexPage({
   });
   const body = `      <p class="eyebrow">Current country stress</p>
       <h1>Country Instability Index</h1>
-      <p class="lede">The World Monitor Country Instability Index (CII) measures current country-level stress on a 0-100 scale using conflict, unrest, security and information signals. ${escapeHtml(versionLabel)} currently monitors ${ciiRanking.entries.length} countries and ${escapeHtml(movementClaim.rankingReports)}.</p>
+      <p class="lede">The RaWorld Country Instability Index (CII) measures current country-level stress on a 0-100 scale using conflict, unrest, security and information signals. ${escapeHtml(versionLabel)} currently monitors ${ciiRanking.entries.length} countries and ${escapeHtml(movementClaim.rankingReports)}.</p>
       <h2>${escapeHtml(rankingFaq.question)}</h2>
       <p>${escapeHtml(rankingFaq.answer)}</p>
       <section class="live-tool" data-live-cii-ranking data-cii-methodology-version="${escapeHtml(ciiRanking.methodologyVersion)}" data-state="ready" data-published-pulse>
@@ -2502,13 +2502,13 @@ ${ciiRanking.entries.map((entry) => `            <tr data-cii-country="${escapeH
       <h2>What the CII measures</h2>
       <p>CII combines a 40% structural baseline with 60% live event pressure. The event score weights conflict at 30%, unrest at 25%, information at 25%, and security at 20%. It also applies bounded boosts and conflict or advisory floors. Read the <a href="/docs/methodology/cii-risk-scores">CII ${escapeHtml(ciiRanking.methodologyVersion)} methodology</a> before using a score in an analysis.</p>
       <p>CII measures short-term stress. The separate <a href="/countries/">Country Resilience Index</a> measures longer-term structural capacity, with ${escapeHtml(resilienceCoveragePhrase(resilienceCoverage))}. Do not combine the scores.</p>
-      <p>CII is a current-conditions score, not a forecast. Where World Monitor does forecast, the record and its methodology are published on the <a href="/accuracy/">forecast accuracy scorecard</a>.</p>
-      <a class="cta" href="${escapeHtml(absoluteUrl(baseUrl, '/dashboard'))}">Open the live CII panel in World Monitor →</a>
-      <p class="source" data-snapshot-source="${escapeHtml(snapshotPath)}">Source: World Monitor Country Instability Index snapshot, ${escapeHtml(prettyDate(capturedAt))}. Current results: <code>/api/intelligence/v1/get-risk-scores</code>.</p>`;
+      <p>CII is a current-conditions score, not a forecast. Where RaWorld does forecast, the record and its methodology are published on the <a href="/accuracy/">forecast accuracy scorecard</a>.</p>
+      <a class="cta" href="${escapeHtml(absoluteUrl(baseUrl, '/dashboard'))}">Open the live CII panel in RaWorld →</a>
+      <p class="source" data-snapshot-source="${escapeHtml(snapshotPath)}">Source: RaWorld Country Instability Index snapshot, ${escapeHtml(prettyDate(capturedAt))}. Current results: <code>/api/intelligence/v1/get-risk-scores</code>.</p>`;
   const html = pageDocument({
     baseUrl,
     path,
-    title: 'Country Instability Index: Live Rankings | World Monitor',
+    title: 'Country Instability Index: Live Rankings | RaWorld',
     description,
     lastmod,
     jsonLd: [
@@ -2526,7 +2526,7 @@ ${ciiRanking.entries.map((entry) => `            <tr data-cii-country="${escapeH
         '@context': SCHEMA_ORG_CONTEXT_URL,
         '@type': 'Dataset',
         '@id': datasetId,
-        name: `World Monitor Country Instability Index (CII) ${ciiRanking.methodologyVersion}`,
+        name: `RaWorld Country Instability Index (CII) ${ciiRanking.methodologyVersion}`,
         description: `Current 0-100 instability scores, ${movementClaim.availableApproximateMovement}, and instability levels for ${ciiRanking.entries.length} monitored countries.`,
         url: absoluteUrl(baseUrl, path),
         identifier: `world-monitor-cii-${ciiRanking.methodologyVersion}`,
@@ -2539,7 +2539,7 @@ ${ciiRanking.entries.map((entry) => `            <tr data-cii-country="${escapeH
         spatialCoverage: 'Worldwide',
         isAccessibleForFree: true,
         includedInDataCatalog: includedInDataCatalog(baseUrl),
-        measurementTechnique: `World Monitor CII ${ciiRanking.methodologyVersion}`,
+        measurementTechnique: `RaWorld CII ${ciiRanking.methodologyVersion}`,
         variableMeasured: [
           { '@type': 'PropertyValue', name: 'Instability score', minValue: 0, maxValue: 100, unitText: 'index points' },
           { '@type': 'PropertyValue', name: movementClaim.propertyName, unitText: 'index points' },
@@ -2575,7 +2575,7 @@ ${ciiRanking.entries.map((entry) => `            <tr data-cii-country="${escapeH
 
 function renderCountriesIndex({ countries, ciiRanking, resilienceCoverage, baseUrl, capturedAt, lastmod, snapshotPath }) {
   const path = '/countries/';
-  const description = `Browse World Monitor country risk pages: ${resilienceCoveragePhrase(resilienceCoverage)} and high-frequency instability scores for ${ciiRanking.entries.length} Tier-1 countries.`;
+  const description = `Browse RaWorld country risk pages: ${resilienceCoveragePhrase(resilienceCoverage)} and high-frequency instability scores for ${ciiRanking.entries.length} Tier-1 countries.`;
   const datasetId = `${absoluteUrl(baseUrl, path)}#dataset`;
   const rankedCountries = countries
     .filter((country) => country.rank != null)
@@ -2639,11 +2639,11 @@ ${countries.map((country) => {
   }).join('\n')}
         </tbody>
       </table></div>
-      <p class="source" data-snapshot-source="${escapeHtml(snapshotPath)}">Source: World Monitor Country Resilience Index snapshot, ${escapeHtml(prettyDate(capturedAt))}. Methodology: <a href="/docs/methodology/country-resilience-index">Country Resilience Index</a>.</p>`;
+      <p class="source" data-snapshot-source="${escapeHtml(snapshotPath)}">Source: RaWorld Country Resilience Index snapshot, ${escapeHtml(prettyDate(capturedAt))}. Methodology: <a href="/docs/methodology/country-resilience-index">Country Resilience Index</a>.</p>`;
   return pageDocument({
     baseUrl,
     path,
-    title: 'Country Risk by Country: Instability & Resilience | World Monitor',
+    title: 'Country Risk by Country: Instability & Resilience | RaWorld',
     description,
     lastmod,
     jsonLd: [
@@ -2669,7 +2669,7 @@ ${countries.map((country) => {
         '@context': 'https://schema.org',
         '@type': 'Dataset',
         '@id': datasetId,
-        name: `World Monitor Country Resilience Index snapshot for ${capturedAt}`,
+        name: `RaWorld Country Resilience Index snapshot for ${capturedAt}`,
         description,
         url: absoluteUrl(baseUrl, path),
         identifier: 'country-resilience-ranking',
@@ -2852,7 +2852,7 @@ export function describeHeadlineIneligibilityReason(country) {
 }
 
 export function describeHeadlineIneligibility(country) {
-  return `World Monitor does not publish a resilience score or rank for ${country.name} because it does not meet the published ranking eligibility criteria.`;
+  return `RaWorld does not publish a resilience score or rank for ${country.name} because it does not meet the published ranking eligibility criteria.`;
 }
 
 export function describeCoverageGaps(country) {
@@ -3472,7 +3472,7 @@ function publishedBriefSections(brief, country) {
   return parseBriefSections(brief.text, country).filter((section) => section.key !== 'situation');
 }
 
-// Evidence-grounded brief (sections + World Monitor data points). Returns ''
+// Evidence-grounded brief (sections + RaWorld data points). Returns ''
 // when no section beyond Situation survived: an empty brief block tells a
 // reader nothing, so the page shows none.
 function renderStructuredIntelBrief(brief, name, countryCode) {
@@ -3496,11 +3496,11 @@ function renderStructuredIntelBrief(brief, name, countryCode) {
     return `            <li class="source">${linked} · <time datetime="${escapeHtml(item.asOf)}">${escapeHtml(prettyDate(item.asOf.slice(0, 10)))}</time></li>`;
   });
   const evidenceList = evidenceItems.length > 0
-    ? `\n          <h4>World Monitor data cited</h4>\n          <ul data-brief-evidence>\n${evidenceItems.join('\n')}\n          </ul>`
+    ? `\n          <h4>RaWorld data cited</h4>\n          <ul data-brief-evidence>\n${evidenceItems.join('\n')}\n          </ul>`
     : '';
   const counts = [
     citedSources.size > 0 ? `${citedSources.size} cited ${citedSources.size === 1 ? 'report' : 'reports'}` : '',
-    evidence.length > 0 ? `${evidence.length} World Monitor data ${evidence.length === 1 ? 'point' : 'points'}` : '',
+    evidence.length > 0 ? `${evidence.length} RaWorld data ${evidence.length === 1 ? 'point' : 'points'}` : '',
   ].filter(Boolean).join(' and ');
   const credit = `Automated summary of ${counts}, generated <time datetime="${escapeHtml(brief.generatedAt)}">${escapeHtml(formatStaticDateTime(brief.generatedAt))}</time>.`;
   return `        <div data-intel-brief>\n          <h3>Country brief</h3>\n${blocks.join('\n')}${evidenceList}\n          <p class="source">${credit}</p>\n        </div>`;
@@ -3797,7 +3797,7 @@ export function assertCountryBriefPresentation({ pagePath, html, sources, eviden
       .filter((match) => !/\bclass="source"/.test(match[2]))
       .map((match) => corpusVisibleText(match[3]).replace(/&(amp|lt|gt|quot|#39);/g,
         (entity) => ({ '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#39;': "'" })[entity]));
-    // Rendered claims may cite only World Monitor evidence: the Situation
+    // Rendered claims may cite only RaWorld evidence: the Situation
     // section that carries the headline citations is not rendered.
     const gap = briefCitationGroundingGap({ text: claims.join('\n'), sources, evidence }, {}, { requireHeadlineCitation: evidence.length === 0 });
     if (gap) throw new Error(`${pagePath} brief has unsupported citation: ${gap}`);
@@ -3944,10 +3944,10 @@ export function renderCountryPage({
   const scorePublished = country.headlineEligible !== false;
   const scoreDisclosure = scorePublished || analysis.suppressScoreDisclosure
     ? ''
-    : `\n      <p>World Monitor does not publish a resilience score for ${escapeHtml(country.name)} because it does not meet the published ranking eligibility criteria.</p>`;
+    : `\n      <p>RaWorld does not publish a resilience score for ${escapeHtml(country.name)} because it does not meet the published ranking eligibility criteria.</p>`;
   const datasetDescription = scorePublished
-    ? `A dated World Monitor Country Resilience Index snapshot for ${country.name}, with the overall score, rank, dimension coverage, confidence classification, and scoring methodology used for this page.`
-    : `A dated World Monitor Country Resilience Index snapshot for ${country.name}, with dimension coverage, confidence classification, and scoring methodology. No overall score or rank is published because the country does not meet the published ranking eligibility criteria. ${RANKING_ELIGIBILITY_CLAUSE}`;
+    ? `A dated RaWorld Country Resilience Index snapshot for ${country.name}, with the overall score, rank, dimension coverage, confidence classification, and scoring methodology used for this page.`
+    : `A dated RaWorld Country Resilience Index snapshot for ${country.name}, with dimension coverage, confidence classification, and scoring methodology. No overall score or rank is published because the country does not meet the published ranking eligibility criteria. ${RANKING_ELIGIBILITY_CLAUSE}`;
   const pulse = livePulse?.countries?.[country.code] || null;
   const hasPulse = pulse != null && (
     pulse.partial === true
@@ -3978,7 +3978,7 @@ export function renderCountryPage({
   const body = `      <p class="eyebrow">Country &middot; ${escapeHtml(country.code)}</p>
       <h1>${escapeHtml(country.name)} ${ciiEntry ? 'Country Instability Index' : 'country risk and resilience'}</h1>
       <p class="lede">${ciiAnswer || `${escapeHtml(description)} The structural snapshot is dated and source-labelled; the live monitor loads separately.`}</p>
-${ciiEntry ? `      <p>CII measures current stress. World Monitor's separate Country Resilience Index measures ${escapeHtml(country.name)}'s longer-term structural capacity.</p>\n` : ''}
+${ciiEntry ? `      <p>CII measures current stress. RaWorld's separate Country Resilience Index measures ${escapeHtml(country.name)}'s longer-term structural capacity.</p>\n` : ''}
 ${officialNameNote}      <section class="live-tool" data-live-country-risk data-country-code="${escapeHtml(country.code)}" data-country-name="${escapeHtml(country.name)}" data-state="${liveState}"${hasPulse ? ' data-published-pulse' : ''}>
         <div class="tool-head">
           <div>
@@ -4019,8 +4019,8 @@ ${analysis.readingGuide ? `      <h2>How to use this evidence</h2>
       <p>${escapeHtml(analysis.readingGuide)} <a href="/docs/methodology/country-resilience-index">Full CRI method</a> · <a href="/docs/corrections">revision log</a> · <a href="/accuracy/">forecast accuracy scorecard</a>.</p>` : `      <h2>How to read this page</h2>
       <p>The 0-100 index records the ${escapeHtml(prettyDate(capturedAt))} snapshot. See the <a href="/docs/methodology/country-resilience-index">Country Resilience Index methodology</a> for dimensions, sources and confidence rules. Published revisions that affect ${escapeHtml(country.name)} are in the <a href="/docs/corrections">corrections log</a>.</p>
       <p class="snapshot-note">${escapeHtml(snapshotNote)}</p>
-      <p>Use this dated reference with the live map for active alerts, conflict, market and energy signals. Neither score on this page is a forecast; where World Monitor does forecast, the graded record is on the <a href="/accuracy/">forecast accuracy scorecard</a>.</p>`}
-      <p class="source" data-snapshot-source="${escapeHtml(snapshotPath)}">Download: <a href="${escapeHtml(datasetDownloadHref(path, COUNTRY_DATASET_DOWNLOAD))}">${COUNTRY_DATASET_DOWNLOAD}</a>. Source: World Monitor Country Resilience Index snapshot, ${escapeHtml(prettyDate(capturedAt))}. Methodology: <a href="/docs/methodology/country-resilience-index">Country Resilience Index</a>.</p>
+      <p>Use this dated reference with the live map for active alerts, conflict, market and energy signals. Neither score on this page is a forecast; where RaWorld does forecast, the graded record is on the <a href="/accuracy/">forecast accuracy scorecard</a>.</p>`}
+      <p class="source" data-snapshot-source="${escapeHtml(snapshotPath)}">Download: <a href="${escapeHtml(datasetDownloadHref(path, COUNTRY_DATASET_DOWNLOAD))}">${COUNTRY_DATASET_DOWNLOAD}</a>. Source: RaWorld Country Resilience Index snapshot, ${escapeHtml(prettyDate(capturedAt))}. Methodology: <a href="/docs/methodology/country-resilience-index">Country Resilience Index</a>.</p>
       ${UMAMI_SCRIPT_TAG}`;
   const coreTitle = ciiEntry
     ? `${country.name} Instability Index & Country Risk`
@@ -4064,7 +4064,7 @@ ${analysis.readingGuide ? `      <h2>How to use this evidence</h2>
   const resilienceDataset = {
     '@type': 'Dataset',
     '@id': resilienceDatasetId,
-    name: `World Monitor Country Resilience snapshot for ${country.name}`,
+    name: `RaWorld Country Resilience snapshot for ${country.name}`,
     description: datasetDescription,
     url: absoluteUrl(baseUrl, path),
     identifier: country.code,
@@ -4084,8 +4084,8 @@ ${analysis.readingGuide ? `      <h2>How to use this evidence</h2>
   const ciiDataset = ciiEntry ? {
     '@type': 'Dataset',
     '@id': ciiDatasetId,
-    name: `World Monitor Country Instability Index: ${country.name}`,
-    description: `The current World Monitor Country Instability Index score, ${movementClaim.availableApproximateMovement}, instability level, and methodology version for ${country.name}.`,
+    name: `RaWorld Country Instability Index: ${country.name}`,
+    description: `The current RaWorld Country Instability Index score, ${movementClaim.availableApproximateMovement}, instability level, and methodology version for ${country.name}.`,
     url: absoluteUrl(baseUrl, path),
     identifier: `${country.code}-cii-${ciiEntry.methodologyVersion}`,
     keywords: ['country instability', country.name, 'instability index', 'country risk'],
@@ -4098,7 +4098,7 @@ ${analysis.readingGuide ? `      <h2>How to use this evidence</h2>
     isAccessibleForFree: true,
     includedInDataCatalog: includedInDataCatalog(baseUrl),
     distribution: [dataDownload(absoluteUrl(baseUrl, datasetDownloadHref(path, COUNTRY_CII_DATASET_DOWNLOAD)))],
-    measurementTechnique: `World Monitor CII ${ciiEntry.methodologyVersion}`,
+    measurementTechnique: `RaWorld CII ${ciiEntry.methodologyVersion}`,
     variableMeasured: [
       { '@type': 'PropertyValue', name: 'Instability score', value: ciiEntry.score, minValue: 0, maxValue: 100 },
       ...ciiMovementProperties(ciiEntry.change24h, movementClaim.propertyName),
@@ -4111,7 +4111,7 @@ ${analysis.readingGuide ? `      <h2>How to use this evidence</h2>
     // Keep SERP titles near the ~60-char display budget: drop the brand
     // suffix for long country names rather than letting Google truncate
     // mid-brand.
-    title: coreTitle.length > 44 ? coreTitle : `${coreTitle} | World Monitor`,
+    title: coreTitle.length > 44 ? coreTitle : `${coreTitle} | RaWorld`,
     description,
     lastmod,
     jsonLd: [
@@ -4232,7 +4232,7 @@ export function buildChokepointHubRows(chokepoints, livePulse) {
 
 function renderChokepointsIndex({ chokepoints, chokepointHubRows, livePulse, baseUrl, lastmod, snapshotPath }) {
   const path = '/chokepoints/';
-  const description = `Track current disruption scores, status, AIS congestion, and update times for the ${chokepoints.length} maritime chokepoints in the World Monitor public status snapshot.`;
+  const description = `Track current disruption scores, status, AIS congestion, and update times for the ${chokepoints.length} maritime chokepoints in the RaWorld public status snapshot.`;
   const updatedAt = chokepointHubRows
     .map((row) => row.asOf)
     .sort((left, right) => Date.parse(left) - Date.parse(right))
@@ -4264,8 +4264,8 @@ function renderChokepointsIndex({ chokepoints, chokepointHubRows, livePulse, bas
       answer: `The published ${formatStaticDateTime(updatedAt)} snapshot gives the highest disruption score to ${formatProseList(mostDisruptedNames)}, each at ${formatScore(highestScore, OBSERVED_EVIDENCE)}/100. The table covers all ${chokepointHubRows.length} tracked waterways and shows each source timestamp. A higher score means more current pressure, but the badge is a risk signal and does not declare unrestricted passage or operational closure.`,
     },
     {
-      question: 'How does World Monitor score chokepoint status?',
-      answer: `World Monitor scores each waterway 0-100 from ${formatProseList(CHOKEPOINT_SCORE_INPUTS.map((input) => input.label))}. ${formatProseList(CHOKEPOINT_SCORE_CONTEXT_ONLY)} are published as context rather than score inputs. Each source controls only its own values, so unavailable evidence is withheld rather than published as a measured zero or a calm reading — ${congestionCoverageClause}. The methodology documents the inputs and score bands.`,
+      question: 'How does RaWorld score chokepoint status?',
+      answer: `RaWorld scores each waterway 0-100 from ${formatProseList(CHOKEPOINT_SCORE_INPUTS.map((input) => input.label))}. ${formatProseList(CHOKEPOINT_SCORE_CONTEXT_ONLY)} are published as context rather than score inputs. Each source controls only its own values, so unavailable evidence is withheld rather than published as a measured zero or a calm reading — ${congestionCoverageClause}. The methodology documents the inputs and score bands.`,
     },
     {
       question: 'Why do some chokepoint pages show fewer metrics than others?',
@@ -4331,11 +4331,11 @@ ${chokepointHubRows.map((row) => {
       <p>The ${chokepointHubRows.length} waterways come from a committed registry, not from whatever is in the news. Each has a detail page carrying the same four-source status block, the modelled corridors that route through it, and its alternatives when it is unavailable. A waterway enters the registry because traffic there has no cheap substitute — the test is substitutability, not incident count — so the list changes rarely and changes are recorded in the corrections log.</p>
       <h2>What these pages are not</h2>
       <p>They are not a navigation product and not an open/closed declaration. A score is a triage signal built from the sources named above; it does not authorise or discourage a transit, and it carries no view on the legality or safety of any particular voyage. Daily transit counts are IMF PortWatch figures from satellite AIS, published about four days after the day they cover, not a port authority figure, and the oil volumes above are a ${escapeHtml(String(EIA_OIL_TRANSIT_BASELINES.referenceYear))} annual-average baseline rather than current throughput.</p>
-      <p class="source" data-snapshot-source="${escapeHtml(snapshotPath)} ${CHOKEPOINT_REGISTRY_PATH}">Sources: World Monitor weekly pulse snapshot and World Monitor chokepoint registry. Published ${escapeHtml(prettyDate(livePulse.capturedAt))}. Methodology: <a href="/docs/methodology/chokepoints">chokepoint disruption scoring</a>. Published revisions: <a href="/docs/corrections">corrections log</a>.</p>`;
+      <p class="source" data-snapshot-source="${escapeHtml(snapshotPath)} ${CHOKEPOINT_REGISTRY_PATH}">Sources: RaWorld weekly pulse snapshot and RaWorld chokepoint registry. Published ${escapeHtml(prettyDate(livePulse.capturedAt))}. Methodology: <a href="/docs/methodology/chokepoints">chokepoint disruption scoring</a>. Published revisions: <a href="/docs/corrections">corrections log</a>.</p>`;
   return pageDocument({
     baseUrl,
     path,
-    title: 'Maritime Chokepoints | World Monitor',
+    title: 'Maritime Chokepoints | RaWorld',
     description,
     lastmod,
     jsonLd: [
@@ -4353,7 +4353,7 @@ ${chokepointHubRows.map((row) => {
         '@context': SCHEMA_ORG_CONTEXT_URL,
         '@type': 'Dataset',
         '@id': datasetId,
-        name: `World Monitor maritime chokepoint status snapshot for ${livePulse.capturedAt}`,
+        name: `RaWorld maritime chokepoint status snapshot for ${livePulse.capturedAt}`,
         description,
         url: absoluteUrl(baseUrl, path),
         identifier: 'world-monitor-chokepoint-status',
@@ -4366,7 +4366,7 @@ ${chokepointHubRows.map((row) => {
         spatialCoverage: 'Worldwide',
         isAccessibleForFree: true,
         includedInDataCatalog: includedInDataCatalog(baseUrl),
-        measurementTechnique: 'World Monitor chokepoint disruption scoring methodology',
+        measurementTechnique: 'RaWorld chokepoint disruption scoring methodology',
         variableMeasured: [
           { '@type': 'PropertyValue', name: 'Disruption score', minValue: 0, maxValue: 100, unitText: 'index points' },
           { '@type': 'PropertyValue', name: 'Status' },
@@ -4401,7 +4401,7 @@ function chokepointFaqs(chokepoint, { content, routes, capturedAt, volumeObserve
   const generated = routes.length
     ? {
       question: `Which modelled trade routes use ${chokepoint.displayName}?`,
-      answer: `${chokepoint.displayName} is a waypoint on ${routes.map((route) => `${route.name} (${route.volumeDesc})`).join('; ')}. Those corridor volumes are World Monitor modelled figures dated ${datedVolume} in the World Monitor trade-route reference.`,
+      answer: `${chokepoint.displayName} is a waypoint on ${routes.map((route) => `${route.name} (${route.volumeDesc})`).join('; ')}. Those corridor volumes are RaWorld modelled figures dated ${datedVolume} in the RaWorld trade-route reference.`,
     }
     : {
       question: `How should readers use the ${chokepoint.displayName} reference snapshot?`,
@@ -4414,7 +4414,7 @@ function chokepointRouteTable({ chokepoint, routes, capturedAt, volumeObservedAt
   const datedStamp = volumeObservedAt || capturedAt;
   const datedVolume = datedStamp ? timeMarkup(datedStamp) : 'the committed trade-route table';
   if (!routes.length) {
-    return `<p>${escapeHtml(chokepoint.displayName)} is tracked as a strategic waterway reference. It is not currently mapped to one of World Monitor's modelled trade-route corridors, but its vessel traffic and disruption signals are still monitored on the live map.</p>
+    return `<p>${escapeHtml(chokepoint.displayName)} is tracked as a strategic waterway reference. It is not currently mapped to one of RaWorld's modelled trade-route corridors, but its vessel traffic and disruption signals are still monitored on the live map.</p>
       <div class="table-scroll"><table data-chokepoint-routes>
         <caption>No modelled corridor is currently mapped through ${escapeHtml(chokepoint.displayName)}. Waterway reference dated ${datedVolume}.</caption>
         <thead><tr><th scope="col">Route</th><th scope="col">Category</th><th scope="col">Modelled volume</th><th scope="col">As of</th></tr></thead>
@@ -4424,7 +4424,7 @@ function chokepointRouteTable({ chokepoint, routes, capturedAt, volumeObservedAt
       </table></div>`;
   }
   return `<div class="table-scroll"><table data-chokepoint-routes>
-        <caption>Modelled trade-route corridors through ${escapeHtml(chokepoint.displayName)}. Volumes are World Monitor corridor figures as of ${datedVolume}.</caption>
+        <caption>Modelled trade-route corridors through ${escapeHtml(chokepoint.displayName)}. Volumes are RaWorld corridor figures as of ${datedVolume}.</caption>
         <thead><tr><th scope="col">Route</th><th scope="col">Category</th><th scope="col">Modelled volume</th><th scope="col">As of</th></tr></thead>
         <tbody>
 ${routes.map((route) => {
@@ -4453,8 +4453,8 @@ function renderChokepointAnalysis({
   const region = content.region || 'its connected waters';
   const datedCapture = capturedAt ? timeMarkup(capturedAt) : 'the committed registry snapshot';
   const shockClause = chokepoint.shockModelSupported
-    ? 'World Monitor enables the energy shock model on this waterway.'
-    : 'World Monitor does not enable the energy shock model on this waterway.';
+    ? 'RaWorld enables the energy shock model on this waterway.'
+    : 'RaWorld does not enable the energy shock model on this waterway.';
   const routeClause = routes.length
     ? `The ${datedCapture} reference maps ${routes.length} modelled trade-route corridor${routes.length === 1 ? '' : 's'} onto this waypoint.`
     : `The ${datedCapture} reference maps no modelled trade-route corridor onto this waypoint.`;
@@ -4504,7 +4504,7 @@ function renderChokepointPage({
   const path = `/chokepoints/${chokepoint.slug}/`;
   const content = CHOKEPOINT_CONTENT[chokepoint.id] || {};
   const blurb = content.blurb
-    || `${chokepoint.displayName} is one of the 13 canonical maritime chokepoints tracked by World Monitor.`;
+    || `${chokepoint.displayName} is one of the 13 canonical maritime chokepoints tracked by RaWorld.`;
   const description = chokepointMetaDescription(chokepoint.displayName);
   const mapUrl = absoluteUrl(baseUrl, `/dashboard?chokepoint=${encodeURIComponent(chokepoint.id)}`);
 
@@ -4571,7 +4571,7 @@ ${relatedCrises.map((crisis) => `        <li><a href="/crises/${escapeHtml(crisi
       <ul class="related">
 ${relatedItems.map((item) => `        <li>${item}</li>`).join('\n')}
       </ul>
-      <p class="source" data-snapshot-source="${CHOKEPOINT_REGISTRY_PATH} ${TRADE_ROUTES_PATH}">Download: <a href="${escapeHtml(datasetDownloadHref(path, CHOKEPOINT_DATASET_DOWNLOAD))}">${CHOKEPOINT_DATASET_DOWNLOAD}</a>. Source: World Monitor chokepoint registry and trade-route reference. Captured ${capturedAt ? escapeHtml(prettyDate(capturedAt)) : 'unspecified'}. Methodology: <a href="/docs/methodology/chokepoints">how chokepoint disruption is scored</a>.</p>`;
+      <p class="source" data-snapshot-source="${CHOKEPOINT_REGISTRY_PATH} ${TRADE_ROUTES_PATH}">Download: <a href="${escapeHtml(datasetDownloadHref(path, CHOKEPOINT_DATASET_DOWNLOAD))}">${CHOKEPOINT_DATASET_DOWNLOAD}</a>. Source: RaWorld chokepoint registry and trade-route reference. Captured ${capturedAt ? escapeHtml(prettyDate(capturedAt)) : 'unspecified'}. Methodology: <a href="/docs/methodology/chokepoints">how chokepoint disruption is scored</a>.</p>`;
   const hasCoordinates = Number.isFinite(chokepoint.lat) && Number.isFinite(chokepoint.lon);
   const geoCoordinates = hasCoordinates
     ? {
@@ -4604,8 +4604,8 @@ ${relatedItems.map((item) => `        <li>${item}</li>`).join('\n')}
   const dataset = {
     '@type': 'Dataset',
     '@id': datasetId,
-    name: `World Monitor chokepoint reference for ${chokepoint.displayName}`,
-    description: `A World Monitor maritime reference dataset for ${chokepoint.displayName}, with its position, connected waters, energy shock model support, and modelled trade-route corridors.`,
+    name: `RaWorld chokepoint reference for ${chokepoint.displayName}`,
+    description: `A RaWorld maritime reference dataset for ${chokepoint.displayName}, with its position, connected waters, energy shock model support, and modelled trade-route corridors.`,
     url: absoluteUrl(baseUrl, path),
     identifier: chokepoint.id,
     keywords: ['maritime chokepoint', chokepoint.displayName, 'shipping route', 'trade corridor'],
@@ -4630,7 +4630,7 @@ ${relatedItems.map((item) => `        <li>${item}</li>`).join('\n')}
   return pageDocument({
     baseUrl,
     path,
-    title: `${chokepoint.displayName} Chokepoint Status | World Monitor`,
+    title: `${chokepoint.displayName} Chokepoint Status | RaWorld`,
     description,
     lastmod,
     extraStyles: `
@@ -4680,7 +4680,7 @@ function countrySelectOptions(countryBounds, { includeWorldwide = false, default
 
 function renderCrisesIndex({ crises, baseUrl, lastmod }) {
   const path = '/crises/';
-  const description = 'Curated, bounded crisis trackers that combine stable coverage definitions with World Monitor’s maintained country-level humanitarian summaries.';
+  const description = 'Curated, bounded crisis trackers that combine stable coverage definitions with RaWorld’s maintained country-level humanitarian summaries.';
   const body = `      <p class="eyebrow">Bounded trackers</p>
       <h1>Current crisis trackers</h1>
       <p class="lede">${escapeHtml(description)}</p>
@@ -4692,11 +4692,11 @@ ${crises.map((crisis) => `        <a class="card" href="/crises/${escapeHtml(cri
       <p>Every tracker names its covered countries up front and never silently widens. Metrics are monthly country-level conflict summaries — recorded events, political-violence events, fatalities, and demonstrations — from the UN OCHA <a href="https://data.humdata.org/hapi">Humanitarian API (HDX HAPI)</a>. A combined total is shown only when every covered country reports the same reference month; otherwise per-country figures stand alone.</p>
       <h2>What they are not</h2>
       <p>These are bounded pulses, not battlefield maps, casualty ledgers, or forecasts. Missing countries are reported as unavailable rather than zero, and event-level context lives in the <a href="/dashboard">live dashboard</a> with its map layers and independent signals.</p>
-      <p class="source">Scope source: <a href="${CRISIS_REGISTRY_URL}" data-snapshot-source="${CRISIS_REGISTRY_PATH}">World Monitor crisis registry</a>. Live metrics: HAPI/HDX humanitarian conflict summaries through the World Monitor API.</p>`;
+      <p class="source">Scope source: <a href="${CRISIS_REGISTRY_URL}" data-snapshot-source="${CRISIS_REGISTRY_PATH}">RaWorld crisis registry</a>. Live metrics: HAPI/HDX humanitarian conflict summaries through the RaWorld API.</p>`;
   return pageDocument({
     baseUrl,
     path,
-    title: 'Current Crisis Trackers | World Monitor',
+    title: 'Current Crisis Trackers | RaWorld',
     description,
     lastmod,
     jsonLd: [
@@ -4721,14 +4721,14 @@ ${crises.map((crisis) => `        <a class="card" href="/crises/${escapeHtml(cri
 function crisisDatasetMetadata(crisis, baseUrl, pulse) {
   const hasPulse = pulse != null && OBSERVATION_PERIOD_RE.test(String(pulse.referencePeriod ?? ''));
   const description = hasPulse
-    ? `A bounded World Monitor crisis tracker for ${crisis.title}, with the maintained ${pulse.referencePeriod} HAPI/HDX country summaries across ${crisis.coverage.map((country) => country.name).join(', ')}.`
-    : `A bounded World Monitor crisis tracker reference for ${crisis.title}, defining the maintained geographic scope across ${crisis.coverage.map((country) => country.name).join(', ')}.`;
+    ? `A bounded RaWorld crisis tracker for ${crisis.title}, with the maintained ${pulse.referencePeriod} HAPI/HDX country summaries across ${crisis.coverage.map((country) => country.name).join(', ')}.`
+    : `A bounded RaWorld crisis tracker reference for ${crisis.title}, defining the maintained geographic scope across ${crisis.coverage.map((country) => country.name).join(', ')}.`;
   const path = `/crises/${crisis.slug}/`;
   const url = absoluteUrl(baseUrl, path);
   return {
     '@type': 'Dataset',
     '@id': `${url}#crisis-dataset`,
-    name: `World Monitor crisis tracker reference: ${crisis.shortTitle || crisis.title}`,
+    name: `RaWorld crisis tracker reference: ${crisis.shortTitle || crisis.title}`,
     description,
     url,
     keywords: ['crisis tracker', crisis.shortTitle || crisis.title, 'humanitarian conflict', ...crisis.coverage.map((country) => country.name)],
@@ -4804,7 +4804,7 @@ function renderCrisisPage({
   const snapshotSection = hasPulse
     ? `      <h2>Maintained month snapshot</h2>
       <p>This page records the committed ${escapeHtml(pulse.referencePeriod)} HAPI/HDX country summaries published ${escapeHtml(prettyDate(livePulse.capturedAt))}. JavaScript can refresh newer values; the numbers above remain available without it.</p>
-      <p class="snapshot-note" data-snapshot-source="${escapeHtml(livePulseSnapshotPath || 'docs/snapshots/crawlable-live-pulse-*.json')}">Source: World Monitor weekly pulse snapshot, ${escapeHtml(prettyDate(livePulse.capturedAt))}. Combined totals are withheld when covered countries report different reference months.</p>`
+      <p class="snapshot-note" data-snapshot-source="${escapeHtml(livePulseSnapshotPath || 'docs/snapshots/crawlable-live-pulse-*.json')}">Source: RaWorld weekly pulse snapshot, ${escapeHtml(prettyDate(livePulse.capturedAt))}. Combined totals are withheld when covered countries report different reference months.</p>`
     : '';
   const body = `      <p class="eyebrow">Bounded crisis tracker</p>
       <h1>${escapeHtml(crisis.title)}</h1>
@@ -4834,7 +4834,7 @@ ${countryRows}
         </div>
         <noscript><p>Enable JavaScript to refresh current monthly summaries. ${hasPulse ? 'The published pulse above remains available without JavaScript.' : 'The tracker scope and methodology remain available on this page.'}</p></noscript>
       </section>
-      <a class="cta" href="${escapeHtml(dashboardUrl)}">Investigate this crisis in World Monitor →</a>
+      <a class="cta" href="${escapeHtml(dashboardUrl)}">Investigate this crisis in RaWorld →</a>
 ${snapshotSection}
       <h2>Coverage boundary</h2>
       <p>${escapeHtml(crisis.coverage.map((country) => `${country.name} (${country.code})`).join(', '))}. Events outside this list are not included in the live totals on this page.</p>
@@ -4842,8 +4842,8 @@ ${renderRelatedChokepoints(relatedChokepoints)}
 ${renderLiveDataLinks(crisisLiveLinks({ touchesOilChokepoint: relatedChokepoints.some((chokepoint) => EIA_OIL_TRANSIT_BASELINES.byRegistryId[chokepoint.id]) }), escapeHtml)}
 ${renderRelatedReading(relatedReading, escapeHtml)}
       <h2>How to read this tracker</h2>
-      <p>Use these monthly country summaries as a bounded pulse, then inspect the dashboard for event-level context, map layers, and other independent signals. The figures are not forecasts and should not be interpreted as a complete casualty or incident ledger. World Monitor's forecasts are graded separately, and that record is published on the <a href="/accuracy/">forecast accuracy scorecard</a>.</p>
-      <p class="source">Download: <a href="${escapeHtml(datasetDownloadHref(path, CRISIS_DATASET_DOWNLOAD))}">${CRISIS_DATASET_DOWNLOAD}</a>. Scope source: <a href="${CRISIS_REGISTRY_URL}" data-snapshot-source="${CRISIS_REGISTRY_PATH}">World Monitor crisis registry</a>. Maintained metrics: HAPI/HDX humanitarian conflict summaries from the UN OCHA <a href="https://data.humdata.org/hapi">Humanitarian API</a>.</p>`;
+      <p>Use these monthly country summaries as a bounded pulse, then inspect the dashboard for event-level context, map layers, and other independent signals. The figures are not forecasts and should not be interpreted as a complete casualty or incident ledger. RaWorld's forecasts are graded separately, and that record is published on the <a href="/accuracy/">forecast accuracy scorecard</a>.</p>
+      <p class="source">Download: <a href="${escapeHtml(datasetDownloadHref(path, CRISIS_DATASET_DOWNLOAD))}">${CRISIS_DATASET_DOWNLOAD}</a>. Scope source: <a href="${CRISIS_REGISTRY_URL}" data-snapshot-source="${CRISIS_REGISTRY_PATH}">RaWorld crisis registry</a>. Maintained metrics: HAPI/HDX humanitarian conflict summaries from the UN OCHA <a href="https://data.humdata.org/hapi">Humanitarian API</a>.</p>`;
   const coveragePlaces = crisis.coverage.map((country) => ({
     '@type': 'Country',
     name: country.name,
@@ -4892,7 +4892,7 @@ ${renderRelatedReading(relatedReading, escapeHtml)}
   return pageDocument({
     baseUrl,
     path,
-    title: `${crisis.title} | World Monitor`,
+    title: `${crisis.title} | RaWorld`,
     description: crisis.description,
     lastmod,
     jsonLd: [
@@ -4937,7 +4937,7 @@ ${renderRelatedReading(relatedReading, escapeHtml)}
 // claim about the corpus rather than as prose.
 function renderToolsIndex({ baseUrl, lastmod, crisisCount, chokepointCount }) {
   const path = '/tools/';
-  const description = 'Focused World Monitor tools for current natural hazards, country-level airspace disruption, and geographic signal convergence, backed by maintained first-party data contracts.';
+  const description = 'Focused RaWorld tools for current natural hazards, country-level airspace disruption, and geographic signal convergence, backed by maintained first-party data contracts.';
   const body = `      <p class="eyebrow">Live intelligence tools</p>
       <h1>Check a current operational signal</h1>
       <p class="lede">${escapeHtml(description)}</p>
@@ -4950,14 +4950,14 @@ function renderToolsIndex({ baseUrl, lastmod, crisisCount, chokepointCount }) {
 ${LIVE_TOPIC_PAGES.map((page) => `        <a class="card" href="${escapeHtml(page.path)}"><strong>${escapeHtml(page.h1)}</strong><br><span>${escapeHtml(page.question)}</span></a>`).join('\n')}
       </div>
       <h2>How these tools work</h2>
-      <p>Each tool asks one narrow operational question — what natural hazards are open right now, is a country's monitored airspace disrupted, where independent streams converge — and answers it from a maintained World Monitor contract. Results are labelled with their source and retrieval time, unavailable data is reported as unavailable rather than zero, and independent signals are never combined into a single opaque threat score unless the tool names that combination explicitly.</p>
+      <p>Each tool asks one narrow operational question — what natural hazards are open right now, is a country's monitored airspace disrupted, where independent streams converge — and answers it from a maintained RaWorld contract. Results are labelled with their source and retrieval time, unavailable data is reported as unavailable rather than zero, and independent signals are never combined into a single opaque threat score unless the tool names that combination explicitly.</p>
       <h2>When to use them</h2>
       <p>Use these pages for a fast, shareable check before a trip, a shipment, or a market open; use the <a href="/dashboard">live dashboard</a> when you need the full picture — map layers, alerts, news, and country briefs side by side. Hazard coverage is documented in <a href="/docs/natural-disasters">natural disaster tracking</a>; chokepoint scoring in the <a href="/docs/methodology/chokepoints">chokepoint methodology</a>; convergence scoring in <a href="/docs/geographic-convergence">geographic convergence</a>.</p>
-      <p class="source">Live results load from maintained World Monitor API contracts. Static route descriptions remain available if a current source cannot be reached.</p>`;
+      <p class="source">Live results load from maintained RaWorld API contracts. Static route descriptions remain available if a current source cannot be reached.</p>`;
   return pageDocument({
     baseUrl,
     path,
-    title: 'Live Intelligence Tools | World Monitor',
+    title: 'Live Intelligence Tools | RaWorld',
     description,
     lastmod,
     jsonLd: {
@@ -4983,8 +4983,8 @@ function signalConvergenceDatasetMetadata(signalConvergence, baseUrl) {
   return {
     '@type': 'Dataset',
     '@id': `${url}#signal-convergence-dataset`,
-    name: `World Monitor ${metricName} reference`,
-    description: `World Monitor's ${metricName} (0-100) names when protests, military flights, naval vessels, and earthquakes co-occur in the same 1° cell.`,
+    name: `RaWorld ${metricName} reference`,
+    description: `RaWorld's ${metricName} (0-100) names when protests, military flights, naval vessels, and earthquakes co-occur in the same 1° cell.`,
     url,
     keywords: ['signal convergence', 'geographic convergence', 'event correlation', 'geopolitical signals'],
     distribution: [dataDownload(absoluteUrl(baseUrl, datasetDownloadHref(path, CONVERGENCE_DATASET_DOWNLOAD)))],
@@ -5017,7 +5017,7 @@ function renderSignalConvergencePage({ signalConvergence, baseUrl, lastmod, snap
   const body = `      <p class="eyebrow">Correlation metric</p>
       <h1>${escapeHtml(metricName)}</h1>
       <p class="lede">${escapeHtml(description)}</p>
-      <p>The named metric is crawlable here. Live cell alerts remain available to agents through the MCP tool <code>get_signal_convergence</code>; this page publishes the score definition, thresholds, and cited reference examples so current-state answers can attribute a World Monitor number.</p>
+      <p>The named metric is crawlable here. Live cell alerts remain available to agents through the MCP tool <code>get_signal_convergence</code>; this page publishes the score definition, thresholds, and cited reference examples so current-state answers can attribute a RaWorld number.</p>
       <section class="grid" aria-label="${escapeHtml(metricName)} definition">
         <div class="metric"><span>Scale</span><strong>0–100</strong></div>
         <div class="metric"><span>Default min domains</span><strong>${escapeHtml(String(signalConvergence.defaultMinDomains ?? 3))}</strong></div>
@@ -5039,11 +5039,11 @@ ${examples}
       </div>
       <h2>Where to go next</h2>
       <p>Open the <a href="/dashboard">live dashboard</a> for map layers, or read the full methodology in <a href="/docs/geographic-convergence">geographic convergence</a>. Country pages expose related instability scores; this page is the citable correlation definition.</p>
-      <p class="source" data-snapshot-source="${escapeHtml(snapshotPath)}">Download: <a href="${escapeHtml(downloadHref)}">${CONVERGENCE_DATASET_DOWNLOAD}</a>. Snapshot: World Monitor weekly pulse snapshot. Methodology reference, last reviewed ${escapeHtml(prettyDate(lastmod))}. Methodology: <a href="/docs/geographic-convergence">Geographic Convergence Detection</a>.</p>`;
+      <p class="source" data-snapshot-source="${escapeHtml(snapshotPath)}">Download: <a href="${escapeHtml(downloadHref)}">${CONVERGENCE_DATASET_DOWNLOAD}</a>. Snapshot: RaWorld weekly pulse snapshot. Methodology reference, last reviewed ${escapeHtml(prettyDate(lastmod))}. Methodology: <a href="/docs/geographic-convergence">Geographic Convergence Detection</a>.</p>`;
   return pageDocument({
     baseUrl,
     path,
-    title: `${metricName} | World Monitor`,
+    title: `${metricName} | RaWorld`,
     description,
     lastmod,
     jsonLd: [
@@ -5136,20 +5136,20 @@ ${countrySelectOptions(countryBounds, { includeWorldwide: true })}
         <div class="tool-meta"><time data-live-updated>Requesting the latest available snapshot…</time></div>
         <noscript><p>Enable JavaScript to load and filter the current event snapshot. This page still documents the tool’s coverage and sources.</p></noscript>
       </section>
-      <a class="cta" data-dashboard-link href="${escapeHtml(absoluteUrl(baseUrl, '/dashboard'))}">Open the selected area in World Monitor →</a>
+      <a class="cta" data-dashboard-link href="${escapeHtml(absoluteUrl(baseUrl, '/dashboard'))}">Open the selected area in RaWorld →</a>
       <h2>Sources and limits</h2>
-      <p>World Monitor reads its seeded natural-event snapshot from maintained <a href="https://eonet.gsfc.nasa.gov/">NASA EONET</a>, <a href="https://www.gdacs.org/">GDACS</a>, <a href="https://www.nhc.noaa.gov/">NHC</a>, and <a href="https://www.hko.gov.hk/">HKO</a> ingestion paths. Source names are retained on individual events. A zero is shown only when a source snapshot is explicitly available; unavailable snapshots fail closed. Coverage and update cadence are documented in <a href="/docs/natural-disasters">natural disaster tracking</a>.</p>
+      <p>RaWorld reads its seeded natural-event snapshot from maintained <a href="https://eonet.gsfc.nasa.gov/">NASA EONET</a>, <a href="https://www.gdacs.org/">GDACS</a>, <a href="https://www.nhc.noaa.gov/">NHC</a>, and <a href="https://www.hko.gov.hk/">HKO</a> ingestion paths. Source names are retained on individual events. A zero is shown only when a source snapshot is explicitly available; unavailable snapshots fail closed. Coverage and update cadence are documented in <a href="/docs/natural-disasters">natural disaster tracking</a>.</p>
       <p class="source">Geographic filters: ${COUNTRY_BBOXES_PATH}. Live metrics: <code>/api/natural/v1/list-natural-events</code>.</p>`;
   return pageDocument({
     baseUrl,
     path,
-    title: 'Live Natural Hazard Tracker | World Monitor',
+    title: 'Live Natural Hazard Tracker | RaWorld',
     description,
     lastmod,
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'WebApplication',
-      name: 'World Monitor natural-hazard pulse',
+      name: 'RaWorld natural-hazard pulse',
       description,
       url: absoluteUrl(baseUrl, path),
       applicationCategory: 'DataApplication',
@@ -5217,20 +5217,20 @@ ${countrySelectOptions(countryBounds, { defaultCode: 'JP' })}
         <p class="tool-note">Military results are capped at 100 returned observations for the selected box. Countries with oversized or discontinuous envelopes are omitted so the tool never issues a continent-scale observation query. An empty or failed military response is unavailable, not confirmed zero activity.</p>
         <noscript><p>Enable JavaScript to check the selected country. The independent-source methodology and limitations remain available on this page.</p></noscript>
       </section>
-      <a class="cta" data-dashboard-link href="${escapeHtml(absoluteUrl(baseUrl, '/dashboard?country=JP&expanded=1'))}">Investigate the selected country in World Monitor →</a>
+      <a class="cta" data-dashboard-link href="${escapeHtml(absoluteUrl(baseUrl, '/dashboard?country=JP&expanded=1'))}">Investigate the selected country in RaWorld →</a>
       <h2>How to read the result</h2>
       <p>“Normal” applies only to monitored airports with current source coverage. “Unknown” means telemetry was not available and is not counted as normal. Military-flight results are bounded observations from OpenSky/Wingbits-compatible ingestion and are not exhaustive.</p>
       <p class="source">Geographic filters: ${COUNTRY_BBOXES_PATH}. Live metrics: <code>/api/aviation/v1/list-airport-delays</code> and <code>/api/military/v1/list-military-flights</code>.</p>`;
   return pageDocument({
     baseUrl,
     path,
-    title: 'Airspace-Disruption Checker | World Monitor',
+    title: 'Airspace-Disruption Checker | RaWorld',
     description,
     lastmod,
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'WebApplication',
-      name: 'World Monitor airspace-disruption checker',
+      name: 'RaWorld airspace-disruption checker',
       description,
       url: absoluteUrl(baseUrl, path),
       applicationCategory: 'DataApplication',
@@ -5263,11 +5263,11 @@ function renderChangelogPage({ releases, pageIndex, totalPages, baseUrl, lastmod
     pageIndex + 1 < totalPages ? { rel: 'next', path: changelogPagePath(pageIndex + 1) } : null,
   ].filter(Boolean);
   const title = pageIndex === 0
-    ? 'World Monitor Changelog | World Monitor'
-    : `World Monitor Changelog Page ${pageIndex + 1} | World Monitor`;
-  const description = 'Paginated release notes for World Monitor — new panels, data sources, API changes and fixes.';
+    ? 'RaWorld Changelog | RaWorld'
+    : `RaWorld Changelog Page ${pageIndex + 1} | RaWorld`;
+  const description = 'Paginated release notes for RaWorld — new panels, data sources, API changes and fixes.';
   const body = `      <p class="eyebrow">Release notes</p>
-      <h1>World Monitor changelog</h1>
+      <h1>RaWorld changelog</h1>
       <p class="lede">${escapeHtml(description)}</p>
 ${releases.map((release) => `      <article class="card">
         <h2>${escapeHtml(release.label)}${release.date ? ` <small>${escapeHtml(release.date)}</small>` : ''}</h2>
@@ -5280,7 +5280,7 @@ ${release.bullets.map((bullet) => `          <li>${escapeHtml(bullet)}</li>`).jo
         ${pageIndex > 0 ? `<a class="card" href="${changelogPagePath(pageIndex - 1)}">Previous page</a>` : ''}
         ${pageIndex + 1 < totalPages ? `<a class="card" href="${changelogPagePath(pageIndex + 1)}">Next page</a>` : ''}
       </nav>
-      <p class="source" data-snapshot-source="${CHANGELOG_PATH}">Source: World Monitor release notes. Page ${pageIndex + 1} of ${totalPages}.</p>`;
+      <p class="source" data-snapshot-source="${CHANGELOG_PATH}">Source: RaWorld release notes. Page ${pageIndex + 1} of ${totalPages}.</p>`;
   return pageDocument({
     baseUrl,
     path,
@@ -5294,13 +5294,13 @@ ${release.bullets.map((bullet) => `          <li>${escapeHtml(bullet)}</li>`).jo
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: 'World Monitor changelog',
+      name: 'RaWorld changelog',
       description,
       url: absoluteUrl(baseUrl, path),
       inLanguage: 'en-US',
       isPartOf: {
         '@type': 'CreativeWorkSeries',
-        name: 'World Monitor release notes',
+        name: 'RaWorld release notes',
       },
     },
     breadcrumbs: breadcrumbLd(baseUrl, [

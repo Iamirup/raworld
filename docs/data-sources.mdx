@@ -1,13 +1,13 @@
 ---
 title: "Data Sources"
-description: "Every data source behind World Monitor, segmented by intelligence domain — what each domain covers, the providers behind it, and deep-dive links for methodology, cadence, and fallback ordering."
+description: "Every data source behind RaWorld, segmented by intelligence domain — what each domain covers, the providers behind it, and deep-dive links for methodology, cadence, and fallback ordering."
 ---
 
-World Monitor fuses attributed structured APIs, news and OSINT feeds, and operational-status endpoints into live operating pictures across the product variants. The source-attribution manifest, application feed registry, and Telegram catalog are separate inventories and are not added together. This page is the catalog: start with the domain map below, open the domain you care about, then follow the deep-dive links for methodology and freshness guarantees.
+RaWorld fuses attributed structured APIs, news and OSINT feeds, and operational-status endpoints into live operating pictures across the product variants. The source-attribution manifest, application feed registry, and Telegram catalog are separate inventories and are not added together. This page is the catalog: start with the domain map below, open the domain you care about, then follow the deep-dive links for methodology and freshness guarantees.
 
 Data flows one way: Railway seeders and edge functions fetch upstream sources on fixed cadences, normalize and cache the results in Redis, and the dashboard hydrates from those caches — so a burst of traffic never multiplies load on any provider. The [architecture guide](/architecture) covers the pipeline in depth, and the machine-audited inventory of every observed upstream host lives in the [full source inventory](/source-attribution).
 
-Compare the dashboard with its underlying event-data services: [World Monitor vs ACLED](https://www.worldmonitor.app/compare/worldmonitor-vs-acled/) and [World Monitor vs GDELT](https://www.worldmonitor.app/compare/worldmonitor-vs-gdelt/).
+Compare the dashboard with its underlying event-data services: [RaWorld vs ACLED](https://www.worldmonitor.app/compare/worldmonitor-vs-acled/) and [RaWorld vs GDELT](https://www.worldmonitor.app/compare/worldmonitor-vs-gdelt/).
 
 ## Coverage at a Glance
 
@@ -89,7 +89,7 @@ The Displacement panel gives each source its own tab. Each source loads and refr
 - **Origins** and **Hosts** — yearly UNHCR Population API counts of refugees, asylum seekers, and internally displaced persons (IDPs), ranked by outflow (countries people are fleeing) and by intake (countries hosting them)
 - **Recent** — new internal displacement events from IDMC's Internal Displacement Updates, read from the per-country files IDMC publishes on HDX. IDMC enters a figure a median of about three weeks after the displacement, so the newest week is always incomplete
 - **Internal** — internal displacement by first-level region from IOM's Displacement Tracking Matrix (DTM). Each operation keeps only its latest survey round, and operations that overlap in one country are never summed
-- **Cross-border** — source-dated movements from the UNHCR Operational Data Portal, UK Home Office daily small-boat arrivals, US CBP southwest-border encounters, Frontex monthly detections, and Panama's Darién arrivals. Each figure keeps its source's report date. Encounters and detections count events, not unique people. Route methodology and licences are listed in [Cross-border movements](https://github.com/koala73/worldmonitor/blob/main/docs/cross-border-movements.md)
+- **Cross-border** — source-dated movements from the UNHCR Operational Data Portal, UK Home Office daily small-boat arrivals, US CBP southwest-border encounters, Frontex monthly detections, and Panama's Darién arrivals. Each figure keeps its source's report date. Encounters and detections count events, not unique people. Route methodology and licences are listed in [Cross-border movements](https://github.com/Iamirup/raworld/blob/main/docs/cross-border-movements.md)
 
 A surge in IDMC internal displacement for a country is emitted as a cross-source signal. A fresh, source-confirmed cross-border arrival surge adds five points to that country's CII once (since formula v13).
 
@@ -804,4 +804,4 @@ A singleton tracker monitors configured data sources (GDELT, GDELT Doc, RSS, AIS
 
 ## Full Source Inventory & Credits
 
-World Monitor is grateful to the organizations that make their data publicly accessible. The complete, machine-generated inventory of every observed upstream host — with its license posture, required attribution, and review status — is maintained on the [source attribution](/source-attribution) page. It is regenerated from URL literals in the source tree, so the disclosure cannot silently drift from what the code actually fetches.
+RaWorld is grateful to the organizations that make their data publicly accessible. The complete, machine-generated inventory of every observed upstream host — with its license posture, required attribution, and review status — is maintained on the [source attribution](/source-attribution) page. It is regenerated from URL literals in the source tree, so the disclosure cannot silently drift from what the code actually fetches.

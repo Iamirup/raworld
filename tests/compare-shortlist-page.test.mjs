@@ -33,7 +33,7 @@ const LASTMOD = '2026-10-14';
 const SNAPSHOT_DATE = '2026-10-13';
 const EXPECTED_H1 = "Best Geopolitical Risk Intelligence Platforms in 2026: The Buyer's Shortlist";
 const EXPECTED_ORDER = [
-  'World Monitor',
+  'RaWorld',
   'Dataminr',
   'Recorded Future',
   'Seerist',
@@ -152,7 +152,7 @@ describe('the 2026 buyer\'s shortlist page contract', () => {
     const description = document.querySelector('meta[name="description"]').getAttribute('content');
     assert.equal(title, page.title);
     assert.ok([...title].length < 60, `title must be under 60 chars, got ${[...title].length}`);
-    assert.match(title, /World Monitor/);
+    assert.match(title, /RaWorld/);
     const length = [...description].length;
     assert.ok(length >= 150 && length <= 160, `meta description must be 150-160 chars, got ${length}`);
     for (const value of [title, description, page.h1]) {
@@ -160,7 +160,7 @@ describe('the 2026 buyer\'s shortlist page contract', () => {
     }
   });
 
-  it('shows the author byline, both dates, and a 95-word intro that names World Monitor', () => {
+  it('shows the author byline, both dates, and a 95-word intro that names RaWorld', () => {
     const byline = main.querySelector('p.author-byline');
     assert.ok(byline, 'byline paragraph must render');
     const author = byline.querySelector(`a[rel="author"][href="${AUTHOR_PATH}"]`);
@@ -170,7 +170,7 @@ describe('the 2026 buyer\'s shortlist page contract', () => {
     assert.equal(byline.querySelector('time[data-updated]').getAttribute('datetime'), LASTMOD);
     const intro = main.querySelector('p.lede[data-intro]');
     assert.ok(words(intro.textContent) <= 95, `intro must be 95 words or fewer, got ${words(intro.textContent)}`);
-    assert.match(text(intro), /World Monitor/);
+    assert.match(text(intro), /RaWorld/);
     assert.match(text(intro), /geopolitical risk intelligence platforms/i);
   });
 
@@ -209,7 +209,7 @@ describe('the 2026 buyer\'s shortlist page contract', () => {
 
   it('closes with the free-trial CTA as the last element', () => {
     const cta = main.querySelector('h2[data-cta]');
-    assert.equal(text(cta), 'Try World Monitor for free (no credit card required)');
+    assert.equal(text(cta), 'Try RaWorld for free (no credit card required)');
     let node = cta.nextElementSibling;
     const sentences = [];
     while (node) {
@@ -256,16 +256,16 @@ describe('the 2026 buyer\'s shortlist page contract', () => {
     assert.doesNotMatch(main.textContent, /★|\bstars?\b|review count/i);
   });
 
-  it('prices World Monitor from the product catalog and cites or withholds every competitor price', () => {
+  it('prices RaWorld from the product catalog and cites or withholds every competitor price', () => {
     const facts = JSON.parse(readFileSync(join(repoRoot, 'shared/product-facts.generated.json'), 'utf8'));
     const plan = (key) => facts.plans.find((candidate) => candidate.planKey === key);
     const worldMonitor = page.entries[0];
-    assert.equal(worldMonitor.name, 'World Monitor');
+    assert.equal(worldMonitor.name, 'RaWorld');
     assert.ok(worldMonitor.pricing.published);
     for (const key of ['pro_monthly', 'api_starter']) {
       assert.ok(
         worldMonitor.pricing.cell.includes(`$${plan(key).price.toFixed(2)}/mo`),
-        `World Monitor price cell must carry the catalog ${key} price`,
+        `RaWorld price cell must carry the catalog ${key} price`,
       );
     }
     const offerPrices = worldMonitor.pricing.offers.map((offer) => offer.price);
@@ -300,23 +300,23 @@ describe('the 2026 buyer\'s shortlist page contract', () => {
 
   it('rejects seeds that break the brief', () => {
     assert.throws(() => shortlistPage(seedWith((seed) => { seed.keyTakeaways.pop(); })), /5 key takeaways/);
-    assert.throws(() => shortlistPage(seedWith((seed) => { seed.title = 'Best Geopolitical Risk Intelligence Platforms in 2026 | World Monitor'; })), /under 60/);
+    assert.throws(() => shortlistPage(seedWith((seed) => { seed.title = 'Best Geopolitical Risk Intelligence Platforms in 2026 | RaWorld'; })), /under 60/);
     assert.throws(() => shortlistPage(seedWith((seed) => { seed.metaDescription = seed.metaDescription.slice(0, 120); })), /150-160/);
     assert.throws(() => shortlistPage(seedWith((seed) => { seed.metaDescription = seed.metaDescription.replace(/[,.]/, '\u2014'); })), /dash/);
     assert.throws(() => shortlistPage(seedWith((seed) => { seed.entries[1].pricing.cell = '$65,000/yr'; })), /published/);
-    assert.throws(() => shortlistPage(seedWith((seed) => { seed.entries.reverse(); })), /World Monitor/);
+    assert.throws(() => shortlistPage(seedWith((seed) => { seed.entries.reverse(); })), /RaWorld/);
     assert.throws(() => shortlistPage(seedWith((seed) => { seed.useCases.pop(); })), /use case/i);
     assert.throws(() => shortlistPage(seedWith((seed) => { seed.intro = `${seed.intro} ${'word '.repeat(60)}`; })), /95 words/);
   });
 
   it('rejects price claims the brief does not allow', () => {
-    const published = (seed) => seed.entries.find((entry) => entry.name !== 'World Monitor' && entry.pricing.published);
+    const published = (seed) => seed.entries.find((entry) => entry.name !== 'RaWorld' && entry.pricing.published);
     const unpublished = (seed) => seed.entries.find((entry) => !entry.pricing.published);
     assert.throws(() => shortlistPage(seedWith((seed) => { published(seed).pricing.sources = []; })), /cited (price )?source/);
     assert.throws(() => shortlistPage(seedWith((seed) => { published(seed).pricing.sources[0].url = 'http://example.com/pricing'; })), /https URL/);
     assert.throws(() => shortlistPage(seedWith((seed) => { unpublished(seed).pricing.offers = []; })), /offers/);
     assert.throws(() => shortlistPage(seedWith((seed) => { unpublished(seed).pricing.sources = []; })), /in prose without a cited price source/);
-    assert.throws(() => shortlistPage(seedWith((seed) => { seed.entries[0].paragraphs[0] += ' Pro costs $1.99/mo.'; })), /World Monitor prose prices/);
+    assert.throws(() => shortlistPage(seedWith((seed) => { seed.entries[0].paragraphs[0] += ' Pro costs $1.99/mo.'; })), /RaWorld prose prices/);
     assert.throws(() => shortlistPage(seedWith((seed) => { seed.useCases[0].href = '/blog/vs/dataminr/'; })), /\/blog\/best\//);
     assert.throws(() => shortlistPage(seedWith((seed) => { seed.faqs = seed.faqs.slice(0, 5); })), /6-8 FAQs/);
     assert.throws(() => shortlistPage(seedWith((seed) => { seed.keyTakeaways[0] += ' See [the plans](http://example.com).'; })), /site path or https URL/);

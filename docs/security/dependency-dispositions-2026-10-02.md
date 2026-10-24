@@ -2,7 +2,7 @@
 
 The caller-risk leases from October 2 and PR #8803 are superseded by local security backports. The three matching audit suppressions are removed. Dependabot alerts 347, 348, and 349 remain open until the remediation reaches the default branch and GitHub evaluates its dependency graph.
 
-Both advisories still list no released upstream fix. The private WorldMonitor versions contain code changes. They are not published upstream releases.
+Both advisories still list no released upstream fix. The private RaWorld versions contain code changes. They are not published upstream releases.
 
 | Advisory | Affected projects | Remediation |
 | --- | --- | --- |

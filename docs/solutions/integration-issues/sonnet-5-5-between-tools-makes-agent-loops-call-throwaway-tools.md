@@ -8,7 +8,7 @@ component: assistant
 severity: medium
 symptoms:
   - "Data-only widget requests ran `search_web` with queries like `noop` and `skip`, and `read_page` on `https://skip.dev/`, in 6 of 6 runs"
-  - "The junk search returned results, so a widget built only from WorldMonitor data was marked web-sourced and sent through 1-2 source checks"
+  - "The junk search returned results, so a widget built only from RaWorld data was marked web-sourced and sent through 1-2 source checks"
   - "One \"earthquakes above magnitude 5 today\" run ended in \"its sources could not be verified\" instead of a widget"
 root_cause: config_error
 resolution_type: config_change
@@ -24,7 +24,7 @@ The Pro widget agent moved from `claude-sonnet-4-6` to `claude-sonnet-5-5` for c
 
 ## Symptoms
 
-- After a successful WorldMonitor fetch, the next turn was `search_web` with `"noop"` or `"skip"`, or `read_page` on a site the junk search returned (`skip.dev`). The model then wrote "The search wasn't needed" and built the widget from the data it already had.
+- After a successful RaWorld fetch, the next turn was `search_web` with `"noop"` or `"skip"`, or `read_page` on a site the junk search returned (`skip.dev`). The model then wrote "The search wasn't needed" and built the widget from the data it already had.
 - The widget agent treats a widget as web-sourced once a search returns results, and every web-sourced draft goes through the source check. The junk calls added 1 or 2 checks and 30-50 s to data-only widgets.
 - In one of those runs the check rejected the draft and then the repair, so the user got an error for a request our own data covered.
 

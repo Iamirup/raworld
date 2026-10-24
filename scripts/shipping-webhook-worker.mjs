@@ -843,7 +843,7 @@ export function matchOccurrence(record, occurrence) {
     if (hazardTypes.length && !hazardTypes.includes(payload.hazardType)) return null;
     const minMagnitude = finiteNumber(scope.minMagnitude);
     if (payload.hazardType === 'earthquakes' && minMagnitude !== null && !(payload.magnitude >= minMagnitude)) return null;
-    // Every GDACS event WorldMonitor stores is Orange or Red (the seeder drops
+    // Every GDACS event RaWorld stores is Orange or Red (the seeder drops
     // Green), so an unknown level (a western-Pacific cyclone) passes Orange only.
     if (scope.minAlertLevel === 'Red' && payload.source === 'gdacs' && payload.alertLevel !== 'Red') return null;
     const countries = scopeList(scope.countries);

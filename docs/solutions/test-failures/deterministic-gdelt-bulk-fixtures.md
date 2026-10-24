@@ -58,4 +58,4 @@ The rolling merge uses `gdeltAddedAt` when an event provides it, otherwise it fa
 
 ## Related Issues
 
-- [PR #5314](https://github.com/koala73/worldmonitor/pull/5314) contains the CI repair and passed all required checks.
+- [PR #5314](https://github.com/Iamirup/raworld/pull/5314) contains the CI repair and passed all required checks.

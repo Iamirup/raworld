@@ -597,7 +597,7 @@ describe('SEO/AI visibility collector', () => {
           platform: 'google_ai_mode',
           directCitation: false,
           citedUrls: [],
-          summary: 'Google AI Mode mentioned World Monitor without a direct citation.',
+          summary: 'Google AI Mode mentioned RaWorld without a direct citation.',
           accountId: 'must never be copied',
         },
       ],

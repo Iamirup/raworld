@@ -78,10 +78,10 @@ const VECTORS = {
     [undefined],
   ],
   isImpersonatingSource: [
-    ['WorldMonitor Security'],
+    ['RaWorld Security'],
     ['worldmonitor'],
     ['WORLDMONITOR ALERTS'],
-    ['World Monitor Team'],
+    ['RaWorld Team'],
     ['WM Security'],
     // Invisible-format bypass shapes (review finding): zero-width, bidi,
     // LRM/RLM, soft hyphen — all must still match the markers.
@@ -90,7 +90,7 @@ const VECTORS = {
     ['World\u200eMonitor Security'],
     ['World\u00adMonitor Security'],
     ['World\u2060Monitor Security'],
-    ['World-Monitor Security'],
+    ['RaWorld Security'],
     ['World.Monitor Security'],
     ['ＷｏｒｌｄＭｏｎｉｔｏｒ Security'],
     // Nonspacing-mark and cross-script-confusable bypasses (review finding):
@@ -111,7 +111,7 @@ const VECTORS = {
     [123],
   ],
   sanitizeNotificationTitle: [
-    ['Security notice: verify your WorldMonitor account immediately'],
+    ['Security notice: verify your RaWorld account immediately'],
     ['Markets rally — rate outlook ✓'],
     ['Title\nwith\r\nnewlines\tand tabs'],
     ['x'.repeat(500)],
@@ -131,7 +131,7 @@ const VECTORS = {
     [null],
   ],
   sanitizeNotificationSource: [
-    ['WorldMonitor Security'],
+    ['RaWorld Security'],
     ['World\u200bMonitor Security'],
     ['worldmonitor'],
     ['Reuters'],
@@ -141,7 +141,7 @@ const VECTORS = {
     [null],
   ],
   sanitizeUserNotificationSource: [
-    ['WorldMonitor Security'],
+    ['RaWorld Security'],
     ['Reuters'],
     [''],
     [null],
@@ -239,7 +239,7 @@ describe('notify-fields TS/CJS parity', () => {
         'https://example.com/wm-verify-account (source: example.com)',
       );
       assert.equal(
-        mod.sanitizeNotificationSource('WorldMonitor Security'),
+        mod.sanitizeNotificationSource('RaWorld Security'),
         mod.NOTIFY_NEUTRAL_SOURCE,
       );
     }

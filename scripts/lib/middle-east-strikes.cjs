@@ -396,7 +396,7 @@ function mapGdeltExportToStrikeCandidates(csv) {
 const GDELT_FETCH_TIMEOUT_MS = 20_000;
 const GDELT_MANIFEST_TAIL_BYTES = 16_384;
 const GDELT_EXPORTS_PER_CYCLE = 8;
-const GDELT_USER_AGENT = 'WorldMonitor/1.0 (+https://www.worldmonitor.app)';
+const GDELT_USER_AGENT = 'RaWorld/1.0 (+https://www.worldmonitor.app)';
 
 async function fetchBounded(fetchImpl, url, maxBytes, headers = {}) {
   const response = await fetchImpl(url, {

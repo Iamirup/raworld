@@ -23,7 +23,7 @@ function manifest({ outcome = 'MUTATION_COMPLETED', entries } = {}) {
   const intent = createIntentManifest({
     attemptId: 'attempt-0001',
     producer: {
-      repository: 'koala73/worldmonitor', workflow: 'railway-deploy-trigger.yml',
+      repository: 'Iamirup/raworld', workflow: 'railway-deploy-trigger.yml',
       runId: '31181545167', runAttempt: 1,
     },
     headSha: HEAD,

@@ -22,7 +22,7 @@ tags: [mcp, keyword-spikes, baseline-window, capped-fetch, redis-zrange, digest-
 
 ## Problem
 
-`get_keyword_spikes` — the MCP tool added in [PR #5734](https://github.com/koala73/worldmonitor/pull/5734) for issue #5697 — reports trending keyword, CVE, and APT/FIN spikes by comparing a recent-window story count against a per-window baseline rate. It reads the story corpus out of the 48-hour digest accumulator with a single capped, newest-first range query (`api/mcp/registry/nlp-tools.ts:443-447` — the tool was later extracted from `rpc-tools.ts` into its own registry module, so line references here point at that module):
+`get_keyword_spikes` — the MCP tool added in [PR #5734](https://github.com/Iamirup/raworld/pull/5734) for issue #5697 — reports trending keyword, CVE, and APT/FIN spikes by comparing a recent-window story count against a per-window baseline rate. It reads the story corpus out of the 48-hour digest accumulator with a single capped, newest-first range query (`api/mcp/registry/nlp-tools.ts:443-447` — the tool was later extracted from `rpc-tools.ts` into its own registry module, so line references here point at that module):
 
 ```ts
 const zres = await redisPipeline([[
@@ -197,9 +197,9 @@ Two corollaries worth generalizing:
 
 ## Related Issues
 
-- Issue [#5697](https://github.com/koala73/worldmonitor/issues/5697) — the parent feature (on-demand NLP MCP utilities) this tool was added for; PR [#5734](https://github.com/koala73/worldmonitor/pull/5734) carries both the tool and this fix.
+- Issue [#5697](https://github.com/Iamirup/raworld/issues/5697) — the parent feature (on-demand NLP MCP utilities) this tool was added for; PR [#5734](https://github.com/Iamirup/raworld/pull/5734) carries both the tool and this fix.
 - [`docs/solutions/best-practices/gate-rollouts-on-traffic-weighted-data-not-a-hand-picked-cohort.md`](../best-practices/gate-rollouts-on-traffic-weighted-data-not-a-hand-picked-cohort.md) — closest existing analogue: a derived statistic (p95) misled because its real sample differed from the assumed frame, fixed by reporting the actual sample size instead of trusting it. Different subsystem, same abstract move.
 - [`docs/solutions/logic-errors/locale-specific-china-news-coverage-projection.md`](locale-specific-china-news-coverage-projection.md) — a published contract claimed coverage its computed inputs never verified. Same "advertised a frame it did not sample" shape.
 - [`docs/solutions/logic-errors/bootstrap-key-health-missing-payload.md`](bootstrap-key-health-missing-payload.md) — adjacent freshness/coverage precedent: a green signal that disagreed with what was actually produced.
 - [`docs/solutions/security-issues/mcp-quota-credential-class-vs-plan-family-scoping-bypass.md`](../security-issues/mcp-quota-credential-class-vs-plan-family-scoping-bypass.md) — another `api/mcp/*` correctness bug surfaced by the same multi-reviewer adversarial process, not by tests.
-- Issue [#5723](https://github.com/koala73/worldmonitor/issues/5723) — `e2e/keyword-spike-flow.spec.ts` fails on `main` independently of this fix; noted here only so the two are not conflated.
+- Issue [#5723](https://github.com/Iamirup/raworld/issues/5723) — `e2e/keyword-spike-flow.spec.ts` fails on `main` independently of this fix; noted here only so the two are not conflated.

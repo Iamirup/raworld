@@ -33,7 +33,7 @@ tags:
 
 ## Problem
 
-Checkout timeouts on the WorldMonitor dashboard were captured by first-party code and then silently discarded by Sentry noise filtering, so a terminal, revenue-losing failure produced no event. Fixing the visible layer restored Chromium only; a second suppression layer sitting *above* it kept dropping the same failure on WebKit.
+Checkout timeouts on the RaWorld dashboard were captured by first-party code and then silently discarded by Sentry noise filtering, so a terminal, revenue-losing failure produced no event. Fixing the visible layer restored Chromium only; a second suppression layer sitting *above* it kept dropping the same failure on WebKit.
 
 ## Symptoms
 

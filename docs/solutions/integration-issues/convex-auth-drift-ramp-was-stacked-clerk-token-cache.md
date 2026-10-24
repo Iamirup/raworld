@@ -66,32 +66,32 @@ The 10-event gap between lifetime and retained is aged-out data, not a GET/POST 
 
 ## Why it ramped
 
-The stacked cache explains *why any given POST failed*. It cannot on its own explain why the rate grew 13.6x, because it was not new: `TOKEN_CACHE_TTL_MS` shipped with the original Clerk integration in [#1812](https://github.com/koala73/worldmonitor/pull/1812) on 2026-03-26, two months before the first ramp bucket. A defect that constant produces a constant *rate per POST*, not a climbing weekly count.
+The stacked cache explains *why any given POST failed*. It cannot on its own explain why the rate grew 13.6x, because it was not new: `TOKEN_CACHE_TTL_MS` shipped with the original Clerk integration in [#1812](https://github.com/Iamirup/raworld/pull/1812) on 2026-03-26, two months before the first ramp bucket. A defect that constant produces a constant *rate per POST*, not a climbing weekly count.
 
 What climbed was the number of POSTs. QK volume is the product of two terms — the per-write failure probability (constant) and the write volume (not constant) — so the ramp is an **exposure** curve, and the exposure grew every time another piece of state started riding the cloud-prefs write path:
 
 | Merged | PR | What it added to the write path |
 |---|---|---|
-| 2026-06-16 | [#4323](https://github.com/koala73/worldmonitor/pull/4323) | Dashboard tabs — each tab persists its own panel selection and order |
-| 2026-07-04 | [#4741](https://github.com/koala73/worldmonitor/pull/4741) | Per-Clerk-user dirty markers for monitor edits, plus a refresh on cloud-applied change |
-| 2026-07-06 | [#4926](https://github.com/koala73/worldmonitor/pull/4926) | `wm-read-state-v1` added to `CLOUD_SYNC_KEYS` — a visit timestamp flushed on every hide/unload |
+| 2026-06-16 | [#4323](https://github.com/Iamirup/raworld/pull/4323) | Dashboard tabs — each tab persists its own panel selection and order |
+| 2026-07-04 | [#4741](https://github.com/Iamirup/raworld/pull/4741) | Per-Clerk-user dirty markers for monitor edits, plus a refresh on cloud-applied change |
+| 2026-07-06 | [#4926](https://github.com/Iamirup/raworld/pull/4926) | `wm-read-state-v1` added to `CLOUD_SYNC_KEYS` — a visit timestamp flushed on every hide/unload |
 
 Set against the weekly series (17 on 2026-06-08, 26 on 06-15, 52 on 07-06, 109 on 07-20), all three land in or just before the weeks that step up, and #4926 in particular precedes the steepest climb to the peak. Be careful how much that is asked to carry: the series in #7092 is abridged, weekly buckets are coarse next to merge timestamps, and no per-week write-volume metric was retained to measure exposure directly. What is solid is the mechanism and the direction — the write path demonstrably grew three times across the ramp, and QK volume is proportional to it. Attributing a particular week's count to a particular PR is not supported.
 
-The apparent counter-example does not hold. [#4588](https://github.com/koala73/worldmonitor/pull/4588) and [#4639](https://github.com/koala73/worldmonitor/pull/4639) (2026-07-01/02) added a per-user write budget, and the ramp went on to peak on 2026-07-20 regardless — but that budget is **30 writes/minute**, a ceiling sized to stop a runaway client, not to shape ordinary sync traffic. It never bound the population producing QK.
+The apparent counter-example does not hold. [#4588](https://github.com/Iamirup/raworld/pull/4588) and [#4639](https://github.com/Iamirup/raworld/pull/4639) (2026-07-01/02) added a per-user write budget, and the ramp went on to peak on 2026-07-20 regardless — but that budget is **30 writes/minute**, a ceiling sized to stop a runaway client, not to shape ordinary sync traffic. It never bound the population producing QK.
 
 ### What the onset cannot tell us
 
 The ramp's own starting point is **not** recoverable. Sentry's `firstSeen` for QK is `2026-05-08T14:12:36Z`, but the oldest event still inside retention is `2026-05-28T01:33:14Z` — the 2026-05-25 bucket and everything before it has aged out, so no tag, release, or IP on those events can be read again.
 
-Two things follow. First, that 8-events-per-week starting line is a **post-instrumentation** baseline, not the defect's beginning: the capture that creates this bucket landed in [#3601](https://github.com/koala73/worldmonitor/pull/3601) on 2026-05-05, three days before `firstSeen`, while the stacked cache had already been running since March. The bucket starts when we started looking. Second, whether anything *else* moved in the two weeks before 2026-05-25 is now unfalsifiable from retained data; the exposure mechanism above is established from 2026-06-16 onward, and the onset is inferred from it rather than independently confirmed.
+Two things follow. First, that 8-events-per-week starting line is a **post-instrumentation** baseline, not the defect's beginning: the capture that creates this bucket landed in [#3601](https://github.com/Iamirup/raworld/pull/3601) on 2026-05-05, three days before `firstSeen`, while the stacked cache had already been running since March. The bucket starts when we started looking. Second, whether anything *else* moved in the two weeks before 2026-05-25 is now unfalsifiable from retained data; the exposure mechanism above is established from 2026-06-16 onward, and the onset is inferred from it rather than independently confirmed.
 
 ### Why the cut window missed the fix
 
 **Two** PRs merged on 2026-07-28, and each cuts one of the ramp's two terms:
 
-- [#5755](https://github.com/koala73/worldmonitor/pull/5755) (`fix(prefs): serialize cloud preference writes`) at **10:32:18Z** put every writer — sign-in reconciliation, debounced uploads, sign-out keepalives, hidden-tab flushes — behind one FIFO queue, coalesced duplicate uploads, and bounded Clerk token acquisition to 15 s. That cuts the **exposure** term the section above describes.
-- [#5753](https://github.com/koala73/worldmonitor/pull/5753) (`fix(auth): bound Clerk token cache by the token's own expiry`) at **17:57:16Z** bounded reuse by both the flat TTL *and* `exp` minus a 10 s safety margin, forcing `skipCache: true` on a near-expiry Clerk leftover. That cuts the **per-write failure probability**.
+- [#5755](https://github.com/Iamirup/raworld/pull/5755) (`fix(prefs): serialize cloud preference writes`) at **10:32:18Z** put every writer — sign-in reconciliation, debounced uploads, sign-out keepalives, hidden-tab flushes — behind one FIFO queue, coalesced duplicate uploads, and bounded Clerk token acquisition to 15 s. That cuts the **exposure** term the section above describes.
+- [#5753](https://github.com/Iamirup/raworld/pull/5753) (`fix(auth): bound Clerk token cache by the token's own expiry`) at **17:57:16Z** bounded reuse by both the flat TTL *and* `exp` minus a 10 s safety margin, forcing `skipCache: true` on a near-expiry Clerk leftover. That cuts the **per-write failure probability**.
 
 Crediting the drop to #5753 alone overstates what one of the two did. Both landed inside the same working day and the event series has no resolution to separate them; what the mechanism does say is that either one alone would have bent the curve, and the residual behaviour since is consistent with both being in place.
 

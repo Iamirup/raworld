@@ -288,7 +288,7 @@ export function buildAnalystWhyMattersPrompt(
 
   const parts: string[] = [];
   if (contextBlock) {
-    parts.push('# Optional Live WorldMonitor Context', contextBlock);
+    parts.push('# Optional Live RaWorld Context', contextBlock);
   }
   parts.push('# Story', storyLines);
   // Prompt footer restates the grounding requirement inline (models

@@ -206,9 +206,9 @@ function fixture(source = 'wildfires', minutes = 0) {
     now: Date.parse(at(minutes)),
     status: { id: PROJECT, environments: { edges: [{ node: {
       id: 'production-id', name: 'production', serviceInstances: { edges: [{ node: {
-        serviceName, source: { repo: 'koala73/worldmonitor' }, cronSchedule,
+        serviceName, source: { repo: 'Iamirup/raworld' }, cronSchedule,
         activeDeployments: [{ id: DEPLOYMENT, status: 'SUCCESS', createdAt: at(-20), meta: {
-          commitHash: COMMIT, repo: 'koala73/worldmonitor', branch: 'main', serviceManifest: { deploy: { cronSchedule } },
+          commitHash: COMMIT, repo: 'Iamirup/raworld', branch: 'main', serviceManifest: { deploy: { cronSchedule } },
         } }],
       } }] },
     } }] } },

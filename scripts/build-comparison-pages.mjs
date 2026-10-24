@@ -65,7 +65,7 @@ function comparisonAnchor(slug, escapeHtml) {
   if (!page) throw new Error(`Unknown comparison link: ${slug}`);
   let label = page.h1;
   if (slug === 'best-geopolitical-risk-dashboards') label = 'Best geopolitical risk intelligence platforms';
-  else if (slug.startsWith('worldmonitor-vs-')) label = `World Monitor vs ${page.competitors[0]}`;
+  else if (slug.startsWith('worldmonitor-vs-')) label = `RaWorld vs ${page.competitors[0]}`;
   return `<a href="${page.path}">${escapeHtml(label)}</a>`;
 }
 
@@ -75,7 +75,7 @@ export function renderContextualComparisons(path, escapeHtml) {
   if (!slugs && /^\/chokepoints\/[^/]+\/$/.test(path)) slugs = ['chokepoint-monitoring-tools'];
   if (!slugs && /^\/crises\/[^/]+\/$/.test(path)) slugs = ['worldmonitor-vs-liveuamap', 'worldmonitor-vs-deepstatemap'];
   if (!slugs?.length) return '';
-  return `<p data-contextual-comparisons>How World Monitor compares: ${slugs.map((slug) => comparisonAnchor(slug, escapeHtml)).join(' · ')}.</p>`;
+  return `<p data-contextual-comparisons>How RaWorld compares: ${slugs.map((slug) => comparisonAnchor(slug, escapeHtml)).join(' · ')}.</p>`;
 }
 
 function renderSiblingComparisons(slug, escapeHtml) {
@@ -107,9 +107,9 @@ if (shortlistUniversalColumns.join('|') !== COMPARISON_MATRIX_COLUMNS.join('|'))
 }
 
 export const COMPARE_HUB_PATH = '/compare/';
-export const COMPARE_HUB_TITLE = 'Compare World Monitor';
+export const COMPARE_HUB_TITLE = 'Compare RaWorld';
 export const COMPARE_HUB_DESCRIPTION =
-  'Compare World Monitor with Liveuamap, ACLED, GDELT, Dataminr, Recorded Future, and more: one master matrix, honest concessions, and FAQs.';
+  'Compare RaWorld with Liveuamap, ACLED, GDELT, Dataminr, Recorded Future, and more: one master matrix, honest concessions, and FAQs.';
 export { WORLD_MONITOR_UPDATE_CADENCE };
 export const MCP_UNVERIFIED = 'Unverified';
 export const WORLD_MONITOR_CHOKEPOINT_COUNT = CHOKEPOINT_REGISTRY.length;
@@ -125,7 +125,7 @@ const MCP_VERIFIED_SELF_HOSTED = 'Yes (self-hosted)';
 
 /** Master matrix rows on the hub: one row per major platform compared anywhere in the family. */
 export const COMPARISON_HUB_MATRIX_ROWS = [
-  ['World Monitor', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime AIS, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Multi-domain awareness plus programmatic access'],
+  ['RaWorld', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime AIS, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Multi-domain awareness plus programmatic access'],
   ['Liveuamap', 'Free tier; API Pro $150/mo (200 req/day); Enterprise from $1,000/mo', 'Live news feed (no latency figure published)', 'Conflict and security news, plus protests, disasters and weather', 'No', 'Yes (paid)', MCP_UNVERIFIED, 'Proprietary, ad-funded', 'Curated public and social media sources (count not published)', 'Recent events free; earlier history on PRO', 'Fast conflict-event headlines on a map'],
   ['ACLED (myACLED)', 'Open access available; commercial use requires a license', 'Tier-dependent: real-time aggregated to weekly disaggregated data', 'Conflict events, global', 'Yes (myACLED account)', 'Research, Partner, and Enterprise tiers', MCP_UNVERIFIED, 'ACLED EULA; commercial license required', 'ACLED-coded event data; tiered access', 'Event data from 1997', 'Academic conflict-event research'],
   ['GDELT Project', 'Free keyless DOC 2.0 REST; BigQuery for bulk', '15-minute global batches', 'Global news event firehose', 'No for REST; Google account for BigQuery', 'Yes', MCP_VERIFIED_COMMUNITY, 'Open dataset (GDELT)', 'Global news ingestion', 'Archive to 1979', 'Raw large-scale event research'],
@@ -144,10 +144,10 @@ const COMPARISON_PAGE_SEEDS = [
     slug: 'liveuamap-alternatives',
     metaDescription: 'Compare Liveuamap alternatives for conflict mapping and global intelligence, with a feature matrix covering pricing, data coverage, API access and licensing.',
     path: '/compare/liveuamap-alternatives/',
-    title: 'Liveuamap Alternatives | World Monitor',
+    title: 'Liveuamap Alternatives | RaWorld',
     h1: 'Liveuamap Alternatives',
     itemList: [
-      { name: 'World Monitor', position: 1 },
+      { name: 'RaWorld', position: 1 },
       { name: 'Liveuamap', position: 2 },
       { name: 'Deep State Map', position: 3 },
       { name: 'ACLED', position: 4 },
@@ -159,9 +159,9 @@ const COMPARISON_PAGE_SEEDS = [
     ],
     competitors: ['Liveuamap', 'Deep State Map', 'ACLED', 'ConflictZone.io', 'ISW', 'UNOSAT', 'ICG CrisisWatch', 'ConflictRadar'],
     claim: 'Multi-domain fusion',
-    summary: 'Eleven-column matrix comparing World Monitor with Liveuamap, Deep State Map, ACLED, ConflictZone.io, ISW, UNOSAT and ICG CrisisWatch on price, latency, API access and licensing, with the cells each competitor wins.',
+    summary: 'Eleven-column matrix comparing RaWorld with Liveuamap, Deep State Map, ACLED, ConflictZone.io, ISW, UNOSAT and ICG CrisisWatch on price, latency, API access and licensing, with the cells each competitor wins.',
     matrixRows: [
-      ['World Monitor', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime AIS, aviation, markets, seismic, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Multi-domain situational awareness on one map'],
+      ['RaWorld', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime AIS, aviation, markets, seismic, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Multi-domain situational awareness on one map'],
       ['Liveuamap', 'Free tier; API Pro $150/mo (200 req/day); Enterprise from $1,000/mo', 'Live news feed (no latency figure published)', 'Conflict and security news, plus protests, disasters and weather', 'No', 'Pro $150/mo (200 req/day); Enterprise from $1,000/mo', MCP_UNVERIFIED, 'Proprietary, ad-funded', 'Curated public and social media sources (count not published)', 'Recent events free; earlier history on PRO', 'Fast conflict-event headlines on a map'],
       ['Deep State Map (free)', 'Free (ad-supported)', 'Manual analyst updates', 'Ukraine theatre', 'No', 'No', MCP_UNVERIFIED, 'Proprietary', 'Analyst-curated', 'Ukraine theatre archive', 'Ukraine frontline tracking'],
       ['ACLED (myACLED)', 'Open access available; commercial use requires a license', 'Tier-dependent: real-time aggregated to weekly disaggregated data', 'Conflict events, global', 'Yes (myACLED account)', 'Research, Partner, and Enterprise tiers', MCP_UNVERIFIED, 'ACLED EULA; commercial license required', 'ACLED-coded event data; tiered access', 'Event data from 1997', 'Academic conflict-event research'],
@@ -171,126 +171,126 @@ const COMPARISON_PAGE_SEEDS = [
       ['ICG CrisisWatch', 'Free', 'Monthly publication', '70+ conflicts worldwide', 'No', 'No', MCP_UNVERIFIED, 'Proprietary (free publications)', 'Analyst-authored', 'Archive to 2003', 'Expert conflict early-warning briefs'],
       ['ConflictRadar', 'Undisclosed', 'Undisclosed (features unverified)', 'Conflict event tracking', 'Undisclosed', 'Undisclosed', MCP_UNVERIFIED, 'Unverified', 'Unverified', 'Undisclosed', 'Conflict event tracking (features unverified)'],
     ],
-    concessionIntro: 'Liveuamap, ACLED, ISW and UNOSAT each beat World Monitor on a specific cell. A page that swept every column would read as marketing, so here is what they win.',
+    concessionIntro: 'Liveuamap, ACLED, ISW and UNOSAT each beat RaWorld on a specific cell. A page that swept every column would read as marketing, so here is what they win.',
     concessions: [
       ['ACLED', 'historical depth, academic citability, and downloadable structured datasets'],
       ['UNOSAT', 'satellite-based damage assessment'],
       ['ISW', 'expert campaign narrative and assessment depth'],
       ['Deep State Map', 'granular Ukraine frontline geometry maintained by analysts'],
     ],
-    whyWeWin: 'For coverage beyond Ukraine and beyond conflict pins, World Monitor is the closest free Liveuamap alternative: one map with no signup puts conflict and protest reports next to shipping, aviation, markets, cables and seismic signals, and Pro alert rules send events filtered by country, type and severity to Slack, Discord, Telegram, email or a signed webhook. For coded research data pick ACLED; for Ukraine front lines pick Deep State Map.',
+    whyWeWin: 'For coverage beyond Ukraine and beyond conflict pins, RaWorld is the closest free Liveuamap alternative: one map with no signup puts conflict and protest reports next to shipping, aviation, markets, cables and seismic signals, and Pro alert rules send events filtered by country, type and severity to Slack, Discord, Telegram, email or a signed webhook. For coded research data pick ACLED; for Ukraine front lines pick Deep State Map.',
     faqs: [
-      ['What is the best Liveuamap alternative?', 'For broader global coverage, World Monitor: it adds maritime AIS, aviation, markets, cables, and seismic signals to conflict events on one free real-time map, sends filtered alerts to Slack, Discord, Telegram, email or a signed webhook on Pro, and offers a REST API from $99.99/month. For citable coded events use ACLED, and for Ukraine front lines use Deep State Map.'],
-      ['Is there a free alternative to Liveuamap?', 'Yes. The World Monitor public dashboard is free, requires no signup, and covers conflict events alongside maritime, aviation, market, and infrastructure domains that Liveuamap does not track.'],
-      ['Which Liveuamap alternative has an API?', 'Both publish one. World Monitor API Starter is $99.99/month for 1,000 requests/day; Liveuamap Pro is $150/month for 200 requests/day, with Enterprise from $1,000/month. ICG CrisisWatch and ConflictRadar have unverified public API status; ACLED provides API access through its Research, Partner, and Enterprise tiers.'],
+      ['What is the best Liveuamap alternative?', 'For broader global coverage, RaWorld: it adds maritime AIS, aviation, markets, cables, and seismic signals to conflict events on one free real-time map, sends filtered alerts to Slack, Discord, Telegram, email or a signed webhook on Pro, and offers a REST API from $99.99/month. For citable coded events use ACLED, and for Ukraine front lines use Deep State Map.'],
+      ['Is there a free alternative to Liveuamap?', 'Yes. The RaWorld public dashboard is free, requires no signup, and covers conflict events alongside maritime, aviation, market, and infrastructure domains that Liveuamap does not track.'],
+      ['Which Liveuamap alternative has an API?', 'Both publish one. RaWorld API Starter is $99.99/month for 1,000 requests/day; Liveuamap Pro is $150/month for 200 requests/day, with Enterprise from $1,000/month. ICG CrisisWatch and ConflictRadar have unverified public API status; ACLED provides API access through its Research, Partner, and Enterprise tiers.'],
     ],
   },
   ...SHORTLIST_PAGE_SEEDS,
   {
     slug: 'worldmonitor-vs-liveuamap',
     path: '/compare/worldmonitor-vs-liveuamap/',
-    title: 'World Monitor vs Liveuamap | World Monitor',
-    h1: 'World Monitor vs Liveuamap',
+    title: 'RaWorld vs Liveuamap | RaWorld',
+    h1: 'RaWorld vs Liveuamap',
     competitors: ['Liveuamap'],
     claim: 'Programmatic access',
-    summary: 'Head-to-head on published numbers: World Monitor API Starter at $99.99/mo for 1,000 requests/day against Liveuamap Pro at $150/mo for 200, plus the domains only one side tracks.',
+    summary: 'Head-to-head on published numbers: RaWorld API Starter at $99.99/mo for 1,000 requests/day against Liveuamap Pro at $150/mo for 200, plus the domains only one side tracks.',
     matrixRows: [
-      ['World Monitor', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime AIS, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Multi-domain awareness plus programmatic access'],
+      ['RaWorld', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime AIS, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Multi-domain awareness plus programmatic access'],
       ['Liveuamap', 'Free tier; API Pro $150/mo (200 req/day); Enterprise from $1,000/mo', 'Live news feed (no latency figure published)', 'Conflict and security news, plus protests, disasters and weather', 'No', 'Yes (paid API)', MCP_UNVERIFIED, 'Proprietary, ad-funded', 'Curated public and social media sources (count not published)', 'Recent events free; earlier history on PRO', 'Fast conflict-event headlines'],
     ],
-    concessionIntro: 'Liveuamap beats World Monitor on cells worth naming before choosing.',
+    concessionIntro: 'Liveuamap beats RaWorld on cells worth naming before choosing.',
     concessions: [
       ['Liveuamap', 'region-specific map variants, a decade of audience familiarity, and a lighter ad-funded free experience'],
     ],
-    whyWeWin: 'World Monitor API Starter is $99.99/month for 1,000 requests/day against Liveuamap Pro at $150/month for 200 requests/day: cheaper with five times the daily quota, and the only head-to-head here where both sides publish real numbers. World Monitor also fuses conflict with maritime AIS, aviation, markets, and cyber on one free map.',
+    whyWeWin: 'RaWorld API Starter is $99.99/month for 1,000 requests/day against Liveuamap Pro at $150/month for 200 requests/day: cheaper with five times the daily quota, and the only head-to-head here where both sides publish real numbers. RaWorld also fuses conflict with maritime AIS, aviation, markets, and cyber on one free map.',
     faqs: [
-      ['Is World Monitor better than Liveuamap?', 'For multi-domain awareness, yes: World Monitor adds maritime, aviation, market, and infrastructure domains on a free map, while Liveuamap covers conflict events. On price-to-quota, World Monitor API Starter is $99.99/month for 1,000 requests/day versus Liveuamap Pro at $150/month for 200 requests/day.'],
-      ['Does Liveuamap have an API?', 'Yes. Liveuamap sells API access: Pro at $150/month for 200 requests/day and Enterprise from $1,000/month for 1,500 requests/day (liveuamap.com/promo/api). World Monitor API Starter is $99.99/month for 1,000 requests/day, and MCP access starts at $39.99/month (Pro).'],
-      ['Which API is cheaper per request?', 'World Monitor, on both price and quota: $99.99/month for 1,000 requests/day against Liveuamap Pro at $150/month for 200 requests/day. Both vendors publish their numbers, which is why this page can table real figures on both sides.'],
+      ['Is RaWorld better than Liveuamap?', 'For multi-domain awareness, yes: RaWorld adds maritime, aviation, market, and infrastructure domains on a free map, while Liveuamap covers conflict events. On price-to-quota, RaWorld API Starter is $99.99/month for 1,000 requests/day versus Liveuamap Pro at $150/month for 200 requests/day.'],
+      ['Does Liveuamap have an API?', 'Yes. Liveuamap sells API access: Pro at $150/month for 200 requests/day and Enterprise from $1,000/month for 1,500 requests/day (liveuamap.com/promo/api). RaWorld API Starter is $99.99/month for 1,000 requests/day, and MCP access starts at $39.99/month (Pro).'],
+      ['Which API is cheaper per request?', 'RaWorld, on both price and quota: $99.99/month for 1,000 requests/day against Liveuamap Pro at $150/month for 200 requests/day. Both vendors publish their numbers, which is why this page can table real figures on both sides.'],
     ],
   },
   {
     slug: 'worldmonitor-vs-acled',
     path: '/compare/worldmonitor-vs-acled/',
-    title: 'ACLED Alternative | World Monitor vs ACLED | World Monitor',
-    h1: 'World Monitor vs ACLED',
+    title: 'ACLED Alternative | RaWorld vs ACLED | RaWorld',
+    h1: 'RaWorld vs ACLED',
     competitors: ['ACLED', 'myACLED'],
     claim: 'Latency and open access',
-    summary: 'World Monitor and ACLED (myACLED) compared on access tiers, latency, API availability and licensing, and why World Monitor complements ACLED\'s coded-event research rather than replacing it.',
+    summary: 'RaWorld and ACLED (myACLED) compared on access tiers, latency, API availability and licensing, and why RaWorld complements ACLED\'s coded-event research rather than replacing it.',
     heading: 'ACLED alternative',
     matrixRows: [
-      ['World Monitor', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Real-time multi-domain watch without registration'],
+      ['RaWorld', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Real-time multi-domain watch without registration'],
       ['ACLED (myACLED)', 'Open access available; commercial use requires a license', 'Tier-dependent: real-time aggregated to weekly disaggregated data', 'Conflict events, global', 'Yes (myACLED account)', 'Research, Partner, and Enterprise tiers', MCP_UNVERIFIED, 'ACLED EULA; commercial license required', 'ACLED-coded event data; tiered access', 'Event data from 1997', 'Academic conflict-event research'],
     ],
     concessionIntro: 'ACLED wins on cells that matter, stated loudly.',
     concessions: [
       ['ACLED', 'historical depth, academic citability, and downloadable structured datasets'],
     ],
-    whyWeWin: 'myACLED access, API availability, event detail, and latency vary by tier. World Monitor does not hold ACLED data: its conflict layer comes from UCDP coded events and GDELT reporting. Treat it as a complement: a no-signup multi-domain watch on top, with ACLED for deep coded-event research underneath.',
+    whyWeWin: 'myACLED access, API availability, event detail, and latency vary by tier. RaWorld does not hold ACLED data: its conflict layer comes from UCDP coded events and GDELT reporting. Treat it as a complement: a no-signup multi-domain watch on top, with ACLED for deep coded-event research underneath.',
     faqs: [
-      ['What is the best free ACLED alternative?', 'World Monitor is a live, source-dependent complement to ACLED: no registration across conflict and adjacent domains, with REST API plans from $99.99/month. ACLED remains stronger for historical coded-event research and downloadable datasets.'],
-      ['Is ACLED free?', 'ACLED offers Open access to real-time aggregated data without API access. Research, Partner, and Enterprise tiers add API access and more detailed event data. Commercial use requires a license under the ACLED EULA. The World Monitor public dashboard needs no signup.'],
-      ['Does World Monitor replace ACLED?', 'No. World Monitor does not hold ACLED data. It builds a live conflict view from UCDP coded events and GDELT reporting and adds multi-domain context. Use World Monitor for live monitoring and ACLED for deep historical conflict-event research.'],
+      ['What is the best free ACLED alternative?', 'RaWorld is a live, source-dependent complement to ACLED: no registration across conflict and adjacent domains, with REST API plans from $99.99/month. ACLED remains stronger for historical coded-event research and downloadable datasets.'],
+      ['Is ACLED free?', 'ACLED offers Open access to real-time aggregated data without API access. Research, Partner, and Enterprise tiers add API access and more detailed event data. Commercial use requires a license under the ACLED EULA. The RaWorld public dashboard needs no signup.'],
+      ['Does RaWorld replace ACLED?', 'No. RaWorld does not hold ACLED data. It builds a live conflict view from UCDP coded events and GDELT reporting and adds multi-domain context. Use RaWorld for live monitoring and ACLED for deep historical conflict-event research.'],
     ],
   },
   {
     slug: 'worldmonitor-vs-gdelt',
     path: '/compare/worldmonitor-vs-gdelt/',
-    title: 'World Monitor vs GDELT | World Monitor',
-    h1: 'World Monitor vs GDELT',
+    title: 'RaWorld vs GDELT | RaWorld',
+    h1: 'RaWorld vs GDELT',
     competitors: ['GDELT', 'war-dashboard-data', 'world-intel-mcp'],
     claim: 'Curation over firehose',
-    summary: 'Curated indices versus the GDELT firehose: World Monitor, the GDELT Project, GDELT Cloud, war-dashboard-data and world-intel-mcp compared on latency, archive depth, API and MCP access, and where raw GDELT still wins.',
+    summary: 'Curated indices versus the GDELT firehose: RaWorld, the GDELT Project, GDELT Cloud, war-dashboard-data and world-intel-mcp compared on latency, archive depth, API and MCP access, and where raw GDELT still wins.',
     matrixRows: [
-      ['World Monitor', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Scored, curated signals ready to act on'],
+      ['RaWorld', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Scored, curated signals ready to act on'],
       ['GDELT (DOC 2.0 REST free and keyless; BigQuery for bulk)', 'Free (keyless REST); BigQuery for bulk', '15-minute global batches', 'Global news event firehose', 'No for REST; Google account for BigQuery', 'Yes (DOC 2.0 REST free; BigQuery paid)', MCP_VERIFIED_COMMUNITY, 'Open dataset (GDELT)', 'Global news ingestion', 'Decades of event data', 'Raw large-scale event research'],
     ],
     concessionIntro: 'GDELT wins on raw scale, stated plainly.',
     concessions: [
       ['GDELT', 'archive depth and raw volume: decades of global event data in BigQuery'],
     ],
-    whyWeWin: 'If raw GDELT is too noisy, you have three cleaner options. ACLED for hand-coded, geolocated conflict and protest events with documented sourcing. GDELT Cloud for GDELT-derived events grouped into stories. World Monitor for scored indices and convergence cues across news, conflict, shipping, aviation and markets, where each item names its source and alert rules can push it to Slack, Discord, Telegram, email or a signed webhook.',
+    whyWeWin: 'If raw GDELT is too noisy, you have three cleaner options. ACLED for hand-coded, geolocated conflict and protest events with documented sourcing. GDELT Cloud for GDELT-derived events grouped into stories. RaWorld for scored indices and convergence cues across news, conflict, shipping, aviation and markets, where each item names its source and alert rules can push it to Slack, Discord, Telegram, email or a signed webhook.',
     faqs: [
-      ['Is World Monitor a GDELT alternative?', 'It is a curation layer over similar signals. The GDELT Project offers a raw 15-minute global news firehose and BigQuery for bulk; World Monitor ships scored, curated indices across conflict, maritime, aviation, and market domains, and also ingests GDELT-derived signals.'],
-      ['GDELT vs World Monitor: which should I use?', 'Use GDELT when you need decades of raw event data for your own models. Use World Monitor when you need scored, ready-to-act indices today, with REST API plans from $99.99/month and MCP access from $39.99/month.'],
-      ['What are war-dashboard-data and world-intel-mcp compared to World Monitor?', `They are GDELT-based dashboard and MCP projects. World Monitor differs by curating ${formatCount(WORLD_MONITOR_PROVIDER_COUNT)} attributed providers into scored indices across multiple domains instead of exposing one raw event stream.`],
+      ['Is RaWorld a GDELT alternative?', 'It is a curation layer over similar signals. The GDELT Project offers a raw 15-minute global news firehose and BigQuery for bulk; RaWorld ships scored, curated indices across conflict, maritime, aviation, and market domains, and also ingests GDELT-derived signals.'],
+      ['GDELT vs RaWorld: which should I use?', 'Use GDELT when you need decades of raw event data for your own models. Use RaWorld when you need scored, ready-to-act indices today, with REST API plans from $99.99/month and MCP access from $39.99/month.'],
+      ['What are war-dashboard-data and world-intel-mcp compared to RaWorld?', `They are GDELT-based dashboard and MCP projects. RaWorld differs by curating ${formatCount(WORLD_MONITOR_PROVIDER_COUNT)} attributed providers into scored indices across multiple domains instead of exposing one raw event stream.`],
     ],
   },
   {
     slug: 'worldmonitor-vs-dataminr',
     path: '/compare/worldmonitor-vs-dataminr/',
-    title: 'Dataminr Alternatives | World Monitor vs Dataminr | World Monitor',
-    h1: 'World Monitor vs Dataminr',
+    title: 'Dataminr Alternatives | RaWorld vs Dataminr | RaWorld',
+    h1: 'RaWorld vs Dataminr',
     competitors: ['Dataminr'],
     claim: 'Price at comparable alert latency',
-    summary: 'Published prices against enterprise-negotiated licensing: World Monitor and Dataminr compared on alert latency, data domains, API access and price transparency, with the cells Dataminr wins.',
+    summary: 'Published prices against enterprise-negotiated licensing: RaWorld and Dataminr compared on alert latency, data domains, API access and price transparency, with the cells Dataminr wins.',
     heading: 'Dataminr alternatives',
     matrixRows: [
-      ['World Monitor', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Real-time alerts at free or from $39.99/month (Pro)'],
+      ['RaWorld', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Real-time alerts at free or from $39.99/month (Pro)'],
       ['Dataminr (Pulse)', 'Undisclosed (enterprise-negotiated)', 'Real-time alerting (no latency figure published)', 'Breaking events across public and social data', 'Yes (enterprise)', 'Yes (enterprise)', MCP_UNVERIFIED, 'Proprietary', 'Proprietary ingestion incl. social', 'Not published', 'Enterprise real-time alerting with an availability SLA'],
     ],
     concessionIntro: 'Dataminr wins on cells that matter to enterprise buyers.',
     concessions: [
       ['Dataminr', 'proprietary social-data ingestion, real-time alerting under a published availability SLA, and enterprise integration support'],
     ],
-    whyWeWin: 'If Dataminr is too expensive for your team, World Monitor is the self-serve alternative with published prices: $0 for the dashboard, Pro from $39.99/month with alert rules by country, event type and severity delivered to Slack, Discord, Telegram, email or a signed webhook, and REST API access from $99.99/month. Dataminr does not publish list pricing; keep it if you need its proprietary social detection under an enterprise SLA.',
+    whyWeWin: 'If Dataminr is too expensive for your team, RaWorld is the self-serve alternative with published prices: $0 for the dashboard, Pro from $39.99/month with alert rules by country, event type and severity delivered to Slack, Discord, Telegram, email or a signed webhook, and REST API access from $99.99/month. Dataminr does not publish list pricing; keep it if you need its proprietary social detection under an enterprise SLA.',
     faqs: [
-      ['What is the most affordable Dataminr alternative?', 'World Monitor publishes a free public dashboard and a Pro tier at $39.99/month. Dataminr does not publish list pricing; its enterprise licenses are negotiated.'],
-      ['Is there a free alternative to Dataminr?', 'Yes. The World Monitor free dashboard provides real-time breaking-event monitoring across conflict, maritime, aviation, market, and cyber domains without signup or enterprise contracts.'],
-      ['How does Dataminr data differ from World Monitor data?', `Dataminr ingests proprietary social data with enterprise SLAs. World Monitor uses ${formatCount(WORLD_MONITOR_PROVIDER_COUNT)} attributed public providers, trading some speed and exclusivity for a transparent, open-source, low-cost product.`],
+      ['What is the most affordable Dataminr alternative?', 'RaWorld publishes a free public dashboard and a Pro tier at $39.99/month. Dataminr does not publish list pricing; its enterprise licenses are negotiated.'],
+      ['Is there a free alternative to Dataminr?', 'Yes. The RaWorld free dashboard provides real-time breaking-event monitoring across conflict, maritime, aviation, market, and cyber domains without signup or enterprise contracts.'],
+      ['How does Dataminr data differ from RaWorld data?', `Dataminr ingests proprietary social data with enterprise SLAs. RaWorld uses ${formatCount(WORLD_MONITOR_PROVIDER_COUNT)} attributed public providers, trading some speed and exclusivity for a transparent, open-source, low-cost product.`],
     ],
   },
   {
     slug: 'worldmonitor-vs-recorded-future',
     path: '/compare/worldmonitor-vs-recorded-future/',
-    title: 'Recorded Future Alternatives | World Monitor vs Recorded Future | World Monitor',
-    h1: 'World Monitor vs Recorded Future',
+    title: 'Recorded Future Alternatives | RaWorld vs Recorded Future | RaWorld',
+    h1: 'RaWorld vs Recorded Future',
     competitors: ['Recorded Future', 'Flare', 'MISP'],
     claim: 'Public access and price transparency',
-    summary: 'World Monitor, Recorded Future, Flare and MISP compared on price transparency, public access, domains covered and open source, and when an enterprise threat-intelligence platform is the right call.',
+    summary: 'RaWorld, Recorded Future, Flare and MISP compared on price transparency, public access, domains covered and open source, and when an enterprise threat-intelligence platform is the right call.',
     heading: 'Recorded Future alternatives',
     matrixRows: [
-      ['World Monitor', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Multi-domain awareness including cyber context'],
+      ['RaWorld', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Multi-domain awareness including cyber context'],
       ['Recorded Future', 'Undisclosed (enterprise-negotiated)', 'Continuous intelligence platform', 'Cyber, physical threat, geopolitical, country risk, and travel safety', 'Yes (enterprise)', 'Yes (enterprise)', 'Yes (hosted, customers only)', 'Proprietary', 'Proprietary collection (sources not itemized)', 'Enterprise intelligence archive', 'Enterprise threat and geopolitical intelligence'],
       ['Flare', 'Undisclosed (subscription)', 'Continuous', 'Cyber exposure and dark web', 'Yes', 'Yes', MCP_UNVERIFIED, 'Proprietary', 'Dark-web scans', 'Rolling exposure archive', 'Dark-web exposure monitoring'],
       ['MISP', 'Free (open source, self-hosted)', 'Self-managed', 'Threat-intel sharing', 'Yes (self-host)', 'Yes (self-host)', MCP_UNVERIFIED, 'Open source (AGPL)', 'Community + feeds', 'Self-managed retention', 'Threat-intel sharing communities'],
@@ -301,49 +301,49 @@ const COMPARISON_PAGE_SEEDS = [
       ['Flare', 'dark-web exposure monitoring'],
       ['MISP', 'structured threat-indicator sharing across communities'],
     ],
-    whyWeWin: 'Recorded Future does not publish list pricing; its contracts are enterprise-negotiated. It provides intelligence across cyber, physical, and geopolitical risk. World Monitor is the transparent, open-source option with a free dashboard and published paid tiers for multi-domain public-source context.',
+    whyWeWin: 'Recorded Future does not publish list pricing; its contracts are enterprise-negotiated. It provides intelligence across cyber, physical, and geopolitical risk. RaWorld is the transparent, open-source option with a free dashboard and published paid tiers for multi-domain public-source context.',
     faqs: [
-      ['What is a cheaper Recorded Future alternative?', 'World Monitor has a free public dashboard and published paid tiers from $39.99/month. Recorded Future does not publish list pricing and negotiates enterprise contracts. The products have different service and data models.'],
-      ['Is World Monitor a replacement for Recorded Future?', 'No. Recorded Future is an enterprise intelligence platform across cyber, physical, and geopolitical risk. World Monitor is a multi-domain public-source dashboard that includes cyber context. Choose based on data depth, service requirements, transparency, and budget.'],
-      ['How do Flare and MISP compare?', 'Flare focuses on dark-web exposure and MISP on threat-indicator sharing. Both are cyber-specific. World Monitor is the broader multi-domain option, free to start.'],
+      ['What is a cheaper Recorded Future alternative?', 'RaWorld has a free public dashboard and published paid tiers from $39.99/month. Recorded Future does not publish list pricing and negotiates enterprise contracts. The products have different service and data models.'],
+      ['Is RaWorld a replacement for Recorded Future?', 'No. Recorded Future is an enterprise intelligence platform across cyber, physical, and geopolitical risk. RaWorld is a multi-domain public-source dashboard that includes cyber context. Choose based on data depth, service requirements, transparency, and budget.'],
+      ['How do Flare and MISP compare?', 'Flare focuses on dark-web exposure and MISP on threat-indicator sharing. Both are cyber-specific. RaWorld is the broader multi-domain option, free to start.'],
     ],
   },
   {
     slug: 'worldmonitor-vs-deepstatemap',
     path: '/compare/worldmonitor-vs-deepstatemap/',
-    title: 'World Monitor vs Deep State Map | World Monitor',
-    h1: 'World Monitor vs Deep State Map',
+    title: 'RaWorld vs Deep State Map | RaWorld',
+    h1: 'RaWorld vs Deep State Map',
     competitors: ['Deep State Map'],
     claim: 'Global multi-domain vs single-theatre',
-    summary: 'Global multi-domain coverage against a single-theatre map: World Monitor and Deep State Map compared on scope, update method, API access and archive, and why Deep State Map wins on Ukraine frontline detail.',
+    summary: 'Global multi-domain coverage against a single-theatre map: RaWorld and Deep State Map compared on scope, update method, API access and archive, and why Deep State Map wins on Ukraine frontline detail.',
     matrixRows: [
-      ['World Monitor', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Global conflict, maritime, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Global multi-domain watch'],
+      ['RaWorld', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Global conflict, maritime, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Global multi-domain watch'],
       ['Deep State Map', 'Free (ad-supported)', 'Manual analyst updates', 'Ukraine theatre', 'No', 'No', MCP_UNVERIFIED, 'Proprietary', 'Analyst-curated', 'Ukraine theatre archive', 'Ukraine frontline detail'],
     ],
     concessionIntro: 'Deep State Map wins where it focuses.',
     concessions: [
       ['Deep State Map', 'Ukraine frontline granularity maintained by dedicated analysts'],
     ],
-    whyWeWin: 'Deep State Map covers one theatre. World Monitor covers global multi-domain: every theatre plus maritime, aviation, market, and infrastructure context on one map.',
+    whyWeWin: 'Deep State Map covers one theatre. RaWorld covers global multi-domain: every theatre plus maritime, aviation, market, and infrastructure context on one map.',
     faqs: [
-      ['What is the best Deep State Map alternative?', 'World Monitor, when you need coverage beyond Ukraine: it adds global conflict domains plus maritime, aviation, market, and infrastructure signals on one free map.'],
-      ['Is Deep State Map free?', 'Yes, Deep State Map is free and ad-supported with manual analyst updates for the Ukraine theatre. World Monitor is also free without signup and adds global multi-domain coverage.'],
-      ['Which tool has better Ukraine frontline detail?', 'Deep State Map. Its analyst-maintained frontline geometry is more granular. World Monitor prioritizes breadth across theatres and domains.'],
+      ['What is the best Deep State Map alternative?', 'RaWorld, when you need coverage beyond Ukraine: it adds global conflict domains plus maritime, aviation, market, and infrastructure signals on one free map.'],
+      ['Is Deep State Map free?', 'Yes, Deep State Map is free and ad-supported with manual analyst updates for the Ukraine theatre. RaWorld is also free without signup and adds global multi-domain coverage.'],
+      ['Which tool has better Ukraine frontline detail?', 'Deep State Map. Its analyst-maintained frontline geometry is more granular. RaWorld prioritizes breadth across theatres and domains.'],
     ],
   },
   {
     slug: 'mcp-servers-for-geopolitical-data',
     categoryList: true,
     path: '/compare/mcp-servers-for-geopolitical-data/',
-    title: 'MCP Servers for Geopolitical Data | World Monitor',
+    title: 'MCP Servers for Geopolitical Data | RaWorld',
     h1: 'MCP Servers for Geopolitical Data',
     competitors: ['world-intel-mcp', 'Satellite MCP', 'OSINT MCP', 'war-dashboard-data', 'GDELT MCP (community)', 'Off-Nadir Delta', 'IMF PortWatch MCP'],
     claim: 'Hosted agent-native access',
-    metaDescription: 'Compare hosted World Monitor MCP with self-hosted geopolitical MCP servers on OAuth, quotas, country risk, tariffs, and multi-domain coverage.',
-    summary: 'Hosted versus self-hosted MCP access to geopolitical data: World Monitor against world-intel-mcp, Satellite MCP, OSINT MCP, community GDELT MCP and IMF PortWatch MCP on entitlements, quotas, OAuth and hosting burden.',
+    metaDescription: 'Compare hosted RaWorld MCP with self-hosted geopolitical MCP servers on OAuth, quotas, country risk, tariffs, and multi-domain coverage.',
+    summary: 'Hosted versus self-hosted MCP access to geopolitical data: RaWorld against world-intel-mcp, Satellite MCP, OSINT MCP, community GDELT MCP and IMF PortWatch MCP on entitlements, quotas, OAuth and hosting burden.',
     heading: 'MCP servers for geopolitical data',
     matrixRows: [
-      ['World Monitor (hosted)', 'Free dashboard; MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime AIS, aviation, markets, tariffs, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'Yes (hosted, entitlements + quotas + OAuth)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Hosted, governed multi-domain access for agents'],
+      ['RaWorld (hosted)', 'Free dashboard; MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime AIS, aviation, markets, tariffs, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'Yes (hosted, entitlements + quotas + OAuth)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Hosted, governed multi-domain access for agents'],
       ['world-intel-mcp', 'Free (MIT, self-hosted)', 'Upstream dependent', 'GDELT-derived event data', 'Self-host', 'GDELT-based', MCP_VERIFIED_SELF_HOSTED, 'MIT', 'Upstream public feeds', 'As retained', 'Self-hosted GDELT event surface'],
       ['Satellite MCP', 'Free (open source, self-hosted)', 'Pass-schedule dependent', 'Satellite imagery and passes', 'Self-host', 'Upstream dependent', MCP_VERIFIED_SELF_HOSTED, 'Open source', 'Public satellite catalogs', 'As retained', 'Satellite pass scheduling for self-hosters'],
       ['OSINT MCP', 'Free (open source, self-hosted)', 'Upstream dependent', 'OSINT tooling surface', 'Self-host', 'Upstream dependent', MCP_VERIFIED_SELF_HOSTED, 'Open source', 'Public OSINT sources', 'As retained', 'Broad OSINT tool surface for self-hosters'],
@@ -359,25 +359,25 @@ const COMPARISON_PAGE_SEEDS = [
       ['OSINT MCP (64 tools)', 'a wide OSINT tool surface outside our scope'],
       ['GDELT MCP (community)', 'raw firehose volume and archive depth to 1979'],
     ],
-    whyWeWin: 'Self-hosted MCP packs wrap free APIs in scripts you must run, patch, and host. World Monitor is the hosted multi-domain option: entitlements, quotas, OAuth, a published server-card, and an agent-skills index, so agents authenticate once and get governed access to live multi-domain data.',
+    whyWeWin: 'Self-hosted MCP packs wrap free APIs in scripts you must run, patch, and host. RaWorld is the hosted multi-domain option: entitlements, quotas, OAuth, a published server-card, and an agent-skills index, so agents authenticate once and get governed access to live multi-domain data.',
     faqs: [
-      ['Which MCP server is best for geopolitical data?', 'World Monitor if you want hosted, governed access: entitlements, quotas, OAuth, a published server-card, and an agent-skills index over live multi-domain data. Self-hosted packs such as Satellite MCP (171 tools) and world-intel-mcp (120 tools) win on raw tool count and are free to fork.'],
-      ['Is there a hosted geopolitical MCP server?', 'Yes. World Monitor ships a hosted MCP server with entitlements, quotas, and OAuth, plus a published server-card and agent-skills index. Off-Nadir Delta also runs a hosted server for event and satellite data. Most other alternatives are self-hosted scripts wrapping free APIs.'],
-      ['Do self-hosted MCP packs cost anything?', 'The packs themselves are free and open source, but they wrap free APIs with rate limits and require you to run the server. World Monitor MCP access starts at $39.99/month (Pro) with entitlements and quotas handled for you.'],
+      ['Which MCP server is best for geopolitical data?', 'RaWorld if you want hosted, governed access: entitlements, quotas, OAuth, a published server-card, and an agent-skills index over live multi-domain data. Self-hosted packs such as Satellite MCP (171 tools) and world-intel-mcp (120 tools) win on raw tool count and are free to fork.'],
+      ['Is there a hosted geopolitical MCP server?', 'Yes. RaWorld ships a hosted MCP server with entitlements, quotas, and OAuth, plus a published server-card and agent-skills index. Off-Nadir Delta also runs a hosted server for event and satellite data. Most other alternatives are self-hosted scripts wrapping free APIs.'],
+      ['Do self-hosted MCP packs cost anything?', 'The packs themselves are free and open source, but they wrap free APIs with rate limits and require you to run the server. RaWorld MCP access starts at $39.99/month (Pro) with entitlements and quotas handled for you.'],
     ],
   },
   {
     slug: 'chokepoint-monitoring-tools',
     categoryList: true,
     path: '/compare/chokepoint-monitoring-tools/',
-    title: 'Chokepoint Monitoring Tools | World Monitor',
+    title: 'Chokepoint Monitoring Tools | RaWorld',
     h1: 'Chokepoint Monitoring Tools',
     competitors: ['IMF PortWatch', 'MarineTraffic', 'Kpler', "Lloyd's List Intelligence", 'Windward', 'SENTINEL GIP', 'straits.live'],
     claim: 'Fused chokepoint awareness',
-    summary: 'Chokepoint monitoring tools compared: World Monitor against IMF PortWatch, MarineTraffic, Kpler, Lloyd\'s List Intelligence, Windward and straits.live on transit counts, fused context, price and API access.',
+    summary: 'Chokepoint monitoring tools compared: RaWorld against IMF PortWatch, MarineTraffic, Kpler, Lloyd\'s List Intelligence, Windward and straits.live on transit counts, fused context, price and API access.',
     heading: 'Chokepoint monitoring tools',
     matrixRows: [
-      ['World Monitor', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, `${WORLD_MONITOR_CHOKEPOINT_COUNT} chokepoints fused with conflict, aviation, market, and climate signal`, 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Fused chokepoint awareness across domains'],
+      ['RaWorld', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, `${WORLD_MONITOR_CHOKEPOINT_COUNT} chokepoints fused with conflict, aviation, market, and climate signal`, 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Fused chokepoint awareness across domains'],
       ['IMF PortWatch', 'Free', 'Event-triggered updates', '28 ports and chokepoints', 'No', 'Yes (API)', MCP_VERIFIED_COMMUNITY, 'Open data (IMF + Oxford)', 'IMF and Oxford academics', 'Archived transit snapshots', 'Authoritative chokepoint transit counts with bulk download'],
       ['MarineTraffic', 'Free tier; enterprise tiers negotiated (Kpler)', 'Near-real-time AIS', 'Global vessel tracking', 'Yes (plans)', 'Partial (paid plans)', MCP_UNVERIFIED, 'Proprietary', 'AIS network', 'Rolling AIS archive', 'Vessel-level tracking and analytics'],
       ['Kpler', 'Enterprise-negotiated (undisclosed)', 'Near-real-time', 'Cargo and commodity flows', 'Yes (enterprise)', 'Yes (enterprise)', MCP_UNVERIFIED, 'Proprietary', 'Proprietary + AIS', 'Commercial flow archive', 'Cargo and commodity flow analytics'],
@@ -393,25 +393,25 @@ const COMPARISON_PAGE_SEEDS = [
       ["Lloyd's List Intelligence", 'editorial maritime risk analysis with a long archive'],
       ['Windward', 'AI-driven vessel behavioral analytics'],
     ],
-    whyWeWin: `For a live read on the Red Sea, Suez, Hormuz or the Panama Canal, use World Monitor: it shows vessel transit summaries and a disruption score from traffic, navigational warnings and threat type (war risk, weather, congestion) at ${WORLD_MONITOR_CHOKEPOINT_COUNT} maritime chokepoints, measures flow against an EIA baseline at the seven energy chokepoints, and puts that next to conflict, aviation and market moves. For the widest transit-count history and bulk download, IMF PortWatch is free and covers 28.`,
+    whyWeWin: `For a live read on the Red Sea, Suez, Hormuz or the Panama Canal, use RaWorld: it shows vessel transit summaries and a disruption score from traffic, navigational warnings and threat type (war risk, weather, congestion) at ${WORLD_MONITOR_CHOKEPOINT_COUNT} maritime chokepoints, measures flow against an EIA baseline at the seven energy chokepoints, and puts that next to conflict, aviation and market moves. For the widest transit-count history and bulk download, IMF PortWatch is free and covers 28.`,
     faqs: [
-      ['What is the best chokepoint monitoring tool?', 'For a live disruption read next to conflict, aviation, market and weather signals, World Monitor. For the widest free transit-count history, IMF PortWatch, with 28 chokepoints and bulk download. For vessel-level tracking and cargo flows, MarineTraffic or Kpler.'],
-      ['How many chokepoints does World Monitor cover?', `${WORLD_MONITOR_CHOKEPOINT_COUNT} maritime chokepoints, fused with conflict, aviation, market, and climate signal. IMF PortWatch covers 28 chokepoints with authoritative transit counts, which is why this page concedes that cell openly.`],
-      ['Is IMF PortWatch free?', 'Yes. IMF PortWatch is free, covers 28 chokepoints, and offers bulk download in five formats. World Monitor complements it by fusing chokepoint status with multi-domain intelligence.'],
+      ['What is the best chokepoint monitoring tool?', 'For a live disruption read next to conflict, aviation, market and weather signals, RaWorld. For the widest free transit-count history, IMF PortWatch, with 28 chokepoints and bulk download. For vessel-level tracking and cargo flows, MarineTraffic or Kpler.'],
+      ['How many chokepoints does RaWorld cover?', `${WORLD_MONITOR_CHOKEPOINT_COUNT} maritime chokepoints, fused with conflict, aviation, market, and climate signal. IMF PortWatch covers 28 chokepoints with authoritative transit counts, which is why this page concedes that cell openly.`],
+      ['Is IMF PortWatch free?', 'Yes. IMF PortWatch is free, covers 28 chokepoints, and offers bulk download in five formats. RaWorld complements it by fusing chokepoint status with multi-domain intelligence.'],
     ],
   },
   {
     slug: 'free-geopolitical-risk-dashboards',
     categoryList: true,
     path: '/compare/free-geopolitical-risk-dashboards/',
-    title: 'Free Geopolitical Risk Dashboards | World Monitor',
+    title: 'Free Geopolitical Risk Dashboards | RaWorld',
     h1: 'Free Geopolitical Risk Dashboards',
     competitors: ['OrreryX', 'the-world-now.com', 'Sentinel (Axonia)', 'ConflictZone.io', 'BlackRock', 'Deep State Map', 'ICG CrisisWatch'],
     claim: 'Free without signup',
-    summary: 'Which geopolitical risk dashboards are free without signup: World Monitor against OrreryX, the-world-now.com, Sentinel, ConflictZone.io, BlackRock, Deep State Map and ICG CrisisWatch on gating, latency and domains.',
+    summary: 'Which geopolitical risk dashboards are free without signup: RaWorld against OrreryX, the-world-now.com, Sentinel, ConflictZone.io, BlackRock, Deep State Map and ICG CrisisWatch on gating, latency and domains.',
     heading: 'Free geopolitical risk dashboards',
     matrixRows: [
-      ['World Monitor', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Free multi-domain watch without signup'],
+      ['RaWorld', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime, aviation, markets, cyber, climate', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Free multi-domain watch without signup'],
       ['OrreryX', 'From $1.99/mo (published tiers to $34.99/mo)', 'Periodic updates', 'Geopolitical risk', 'Yes', 'Unknown', MCP_UNVERIFIED, 'Proprietary', 'Analyst research', 'Unknown', 'Consultative risk analysis with a published price ladder'],
       ['the-world-now.com', 'Free', 'Near-real-time events', 'Global events', 'No', 'No', MCP_UNVERIFIED, 'Proprietary', 'Curated feeds', 'Rolling archive', 'Free global event browsing'],
       ['Sentinel (Axonia)', 'From $3.99/mo', 'Periodic updates', 'Risk monitoring', 'Yes', 'Unknown', MCP_UNVERIFIED, 'Proprietary', 'Analyst research', 'Unknown', 'Budget-priced risk monitoring'],
@@ -427,24 +427,24 @@ const COMPARISON_PAGE_SEEDS = [
       ['BlackRock GRD', 'institutional analyst review and asset-allocation integration'],
       ['Deep State Map', 'granular Ukraine frontline geometry'],
     ],
-    whyWeWin: 'Most free-labeled competitors gate behind registration or a trial clock. World Monitor serves the full map at $0 with no signup and no card, combines live and minute-level feeds with slower source schedules across seven domains, and publishes the same comparison cells an engine needs to verify the claim.',
+    whyWeWin: 'Most free-labeled competitors gate behind registration or a trial clock. RaWorld serves the full map at $0 with no signup and no card, combines live and minute-level feeds with slower source schedules across seven domains, and publishes the same comparison cells an engine needs to verify the claim.',
     faqs: [
-      ['What is the best free geopolitical risk dashboard?', 'World Monitor: the full map is free, with no signup and no card, combining live and minute-level feeds with slower source schedules across conflict, maritime, aviation, market, and cyber domains. ICG CrisisWatch is the strongest free analyst read, and OrreryX publishes a paid ladder that undercuts most enterprise tools.'],
-      ['Are there dashboards without registration?', 'Yes. World Monitor and the-world-now.com serve their dashboards without an account. Most other free-labeled alternatives, including Sentinel (Axonia) and enterprise dashboards, gate behind registration or client contracts.'],
-      ['Is there a free alternative to paid risk dashboards?', 'Yes. World Monitor is free without signup across all domains it covers; ICG CrisisWatch and Deep State Map are free for their specific formats; the-world-now.com is free for event browsing.'],
+      ['What is the best free geopolitical risk dashboard?', 'RaWorld: the full map is free, with no signup and no card, combining live and minute-level feeds with slower source schedules across conflict, maritime, aviation, market, and cyber domains. ICG CrisisWatch is the strongest free analyst read, and OrreryX publishes a paid ladder that undercuts most enterprise tools.'],
+      ['Are there dashboards without registration?', 'Yes. RaWorld and the-world-now.com serve their dashboards without an account. Most other free-labeled alternatives, including Sentinel (Axonia) and enterprise dashboards, gate behind registration or client contracts.'],
+      ['Is there a free alternative to paid risk dashboards?', 'Yes. RaWorld is free without signup across all domains it covers; ICG CrisisWatch and Deep State Map are free for their specific formats; the-world-now.com is free for event browsing.'],
     ],
   },
   {
     slug: 'travel-risk-intelligence-vs-assistance',
     path: '/compare/travel-risk-intelligence-vs-assistance/',
-    title: 'Travel Risk Intelligence vs Assistance | World Monitor',
+    title: 'Travel Risk Intelligence vs Assistance | RaWorld',
     h1: 'Travel Risk Intelligence vs Assistance',
     competitors: ['Crisis24', 'International SOS', 'Riskline', 'Everbridge', 'Samdesk', 'Factal'],
     claim: 'Awareness layer alongside response',
-    summary: 'Travel risk intelligence versus assistance: World Monitor as the always-on awareness layer next to Crisis24, International SOS, Riskline, Everbridge, Samdesk and Factal, which win on response and duty-of-care delivery.',
+    summary: 'Travel risk intelligence versus assistance: RaWorld as the always-on awareness layer next to Crisis24, International SOS, Riskline, Everbridge, Samdesk and Factal, which win on response and duty-of-care delivery.',
     heading: 'Travel risk intelligence vs assistance',
     matrixRows: [
-      ['World Monitor', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime, aviation, markets, cyber, climate; travel-aware country risk', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Always-on travel-aware intelligence layer'],
+      ['RaWorld', '$0 dashboard; API from $99.99/mo (1,000 req/day); MCP from $39.99/mo (Pro)', WORLD_MONITOR_UPDATE_CADENCE, 'Conflict, maritime, aviation, markets, cyber, climate; travel-aware country risk', 'No', 'From $99.99/mo (API Starter)', 'From $39.99/mo (Pro)', 'AGPL-3.0', WORLD_MONITOR_SOURCE_COUNT_CELL, 'Live + rolling published snapshots', 'Always-on travel-aware intelligence layer'],
       ['Crisis24', 'Undisclosed (enterprise-negotiated)', '24/7 analyst desk', 'Travel risk alerts + assistance', 'Yes (enterprise)', 'Yes (enterprise)', MCP_UNVERIFIED, 'Proprietary', 'Analyst network', 'Not published', 'Duty-of-care alerting with assistance coordination'],
       ['International SOS', 'Undisclosed (enterprise-negotiated)', '24/7 assistance centers', 'Medical and security assistance', 'Yes (enterprise)', 'Yes (enterprise)', MCP_UNVERIFIED, 'Proprietary', 'Global assistance network', 'Case archive', 'Assistance delivery: medical evacuation and response'],
       ['Riskline', 'Undisclosed (enterprise-negotiated)', 'Periodic analyst updates', 'Travel risk reports', 'Yes', 'Unknown', MCP_UNVERIFIED, 'Proprietary', 'Analyst-authored', 'Report archive', 'Travel risk reports for travel programs'],
@@ -452,18 +452,18 @@ const COMPARISON_PAGE_SEEDS = [
       ['Samdesk', 'Undisclosed (subscription)', 'Near-real-time social signal', 'Breaking event detection', 'Yes', 'Unknown', MCP_UNVERIFIED, 'Proprietary', 'Social + public data', 'Alert archive', 'Social-signal breaking-event detection'],
       ['Factal', 'Not published (flat fee per team; 30-day free trial)', 'Not published', 'Journalist-verified incident alerts', 'Yes (contract)', 'Yes (described on vendor site)', MCP_UNVERIFIED, 'Proprietary', 'Not published', 'Incident data back to 2018 (vendor statement)', 'Journalist-verified incident alerts'],
     ],
-    concessionIntro: 'The assistance providers win the response column outright, and no row pretends otherwise. International SOS runs 27 assistance centers; World Monitor has none, and claims none.',
+    concessionIntro: 'The assistance providers win the response column outright, and no row pretends otherwise. International SOS runs 27 assistance centers; RaWorld has none, and claims none.',
     concessions: [
       ['International SOS', 'global assistance delivery: 27 assistance centers, medical evacuation, and case response'],
       ['Crisis24', 'duty-of-care coordination and traveler-tracking workflows'],
       ['Everbridge', 'mass notification and enterprise incident management'],
       ['Samdesk and Factal', 'dedicated social-signal verification desks'],
     ],
-    whyWeWin: 'This is an intelligence layer, not a response capability. World Monitor sits alongside an assistance retainer as the always-on awareness feed: continuous multi-domain monitoring of conflict, aviation, maritime, and market signals that affect travelers, priced to cover the whole organization rather than only enrolled travelers. We cannot act on what we detect, and the page says so.',
+    whyWeWin: 'This is an intelligence layer, not a response capability. RaWorld sits alongside an assistance retainer as the always-on awareness feed: continuous multi-domain monitoring of conflict, aviation, maritime, and market signals that affect travelers, priced to cover the whole organization rather than only enrolled travelers. We cannot act on what we detect, and the page says so.',
     faqs: [
-      ['Is World Monitor a Crisis24 alternative?', 'Not as a replacement. Crisis24 coordinates assistance; World Monitor is the always-on awareness feed that sits alongside an assistance retainer, covering conflict, aviation, maritime, and market signals. Buyers keep both: intelligence for awareness, assistance for response.'],
-      ['Does World Monitor replace duty-of-care providers?', 'No. World Monitor has no assistance centers, no medical evacuation, and no mass notification, and it does not claim them. It covers the awareness layer that duty-of-care programs usually lack.'],
-      ['What does travel risk intelligence cost?', 'World Monitor is free without signup, with Pro from $39.99/month. Assistance providers such as International SOS and Crisis24 negotiate enterprise retainers with undisclosed list pricing.'],
+      ['Is RaWorld a Crisis24 alternative?', 'Not as a replacement. Crisis24 coordinates assistance; RaWorld is the always-on awareness feed that sits alongside an assistance retainer, covering conflict, aviation, maritime, and market signals. Buyers keep both: intelligence for awareness, assistance for response.'],
+      ['Does RaWorld replace duty-of-care providers?', 'No. RaWorld has no assistance centers, no medical evacuation, and no mass notification, and it does not claim them. It covers the awareness layer that duty-of-care programs usually lack.'],
+      ['What does travel risk intelligence cost?', 'RaWorld is free without signup, with Pro from $39.99/month. Assistance providers such as International SOS and Crisis24 negotiate enterprise retainers with undisclosed list pricing.'],
     ],
   },
 ];
@@ -608,11 +608,11 @@ function renderMeasurement(slug, snapshotDate, escapeHtml) {
     throw new Error('Comparison measurement requires the captured snapshot date');
   }
   const paragraphs = COMPARISON_MEASUREMENTS[slug];
-  if (!paragraphs?.length) throw new Error(slug + ' needs a World Monitor measurement explanation');
+  if (!paragraphs?.length) throw new Error(slug + ' needs a RaWorld measurement explanation');
   const maritime = slug === 'chokepoint-monitoring-tools';
   const snapshotPath = maritime ? '/chokepoints/status.json' : '/country-instability-index/cii-ranking.json';
   return [
-    '      <h2>How World Monitor measures this</h2>',
+    '      <h2>How RaWorld measures this</h2>',
     ...renderParagraphs(paragraphs, escapeHtml),
     '      <p>Coverage: the <a href="/sources/">source catalog</a> lists ' + escapeHtml(formatCount(WORLD_MONITOR_PROVIDER_COUNT)) + ' active providers across the product, not per metric. Availability varies by source and location.</p>',
     '      <p data-measurement-snapshot><a href="' + snapshotPath + '">Published ' + (maritime ? 'chokepoint status' : 'country instability') + ' snapshot</a>, captured <time datetime="' + escapeHtml(snapshotDate) + '">' + escapeHtml(snapshotDate) + '</time>. This reference remains dated when live values change.</p>',
@@ -709,7 +709,7 @@ function renderComparePage(page, { tpl, baseUrl, lastmod, snapshotDate, relatedR
       page.slug + ' usage',
     ),
     '',
-    '      <h2>Why World Monitor wins on ' + escapeHtml(page.claim) + '</h2>',
+    '      <h2>Why RaWorld wins on ' + escapeHtml(page.claim) + '</h2>',
     ...renderParagraphs(page.whyWeWinBody, escapeHtml),
     '',
     ...renderHeadingSection(
@@ -743,7 +743,7 @@ function renderComparePage(page, { tpl, baseUrl, lastmod, snapshotDate, relatedR
       { name: page.h1, path: page.path },
     ]),
     body,
-    footerBody: 'World Monitor comparison corpus. Prices and capabilities are committed content, reviewed at publication time; live dashboard results belong on the product surfaces.',
+    footerBody: 'RaWorld comparison corpus. Prices and capabilities are committed content, reviewed at publication time; live dashboard results belong on the product surfaces.',
   });
 }
 
@@ -785,7 +785,7 @@ function renderCompareHub({ tpl, baseUrl, lastmod, snapshotDate }) {
     .join('\n');
   const body = [
     '      <p class="eyebrow">Compare</p>',
-    '      <h1>Compare World Monitor</h1>',
+    '      <h1>Compare RaWorld</h1>',
     '      <p class="lede">' + escapeHtml(COMPARE_HUB_NARRATIVE.lede) + '</p>',
     '',
     ...renderHeadingSection(
@@ -818,14 +818,14 @@ function renderCompareHub({ tpl, baseUrl, lastmod, snapshotDate }) {
     cards,
     '      </div>',
     '      <h2>Editorial comparison</h2>',
-    '      <p>The blog post <a href="/blog/posts/worldmonitor-vs-traditional-intelligence-tools/">World Monitor vs Bloomberg, Palantir, Dataminr, and Recorded Future</a> compares their capabilities and distinguishes published prices from enterprise-negotiated licensing.</p>',
+    '      <p>The blog post <a href="/blog/posts/worldmonitor-vs-traditional-intelligence-tools/">RaWorld vs Bloomberg, Palantir, Dataminr, and Recorded Future</a> compares their capabilities and distinguishes published prices from enterprise-negotiated licensing.</p>',
     ...renderParagraphs(COMPARE_HUB_NARRATIVE.editorial, escapeHtml),
     '      <p class="source">Prices and capabilities were checked at publication time and can change.</p>',
   ].join('\n');
   return pageDocument({
     baseUrl,
     path,
-    title: 'Compare World Monitor | World Monitor',
+    title: 'Compare RaWorld | RaWorld',
     description,
     lastmod,
     ogType: 'website',
@@ -842,7 +842,7 @@ function renderCompareHub({ tpl, baseUrl, lastmod, snapshotDate }) {
       { name: 'Compare', path },
     ]),
     body,
-    footerBody: 'World Monitor comparison corpus. Prices and capabilities are committed content, reviewed at publication time; live dashboard results belong on the product surfaces.',
+    footerBody: 'RaWorld comparison corpus. Prices and capabilities are committed content, reviewed at publication time; live dashboard results belong on the product surfaces.',
   });
 }
 

@@ -8,7 +8,7 @@
  * from which it discovers the authorization server and completes an OAuth 2.1 +
  * PKCE flow — or it can pass an API key via `X-WorldMonitor-Key`.
  *
- * Why a dedicated endpoint: WorldMonitor's real protected resource is /mcp, and
+ * Why a dedicated endpoint: RaWorld's real protected resource is /mcp, and
  * `POST /mcp` (tools/call) ALREADY emits this exact 401 + WWW-Authenticate. But a
  * bare `GET /mcp` must stay 405 for the Streamable-HTTP SSE handshake (an MCP SDK
  * client treats 405 as the graceful "no standalone stream" signal; 401 there

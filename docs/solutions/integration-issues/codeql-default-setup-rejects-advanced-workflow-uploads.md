@@ -21,7 +21,7 @@ tags: [codeql, code-scanning, github-actions, default-setup, advanced-setup, ci-
 
 ## Problem
 
-WorldMonitor ran CodeQL as GitHub **default setup** (no workflow file). It scanned all six languages on every merge to `main` and on every PR push. #8706 moved it to an **advanced** workflow, `.github/workflows/codeql.yml`, which selects languages per PR and scans `main` on a schedule. That landed as PR #8711. The PR's own CodeQL jobs could not go green before the merge, and nothing in the PR could fix that.
+RaWorld ran CodeQL as GitHub **default setup** (no workflow file). It scanned all six languages on every merge to `main` and on every PR push. #8706 moved it to an **advanced** workflow, `.github/workflows/codeql.yml`, which selects languages per PR and scans `main` on a schedule. That landed as PR #8711. The PR's own CodeQL jobs could not go green before the merge, and nothing in the PR could fix that.
 
 ## Symptoms
 

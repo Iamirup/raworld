@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<title>RAVAND | Global Monitoring System</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black: #000;
+  --white: #e5edf3;
+  --muted: #71808b;
+  --line: rgba(175, 205, 225, .24);
+  --green: #48d6a0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* WORLD MAP BACKGROUND */
+
+.map-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.world-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.map-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.map-art .country {
+  fill: #101820;
+  stroke: #71899a;
+  stroke-width: .65;
+  stroke-opacity: .65;
+  vector-effect: non-scaling-stroke;
+}
+
+.map-art .graticule {
+  fill: none;
+  stroke: #7895a8;
+  stroke-width: .55;
+  stroke-opacity: .2;
+  vector-effect: non-scaling-stroke;
+}
+
+.map-art .border {
+  fill: none;
+  stroke: #a2b8c8;
+  stroke-width: .45;
+  stroke-opacity: .52;
+  vector-effect: non-scaling-stroke;
+}
+
+.map-art .route {
+  fill: none;
+  stroke: #8bc9ed;
+  stroke-width: .9;
+  stroke-opacity: .4;
+  stroke-dasharray: 3 5;
+  vector-effect: non-scaling-stroke;
+}
+
+.map-art .node {
+  fill: #d5edff;
+  filter: drop-shadow(0 0 4px #8bc9ed);
+}
+
+.map-art .target {
+  fill: none;
+  stroke: #a8d8f2;
+  stroke-width: .8;
+  stroke-opacity: .7;
+  vector-effect: non-scaling-stroke;
+}
+
+.map-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg,
+      #000 0%,
+      rgba(0,0,0,.55) 8%,
+      transparent 23%,
+      transparent 77%,
+      rgba(0,0,0,.55) 92%,
+      #000 100%),
+    linear-gradient(0deg,
+      #000 0%,
+      transparent 20%,
+      transparent 80%,
+      #000 100%),
+    radial-gradient(ellipse at center,
+      transparent 5%,
+      rgba(0,0,0,.58) 100%);
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: .08;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 3px,
+    rgba(180,210,230,.08) 4px
+  );
+}
+
+/* HEADER */
+
+header {
+  position: absolute;
+  z-index: 4;
+  top: 28px;
+  left: 32px;
+  right: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.brand {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #c4d8e5;
+}
+
+.exclusive {
+  margin-top: 15px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #c4d7e4;
+}
+
+.exclusive span {
+  display: block;
+  margin-top: 7px;
+  color: var(--muted);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.status {
+  color: var(--green);
+  font-size: 10px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.status::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px rgba(72,214,160,.6);
+}
+
+/* CENTRAL LOGIN PANEL */
+
+main {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 130px 20px 90px;
+}
+
+.panel {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  padding: 42px;
+  text-align: center;
+  background: rgba(0,0,0,.86);
+  border: 1px solid var(--line);
+  box-shadow: 0 0 70px rgba(0,0,0,.8);
+  backdrop-filter: blur(12px);
+}
+
+.panel::before,
+.panel::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: #b9d8eb;
+  border-style: solid;
+  pointer-events: none;
+}
+
+.panel::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+
+.panel::after {
+  right: -1px;
+  bottom: -1px;
+  border-width: 0 1px 1px 0;
+}
+
+.symbol {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 25px;
+  border: 1px solid rgba(180,220,245,.35);
+  border-radius: 50%;
+  color: #c5e6f9;
+  font-size: 25px;
+}
+
+h1 {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+  font-size: clamp(22px, 4vw, 29px);
+  letter-spacing: 7px;
+  color: #f1f7fb;
+}
+
+.subtitle {
+  margin: 20px 0 32px;
+  color: #7e8e99;
+  font-size: 11px;
+  line-height: 1.9;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+  color: #91a5b3;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(175,205,225,.3);
+  background: rgba(5,8,11,.9);
+  transition: border-color .25s, box-shadow .25s;
+}
+
+.input-wrap:focus-within {
+  border-color: rgba(185,225,250,.8);
+  box-shadow: 0 0 18px rgba(150,210,245,.07);
+}
+
+.lock {
+  padding-left: 15px;
+  color: #8199a9;
+  font-size: 16px;
+}
+
+input {
+  width: 100%;
+  min-width: 0;
+  padding: 16px 14px;
+  color: white;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 16px;
+  letter-spacing: 4px;
+}
+
+input::placeholder {
+  color: #4b5963;
+  letter-spacing: 3px;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 16px;
+  color: #f1f7fb;
+  background: #080d11;
+  border: 1px solid #a6c8dd;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  cursor: pointer;
+  transition: background .25s, box-shadow .25s;
+}
+
+button:hover {
+  background: #152531;
+  box-shadow: 0 0 22px rgba(130,190,225,.1);
+}
+
+button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: .7;
+}
+
+.message {
+  min-height: 18px;
+  margin-top: 16px;
+  color: #ff7272;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.panel-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 22px;
+  padding-top: 15px;
+  border-top: 1px solid #202830;
+  color: #647480;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+/* FOOTER */
+
+footer {
+  position: absolute;
+  z-index: 4;
+  bottom: 24px;
+  left: 32px;
+  right: 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #81919c;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+/* SUCCESS STATE */
+
+.panel.success .symbol {
+  color: var(--green);
+  border-color: rgba(72,214,160,.5);
+}
+
+.panel.success h1 {
+  font-size: 21px;
+  letter-spacing: 4px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  header {
+    top: 20px;
+    left: 18px;
+    right: 18px;
+  }
+
+  .brand {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .exclusive {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .exclusive span {
+    font-size: 8px;
+  }
+
+  .status {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .world-map {
+    width: 145%;
+    left: -22.5%;
+  }
+
+  .map-art {
+    width: 100%;
+    height: 100%;
+  }
+
+  main {
+    padding: 150px 18px 90px;
+  }
+
+  .panel {
+    padding: 34px 22px;
+  }
+
+  h1 {
+    font-size: 23px;
+    letter-spacing: 5px;
+  }
+
+  .subtitle {
+    font-size: 10px;
+    letter-spacing: 1.3px;
+  }
+
+  footer {
+    left: 18px;
+    right: 18px;
+    bottom: 14px;
+    font-size: 8px;
+    letter-spacing: .5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="map-background" aria-hidden="true">
+  <div class="world-map">
+    <svg
+      id="worldMap"
+      class="map-art"
+      viewBox="0 0 1600 900"
+      preserveAspectRatio="xMidYMid meet"
+    ></svg>
+  </div>
+
+  <div class="map-overlay"></div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header>
+  <div class="brand">
+    GLOBAL MONITORING SYSTEM
+
+    <div class="exclusive">
+      EXCLUSIVE ACCESS — RAVAND COMPANY
+      <span>AUTHORIZED PERSONNEL ONLY</span>
+    </div>
+  </div>
+
+  <div class="status">SYSTEM ONLINE</div>
+</header>
+
+<main>
+  <section class="panel" id="panel">
+    <div class="symbol" aria-hidden="true">◎</div>
+
+    <h1>HELLO SIR,</h1>
+
+    <p class="subtitle">
+      Please enter your credentials to access<br>
+      the global monitoring system
+    </p>
+
+    <form id="loginForm">
+      <label for="password">ACCESS KEY / PASSWORD</label>
+
+      <div class="input-wrap">
+        <span class="lock" aria-hidden="true">♙</span>
+
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="••••••••"
+          autocomplete="current-password"
+          required
+          autofocus
+          aria-describedby="message"
+        >
+      </div>
+
+      <button type="submit" id="loginButton">
+        LOGIN &nbsp; →
+      </button>
+
+      <div
+        class="message"
+        id="message"
+        role="status"
+        aria-live="polite"
+      ></div>
+    </form>
+
+    <div class="panel-footer">
+      <span>RAVAND SECURITY</span>
+      <span>LEVEL 04</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>GLOBAL NETWORK</span>
+  <span id="clock">00:00:00 UTC</span>
+  <span>WORLDWIDE COVERAGE</span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+
+<script>
+/* DETAILED WORLD MAP */
+
+async function renderWorldMap() {
+  const svg = d3.select('#worldMap');
+  const width = 1600;
+  const height = 900;
+
+  const projection = d3.geoNaturalEarth1()
+    .fitExtent(
+      [[25, 65], [width - 25, height - 60]],
+      { type: 'Sphere' }
+    );
+
+  const path = d3.geoPath(projection);
+
+  try {
+    const response = await fetch(
+      'https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json'
+    );
+
+    if (!response.ok) {
+      throw new Error('Unable to retrieve world map data');
+    }
+
+    const topology = await response.json();
+
+    const countries = topojson.feature(
+      topology,
+      topology.objects.countries
+    );
+
+    const borders = topojson.mesh(
+      topology,
+      topology.objects.countries,
+      (a, b) => a !== b
+    );
+
+    // Geographic graticule
+    svg.append('path')
+      .datum(d3.geoGraticule10())
+      .attr('class', 'graticule')
+      .attr('d', path);
+
+    // Country outlines
+    svg.append('g')
+      .selectAll('path')
+      .data(countries.features)
+      .join('path')
+      .attr('class', 'country')
+      .attr('d', path);
+
+    // International borders
+    svg.append('path')
+      .datum(borders)
+      .attr('class', 'border')
+      .attr('d', path);
+
+    // Illustrative network nodes
+    const nodes = [
+      [-74.006, 40.7128],
+      [-0.1276, 51.5072],
+      [2.3522, 48.8566],
+      [31.2357, 30.0444],
+      [55.2708, 25.2048],
+      [77.209, 28.6139],
+      [103.8198, 1.3521],
+      [139.6917, 35.6762],
+      [151.2093, -33.8688],
+      [-46.6333, -23.5505]
+    ];
+
+    const routes = [
+      [nodes[0], nodes[1]],
+      [nodes[1], nodes[4]],
+      [nodes[4], nodes[6]],
+      [nodes[6], nodes[7]],
+      [nodes[0], nodes[9]],
+      [nodes[7], nodes[8]],
+      [nodes[2], nodes[3]],
+      [nodes[4], nodes[5]]
+    ];
+
+    svg.append('g')
+      .selectAll('path')
+      .data(routes)
+      .join('path')
+      .attr('class', 'route')
+      .attr('d', route => path({
+        type: 'LineString',
+        coordinates: route
+      }));
+
+    const projectedNodes = nodes
+      .map(coords => projection(coords))
+      .filter(Boolean);
+
+    const markers = svg.append('g');
+
+    markers.selectAll('circle.node')
+      .data(projectedNodes)
+      .join('circle')
+      .attr('class', 'node')
+      .attr('cx', d => d[0])
+      .attr('cy', d => d[1])
+      .attr('r', 2.2);
+
+    const targets = projectedNodes.filter(
+      (_, index) => [0, 1, 7].includes(index)
+    );
+
+    const targetGroups = markers
+      .selectAll('.target-group')
+      .data(targets)
+      .join('g')
+      .attr('class', 'target-group')
+      .attr('transform', d => `translate(${d[0]},${d[1]})`);
+
+    targetGroups.append('circle')
+      .attr('class', 'target')
+      .attr('r', 9);
+
+    targetGroups.append('path')
+      .attr('class', 'target')
+      .attr('d', 'M-14 0H14 M0 -14V14');
+
+  } catch (error) {
+    console.error('World map loading error:', error);
+
+    svg.append('text')
+      .attr('x', width / 2)
+      .attr('y', height / 2)
+      .attr('fill', '#71808b')
+      .attr('text-anchor', 'middle')
+      .attr('font-size', 14)
+      .text('WORLD MAP DATA UNAVAILABLE');
+  }
+}
+
+if (window.d3 && window.topojson) {
+  renderWorldMap();
+} else {
+  document.getElementById('worldMap')
+    .innerHTML = `
+      <text x="800" y="450"
+        fill="#71808b"
+        text-anchor="middle"
+        font-size="14">
+        WORLD MAP LIBRARIES UNAVAILABLE
+      </text>
+    `;
+}
+
+/* ACCESS GATE
+ * The dashboard (index.html) redirects here until the session is unlocked.
+ * This is a cosmetic shell, not a security boundary.
+ */
+
+const ACCESS_KEY = 'raworld-access';
+
+function safeNext() {
+  const next = new URLSearchParams(location.search).get('next') || '/';
+  // Same-origin paths only: no scheme, no protocol-relative "//host".
+  return next.startsWith('/') && !next.startsWith('//') ? next : '/';
+}
+
+function grantAccess() {
+  try { sessionStorage.setItem(ACCESS_KEY, 'granted'); } catch (e) {}
+  document.cookie = ACCESS_KEY + '=granted; path=/; SameSite=Lax';
+}
+
+function hasAccess() {
+  try {
+    if (sessionStorage.getItem(ACCESS_KEY) === 'granted') return true;
+  } catch (e) {}
+  return document.cookie.split('; ').indexOf(ACCESS_KEY + '=granted') !== -1;
+}
+
+if (hasAccess()) location.replace(safeNext());
+
+/* DEMONSTRATION LOGIN */
+
+const form = document.getElementById('loginForm');
+const password = document.getElementById('password');
+const message = document.getElementById('message');
+const panel = document.getElementById('panel');
+const button = document.getElementById('loginButton');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  if (password.value === 'Ravand') {
+    message.style.color = '#48d6a0';
+    message.textContent = 'ACCESS GRANTED // AUTHENTICATED';
+    button.disabled = true;
+
+    setTimeout(() => {
+      panel.innerHTML = `
+        <div class="symbol" aria-hidden="true">✓</div>
+
+        <h1 style="font-size:21px;letter-spacing:4px">
+          ACCESS GRANTED
+        </h1>
+
+        <p class="subtitle">
+          Welcome, authorized operator.<br>
+          Secure connection established.
+        </p>
+
+        <div class="panel-footer">
+          <span>RAVAND SECURITY</span>
+          <span>SESSION ACTIVE</span>
+        </div>
+      `;
+
+      panel.classList.add('success');
+
+      grantAccess();
+      setTimeout(() => location.replace(safeNext()), 900);
+    }, 450);
+
+  } else {
+    message.textContent =
+      'ACCESS DENIED // INVALID CREDENTIALS';
+
+    password.value = '';
+    password.focus();
+
+    panel.animate([
+      { transform: 'translateX(0)' },
+      { transform: 'translateX(-5px)' },
+      { transform: 'translateX(5px)' },
+      { transform: 'translateX(0)' }
+    ], { duration: 220 });
+  }
+});
+
+/* UTC CLOCK */
+
+function updateClock() {
+  document.getElementById('clock').textContent =
+    new Date().toISOString().slice(11, 19) + ' UTC';
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+</script>
+
+</body>
+</html>

@@ -115,7 +115,7 @@ async function installCountryHost(page: Page, fullExposure = false, initialOpenE
     }
   });
   await page.route('**/data/*.geojson', async route => geometryUnavailable ? route.fulfill({ status: 503, body: 'Controlled geometry failure', headers: { 'Access-Control-Allow-Origin': '*' } }) : route.fulfill({ path: join(root, 'public/data', new URL(route.request().url()).pathname.split('/').at(-1)!), headers: { 'Access-Control-Allow-Origin': '*' } }));
-  await page.route('**/country-host-test', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><meta charset="utf-8"><title>Country plugin acceptance — controlled fixtures</title><h1>Country plugin acceptance — controlled fixtures</h1><p>Tests the built iframe and host transport. Does not test live OAuth or source freshness.</p><iframe title="WorldMonitor country view" sandbox="allow-scripts allow-downloads" style="width:100%;height:950px;border:0"></iframe>' }));
+  await page.route('**/country-host-test', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><meta charset="utf-8"><title>Country plugin acceptance — controlled fixtures</title><h1>Country plugin acceptance — controlled fixtures</h1><p>Tests the built iframe and host transport. Does not test live OAuth or source freshness.</p><iframe title="RaWorld country view" sandbox="allow-scripts allow-downloads" style="width:100%;height:950px;border:0"></iframe>' }));
   await page.exposeFunction('countryHost', async (method: string, params: HostCall & { content?: Array<{ text: string }>; url?: string; requestId?: number }, id?: number) => {
     if (imfScenario) bootTrace.push({ event: 'host', method });
     if (method === 'notifications/cancelled') {
@@ -342,7 +342,7 @@ test('native queued Norway factors retain the actual dispatched host timeout', a
   const dispatchedAt = host.factorTrace.find(event => event.section === 'factors' && event.event === 'dispatch')!.at;
   await expect(factors).toHaveAttribute('data-load-state', 'unavailable', { timeout: 35_000 });
   expect(Date.now() - dispatchedAt).toBeGreaterThanOrEqual(30_000);
-  expect(warnings.some(message => message.includes('WorldMonitor host request timed out.'))).toBe(true);
+  expect(warnings.some(message => message.includes('RaWorld host request timed out.'))).toBe(true);
   await expect(factors.locator('.cdp-scorecard-pillar')).toHaveCount(0);
   await factors.scrollIntoViewIfNeeded();
   await factors.screenshot({ path: info.outputPath('norway-factors-host-timeout.png') });

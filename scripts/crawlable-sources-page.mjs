@@ -815,8 +815,8 @@ export function renderSourcesIndex({ sourceStats, sourceCatalog, catalogDatasets
   const path = sourcePage?.path || '/sources/';
   const pageUrl = absoluteUrl(baseUrl, path);
   const description = sourcePage
-    ? `Browse ${sourceCatalog.length} providers in ${sourcePage.name}, with source hosts, origins and coverage. Part of World Monitor's complete source catalog.`
-    : `Explore ${sourceStats.providerCount} active providers and ${sourceStats.activeHosts} source hosts across World Monitor's global intelligence, markets, energy, cyber, aviation, climate and news coverage.`;
+    ? `Browse ${sourceCatalog.length} providers in ${sourcePage.name}, with source hosts, origins and coverage. Part of RaWorld's complete source catalog.`
+    : `Explore ${sourceStats.providerCount} active providers and ${sourceStats.activeHosts} source hosts across RaWorld's global intelligence, markets, energy, cyber, aviation, climate and news coverage.`;
   const docsHref = (anchor) => `/docs/data-sources${anchor ? `#${anchor}` : ''}`;
   const domainCounts = new Map(SOURCE_DOMAINS.map((domain) => [domain.id, 0]));
   for (const provider of sourceCatalog) {
@@ -865,20 +865,20 @@ export function renderSourcesIndex({ sourceStats, sourceCatalog, catalogDatasets
           <div class="provider-hosts" aria-label="Provider hosts">${hostLinks}</div>
         </article>`;
   }).join('\n');
-  const sourceNav = `        <a class="source-brand" href="/" aria-label="World Monitor home">
+  const sourceNav = `        <a class="source-brand" href="/" aria-label="RaWorld home">
           <span class="source-logo" aria-hidden="true"><span></span></span>
-          <span><strong>WORLD MONITOR</strong><small>GLOBAL INTELLIGENCE</small></span>
+          <span><strong>RAWORLD</strong><small>GLOBAL INTELLIGENCE</small></span>
         </a>
         <span class="source-nav-links">
           <a href="/sources/" aria-current="page">Sources</a>
           <a href="/reference/coverage/">Coverage</a>
           <a href="/blog/">Blog</a>
           <a href="/docs/documentation">Docs</a>
-          <a href="https://github.com/koala73/worldmonitor" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://github.com/Iamirup/raworld" target="_blank" rel="noreferrer">GitHub</a>
         </span>
         <a class="source-nav-cta" href="/dashboard">Launch dashboard <span aria-hidden="true">→</span></a>`;
   const sourceFooter = `<div class="source-footer-inner">
-      <span><strong>WORLD MONITOR</strong><small>Open-source global intelligence</small></span>
+      <span><strong>RAWORLD</strong><small>Open-source global intelligence</small></span>
       <span class="source-footer-links"><a href="/sources/">Sources</a><a href="${docsHref('')}">Data docs</a><a href="/docs/source-attribution">Attribution ledger</a><a href="/docs/terms">Terms</a></span>
     </div>`;
   const catalogNavigation = directoryPages
@@ -887,8 +887,8 @@ export function renderSourcesIndex({ sourceStats, sourceCatalog, catalogDatasets
   const body = `      <section class="sources-hero">
         <div class="hero-copy">
           <p class="eyebrow"><span></span> Live provider inventory</p>
-          <h1>${sourcePage ? escapeHtml(sourcePage.name) : 'See every source behind World Monitor.'}</h1>
-          <p class="lede">The map is only as useful as the signals behind it. World Monitor combines ${sourceStats.providerCount} active providers across ${sourceStats.activeHosts} observed source hosts spanning news, conflict, markets, military, climate, aviation, infrastructure and technology. ${sourcePage ? 'This page lists ' + sourceCatalog.length + ' providers. <a href="/sources/#catalog">Search all providers</a> or browse the pages below.' : 'Browse providers by domain, or search the full inventory below.'}</p>
+          <h1>${sourcePage ? escapeHtml(sourcePage.name) : 'See every source behind RaWorld.'}</h1>
+          <p class="lede">The map is only as useful as the signals behind it. RaWorld combines ${sourceStats.providerCount} active providers across ${sourceStats.activeHosts} observed source hosts spanning news, conflict, markets, military, climate, aviation, infrastructure and technology. ${sourcePage ? 'This page lists ' + sourceCatalog.length + ' providers. <a href="/sources/#catalog">Search all providers</a> or browse the pages below.' : 'Browse providers by domain, or search the full inventory below.'}</p>
           <div class="hero-actions">
             <a class="cta" href="#catalog">${sourcePage ? 'Browse this page' : 'Find a provider'} <span aria-hidden="true">↓</span></a>
             <a class="secondary-cta" href="/dashboard">Open the live dashboard <span aria-hidden="true">→</span></a>
@@ -926,15 +926,15 @@ ${domainCards}
       <section class="trust-section" aria-labelledby="trust-heading">
         <div><p class="eyebrow">Trust through traceability</p><h2 id="trust-heading">The count follows the code.</h2></div>
         <div>
-          <p>This inventory is generated from the source-attribution manifest and checked against the external URLs that World Monitor uses. Adding or removing a source changes this page at build time.</p>
+          <p>This inventory is generated from the source-attribution manifest and checked against the external URLs that RaWorld uses. Adding or removing a source changes this page at build time.</p>
           <p>An active listing confirms use and attribution tracking. It does not claim that a provider's redistribution terms have completed review. The <a href="/docs/source-attribution">attribution ledger</a> records that posture, and the <a href="${docsHref('source-credibility-%26-feed-tiering')}">credibility methodology</a> explains feed tiers and bias metadata.</p>
         </div>
       </section>
       <section class="provenance-section" aria-labelledby="provenance-heading">
         <div class="section-heading">
           <p class="eyebrow">Provenance</p>
-          <h2 id="provenance-heading">Where does World Monitor get its data?</h2>
-          <p>World Monitor fuses licensed data feeds, official statistics, open-source intelligence, and live sensor networks into one operating picture. Every listed provider is named, attributed, and reconciled against the code that queries it, so models and analysts can verify each claim. Counts update at build time from the tracked inventory.</p>
+          <h2 id="provenance-heading">Where does RaWorld get its data?</h2>
+          <p>RaWorld fuses licensed data feeds, official statistics, open-source intelligence, and live sensor networks into one operating picture. Every listed provider is named, attributed, and reconciled against the code that queries it, so models and analysts can verify each claim. Counts update at build time from the tracked inventory.</p>
         </div>
       </section>
       <section class="catalog-section" id="catalog" aria-labelledby="catalog-heading">
@@ -966,7 +966,7 @@ ${providerCards}
         <p class="eyebrow">From source to signal</p>
         <h2>Now watch the signals converge.</h2>
         <p>Open the live map to follow the providers above as one real-time global operating picture.</p>
-        <a class="cta" href="/dashboard">Launch World Monitor <span aria-hidden="true">→</span></a>
+        <a class="cta" href="/dashboard">Launch RaWorld <span aria-hidden="true">→</span></a>
       </section>`;
   const extraStyles = `      .sources-page { --bg: #030504; --panel: #090d0b; --panel-2: #0d1410; --text: #f1f7f2; --muted: #8e9b92; --line: #1d2921; --accent: #4ade80; background: radial-gradient(circle at 50% 0, rgba(74,222,128,.09), transparent 27rem), var(--bg); }
       .sources-page header, .sources-page main, .sources-page footer { max-width: none; padding-left: 0; padding-right: 0; }
@@ -1159,14 +1159,14 @@ ${providerCards}
   return pageDocument({
     baseUrl,
     path,
-    title: sourcePage ? `${sourcePage.name} sources | World Monitor` : 'Data Source Catalog | World Monitor',
+    title: sourcePage ? `${sourcePage.name} sources | RaWorld` : 'Data Source Catalog | RaWorld',
     description,
     lastmod,
     jsonLd: [
       {
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
-        name: 'World Monitor data source catalog',
+        name: 'RaWorld data source catalog',
         description,
         url: pageUrl,
         inLanguage: 'en-US',

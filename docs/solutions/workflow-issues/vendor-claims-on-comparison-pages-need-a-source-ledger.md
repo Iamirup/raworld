@@ -22,7 +22,7 @@ tags: [comparison-pages, fact-check, vendor-claims, source-ledger, cross-page-dr
 
 ## Context
 
-PR #9149 rebuilt `/compare/best-geopolitical-risk-dashboards/` as a ranked 2026 shortlist of eight platforms (World Monitor, Dataminr, Recorded Future, Seerist, Crisis24, Factal, Liveuamap, Off-Nadir Delta). The seed data, validator, and renderer live in `scripts/comparison-shortlist.mjs`. The PR passed CI, a multi-persona code review, CodeRabbit, Greptile, and the author's own rule that every competitor price has a linked source.
+PR #9149 rebuilt `/compare/best-geopolitical-risk-dashboards/` as a ranked 2026 shortlist of eight platforms (RaWorld, Dataminr, Recorded Future, Seerist, Crisis24, Factal, Liveuamap, Off-Nadir Delta). The seed data, validator, and renderer live in `scripts/comparison-shortlist.mjs`. The PR passed CI, a multi-persona code review, CodeRabbit, Greptile, and the author's own rule that every competitor price has a linked source.
 
 A claim-by-claim fact check against live vendor pages then tested 114 competitor claims: 71 CONFIRMED, 24 PARTLY WRONG, 12 WRONG, 7 UNVERIFIABLE. 43 needed corrections (36 wrong or partly wrong, plus 7 with no supporting source). The worst errors:
 
@@ -73,7 +73,7 @@ Save every raw fetch (HTML, text dump, browser snapshot) to disk next to the led
 
 These guards catch the mechanical subset. They do not check facts.
 
-- `shortlistPage` (`scripts/comparison-shortlist.mjs:547`) rejects any World Monitor prose amount that is not a catalog price (`CATALOG_PRICES`, `:83`, built from `shared/product-facts.generated.json`). It also rejects any competitor currency amount in prose (`PROSE_AMOUNT_RE`, `:85`) when the entry has no `pricing.sources` (`:581-587`).
+- `shortlistPage` (`scripts/comparison-shortlist.mjs:547`) rejects any RaWorld prose amount that is not a catalog price (`CATALOG_PRICES`, `:83`, built from `shared/product-facts.generated.json`). It also rejects any competitor currency amount in prose (`PROSE_AMOUNT_RE`, `:85`) when the entry has no `pricing.sources` (`:581-587`).
 - `CHECKED_ON` (`scripts/comparison-shortlist.mjs:118`) puts a "Checked <date>" label next to price sources. Update it when you re-run the ledger.
 - `COMPARISON_PAGE_LASTMOD_PATHS` (`scripts/build-crawlable-corpus.mjs:166-176`) now includes `shared/product-catalog.generated.json` and `public/.well-known/mcp/server-card.json`. A test (`tests/crawlable-corpus.test.mjs:1681-1688`) requires every `readRepoJson('...')` input of the shortlist module to be in that list.
 - `scripts/vercel-ignore.sh:12` and `:82` lists `scripts/comparison-shortlist.mjs`, and `tests/deploy-config.test.mjs:657` and `:692` pins that entry.

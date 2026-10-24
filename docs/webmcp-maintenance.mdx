@@ -1,9 +1,9 @@
 ---
 title: "Maintain and release WebMCP"
-description: "Change, verify, and release WorldMonitor's WebMCP contract without drifting its inventory, UI behavior, security boundary, or bilingual documentation."
+description: "Change, verify, and release RaWorld's WebMCP contract without drifting its inventory, UI behavior, security boundary, or bilingual documentation."
 ---
 
-Use this guide when you change WorldMonitor's WebMCP implementation. For host setup, tool schemas, browser-agent workflows, and user-facing limits, see the [WebMCP reference](/webmcp).
+Use this guide when you change RaWorld's WebMCP implementation. For host setup, tool schemas, browser-agent workflows, and user-facing limits, see the [WebMCP reference](/webmcp).
 
 Treat each WebMCP change as a public UI contract change. Tool names, descriptions, schemas, annotations, outputs, visible effects, cancellation policy, security headers, tests, evals, and both language guides must stay aligned.
 
@@ -112,7 +112,7 @@ Treat the deployment SHA, response headers, inventory, UI behavior, and terminal
 
 ## Compatibility and removal policy
 
-WorldMonitor prefers `document.modelContext.registerTool()`. A legacy-only host falls back to `navigator.modelContext.registerTool()`, then `provideContext({ tools })`. This supports older hosts and scanners such as isitagentready.com that still probe `navigator`. The WebMCP maintainer owns removal after those consumers support current document-based discovery. The fallback creates no globals and does not register on both providers.
+RaWorld prefers `document.modelContext.registerTool()`. A legacy-only host falls back to `navigator.modelContext.registerTool()`, then `provideContext({ tools })`. This supports older hosts and scanners such as isitagentready.com that still probe `navigator`. The WebMCP maintainer owns removal after those consumers support current document-based discovery. The fallback creates no globals and does not register on both providers.
 
 If a future browser transition requires a temporary fallback:
 
@@ -123,4 +123,4 @@ If a future browser transition requires a temporary fallback:
 
 The hosted MCP server remains the supported alternative when WebMCP is unavailable. It is a separate product interface, not a browser fallback.
 
-Chrome documents that Chrome 153 can unregister a tool without cancelling in-flight executions. That lifecycle change does not prove that a released browser passes the invocation's `AbortSignal` to the page. WorldMonitor's one-argument callback note is based on recorded Chrome 149–151 evidence. Re-run the production smoke on each browser milestone and update the [WebMCP reference](/webmcp) from observed results.
+Chrome documents that Chrome 153 can unregister a tool without cancelling in-flight executions. That lifecycle change does not prove that a released browser passes the invocation's `AbortSignal` to the page. RaWorld's one-argument callback note is based on recorded Chrome 149–151 evidence. Re-run the production smoke on each browser milestone and update the [WebMCP reference](/webmcp) from observed results.

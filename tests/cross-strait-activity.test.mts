@@ -1491,7 +1491,7 @@ describe('quantified cross-Strait activity (#5575)', () => {
     );
     assert.equal(calls.every((call) => call.init?.redirect === 'error'), true);
     assert.equal(
-      calls.every((call) => new Headers(call.init?.headers).get('User-Agent')?.includes('WorldMonitor')),
+      calls.every((call) => new Headers(call.init?.headers).get('User-Agent')?.includes('RaWorld')),
       true,
     );
     assert.ok(delays.length > 0);
@@ -3017,7 +3017,7 @@ describe('quantified cross-Strait activity (#5575)', () => {
           assert.equal(init.timeoutMs, 20_000);
           assert.equal(init.maxResponseBytes, CROSS_STRAIT_SOURCE_CONTRACTS.taiwanMnd.maxResponseBytes);
           assert.ok(init.signal instanceof AbortSignal);
-          assert.match(init.headers['User-Agent'], /WorldMonitor/);
+          assert.match(init.headers['User-Agent'], /RaWorld/);
           return { status: 200, buffer: Buffer.from(url.includes('plaactlist') ? list : fixture('mnd-detail.html')) };
         },
       };

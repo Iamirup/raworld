@@ -1,5 +1,5 @@
 /**
- * Canonical https origin of the WorldMonitor web app.
+ * Canonical https origin of the RaWorld web app.
  *
  * The desktop WebView serves the dashboard from `tauri://localhost` (or
  * `https://localhost:<port>` under `desktop:dev`), so a relative link to a

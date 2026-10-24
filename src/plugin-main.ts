@@ -347,7 +347,7 @@ function mountPlugin(): void {
     const coverage = Object.fromEntries(Object.entries(hazardSnapshot?.coverage ?? {}).filter(([key]) => activeSources.includes(key)));
     mapStatus.textContent = effectiveLayers.some(layer => layer === 'natural' || layer === 'fires')
       ? `Global hazard snapshot (up to ${hazardSnapshot?.limitPerSource ?? 100}/source): ${Object.entries(coverage).map(([key, value]) => `${key}: ${value.accepted} valid, ${value.skipped} skipped`).join('; ')}. Country filters apply to news; time controls apply to the map.`
-      : effectiveLayers.length ? 'Landmarks from WorldMonitor reference data; these do not show live activity.' : '';
+      : effectiveLayers.length ? 'Landmarks from RaWorld reference data; these do not show live activity.' : '';
     if (reset && !next.country) map.clearCountryHighlight();
     if (clearCategoryNotice) { categoryNotice.hidden = true; categoryNotice.textContent = ''; }
     renderDigest();
@@ -515,7 +515,7 @@ function mountPlugin(): void {
     countryBriefButton.textContent = 'Select a country for its brief';
     countryBriefButton.addEventListener('click', () => {
       if (!view.country) return;
-      void request('ui/message', { content: [{ type: 'text', text: `Open the WorldMonitor country brief for ${view.country}.` }] }).catch(() => { status.textContent = 'This host cannot open the country brief. Ask for this country’s brief in the conversation.'; });
+      void request('ui/message', { content: [{ type: 'text', text: `Open the RaWorld country brief for ${view.country}.` }] }).catch(() => { status.textContent = 'This host cannot open the country brief. Ask for this country’s brief in the conversation.'; });
     });
     document.getElementById('pluginActions')!.appendChild(countryBriefButton);
     const clear = document.createElement('button');
@@ -584,7 +584,7 @@ function mountPlugin(): void {
       finally { refresh.disabled = false; }
     });
     document.getElementById('pluginActions')!.appendChild(refresh);
-    const initialized = await request('ui/initialize', { appInfo: { name: 'WorldMonitor', version: '1.0.0' }, appCapabilities: { tools: {} }, protocolVersion: '2026-01-26' }) as { hostCapabilities?: { serverTools?: object; openLinks?: object; updateModelContext?: object }; hostContext?: { theme?: string } };
+    const initialized = await request('ui/initialize', { appInfo: { name: 'RaWorld', version: '1.0.0' }, appCapabilities: { tools: {} }, protocolVersion: '2026-01-26' }) as { hostCapabilities?: { serverTools?: object; openLinks?: object; updateModelContext?: object }; hostContext?: { theme?: string } };
     serverTools = Boolean(initialized.hostCapabilities?.serverTools);
     modelContext = Boolean(initialized.hostCapabilities?.updateModelContext);
     openLinks = Boolean(initialized.hostCapabilities?.openLinks);
@@ -598,7 +598,7 @@ function mountPlugin(): void {
       mapClosed = true;
       viewportObservation++;
       observer.disconnect();
-      for (const call of pending.values()) { clearTimeout(call.timer); call.reject(new Error('WorldMonitor view closed.')); }
+      for (const call of pending.values()) { clearTimeout(call.timer); call.reject(new Error('RaWorld view closed.')); }
       pending.clear();
       search.close();
       for (const panel of panels.values()) panel.destroy();
@@ -606,7 +606,7 @@ function mountPlugin(): void {
     }, { once: true });
   }
 
-  void start().catch(error => { status.textContent = `WorldMonitor could not start: ${error instanceof Error ? error.message : 'unknown error'}`; });
+  void start().catch(error => { status.textContent = `RaWorld could not start: ${error instanceof Error ? error.message : 'unknown error'}`; });
 }
 
 if (document.documentElement.dataset.wmPluginManagedBoot === 'true') {

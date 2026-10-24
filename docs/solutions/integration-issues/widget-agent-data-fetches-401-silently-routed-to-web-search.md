@@ -8,7 +8,7 @@ problem_type: integration_issue
 component: assistant
 severity: high
 symptoms:
-  - "\"gold vs silver 30 days chart\" in the Pro Widget Builder showed `Fetching search:gold silver price daily last 30 days 2025…` instead of reading WorldMonitor market data"
+  - "\"gold vs silver 30 days chart\" in the Pro Widget Builder showed `Fetching search:gold silver price daily last 30 days 2025…` instead of reading RaWorld market data"
   - "Axiom `wm_api_usage` rows with `user_agent == 'WorldMonitor-WidgetAgent/1.0'`: 271 of 296 since 2026-06-07 were `401 auth_401`"
   - "Only `list-acled-events` ever returned 200 to the agent, and it stopped on 2026-09-02"
   - "No error surfaced anywhere: widgets still rendered, built from web snippets"
@@ -26,7 +26,7 @@ The widget builder's `fetch_worldmonitor_data` tool, in `handleWidgetAgentReques
 
 ## Symptoms
 
-- The builder showed `Fetching search:…` first on requests that WorldMonitor data covers (commodities, indices, FX, quakes, gas storage).
+- The builder showed `Fetching search:…` first on requests that RaWorld data covers (commodities, indices, FX, quakes, gas storage).
 - Search queries named past years ("… 2025"), because the system prompt has no date in it.
 - Production telemetry held the whole story, but nobody was reading it: `['wm_api_usage'] | where user_agent contains 'WidgetAgent' | summarize n=count() by status, reason, route`.
 - `tests/widget-builder.test.mjs` mocks `fetch`, and one contract test even treats a 401 body as a normal tool result, so CI was green throughout.
@@ -52,7 +52,7 @@ Live authority check with a minted session: `bootstrap?keys=commodityQuotes`, `g
 
 The endpoints are chosen by the model, so whatever the relay sends gives a prompt that much authority. An anonymous `wms_` session is exactly anonymous authority. Anyone can mint one, `forceKey` routes reject it, and the gateway still runs entitlement checks. Fixing the credential, rather than the prompt, fixed the routing. A probe with 25 prompts × 2 on the PRO model (real model, live API, stubbed search) cut the share of runs that searched from 86% to 22%. An enterprise key gave 20%, so staying anonymous costs almost nothing. The remaining searches are real data gaps (weather, sports, retail prices) and "latest" follow-ups.
 
-Verified in production on 2026-09-29, after `ais-relay` deployed the merge commit. Axiom shows the relay's `/api/wm-session` 200 (egress Ashburn). FRED calls return 400, not 401, so they pass auth and fail only on the series ID. Three real `/api/widget-agent` runs went to `bootstrap` first with no search, and their widgets carry WorldMonitor prices (GC=F $4,187.70 against a live bootstrap reading of $4,192 minutes later).
+Verified in production on 2026-09-29, after `ais-relay` deployed the merge commit. Axiom shows the relay's `/api/wm-session` 200 (egress Ashburn). FRED calls return 400, not 401, so they pass auth and fail only on the series ID. Three real `/api/widget-agent` runs went to `bootstrap` first with no search, and their widgets carry RaWorld prices (GC=F $4,187.70 against a live bootstrap reading of $4,192 minutes later).
 
 ## Prevention
 

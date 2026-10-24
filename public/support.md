@@ -1,14 +1,14 @@
 ---
-title: "World Monitor support and contact"
+title: "RaWorld support and contact"
 description: "Support contacts, service status, and issue reporting."
 canonical: "https://www.worldmonitor.app/support.md"
 ---
 
-# Support & Contact - World Monitor
+# Support & Contact - RaWorld
 
 Last updated: July 5, 2026
 
-How to reach World Monitor, by concern. Human-readable version: https://www.worldmonitor.app/docs/support
+How to reach RaWorld, by concern. Human-readable version: https://www.worldmonitor.app/docs/support
 
 ## Channels
 
@@ -16,7 +16,7 @@ How to reach World Monitor, by concern. Human-readable version: https://www.worl
 | --- | --- | --- |
 | General support, account or billing issues | support@worldmonitor.app | Primary support channel for all plans |
 | Enterprise, sales, custom quotas | enterprise@worldmonitor.app | Custom pricing, deployments, higher API limits |
-| Bug reports & feature requests | https://github.com/koala73/worldmonitor/issues | Public open-source repository |
+| Bug reports & feature requests | https://github.com/Iamirup/raworld/issues | Public open-source repository |
 | Service status & incidents | https://status.worldmonitor.app | Email subscription available on the page |
 | In-app contact form | Form on https://www.worldmonitor.app/pro | Submits `POST /api/leads/v1/submit-contact`; Turnstile-protected, intended for humans in a browser — agents should email support@ instead |
 
@@ -39,10 +39,10 @@ How to reach World Monitor, by concern. Human-readable version: https://www.worl
 
 ```json
 {
-  "product": "World Monitor",
+  "product": "RaWorld",
   "support_email": "support@worldmonitor.app",
   "enterprise_email": "enterprise@worldmonitor.app",
-  "issues_url": "https://github.com/koala73/worldmonitor/issues",
+  "issues_url": "https://github.com/Iamirup/raworld/issues",
   "status_url": "https://status.worldmonitor.app",
   "security_txt": "https://www.worldmonitor.app/.well-known/security.txt",
   "sla": { "free": "best-effort", "pro": "best-effort", "api": "best-effort", "enterprise": "contracted" }

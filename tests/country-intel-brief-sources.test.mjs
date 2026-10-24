@@ -54,7 +54,7 @@ describe('country assessment energy grounding', () => {
   });
 
   it('explicitly rejects paraphrases, redundant headlines and companion evidence under the conservative policy', () => {
-    const companion = { id: 'E5', kind: 'chokepoint', label: 'Taiwan Strait', value: '', factText: 'The Taiwan Strait is a shipping chokepoint World Monitor tracks for China.', asOf: '2026-10-17' };
+    const companion = { id: 'E5', kind: 'chokepoint', label: 'Taiwan Strait', value: '', factText: 'The Taiwan Strait is a shipping chokepoint RaWorld tracks for China.', asOf: '2026-10-17' };
     for (const bad of [
       claim('China has a net energy import dependency of 24%.', [], ['E4']),
       claim(energy.factText, [3], ['E4']),
@@ -228,8 +228,8 @@ describe('country assessment relationship grounding', () => {
   });
 
   it('retains a complete attributed forecast about CII without asserting its outcome', () => {
-    const forecast = { id: 'E10', kind: 'forecast', label: 'World Monitor forecast', value: '80%',
-      factText: 'A World Monitor forecast related to China, "Will China have a high Country Instability Index?", gives a 80% probability by Jan 1, 2029, as of Oct 16, 2026.', asOf: '2026-10-16' };
+    const forecast = { id: 'E10', kind: 'forecast', label: 'RaWorld forecast', value: '80%',
+      factText: 'A RaWorld forecast related to China, "Will China have a high Country Instability Index?", gives a 80% probability by Jan 1, 2029, as of Oct 16, 2026.', asOf: '2026-10-16' };
     const result = render({ outlook: [claim(forecast.factText, [], ['E10'])] }, sources, [forecast]);
     assert.deepEqual(result.sections.map(section => section.key), ['situation', 'outlook']);
     assert.equal(result.sections[1].claims[0].text, forecast.factText);

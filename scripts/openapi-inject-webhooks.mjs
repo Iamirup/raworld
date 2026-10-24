@@ -3,7 +3,7 @@
  * Inject the outbound webhook-delivery contract into the OpenAPI bundle.
  *
  * The ShippingV2Service lets partners register a `callbackUrl` (RegisterWebhook)
- * that WorldMonitor POSTs signed events to. The delivery worker
+ * that RaWorld POSTs signed events to. The delivery worker
  * (server/worldmonitor/shipping/v2/deliver-webhook.ts) signs every POST with a
  * versioned HMAC-SHA256 over the timestamp, delivery id, event and raw body.
  * The legacy body-only signature remains available during receiver migration.
@@ -19,7 +19,7 @@
  * named Path Item Objects describing requests the API *initiates*). This step
  * injects one `chokepoint.disruption` webhook documenting the branded
  * headers, the payload schema, and — crucially — the verification recipe, so a
- * consuming agent can confirm a delivery genuinely came from WorldMonitor.
+ * consuming agent can confirm a delivery genuinely came from RaWorld.
  *
  * The event registry (shared/event-triggers.json) also defines
  * `country.risk_surge`. It shares every header and the signature with the
@@ -86,7 +86,7 @@ const WEBHOOKS_BLOCK = `webhooks:
                 - ShippingV2Service
             summary: Chokepoint disruption alert (outbound, signed)
             description: |-
-                WorldMonitor POSTs this event to the \`callbackUrl\` you register via
+                RaWorld POSTs this event to the \`callbackUrl\` you register via
                 RegisterWebhook when a subscribed chokepoint's disruption score is at or
                 above your \`alertThreshold\` (and its live signals above \`minLiveSignal\`
                 when set), once per crossing, including one already in progress at

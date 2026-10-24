@@ -1,9 +1,9 @@
 {
   "shell": {
-    "documentTitle": "World Monitor — Real-Time Global Intelligence Dashboard",
+    "documentTitle": "RaWorld — Real-Time Global Intelligence Dashboard",
     "metaDescription": "Real-time global intelligence platform. Featured in WIRED. Used by 2M+ people across 190 countries. Conflicts, markets, military, open-source intelligence in one view.",
     "offlineTitle": "You're Offline",
-    "offlineMessage": "World Monitor requires an internet connection for real-time intelligence data.",
+    "offlineMessage": "RaWorld requires an internet connection for real-time intelligence data.",
     "offlineRetry": "Retry"
   },
   "header": {
@@ -261,27 +261,6 @@
     "offlineUnavailable": "Offline — live data is currently unavailable.",
     "cachedFallback": "Live data unavailable — showing cached data from {{freshness}}."
   },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "Requires a World Monitor license key",
-    "signInToUnlock": "Sign in to unlock premium features",
-    "signIn": "Sign In to Unlock",
-    "upgradeDesc": "Upgrade to Pro for full access to premium analytics",
-    "upgradeToPro": "Upgrade to Pro",
-    "features": {
-      "orefSirens1": "Real-time Israel missile & rocket alerts",
-      "orefSirens2": "Siren zone mapping with threat classification",
-      "telegramIntel1": "Curated Telegram open-source intelligence channels",
-      "telegramIntel2": "Near-real-time conflict & geopolitical updates",
-      "xIntel1": "Curated X news accounts",
-      "xIntel2": "API-fresh posts and permalinks"
-    }
-  },
-  "auth": {
-    "signIn": "Sign In",
-    "createAccount": "Create account",
-    "settings": "Settings"
-  },
   "mcp": {
     "connectPanel": "Connect MCP",
     "modalTitle": "Connect MCP Server",
@@ -347,16 +326,15 @@
     "phaseError": "Error",
     "previewCheckingHeading": "Connecting the widget builder",
     "previewReadyHeading": "Describe the widget you want",
-    "previewFetchingHeading": "Fetching live WorldMonitor data",
+    "previewFetchingHeading": "Fetching live RaWorld data",
     "previewComposingHeading": "Composing the widget layout",
     "previewErrorHeading": "The preview needs attention",
     "previewCheckingCopy": "We are validating your widget key and backend availability before enabling generation.",
     "previewReadyCopy": "Use a prompt example or describe the exact live view you want. The preview will update here before you save it.",
-    "previewFetchingCopy": "The agent is calling approved WorldMonitor endpoints and shaping the dataset for the widget.",
+    "previewFetchingCopy": "The agent is calling approved RaWorld endpoints and shaping the dataset for the widget.",
     "previewComposingCopy": "The preview is rendering with the latest live data and dashboard styling.",
     "previewErrorCopy": "Fix the issue, then retry. Your existing widgets are unaffected.",
     "createInteractive": "Create Interactive Widget",
-    "proBadge": "PRO",
     "preflightProUnavailable": "PRO widget agent unavailable. Check PRO_WIDGET_KEY on the server.",
     "preflightInvalidProKey": "PRO key rejected. Update wm-pro-key and reload.",
     "preflightProSubscriptionRequired": "Pro subscription required. If you just upgraded, refresh the page; otherwise contact support.",
@@ -503,13 +481,6 @@
       "openSettings": "Open Settings",
       "showMethodologyInfo": "Show methodology info"
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro is launched",
-      "tagline": "More Signal, Less Noise. More AI Briefings. A Geopolitical & Equity Researcher just for you.",
-      "cta": "Upgrade to Pro →",
-      "dismiss": "Dismiss"
-    },
     "settings": {
       "exportSettings": "Export Settings",
       "importSettings": "Import Settings",
@@ -538,7 +509,7 @@
       "infoTooltip": "<strong>Central Bank Watch</strong> Latest statements, rate decisions, and communications from the Federal Reserve, European Central Bank, Bank of England, and other major central banks worldwide."
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>WM Analyst</strong> AI analyst with live context across geopolitical, market, military, and economic domains. Powered by Claude with real-time data injected from active WorldMonitor feeds."
+      "infoTooltip": "<strong>RaWorld Analyst</strong> AI analyst with live context across geopolitical, market, military, and economic domains. Powered by Claude with real-time data injected from active RaWorld feeds."
     },
     "chokepointStrip": {
       "infoTooltip": "Live status for the seven global oil & gas shipping chokepoints. Flow estimates calibrated from Portwatch vessel carrying capacity + ship tracking observations. See /docs/methodology/chokepoints for methodology.",
@@ -622,7 +593,7 @@
       "infoTooltip": "<strong>AI Forecasts</strong> AI-generated probability estimates for geopolitical and economic events:<ul><li>Cross-domain coverage: conflict, markets, supply chain, cyber, political</li><li>Each forecast shows estimated probability, confidence level, and time horizon</li></ul>Forecasts update as new intelligence signals arrive. Filter by domain using the tabs above."
     },
     "fsi": {
-      "infoTooltip": "<strong>Financial Stress Indicator</strong> WorldMonitor ratio of high-yield credit to long Treasuries, adjusted for equity volatility and the high-yield spread: (HYG / TLT) / (VIX × High-yield spread / 100). This is not the Kansas City Fed Financial Stress Index. A reading of 1.5 or higher is low stress; below 0.3 is high stress.",
+      "infoTooltip": "<strong>Financial Stress Indicator</strong> RaWorld ratio of high-yield credit to long Treasuries, adjusted for equity volatility and the high-yield spread: (HYG / TLT) / (VIX × High-yield spread / 100). This is not the Kansas City Fed Financial Stress Index. A reading of 1.5 or higher is low stress; below 0.3 is high stress.",
       "title": "Financial Stress Indicator"
     },
     "fuelPrices": {
@@ -694,7 +665,7 @@
       "infoTooltip": "<strong>Force Posture</strong> Correlates military activity with geopolitical context:<ul><li>Military aircraft and naval vessel concentrations by region</li><li>Cross-references with active conflict zones and news spikes</li><li>Highlights unusual force buildups or repositioning</li></ul>Click a card to zoom to the region on the map."
     },
     "monitors": {
-      "infoTooltip": "<strong>Keyword Monitors</strong> Add any term to track live news mentions across all WorldMonitor sources. Results update in real time as matching articles are ingested."
+      "infoTooltip": "<strong>Keyword Monitors</strong> Add any term to track live news mentions across all RaWorld sources. Results update in real time as matching articles are ingested."
     },
     "oilInventories": {
       "infoTooltip": "<strong>Oil inventories</strong> US commercial crude and strategic reserves, natural gas stocks, European gas storage, and oil stock cover. Sources include the US Energy Information Administration and International Energy Agency."
@@ -805,9 +776,6 @@
     "webcams": {
       "previewStatus": "Ready to play"
     },
-    "passkeyOffer": {
-      "title": "Save a passkey?"
-    },
     "supplyVulnerability": {
       "title": "Commodity Vulnerability"
     },
@@ -822,9 +790,6 @@
         "setSecret": "Set secret",
         "staged": "Staged (save with OK)"
       },
-      "proCloud": "Features without a local API key use World Monitor cloud data.",
-      "skipSetupPro": "Skip the setup: sign in with World Monitor Pro to use cloud data instead of your own API keys.",
-      "getPro": "Get World Monitor Pro",
       "status": {
         "invalid": "Invalid",
         "looksInvalid": "Looks invalid",
@@ -852,7 +817,7 @@
       "shellCancel": "Cancel",
       "shellSaveClose": "Save & Close",
       "shellSearchPlaceholder": "Search settings...",
-      "shellTitle": "World Monitor Settings",
+      "shellTitle": "RaWorld Settings",
       "sidecarError": "Could not reach sidecar to toggle verbose mode",
       "sidecarUnreachable": "Sidecar not reachable.",
       "table": {
@@ -871,15 +836,8 @@
           "title": "License / API Key",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "description": "API Starter and API Business subscribers create this key on the web dashboard under Settings → API Keys. If a full key is lost, revoke it and create a replacement."
-        },
-        "dividerOr": "OR",
-        "register": {
-          "title": "Need an API key?",
-          "description": "See worldmonitor.app/docs/api-keys for step-by-step help. Manual API keys require an API Starter or API Business plan.",
-          "submitBtn": "View API plans"
         }
-      },
-      "freePanelLimit": "Free plan: max {{max}} panels. Upgrade to PRO for unlimited."
+      }
     },
     "mobileWarning": {
       "title": "Mobile View"
@@ -926,6 +884,11 @@
     "deleteTabAria": "Delete tab {{name}}",
     "tabNameAria": "Tab name"
   },
-  "preferences":{"panelFontScale":"Text size","followGlobalFontScale":"Use global"},
-  "countryHistory":{"title":"Daily country history"}
+  "preferences": {
+    "panelFontScale": "Text size",
+    "followGlobalFontScale": "Use global"
+  },
+  "countryHistory": {
+    "title": "Daily country history"
+  }
 }

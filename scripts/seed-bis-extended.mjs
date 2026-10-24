@@ -2,7 +2,7 @@
 
 /**
  * BIS Extended seeder — ships 2 of 7 BIS dataflows flagged as genuinely new
- * signals with clear plug-ins (see issue koala73/worldmonitor#3026):
+ * signals with clear plug-ins (see issue Iamirup/raworld#3026):
  *
  *   WS_DSR   household debt service ratio (% income, quarterly)
  *            → leading indicator of household financial stress

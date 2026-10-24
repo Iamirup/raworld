@@ -196,7 +196,6 @@
     "foodStocksHelp": "Hàng tồn kho nông sản theo tỷ lệ sử dụng của USDA Production, Supply and Distribution theo năm tiếp thị, kèm tỷ lệ toàn cầu để tham khảo. FAOSTAT Food Balances cung cấp dữ liệu sản xuất và cung cấp trong nước khi Production, Supply and Distribution không có bảng cân đối hoàn chỉnh của quốc gia.",
     "loadingFoodStocks": "Loading food stocks…",
     "foodStocksUnavailable": "Food stocks unavailable.",
-    "foodStocksProLocked": "Upgrade to PRO for commodity stocks-to-use",
     "foodStocksCommodity": "Commodity",
     "foodStocksMarketingYear": "Marketing year",
     "foodStocksRatio": "Stocks-to-use",
@@ -214,7 +213,6 @@
       "help": "Cấu trúc tuổi, quy trình đào tạo, và khả năng lực lượng công nghiệp từ UN World Population Prospects, UNESCO Institute for Statistics và World Bank World Development Indicators, cùng ILOSTAT.",
       "loading": "Loading demographics and workforce data…",
       "unavailable": "Demographics and workforce data unavailable.",
-      "proLocked": "Upgrade to PRO for demographics and workforce data",
       "notAvailable": "Not available",
       "ageStructure": "Age structure",
       "education": "Education pipeline",
@@ -240,7 +238,6 @@
       "help": "Điểm bằng chứng v1 cố định cho thực phẩm, năng lượng, nhân khẩu học, công nghệ và quốc phòng. Mở rộng một dòng để kiểm tra đầu vào, nguồn gốc dữ liệu và lý do thiếu dữ liệu.",
       "loading": "Đang tải bảng điểm 5 yếu tố…",
       "unavailable": "Bảng điểm 5 yếu tố không khả dụng.",
-      "proLocked": "Nâng cấp lên PRO để xem bảng điểm khả năng phục hồi 5 yếu tố",
       "insufficient": "Dữ liệu không đủ",
       "notAvailable": "Không khả dụng",
       "noEvidence": "Không có bằng chứng nào cho trụ cột này.",
@@ -297,9 +294,7 @@
         "defense_supplierDiversity": "Đa dạng nhà cung cấp vũ khí"
       }
     },
-    "defenseIndustrialBase": {
-      "proLocked": "Nâng cấp lên PRO để xem phụ thuộc nhà cung cấp vũ khí và năng lực quân sự"
-    }
+    "defenseIndustrialBase": {}
   },
   "header": {
     "world": "THẾ GIỚI",
@@ -709,8 +704,7 @@
       "alertTitle": {
         "configured": "Đã cấu hình cài đặt desktop",
         "needsKeys": "Cấu hình khóa API để mở khóa tính năng",
-        "some": "Một số tính năng cần khóa API",
-        "pro": "World Monitor Pro đang hoạt động"
+        "some": "Một số tính năng cần khóa API"
       },
       "summary": {
         "desktop": "Chế độ desktop",
@@ -739,10 +733,7 @@
         "NASA_FIRMS_API_KEY": "Hệ thống Thông tin Cháy rừng để Quản lý Tài nguyên.",
         "OLLAMA_API_URL": "Ví dụ: http://127.0.0.1:11434 (Ollama) hoặc http://127.0.0.1:1234/v1 (LM Studio) — endpoint tương thích OpenAI.",
         "OLLAMA_MODEL": "Ví dụ: llama3.1:8b — thẻ mô hình dùng để tóm tắt."
-      },
-      "proCloud": "Các tính năng không có khóa API cục bộ sử dụng dữ liệu đám mây World Monitor.",
-      "skipSetupPro": "Bỏ qua thiết lập: đăng nhập bằng World Monitor Pro để sử dụng dữ liệu đám mây thay vì khóa API của riêng bạn.",
-      "getPro": "Nhận World Monitor Pro"
+      }
     },
     "settingsWindow": {
       "validating": "Đang xác thực khóa API...",
@@ -763,12 +754,6 @@
           "title": "Khóa giấy phép / API",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "description": "Người đăng ký API Starter và API Business tạo khóa này trong bảng điều khiển web tại Settings → API Keys. Nếu mất khóa đầy đủ, hãy thu hồi và tạo khóa thay thế."
-        },
-        "dividerOr": "HOẶC",
-        "register": {
-          "title": "Bạn cần khóa API?",
-          "description": "Xem worldmonitor.app/docs/api-keys để được hướng dẫn từng bước. Khóa API thủ công yêu cầu gói API Starter hoặc API Business.",
-          "submitBtn": "Xem các gói API"
         }
       },
       "table": {
@@ -778,12 +763,10 @@
         "status": "Trạng thái",
         "duration": "Thời lượng"
       },
-      "shellTitle": "Cài đặt World Monitor",
+      "shellTitle": "Cài đặt RaWorld",
       "shellSearchPlaceholder": "Tìm kiếm cài đặt...",
       "shellCancel": "Hủy",
-      "shellSaveClose": "Lưu & Đóng",
-      "freePanelLimit": "Gói miễn phí: tối đa {{max}} bảng. Nâng cấp lên PRO để không giới hạn.",
-      "freeSourceLimit": "Gói miễn phí: tối đa {{max}} nguồn. Nâng cấp lên PRO để không giới hạn."
+      "shellSaveClose": "Lưu & Đóng"
     },
     "countryIntel": {
       "identifying": "Đang xác định quốc gia...",
@@ -989,8 +972,7 @@
       "refineryStage": "Refine",
       "stageUnavailable": "No published figures for this stage",
       "withheldNote": "W withheld",
-      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them.",
-      "productionProLocked": "Nâng cấp lên PRO để xem tỷ lệ mỏ và nhà máy lọc theo quốc gia với tập trung (chỉ số tập trung nhà sản xuất) theo giai đoạn."
+      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them."
     },
     "tradePolicy": {
       "tariffs": "Thuế quan",
@@ -1084,7 +1066,7 @@
       "skipToEnd": "Tới cuối"
     },
     "pizzint": {
-      "indexSource": "Chỉ số: World Monitor · dữ liệu địa điểm:",
+      "indexSource": "Chỉ số: RaWorld · dữ liệu địa điểm:",
       "statusNormal": "BÌNH THƯỜNG",
       "statusNoData": "KHÔNG CÓ DỮ LIỆU",
       "statusNoBaseline": "KHÔNG CÓ MỐC CHUẨN",
@@ -1093,7 +1075,7 @@
       "defcon": "DEFCON {{level}}",
       "updated": "Cập nhật {{timeAgo}}",
       "tensionsTitle": "Căng thẳng Địa chính trị",
-      "tensionsSource": "Căng thẳng: World Monitor tính từ các sự kiện GDELT",
+      "tensionsSource": "Căng thẳng: RaWorld tính từ các sự kiện GDELT",
       "insufficientData": "Không đủ dữ liệu",
       "pizzaUnavailable": "Không có dữ liệu hoạt động của các tiệm pizza",
       "source": "Nguồn:",
@@ -1771,7 +1753,7 @@
       "staleReport": "Báo cáo đã cũ",
       "reported": "Số lượng",
       "period": "Kỳ",
-      "movementNote": "Mỗi hàng giữ nguyên nguồn, ngày báo cáo và chỉ số. Số dân tại một thời điểm, số người đến và số sự kiện kiểm soát biên giới là các chỉ số khác nhau. Các nguồn có thể trùng lặp; không cộng số liệu của chúng. WorldMonitor tạo chế độ xem này từ các nguồn được liên kết; điều này không hàm ý sự chứng thực của nhà cung cấp.",
+      "movementNote": "Mỗi hàng giữ nguyên nguồn, ngày báo cáo và chỉ số. Số dân tại một thời điểm, số người đến và số sự kiện kiểm soát biên giới là các chỉ số khác nhau. Các nguồn có thể trùng lặp; không cộng số liệu của chúng. RaWorld tạo chế độ xem này từ các nguồn được liên kết; điều này không hàm ý sự chứng thực của nhà cung cấp.",
       "recent": "Gần đây",
       "last30Days": "30 ngày qua",
       "newThisWeek": "Mới trong tuần này",
@@ -2165,7 +2147,7 @@
       "tripDays": "Ngày chuyến đi"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>Nhà phân tích WM</strong> Nhà phân tích AI với bối cảnh trực tiếp trên các lĩnh vực địa chính trị, thị trường, quân sự và kinh tế. Được hỗ trợ bởi Claude với dữ liệu thời gian thực từ các nguồn cấp WorldMonitor đang hoạt động."
+      "infoTooltip": "<strong>Nhà phân tích WM</strong> Nhà phân tích AI với bối cảnh trực tiếp trên các lĩnh vực địa chính trị, thị trường, quân sự và kinh tế. Được hỗ trợ bởi Claude với dữ liệu thời gian thực từ các nguồn cấp RaWorld đang hoạt động."
     },
     "cotPositioning": {
       "infoTooltip": "<strong>Futures positioning</strong> Vị thế ròng hàng tuần cho các nhà giao dịch thương mại, nhà đầu cơ lớn và nhà đầu cơ nhỏ trên các hợp đồng tương lai hàng hóa và tài chính. Nguồn là báo cáo Commitments of Traders từ Ủy ban Thương mại Hợp đồng Tương lai, được công bố vào các ngày thứ Sáu."
@@ -2223,7 +2205,7 @@
       "infoTooltip": "<strong>Economic Calendar</strong> Phát hành kinh tế vĩ mô được lên lịch: chỉ số giá tiêu dùng, tính bảng lương ngoài nông nghiệp, tổng sản phẩm quốc nội, chỉ số quản lý mua hàng và quyết định ngân hàng trung ương. Hiển thị dự báo so với thực tế so với trước. Các sự kiện tác động cao được làm nổi bật. Nguồn: nhà cung cấp dữ liệu kinh tế."
     },
     "fsi": {
-      "infoTooltip": "<strong>Financial Stress Indicator</strong> Tỷ lệ World Monitor của tín dụng cao lợi nhuận so với Kho bạc dài hạn, được điều chỉnh theo biến động vốn chủ sở hữu và mức chênh lệch cao lợi nhuận: (HYG / TLT) / (VIX × Mức chênh lệch cao lợi nhuận / 100). Đây không phải là Chỉ số Căng thẳng Tài chính của Cục Dự trữ Kansas City. Giá trị 1,5 hoặc cao hơn là căng thẳng thấp; dưới 0,3 là căng thẳng cao.",
+      "infoTooltip": "<strong>Financial Stress Indicator</strong> Tỷ lệ RaWorld của tín dụng cao lợi nhuận so với Kho bạc dài hạn, được điều chỉnh theo biến động vốn chủ sở hữu và mức chênh lệch cao lợi nhuận: (HYG / TLT) / (VIX × Mức chênh lệch cao lợi nhuận / 100). Đây không phải là Chỉ số Căng thẳng Tài chính của Cục Dự trữ Kansas City. Giá trị 1,5 hoặc cao hơn là căng thẳng thấp; dưới 0,3 là căng thẳng cao.",
       "title": "Chỉ Số Áp Lực Tài Chính",
       "usFsiValue": "Giá trị Chỉ số Căng thẳng Tài chính của Mỹ",
       "cissTitle": "EU CISS (Áp Lực Hệ Thống Vùng Euro)",
@@ -2281,8 +2263,7 @@
       "dependentCommodities": "Hàng hóa phụ thuộc",
       "stateOk": "Hiện tại",
       "stateStale": "Đầu vào cũ",
-      "stateInsufficient": "Không đủ dữ liệu",
-      "proLocked": "Nâng cấp lên PRO để xem điểm số lỗ hổng hàng hóa"
+      "stateInsufficient": "Không đủ dữ liệu"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>Hormuz Trade Tracker</strong> Theo dõi thời gian thực của các tàu qua Eo biển Hormuz, điểm nghẽn dầu quan trọng nhất thế giới. Giám sát số lượng tàu chở dầu, sự kiện gián đoạn và thay đổi dòng chảy hàng tuần. Khoảng 20% nguồn cung dầu toàn cầu đi qua đây hàng ngày.",
@@ -2307,7 +2288,7 @@
       "infoTooltip": "<strong>Macro indicators</strong> Chỉ báo giá, hoạt động, chính sách và tiền tệ của Mỹ, khu vực euro và Trung Quốc. Trung Quốc yêu cầu tính bao quát hiện tại. Mỗi tile hiển thị nguồn và ngày quan sát của nó."
     },
     "monitors": {
-      "infoTooltip": "<strong>Giám sát từ khóa</strong> Thêm bất kỳ thuật ngữ nào để theo dõi đề cập tin tức thời gian thực từ tất cả nguồn WorldMonitor. Kết quả cập nhật theo thời gian thực khi các bài viết phù hợp được thu thập."
+      "infoTooltip": "<strong>Giám sát từ khóa</strong> Thêm bất kỳ thuật ngữ nào để theo dõi đề cập tin tức thời gian thực từ tất cả nguồn RaWorld. Kết quả cập nhật theo thời gian thực khi các bài viết phù hợp được thu thập."
     },
     "renewable": {
       "infoTooltip": "<strong>Renewable Energy</strong> Tỷ lệ sinh điện từ năng lượng tái tạo theo khu vực và năm, cộng với công suất lắp đặt của Mỹ cho năng lượng mặt trời, gió và than (MW). Nguồn: World Bank (EG.ELC.RNEW.ZS) và Cơ quan Thông tin Năng lượng Mỹ."
@@ -2533,108 +2514,11 @@
     "wsbTickerScanner": {
       "infoTooltip": "<strong>WallStreetBets Ticker Scanner</strong> Đề cập mã ticker theo thời gian thực từ r/wallstreetbets, r/stocks và r/investing. Xếp hạng theo tần suất đề cập và mức độ tham gia. Vận tốc đo lường tốc độ mà mã ticker tăng đà trên các bài viết."
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro đã được phát hành",
-      "tagline": "Nhiều tín hiệu, ít nhiễu. Nhiều AI Briefings. Một nhà nghiên cứu Địa chính trị & Vốn chỉ dành cho bạn.",
-      "cta": "Nâng cấp lên Pro →",
-      "dismiss": "Bỏ qua"
-    },
-    "billingState": {
-      "onHoldDesc": "Thanh toán không thành công. Cập nhật phương thức thanh toán của bạn để khôi phục quyền truy cập cao cấp.",
-      "onHoldBannerMessage": "Thanh toán không thành công. Cập nhật phương thức thanh toán của bạn để duy trì gói đăng ký.",
-      "updatePayment": "Cập nhật thanh toán",
-      "renewalPendingDesc": "Chúng tôi đang xác minh việc gia hạn gói đăng ký của bạn. Quyền truy cập cao cấp sẽ tự động được khôi phục sau khi xác nhận.",
-      "refreshStatus": "Làm mới trạng thái",
-      "renewalFailedDesc": "Chúng tôi không thể xác minh việc gia hạn gói đăng ký của bạn. Quản lý thanh toán hoặc liên hệ hỗ trợ nếu sự cố vẫn tiếp diễn.",
-      "manageBilling": "Quản lý thanh toán",
-      "lapsedDesc": "Gói đăng ký Pro của bạn đã kết thúc. Đăng ký lại để lấy lại quyền truy cập cao cấp.",
-      "resubscribe": "Đăng ký lại"
-    },
     "checkoutFailureBanner": {
       "message": "Không thể hoàn tất thanh toán. Không có khoản phí nào được tính.",
       "retry": "Thử lại",
       "retrying": "Đang thử lại…",
       "dismiss": "Bỏ qua"
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "Bước {{current}} / {{total}}",
-      "closeLabel": "Bỏ qua thiết lập",
-      "ariaLabel": "Thiết lập kích hoạt Pro",
-      "signedInAs": "Đã đăng nhập với {{email}}",
-      "steps": {
-        "brief": {
-          "heading": "Bản tóm tắt hằng ngày của bạn, mỗi sáng",
-          "body": "Một bản tóm tắt tình báo được chọn lọc trong hộp thư của bạn mỗi sáng — những tín hiệu quan trọng qua đêm, được cô đọng thành bài đọc năm phút.",
-          "confirmCta": "Bật bản tóm tắt buổi sáng của tôi",
-          "confirming": "Đang bật…",
-          "doneNote": "Bản tóm tắt buổi sáng của bạn đã đang chạy.",
-          "scheduleNote": "Chúng tôi sẽ giữ nguyên thời gian gửi hiện tại của bạn.",
-          "summaryLabel": "Bản tóm tắt buổi sáng",
-          "summaryVerified": "Đang bật — bắt đầu từ bản tóm tắt buổi sáng tiếp theo của bạn.",
-          "deliverAt": "Gửi lúc",
-          "previewLoading": "Đang chuẩn bị bản xem trước bản tóm tắt đầu tiên của bạn…",
-          "previewLabel": "Bản tóm tắt sáng nay"
-        },
-        "alerts": {
-          "heading": "Cảnh báo quan trọng",
-          "body": "Nhận thông báo trên trình duyệt khi có điều gì đó lớn xảy ra — leo thang xung đột, chấn động thị trường, các lệnh trừng phạt mới. Điều chỉnh tần suất bất cứ lúc nào trong Cài đặt.",
-          "confirmCta": "Bật cảnh báo",
-          "confirming": "Đang bật…",
-          "doneNote": "Cảnh báo trình duyệt đã được bật.",
-          "blockedNote": "Thông báo đang bị chặn trong trình duyệt của bạn. Hãy bật chúng trong cài đặt trang web của trình duyệt để nhận cảnh báo.",
-          "declinedNote": "Không sao — chúng tôi sẽ không gửi cảnh báo trình duyệt. Bạn có thể bật chúng sau này từ cài đặt trang web của trình duyệt.",
-          "summaryLabel": "Cảnh báo quan trọng",
-          "summaryVerified": "Đang bật — các tín hiệu quan trọng sẽ được gửi đến trình duyệt của bạn."
-        },
-        "power": {
-          "heading": "Bộ công cụ Pro của bạn",
-          "body": "Widget tùy chỉnh, kết nối MCP và nhà nghiên cứu AI đã được mở khóa. Xây dựng bảng điều khiển mà bạn thực sự muốn theo dõi.",
-          "confirmCta": "Khám phá công cụ Pro",
-          "confirming": "Đang mở…",
-          "doneNote": "Bạn đã đang sử dụng các công cụ Pro của mình.",
-          "summaryLabel": "Bộ công cụ Pro",
-          "summaryVerified": "Đã mở khóa và sẵn sàng khi bạn sẵn sàng.",
-          "channelsNote": "Bạn thích Telegram, Slack, Discord hay webhook hơn?",
-          "pointers": {
-            "search": "Tìm kiếm toàn bộ bảng điều khiển",
-            "widgets": "Tạo widget tùy chỉnh",
-            "analyst": "Hỏi nhà phân tích AI",
-            "mcpClients": "Thiết lập MCP",
-            "channels": "Thiết lập chúng trong cài đặt thông báo"
-          }
-        }
-      },
-      "status": {
-        "pending": "Chưa thiết lập",
-        "inFlight": "Đang thiết lập…",
-        "verified": "Sẵn sàng",
-        "failed": "Không thành công",
-        "blocked": "Đã bị chặn",
-        "unavailable": "Không khả dụng",
-        "blockedNote": "Tính năng này hiện không khả dụng — bạn có thể thiết lập sau từ cài đặt.",
-        "unavailableNote": "Tính năng này không khả dụng trên thiết bị của bạn — bạn có thể thiết lập sau.",
-        "failedBody": "Đã xảy ra sự cố. Bạn có thể thử lại hoặc thiết lập sau từ cài đặt.",
-        "retry": "Thử lại"
-      },
-      "actions": {
-        "skip": "Bỏ qua lúc này",
-        "continue": "Tiếp tục"
-      },
-      "summary": {
-        "heading": "Mọi thứ đã sẵn sàng",
-        "subVerified": "Đây là những gì đang chạy trên tài khoản của bạn.",
-        "subPending": "Bạn có thể hoàn tất thiết lập bất cứ lúc nào từ cài đặt.",
-        "linePending": "Chưa thiết lập — hoàn tất bất cứ lúc nào trong cài đặt.",
-        "lineFailed": "Chúng tôi không thể thiết lập việc này — hãy thử lại từ cài đặt.",
-        "finish": "Đi tới bảng điều khiển của tôi"
-      },
-      "chip": {
-        "message": "Hoàn tất thiết lập tài khoản Pro của bạn.",
-        "action": "Hoàn tất thiết lập",
-        "dismissLabel": "Bỏ qua"
-      }
     },
     "frameworkSelector": {
       "label": "Khung phân tích",
@@ -2848,20 +2732,10 @@
       }
     },
     "exportGate": {
-      "signedOutDesc": "Đăng nhập để xuất dữ liệu bảng điều khiển dưới dạng CSV, JSON hoặc PDF.",
-      "upgradeDesc": "Xuất dữ liệu (CSV, JSON, PDF) được bao gồm trong Pro Business.",
-      "upgradeCta": "Nâng cấp lên Pro Business",
       "lockedAriaLabel": "Xuất dữ liệu — đã khóa. {{reason}}",
       "unlockedAnnouncement": "Xuất dữ liệu đã được mở khóa.",
       "preparingPdf": "Đang chuẩn bị PDF…",
       "pdfFailed": "Không thể tạo báo cáo PDF. Thử lại hoặc sử dụng xuất JSON."
-    },
-    "tabCap": {
-      "signedOutDesc": "Không gian làm việc chưa đăng nhập bị giới hạn ở {{cap}} tab. Đăng nhập để thêm.",
-      "upgradeDesc": "Bạn đã đạt giới hạn {{cap}} tab bảng điều khiển.",
-      "upgradeCta": "Nâng cấp để có thêm",
-      "lockedAriaLabel": "Thêm tab — đã khóa. {{reason}}",
-      "unlockedAnnouncement": "Giới hạn tab bảng điều khiển đã được dỡ bỏ."
     },
     "fx": {
       "infoTooltip": "<strong>Currency rates</strong> Căng thẳng xếp hạng 45 tiền tệ theo mức giảm lớn nhất trong 24 tháng, với thay đổi 12 tháng. Tỷ giá ghi spot sử dụng cơ sở đô la Mỹ và euro riêng biệt. Tỷ giá ruble Nga là ruble trên một đơn vị. Các nguồn bao gồm Yahoo Finance, Ngân hàng Trung ương Châu Âu và Ngân hàng Nga.",
@@ -2895,18 +2769,6 @@
       "rubPerUnit": "Rúp trên mỗi đơn vị",
       "sourceCbr": "Nguồn: Ngân hàng Trung ương Nga"
     },
-    "passkeyOffer": {
-      "title": "Lưu khóa truy cập?",
-      "body": "Lần tới hãy đăng nhập bằng vân tay, khuôn mặt hoặc mã PIN của thiết bị — không cần nhớ mật khẩu.",
-      "accept": "Lưu khóa truy cập",
-      "dismiss": "Để sau",
-      "close": "Đóng",
-      "announce": "Lưu khóa truy cập để đăng nhập nhanh hơn lần tới.",
-      "busy": "Đang chờ thiết bị của bạn…",
-      "succeeded": "Khóa truy cập đã lưu. Bạn có thể sử dụng nó lần tới khi đăng nhập.",
-      "retryable": "Quá trình chưa hoàn tất. Bạn có thể thử lại.",
-      "failed": "Chúng tôi không thể lưu khóa truy cập trên thiết bị này."
-    },
     "decisionBrief": {
       "commodityTitle": "Bản tóm tắt quyết định về hàng hóa",
       "commodity": "Hàng hóa / sản phẩm",
@@ -2925,8 +2787,7 @@
       "changed": "Lựa chọn đã thay đổi. Hãy lấy cả hai kịch bản trước khi xuất.",
       "loading": "Đang lấy cả hai kịch bản…",
       "captured": "Đã lấy. Kiểm tra ngày quan sát và các hạn chế trước khi tải xuống.",
-      "failed": "Không thể lấy các kịch bản. Kiểm tra quyền truy cập và thử lại. Không có kết quả để xuất.",
-      "locked": "Bản tóm tắt quyết định có trong Pro."
+      "failed": "Không thể lấy các kịch bản. Kiểm tra quyền truy cập và thử lại. Không có kết quả để xuất."
     },
     "liveMedia": {
       "idleStatus": "Tạm dừng do không hoạt động",
@@ -3649,10 +3510,10 @@
     "copyCoordinates": "Sao chép tọa độ"
   },
   "shell": {
-    "documentTitle": "World Monitor — Bảng điều khiển tình báo toàn cầu theo thời gian thực",
+    "documentTitle": "RaWorld — Bảng điều khiển tình báo toàn cầu theo thời gian thực",
     "metaDescription": "Nền tảng tình báo toàn cầu thời gian thực. Được đăng trên WIRED. Được sử dụng bởi hơn 2 triệu người trên 190 quốc gia. Xung đột, thị trường, quân sự, tình báo nguồn mở trong một giao diện.",
     "offlineTitle": "Bạn Đang Ngoài Kết Nối",
-    "offlineMessage": "World Monitor cần kết nối internet để cập nhật dữ liệu tình báo real-time.",
+    "offlineMessage": "RaWorld cần kết nối internet để cập nhật dữ liệu tình báo real-time.",
     "offlineRetry": "Thử Lại"
   },
   "widgets": {
@@ -3690,16 +3551,15 @@
     "phaseError": "Lỗi",
     "previewCheckingHeading": "Kết nối trình tạo tiện ích",
     "previewReadyHeading": "Mô tả tiện ích bạn muốn",
-    "previewFetchingHeading": "Đang tìm nạp dữ liệu WorldMonitor trực tiếp",
+    "previewFetchingHeading": "Đang tìm nạp dữ liệu RaWorld trực tiếp",
     "previewComposingHeading": "Đang soạn bố cục tiện ích",
     "previewErrorHeading": "Bản xem trước cần chú ý",
     "previewCheckingCopy": "Chúng tôi đang xác thực khóa tiện ích của bạn và tính khả dụng của backend trước khi kích hoạt tạo.",
     "previewReadyCopy": "Sử dụng ví dụ nhắc nhở hoặc mô tả chính xác giao diện trực tiếp mà bạn muốn. Bản xem trước sẽ cập nhật tại đây trước khi bạn lưu.",
-    "previewFetchingCopy": "Đại lý đang gọi các endpoint WorldMonitor được phê duyệt và định hình tập dữ liệu cho tiện ích.",
+    "previewFetchingCopy": "Đại lý đang gọi các endpoint RaWorld được phê duyệt và định hình tập dữ liệu cho tiện ích.",
     "previewComposingCopy": "Bản xem trước đang hiển thị với dữ liệu trực tiếp mới nhất và kiểu bảng điều khiển.",
     "previewErrorCopy": "Khắc phục sự cố, sau đó thử lại. Các tiện ích hiện tại của bạn không bị ảnh hưởng.",
     "createInteractive": "Tạo tiện ích tương tác",
-    "proBadge": "PRO",
     "preflightProUnavailable": "Đại lý tiện ích PRO không khả dụng. Kiểm tra PRO_WIDGET_KEY trên máy chủ.",
     "preflightInvalidProKey": "Khóa PRO bị từ chối. Cập nhật wm-pro-key và tải lại.",
     "preflightProSubscriptionRequired": "Yêu cầu đăng ký Pro. Nếu bạn vừa nâng cấp, hãy làm mới trang; nếu không, hãy liên hệ hỗ trợ.",
@@ -3721,28 +3581,6 @@
     "offlineCached": "Ngoại tuyến — hiển thị dữ liệu đã lưu từ {{freshness}}.",
     "offlineUnavailable": "Ngoại tuyến — dữ liệu trực tiếp hiện không khả dụng.",
     "cachedFallback": "Dữ liệu trực tiếp không khả dụng — hiển thị dữ liệu đã lưu từ {{freshness}}."
-  },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "Yêu cầu khóa giấy phép World Monitor",
-    "signInToUnlock": "Đăng nhập để mở khóa các tính năng cao cấp",
-    "signIn": "Đăng nhập để mở khóa",
-    "upgradeDesc": "Nâng cấp lên Pro để có quyền truy cập đầy đủ vào phân tích cao cấp",
-    "upgradeToPro": "Nâng cấp lên Pro",
-    "features": {
-      "orefSirens1": "Cảnh báo tên lửa và rocket Israel theo thời gian thực",
-      "orefSirens2": "Lập bản đồ vùng còi với phân loại mối đe dọa",
-      "telegramIntel1": "Các kênh thông tin nguồn mở Telegram được tuyển chọn",
-      "telegramIntel2": "Các cập nhật xung đột và địa chính trị gần thời gian thực",
-      "xIntel1": "Curated public news accounts on X",
-      "xIntel2": "API-fresh posts with official permalinks"
-    }
-  },
-  "auth": {
-    "signIn": "Đăng nhập",
-    "createAccount": "Tạo tài khoản",
-    "settings": "Cài đặt",
-    "passkeyOffer": {}
   },
   "mcp": {
     "connectPanel": "Kết nối MCP",
@@ -3831,8 +3669,6 @@
     "resilience": "Khả năng chống chịu",
     "ciiMissing": "CII không khả dụng",
     "resilienceMissing": "Khả năng chống chịu không khả dụng",
-    "noEvents": "Không có tiêu đề được chọn nào được ghi nhận cho ngày này. Điều này không chứng minh rằng không có sự kiện xảy ra.",
-    "unlock90": "Mở khóa 90 ngày với Pro",
-    "unlock365": "Mở khóa 365 ngày với gói API"
+    "noEvents": "Không có tiêu đề được chọn nào được ghi nhận cho ngày này. Điều này không chứng minh rằng không có sự kiện xảy ra."
   }
 }

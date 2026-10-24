@@ -78,7 +78,7 @@ paths:
                                         - "example"
                                       "cause": "example"
                                       "country": "US"
-                                      "description": "Example WorldMonitor observation."
+                                      "description": "Example RaWorld observation."
                                       "detectedAt": 1717200000000
                                       "id": "example-id"
                                 "pagination":
@@ -206,10 +206,10 @@ paths:
                             example:
                                 "statuses":
                                     - "checkedAt": 1717200000000
-                                      "description": "Example WorldMonitor observation."
+                                      "description": "Example RaWorld observation."
                                       "id": "example-id"
                                       "latencyMs": 1
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                             schema:
                                 $ref: '#/components/schemas/ListServiceStatusesResponse'
                 "400":
@@ -595,7 +595,7 @@ paths:
                             example:
                                 "code": "example"
                                 "country": "US"
-                                "displayName": "WorldMonitor Analyst"
+                                "displayName": "RaWorld Analyst"
                                 "error": "example"
                             schema:
                                 $ref: '#/components/schemas/ReverseGeocodeResponse'
@@ -1027,7 +1027,7 @@ paths:
                                         "confidence": 0.82
                                         "evidence":
                                             - "source": "example"
-                                              "summary": "Example WorldMonitor observation."
+                                              "summary": "Example RaWorld observation."
                                               "ts": 1
                                         "lastUpdated": 1
                                         "score": 42.5
@@ -1143,7 +1143,7 @@ paths:
                                 "anomalies":
                                     - "currentCount": 1
                                       "expectedCount": 1
-                                      "message": "Example WorldMonitor observation."
+                                      "message": "Example RaWorld observation."
                                       "multiplier": 1.5
                                       "region": "example"
                                 "computedAt": "2026-01-15T12:00:00Z"
@@ -1386,7 +1386,7 @@ paths:
                             example:
                                 "anomalies":
                                     - "asn": "example"
-                                      "asnName": "WorldMonitor Analyst"
+                                      "asnName": "RaWorld Analyst"
                                       "endDate": 1717200000000
                                       "latitude": 40.7128
                                       "locationCode": "US"
@@ -1482,12 +1482,12 @@ components:
             type: apiKey
             in: header
             name: X-WorldMonitor-Key
-            description: User-issued WorldMonitor API key.
+            description: User-issued RaWorld API key.
         ApiKeyHeader:
             type: apiKey
             in: header
             name: X-Api-Key
-            description: Alias header for the WorldMonitor API key (X-WorldMonitor-Key).
+            description: Alias header for the RaWorld API key (X-WorldMonitor-Key).
     schemas:
         JmespathProjectionError:
             description: Returned when a REST jmespath projection is invalid or exceeds the expression/output byte limits.

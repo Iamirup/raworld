@@ -744,7 +744,7 @@ describe('Search Console site totals and brand split', () => {
   });
 
   it('classifies the brand spellings seen in Search Console and nothing generic', () => {
-    for (const query of ['world monitor', 'worldmonitor', 'World Monitor app', 'worldmonitor.ap',
+    for (const query of ['world monitor', 'worldmonitor', 'RaWorld app', 'worldmonitor.ap',
       'word monitor', 'world-monitor github', 'ワールドモニター']) {
       assert.equal(isBrandQuery(query), true, query);
     }
@@ -878,7 +878,7 @@ describe('Search Console coverage totals recorded by hand', () => {
     pageWithRedirect: 1685,
     notFound404: 666,
     crawledNotIndexed: 1486,
-    source: 'https://github.com/koala73/worldmonitor/issues/8602',
+    source: 'https://github.com/Iamirup/raworld/issues/8602',
     ...extra,
   });
   const ledger = (...readings) => JSON.stringify({ readings });

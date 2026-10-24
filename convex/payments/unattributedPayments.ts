@@ -260,7 +260,7 @@ export const notifyUnattributedPayment = internalAction({
     try {
       result = await sendResendEmail(ctx, {
         apiKey,
-        from: "World Monitor <noreply@worldmonitor.app>",
+        from: "RaWorld <noreply@worldmonitor.app>",
         to: ADMIN_EMAIL,
         subject,
         html,

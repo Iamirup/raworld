@@ -9,7 +9,7 @@ import { ArchiveSource, CombinedSource, LiveSource } from './sources.mjs';
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const DATA_DIR = path.join(ROOT, 'data');
 export const ARCHIVE_DIR = path.join(DATA_DIR, 'archive');
-// Committed, dated snapshots of real WorldMonitor data (see snapshots/README.md).
+// Committed, dated snapshots of real RaWorld data (see snapshots/README.md).
 export const SNAPSHOT_DIR = path.join(ROOT, 'snapshots');
 
 /**
@@ -17,7 +17,7 @@ export const SNAPSHOT_DIR = path.join(ROOT, 'snapshots');
  * the repository's own .env.local and .env two levels up. A variable that is
  * already set, or set to an empty value, is never overwritten, and an empty
  * assignment (every line of .env.example) never blocks a later file. The
- * presenter's keys (WorldMonitor, Anthropic, LiveAvatar) already live in the
+ * presenter's keys (RaWorld, Anthropic, LiveAvatar) already live in the
  * repo's .env.local; they need not be copied here.
  */
 export function loadEnv(files = envFiles()) {
@@ -35,9 +35,9 @@ export function envFiles() {
 }
 
 /**
- * Live WorldMonitor MCP when a key is set, with the archived and committed
+ * Live RaWorld MCP when a key is set, with the archived and committed
  * snapshots behind it. DESK_OFFLINE=1 (npm run offline) reads the snapshots
- * only: real WorldMonitor data, no network, no keys: no Claude, no article
+ * only: real RaWorld data, no network, no keys: no Claude, no article
  * fetches, no live backdrop.
  */
 export function buildDesk({ offline = process.env.DESK_OFFLINE === '1' } = {}) {

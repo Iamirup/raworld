@@ -1,4 +1,4 @@
-// HTTP client for the hosted WorldMonitor API. Public reads need no credential;
+// HTTP client for the hosted RaWorld API. Public reads need no credential;
 // session reads mint an anonymous short-lived token exactly like the browser
 // (POST /api/wm-session) and send it in X-WorldMonitor-Key. A user API key, when
 // configured, is sent instead of the session token.

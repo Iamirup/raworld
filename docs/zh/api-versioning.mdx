@@ -1,9 +1,9 @@
 ---
 title: "API 版本控制与弃用"
-description: "WorldMonitor REST API 的兼容性保证、弃用通知和停用信号，供智能体和长期集成使用。"
+description: "RaWorld REST API 的兼容性保证、弃用通知和停用信号，供智能体和长期集成使用。"
 ---
 
-WorldMonitor 在 URL 路径中标明公共 REST API 的版本：
+RaWorld 在 URL 路径中标明公共 REST API 的版本：
 
 ```
 https://api.worldmonitor.app/api/<domain>/v<major>/<operation>
@@ -14,7 +14,7 @@ https://api.worldmonitor.app/api/<domain>/v<major>/<operation>
 
 ## 主版本内的兼容性
 
-在已发布的主版本内，WorldMonitor 可能会新增可选的请求字段、响应字段、操作和枚举值。
+在已发布的主版本内，RaWorld 可能会新增可选的请求字段、响应字段、操作和枚举值。
 现有字段的含义和类型保持不变。除非发布新的主版本路径，否则我们不会删除或重命名
 操作或字段、将可选字段改为必填字段，或有意引入其他破坏性变更。
 
@@ -23,7 +23,7 @@ https://api.worldmonitor.app/api/<domain>/v<major>/<operation>
 
 ## 弃用时间表
 
-当 WorldMonitor 替换或停用公共 REST 版本或操作时：
+当 RaWorld 替换或停用公共 REST 版本或操作时：
 
 1. 我们会在 API 文档和[更新日志](/zh/changelog)中发布替代方案和迁移指南。
 2. 自公开宣布弃用之日起，被弃用的接口将继续可用至少 **六个月**。
@@ -39,7 +39,7 @@ https://api.worldmonitor.app/api/<domain>/v<major>/<operation>
 
 [RFC 9745](https://www.rfc-editor.org/rfc/rfc9745.html) 允许在没有 `Deprecation`
 响应头的情况下发送带有 `rel="deprecation"` 的 `Link`，以便智能体在任何接口停用之前找到本政策。
-当前 WorldMonitor API 和首页响应可能包含：
+当前 RaWorld API 和首页响应可能包含：
 
 ```http
 Link: <https://www.worldmonitor.app/api-versioning.md>; rel="deprecation"; type="text/markdown"

@@ -1,17 +1,17 @@
 ---
-title: "关于 World Monitor"
-description: "World Monitor 是免费、开源的实时全球情报仪表盘，在一张实时地图上关联地缘政治、市场、能源、航运与网络安全信号，并提供警报、API 与 Pro AI 分析师。由 Anghami 联合创始人 Elie Habib 打造，190+ 个国家的 200 万+ 用户正在使用。"
+title: "关于 RaWorld"
+description: "RaWorld 是免费、开源的实时全球情报仪表盘，在一张实时地图上关联地缘政治、市场、能源、航运与网络安全信号，并提供警报、API 与 Pro AI 分析师。由 Anghami 联合创始人 Elie Habib 打造，190+ 个国家的 200 万+ 用户正在使用。"
 ---
 
 {/* 规范版「关于」页面，与英文版 /about 保持同一结构。英文版的库存计数由 `npm run product:facts` 生成；本页刻意不写库存数字，因为没有生成器维护它们。Pro 价格由同一生成器的调价逻辑改写。 */}
 
-World Monitor 是一个免费、开源（AGPL-3.0）的实时全球情报仪表盘。它把世界的原始信号——船舶、飞机、卫星、警报、海底电缆、市场，以及经过来源标注的新闻与 OSINT 信息——汇聚到一张实时地图上，并在信号相互印证、形成真正重要的事件时发出提示。[超过 200 万用户](https://siliconcanals.com/sc-n-anghami-ceos-side-project-world-monitor-now-has-2-million-users-tracking-conflicts-in-real-time/)遍布 190+ 个国家，无需账户，也没有试用期限。
+RaWorld 是一个免费、开源（AGPL-3.0）的实时全球情报仪表盘。它把世界的原始信号——船舶、飞机、卫星、警报、海底电缆、市场，以及经过来源标注的新闻与 OSINT 信息——汇聚到一张实时地图上，并在信号相互印证、形成真正重要的事件时发出提示。[超过 200 万用户](https://siliconcanals.com/sc-n-anghami-ceos-side-project-world-monitor-now-has-2-million-users-tracking-conflicts-in-real-time/)遍布 190+ 个国家，无需账户，也没有试用期限。
 
 每个数字都有出处，每种方法都有文档。等到它成为新闻时，你早已知晓。
 
 ## 覆盖范围
 
-多数情报工具只呈现现实的一个切面：冲突地图、行情终端、船舶追踪器或天气信息。World Monitor 把这些切面放在同一界面上，让它们彼此解释。
+多数情报工具只呈现现实的一个切面：冲突地图、行情终端、船舶追踪器或天气信息。RaWorld 把这些切面放在同一界面上，让它们彼此解释。
 
 <CardGroup cols={2}>
   <Card title="地缘政治与冲突" icon="globe" href="https://www.worldmonitor.app/countries/">
@@ -38,7 +38,7 @@ World Monitor 是一个免费、开源（AGPL-3.0）的实时全球情报仪表�
 
 ## 工作方式
 
-World Monitor 没有新闻编辑室，也没有人工编辑。它依靠方法论。
+RaWorld 没有新闻编辑室，也没有人工编辑。它依靠方法论。
 
 - **聚合胜于噪声。** 信号在浮现为警报之前，会与多个独立来源交叉核对。突发横幅必须通过严重度、时效与佐证的固定门槛，因此单一未经证实的报道不会变成头条。
 - **分级的来源层级。** 通讯社和官方渠道高于主要广播机构，后者又高于专业开源情报机构，并始终保留来源溯源。每个面板都会内联标注来源与时间戳。
@@ -52,7 +52,7 @@ World Monitor 没有新闻编辑室，也没有人工编辑。它依靠方法论
 
 | 监测台 | 关注内容 |
 | --- | --- |
-| [World Monitor](https://www.worldmonitor.app/dashboard) | 地缘政治、军事、冲突、基础设施 |
+| [RaWorld](https://www.worldmonitor.app/dashboard) | 地缘政治、军事、冲突、基础设施 |
 | [Finance Monitor](https://finance.worldmonitor.app/dashboard) | 全球市场、交易、央行、海湾地区外国直接投资 |
 | [Commodity Monitor](https://commodity.worldmonitor.app/dashboard) | 采矿、金属、能源、供应链 |
 | [Energy Monitor](https://energy.worldmonitor.app/dashboard) | 能源安全、油气、咽喉要道、中断事件 |
@@ -62,7 +62,7 @@ World Monitor 没有新闻编辑室，也没有人工编辑。它依靠方法论
 它可以在你工作的任何地方运行：
 
 - **网页**：[worldmonitor.app](https://www.worldmonitor.app/dashboard)，也可安装为支持离线地图瓦片的 PWA
-- **桌面**：适用于 Windows、macOS（Apple Silicon 与 Intel）和 Linux 的[原生应用](https://github.com/koala73/worldmonitor/releases/latest)，使用操作系统钥匙串存储密钥，并带有本地 API 边车
+- **桌面**：适用于 Windows、macOS（Apple Silicon 与 Intel）和 Linux 的[原生应用](https://github.com/Iamirup/raworld/releases/latest)，使用操作系统钥匙串存储密钥，并带有本地 API 边车
 - **终端**：全屏[终端仪表盘（TUI）](/zh/cli-dashboard)，提供同样的实时地图、新闻、市场、冲突、航运与网络安全信息，支持鼠标和配色主题，无需 API 密钥
 - **Android TV**：用于大屏展示
 - **自托管**：通过 [Docker 或 Vercel](/zh/getting-started) 部署，可借助 Ollama 使用本地 AI
@@ -84,9 +84,9 @@ World Monitor 没有新闻编辑室，也没有人工编辑。它依靠方法论
 
 免费仪表盘是完整的产品，而非试用：除结构韧性外的全部地图图层、全部六个监测台、国家简报、咽喉要道、级联分析、突发警报流程与关注列表。
 
-**[World Monitor Pro](https://www.worldmonitor.app/pro)** 起价每月 $39.99，增加决策层：
+**[RaWorld Pro](https://www.worldmonitor.app/pro)** 起价每月 $39.99，增加决策层：
 
-- **WM Analyst**：跨实时服务、带引用的 AI 分析师
+- **RaWorld Analyst**：跨实时服务、带引用的 AI 分析师
 - **Scenario Engine**（每小时运行）与 **Route Explorer**
 - **成本冲击与供应链压力测试**：覆盖咽喉要道、级联与脆弱性排名
 - **警报规则**：按国家、事件类型、严重度与咽喉要道设置，推送到 Slack、Microsoft Teams、Discord、Telegram、电子邮件、推送通知或签名 Webhook
@@ -101,26 +101,26 @@ Pro Business 增加商业许可与数据导出。API 套餐增加 REST 与 SDK �
 
 {/* Traction: 2M+ 用户引自 Silicon Canals；国家覆盖与首页/llms.txt 一致（190+）；GitHub 星标通过 shields.io（GitHub API）实时渲染。 */}
 
-World Monitor 始于 2026 年 1 月的一个周末项目。Elie Habib——音乐流媒体平台 Anghami 的联合创始人兼 CEO——在短短几天内构建了第一个版本，以验证能否将一天纷乱的地缘政治新闻在一张地图上呈现得清晰易读。他公开发布了一次，随后便将注意力转向别处。
+RaWorld 始于 2026 年 1 月的一个周末项目。Elie Habib——音乐流媒体平台 Anghami 的联合创始人兼 CEO——在短短几天内构建了第一个版本，以验证能否将一天纷乱的地缘政治新闻在一张地图上呈现得清晰易读。他公开发布了一次，随后便将注意力转向别处。
 
-但它并未就此沉寂。随着 2026 年全球局势不断升级，该仪表盘在第一周就触达了数十万用户，此后更增长到遍布 [190+ 个国家的 200 万+ 用户](https://siliconcanals.com/sc-n-anghami-ceos-side-project-world-monitor-now-has-2-million-users-tracking-conflicts-in-real-time/)——其中大多数人远非通常的情报工具用户群体。如今它已是 GitHub 上星标最多的开源 OSINT 项目之一（[![GitHub Repo stars](https://img.shields.io/github/stars/koala73/worldmonitor)](https://github.com/koala73/worldmonitor/stargazers)）。
+但它并未就此沉寂。随着 2026 年全球局势不断升级，该仪表盘在第一周就触达了数十万用户，此后更增长到遍布 [190+ 个国家的 200 万+ 用户](https://siliconcanals.com/sc-n-anghami-ceos-side-project-world-monitor-now-has-2-million-users-tracking-conflicts-in-real-time/)——其中大多数人远非通常的情报工具用户群体。如今它已是 GitHub 上星标最多的开源 OSINT 项目之一（[![GitHub Repo stars](https://img.shields.io/github/stars/Iamirup/raworld)](https://github.com/Iamirup/raworld/stargazers)）。
 
 ## 使命
 
-了解世界的态势感知不应需要一台五位数价格的终端。World Monitor 的目标是让可信的实时全球情报——那种通常只为政府、基金和新闻编辑室保留的情报——人人只需一个浏览器即可获取，任何持有密钥的 AI 智能体也同样可以使用。
+了解世界的态势感知不应需要一台五位数价格的终端。RaWorld 的目标是让可信的实时全球情报——那种通常只为政府、基金和新闻编辑室保留的情报——人人只需一个浏览器即可获取，任何持有密钥的 AI 智能体也同样可以使用。
 
 ## 由谁打造
 
-World Monitor 由 [Elie Habib](https://x.com/eliehabib) 打造，他是 Anghami 的联合创始人兼 CEO——Anghami 是首家在纳斯达克上市的阿拉伯科技公司。该平台以 AGPL-3.0-only 开源，参见[许可证](/zh/license)和[商标政策](/zh/trademark-policy)。官方维护的代码仓库是 [github.com/koala73/worldmonitor](https://github.com/koala73/worldmonitor)；其他副本与名称相近的产品均[与本项目无关](https://www.worldmonitor.app/world-monitor.md)。
+RaWorld 由 [Elie Habib](https://x.com/eliehabib) 打造，他是 Anghami 的联合创始人兼 CEO——Anghami 是首家在纳斯达克上市的阿拉伯科技公司。该平台以 AGPL-3.0-only 开源，参见[许可证](/zh/license)和[商标政策](/zh/trademark-policy)。官方维护的代码仓库是 [github.com/Iamirup/raworld](https://github.com/Iamirup/raworld)；其他副本与名称相近的产品均[与本项目无关](https://www.worldmonitor.app/world-monitor.md)。
 
 ## 媒体报道
 
 - [WIRED — 一位音乐流媒体 CEO 如何在业余时间打造出一张开源的全球威胁地图](https://www.wired.com/story/world-monitor-elie-habib/)
-- [The Atlantic — 刷末日新闻的时代结束了：World Monitor 如何把浏览器变成作战室](https://www.theatlantic.com/technology/2026/03/world-monitor-situation-meme/686389/)
+- [The Atlantic — 刷末日新闻的时代结束了：RaWorld 如何把浏览器变成作战室](https://www.theatlantic.com/technology/2026/03/world-monitor-situation-meme/686389/)
 - [El País — 在 AI 打造的平台上直播关注中东冲突的风险](https://elpais.com/tecnologia/2026-03-16/el-riesgo-de-seguir-en-directo-el-conflicto-de-oriente-proximo-en-plataformas-hechas-con-ia-hacen-que-parezca-casi-como-un-videojuego.html)
 - [The Economic Times — 上帝视角：AI 战争仪表盘的崛起](https://m.economictimes.com/tech/artificial-intelligence/gods-view-the-rise-of-ai-war-dashboards/articleshow/129553559.cms)
 - [Arabian Business — Anghami 联合创始人追踪全球危机的 AI 工具吸引数百万用户](https://www.arabianbusiness.com/business/technology/exclusive-anghami-co-founders-ai-tool-tracking-global-crises-draws-millions-of-users)
-- [Entrepreneur Middle East — Elie Habib 如何打造 World Monitor 以实时追踪全球事件](https://mena.entrepreneur.com/business-news/how-elie-habib-built-world-monitor-to-track-global-events-in-real-time)
+- [Entrepreneur Middle East — Elie Habib 如何打造 RaWorld 以实时追踪全球事件](https://mena.entrepreneur.com/business-news/how-elie-habib-built-world-monitor-to-track-global-events-in-real-time)
 - [Silicon Canals — Anghami CEO 的副业项目如今拥有 200 万用户](https://siliconcanals.com/sc-n-anghami-ceos-side-project-world-monitor-now-has-2-million-users-tracking-conflicts-in-real-time/)
 - [L'Orient Today — Anghami CEO 的副业项目如何成为地缘政治研究的首选](https://today.lorientlejour.com/article/1496089/world-monitor-how-anghami-ceos-side-project-became-a-go-to-for-geopolitics-research.html)
 
@@ -131,7 +131,7 @@ World Monitor 由 [Elie Habib](https://x.com/eliehabib) 打造，他是 Anghami 
 - [文档](/zh/documentation) — API、MCP 与平台指南
 - [覆盖目录](https://www.worldmonitor.app/reference/coverage/) — 按名称列出每个面板、图层与工具
 - [数据来源](https://www.worldmonitor.app/sources/) — 全部经过标注的数据提供方
-- [GitHub](https://github.com/koala73/worldmonitor) — 源代码与问题追踪
+- [GitHub](https://github.com/Iamirup/raworld) — 源代码与问题追踪
 - [博客](https://www.worldmonitor.app/blog) — 分析与产品更新
 
 ## 联系

@@ -201,10 +201,10 @@ test.describe('pre-hydration dashboard shell', () => {
       expect(preHydration.ariaBusy).toBe('true');
       expect(preHydration.appHeadingTag).toBe('H1');
       expect(preHydration.appHeadingAriaHidden).toBeNull();
-      expect(preHydration.appHeadingText).toContain('World Monitor');
+      expect(preHydration.appHeadingText).toContain('RaWorld');
       expect(preHydration.badgeAriaLabel).toBeNull();
       expect(preHydration.focusableCount).toBe(0);
-      expect(preHydration.shellText).toContain('World Monitor');
+      expect(preHydration.shellText).toContain('RaWorld');
       expect(preHydration.shellText).toContain(SHELL_LCP_TEXT);
       expect(preHydration.shellText).toContain('Primary View');
       expect(preHydration.candidateText).toBe(SHELL_LCP_TEXT);
@@ -226,7 +226,7 @@ test.describe('pre-hydration dashboard shell', () => {
 
       await expect(page.locator('.header')).toBeVisible({ timeout: 30000 });
       await expect(page.locator('.skeleton-shell')).toHaveCount(0);
-      await expect(page.locator('body > h1.app-heading')).toContainText('World Monitor');
+      await expect(page.locator('body > h1.app-heading')).toContainText('RaWorld');
       for (const href of [
         '/countries/',
         '/chokepoints/',
@@ -235,7 +235,7 @@ test.describe('pre-hydration dashboard shell', () => {
         '/pro#pricing',
         'https://www.worldmonitor.app/blog/',
         'https://www.worldmonitor.app/docs/documentation',
-        'https://github.com/koala73/worldmonitor',
+        'https://github.com/Iamirup/raworld',
       ]) {
         await expect(page.locator(`.site-footer nav a[href="${href}"]`)).toHaveCount(1);
       }
@@ -380,7 +380,7 @@ test.describe('server-rendered welcome page', () => {
     await expect(page.locator('#root h1')).toBeVisible();
     await expect(page.locator('#root a[href="/dashboard"][data-umami-event-target="welcome-hero"]')).toBeVisible();
     await expect(page.locator('#root footer a[href="/countries/"]')).toBeVisible();
-    await expect(page.locator('#root footer a[href="https://github.com/koala73/worldmonitor"]')).toBeVisible();
+    await expect(page.locator('#root footer a[href="https://github.com/Iamirup/raworld"]')).toBeVisible();
   });
 
   test('keeps the English prerender visible while its module is blocked', async ({ page }) => {
@@ -480,14 +480,14 @@ test.describe('dashboard shell without JavaScript', () => {
     await expect(page.locator('#root h1')).toContainText('intelligence dashboard');
     await expect(page.locator('#root a[href="/dashboard"][data-umami-event-target="welcome-hero"]')).toBeVisible();
     await expect(page.locator('#root footer a[href="/countries/"]')).toBeVisible();
-    await expect(page.locator('#root footer a[href="https://github.com/koala73/worldmonitor"]')).toBeVisible();
+    await expect(page.locator('#root footer a[href="https://github.com/Iamirup/raworld"]')).toBeVisible();
   });
 
   test('hides the JS-only shell and keeps the no-JS content scrollable', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
 
     await expect(page.locator('.skeleton-shell')).toBeHidden();
-    await expect(page.locator('body > h1.app-heading')).toContainText('World Monitor');
+    await expect(page.locator('body > h1.app-heading')).toContainText('RaWorld');
     await expect(page.locator('body > h1.app-heading')).not.toHaveAttribute('aria-hidden', 'true');
     await expect(page.locator('#seo-prerender')).toHaveCount(0);
     await expect(page.locator('#dashboard-noscript')).toBeVisible();
@@ -500,7 +500,7 @@ test.describe('dashboard shell without JavaScript', () => {
       '/blog/',
       '/docs/documentation',
       '/pro#pricing',
-      'https://github.com/koala73/worldmonitor',
+      'https://github.com/Iamirup/raworld',
     ]) {
       await expect(page.locator(`#dashboard-noscript a[href="${href}"]`)).toHaveCount(1);
     }

@@ -1,7 +1,7 @@
 ---
 title: "We Grade Our Own Forecasts: Inside the Forecast Scorecard"
-description: "How WorldMonitor scores its own AI forecasts, with a July 2026 snapshot of 32 forecasts. An audit found scoring errors and withdrew those figures in October 2026."
-metaTitle: "AI Forecast Accuracy & Brier Scorecard | WorldMonitor"
+description: "How RaWorld scores its own AI forecasts, with a July 2026 snapshot of 32 forecasts. An audit found scoring errors and withdrew those figures in October 2026."
+metaTitle: "AI Forecast Accuracy & Brier Scorecard | RaWorld"
 keywords: "AI forecast accuracy, Brier score forecasting, geopolitical forecast track record, forecast calibration, prediction accountability, forecast verification"
 audience: "Forecasters, superforecasting community, quant researchers, skeptical analysts, AI evaluation researchers"
 heroImage: "/blog/images/blog/ai-forecast-accuracy-brier-scorecard-worldmonitor.jpg"
@@ -11,7 +11,7 @@ modifiedDate: "2026-10-07"
 
 Every AI product now makes predictions. Almost none of them tell you their error rate.
 
-That asymmetry is the oldest trick in forecasting: make many confident calls, showcase the hits, let the misses expire quietly. It works because nobody keeps the ledger. WorldMonitor generates [AI geopolitical and economic forecasts](/blog/posts/prediction-markets-ai-forecasting-geopolitics/) — so we built the ledger, and we publish it.
+That asymmetry is the oldest trick in forecasting: make many confident calls, showcase the hits, let the misses expire quietly. It works because nobody keeps the ledger. RaWorld generates [AI geopolitical and economic forecasts](/blog/posts/prediction-markets-ai-forecasting-geopolitics/) — so we built the ledger, and we publish it.
 
 ## How the scorecard works
 
@@ -28,7 +28,7 @@ The scoring runs over a rolling window with judged and pending counts visible, s
 
 ## The actual scorecard, as of July 22, 2026
 
-> **Update, October 7, 2026.** An audit found errors in how these forecasts were scored: some outcomes were recorded without reading the data that decides them, some forecasts were counted more than once, and some were scored at a probability other than the one first published. The figures in this post are not reliable, and the method described above was not always followed. The findings and fixes are tracked in [issue #8990](https://github.com/koala73/worldmonitor/issues/8990).
+> **Update, October 7, 2026.** An audit found errors in how these forecasts were scored: some outcomes were recorded without reading the data that decides them, some forecasts were counted more than once, and some were scored at a probability other than the one first published. The figures in this post are not reliable, and the method described above was not always followed. The findings and fixes are tracked in [issue #8990](https://github.com/Iamirup/raworld/issues/8990).
 
 A post about publishing your numbers should publish the numbers. These were pulled from the live `get_forecast_scorecard` endpoint while writing, over the current 180-day rolling window:
 
@@ -59,7 +59,7 @@ Thirty-two scored forecasts is a young ledger, not a track record. Publishing it
 
 Three reasons, in ascending order of importance:
 
-1. **It's the standard we hold others to.** WorldMonitor puts [Polymarket and Kalshi probabilities](/blog/posts/prediction-markets-ai-forecasting-geopolitics/) next to its own forecasts. Prediction markets keep score by construction — their prices are public history. Publishing our own Brier scores is the price of sitting in that company.
+1. **It's the standard we hold others to.** RaWorld puts [Polymarket and Kalshi probabilities](/blog/posts/prediction-markets-ai-forecasting-geopolitics/) next to its own forecasts. Prediction markets keep score by construction — their prices are public history. Publishing our own Brier scores is the price of sitting in that company.
 2. **It makes the forecasts usable.** A "78% probability" from a black box is decoration. The same number from a system whose calibration you can inspect is an input you can size decisions with.
 3. **It improves the system.** Scored errors are training signal. The domains where calibration drifts are the domains where the pipeline gets fixed next.
 

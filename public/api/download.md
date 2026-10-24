@@ -1,19 +1,19 @@
 ---
-title: "World Monitor desktop downloads"
+title: "RaWorld desktop downloads"
 description: "Download endpoint parameters and platform-specific release redirects."
 canonical: "https://www.worldmonitor.app/api/download.md"
 ---
 
-# World Monitor desktop downloads
+# RaWorld desktop downloads
 
-`GET /api/download` redirects to the latest GitHub Release asset for the World Monitor desktop app. This markdown twin documents the redirect so agents can read it without following a binary `302`.
+`GET /api/download` redirects to the latest GitHub Release asset for the RaWorld desktop app. This markdown twin documents the redirect so agents can read it without following a binary `302`.
 
 One published binary serves every in-app variant. `variant` is an identity hint, not an asset selector. An unknown `platform` or unsupported `variant` redirects to the GitHub releases page instead of guessing an installer.
 
 ## Query parameters
 
 - **`platform`** (required for a binary): one of the platform ids below.
-- **`variant`** (optional): `full`, `world`, `tech`, `finance`, `commodity`, `energy`, or `happy`. Every supported value resolves to the same World Monitor artifact.
+- **`variant`** (optional): `full`, `world`, `tech`, `finance`, `commodity`, `energy`, or `happy`. Every supported value resolves to the same RaWorld artifact.
 
 ## Platforms
 
@@ -35,6 +35,6 @@ One published binary serves every in-app variant. `variant` is an identity hint,
 
 ## Related
 
-- Latest GitHub release: https://github.com/koala73/worldmonitor/releases/latest
+- Latest GitHub release: https://github.com/Iamirup/raworld/releases/latest
 - Version API: https://www.worldmonitor.app/api/version
 - Homepage markdown twin: https://www.worldmonitor.app/index.md

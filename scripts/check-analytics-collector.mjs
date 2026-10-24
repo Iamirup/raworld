@@ -65,7 +65,7 @@ const ANALYTICS_CANARY_PAYLOAD = Object.freeze({
   website: ANALYTICS_CANARY_WEBSITE_ID,
   hostname: ANALYTICS_CANARY_HOSTNAME,
   url: '/__monitor__/analytics-collector',
-  title: 'World Monitor analytics collector canary',
+  title: 'RaWorld analytics collector canary',
   referrer: '',
   screen: '1x1',
   language: 'en-US',

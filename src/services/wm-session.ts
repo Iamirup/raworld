@@ -13,7 +13,6 @@
 //      ~50 fetch sites individually.
 
 import { getCanonicalApiOrigin, toApiUrl } from './runtime';
-import { PREMIUM_RPC_PATHS } from '@/shared/premium-paths';
 import { hasPremiumIntent } from './premium-intent';
 import type { WmSessionDeadReason } from './wm-session-copy';
 import { isPublicSharedRpcRequest } from '@/shared/public-rpc-cache';
@@ -1021,13 +1020,6 @@ export function installWmSessionFetchInterceptor(): void {
     // reads cannot opt out of the normal session machinery.
     if (isCredentiallessPublicDataRequest(input, init, url)) return original(input, init);
 
-    // Premium routes have a dedicated auth-injection layer
-    // (`installWebApiRedirect`'s `enrichInitForPremium` adds Clerk Bearer JWT,
-    // WORLDMONITOR_API_KEY, or tester key based on what the user has). Stepping
-    // aside lets that inner layer attach the right credential — if we set
-    // X-WorldMonitor-Key=wms_... here, the premium injector sees the header
-    // and bails, and the server then 401s because wms_ is rejected on premium
-    // routes (it's anonymous, not user-bound). PR #3557 review finding.
     const path = (() => {
       try {
         return new URL(url, typeof location === 'undefined' ? 'http://localhost' : location.href).pathname;
@@ -1035,7 +1027,6 @@ export function installWmSessionFetchInterceptor(): void {
         return url.split('?')[0] ?? url;
       }
     })();
-    if (PREMIUM_RPC_PATHS.has(path)) return original(input, withCredentials(init));
 
     const headers = new Headers(
       init?.headers ?? (input instanceof Request ? input.headers : undefined),
@@ -1139,13 +1130,7 @@ export function installWmSessionFetchInterceptor(): void {
     // cookie. Hand it back untouched: reminting and replaying would produce the
     // identical 401 and then suppress every anonymous API call for 15 minutes.
     //
-    // This is the SECOND of the two bypasses in this function, and the only one
-    // that can fire here — path-listed premium routes already returned far
-    // above, before any session work. The two are not interchangeable:
-    //
-    //   - PREMIUM_RPC_PATHS steps aside entirely (a dedicated auth-injection
-    //     layer owns those credentials; PR #3557 review).
-    //   - This one suppresses ONLY the recovery. The request must already have
+    // This suppresses ONLY the recovery. The request must already have
     //     minted a session and travelled with credentials, because
     //     `forcePremium` also covers routes anonymous callers legitimately use
     //     — the market-quote tape via proFreshRpcFetch — which 401 when no

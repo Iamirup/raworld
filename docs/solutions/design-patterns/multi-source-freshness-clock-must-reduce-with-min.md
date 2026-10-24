@@ -95,4 +95,4 @@ The reverse direction fails the same way with the roles swapped — a live FX ta
 
 Verified by mutation: reverting `cbrContentMeta` to the single `tokensToContentMeta` call turns four tests red. A fix in this class is worth mutation-testing specifically, because the "before" code produces a *healthy-looking* verdict rather than an error, so a test that merely exercises the happy path passes against both versions.
 
-Shipped in [#6187](https://github.com/koala73/worldmonitor/pull/6187) (issue #6154).
+Shipped in [#6187](https://github.com/Iamirup/raworld/pull/6187) (issue #6154).

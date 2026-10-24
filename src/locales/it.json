@@ -200,7 +200,6 @@
     "foodStocksHelp": "Giacenze di materie prime della Produzione, Approvvigionamento e Distribuzione USDA rapportate al consumo per anno di commercializzazione, con il rapporto mondiale a fianco per il contesto. I Bilanci Alimentari di FAOSTAT forniscono la produzione e l'offerta nazionale quando Produzione, Approvvigionamento e Distribuzione non dispone di un bilancio completo per paese.",
     "loadingFoodStocks": "Loading food stocks…",
     "foodStocksUnavailable": "Food stocks unavailable.",
-    "foodStocksProLocked": "Upgrade to PRO for commodity stocks-to-use",
     "foodStocksCommodity": "Commodity",
     "foodStocksMarketingYear": "Marketing year",
     "foodStocksRatio": "Stocks-to-use",
@@ -218,7 +217,6 @@
       "help": "Struttura per età, pipeline educativa e capacità della forza lavoro industriale da UN World Population Prospects, UNESCO Institute for Statistics, World Bank World Development Indicators e ILOSTAT.",
       "loading": "Loading demographics and workforce data…",
       "unavailable": "Demographics and workforce data unavailable.",
-      "proLocked": "Upgrade to PRO for demographics and workforce data",
       "notAvailable": "Not available",
       "ageStructure": "Age structure",
       "education": "Education pipeline",
@@ -244,7 +242,6 @@
       "help": "Punteggi delle prove v1 congelati per cibo, energia, demografia, tecnologia e difesa. Espandi una riga per ispezionare gli input, la provenienza delle fonti e le motivazioni dei dati mancanti.",
       "loading": "Caricamento della scorecard a cinque fattori…",
       "unavailable": "Scorecard a cinque fattori non disponibile.",
-      "proLocked": "Passa a PRO per la scorecard di resilienza a cinque fattori",
       "insufficient": "Dati insufficienti",
       "notAvailable": "Non disponibile",
       "noEvidence": "Non sono disponibili prove per questo pilastro.",
@@ -301,9 +298,7 @@
         "defense_supplierDiversity": "Diversità dei fornitori di armamenti"
       }
     },
-    "defenseIndustrialBase": {
-      "proLocked": "Esegui l'upgrade a PRO per le dipendenze dai fornitori di armi e la capacità militare"
-    }
+    "defenseIndustrialBase": {}
   },
   "header": {
     "world": "MONDO",
@@ -715,8 +710,7 @@
       "alertTitle": {
         "configured": "Impostazioni del desktop configurate",
         "needsKeys": "Configura le chiavi API per sbloccare funzionalità",
-        "some": "Alcune funzionalità richiedono chiavi API",
-        "pro": "World Monitor Pro è attivo"
+        "some": "Alcune funzionalità richiedono chiavi API"
       },
       "summary": {
         "desktop": "Modalità desktop",
@@ -745,10 +739,7 @@
         "NASA_FIRMS_API_KEY": "Sistema informativo sugli incendi per la gestione delle risorse.",
         "OLLAMA_API_URL": "es. http://127.0.0.1:11434 (Ollama) o http://127.0.0.1:1234/v1 (LM Studio) — endpoint compatibile OpenAI.",
         "OLLAMA_MODEL": "es. llama3.1:8b — tag modello da usare per la sintesi."
-      },
-      "proCloud": "Le funzioni senza una chiave API locale utilizzano i dati cloud di World Monitor.",
-      "skipSetupPro": "Salta la configurazione: accedi con World Monitor Pro per utilizzare i dati cloud invece delle tue chiavi API.",
-      "getPro": "Ottieni World Monitor Pro"
+      }
     },
     "countryIntel": {
       "identifying": "Identificazione del paese...",
@@ -846,20 +837,12 @@
           "title": "Chiave di licenza / API",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "description": "Gli abbonati API Starter e API Business creano questa chiave nel pannello web da Settings → API Keys. Se perdi la chiave completa, revocala e creane una sostitutiva."
-        },
-        "dividerOr": "OPPURE",
-        "register": {
-          "title": "Ti serve una chiave API?",
-          "description": "Consulta worldmonitor.app/docs/api-keys per istruzioni dettagliate. Le chiavi API manuali richiedono un piano API Starter o API Business.",
-          "submitBtn": "Vedi i piani API"
         }
       },
-      "shellTitle": "Impostazioni World Monitor",
+      "shellTitle": "Impostazioni RaWorld",
       "shellSearchPlaceholder": "Cerca impostazioni...",
       "shellCancel": "Annulla",
-      "shellSaveClose": "Salva e chiudi",
-      "freePanelLimit": "Piano gratuito: max {{max}} pannelli. Passa a PRO per illimitati.",
-      "freeSourceLimit": "Piano gratuito: max {{max}} fonti. Passa a PRO per illimitate."
+      "shellSaveClose": "Salva e chiudi"
     }
   },
   "components": {
@@ -983,8 +966,7 @@
       "refineryStage": "Refine",
       "stageUnavailable": "No published figures for this stage",
       "withheldNote": "W withheld",
-      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them.",
-      "productionProLocked": "Esegui l'upgrade a PRO per quote di paesi di miniere e raffinerie con concentrazione (indice di concentrazione dei produttori) per fase."
+      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them."
     },
     "tradePolicy": {
       "tariffs": "Dazi",
@@ -1324,14 +1306,14 @@
       "info": "INFO"
     },
     "pizzint": {
-      "indexSource": "Indice: World Monitor · dati dei locali:",
+      "indexSource": "Indice: RaWorld · dati dei locali:",
       "statusNormal": "NORMALE",
       "statusNoData": "NESSUN DATO",
       "statusNoBaseline": "NESSUN RIFERIMENTO",
       "vsUsual": "rispetto al solito",
       "title": "Indice Pizza del Pentagono",
       "tensionsTitle": "Tensioni geopolitiche",
-      "tensionsSource": "Tensioni: World Monitor dai dati sugli eventi GDELT",
+      "tensionsSource": "Tensioni: RaWorld dai dati sugli eventi GDELT",
       "insufficientData": "Dati insufficienti",
       "pizzaUnavailable": "Attività delle pizzerie non disponibile",
       "source": "Fonte:",
@@ -1640,7 +1622,7 @@
       "staleReport": "Rapporto obsoleto",
       "reported": "Numero",
       "period": "Periodo",
-      "movementNote": "Ogni riga conserva la fonte, la data del rapporto e la misura. Le consistenze, gli arrivi e gli eventi di controllo alla frontiera sono misure diverse. Le fonti possono sovrapporsi; non sommare i loro conteggi. WorldMonitor ricava questa vista dalle fonti collegate; ciò non implica il sostegno dei fornitori.",
+      "movementNote": "Ogni riga conserva la fonte, la data del rapporto e la misura. Le consistenze, gli arrivi e gli eventi di controllo alla frontiera sono misure diverse. Le fonti possono sovrapporsi; non sommare i loro conteggi. RaWorld ricava questa vista dalle fonti collegate; ciò non implica il sostegno dei fornitori.",
       "recent": "Recenti",
       "last30Days": "Ultimi 30 giorni",
       "newThisWeek": "Nuovi questa settimana",
@@ -2173,7 +2155,7 @@
       "tripDays": "Giorni viaggio"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>Analista WM</strong> Analista AI con contesto in tempo reale nei domini geopolitico, dei mercati, militare ed economico. Alimentato da Claude con dati in tempo reale iniettati dai feed attivi di WorldMonitor."
+      "infoTooltip": "<strong>Analista WM</strong> Analista AI con contesto in tempo reale nei domini geopolitico, dei mercati, militare ed economico. Alimentato da Claude con dati in tempo reale iniettati dai feed attivi di RaWorld."
     },
     "cotPositioning": {
       "infoTooltip": "<strong>Futures positioning</strong> Posizioni nette settimanali per trader commerciali, grandi speculatori e piccoli trader nei futures su materie prime e finanziari. La fonte è il rapporto Commitments of Traders della Commodity Futures Trading Commission, pubblicato il venerdì."
@@ -2241,7 +2223,7 @@
       "infoTooltip": "<strong>Economic Calendar</strong> Rilasci macroeconomici programmati: indice dei prezzi al consumo, buste paga non agricole, prodotto interno lordo, indice dei responsabili degli acquisti e decisioni delle banche centrali. Mostra previsione vs dato effettivo vs precedente. Gli eventi ad alto impatto sono evidenziati. Fonte: fornitori di dati economici."
     },
     "fsi": {
-      "infoTooltip": "<strong>Financial Stress Indicator</strong> Rapporto World Monitor tra credito ad alto rendimento e Treasury a lungo termine, aggiustato per la volatilità azionaria e lo spread ad alto rendimento: (HYG / TLT) / (VIX × spread ad alto rendimento / 100). Questo non è l'indice di stress finanziario della Federal Reserve di Kansas City. Un valore di 1,5 o superiore indica basso stress; al di sotto di 0,3 indica alto stress.",
+      "infoTooltip": "<strong>Financial Stress Indicator</strong> Rapporto RaWorld tra credito ad alto rendimento e Treasury a lungo termine, aggiustato per la volatilità azionaria e lo spread ad alto rendimento: (HYG / TLT) / (VIX × spread ad alto rendimento / 100). Questo non è l'indice di stress finanziario della Federal Reserve di Kansas City. Un valore di 1,5 o superiore indica basso stress; al di sotto di 0,3 indica alto stress.",
       "title": "Indicatore di Stress Finanziario",
       "usFsiValue": "Valore dell'indicatore di stress finanziario statunitense",
       "cissTitle": "EU CISS (Stress Sistemico dell'Area Euro)",
@@ -2299,8 +2281,7 @@
       "dependentCommodities": "Materie prime dipendenti",
       "stateOk": "Attuale",
       "stateStale": "Input obsoleto",
-      "stateInsufficient": "Dati insufficienti",
-      "proLocked": "Esegui l'upgrade a PRO per la valutazione della vulnerabilità delle materie prime"
+      "stateInsufficient": "Dati insufficienti"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>Hormuz Trade Tracker</strong> Tracciamento live dei vascelli attraverso lo Stretto di Hormuz, il collo di bottiglia petrolifero più critico al mondo. Monitora i conteggi dei cisterne, gli eventi di interruzione e i cambiamenti di flusso settimanali. Approssimativamente il 20% dell'offerta petrolifera globale transita qui quotidianamente.",
@@ -2325,7 +2306,7 @@
       "infoTooltip": "<strong>Macro indicators</strong> Indicatori di prezzi, attività, politica e valute per Stati Uniti, area dell'euro e Cina. La Cina richiede una copertura attuale. Ogni riquadro mostra la sua fonte e la data di osservazione."
     },
     "monitors": {
-      "infoTooltip": "<strong>Monitor di parole chiave</strong> Aggiungi qualsiasi termine per tracciare le menzioni nelle notizie in tempo reale da tutte le fonti WorldMonitor. I risultati si aggiornano in tempo reale man mano che gli articoli corrispondenti vengono acquisiti."
+      "infoTooltip": "<strong>Monitor di parole chiave</strong> Aggiungi qualsiasi termine per tracciare le menzioni nelle notizie in tempo reale da tutte le fonti RaWorld. I risultati si aggiornano in tempo reale man mano che gli articoli corrispondenti vengono acquisiti."
     },
     "renewable": {
       "infoTooltip": "<strong>Renewable Energy</strong> Quota della generazione di elettricità da fonti rinnovabili per regione e anno, più la capacità installata negli Stati Uniti per solare, eolico e carbone (MW). Fonti: Banca Mondiale (EG.ELC.RNEW.ZS) e Amministrazione dell'Informazione Energetica statunitense."
@@ -2553,108 +2534,11 @@
     "wsbTickerScanner": {
       "infoTooltip": "<strong>WallStreetBets Ticker Scanner</strong> Menzioni di ticker in tempo reale da r/wallstreetbets, r/stocks e r/investing. Classificate per frequenza e coinvolgimento di menzioni. La velocità misura quanto rapidamente un ticker guadagna slancio nei post."
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro è stato lanciato",
-      "tagline": "Più segnali, meno rumore. Più briefing IA. Un ricercatore geopolitico e azionario dedicato a te.",
-      "cta": "Passa a Pro →",
-      "dismiss": "Scarta"
-    },
-    "billingState": {
-      "onHoldDesc": "Pagamento non riuscito. Aggiorna il metodo di pagamento per ripristinare l'accesso premium.",
-      "onHoldBannerMessage": "Pagamento non riuscito. Aggiorna il metodo di pagamento per mantenere attivo il tuo abbonamento.",
-      "updatePayment": "Aggiorna pagamento",
-      "renewalPendingDesc": "Stiamo verificando il rinnovo del tuo abbonamento. L'accesso premium verrà ripristinato automaticamente una volta confermato.",
-      "refreshStatus": "Aggiorna stato",
-      "renewalFailedDesc": "Non siamo riusciti a verificare il rinnovo del tuo abbonamento. Gestisci la fatturazione o contatta l'assistenza se il problema persiste.",
-      "manageBilling": "Gestisci fatturazione",
-      "lapsedDesc": "Il tuo abbonamento Pro è terminato. Riabbonati per riottenere l'accesso premium.",
-      "resubscribe": "Riabbonati"
-    },
     "checkoutFailureBanner": {
       "message": "Il pagamento non è stato completato. Nessuna addebito è stato effettuato.",
       "retry": "Riprova",
       "retrying": "Riprovando…",
       "dismiss": "Scarta"
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "Passaggio {{current}} di {{total}}",
-      "closeLabel": "Salta configurazione",
-      "ariaLabel": "Configurazione attivazione Pro",
-      "signedInAs": "Accesso effettuato come {{email}}",
-      "steps": {
-        "brief": {
-          "heading": "Il tuo briefing quotidiano, ogni mattina",
-          "body": "Un briefing di intelligence curato nella tua casella di posta ogni mattina — i segnali della notte che contano, condensati in una lettura di cinque minuti.",
-          "confirmCta": "Attiva il mio briefing mattutino",
-          "confirming": "Attivazione…",
-          "doneNote": "Il tuo briefing mattutino è già attivo.",
-          "scheduleNote": "Manterremo il tuo orario di consegna attuale.",
-          "summaryLabel": "Briefing mattutino",
-          "summaryVerified": "Attivo — inizia con il tuo prossimo briefing mattutino.",
-          "deliverAt": "Consegna alle",
-          "previewLoading": "Preparazione di un'anteprima del tuo primo briefing…",
-          "previewLabel": "Il briefing di stamattina"
-        },
-        "alerts": {
-          "heading": "Avvisi critici",
-          "body": "Ricevi una notifica nel browser quando succede qualcosa di importante — escalation di conflitti, shock di mercato, nuove sanzioni. Modifica la frequenza in qualsiasi momento nelle Impostazioni.",
-          "confirmCta": "Attiva gli avvisi",
-          "confirming": "Attivazione…",
-          "doneNote": "Gli avvisi del browser sono già attivi.",
-          "blockedNote": "Le notifiche sono bloccate nel tuo browser. Attivale nelle impostazioni del sito del tuo browser per ricevere avvisi.",
-          "declinedNote": "Nessun problema — non invieremo avvisi del browser. Potrai attivarli più tardi dalle impostazioni del sito del tuo browser.",
-          "summaryLabel": "Avvisi critici",
-          "summaryVerified": "Attivi — i segnali critici raggiungeranno il tuo browser."
-        },
-        "power": {
-          "heading": "Il tuo kit di strumenti Pro",
-          "body": "Widget personalizzati, connessioni MCP e il ricercatore IA sono sbloccati. Crea la dashboard che vuoi davvero monitorare.",
-          "confirmCta": "Esplora gli strumenti Pro",
-          "confirming": "Apertura…",
-          "doneNote": "Stai già usando i tuoi strumenti Pro.",
-          "summaryLabel": "Kit di strumenti Pro",
-          "summaryVerified": "Sbloccato e pronto quando lo sei tu.",
-          "channelsNote": "Preferisci Telegram, Slack, Discord o un webhook?",
-          "pointers": {
-            "search": "Cerca nell'intera dashboard",
-            "widgets": "Crea un widget personalizzato",
-            "analyst": "Chiedi all'analista IA",
-            "mcpClients": "Configura MCP",
-            "channels": "Configurali nelle impostazioni di notifica"
-          }
-        }
-      },
-      "status": {
-        "pending": "Non configurato",
-        "inFlight": "Configurazione in corso…",
-        "verified": "Pronto",
-        "failed": "Non ha funzionato",
-        "blocked": "Bloccato",
-        "unavailable": "Non disponibile",
-        "blockedNote": "Questo non è disponibile al momento — potrai configurarlo più tardi dalle impostazioni.",
-        "unavailableNote": "Questo non è disponibile sul tuo dispositivo — potrai configurarlo più tardi.",
-        "failedBody": "Qualcosa è andato storto. Puoi riprovare o configurarlo più tardi dalle impostazioni.",
-        "retry": "Riprova"
-      },
-      "actions": {
-        "skip": "Salta per ora",
-        "continue": "Continua"
-      },
-      "summary": {
-        "heading": "Tutto pronto",
-        "subVerified": "Ecco cosa è attivo sul tuo account.",
-        "subPending": "Puoi completare la configurazione in qualsiasi momento dalle impostazioni.",
-        "linePending": "Non ancora configurato — completalo quando vuoi nelle impostazioni.",
-        "lineFailed": "Non siamo riusciti a configurarlo — riprova dalle impostazioni.",
-        "finish": "Vai alla mia dashboard"
-      },
-      "chip": {
-        "message": "Completa la configurazione del tuo account Pro.",
-        "action": "Completa configurazione",
-        "dismissLabel": "Ignora"
-      }
     },
     "frameworkSelector": {
       "label": "Framework di Analisi",
@@ -2886,20 +2770,10 @@
       }
     },
     "exportGate": {
-      "signedOutDesc": "Accedi per esportare i dati del dashboard come CSV, JSON o PDF.",
-      "upgradeDesc": "L'esportazione dei dati (CSV, JSON, PDF) è inclusa in Pro Business.",
-      "upgradeCta": "Passa a Pro Business",
       "lockedAriaLabel": "Esporta dati — bloccato. {{reason}}",
       "unlockedAnnouncement": "Esportazione dati sbloccata.",
       "preparingPdf": "Preparazione del PDF…",
       "pdfFailed": "Il report PDF non è stato generato. Riprova o usa l'esportazione JSON."
-    },
-    "tabCap": {
-      "signedOutDesc": "Gli spazi di lavoro non connessi sono limitati a {{cap}} schede. Accedi per aggiungerne altre.",
-      "upgradeDesc": "Hai raggiunto il limite di {{cap}} schede del dashboard.",
-      "upgradeCta": "Esegui l'upgrade per di più",
-      "lockedAriaLabel": "Aggiungi scheda — bloccato. {{reason}}",
-      "unlockedAnnouncement": "Limite schede del dashboard rimosso."
     },
     "fx": {
       "infoTooltip": "<strong>Currency rates</strong> Lo stress classifica 45 valute per il loro maggior calo su 24 mesi, con il cambio su 12 mesi. I tassi spot utilizzano basi separate in dollari statunitensi ed euro. I tassi del rublo russo sono rubli per unità. Le fonti includono Yahoo Finance, la Banca Centrale Europea e la Banca di Russia.",
@@ -2933,18 +2807,6 @@
       "rubPerUnit": "Rubli per unità",
       "sourceCbr": "Fonte: Banca di Russia"
     },
-    "passkeyOffer": {
-      "title": "Salvare una passkey?",
-      "body": "La prossima volta accedi con l'impronta digitale, il volto o il PIN del dispositivo — nessuna password da ricordare.",
-      "accept": "Salva passkey",
-      "dismiss": "Non ora",
-      "close": "Chiudi",
-      "announce": "Salva una passkey per accedere più velocemente la prossima volta.",
-      "busy": "In attesa del tuo dispositivo…",
-      "succeeded": "Passkey salvata. Puoi usarla la prossima volta che accedi.",
-      "retryable": "Non è andato a buon fine. Puoi provare di nuovo.",
-      "failed": "Non siamo riusciti a salvare una passkey su questo dispositivo."
-    },
     "decisionBrief": {
       "commodityTitle": "Scheda decisionale sulle materie prime",
       "commodity": "Materia prima / prodotto",
@@ -2963,8 +2825,7 @@
       "changed": "Selezione modificata. Acquisisci entrambi gli scenari prima di esportare.",
       "loading": "Acquisizione dei due scenari…",
       "captured": "Acquisizione completata. Controlla le date delle osservazioni e i vincoli prima del download.",
-      "failed": "Impossibile acquisire gli scenari. Controlla il tuo accesso e riprova. Nessun risultato da esportare.",
-      "locked": "La scheda decisionale è disponibile con Pro."
+      "failed": "Impossibile acquisire gli scenari. Controlla il tuo accesso e riprova. Nessun risultato da esportare."
     },
     "liveMedia": {
       "idleStatus": "Pausa per inattività",
@@ -3689,10 +3550,10 @@
     "copyCoordinates": "Copia coordinate"
   },
   "shell": {
-    "documentTitle": "World Monitor — Dashboard di intelligence globale in tempo reale",
+    "documentTitle": "RaWorld — Dashboard di intelligence globale in tempo reale",
     "metaDescription": "Piattaforma di intelligence globale in tempo reale. Pubblicato su WIRED. Utilizzato da oltre 2 milioni di persone in 190 paesi. Conflitti, mercati, militare, intelligence open-source in un'unica vista.",
     "offlineTitle": "Sei Offline",
-    "offlineMessage": "World Monitor richiede una connessione Internet per i dati di intelligence in tempo reale.",
+    "offlineMessage": "RaWorld richiede una connessione Internet per i dati di intelligence in tempo reale.",
     "offlineRetry": "Riprova"
   },
   "widgets": {
@@ -3730,16 +3591,15 @@
     "phaseError": "Errore",
     "previewCheckingHeading": "Connessione al generatore di widget",
     "previewReadyHeading": "Descrivi il widget che desideri",
-    "previewFetchingHeading": "Recupero dati WorldMonitor live",
+    "previewFetchingHeading": "Recupero dati RaWorld live",
     "previewComposingHeading": "Composizione del layout del widget",
     "previewErrorHeading": "L'anteprima richiede attenzione",
     "previewCheckingCopy": "Stiamo validando la tua chiave widget e la disponibilità del backend prima di abilitare la generazione.",
     "previewReadyCopy": "Usa un esempio di prompt o descrivi la visualizzazione live esatta che desideri. L'anteprima si aggiornerà qui prima di salvarla.",
-    "previewFetchingCopy": "L'agente sta chiamando gli endpoint WorldMonitor approvati e modellando il dataset per il widget.",
+    "previewFetchingCopy": "L'agente sta chiamando gli endpoint RaWorld approvati e modellando il dataset per il widget.",
     "previewComposingCopy": "L'anteprima viene renderizzata con i dati live più recenti e lo stile del dashboard.",
     "previewErrorCopy": "Risolvi il problema e riprova. I tuoi widget esistenti non sono interessati.",
     "createInteractive": "Crea widget interattivo",
-    "proBadge": "PRO",
     "preflightProUnavailable": "Agente widget PRO non disponibile. Verifica PRO_WIDGET_KEY sul server.",
     "preflightInvalidProKey": "Chiave PRO rifiutata. Aggiorna wm-pro-key e ricarica.",
     "preflightProSubscriptionRequired": "Abbonamento Pro obbligatorio. Se hai appena effettuato l'upgrade, aggiorna la pagina; altrimenti contatta il supporto.",
@@ -3761,28 +3621,6 @@
     "offlineCached": "Offline — visualizzazione dati in cache da {{freshness}}.",
     "offlineUnavailable": "Offline — i dati in tempo reale non sono attualmente disponibili.",
     "cachedFallback": "Dati in tempo reale non disponibili — visualizzazione dati in cache da {{freshness}}."
-  },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "Richiede una chiave di licenza World Monitor",
-    "signInToUnlock": "Accedi per sbloccare le funzioni premium",
-    "signIn": "Accedi per Sbloccare",
-    "upgradeDesc": "Esegui l'upgrade a Pro per accesso completo all'analitiche premium",
-    "upgradeToPro": "Esegui l'Upgrade a Pro",
-    "features": {
-      "orefSirens1": "Avvisi in tempo reale di missili e razzi israeliani",
-      "orefSirens2": "Mappatura zone sirene con classificazione delle minacce",
-      "telegramIntel1": "Canali open-source intelligence Telegram curati",
-      "telegramIntel2": "Aggiornamenti su conflitti e geopolitica quasi in tempo reale",
-      "xIntel1": "Curated public news accounts on X",
-      "xIntel2": "API-fresh posts with official permalinks"
-    }
-  },
-  "auth": {
-    "signIn": "Accedi",
-    "createAccount": "Crea account",
-    "settings": "Impostazioni",
-    "passkeyOffer": {}
   },
   "mcp": {
     "connectPanel": "Connetti MCP",
@@ -3871,8 +3709,6 @@
     "resilience": "Resilienza",
     "ciiMissing": "CII non disponibile",
     "resilienceMissing": "Resilienza non disponibile",
-    "noEvents": "Nessun titolo selezionato acquisito per questa data. Ciò non dimostra l’assenza di eventi.",
-    "unlock90": "Sblocca 90 giorni con Pro",
-    "unlock365": "Sblocca 365 giorni con un piano API"
+    "noEvents": "Nessun titolo selezionato acquisito per questa data. Ciò non dimostra l’assenza di eventi."
   }
 }

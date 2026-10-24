@@ -15,7 +15,7 @@ export interface IntelBriefCitationSource {
   url?: string;
 }
 
-/** A World Monitor data point a claim cites as `[En]` (proto BriefEvidence). */
+/** A RaWorld data point a claim cites as `[En]` (proto BriefEvidence). */
 export interface IntelBriefEvidence {
   id: string;
   label?: string;
@@ -141,7 +141,7 @@ export function formatIntelBrief(
 }
 
 /**
- * Lists the World Monitor data points a brief cites, styled like the sources
+ * Lists the RaWorld data points a brief cites, styled like the sources
  * footer. Links go through sanitizeUrl; everything else is escaped text.
  */
 export function renderBriefEvidenceFooter(
@@ -163,7 +163,7 @@ export function renderBriefEvidenceFooter(
   }).join('');
   return `
     <details class="${escapeHtml(options.className ?? 'brief-sources')}">
-      <summary>World Monitor data (${items.length})</summary>
+      <summary>RaWorld data (${items.length})</summary>
       <ol>${rows}</ol>
     </details>`;
 }

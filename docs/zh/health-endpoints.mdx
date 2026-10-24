@@ -1,6 +1,6 @@
 ---
 title: "健康检查端点"
-description: "World Monitor 提供两个健康检查端点用于持续监控数据管道完整性与实时性，服务在 Vercel Edge Runtime 上以低延迟运行并查询 Redis (Upstash) 评估各数据源状态，帮助 SRE 与运维团队快速定位新闻、市场、海事等采集任务的中断与滞后。"
+description: "RaWorld 提供两个健康检查端点用于持续监控数据管道完整性与实时性，服务在 Vercel Edge Runtime 上以低延迟运行并查询 Redis (Upstash) 评估各数据源状态，帮助 SRE 与运维团队快速定位新闻、市场、海事等采集任务的中断与滞后。"
 ---
 
 ## `/api/health`
@@ -190,7 +190,7 @@ PortWatch 缓存条目，但规范国家列表和健康的 seed-meta
 缺失的 PortWatch 内容块一律报告为 `COVERAGE_DEGRADED`。该窗口保留在源码中，仅作为
 "授予了什么、到何时为止"的审计记录，并且刻意**不**重新开启：生产者此后已经发布了该块，
 重新授予放宽只会撤销
-[#6111](https://github.com/koala73/worldmonitor/issues/6111) 所要求的那道界限。
+[#6111](https://github.com/Iamirup/raworld/issues/6111) 所要求的那道界限。
 
 因此在稳定状态下，**`contentFreshnessPendingUntil` 根本不会被发布。** 它只在某个键的窗口
 处于开启状态时出现；就今天而言，这意味着只有在 `api/_content-freshness.js` 的
@@ -212,7 +212,7 @@ PortWatch 缓存条目，但规范国家列表和健康的 seed-meta
 表示可选或由运维触发的生产者；对它们而言“生产者从未运行，因此没有元数据”是预期状态，不能
 从一个统一的生产者周期推导安全的截止时间。该路径不会放宽已经存在元数据的内容新鲜度故障。
 有计划的内容 schema 必须使用 `contentFreshnessActivation` 及其经过审查的窗口。以上关闭了
-[#6111](https://github.com/koala73/worldmonitor/issues/6111) 所指出的干净缺失激活漏洞。
+[#6111](https://github.com/Iamirup/raworld/issues/6111) 所指出的干净缺失激活漏洞。
 
 任何判定依据来自"无法读取的标记"的检查项都会携带 `activationUnknown: true`，两个端点、
 所有状态下皆然。否则无论是标记读取失败还是生产者确实从未发布过，载荷完全相同 —— 而这

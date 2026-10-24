@@ -1,11 +1,11 @@
 ---
-title: "嵌入 World Monitor 面板"
-description: "在你的网站中加入免费实时地图或付费 World Monitor 面板。先复制嵌入代码，再查看图层、密钥和集成方式的开发者参考。"
+title: "嵌入 RaWorld 面板"
+description: "在你的网站中加入免费实时地图或付费 RaWorld 面板。先复制嵌入代码，再查看图层、密钥和集成方式的开发者参考。"
 ---
 
-你可以在自己的网站中放置 World Monitor 地图、咽喉要道监测面板或恐惧与贪婪仪表。将嵌入代码复制到网页 HTML 中即可。访客无需 World Monitor 账户。
+你可以在自己的网站中放置 RaWorld 地图、咽喉要道监测面板或恐惧与贪婪仪表。将嵌入代码复制到网页 HTML 中即可。访客无需 RaWorld 账户。
 
-免费地图无需账户或密钥。付费套餐通过嵌入密钥提供更多地图图层，并开放其他受支持的面板。每个嵌入都带有可见的 World Monitor 归属链接。
+免费地图无需账户或密钥。付费套餐通过嵌入密钥提供更多地图图层，并开放其他受支持的面板。每个嵌入都带有可见的 RaWorld 归属链接。
 
 ## 允许嵌入的面板
 
@@ -50,7 +50,7 @@ description: "在你的网站中加入免费实时地图或付费 World Monitor 
 
 ### 如何隐藏菜单并充分利用显示区域？
 
-`/embed` 地图已省略仪表盘导航、图层选择器和地图控件。无需添加 `?view=kiosk` 或 `?menu=hidden`；这些不是受支持的设置。World Monitor 归属链接仍然可见。
+`/embed` 地图已省略仪表盘导航、图层选择器和地图控件。无需添加 `?view=kiosk` 或 `?menu=hidden`；这些不是受支持的设置。RaWorld 归属链接仍然可见。
 
 调整 iframe 或其容器的尺寸以适应分屏布局。使用显示浏览器或数字标牌播放器的自助显示（kiosk）或全屏设置来隐藏浏览器控件。嵌入内容不会将浏览器切换为自助显示模式。
 
@@ -58,7 +58,7 @@ description: "在你的网站中加入免费实时地图或付费 World Monitor 
 
 ## 从仪表盘复制地图
 
-1. 打开 [World Monitor 仪表盘](https://www.worldmonitor.app/dashboard)。
+1. 打开 [RaWorld 仪表盘](https://www.worldmonitor.app/dashboard)。
 2. 设置地图位置、缩放、主题和图层。
 3. 点击地图上的 **Embed**。
 4. 在 **Free — no key needed** 或 **With your embed key** 下点击 **Copy snippet**。
@@ -234,7 +234,7 @@ description: "在你的网站中加入免费实时地图或付费 World Monitor 
 ```html
 <iframe
   src="https://www.worldmonitor.app/embed?layers=conflicts,earthquakes,weather&center=20,0&zoom=1&theme=dark&variant=full"
-  title="World Monitor live map"
+  title="RaWorld live map"
   loading="lazy"
   referrerpolicy="strict-origin-when-cross-origin"
   style="width:100%;height:420px;border:0;display:block"
@@ -246,7 +246,7 @@ description: "在你的网站中加入免费实时地图或付费 World Monitor 
 
 优先使用 `embed.js`，由它完成凭据交换。自定义集成必须先安装消息监听器，再设置 iframe URL。iframe 在最初的三秒等待期内接受来自父页面的凭据。
 
-iframe 发送 `{ source: "worldmonitor-embed", type: "ready" }`。检查消息来源和发送窗口。向准确的 World Monitor 来源回复 `{ source: "worldmonitor-embed", type: "credential", key }`。
+iframe 发送 `{ source: "worldmonitor-embed", type: "ready" }`。检查消息来源和发送窗口。向准确的 RaWorld 来源回复 `{ source: "worldmonitor-embed", type: "credential", key }`。
 
 ```html
 <div id="wm-embed"></div>
@@ -254,7 +254,7 @@ iframe 发送 `{ source: "worldmonitor-embed", type: "ready" }`。检查消息�
   const origin = 'https://www.worldmonitor.app';
   const key = 'YOUR_WME_EMBED_KEY';
   const frame = document.createElement('iframe');
-  frame.title = 'World Monitor Fear & Greed';
+  frame.title = 'RaWorld Fear & Greed';
   frame.referrerPolicy = 'strict-origin-when-cross-origin';
   frame.style.cssText = 'width:100%;height:360px;border:0;display:block';
 
@@ -323,4 +323,4 @@ map-frame 响应包含 `tier`、`refreshMs`、`generatedAt`、`layers` 和 `data
 
 ### 其他集成
 
-[WebMCP](/zh/webmcp) 让浏览器智能体在 World Monitor 主站上使用工具，嵌入路由不暴露 WebMCP 工具。[MCP Apps](/zh/mcp-apps) 在兼容的 AI 客户端中提供组件。要在网站上放置面板，请使用 `/embed`。
+[WebMCP](/zh/webmcp) 让浏览器智能体在 RaWorld 主站上使用工具，嵌入路由不暴露 WebMCP 工具。[MCP Apps](/zh/mcp-apps) 在兼容的 AI 客户端中提供组件。要在网站上放置面板，请使用 `/embed`。

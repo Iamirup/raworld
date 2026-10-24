@@ -18,7 +18,7 @@ async function snapshot() {
     bearerToken: process.env.WORLDMONITOR_MCP_TOKEN,
   });
   const takenAt = new Date().toISOString();
-  // Three MCP calls per snapshot: WorldMonitor accounts have a daily allowance
+  // Three MCP calls per snapshot: RaWorld accounts have a daily allowance
   // (50 calls on the plan this was built against), shared with the live show.
   const clusters = new Map();
   const errors = [];

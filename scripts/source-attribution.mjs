@@ -72,7 +72,7 @@ const DECLARATION_RE = /\b(?:const|let|var)\s+[A-Z][A-Z0-9_]*\s*=\s*$/;
 
 const licensedPublisherFeed = (provider) => ({
   provider,
-  license: 'Licensed publisher content; redistribution governed by the World Monitor agreement',
+  license: 'Licensed publisher content; redistribution governed by the RaWorld agreement',
   attribution: `Credit ${provider} and link to the original item.`,
   status: 'reviewed',
 });
@@ -209,14 +209,14 @@ const PROVIDER_OVERRIDES = {
   'api.imd.gov.in': {
     provider: 'India Meteorological Department',
     identityGroup: 'imd',
-    license: 'IMD public API is account- and key-gated. RTI IMETD/R/E/25/00381 states APIs are without charges for non-commercial use only. World Monitor public-display and redistribution rights are validated.',
+    license: 'IMD public API is account- and key-gated. RTI IMETD/R/E/25/00381 states APIs are without charges for non-commercial use only. RaWorld public-display and redistribution rights are validated.',
     attribution: 'Data source: India Meteorological Department. Link https://api.imd.gov.in/public/api_reference.html and the official product page.',
     status: 'reviewed',
   },
   'mausam.imd.gov.in': {
     provider: 'India Meteorological Department',
     identityGroup: 'imd',
-    license: 'Public IMD sea-area and coastal bulletin pages, parsed without an account or key. The RTI IMETD/R/E/25/00381 non-commercial-only terms recorded for the IMD API apply to these pages too. World Monitor public-display and redistribution rights are validated.',
+    license: 'Public IMD sea-area and coastal bulletin pages, parsed without an account or key. The RTI IMETD/R/E/25/00381 non-commercial-only terms recorded for the IMD API apply to these pages too. RaWorld public-display and redistribution rights are validated.',
     attribution: 'Data source: India Meteorological Department. Link the official marine/coastal bulletin page.',
     status: 'reviewed',
   },
@@ -379,7 +379,7 @@ const PROVIDER_OVERRIDES = {
   },
   'www.toronto.ca': {
     provider: 'Toronto Fire Services',
-    license: 'Direct permission: World Monitor\'s owner confirmed on 2026-08-21 that World Monitor holds redistribution and public-display rights for the Toronto Fire Services live CAD XML. This does not claim that the feed is licensed under the City of Toronto Open Government Licence: no data-bound CKAN package was found for toronto-fire-active-incidents or livecad.xml. City of Toronto copyright and the source-specific permission still apply. Not the historical fire-incidents CKAN datasets.',
+    license: 'Direct permission: RaWorld\'s owner confirmed on 2026-08-21 that RaWorld holds redistribution and public-display rights for the Toronto Fire Services live CAD XML. This does not claim that the feed is licensed under the City of Toronto Open Government Licence: no data-bound CKAN package was found for toronto-fire-active-incidents or livecad.xml. City of Toronto copyright and the source-specific permission still apply. Not the historical fire-incidents CKAN datasets.',
     attribution: 'Toronto Fire Services, Active Incidents (CAD). https://www.toronto.ca/community-people/public-safety-alerts/alerts-notifications/toronto-fire-active-incidents/',
     status: 'reviewed',
   },
@@ -600,7 +600,7 @@ const PROVIDER_OVERRIDES = {
   },
   'gtaupdate.com': {
     provider: 'GTA Update',
-    license: 'Reuse permission held by WorldMonitor, as confirmed by the repository owner on 2026-08-21. The private grant is not stored in this public repository. Production activation remains separately blocked on official TPS/TFS upstream provenance and the safety, cadence, capacity, and product acceptance gates in issue #7012.',
+    license: 'Reuse permission held by RaWorld, as confirmed by the repository owner on 2026-08-21. The private grant is not stored in this public repository. Production activation remains separately blocked on official TPS/TFS upstream provenance and the safety, cadence, capacity, and product acceptance gates in issue #7012.',
     attribution: 'GTA Update (unofficial third-party TPS/TFS dispatch mirror; not official, not verified, entertainment-only per publisher). Used with permission. Production disabled pending upstream provenance and product activation. https://gtaupdate.com/about.php',
     status: 'reviewed',
     catalogActive: false,
@@ -789,13 +789,13 @@ const PROVIDER_OVERRIDES = {
   },
   'api.axiom.co': {
     provider: 'Axiom telemetry',
-    license: 'Excluded: World Monitor operational telemetry, not an external data provider',
+    license: 'Excluded: RaWorld operational telemetry, not an external data provider',
     attribution: 'Excluded from the provider count: internal usage telemetry.',
     status: 'excluded',
   },
   'us.sentry.io': {
     provider: 'Sentry error tracking',
-    license: 'Excluded: World Monitor operational telemetry, not an external data provider',
+    license: 'Excluded: RaWorld operational telemetry, not an external data provider',
     attribution: 'Excluded from the provider count: internal error-tracking request.',
     status: 'excluded',
   },
@@ -878,7 +878,7 @@ const PROVIDER_OVERRIDES = {
     status: 'excluded',
   },
   'worldmonitor.invalid': {
-    provider: 'WorldMonitor test origin',
+    provider: 'RaWorld test origin',
     license: 'Excluded: test-only origin',
     attribution: 'Excluded from the provider count: test-only URL.',
     status: 'excluded',
@@ -890,26 +890,26 @@ const PROVIDER_OVERRIDES = {
     status: 'excluded',
   },
   'api.worldmonitor.app': {
-    provider: 'World Monitor hosted API',
-    license: 'Excluded: World Monitor own service/control plane',
+    provider: 'RaWorld hosted API',
+    license: 'Excluded: RaWorld own service/control plane',
     attribution: 'Excluded from the external-provider count: first-party API endpoint.',
     status: 'excluded',
   },
   'proxy.worldmonitor.app': {
-    provider: 'World Monitor proxy',
-    license: 'Excluded: World Monitor own service/control plane',
+    provider: 'RaWorld proxy',
+    license: 'Excluded: RaWorld own service/control plane',
     attribution: 'Excluded from the external-provider count: first-party proxy endpoint.',
     status: 'excluded',
   },
   'worldmonitor.app': {
-    provider: 'World Monitor web app',
-    license: 'Excluded: World Monitor own web application',
+    provider: 'RaWorld web app',
+    license: 'Excluded: RaWorld own web application',
     attribution: 'Excluded from the external-provider count: first-party web origin.',
     status: 'excluded',
   },
   'www.worldmonitor.app': {
-    provider: 'World Monitor web app',
-    license: 'Excluded: World Monitor own web application',
+    provider: 'RaWorld web app',
+    license: 'Excluded: RaWorld own web application',
     attribution: 'Excluded from the external-provider count: first-party web origin.',
     status: 'excluded',
   },

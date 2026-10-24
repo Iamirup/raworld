@@ -1,14 +1,14 @@
 ---
-title: "MCP Apps：WorldMonitor 的交互式 ui:// 小部件"
-description: "WorldMonitor MCP Apps 完整实现契约文档，覆盖交互式 ui:// 资源、工具链接协议、宿主客户端渲染流程、沙箱与安全态势、能力协商、以及漂移检查机制，帮助集成开发者理解在 Claude、Cursor 等 MCP 客户端中嵌入可交互 UI 组件的规范与调试流程。"
+title: "MCP Apps：RaWorld 的交互式 ui:// 小部件"
+description: "RaWorld MCP Apps 完整实现契约文档，覆盖交互式 ui:// 资源、工具链接协议、宿主客户端渲染流程、沙箱与安全态势、能力协商、以及漂移检查机制，帮助集成开发者理解在 Claude、Cursor 等 MCP 客户端中嵌入可交互 UI 组件的规范与调试流程。"
 ---
 
-WorldMonitor 通过 `io.modelcontextprotocol/ui` 扩展支持 [MCP Apps](https://modelcontextprotocol.io/extensions/apps/build)。当前阵容提供 MCP Apps：`ui://` HTML 资源，MCP Apps 宿主可在关联的工具调用后内联渲染它们。
+RaWorld 通过 `io.modelcontextprotocol/ui` 扩展支持 [MCP Apps](https://modelcontextprotocol.io/extensions/apps/build)。当前阵容提供 MCP Apps：`ui://` HTML 资源，MCP Apps 宿主可在关联的工具调用后内联渲染它们。
 
 本页面是交互式接口的权威指南。请与 [MCP Server 概述](/zh/mcp-overview)配合使用，以了解认证、配额、传输和一般 JSON-RPC 行为。
 
 <Note>
-MCP Apps 在托管工具调用后，把 WorldMonitor UI 渲染到 MCP 宿主内部。[WebMCP](/zh/webmcp) 则让浏览器智能体操作当前标签页中已有的 WorldMonitor 网站。WebMCP 不是 MCP App，也不会取代这些资源背后的托管 MCP 服务器。
+MCP Apps 在托管工具调用后，把 RaWorld UI 渲染到 MCP 宿主内部。[WebMCP](/zh/webmcp) 则让浏览器智能体操作当前标签页中已有的 RaWorld 网站。WebMCP 不是 MCP App，也不会取代这些资源背后的托管 MCP 服务器。
 </Note>
 
 ## 契约
@@ -55,7 +55,7 @@ MCP Apps 在托管工具调用后，把 WorldMonitor UI 渲染到 MCP 宿主内�
 ## 运行时流程
 
 1. 宿主对 `https://worldmonitor.app/mcp` 调用 `initialize`。
-2. WorldMonitor 返回正常的 MCP 能力，外加 `capabilities.extensions["io.modelcontextprotocol/ui"]`。
+2. RaWorld 返回正常的 MCP 能力，外加 `capabilities.extensions["io.modelcontextprotocol/ui"]`。
 3. 宿主调用 `tools/list`。关联 UI 的工具携带 `_meta.ui.resourceUri` 以及已弃用的扁平别名 `_meta["ui/resourceUri"]`。
 4. 宿主调用 `resources/list` 并看到 `ui://` 应用资源。每个 UI 条目包含 `mimeType: text/html;profile=mcp-app` 和 `_meta.ui.csp`。
 5. 宿主对选定的 `ui://` URI 调用 `resources/read`。此次读取是公开且不计配额的，因为它只返回一个静态的、不含数据的模板。
@@ -70,7 +70,7 @@ Host -> View: ui/notifications/tool-result
 View -> Host: ui/notifications/size-changed
 ```
 
-视图本身从不获取实时的 WorldMonitor 数据。实时数据始终在正常的工具调用之后通过宿主到达应用。
+视图本身从不获取实时的 RaWorld 数据。实时数据始终在正常的工具调用之后通过宿主到达应用。
 
 ## 原始活跃战区
 

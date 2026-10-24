@@ -1,6 +1,6 @@
 # Dashboard boot
 
-A visitor opening WorldMonitor gets the live intelligence dashboard: a header with region, mission, search and settings controls; a world map with layer controls; and a grid of data panels. Until the app hydrates they see a pre-rendered skeleton, which must be gone by the time the dashboard is usable.
+A visitor opening RaWorld gets the live intelligence dashboard: a header with region, mission, search and settings controls; a world map with layer controls; and a grid of data panels. Until the app hydrates they see a pre-rendered skeleton, which must be gone by the time the dashboard is usable.
 
 ## Sub-features
 

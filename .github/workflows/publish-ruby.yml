@@ -50,10 +50,10 @@ jobs:
       - name: Verify gem version matches the tag
         if: startsWith(github.ref, 'refs/tags/gem-v')
         run: |
-          GEM_VERSION="$(ruby -r ./lib/worldmonitor/version -e 'puts WorldMonitor::VERSION')"
+          GEM_VERSION="$(ruby -r ./lib/worldmonitor/version -e 'puts RaWorld::VERSION')"
           TAG_VERSION="${GITHUB_REF_NAME#gem-v}"
           if [ "$GEM_VERSION" != "$TAG_VERSION" ]; then
-            echo "::error::WorldMonitor::VERSION ($GEM_VERSION) does not match tag ($TAG_VERSION)"
+            echo "::error::RaWorld::VERSION ($GEM_VERSION) does not match tag ($TAG_VERSION)"
             exit 1
           fi
 

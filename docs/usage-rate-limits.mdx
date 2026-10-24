@@ -1,6 +1,6 @@
 ---
 title: "Rate Limits"
-description: "Per-endpoint, per-key, and per-IP rate limits across the World Monitor API — headers, 429 handling, and backoff guidance for production clients."
+description: "Per-endpoint, per-key, and per-IP rate limits across the RaWorld API — headers, 429 handling, and backoff guidance for production clients."
 ---
 
 Rate limits are enforced at the Vercel Edge runtime using Upstash Redis counters. All limits are **sliding 60-second windows** unless noted.
@@ -94,7 +94,7 @@ All twelve embedded views show remaining requests and the local reset time from 
 
 API Starter and API Business retain weighted per-tool billing. The panel admission does not exempt an API plan from its REST budget.
 
-The 50 and 250 numerical limits remain the published paid allowances. Their unit covers a complete panel load, rather than each internal call. These numerical caps remain provisional pending provider costs and realistic customer usage. The [workflow measurement report](https://github.com/koala73/worldmonitor/blob/main/docs/solutions/performance-issues/mcp-country-panel-metering.md) records read counts, reuse, work ceilings, and the limits of the cost evidence.
+The 50 and 250 numerical limits remain the published paid allowances. Their unit covers a complete panel load, rather than each internal call. These numerical caps remain provisional pending provider costs and realistic customer usage. The [workflow measurement report](https://github.com/Iamirup/raworld/blob/main/docs/solutions/performance-issues/mcp-country-panel-metering.md) records read counts, reuse, work ceilings, and the limits of the cost evidence.
 
 ## Dashboard AI quota
 
@@ -237,11 +237,11 @@ API and MCP plan caps are tracked against the product catalog limits that ship w
 
 Pro and Pro Business have no REST allowance. Their separate counter charges one unit per standalone call or bounded panel request. API plans have one budget. The "MCP units / day" column is not an additional allowance on top of the API one, it is the same number, spent at the [per-tool weight](#mcp-calls-against-an-api-plan).
 
-When a paid user approaches or exceeds one of these limits, WorldMonitor records a compact Convex rollup and opens a current account notice in Settings. The daily count is read from the same per-account meter that governs enforcement, so a warning reflects the same usage number the plan is metered against. Daily limits warn at 80% and switch to over-limit at 100%; burst limits only notify on sustained pressure, not a single isolated spike.
+When a paid user approaches or exceeds one of these limits, RaWorld records a compact Convex rollup and opens a current account notice in Settings. The daily count is read from the same per-account meter that governs enforcement, so a warning reflects the same usage number the plan is metered against. Daily limits warn at 80% and switch to over-limit at 100%; burst limits only notify on sustained pressure, not a single isolated spike.
 
 If the notice is still current, a Resend-backed lifecycle sends an email at a bounded cadence. The email and dashboard notice explain the current usage, the relevant plan limit, and the available options: reduce traffic, wait for reset, upgrade when a self-serve path exists, or contact support when the next tier is not self-serve.
 
-WorldMonitor does **not** automatically upgrade a user, charge for overages, or move a customer into API Business because they crossed a cap. Any future hard enforcement for paid plans must first pass the internal `apiPlanLimitNotices.getEnforcementReadiness` gate: no stale usage source, no pending/failed email, and no blocked self-serve upgrade path.
+RaWorld does **not** automatically upgrade a user, charge for overages, or move a customer into API Business because they crossed a cap. Any future hard enforcement for paid plans must first pass the internal `apiPlanLimitNotices.getEnforcementReadiness` gate: no stale usage source, no pending/failed email, and no blocked self-serve upgrade path.
 
 ## Hard caps (not soft limits)
 

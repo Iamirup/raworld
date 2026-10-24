@@ -1,9 +1,9 @@
 ---
 title: "API Versioning and Deprecation"
-description: "WorldMonitor REST compatibility guarantees, deprecation notices, and sunset signals for agents and long-lived integrations."
+description: "RaWorld REST compatibility guarantees, deprecation notices, and sunset signals for agents and long-lived integrations."
 ---
 
-WorldMonitor versions public REST APIs in the URL:
+RaWorld versions public REST APIs in the URL:
 
 ```
 https://api.worldmonitor.app/api/<domain>/v<major>/<operation>
@@ -20,7 +20,7 @@ standard `/api/<domain>/v1/` prefix.
 
 ## Compatibility within a major version
 
-Within a published major version, WorldMonitor may add optional request fields,
+Within a published major version, RaWorld may add optional request fields,
 response fields, operations, and enum values. Existing fields keep their
 meaning and type. We do not remove or rename operations or fields, make an
 optional field required, or otherwise introduce an intentionally breaking
@@ -45,7 +45,7 @@ check instead of allowing a vacuous pass.
 
 ## Deprecation timeline
 
-When WorldMonitor replaces or retires a public REST version or operation:
+When RaWorld replaces or retires a public REST version or operation:
 
 1. We publish the replacement and migration guidance in the API documentation
    and [changelog](/changelog).
@@ -66,7 +66,7 @@ practical.
 
 [RFC 9745](https://www.rfc-editor.org/rfc/rfc9745.html) allows a `Link` with
 `rel="deprecation"` without a `Deprecation` header, so agents can find this
-policy before any surface is retired. Current WorldMonitor API and homepage
+policy before any surface is retired. Current RaWorld API and homepage
 responses may include:
 
 ```http

@@ -5,7 +5,7 @@
  * The sebuf `protoc-gen-openapiv3` plugin (proto/buf.gen.yaml) has no option or
  * annotation for describing authentication, so every generated spec omits
  * `components.securitySchemes`, a root `security` requirement, and the `401`
- * response — even though every non-public WorldMonitor RPC is authenticated at
+ * response — even though every non-public RaWorld RPC is authenticated at
  * the gateway (server/gateway.ts). This post-generation step adds them so the
  * published contract matches runtime reality. See umbrella issue #4599 (root
  * cause #1).
@@ -114,13 +114,13 @@ const API_KEY_SECURITY_SCHEMES = {
     type: 'apiKey',
     in: 'header',
     name: 'X-WorldMonitor-Key',
-    description: 'User-issued WorldMonitor API key.',
+    description: 'User-issued RaWorld API key.',
   },
   ApiKeyHeader: {
     type: 'apiKey',
     in: 'header',
     name: 'X-Api-Key',
-    description: 'Alias header for the WorldMonitor API key (X-WorldMonitor-Key).',
+    description: 'Alias header for the RaWorld API key (X-WorldMonitor-Key).',
   },
 };
 
@@ -139,7 +139,7 @@ const TRUST_REVIEW_SECURITY_SCHEMES = {
     type: 'apiKey',
     in: 'header',
     name: 'X-Trust-Review-Key',
-    description: 'Operator review key (the server TRUST_REVIEW_SECRET). Required by the error-report review operations; a WorldMonitor API key does not authorize them.',
+    description: 'Operator review key (the server TRUST_REVIEW_SECRET). Required by the error-report review operations; a RaWorld API key does not authorize them.',
   },
 };
 
@@ -456,12 +456,12 @@ function yamlSecuritySchemesBlock(hasBearer, hasTrustReview) {
     '            type: apiKey',
     '            in: header',
     '            name: X-WorldMonitor-Key',
-    '            description: User-issued WorldMonitor API key.',
+    '            description: User-issued RaWorld API key.',
     '        ApiKeyHeader:',
     '            type: apiKey',
     '            in: header',
     '            name: X-Api-Key',
-    '            description: Alias header for the WorldMonitor API key (X-WorldMonitor-Key).',
+    '            description: Alias header for the RaWorld API key (X-WorldMonitor-Key).',
   ];
   if (hasBearer) {
     L.push(

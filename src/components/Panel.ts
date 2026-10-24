@@ -5,11 +5,6 @@ import { type DomChild, h, replaceChildren, safeHtml as sanitizeHtmlFragment, se
 import { safeHtmlToString, type SafeHtml } from '@/utils/sanitize';
 import { trackLayoutCustomized } from '@/services/analytics';
 import { getAiFlowSettings } from '@/services/ai-flow-settings';
-import { getSecretState } from '@/services/runtime-config';
-import { PanelGateReason } from '@/services/panel-gating';
-import { lockSvg, upgradeSvg } from '@/components/gate-icons';
-import { createCheckoutConsentElement } from '@/utils/legal-links';
-import { WEB_APP_ORIGIN } from '@/config/web-origin';
 import { dataFreshness, type PanelFreshnessSummary } from '@/services/data-freshness';
 import { formatPanelFreshnessDisplay } from '@/services/panel-freshness-display';
 import {
@@ -171,10 +166,6 @@ export class Panel {
   protected get isLocked(): boolean {
     return this._locked;
   }
-  // Last reason rendered by showGatedCta, so repeat gating passes with an
-  // unchanged verdict skip the DOM teardown/rebuild (#4771 re-runs gating on
-  // every subscription-row change, including fields irrelevant to gating).
-  private _lastGateReason: PanelGateReason | null = null;
   // Snapshot of this.content's children at the moment showLocked /
   // showGatedCta replaces them with a lock CTA. unlockPanel re-attaches
   // these nodes so subclasses whose UI is constructed once (typically in
@@ -264,11 +255,6 @@ export class Panel {
       this.newBadgeEl.className = 'panel-new-badge';
       this.newBadgeEl.style.display = 'none';
       headerLeft.appendChild(this.newBadgeEl);
-    }
-
-    if (options.premium && !getSecretState('WORLDMONITOR_API_KEY').present) {
-      const proBadge = h('span', { className: 'panel-pro-badge' }, t('premium.pro'));
-      headerLeft.appendChild(proBadge);
     }
 
     this.header.appendChild(headerLeft);
@@ -742,7 +728,6 @@ export class Panel {
     this.onColTouchCancel = this.onColTouchEnd;
   }
 
-
   /**
    * `detailTitle` explains a `detail` the badge is too small to justify on its
    * own (e.g. a partial source count). Cleared when absent so a stale
@@ -1112,142 +1097,9 @@ export class Panel {
     this.retryAttempt = 0;
   }
 
-  public showLocked(features: string[] = []): void {
-    this._locked = true;
-    this.clearRetryCountdown();
-    this._snapshotContentForRestore();
-
-    for (let child = this.header.nextElementSibling; child && child !== this.content; child = child.nextElementSibling) {
-      (child as HTMLElement).style.display = 'none';
-    }
-    this.element.classList.add('panel-is-locked');
-
-    const iconEl = h('div', { className: 'panel-locked-icon' });
-    setTrustedHtml(iconEl, trustedHtml(lockSvg, 'legacy direct innerHTML migration'));
-
-    const lockedChildren: (HTMLElement | string)[] = [
-      iconEl,
-      h('div', { className: 'panel-locked-desc' }, t('premium.lockedDesc')),
-    ];
-
-    if (features.length > 0) {
-      const featureList = h('ul', { className: 'panel-locked-features' });
-      for (const feat of features) {
-        featureList.appendChild(h('li', {}, feat));
-      }
-      lockedChildren.push(featureList);
-    }
-
-    // Assent immediately above the CTA (#6976). This button jumps straight to
-    // Dodo's hosted checkout, where Dodo (merchant of record) shows its terms
-    // and never ours — so ours are presented here, before the jump. The desktop
-    // branch below opens the /pro pricing page in the OS browser instead, and
-    // that page carries its own assent line above every tier CTA.
-    if (!isDesktopRuntime()) lockedChildren.push(createCheckoutConsentElement(WEB_APP_ORIGIN));
-    const ctaBtn = h('button', { type: 'button', className: 'panel-locked-cta' }, 'Upgrade to Pro');
-    ctaBtn.addEventListener('click', () => {
-      import('@/services/upgrade-flow').then((m) => m.openUpgradeCheckout()).catch(() => {
-        window.open('https://worldmonitor.app/pro', '_blank', 'noopener,noreferrer');
-      });
-    });
-    lockedChildren.push(ctaBtn);
-
-    this.replaceContent(h('div', { className: 'panel-locked-state' }, ...lockedChildren));
-  }
-
-  /**
-   * CTA copy per gate reason, resolved lazily so each call translates only
-   * the two strings it renders. #4771 billing-aware states: the user has
-   * (or had) paid evidence, so the CTA must never read as a fresh upsell
-   * (duplicate-checkout risk). Their keys live under components.billingState
-   * (NOT premium.*): premium. is a first-paint shell namespace and these
-   * CTAs only render after the Convex entitlement round-trip, well past
-   * full-locale load.
-   */
-  private static gatedCtaEntry(
-    reason: PanelGateReason,
-  ): { icon: string; desc: string; cta: string } | null {
-    switch (reason) {
-      case PanelGateReason.ANONYMOUS:
-        return {
-          icon: lockSvg,
-          desc: t('premium.signInToUnlock'),
-          cta: t('premium.signIn'),
-        };
-      case PanelGateReason.FREE_TIER:
-        return {
-          icon: upgradeSvg,
-          desc: t('premium.upgradeDesc'),
-          cta: t('premium.upgradeToPro'),
-        };
-      case PanelGateReason.PAYMENT_ON_HOLD:
-        return {
-          icon: lockSvg,
-          desc: t('components.billingState.onHoldDesc'),
-          cta: t('components.billingState.updatePayment'),
-        };
-      case PanelGateReason.RENEWAL_PENDING:
-        return {
-          icon: lockSvg,
-          desc: t('components.billingState.renewalPendingDesc'),
-          cta: t('components.billingState.refreshStatus'),
-        };
-      case PanelGateReason.RENEWAL_FAILED:
-        return {
-          icon: lockSvg,
-          desc: t('components.billingState.renewalFailedDesc'),
-          cta: t('components.billingState.manageBilling'),
-        };
-      case PanelGateReason.LAPSED:
-        return {
-          icon: upgradeSvg,
-          desc: t('components.billingState.lapsedDesc'),
-          cta: t('components.billingState.resubscribe'),
-        };
-      default:
-        return null;
-    }
-  }
-
-  public showGatedCta(reason: PanelGateReason, onAction: () => void): void {
-    const entry = Panel.gatedCtaEntry(reason);
-    if (!entry) return; // PanelGateReason.NONE should never reach here
-
-    // Same verdict already rendered — skip the DOM teardown/rebuild.
-    // Gating re-runs on every subscription-row change (#4771), including
-    // Convex updates to fields irrelevant to the gate verdict.
-    if (this._locked && this._lastGateReason === reason) return;
-    this._lastGateReason = reason;
-
-    // Bail-out done — now commit to the locked state. Doing this AFTER the
-    // guard avoids a half-locked DOM (header siblings hidden, panel-is-locked
-    // class set, _savedContent populated) on the acknowledged-impossible
-    // NONE-reason path. PR #3814 review (Greptile P2).
-    this._locked = true;
-    this.clearRetryCountdown();
-    this._snapshotContentForRestore();
-
-    // Hide elements between header and content (same as showLocked)
-    for (let child = this.header.nextElementSibling; child && child !== this.content; child = child.nextElementSibling) {
-      (child as HTMLElement).style.display = 'none';
-    }
-    this.element.classList.add('panel-is-locked');
-
-    const iconEl = h('div', { className: 'panel-locked-icon' });
-    setTrustedHtml(iconEl, trustedHtml(entry.icon, 'legacy direct innerHTML migration'));
-
-    const descEl = h('div', { className: 'panel-locked-desc' }, entry.desc);
-
-    const ctaBtn = h('button', { type: 'button', className: 'panel-locked-cta' }, entry.cta);
-    ctaBtn.addEventListener('click', onAction);
-
-    this.replaceContent(h('div', { className: 'panel-locked-state' }, iconEl, descEl, ctaBtn));
-  }
-
   public unlockPanel(): void {
     if (!this._locked) return;
     this._locked = false;
-    this._lastGateReason = null;
     this.element.classList.remove('panel-is-locked');
     // Re-show hidden elements
     for (let child = this.header.nextElementSibling; child && child !== this.content; child = child.nextElementSibling) {
@@ -1312,16 +1164,6 @@ export class Panel {
       clearTimeout(this.contentDebounceTimer);
       this.contentDebounceTimer = null;
     }
-  }
-
-  // Capture this.content's current child nodes so unlockPanel can put them
-  // back. Only snapshots on the FIRST transition into a lock state — a
-  // re-entrant showLocked / showGatedCta must not overwrite the cache with
-  // the locked-state CTA. The cache is cleared by unlockPanel on restore.
-  private _snapshotContentForRestore(): void {
-    if (this._savedContent !== null) return;
-    this._savedContent = Array.from(this.content.childNodes);
-    this.snapshotPrincipal = this.contentPrincipal;
   }
 
   public showRetrying(message?: string, countdownSeconds?: number): void {

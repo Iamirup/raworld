@@ -314,8 +314,7 @@
       "alertTitle": {
         "configured": "Bureaubladinstellingen geconfigureerd",
         "needsKeys": "Configureer API-sleutels om functies te ontgrendelen",
-        "some": "Voor sommige functies zijn API-sleutels nodig",
-        "pro": "World Monitor Pro is actief"
+        "some": "Voor sommige functies zijn API-sleutels nodig"
       },
       "summary": {
         "desktop": "Desktop-modus",
@@ -344,10 +343,7 @@
         "NASA_FIRMS_API_KEY": "Brandinformatiesysteem voor Resourcebeheer.",
         "OLLAMA_API_URL": "e.g. http://127.0.0.1:11434 (Ollama) or http://127.0.0.1:1234/v1 (LM Studio) — OpenAI-compatible endpoint.",
         "OLLAMA_MODEL": "e.g. llama3.1:8b — model tag to use for summarization."
-      },
-      "proCloud": "Functies zonder lokale API-sleutel gebruiken World Monitor cloudgegevens.",
-      "skipSetupPro": "Sla de setup over: meld je aan met World Monitor Pro om cloudgegevens te gebruiken in plaats van je eigen API-sleutels.",
-      "getPro": "World Monitor Pro ophalen"
+      }
     },
     "countryIntel": {
       "identifying": "Land identificeren...",
@@ -459,20 +455,12 @@
           "title": "Licentie- / API-sleutel",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "description": "Abonnees van API Starter en API Business maken deze sleutel in het webdashboard via Settings → API Keys. Als u de volledige sleutel kwijt bent, trekt u deze in en maakt u een vervangende sleutel."
-        },
-        "dividerOr": "OF",
-        "register": {
-          "title": "Een API-sleutel nodig?",
-          "description": "Ga naar worldmonitor.app/docs/api-keys voor stapsgewijze hulp. Handmatige API-sleutels vereisen een API Starter- of API Business-abonnement.",
-          "submitBtn": "API-abonnementen bekijken"
         }
       },
-      "shellTitle": "World Monitor-instellingen",
+      "shellTitle": "RaWorld-instellingen",
       "shellSearchPlaceholder": "Instellingen doorzoeken...",
       "shellCancel": "Annuleren",
-      "shellSaveClose": "Opslaan & Sluiten",
-      "freePanelLimit": "Gratis plan: max {{max}} panelen. Upgrade naar PRO voor onbeperkt.",
-      "freeSourceLimit": "Gratis plan: max {{max}} bronnen. Upgrade naar PRO voor onbeperkt."
+      "shellSaveClose": "Opslaan & Sluiten"
     }
   },
   "components": {
@@ -781,14 +769,14 @@
       "info": "INFO"
     },
     "pizzint": {
-      "indexSource": "Index: World Monitor · locatiegegevens:",
+      "indexSource": "Index: RaWorld · locatiegegevens:",
       "statusNormal": "NORMAAL",
       "statusNoData": "GEEN GEGEVENS",
       "statusNoBaseline": "GEEN REFERENTIE",
       "vsUsual": "ten opzichte van normaal",
       "title": "Pentagon Pizza-index",
       "tensionsTitle": "Geopolitieke spanningen",
-      "tensionsSource": "Spanningen: World Monitor op basis van GDELT-gebeurtenissen",
+      "tensionsSource": "Spanningen: RaWorld op basis van GDELT-gebeurtenissen",
       "insufficientData": "Onvoldoende gegevens",
       "pizzaUnavailable": "Activiteit van pizzeria's niet beschikbaar",
       "source": "Bron:",
@@ -1111,7 +1099,7 @@
       "staleReport": "Verouderd rapport",
       "reported": "Aantal",
       "period": "Periode",
-      "movementNote": "Elke rij behoudt de bron, rapportdatum en meeteenheid. Populaties, aankomsten en grenscontrole-incidenten zijn verschillende metingen. Bronnen kunnen overlappen; tel hun aantallen niet op. WorldMonitor leidt deze weergave af van de gekoppelde bronnen; dit houdt geen goedkeuring door de aanbieders in.",
+      "movementNote": "Elke rij behoudt de bron, rapportdatum en meeteenheid. Populaties, aankomsten en grenscontrole-incidenten zijn verschillende metingen. Bronnen kunnen overlappen; tel hun aantallen niet op. RaWorld leidt deze weergave af van de gekoppelde bronnen; dit houdt geen goedkeuring door de aanbieders in.",
       "recent": "Recent",
       "last30Days": "Laatste 30 dagen",
       "newThisWeek": "Nieuw deze week",
@@ -1667,8 +1655,7 @@
       "refineryStage": "Refine",
       "stageUnavailable": "No published figures for this stage",
       "withheldNote": "W withheld",
-      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them.",
-      "productionProLocked": "Upgrade naar PRO voor aandelen mijn- en raffinaderijen per land met concentratie (producentenconcentratie-index) per fase."
+      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them."
     },
     "positiveNewsFeed": {
       "noStories": "Nog geen verhalen in deze categorie"
@@ -1785,7 +1772,7 @@
       "tripDays": "Reisdagen"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>WM Analist</strong> AI-analist met live context over geopolitieke, markt-, militaire en economische domeinen. Aangedreven door Claude met realtime data uit actieve WorldMonitor-feeds."
+      "infoTooltip": "<strong>RaWorld Analist</strong> AI-analist met live context over geopolitieke, markt-, militaire en economische domeinen. Aangedreven door Claude met realtime data uit actieve WorldMonitor-feeds."
     },
     "cotPositioning": {
       "infoTooltip": "<strong>Futures positioning</strong> Wekelijkse nettoposities voor commerciële handelaren, grote speculanten en kleine handelaren in grondstof- en financiële futures. Bron: Commitments of Traders-rapport van de Commodity Futures Trading Commission, gepubliceerd op vrijdagen."
@@ -1906,8 +1893,7 @@
       "dependentCommodities": "Afhankelijke grondstoffen",
       "stateOk": "Actueel",
       "stateStale": "Verouderde invoer",
-      "stateInsufficient": "Onvoldoende gegevens",
-      "proLocked": "Upgrade naar PRO voor scorebepaling van grondstofgevoeligheid"
+      "stateInsufficient": "Onvoldoende gegevens"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>Hormuz Trade Tracker</strong> Live scheepstracking door de Straat van Hormuz, 's werelds meest kritieke olie-bottleneck. Monitort tankertellingen, verstoringgebeurtenissen en wekelijkse stromingsveranderingen. Ongeveer 20% van de wereldwijde oliëtoevoer passeren hier dagelijks.",
@@ -2159,108 +2145,11 @@
     "wsbTickerScanner": {
       "infoTooltip": "<strong>WallStreetBets Ticker Scanner</strong> Real-time tickervermeldingen van r/wallstreetbets, r/stocks en r/investing. Gerangschikt op vermeldingsfrequentie en engagement. Snelheid meet hoe snel een ticker vaart krijgt via berichten."
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro is gelanceerd",
-      "tagline": "Meer signaal, minder ruis. Meer AI-briefings. Een geopolitieke & aandelenonderzoeker speciaal voor jou.",
-      "cta": "Upgrade naar Pro →",
-      "dismiss": "Verwijderen"
-    },
-    "billingState": {
-      "onHoldDesc": "Betaling mislukt. Werk je betaalmethode bij om premium toegang te herstellen.",
-      "onHoldBannerMessage": "Betaling mislukt. Werk je betaalmethode bij om je abonnement actief te houden.",
-      "updatePayment": "Betaling bijwerken",
-      "renewalPendingDesc": "We controleren de verlenging van je abonnement. Premium toegang wordt automatisch hersteld zodra deze is bevestigd.",
-      "refreshStatus": "Status vernieuwen",
-      "renewalFailedDesc": "We konden de verlenging van je abonnement niet verifiëren. Beheer je facturering of neem contact op met support als het probleem aanhoudt.",
-      "manageBilling": "Facturering beheren",
-      "lapsedDesc": "Je Pro-abonnement is beëindigd. Abonneer je opnieuw om premium toegang terug te krijgen.",
-      "resubscribe": "Opnieuw abonneren"
-    },
     "checkoutFailureBanner": {
       "message": "Betaling kon niet worden voltooid. Er is geen bedrag in rekening gebracht.",
       "retry": "Opnieuw proberen",
       "retrying": "Opnieuw proberen…",
       "dismiss": "Verwijderen"
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "Stap {{current}} van {{total}}",
-      "closeLabel": "Installatie overslaan",
-      "ariaLabel": "Pro-activering instellen",
-      "signedInAs": "Aangemeld als {{email}}",
-      "steps": {
-        "brief": {
-          "heading": "Je dagelijkse brief, elke ochtend",
-          "body": "Een samengestelde intelligence-brief in je inbox elke ochtend — de signalen van de nacht die ertoe doen, samengevat in vijf minuten lezen.",
-          "confirmCta": "Mijn ochtendbrief inschakelen",
-          "confirming": "Inschakelen…",
-          "doneNote": "Je ochtendbrief loopt al.",
-          "scheduleNote": "We behouden je huidige bezorgtijd.",
-          "summaryLabel": "Ochtendbrief",
-          "summaryVerified": "Aan — start met je volgende ochtendbrief.",
-          "deliverAt": "Bezorgen om",
-          "previewLoading": "Voorbeeld van je eerste brief wordt voorbereid…",
-          "previewLabel": "De brief van vanochtend"
-        },
-        "alerts": {
-          "heading": "Kritieke meldingen",
-          "body": "Krijg een melding in je browser wanneer er iets groots gebeurt — escalerende conflicten, marktschokken, nieuwe sancties. Pas de frequentie op elk moment aan in Instellingen.",
-          "confirmCta": "Meldingen inschakelen",
-          "confirming": "Inschakelen…",
-          "doneNote": "Browsermeldingen staan al aan.",
-          "blockedNote": "Meldingen zijn geblokkeerd in je browser. Schakel ze in bij de sitegegevens van je browser om meldingen te ontvangen.",
-          "declinedNote": "Geen probleem — we sturen geen browsermeldingen. Je kunt ze later inschakelen via de sitegegevens van je browser.",
-          "summaryLabel": "Kritieke meldingen",
-          "summaryVerified": "Aan — kritieke signalen bereiken je browser."
-        },
-        "power": {
-          "heading": "Jouw Pro-toolkit",
-          "body": "Aangepaste widgets, MCP-verbindingen en de AI-onderzoeker zijn ontgrendeld. Bouw het dashboard dat je echt in de gaten wilt houden.",
-          "confirmCta": "Pro-tools verkennen",
-          "confirming": "Openen…",
-          "doneNote": "Je gebruikt je Pro-tools al.",
-          "summaryLabel": "Pro-toolkit",
-          "summaryVerified": "Ontgrendeld en klaar wanneer jij dat bent.",
-          "channelsNote": "Heb je liever Telegram, Slack, Discord of een webhook?",
-          "pointers": {
-            "search": "Het hele dashboard doorzoeken",
-            "widgets": "Een aangepaste widget maken",
-            "analyst": "Stel de AI-analist een vraag",
-            "mcpClients": "MCP instellen",
-            "channels": "Stel deze in bij de meldingsinstellingen"
-          }
-        }
-      },
-      "status": {
-        "pending": "Niet ingesteld",
-        "inFlight": "Instellen…",
-        "verified": "Gereed",
-        "failed": "Het is niet gelukt",
-        "blocked": "Geblokkeerd",
-        "unavailable": "Niet beschikbaar",
-        "blockedNote": "Dit is momenteel niet beschikbaar — je kunt het later instellen via instellingen.",
-        "unavailableNote": "Dit is niet beschikbaar op je apparaat — je kunt het later instellen.",
-        "failedBody": "Er is iets misgegaan. Probeer het opnieuw of stel het later in via instellingen.",
-        "retry": "Opnieuw proberen"
-      },
-      "actions": {
-        "skip": "Voorlopig overslaan",
-        "continue": "Doorgaan"
-      },
-      "summary": {
-        "heading": "Alles is ingesteld",
-        "subVerified": "Dit draait nu op je account.",
-        "subPending": "Je kunt de installatie op elk moment afronden via instellingen.",
-        "linePending": "Nog niet ingesteld — rond dit op elk moment af in instellingen.",
-        "lineFailed": "Dit konden we niet instellen — probeer het opnieuw via instellingen.",
-        "finish": "Naar mijn dashboard"
-      },
-      "chip": {
-        "message": "Rond de installatie van je Pro-account af.",
-        "action": "Installatie afronden",
-        "dismissLabel": "Sluiten"
-      }
     },
     "frameworkSelector": {
       "label": "Analyseframework",
@@ -2483,20 +2372,10 @@
       }
     },
     "exportGate": {
-      "signedOutDesc": "Meld u aan om dashboardgegevens te exporteren als CSV, JSON of PDF.",
-      "upgradeDesc": "Gegevensexport (CSV, JSON, PDF) is inbegrepen bij Pro Business.",
-      "upgradeCta": "Upgraden naar Pro Business",
       "lockedAriaLabel": "Gegevens exporteren — vergrendeld. {{reason}}",
       "unlockedAnnouncement": "Gegevensexport ontgrendeld.",
       "preparingPdf": "PDF voorbereiden…",
       "pdfFailed": "Het PDF-rapport kon niet worden gegenereerd. Probeer het opnieuw of gebruik de JSON-export."
-    },
-    "tabCap": {
-      "signedOutDesc": "Werkruimten zonder aanmelding zijn beperkt tot {{cap}} dashboardtabbladen. Meld u aan om meer toe te voegen.",
-      "upgradeDesc": "U heeft uw limiet van {{cap}} dashboardtabbladen bereikt.",
-      "upgradeCta": "Upgraden voor meer",
-      "lockedAriaLabel": "Tabblad toevoegen — vergrendeld. {{reason}}",
-      "unlockedAnnouncement": "Limiet voor dashboardtabbladen opgeheven."
     },
     "fx": {
       "infoTooltip": "<strong>Currency rates</strong> Stress rangschikt 45 valuta's naar hun grootste daling over 24 maanden, met de 12-maandenverandering. Spotkoersen gebruiken aparte US dollar- en eurograndstallen. Russische roebels worden uitgedrukt als roebels per eenheid. Bronnen zijn onder andere Yahoo Finance, de Europese Centrale Bank en de Bank of Russia.",
@@ -2530,18 +2409,6 @@
       "rubPerUnit": "Roebel per eenheid",
       "sourceCbr": "Bron: Centrale Bank van Rusland"
     },
-    "passkeyOffer": {
-      "title": "Wachtsleutel opslaan?",
-      "body": "Volgende keer inloggen met je vingerafdruk, gezicht of apparaat-pincode — geen wachtwoord om te onthouden.",
-      "accept": "Wachtsleutel opslaan",
-      "dismiss": "Nu niet",
-      "close": "Sluiten",
-      "announce": "Sla een wachtsleutel op om volgende keer sneller in te loggen.",
-      "busy": "Je apparaat wordt gecontroleerd…",
-      "succeeded": "Wachtsleutel opgeslagen. Je kunt deze gebruiken wanneer je volgende keer inlogt.",
-      "retryable": "Dit is niet afgerond. Je kunt het opnieuw proberen.",
-      "failed": "We konden geen wachtsleutel op dit apparaat opslaan."
-    },
     "decisionBrief": {
       "commodityTitle": "Beslisnotitie voor grondstoffen",
       "commodity": "Grondstof / product",
@@ -2560,8 +2427,7 @@
       "changed": "Selectie gewijzigd. Leg beide scenario’s vast voordat u exporteert.",
       "loading": "Beide scenario’s worden vastgelegd…",
       "captured": "Vastgelegd. Controleer de observatiedatums en beperkingen voordat u downloadt.",
-      "failed": "De scenario’s konden niet worden vastgelegd. Controleer uw toegang en probeer opnieuw. Er is geen resultaat om te exporteren.",
-      "locked": "De beslisnotitie is beschikbaar met Pro."
+      "failed": "De scenario’s konden niet worden vastgelegd. Controleer uw toegang en probeer opnieuw. Er is geen resultaat om te exporteren."
     },
     "liveMedia": {
       "idleStatus": "Gepauzeerd wegens inactiviteit",
@@ -3535,7 +3401,6 @@
     "foodStocksHelp": "USDA-productie, -aanbod en -distributie voorraden-naar-gebruik per marketingjaar, met wereldratio ter referentie. FAOSTAT Food Balances levert productie en binnenlands aanbod wanneer Productie, Aanbod en Distributie geen volledige landensaldo heeft.",
     "loadingFoodStocks": "Loading food stocks…",
     "foodStocksUnavailable": "Food stocks unavailable.",
-    "foodStocksProLocked": "Upgrade to PRO for commodity stocks-to-use",
     "foodStocksCommodity": "Commodity",
     "foodStocksMarketingYear": "Marketing year",
     "foodStocksRatio": "Stocks-to-use",
@@ -3553,7 +3418,6 @@
       "help": "Leeftijdsstructuur, onderwijspijplijn en capaciteit van industrieel arbeidskrachten uit UN World Population Prospects, UNESCO Institute for Statistics en World Bank World Development Indicators, en ILOSTAT.",
       "loading": "Loading demographics and workforce data…",
       "unavailable": "Demographics and workforce data unavailable.",
-      "proLocked": "Upgrade to PRO for demographics and workforce data",
       "notAvailable": "Not available",
       "ageStructure": "Age structure",
       "education": "Education pipeline",
@@ -3579,7 +3443,6 @@
       "help": "Vastgevroren v1-bewijsscores voor voedsel, energie, demografie, technologie en defensie. Breid een rij uit om invoer, bronherkomst en redenen voor ontbrekende gegevens te inspecteren.",
       "loading": "Vijffactoren-scorekaart wordt geladen…",
       "unavailable": "Vijffactoren-scorekaart niet beschikbaar.",
-      "proLocked": "Upgrade naar PRO voor de vijffactoren-resiliëntiescorekaart",
       "insufficient": "Onvoldoende gegevens",
       "notAvailable": "Niet beschikbaar",
       "noEvidence": "Er is geen bewijs beschikbaar voor deze pijler.",
@@ -3636,9 +3499,7 @@
         "defense_supplierDiversity": "Diversiteit wapenleveranciers"
       }
     },
-    "defenseIndustrialBase": {
-      "proLocked": "Upgrade naar PRO voor afhankelijkheid van wapenleveranciers en militaire capaciteit"
-    }
+    "defenseIndustrialBase": {}
   },
   "preferences": {
     "display": "Weergave",
@@ -3669,10 +3530,10 @@
     "copyCoordinates": "Coördinaten kopiëren"
   },
   "shell": {
-    "documentTitle": "World Monitor — Real-Time Global Intelligence Dashboard",
+    "documentTitle": "RaWorld — Real-Time Global Intelligence Dashboard",
     "metaDescription": "Real-time wereldwijd intelligentieplatform. Gepubliceerd in WIRED. Gebruikt door meer dan 2 miljoen mensen in 190 landen. Conflicten, markten, militair, open-source intelligence in één overzicht.",
     "offlineTitle": "Je bent offline",
-    "offlineMessage": "World Monitor heeft een internetverbinding nodig voor real-time inlichtingengegevens.",
+    "offlineMessage": "RaWorld heeft een internetverbinding nodig voor real-time inlichtingengegevens.",
     "offlineRetry": "Opnieuw proberen"
   },
   "widgets": {
@@ -3719,7 +3580,6 @@
     "previewComposingCopy": "Het voorbeeld wordt weergegeven met de nieuwste live-gegevens en dashboard-opmaak.",
     "previewErrorCopy": "Los het probleem op en probeer opnieuw. Je bestaande widgets worden niet beïnvloed.",
     "createInteractive": "Interactief Widget maken",
-    "proBadge": "PRO",
     "preflightProUnavailable": "PRO widget-agent niet beschikbaar. Controleer PRO_WIDGET_KEY op de server.",
     "preflightInvalidProKey": "PRO-sleutel afgewezen. Werk wm-pro-key bij en herlaad.",
     "preflightProSubscriptionRequired": "Pro-abonnement vereist. Als je zojuist hebt geüpgraded, vernieuw de pagina; anders neem contact op met support.",
@@ -3741,28 +3601,6 @@
     "offlineCached": "Offline — gegevens uit cache van {{freshness}} worden weergegeven.",
     "offlineUnavailable": "Offline — live gegevens zijn momenteel niet beschikbaar.",
     "cachedFallback": "Live gegevens niet beschikbaar — gegevens uit cache van {{freshness}} worden weergegeven."
-  },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "Vereist een World Monitor-licentiesleutel",
-    "signInToUnlock": "Meld u aan om premium-functies te ontgrendelen",
-    "signIn": "Aanmelden om te ontgrendelen",
-    "upgradeDesc": "Upgrade naar Pro voor volledige toegang tot premium-analyses",
-    "upgradeToPro": "Upgrade naar Pro",
-    "features": {
-      "orefSirens1": "Waarschuwingen voor Israëlische raketaanvallen in realtime",
-      "orefSirens2": "Sirènezone-mapping met dreiging classificatie",
-      "telegramIntel1": "Samengestelde open-source intelligence Telegram-kanalen",
-      "telegramIntel2": "Updates over conflicten en geopolitieke situaties vrijwel in realtime",
-      "xIntel1": "Curated public news accounts on X",
-      "xIntel2": "API-fresh posts with official permalinks"
-    }
-  },
-  "auth": {
-    "signIn": "Aanmelden",
-    "createAccount": "Account aanmaken",
-    "settings": "Instellingen",
-    "passkeyOffer": {}
   },
   "mcp": {
     "connectPanel": "MCP Verbinden",
@@ -3851,8 +3689,6 @@
     "resilience": "Veerkracht",
     "ciiMissing": "CII niet beschikbaar",
     "resilienceMissing": "Veerkracht niet beschikbaar",
-    "noEvents": "Voor deze datum zijn geen geselecteerde koppen vastgelegd. Dit bewijst niet dat er geen gebeurtenissen waren.",
-    "unlock90": "Ontgrendel 90 dagen met Pro",
-    "unlock365": "Ontgrendel 365 dagen met een API-abonnement"
+    "noEvents": "Voor deze datum zijn geen geselecteerde koppen vastgelegd. Dit bewijst niet dat er geen gebeurtenissen waren."
   }
 }

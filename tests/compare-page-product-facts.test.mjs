@@ -37,7 +37,7 @@ function worldMonitorRows() {
   return [
     ...COMPARISON_HUB_MATRIX_ROWS,
     ...COMPARISON_PAGES.flatMap((page) => page.matrixRows),
-  ].filter((row) => row[0].startsWith('World Monitor'));
+  ].filter((row) => row[0].startsWith('RaWorld'));
 }
 
 function worldMonitorCompareCopy() {
@@ -111,9 +111,9 @@ describe('#7744 compare pages agree with reconciled product facts', () => {
     );
   });
 
-  it('puts the live provider count in every World Monitor source-count cell', () => {
+  it('puts the live provider count in every RaWorld source-count cell', () => {
     const rows = worldMonitorRows();
-    assert.ok(rows.length > 0, 'compare matrices must include World Monitor rows');
+    assert.ok(rows.length > 0, 'compare matrices must include RaWorld rows');
     for (const row of rows) {
       assert.equal(
         row[SOURCE_COUNT_COLUMN],
@@ -184,7 +184,7 @@ describe('#7744 compare pages agree with reconciled product facts', () => {
     }
   });
 
-  it('does not publish other World Monitor inventory figures that disagree with the registry', () => {
+  it('does not publish other RaWorld inventory figures that disagree with the registry', () => {
     const copy = worldMonitorCompareCopy();
     for (const claim of INVENTORY_CLAIMS) {
       claim.re.lastIndex = 0;

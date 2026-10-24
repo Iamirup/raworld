@@ -1,6 +1,6 @@
 /**
  * Partner-embed entitlement: keyed to the embedding account's API key, never
- * to the page visitor's World Monitor session.
+ * to the page visitor's RaWorld session.
  */
 
 import {

@@ -1,6 +1,6 @@
 # Unified OpenAPI bundle — capacity baseline and reduction plan
 
-Measured 2026-08-13 against `docs/api/worldmonitor.openapi.yaml` at `27690f1`. Issue [#6558](https://github.com/koala73/worldmonitor/issues/6558).
+Measured 2026-08-13 against `docs/api/worldmonitor.openapi.yaml` at `27690f1`. Issue [#6558](https://github.com/Iamirup/raworld/issues/6558).
 
 Regenerate every number here with:
 
@@ -10,7 +10,7 @@ node scripts/openapi-capacity-report.mjs --json
 
 ## Why there is a budget at all
 
-`public/openapi.json` is the machine copy of the API contract. Agent-readiness scanners fetch it and cap the body they will analyse at roughly 1 MB. When the spec crossed that cap on 2026-07-05, ora.ai/orank's function-calling compatibility check flipped from a computed verdict — "192/192 with typed schemas" — to "API spec found but couldn't validate function calling compatibility", the same failure elevenlabs' 1.8 MB and openrouter's 1.5 MB specs get. Sub-800 KB specs get computed verdicts. See [#4852](https://github.com/koala73/worldmonitor/issues/4852).
+`public/openapi.json` is the machine copy of the API contract. Agent-readiness scanners fetch it and cap the body they will analyse at roughly 1 MB. When the spec crossed that cap on 2026-07-05, ora.ai/orank's function-calling compatibility check flipped from a computed verdict — "192/192 with typed schemas" — to "API spec found but couldn't validate function calling compatibility", the same failure elevenlabs' 1.8 MB and openrouter's 1.5 MB specs get. Sub-800 KB specs get computed verdicts. See [#4852](https://github.com/Iamirup/raworld/issues/4852).
 
 The guard is `tests/openapi-json-dedup.test.mjs`, which fails when the served artifact exceeds **950,000 bytes**.
 
@@ -26,7 +26,7 @@ The guard is `tests/openapi-json-dedup.test.mjs`, which fails when the served ar
 | Mean bytes per operation | 4,343 | 3,913 |
 | Room for | 0 more operations | ~24 more operations |
 
-The "before" column is the state the issue was filed from: less than one operation's worth of headroom. [#6531](https://github.com/koala73/worldmonitor/pull/6531) landed the food-stocks operation into 1.7 KB of headroom and had to find the bytes to pay for it inside that same PR.
+The "before" column is the state the issue was filed from: less than one operation's worth of headroom. [#6531](https://github.com/Iamirup/raworld/pull/6531) landed the food-stocks operation into 1.7 KB of headroom and had to find the bytes to pay for it inside that same PR.
 
 Two measurement corrections landed with this baseline:
 
@@ -131,7 +131,7 @@ The production parser (`shared/china-corridor-control-towers.ts`) accepts a payl
 
 ### Operations left out of the scanner bundle
 
-Step 2 has since landed: `Idempotency-Key` and `Idempotent-Replayed` are shared `components.headers` refs in the served JSON. With 320 bytes left, the owner decided (#9093) that endpoints built for WorldMonitor's own pages and for operators stay out of `public/openapi.json`. `SCANNER_BUNDLE_EXCLUDED_OPERATIONS` in `scripts/build-openapi-json.mjs` lists each one with its reason. An excluded operation is still served, still documented in its per-service spec and the YAML bundle, and still callable. Only this artifact omits it, so it costs no budget.
+Step 2 has since landed: `Idempotency-Key` and `Idempotent-Replayed` are shared `components.headers` refs in the served JSON. With 320 bytes left, the owner decided (#9093) that endpoints built for RaWorld's own pages and for operators stay out of `public/openapi.json`. `SCANNER_BUNDLE_EXCLUDED_OPERATIONS` in `scripts/build-openapi-json.mjs` lists each one with its reason. An excluded operation is still served, still documented in its per-service spec and the YAML bundle, and still callable. Only this artifact omits it, so it costs no budget.
 
 ### Not on the table
 

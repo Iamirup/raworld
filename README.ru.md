@@ -1,16 +1,16 @@
-# World Monitor
+# RaWorld
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja-JP.md) | [**Русский**](README.ru.md)
 
 **Дашборд глобальной разведки в реальном времени** — AI-агрегация новостей, геополитический мониторинг и отслеживание инфраструктуры в едином интерфейсе ситуационной осведомлённости.
 
-[![GitHub stars](https://img.shields.io/github/stars/koala73/worldmonitor?style=social)](https://github.com/koala73/worldmonitor/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/Iamirup/raworld?style=social)](https://github.com/Iamirup/raworld/stargazers)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Last commit](https://img.shields.io/github/last-commit/koala73/worldmonitor)](https://github.com/koala73/worldmonitor/commits/main)
-[![Latest release](https://img.shields.io/github/v/release/koala73/worldmonitor?style=flat)](https://github.com/koala73/worldmonitor/releases/latest)
+[![Last commit](https://img.shields.io/github/last-commit/Iamirup/raworld)](https://github.com/Iamirup/raworld/commits/main)
+[![Latest release](https://img.shields.io/github/v/release/Iamirup/raworld?style=flat)](https://github.com/Iamirup/raworld/releases/latest)
 [![npm: worldmonitor](https://img.shields.io/npm/v/worldmonitor?logo=npm&label=npm)](https://www.npmjs.com/package/worldmonitor)
-[![skills.sh](https://skills.sh/b/koala73/worldmonitor)](https://skills.sh/koala73/worldmonitor)
+[![skills.sh](https://skills.sh/b/Iamirup/raworld)](https://skills.sh/Iamirup/raworld)
 
 <p align="center">
   <a href="https://www.worldmonitor.app"><img src="https://img.shields.io/badge/Web_App-worldmonitor.app-blue?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Web App"></a>&nbsp;
@@ -26,7 +26,7 @@
   <a href="https://www.npmjs.com/package/worldmonitor"><img src="https://img.shields.io/badge/CLI-npx%20worldmonitor-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="npx worldmonitor"></a>&nbsp;
   <a href="https://pypi.org/project/worldmonitor-sdk/"><img src="https://img.shields.io/pypi/v/worldmonitor-sdk?style=for-the-badge&logo=pypi&logoColor=white&label=pip%20install%20worldmonitor-sdk&color=3775A9" alt="pip install worldmonitor-sdk"></a>&nbsp;
   <a href="https://rubygems.org/gems/worldmonitor"><img src="https://img.shields.io/gem/v/worldmonitor?style=for-the-badge&logo=rubygems&logoColor=white&label=gem%20install%20worldmonitor&color=E9573F" alt="gem install worldmonitor"></a>&nbsp;
-  <a href="https://pkg.go.dev/github.com/koala73/worldmonitor/sdk/go"><img src="https://img.shields.io/badge/go%20get-sdk%2Fgo-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="go get github.com/koala73/worldmonitor/sdk/go"></a>
+  <a href="https://pkg.go.dev/github.com/Iamirup/raworld/sdk/go"><img src="https://img.shields.io/badge/go%20get-sdk%2Fgo-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="go get github.com/Iamirup/raworld/sdk/go"></a>
 </p>
 
 <p align="center">
@@ -38,11 +38,11 @@
 
 <p align="center">
   <a href="https://www.worldmonitor.app/docs/documentation"><strong>Документация</strong></a> &nbsp;·&nbsp;
-  <a href="https://github.com/koala73/worldmonitor/releases/latest"><strong>Релизы</strong></a> &nbsp;·&nbsp;
+  <a href="https://github.com/Iamirup/raworld/releases/latest"><strong>Релизы</strong></a> &nbsp;·&nbsp;
   <a href="https://www.worldmonitor.app/docs/contributing"><strong>Участие</strong></a>
 </p>
 
-![World Monitor Dashboard](docs/images/worldmonitor-7-mar-2026.jpg)
+![RaWorld Dashboard](docs/images/worldmonitor-7-mar-2026.jpg)
 
 ---
 
@@ -70,16 +70,16 @@
 | Поверхность | Статус | Примечания |
 |---------|--------|-------|
 | `worldmonitor.app`, `tech.`, `finance.`, `commodity.`, `happy.`, `energy.` | Стабильно | Публичные деплои из этого репозитория, активно поддерживаются |
-| Десктоп-сборки (Windows / macOS Apple Silicon / macOS Intel / Linux AppImage) | Стабильно | **Один бинарник Tauri для всех вариантов** — установите World Monitor и переключайтесь на tech, finance, commodity, energy или happy в приложении. Отдельных загрузок по вариантам намеренно нет |
+| Десктоп-сборки (Windows / macOS Apple Silicon / macOS Intel / Linux AppImage) | Стабильно | **Один бинарник Tauri для всех вариантов** — установите RaWorld и переключайтесь на tech, finance, commodity, energy или happy в приложении. Отдельных загрузок по вариантам намеренно нет |
 
-Обращения по любому из пунктов выше попадают в один бэклог — см. [доску issues](https://github.com/koala73/worldmonitor/issues).
+Обращения по любому из пунктов выше попадают в один бэклог — см. [доску issues](https://github.com/Iamirup/raworld/issues).
 
 ---
 
 ## Быстрый старт
 
 ```bash
-git clone https://github.com/koala73/worldmonitor.git
+git clone https://github.com/Iamirup/raworld.git
 cd worldmonitor
 npm install
 npm run dev
@@ -120,7 +120,7 @@ npm run dev:energy     # energy.worldmonitor.app
 
 ## Программный доступ
 
-World Monitor рассчитан и на агентов/скрипты, и на браузеры:
+RaWorld рассчитан и на агентов/скрипты, и на браузеры:
 
 - **MCP-сервер** — `https://worldmonitor.app/mcp` (Streamable HTTP). Публичный `tools/list`; `tools/call` с `X-WorldMonitor-Key` или OAuth.
   Сервер также публикует Agent Skills через черновик расширения `io.modelcontextprotocol/skills` (`skills/list`, `skills/get` и чтение ресурсов `skill://…`).
@@ -133,7 +133,7 @@ World Monitor рассчитан и на агентов/скрипты, и на 
   worldmonitor risk IR --api-key wm_xxx
   ```
 
-- **SDK** — клиенты без зависимостей зеркалят CLI: Python [`worldmonitor-sdk`](https://pypi.org/project/worldmonitor-sdk/) ([`sdk/python/`](sdk/python/)), Ruby [`worldmonitor`](https://rubygems.org/gems/worldmonitor) ([`sdk/ruby/`](sdk/ruby/)), Go [`github.com/koala73/worldmonitor/sdk/go`](https://pkg.go.dev/github.com/koala73/worldmonitor/sdk/go) ([`sdk/go/`](sdk/go/)). Гайд: [worldmonitor.app/docs/sdks](https://www.worldmonitor.app/docs/sdks).
+- **SDK** — клиенты без зависимостей зеркалят CLI: Python [`worldmonitor-sdk`](https://pypi.org/project/worldmonitor-sdk/) ([`sdk/python/`](sdk/python/)), Ruby [`worldmonitor`](https://rubygems.org/gems/worldmonitor) ([`sdk/ruby/`](sdk/ruby/)), Go [`github.com/Iamirup/raworld/sdk/go`](https://pkg.go.dev/github.com/Iamirup/raworld/sdk/go) ([`sdk/go/`](sdk/go/)). Гайд: [worldmonitor.app/docs/sdks](https://www.worldmonitor.app/docs/sdks).
 
 Файлы обнаружения для агентов: [`llms.txt`](https://worldmonitor.app/llms.txt) · [манифест agent-skills](https://worldmonitor.app/.well-known/agent-skills/index.json) · [api-catalog](https://worldmonitor.app/.well-known/api-catalog). API-ключ: [worldmonitor.app/pro](https://www.worldmonitor.app/pro).
 
@@ -147,7 +147,7 @@ World Monitor рассчитан и на агентов/скрипты, и на 
 
 ## Источники данных
 
-WorldMonitor агрегирует атрибутированные исходные источники по геополитике, финансам, энергетике, климату, авиации, кибербезопасности, военной сфере, инфраструктуре и новостной разведке. Курируемые ленты и группы источников с отслеживанием актуальности — в полном [каталоге источников данных](https://www.worldmonitor.app/docs/data-sources) (провайдер, уровень ленты, лицензионный статус, метод сбора).
+RaWorld агрегирует атрибутированные исходные источники по геополитике, финансам, энергетике, климату, авиации, кибербезопасности, военной сфере, инфраструктуре и новостной разведке. Курируемые ленты и группы источников с отслеживанием актуальности — в полном [каталоге источников данных](https://www.worldmonitor.app/docs/data-sources) (провайдер, уровень ленты, лицензионный статус, метод сбора).
 
 ---
 
@@ -186,8 +186,8 @@ Copyright (C) 2024-2026 Elie Habib. All rights reserved.
 
 ## Участники
 
-<a href="https://github.com/koala73/worldmonitor/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=koala73/worldmonitor" />
+<a href="https://github.com/Iamirup/raworld/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Iamirup/raworld" />
 </a>
 
 ## Благодарности за ответственное раскрытие
@@ -209,9 +209,9 @@ Copyright (C) 2024-2026 Elie Habib. All rights reserved.
 
 ## Star History
 
-<a href="https://star-history.dera.page/#koala73/worldmonitor&type=Date">
+<a href="https://star-history.dera.page/#Iamirup/raworld&type=Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=koala73/worldmonitor&type=Date&theme=dark" />
-   <img alt="Star History Chart" src="https://star-history.dera.page/svg?repos=koala73/worldmonitor&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=Iamirup/raworld&type=Date&theme=dark" />
+   <img alt="Star History Chart" src="https://star-history.dera.page/svg?repos=Iamirup/raworld&type=Date" />
  </picture>
 </a>

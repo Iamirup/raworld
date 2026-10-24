@@ -1919,7 +1919,7 @@ export const CATEGORY_EXPLAINER_PATH =
   'blog-site/src/content/blog/what-is-worldmonitor-real-time-global-intelligence.md';
 
 const CATEGORY_EXPLAINER_OPENING =
-  /^World Monitor is a \*\*free, open-source, real-time global intelligence dashboard\*\*/;
+  /^RaWorld is a \*\*free, open-source, real-time global intelligence dashboard\*\*/;
 // Wide enough that ordinary copy edits pass; narrow enough that the definition
 // cannot decay into a one-liner or swell back into the old narrative lede.
 const CATEGORY_EXPLAINER_OPENING_WORDS = { min: 35, max: 80 };
@@ -1966,7 +1966,7 @@ export function validateCategoryExplainerCopy(stats, readFile = read) {
   } else {
     const opening = body.slice(0, firstHeading).trim();
     if (!CATEGORY_EXPLAINER_OPENING.test(opening)) {
-      failures.push(`${file}: must open with the self-contained "World Monitor is a **free, open-source, real-time global intelligence dashboard**" definition`);
+      failures.push(`${file}: must open with the self-contained "RaWorld is a **free, open-source, real-time global intelligence dashboard**" definition`);
     }
     const words = opening.split(/\s+/).filter(Boolean).length;
     const { min, max } = CATEGORY_EXPLAINER_OPENING_WORDS;

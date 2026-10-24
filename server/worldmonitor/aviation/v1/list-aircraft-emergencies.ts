@@ -8,7 +8,7 @@ export async function fetchEmergencySnapshot(): Promise<EmergencySnapshot> {
   const slices = await Promise.all(EMERGENCY_CODES.map(async squawk => {
     try {
       const response = await fetch(`https://api.adsb.lol/v2/sqk/${squawk}`, {
-        headers: { Accept: 'application/json', 'User-Agent': 'WorldMonitor/1.0 (aircraft emergency layer)' },
+        headers: { Accept: 'application/json', 'User-Agent': 'RaWorld/1.0 (aircraft emergency layer)' },
         signal: AbortSignal.timeout(5_000),
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);

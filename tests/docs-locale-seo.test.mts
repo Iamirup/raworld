@@ -21,7 +21,7 @@ const repoRoot = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const ORGANIZATION_AUTHOR = {
   '@id': 'https://www.worldmonitor.app/#organization',
   '@type': 'Organization',
-  name: 'World Monitor',
+  name: 'RaWorld',
   url: 'https://www.worldmonitor.app/',
 };
 
@@ -195,8 +195,8 @@ describe('docs entity-graph rewrite (#7459d)', () => {
   const CANONICAL_WEBSITE = 'https://www.worldmonitor.app/#website';
   const mintlifySeed = `<!DOCTYPE html><html lang="en"><head>
 <link rel="canonical" href="https://www.worldmonitor.app/docs/getting-started"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"World Monitor","creator":{"@type":"Organization","name":"Mintlify","url":"https://mintlify.com"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.worldmonitor.app/#organization","name":"World Monitor"},{"@type":"WebSite","@id":"https://www.worldmonitor.app/docs#website","name":"World Monitor","url":"https://www.worldmonitor.app/docs","publisher":{"@id":"https://www.worldmonitor.app/#organization"}},{"@type":"WebPage","@id":"https://www.worldmonitor.app/docs/getting-started#webpage","isPartOf":{"@id":"https://www.worldmonitor.app/docs#website"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"RaWorld","creator":{"@type":"Organization","name":"Mintlify","url":"https://mintlify.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.worldmonitor.app/#organization","name":"RaWorld"},{"@type":"WebSite","@id":"https://www.worldmonitor.app/docs#website","name":"RaWorld","url":"https://www.worldmonitor.app/docs","publisher":{"@id":"https://www.worldmonitor.app/#organization"}},{"@type":"WebPage","@id":"https://www.worldmonitor.app/docs/getting-started#webpage","isPartOf":{"@id":"https://www.worldmonitor.app/docs#website"}}]}</script>
 </head><body></body></html>`;
 
   function jsonLdBlocks(html: string): Record<string, unknown>[] {
@@ -236,7 +236,7 @@ describe('docs entity-graph rewrite (#7459d)', () => {
   // dateModified and publisher but no author, which Google requires — the docs
   // were rich-result ineligible (#7530). Use the real upstream shape.
   const articleSeed = `<!DOCTYPE html><html lang="en"><head>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Article","TechArticle"],"@id":"https://www.worldmonitor.app/docs/about#article","headline":"About World Monitor","dateModified":"2026-08-30T00:00:00Z","publisher":{"@id":"https://www.worldmonitor.app/#organization"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Article","TechArticle"],"@id":"https://www.worldmonitor.app/docs/about#article","headline":"About RaWorld","dateModified":"2026-08-30T00:00:00Z","publisher":{"@id":"https://www.worldmonitor.app/#organization"}}]}</script>
 </head><body></body></html>`;
 
   it('attributes the docs Article to the canonical Organization', async () => {
@@ -370,7 +370,7 @@ describe('docs entity-graph rewrite (#7459d)', () => {
   it('names the maintainer on every page it attributes to the Person (#7980)', () => {
     const families = [
       { dir: 'docs/methodology', prefix: '/docs/methodology', byline: 'Methodology maintained by [Elie Habib]' },
-      { dir: 'docs/zh/methodology', prefix: '/docs/zh/methodology', byline: '本方法论由 World Monitor 创始人 [Elie Habib]' },
+      { dir: 'docs/zh/methodology', prefix: '/docs/zh/methodology', byline: '本方法论由 RaWorld 创始人 [Elie Habib]' },
     ];
     let checked = 0;
     for (const { dir, prefix, byline } of families) {
@@ -422,7 +422,7 @@ describe('docs entity-graph rewrite handles alternate vendor shapes (#7459d)', (
 
   it('drops a vendor WebSite inside a top-level array', () => {
     const html = rewriteDocsEntityGraph(wrap([
-      { '@type': 'WebSite', name: 'World Monitor', creator: MINTLIFY },
+      { '@type': 'WebSite', name: 'RaWorld', creator: MINTLIFY },
       { '@type': 'WebPage', '@id': 'https://www.worldmonitor.app/docs/x#webpage' },
     ]));
     assert.equal(survivingMintlify(html), false);
@@ -430,14 +430,14 @@ describe('docs entity-graph rewrite handles alternate vendor shapes (#7459d)', (
 
   it('drops a WebSite attributed via publisher rather than creator', () => {
     const html = rewriteDocsEntityGraph(wrap({
-      '@graph': [{ '@type': 'WebSite', name: 'World Monitor', publisher: MINTLIFY }],
+      '@graph': [{ '@type': 'WebSite', name: 'RaWorld', publisher: MINTLIFY }],
     }));
     assert.equal(survivingMintlify(html), false);
   });
 
   it('drops a WebSite whose @type is an array', () => {
     const html = rewriteDocsEntityGraph(wrap({
-      '@graph': [{ '@type': ['WebSite', 'Thing'], name: 'World Monitor', creator: MINTLIFY }],
+      '@graph': [{ '@type': ['WebSite', 'Thing'], name: 'RaWorld', creator: MINTLIFY }],
     }));
     assert.equal(survivingMintlify(html), false);
   });
@@ -445,7 +445,7 @@ describe('docs entity-graph rewrite handles alternate vendor shapes (#7459d)', (
   it('drops a vendor WebSite nested below the first @graph level', () => {
     const html = rewriteDocsEntityGraph(wrap({
       '@type': 'WebPage',
-      mainEntity: { '@type': 'WebSite', name: 'World Monitor', creator: MINTLIFY },
+      mainEntity: { '@type': 'WebSite', name: 'RaWorld', creator: MINTLIFY },
     }));
     assert.equal(survivingMintlify(html), false);
   });
@@ -519,7 +519,7 @@ describe('docs article injection for bare WebPage output', () => {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
       '@id': 'https://www.worldmonitor.app/docs/architecture#webpage',
-      name: 'Design Philosophy - World Monitor',
+      name: 'Design Philosophy - RaWorld',
       url: 'https://www.worldmonitor.app/docs/architecture',
     }), '/docs/architecture');
     const article = flatNodes(html).find(isArticle);
@@ -548,7 +548,7 @@ describe('docs article injection for bare WebPage output', () => {
       '@graph': [{
         '@type': ['Article', 'TechArticle'],
         '@id': 'https://www.worldmonitor.app/docs/about#article',
-        headline: 'About World Monitor',
+        headline: 'About RaWorld',
         publisher: { '@id': 'https://www.worldmonitor.app/#organization' },
       }],
     }), '/docs/about');
@@ -582,14 +582,14 @@ describe('docs article injection for bare WebPage output', () => {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
       '@id': 'https://www.worldmonitor.app/docs/about#webpage',
-      name: 'About World Monitor',
+      name: 'About RaWorld',
       url: 'https://www.worldmonitor.app/docs/about',
     })}</script>
 <script type="application/ld+json">${JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Article',
       '@id': 'https://www.worldmonitor.app/docs/about#article',
-      headline: 'About World Monitor',
+      headline: 'About RaWorld',
     })}</script>
 </head><body></body></html>`, '/docs/about');
     const nodes = flatNodes(html);
@@ -610,13 +610,13 @@ describe('docs article injection for bare WebPage output', () => {
 <script type="application/ld+json">${JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      name: 'About World Monitor',
+      name: 'About RaWorld',
       url: 'https://www.worldmonitor.app/docs/about',
     })}</script>
 <script type="application/ld+json">${JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      name: 'About World Monitor alternate graph',
+      name: 'About RaWorld alternate graph',
       url: 'https://www.worldmonitor.app/docs/about',
     })}</script>
 </head><body></body></html>`, '/docs/about');
@@ -630,7 +630,7 @@ describe('docs article injection for bare WebPage output', () => {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
       '@id': 'https://www.worldmonitor.app/docs/zh/about#webpage',
-      name: '关于 World Monitor',
+      name: '关于 RaWorld',
       url: 'https://www.worldmonitor.app/docs/zh/about',
     }), '/docs/zh/about');
     const article = flatNodes(html).find(isArticle);

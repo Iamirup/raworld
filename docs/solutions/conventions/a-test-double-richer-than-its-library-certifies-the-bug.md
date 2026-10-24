@@ -35,7 +35,7 @@ tags:
 
 ## Context
 
-`docker/redis-rest-proxy.mjs` is the Upstash-compatible Redis REST proxy bundled with WorldMonitor's self-hosted Docker stack. Its `POST /multi-exec` route answered **every** request with `403 {"error":"multi.sendCommand is not a function"}` — 100% failure, for as long as the route had existed. `sendCommand` is a method on the node-redis *client*; the v4 transaction chain queues with `addCommand`. Verified against `redis@4.7.1`, the version `docker/Dockerfile.redis-rest` installs:
+`docker/redis-rest-proxy.mjs` is the Upstash-compatible Redis REST proxy bundled with RaWorld's self-hosted Docker stack. Its `POST /multi-exec` route answered **every** request with `403 {"error":"multi.sendCommand is not a function"}` — 100% failure, for as long as the route had existed. `sendCommand` is a method on the node-redis *client*; the v4 transaction chain queues with `addCommand`. Verified against `redis@4.7.1`, the version `docker/Dockerfile.redis-rest` installs:
 
 ```
 typeof client.multi().sendCommand  // 'undefined'

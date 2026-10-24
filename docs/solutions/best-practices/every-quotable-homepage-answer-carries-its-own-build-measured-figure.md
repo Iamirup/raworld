@@ -21,12 +21,12 @@ tags: [geo, citability, faq-jsonld, i18next-interpolation, depth-stats, volatile
 
 ## Context
 
-A third-party GEO (generative-engine optimization) audit flagged rows CIT-02/CIT-03: "add one specific figure to each section, starting with 'How do I start watching the world map?'". Taken literally, that asks for a number in every section. What the rows actually mean for WorldMonitor:
+A third-party GEO (generative-engine optimization) audit flagged rows CIT-02/CIT-03: "add one specific figure to each section, starting with 'How do I start watching the world map?'". Taken literally, that asks for a number in every section. What the rows actually mean for RaWorld:
 
 - Answer engines (AI Overviews, ChatGPT search, Perplexity) quote **one passage**, not the page. A stat rail next to an answer is not part of the passage, so it is never quoted with it. A figure published elsewhere on the page does not travel with the answer; the passage written to be quoted has to carry its own.
 - A **question-headed passage** an answer engine could lift (H2 answer paragraph, FAQ answer, the CTA question) should answer its question in the first sentence, and when its answer makes a countable claim, the measured figure belongs **inside the passage**. Navigation-only sections are exempt, and so are answers with nothing to count (for example "Do I need an account?").
 - **Current coverage, not a guarantee.** As of #8784 and #8787, the passages that carry figures are: the definition, the correlation subhead, the builders paragraph and its MCP bullet, the CTA, and FAQ `a3`, `a4`, `a6` (fixed constants) and `a7`. The other seven FAQ answers carry no figure. The test in Guidance §4 checks only the definition, CTA and builders passages, so extend it when another passage gains a figure.
-- The audit's priority was off. The CTA ("How do I start watching the world map?") mattered least. The real gap was "What is World Monitor?", the highest-demand entity question, whose definition had no measured inventory figure.
+- The audit's priority was off. The CTA ("How do I start watching the world map?") mattered least. The real gap was "What is RaWorld?", the highest-demand entity question, whose definition had no measured inventory figure.
 
 The obvious fix, typing "461 feeds" into the copy, does not work here. Inventory counts change on main, and the repository rejects hand-typed counts in public copy (see Guidance §2).
 
@@ -68,7 +68,7 @@ The FAQPage JSON-LD in `pro-test/welcome.html` mirrors the FAQ strings by hand. 
 `tests/pro-welcome-prerender.test.mjs` asserts:
 
 - each JSON-LD answer equals the filled en locale string, and no raw `{{x}}` reaches the built page (`:40-58`)
-- the "What is World Monitor?" passage contains `${feeds} news and OSINT feeds from ${providers} attributed providers` and `${mapLayers} map layer types`, the CTA passage contains its figure and names the Resilience exception, and (from #8787) the builders paragraph contains `${mcpTools} live tools`; the test named "question-headed welcome passages state their own measured figures" states the rule
+- the "What is RaWorld?" passage contains `${feeds} news and OSINT feeds from ${providers} attributed providers` and `${mapLayers} map layer types`, the CTA passage contains its figure and names the Resilience exception, and (from #8787) the builders paragraph contains `${mcpTools} live tools`; the test named "question-headed welcome passages state their own measured figures" states the rule
 - the definition stays 40–60 words (`:309`)
 
 ### 5. Fact-check the sentence around every new figure
@@ -103,7 +103,7 @@ The hero rail and depth band still publish "5 · Independent alert origins" from
 
 ### Landmines to clear in the same PR
 
-1. **Word budget.** The "What is World Monitor?" definition must be 40–60 words (`tests/pro-welcome-prerender.test.mjs:309`). The first draft had 63.
+1. **Word budget.** The "What is RaWorld?" definition must be 40–60 words (`tests/pro-welcome-prerender.test.mjs:309`). The first draft had 63.
 2. **27 stale locales.** Changing en strings makes every other pro-test locale stale. Key-existence checks will not catch it; see `docs/solutions/logic-errors/key-existence-checks-cannot-detect-stale-translations.md`. Run `node scripts/translate-locales.mjs --pro-test` (needs `ANTHROPIC_API_KEY`; Haiku translator; usage at `scripts/translate-locales.mjs:20`). Then run `python3 scripts/convert-zh-tw.py`, because `zh-TW.json` is generated from Simplified Chinese (`scripts/convert-zh-tw.py` lines 3 and 194). Check that every locale kept every `{{token}}`.
 3. **The translator changes meaning, so back-translate.** Haiku rendered "classified news" as "secret news" (機密ニュース) in Japanese, so rewrite ambiguous English before translating. Clear English is not enough, though. Greptile found cs and tr calling every chokepoint a strait, and hu turning military "surge" into "reduction". For #8787, an independent model back-translated all 9 changed strings in 27 locales and found 26 more meaning errors, which were corrected by hand. Examples: de said news alerts must be *older* than 15 minutes, tr said every layer except Resilience is switched *off*, it, ro and ru dropped "free", and hr rendered "cooldown" as "refrigerator". The pass also found stray Cyrillic letters inside Latin-script words. A token-preservation check passes on all of these. Only a meaning check catches them.
 4. **Pro bundle budget.** The retranslation added 32.4 KB across the lazy per-language chunks (the CI `bundle:check:pro` report on #8784). That exceeds `TOTAL_TOLERANCE_BYTES = 16384` (`scripts/bundle-budgets.mjs:84`), so `bundle:check:pro` failed in CI job `unit-built-output`. Reseed `scripts/shared/bundle-budgets-pro.json` with `npm run bundle:budgets:pro` (`package.json:63`) from a CI-parity build: build pro with `SENTRY_AUTH_TOKEN` empty, and build the dashboard with `VITE_VARIANT=full ./node_modules/.bin/vite build` after moving `.env`/`.env.local` aside. In this session, a build with the local env present measured +44.5 KB instead of the +32.4 KB CI reported. See `docs/solutions/workflow-issues/vite-bundle-budget-seed-requires-env-clean-build.md`.
@@ -121,7 +121,7 @@ After (#8787):
 The first sentence answers the question ("open this URL"), the figure sits inside the passage, and the claim matches both `DEFAULT_MAP_LAYERS` (types are switchable, not all on) and the Pro lock on Resilience.
 
 **Entity definition (`welcome.hero.whatIsBody`)**
-> World Monitor is a free, open-source (AGPL-3.0) dashboard used by 2M+ people. It streams {{feeds}} news and OSINT feeds from {{providers}} attributed providers onto one live world map with {{mapLayers}} map layer types, ...
+> RaWorld is a free, open-source (AGPL-3.0) dashboard used by 2M+ people. It streams {{feeds}} news and OSINT feeds from {{providers}} attributed providers onto one live world map with {{mapLayers}} map layer types, ...
 
 It renders with the current `depth-stats.json` (`feeds: 461`, `providers: 757`, `mapLayers: 57`). The literals "2M+" and "AGPL-3.0" pass the volatile-claim scan because they are not inventory counts.
 

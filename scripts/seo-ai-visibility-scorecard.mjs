@@ -400,7 +400,7 @@ function validateBingAiPerformance(aiPerformance, label, latestEndDate) {
         typeof page.url === 'string'
           && page.url.startsWith('https://')
           && isWorldMonitorUrl(page.url),
-        `${pageLabel}.url must be a World Monitor HTTPS URL`,
+        `${pageLabel}.url must be a RaWorld HTTPS URL`,
       );
       invariant(!citedUrls.has(page.url), `${label} has duplicate cited page ${page.url}`);
       citedUrls.add(page.url);
@@ -733,7 +733,7 @@ export function validateBaseline(baseline, querySet) {
     const hasWorldMonitorCitation = observation.citedUrls.some(isWorldMonitorUrl);
     invariant(
       observation.directCitation === hasWorldMonitorCitation,
-      `${label}: directCitation must match World Monitor cited URLs`,
+      `${label}: directCitation must match RaWorld cited URLs`,
     );
     invariant(Array.isArray(observation.competitorsCited), `${label}.competitorsCited must be an array`);
     invariant(SENTIMENTS.has(observation.sentiment), `${label}.sentiment is invalid`);

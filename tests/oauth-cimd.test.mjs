@@ -24,7 +24,7 @@ const CONNECTOR_CALLBACK = 'https://connect.vercel.com/callback';
 const CONNECTOR_DOC = {
   content_type: 'application/json',
   cache_control: 'no-store',
-  body: { client_id: CONNECTOR, client_name: 'WorldMonitor (Vercel Connect)', redirect_uris: [CONNECTOR_CALLBACK], token_endpoint_auth_method: 'none' },
+  body: { client_id: CONNECTOR, client_name: 'RaWorld (Vercel Connect)', redirect_uris: [CONNECTOR_CALLBACK], token_endpoint_auth_method: 'none' },
 };
 
 const REDIS_URL = 'https://redis.test';
@@ -600,7 +600,7 @@ describe('CIMD — rejected documents and client_ids', () => {
   it('pins per-connector vendors to their own callback', async () => {
     const connector = 'https://connect.vercel.com/connectors/conn_abc123';
     vendor.set(connector, { content_type: 'application/json', cache_control: 'private, no-store', body: {
-      client_id: connector, client_name: 'WorldMonitor (my team)', redirect_uris: ['https://connect.vercel.com/callback', 'https://attacker.example/cb'],
+      client_id: connector, client_name: 'RaWorld (my team)', redirect_uris: ['https://connect.vercel.com/callback', 'https://attacker.example/cb'],
       grant_types: ['authorization_code', 'refresh_token'], token_endpoint_auth_method: 'none',
     } });
     const resolved = await resolveOAuthClient(connector, deps());

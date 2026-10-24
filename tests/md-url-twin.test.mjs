@@ -448,7 +448,7 @@ describe('api/md-twin.ts', () => {
       '/dashboard.md',
       async () =>
         new Response(
-          '---\ntitle: World Monitor - Real-Time Global Intelligence Dashboard\ndescription: Real-time global intelligence: conflicts, markets, military.\nimage: https://www.worldmonitor.app/favico/og-image.png\n---\n\n# Dashboard\n',
+          '---\ntitle: RaWorld - Real-Time Global Intelligence Dashboard\ndescription: Real-time global intelligence: conflicts, markets, military.\nimage: https://www.worldmonitor.app/favico/og-image.png\n---\n\n# Dashboard\n',
           { status: 200, headers: { 'content-type': 'text/markdown; charset=utf-8' } },
         ),
     );
@@ -590,7 +590,7 @@ describe('api/md-twin.ts', () => {
       const url = new URL(String(input));
       assert.equal(url.pathname, '/dashboard');
       assert.equal(init?.headers instanceof Headers ? init.headers.get(MD_TWIN_LOOP_HEADER) : null, '1');
-      return new Response('<html><title>World Monitor</title><h1>Dashboard</h1><p>Live globe.</p></html>', {
+      return new Response('<html><title>RaWorld</title><h1>Dashboard</h1><p>Live globe.</p></html>', {
         status: 200,
         headers: { 'content-type': 'text/html; charset=utf-8' },
       });
@@ -604,7 +604,7 @@ describe('api/md-twin.ts', () => {
       assert.match(res.headers.get('link') ?? '', /rel="deprecation"/);
       const body = await res.text();
       assert.match(body, /^# /m);
-      assert.match(body, /Dashboard|World Monitor/);
+      assert.match(body, /Dashboard|RaWorld/);
     } finally {
       globalThis.fetch = originalFetch;
     }
@@ -617,7 +617,7 @@ describe('api/md-twin.ts', () => {
       async () =>
         new Response(null, {
           status: 302,
-          headers: { location: 'https://github.com/koala73/worldmonitor/releases/latest' },
+          headers: { location: 'https://github.com/Iamirup/raworld/releases/latest' },
         }),
     );
     assert.equal(res.status, 200);

@@ -1,4 +1,4 @@
-// Retrieval helpers: matching a spoken headline to a WorldMonitor cluster.
+// Retrieval helpers: matching a spoken headline to a RaWorld cluster.
 // They find the story; they never grade it (lib/wm.mjs does that).
 
 const STOPWORDS = new Set(`a an and are as at be been but by can could did do does for from had has have he her his how

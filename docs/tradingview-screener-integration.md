@@ -1,6 +1,6 @@
 # TradingView Screener Integration Guide
 
-**Purpose:** Reference document for extending WorldMonitor's finance hub with TradingView Screener data.
+**Purpose:** Reference document for extending RaWorld's finance hub with TradingView Screener data.
 
 ---
 
@@ -36,7 +36,7 @@ Both provide:
 - Timeframe variants per field (1m → 1M)
 - No API key required for delayed/public data
 
-The TypeScript library is the one relevant for WorldMonitor. It has full parity with the Python version (41/41 operations pass) plus a self-hosted REST server option.
+The TypeScript library is the one relevant for RaWorld. It has full parity with the Python version (41/41 operations pass) plus a self-hosted REST server option.
 
 ---
 
@@ -141,7 +141,7 @@ col('date').in_day_range(0, 0)    col('date').in_week_range(0, 2)
 
 ## Architecture Fit (Gold Standard)
 
-WorldMonitor's data flow: `Railway seeds Redis → Vercel reads Redis → Frontend RPC`
+RaWorld's data flow: `Railway seeds Redis → Vercel reads Redis → Frontend RPC`
 
 TradingView Screener calls belong in the **Railway AIS relay** (`scripts/ais-relay.cjs`), alongside existing CoinGecko/Yahoo/Finnhub calls.
 
@@ -775,7 +775,7 @@ const [total, rows] = await new Query()
 | **Finnhub/Yahoo overlap** | TradingView can supplement stock quotes; keep Finnhub/Yahoo as primary for existing panels |
 | **Railway concurrency** | Run TV calls sequentially inside `seedAllMarketData()`, not `Promise.all` |
 | **Circuit breaker** | Add a `tvScreenerBreaker` alongside existing stock/crypto breakers |
-| **No auth initially** | Delayed data is fine for WorldMonitor's use case |
+| **No auth initially** | Delayed data is fine for RaWorld's use case |
 | **User-Agent** | Library automatically mimics Chrome headers; do not override |
 
 ### Sample Relay Integration Timing

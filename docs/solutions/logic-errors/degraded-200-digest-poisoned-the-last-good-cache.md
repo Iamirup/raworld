@@ -69,7 +69,7 @@ Two adjacent defects the coverage guard turned out to depend on, both surfaced b
 
 2. **The cache key was not scoped like the request.** The digest is fetched per `variant` and `lang`; the entry was stored under one global `digest:last-good`. Harmless while every success overwrote unconditionally — not harmless once *coverage* decides, because a wider digest from another variant would veto persisting the current one's for 6 hours. Scoping the key to `digest:last-good:<variant>:<lang>` fixes it, and doubles as the migration: every entry written under the old key becomes unreachable, so already-poisoned caches retire on deploy rather than needing to be detected.
 
-Fix opened in [#5883](https://github.com/koala73/worldmonitor/pull/5883) (closes [#5877](https://github.com/koala73/worldmonitor/issues/5877)); CI green, unmerged as of this writing.
+Fix opened in [#5883](https://github.com/Iamirup/raworld/pull/5883) (closes [#5877](https://github.com/Iamirup/raworld/issues/5877)); CI green, unmerged as of this writing.
 
 ## Why This Works
 

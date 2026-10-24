@@ -304,7 +304,7 @@ ${related.map((target) => `        <li data-related-reason="${escapeHtml(target.
 
 export function renderCountryProLink(country, escapeHtml) {
   const name = escapeHtml(country.name);
-  return `      <p data-country-pro-link>Need ${name} signals in your own workflow? <a href="${escapeHtml(COUNTRY_PRO_LINK_HREF)}" data-umami-event="${COUNTRY_PRO_LINK_EVENT}" data-umami-event-target="${COUNTRY_PRO_LINK_TARGET}" data-umami-event-country="${escapeHtml(country.code)}">Compare World Monitor Pro and API plans for ${name} risk data</a>. Pro adds alert rules and AI digests; API plans serve country resilience and instability data over REST.</p>`;
+  return `      <p data-country-pro-link>Need ${name} signals in your own workflow? <a href="${escapeHtml(COUNTRY_PRO_LINK_HREF)}" data-umami-event="${COUNTRY_PRO_LINK_EVENT}" data-umami-event-target="${COUNTRY_PRO_LINK_TARGET}" data-umami-event-country="${escapeHtml(country.code)}">Compare RaWorld Pro and API plans for ${name} risk data</a>. Pro adds alert rules and AI digests; API plans serve country resilience and instability data over REST.</p>`;
 }
 
 /**

@@ -124,7 +124,7 @@ test('runner deletes only stale ids, treats not-found as done, and fails after a
   const ok = base({ createdAt: '2026-09-28T03:40:00Z', runId: 300, size: 7 });
   const unparsed = { id: nextId++, key: 'codeql-overlay-base-database-garbage', ref: REF, createdAt: '2026-01-01T00:00:00Z', sizeInBytes: 1 };
   const { run, calls } = fakeGh([keep, gone, broken, ok, unparsed], {
-    [gone.id]: { status: 1, stdout: '', stderr: `X Could not find a cache matching ${gone.id} in koala73/worldmonitor\n` },
+    [gone.id]: { status: 1, stdout: '', stderr: `X Could not find a cache matching ${gone.id} in Iamirup/raworld\n` },
     [broken.id]: { status: 1, stdout: '', stderr: 'HTTP 403: Resource not accessible by integration\n' },
   });
   const lines = [];

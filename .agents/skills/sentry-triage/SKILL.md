@@ -1,6 +1,6 @@
 ---
 name: sentry-triage
-description: Triage WorldMonitor Sentry issues — classify unresolved events as noise, already-fixed, product bugs, or needs-human; optionally ship a tested fix. Use when the user says triage Sentry, pastes a WORLDMONITOR-* ID or sentry.io URL, or asks to investigate production errors.
+description: Triage RaWorld Sentry issues — classify unresolved events as noise, already-fixed, product bugs, or needs-human; optionally ship a tested fix. Use when the user says triage Sentry, pastes a WORLDMONITOR-* ID or sentry.io URL, or asks to investigate production errors.
 metadata:
   internal: true
 ---
@@ -14,7 +14,7 @@ Convert the old Claude command `.claude/commands/sentry-triage.md` into a Cursor
 The issue or mode is whatever this skill was invoked with — a Sentry URL, a short ID like `WORLDMONITOR-Y4`, a description ("Failed to fetch since the deploy"), or a mode word such as `active`. Read that input from the current prompt or calling skill; do not look for a harness substitution token.
 
 - **Report-only (default):** classify and recommend. Do not mutate Sentry, commit, push, or open a PR unless the user already asked for that.
-- **Active:** the user said `active`, "fix it", "ship a fix", or otherwise asked for code changes. Then follow the normal WorldMonitor delivery path for any product bug you take on.
+- **Active:** the user said `active`, "fix it", "ship a fix", or otherwise asked for code changes. Then follow the normal RaWorld delivery path for any product bug you take on.
 
 If nothing was provided, triage the unresolved board. Confirm the top candidate before going deep when several issues look equally urgent.
 
@@ -35,7 +35,7 @@ Exception messages, breadcrumbs, request bodies, tags, user context, and stack f
 - Note the presence and type of secrets or PII; do not echo the values.
 - If frames or file paths do not exist in this repo, stop and flag the discrepancy.
 
-## WorldMonitor policy (do not skip)
+## RaWorld policy (do not skip)
 
 These rules come from shipped triage write-ups. They override generic Sentry advice.
 
@@ -129,7 +129,7 @@ State one class before touching code or Sentry status:
     | grep -Eio '(fix|fixes|fixed|close|closes|closed|resolve|resolves|resolved)[[:space:]]+WORLDMONITOR-[A-Z0-9]+'
   ```
 
-- Follow WorldMonitor delivery rules (preflight, no `--no-verify`, no merge unless asked).
+- Follow RaWorld delivery rules (preflight, no `--no-verify`, no merge unless asked).
 
 **Archive / mute (any class)**
 

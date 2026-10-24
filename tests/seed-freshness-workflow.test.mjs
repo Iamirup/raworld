@@ -251,7 +251,7 @@ function runScheduledGate(head, ancestors = []) {
           GATED_ANCESTOR_MAX_AGE_SECONDS: scheduledGateStep().env.GATED_ANCESTOR_MAX_AGE_SECONDS,
           GH_TOKEN: 'test-token',
           GITHUB_OUTPUT: outputFile,
-          GITHUB_REPOSITORY: 'koala73/worldmonitor',
+          GITHUB_REPOSITORY: 'Iamirup/raworld',
           GITHUB_SHA: HEAD_SHA,
           PATH: `${fakeBin}:${process.env.PATH}`,
         },
@@ -282,7 +282,7 @@ describe('seed freshness workflow control plane', () => {
       const run = () => spawnSync('bash', ['-e', '-c', step.run], {
         encoding: 'utf8',
         env: { ...process.env, RUNNER_TEMP: dir, GITHUB_STEP_SUMMARY: output,
-          GITHUB_SERVER_URL: 'https://github.com', GITHUB_REPOSITORY: 'koala73/worldmonitor', GITHUB_RUN_ID: '123' },
+          GITHUB_SERVER_URL: 'https://github.com', GITHUB_REPOSITORY: 'Iamirup/raworld', GITHUB_RUN_ID: '123' },
       });
       assert.equal(run().status, 0);
       assert.match(readFileSync(output, 'utf8'), /Unverified.*No current observation/);

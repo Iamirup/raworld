@@ -196,7 +196,6 @@
     "foodStocksHelp": "USDA生產、供應和分配商品庫存與用量比，按營銷年度計算，並附帶全球比率作為參考。FAOSTAT食物平衡表在生產、供應和分配資料不完整時提供生產和國內供應資料。",
     "loadingFoodStocks": "正在載入糧食庫存…",
     "foodStocksUnavailable": "糧食庫存不可用。",
-    "foodStocksProLocked": "升級至 PRO 檢視農產品庫存消費比",
     "foodStocksCommodity": "農產品",
     "foodStocksMarketingYear": "銷售年度",
     "foodStocksRatio": "庫存消費比",
@@ -214,7 +213,6 @@
       "help": "來自聯合國《世界人口前景》、聯合國教科文組織統計研究所和世界銀行《世界發展指標》及國際勞工組織資料庫的年齡結構、教育儲備和產業勞動力能力。",
       "loading": "正在載入人口與勞動力資料…",
       "unavailable": "人口與勞動力資料不可用。",
-      "proLocked": "升級至 PRO 檢視人口與勞動力資料",
       "notAvailable": "暫無資料",
       "ageStructure": "年齡結構",
       "education": "教育培養",
@@ -240,7 +238,6 @@
       "help": "食品、能源、人口、技術和國防領域的 v1 凍結證據得分。展開行以檢視輸入項、資料來源及缺失資料原因。",
       "loading": "正在載入五維記分卡…",
       "unavailable": "五維記分卡不可用。",
-      "proLocked": "升級至 PRO 以獲取五維韌性記分卡",
       "insufficient": "資料不足",
       "notAvailable": "不可用",
       "noEvidence": "該支柱暫無可用證據。",
@@ -297,9 +294,7 @@
         "defense_supplierDiversity": "武器供應商多樣性"
       }
     },
-    "defenseIndustrialBase": {
-      "proLocked": "升級至PRO以檢視武器供應商依賴關係和軍事能力"
-    }
+    "defenseIndustrialBase": {}
   },
   "header": {
     "world": "世界",
@@ -709,8 +704,7 @@
       "alertTitle": {
         "configured": "桌面端設定已配置",
         "needsKeys": "配置API金鑰以解鎖功能",
-        "some": "部分功能需要API金鑰",
-        "pro": "World Monitor Pro 已啟用"
+        "some": "部分功能需要API金鑰"
       },
       "summary": {
         "desktop": "桌面模式",
@@ -739,10 +733,7 @@
         "NASA_FIRMS_API_KEY": "消防資訊資源管理系統。",
         "OLLAMA_API_URL": "例如 http://127.0.0.1:11434 (Ollama) 或 http://127.0.0.1:1234/v1 (LM Studio) — OpenAI 相容端點。",
         "OLLAMA_MODEL": "例如 llama3.1:8b — 用於摘要的模型標籤。"
-      },
-      "proCloud": "沒有本地 API 金鑰的功能使用 World Monitor 雲資料。",
-      "skipSetupPro": "跳過設定：使用 World Monitor Pro 登入以使用雲資料，而不是您自己的 API 金鑰。",
-      "getPro": "獲取 World Monitor Pro"
+      }
     },
     "settingsWindow": {
       "validating": "正在驗證API金鑰...",
@@ -763,12 +754,6 @@
           "title": "許可證 / API 金鑰",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "description": "API Starter 和 API Business 訂閱者可在網頁控制檯的 Settings → API Keys 中建立此金鑰。如果完整金鑰丟失，請撤銷並建立替代金鑰。"
-        },
-        "dividerOr": "或",
-        "register": {
-          "title": "需要 API 金鑰？",
-          "description": "請造訪 worldmonitor.app/docs/api-keys 檢視分步說明。手動 API 金鑰需要 API Starter 或 API Business 方案。",
-          "submitBtn": "檢視 API 方案"
         }
       },
       "table": {
@@ -778,12 +763,10 @@
         "status": "狀態",
         "duration": "耗時"
       },
-      "shellTitle": "World Monitor 設定",
+      "shellTitle": "RaWorld 設定",
       "shellSearchPlaceholder": "搜尋設定...",
       "shellCancel": "取消",
-      "shellSaveClose": "儲存並關閉",
-      "freePanelLimit": "免費計劃：最多 {{max}} 個面板。升級至 PRO 獲得無限面板。",
-      "freeSourceLimit": "免費計劃：最多 {{max}} 個資訊源。升級至 PRO 獲得無限資訊源。"
+      "shellSaveClose": "儲存並關閉"
     },
     "countryIntel": {
       "identifying": "正在識別國家...",
@@ -989,8 +972,7 @@
       "refineryStage": "冶煉",
       "stageUnavailable": "該階段暫無公開資料",
       "withheldNote": "W 表示資料隱去",
-      "productionCaption": "各國在實際產量中的份額。地圖礦藏圖層顯示資源分佈，此表顯示由誰開採或冶煉。",
-      "productionProLocked": "升級至PRO版本以獲取按階段分類的採礦和煉油廠國家份額及集中度（生產商集中度指數）。"
+      "productionCaption": "各國在實際產量中的份額。地圖礦藏圖層顯示資源分佈，此表顯示由誰開採或冶煉。"
     },
     "tradePolicy": {
       "tariffs": "關稅",
@@ -1084,7 +1066,7 @@
       "skipToEnd": "跳到結尾"
     },
     "pizzint": {
-      "indexSource": "指數：World Monitor · 場所資料：",
+      "indexSource": "指數：RaWorld · 場所資料：",
       "statusNormal": "正常",
       "statusNoData": "無資料",
       "statusNoBaseline": "無基準",
@@ -1093,7 +1075,7 @@
       "defcon": "DEFCON {{level}}",
       "updated": "更新於{{timeAgo}}",
       "tensionsTitle": "地緣政治緊張局勢",
-      "tensionsSource": "緊張局勢：World Monitor 根據 GDELT 事件計算",
+      "tensionsSource": "緊張局勢：RaWorld 根據 GDELT 事件計算",
       "insufficientData": "資料不足",
       "pizzaUnavailable": "披薩店活動資料不可用",
       "source": "來源：",
@@ -1771,7 +1753,7 @@
       "staleReport": "報告已過期",
       "reported": "數量",
       "period": "期間",
-      "movementNote": "每行保留其來源、報告日期和衡量指標。存量人口、抵達人數和邊境執法事件是不同指標。來源可能重疊，請勿將其計數相加。WorldMonitor 根據連結的來源生成此檢視，並不意味著獲得任何資料提供方的認可。",
+      "movementNote": "每行保留其來源、報告日期和衡量指標。存量人口、抵達人數和邊境執法事件是不同指標。來源可能重疊，請勿將其計數相加。RaWorld 根據連結的來源生成此檢視，並不意味著獲得任何資料提供方的認可。",
       "recent": "最近",
       "last30Days": "過去30天",
       "newThisWeek": "本週新增",
@@ -2165,7 +2147,7 @@
       "tripDays": "行程天數"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>WM 分析師</strong> 具有地緣政治、市場、軍事和經濟領域即時上下文的AI分析師。由Claude驅動，注入WorldMonitor活躍資料來源的即時資料。"
+      "infoTooltip": "<strong>WM 分析師</strong> 具有地緣政治、市場、軍事和經濟領域即時上下文的AI分析師。由Claude驅動，注入RaWorld活躍資料來源的即時資料。"
     },
     "cotPositioning": {
       "infoTooltip": "<strong>期貨定位</strong>商業交易者、大型投機者和小型交易者在商品及金融期貨中的周度淨頭寸。資料來源是商品期貨交易委員會交易者承諾報告，每週五發布。"
@@ -2223,7 +2205,7 @@
       "infoTooltip": "<strong>經濟日曆</strong>定期宏觀經濟資料釋出：消費者價格指數、非農就業人數、國內生產總值、採購經理指數和央行決議。顯示預期值與實際值與前值。高影響事件突出顯示。資料來源：經濟資料供應商。"
     },
     "fsi": {
-      "infoTooltip": "<strong>金融壓力指標</strong>World Monitor高收益債券與長期國債比率，根據股票波動率和高收益利差調整：（HYG / TLT）/（VIX × 高收益利差 / 100）。這不是堪薩斯城聯儲金融壓力指數。1.5或更高的讀數表示低壓力；低於0.3表示高壓力。",
+      "infoTooltip": "<strong>金融壓力指標</strong>RaWorld高收益債券與長期國債比率，根據股票波動率和高收益利差調整：（HYG / TLT）/（VIX × 高收益利差 / 100）。這不是堪薩斯城聯儲金融壓力指數。1.5或更高的讀數表示低壓力；低於0.3表示高壓力。",
       "title": "金融壓力指標",
       "usFsiValue": "美國金融壓力指標值",
       "cissTitle": "歐盟CISS（歐元區系統性壓力）",
@@ -2281,8 +2263,7 @@
       "dependentCommodities": "依賴商品",
       "stateOk": "當前",
       "stateStale": "輸入已過期",
-      "stateInsufficient": "資料不足",
-      "proLocked": "升級至PRO以檢視商品脆弱性評分"
+      "stateInsufficient": "資料不足"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>荷爾木茲海峽貿易追蹤器</strong>透過全球最關鍵油氣運輸通道荷爾木茲海峽的即時船舶追蹤。監測油輪數量、中斷事件和周度流量變化。全球約20%的日均石油供應透過此處。",
@@ -2307,7 +2288,7 @@
       "infoTooltip": "<strong>宏觀指標</strong>美國、歐元區和中國價格、活動、政策和貨幣指標。中國需要當前新聞報道。每個區塊顯示其資料來源和觀測日期。"
     },
     "monitors": {
-      "infoTooltip": "<strong>關鍵詞監控</strong> 新增任何詞彙，即時追蹤WorldMonitor所有來源中的新聞提及。匹配文章被收錄時結果即時更新。"
+      "infoTooltip": "<strong>關鍵詞監控</strong> 新增任何詞彙，即時追蹤RaWorld所有來源中的新聞提及。匹配文章被收錄時結果即時更新。"
     },
     "renewable": {
       "infoTooltip": "<strong>可再生能源</strong>各地區和年份可再生能源發電份額，以及美國太陽能、風能和煤炭的安裝容量（兆瓦）。資料來源：世界銀行（EG.ELC.RNEW.ZS）和美國能源資訊署。"
@@ -2533,108 +2514,11 @@
     "wsbTickerScanner": {
       "infoTooltip": "<strong>華爾街賭徒股票程式碼掃描器</strong>來自r/wallstreetbets、r/stocks和r/investing的即時股票程式碼提及。按提及頻率和互動排名。速度衡量股票程式碼在帖子中獲得動量的速度。"
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro已上線",
-      "tagline": "更多訊號，更少噪音。更多AI簡報。專屬於您的地緣政治和股票研究員。",
-      "cta": "升級到Pro →",
-      "dismiss": "關閉"
-    },
-    "billingState": {
-      "onHoldDesc": "支付失敗。請更新您的支付方式以恢復進階存取權限。",
-      "onHoldBannerMessage": "支付失敗。請更新您的支付方式以保持訂閱有效。",
-      "updatePayment": "更新支付方式",
-      "renewalPendingDesc": "我們正在核實您的訂閱續訂。確認後將自動恢復進階存取權限。",
-      "refreshStatus": "重新整理狀態",
-      "renewalFailedDesc": "我們無法核實您的訂閱續訂。請管理賬單，如問題持續請聯絡支援。",
-      "manageBilling": "管理賬單",
-      "lapsedDesc": "您的 Pro 訂閱已結束。重新訂閱以恢復進階存取權限。",
-      "resubscribe": "重新訂閱"
-    },
     "checkoutFailureBanner": {
       "message": "支付無法完成。未進行任何扣款。",
       "retry": "重試",
       "retrying": "重試中…",
       "dismiss": "關閉"
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "第 {{current}} 步，共 {{total}} 步",
-      "closeLabel": "跳過設定",
-      "ariaLabel": "Pro 啟用設定",
-      "signedInAs": "以 {{email}} 身份登入",
-      "steps": {
-        "brief": {
-          "heading": "您的每日簡報，每天早晨送達",
-          "body": "每天早晨在您的收件箱中呈現精心策劃的情報簡報——夜間重要訊號，濃縮成五分鐘的閱讀內容。",
-          "confirmCta": "開啟我的晨間簡報",
-          "confirming": "正在開啟…",
-          "doneNote": "您的晨間簡報已在執行。",
-          "scheduleNote": "我們將保留您當前的傳送時間。",
-          "summaryLabel": "晨間簡報",
-          "summaryVerified": "已開啟——將從您的下一份晨間簡報開始。",
-          "deliverAt": "傳送時間",
-          "previewLoading": "正在準備您第一份簡報的預覽…",
-          "previewLabel": "今早的簡報"
-        },
-        "alerts": {
-          "heading": "重大警報",
-          "body": "當發生重大事件時（衝突升級、市場震盪、新的制裁措施），在瀏覽器中接收提醒。隨時可在設定中調整提醒頻率。",
-          "confirmCta": "啟用警報",
-          "confirming": "正在啟用…",
-          "doneNote": "瀏覽器警報已開啟。",
-          "blockedNote": "您的瀏覽器中通知已被遮蔽。請在瀏覽器的網站設定中開啟通知以接收警報。",
-          "declinedNote": "沒關係——我們不會傳送瀏覽器警報。您可以稍後在瀏覽器的網站設定中開啟。",
-          "summaryLabel": "重大警報",
-          "summaryVerified": "已開啟——重大訊號將傳送至您的瀏覽器。"
-        },
-        "power": {
-          "heading": "您的 Pro 工具包",
-          "body": "自訂小工具、MCP 連線和 AI 研究員已解鎖。構建您真正想要關注的看板。",
-          "confirmCta": "探索 Pro 工具",
-          "confirming": "正在開啟…",
-          "doneNote": "您已經在使用 Pro 工具了。",
-          "summaryLabel": "Pro 工具包",
-          "summaryVerified": "已解鎖，隨時可用。",
-          "channelsNote": "更喜歡 Telegram、Slack、Discord 還是 Webhook？",
-          "pointers": {
-            "search": "搜尋整個儀表板",
-            "widgets": "建立自訂小工具",
-            "analyst": "諮詢 AI 分析師",
-            "mcpClients": "設定 MCP",
-            "channels": "在通知設定中進行配置"
-          }
-        }
-      },
-      "status": {
-        "pending": "尚未設定",
-        "inFlight": "正在設定…",
-        "verified": "已就緒",
-        "failed": "未能成功",
-        "blocked": "已遮蔽",
-        "unavailable": "不可用",
-        "blockedNote": "此功能目前不可用——您可以稍後在設定中進行配置。",
-        "unavailableNote": "此功能在您的裝置上不可用——您可以稍後進行配置。",
-        "failedBody": "出現了問題。您可以重試，或稍後在設定中進行配置。",
-        "retry": "重試"
-      },
-      "actions": {
-        "skip": "暫時跳過",
-        "continue": "繼續"
-      },
-      "summary": {
-        "heading": "一切就緒",
-        "subVerified": "以下是您帳戶中正在執行的內容。",
-        "subPending": "您可以隨時在設定中完成配置。",
-        "linePending": "尚未設定——可隨時在設定中完成。",
-        "lineFailed": "我們未能完成此設定——請在設定中重試。",
-        "finish": "前往我的儀表盤"
-      },
-      "chip": {
-        "message": "完成您的 Pro 帳戶設定。",
-        "action": "完成設定",
-        "dismissLabel": "關閉"
-      }
     },
     "frameworkSelector": {
       "label": "分析框架",
@@ -2848,20 +2732,10 @@
       }
     },
     "exportGate": {
-      "signedOutDesc": "登入以將儀表板資料匯出為 CSV、JSON 或 PDF。",
-      "upgradeDesc": "資料匯出（CSV、JSON、PDF）包含在 Pro Business 中。",
-      "upgradeCta": "升級到 Pro Business",
       "lockedAriaLabel": "匯出資料 — 已鎖定。{{reason}}",
       "unlockedAnnouncement": "資料匯出已解鎖。",
       "preparingPdf": "正在準備 PDF…",
       "pdfFailed": "無法生成 PDF 報告。請重試，或使用 JSON 匯出。"
-    },
-    "tabCap": {
-      "signedOutDesc": "未登入的工作區限制為 {{cap}} 個儀表板標籤頁。登入以新增更多。",
-      "upgradeDesc": "您已達到 {{cap}} 個儀表板標籤頁的上限。",
-      "upgradeCta": "升級獲取更多",
-      "lockedAriaLabel": "新增標籤頁 — 已鎖定。{{reason}}",
-      "unlockedAnnouncement": "儀表板標籤頁限制已解除。"
     },
     "fx": {
       "infoTooltip": "<strong>貨幣匯率</strong>壓力指數根據45種貨幣在24個月內的最大跌幅排名，包括12個月變化。現貨匯率使用單獨的美元和歐元基數。俄羅斯盧布匯率以每單位盧布計。資料來源包括雅虎財經、歐洲央行和俄羅斯央行。",
@@ -2895,18 +2769,6 @@
       "rubPerUnit": "每單位盧布",
       "sourceCbr": "來源：俄羅斯央行"
     },
-    "passkeyOffer": {
-      "title": "儲存通行金鑰？",
-      "body": "下次登入時使用指紋、面容或裝置PIN即可——無需記住密碼。",
-      "accept": "儲存通行金鑰",
-      "dismiss": "暫不儲存",
-      "close": "關閉",
-      "announce": "儲存通行金鑰以便下次更快登入。",
-      "busy": "正在等待裝置響應…",
-      "succeeded": "通行金鑰已儲存。下次登入時可以使用。",
-      "retryable": "操作未完成。您可以重試。",
-      "failed": "無法在此裝置上儲存通行金鑰。"
-    },
     "decisionBrief": {
       "commodityTitle": "大宗商品決策簡報",
       "commodity": "大宗商品 / 產品",
@@ -2925,8 +2787,7 @@
       "changed": "選擇已更改。匯出前請獲取兩個情景。",
       "loading": "正在獲取兩個情景…",
       "captured": "已獲取。下載前請核查觀測日期和限制條件。",
-      "failed": "無法獲取情景。請檢查存取權限並重試。沒有可匯出的結果。",
-      "locked": "決策簡報面向 Pro 使用者提供。"
+      "failed": "無法獲取情景。請檢查存取權限並重試。沒有可匯出的結果。"
     },
     "liveMedia": {
       "idleStatus": "因不活動已暫停",
@@ -3649,10 +3510,10 @@
     "copyCoordinates": "複製座標"
   },
   "shell": {
-    "documentTitle": "World Monitor — 即時全球情報儀表板",
-    "metaDescription": "使用 World Monitor 即時儀表盤瀏覽全球態勢，結合互動式地圖與資料面板檢視新聞、地緣政治、軍事、金融、能源和基礎設施資訊。按所選產品檢視探索相關圖層、地區與事件，比較資料來源、觀測時間和可用訊號，跟蹤變化並開啟詳情核查背景，為日常監測與研究提供可追溯的資訊入口，同時關注來源覆蓋及更新狀態。",
+    "documentTitle": "RaWorld — 即時全球情報儀表板",
+    "metaDescription": "使用 RaWorld 即時儀表盤瀏覽全球態勢，結合互動式地圖與資料面板檢視新聞、地緣政治、軍事、金融、能源和基礎設施資訊。按所選產品檢視探索相關圖層、地區與事件，比較資料來源、觀測時間和可用訊號，跟蹤變化並開啟詳情核查背景，為日常監測與研究提供可追溯的資訊入口，同時關注來源覆蓋及更新狀態。",
     "offlineTitle": "您已離線",
-    "offlineMessage": "World Monitor 需要網際網路連線來獲取即時情報資料。",
+    "offlineMessage": "RaWorld 需要網際網路連線來獲取即時情報資料。",
     "offlineRetry": "重試"
   },
   "widgets": {
@@ -3690,16 +3551,15 @@
     "phaseError": "錯誤",
     "previewCheckingHeading": "連線小工具生成器中",
     "previewReadyHeading": "描述您想要的小工具",
-    "previewFetchingHeading": "正在獲取即時 WorldMonitor 資料",
+    "previewFetchingHeading": "正在獲取即時 RaWorld 資料",
     "previewComposingHeading": "正在構建小工具佈局",
     "previewErrorHeading": "預覽需要處理",
     "previewCheckingCopy": "我們正在驗證您的小工具金鑰和後端可用性，然後啟用生成。",
     "previewReadyCopy": "使用提示示例或描述您想要的精確即時檢視。預覽將在此處更新，然後您可以儲存。",
-    "previewFetchingCopy": "代理正在呼叫已批准的 WorldMonitor 端點併為小工具塑形資料集。",
+    "previewFetchingCopy": "代理正在呼叫已批准的 RaWorld 端點併為小工具塑形資料集。",
     "previewComposingCopy": "預覽正在使用最新的即時資料和儀表板樣式進行呈現。",
     "previewErrorCopy": "修復問題後重試。您現有的小工具不受影響。",
     "createInteractive": "建立互動式小工具",
-    "proBadge": "PRO",
     "preflightProUnavailable": "PRO 小工具代理不可用。請檢查伺服器上的 PRO_WIDGET_KEY。",
     "preflightInvalidProKey": "PRO 金鑰被拒絕。請更新 wm-pro-key 並重新載入。",
     "preflightProSubscriptionRequired": "需要 Pro 訂閱。如果您剛升級，請重新整理頁面；否則請聯絡支援。",
@@ -3721,28 +3581,6 @@
     "offlineCached": "離線——顯示來自 {{freshness}} 的快取資料。",
     "offlineUnavailable": "離線——即時資料目前不可用。",
     "cachedFallback": "即時資料不可用——顯示來自 {{freshness}} 的快取資料。"
-  },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "需要 World Monitor 許可證金鑰",
-    "signInToUnlock": "登入以解鎖進階功能",
-    "signIn": "登入以解鎖",
-    "upgradeDesc": "升級到 Pro 以獲得完整的進階分析存取權限",
-    "upgradeToPro": "升級到 Pro",
-    "features": {
-      "orefSirens1": "即時以色列導彈和火箭警報",
-      "orefSirens2": "警報區域地圖及威脅分類",
-      "telegramIntel1": "精選Telegram開源情報頻道",
-      "telegramIntel2": "近即時衝突與地緣政治更新",
-      "xIntel1": "Curated public news accounts on X",
-      "xIntel2": "API-fresh posts with official permalinks"
-    }
-  },
-  "auth": {
-    "signIn": "登入",
-    "createAccount": "建立帳戶",
-    "settings": "設定",
-    "passkeyOffer": {}
   },
   "mcp": {
     "connectPanel": "連線 MCP",
@@ -3831,8 +3669,6 @@
     "resilience": "韌性",
     "ciiMissing": "CII 不可用",
     "resilienceMissing": "韌性不可用",
-    "noEvents": "此日期未採集到精選新聞標題。這不代表沒有事件發生。",
-    "unlock90": "使用 Pro 解鎖 90 天歷史",
-    "unlock365": "使用 API 套餐解鎖 365 天歷史"
+    "noEvents": "此日期未採集到精選新聞標題。這不代表沒有事件發生。"
   }
 }

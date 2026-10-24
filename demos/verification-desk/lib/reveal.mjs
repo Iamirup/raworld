@@ -1,14 +1,14 @@
 // Finds the show-stopper: a story that looked big but traces to one newsroom.
-// The desk only groups candidates; WorldMonitor decides how many publishers
+// The desk only groups candidates; RaWorld decides how many publishers
 // stand behind each one:
 //
 //   syndication  the same headline on several open-web sites (GDELT rows in
-//                get_news_intelligence). WorldMonitor's briefGroundingPublisherCount
+//                get_news_intelligence). RaWorld's briefGroundingPublisherCount
 //                folds labels, curated domains and registrable domains into
 //                publishers: six iHeart station sites are one publisher.
 //   echo         many headlines that assessCorroboration says are one publisher.
 //   ungated      several outlets, but the insights seeder's entity-corroboration
-//                gate never fired and WorldMonitor does not call it corroborated.
+//                gate never fired and RaWorld does not call it corroborated.
 //
 // Candidates are ranked, never auto-published: the presenter opens the links
 // and picks one with `find-reveal --pick N` before going on stage.
@@ -56,7 +56,7 @@ export function syndicationCandidates(articles) {
       links: g.rows.map((r) => r.url),
       seenIn: 'gdelt',
       score: 4 * g.rows.length,
-      why: `${g.rows.length} sites ran the identical headline; WorldMonitor counts them as ${publishers} publisher (${briefGroundingGap(g.rows) ?? 'grounded'}).`,
+      why: `${g.rows.length} sites ran the identical headline; RaWorld counts them as ${publishers} publisher (${briefGroundingGap(g.rows) ?? 'grounded'}).`,
     });
   }
   return out;
@@ -82,7 +82,7 @@ export function echoCandidates(clusters) {
       seenIn: c.seenIn ?? null,
       memberTitles: c.memberTitles ?? null,
       score: (c.memberCount ?? 0) + 2 * (c.sources?.length ?? 1),
-      why: `${c.memberCount} headlines across ${c.sources?.length ?? 1} feed label(s); WorldMonitor: one publisher.`,
+      why: `${c.memberCount} headlines across ${c.sources?.length ?? 1} feed label(s); RaWorld: one publisher.`,
     });
   }
   return out;
@@ -105,7 +105,7 @@ export function ungatedCandidates(stories) {
       firstSeen: s.pubDate ?? null,
       seenIn: s.snapshotAt ? 'archive' : 'live',
       score: s.uniqueSourceCount,
-      why: `${s.uniqueSourceCount} outlets; WorldMonitor's entity-corroboration gate did not fire and coverage is ${verdict.state}.`,
+      why: `${s.uniqueSourceCount} outlets; RaWorld's entity-corroboration gate did not fire and coverage is ${verdict.state}.`,
     });
   }
   return out;

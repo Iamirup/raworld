@@ -57,10 +57,10 @@ export function logoLines(text) {
 // Draw the logo centred in r, with a horizontal gradient between glow colours.
 export function logo(ctx, r, now, opts = {}) {
   const { s, t } = ctx;
-  const lines = logoLines(opts.text || 'WORLD MONITOR');
+  const lines = logoLines(opts.text || 'RAWORLD');
   const w = Math.max(...lines.map(strWidth));
   if (w > r.w || r.h < 5) {
-    const txt = opts.text || 'WORLD MONITOR';
+    const txt = opts.text || 'RAWORLD';
     s.text(r.x + Math.max(0, Math.floor((r.w - strWidth(txt)) / 2)), r.y + Math.floor(r.h / 2), txt, {
       fg: t.accent,
       bg: opts.bg || t.bg,

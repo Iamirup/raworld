@@ -60,7 +60,7 @@ describe('canonicalHref / hrefFor', () => {
     assert.equal(canonicalHref('/methodology/chokepoints#x', 'docs'), `${SITE}/docs/methodology/chokepoints`);
     assert.equal(canonicalHref('/blog/posts/a/', 'docs'), `${SITE}/blog/posts/a`);
     assert.equal(canonicalHref('/docs/Changelog', 'blog'), `${SITE}/docs/changelog`);
-    assert.equal(canonicalHref('https://github.com/koala73/worldmonitor', 'blog'), null);
+    assert.equal(canonicalHref('https://github.com/Iamirup/raworld', 'blog'), null);
     assert.equal(canonicalHref('#faq', 'docs'), null);
   });
 

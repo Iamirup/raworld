@@ -6,7 +6,7 @@ Baseline source: `53298ec964f88b50d65a675362310dd797bbfbef`. Implementation base
 
 ## Problem
 
-A request for “USA country brief” should open the WorldMonitor country interface inside ChatGPT. Today `get_country_brief` returns an AI assessment, evidence and articles. Its compact widget renders those fields. The website instead assembles `CountryDeepDivePanel`, with 23 ordinary section cards, CII and resilience summaries, and an additional China section when relevant. The AI assessment is one section. The MCP data contract cannot currently populate the whole country interface.
+A request for “USA country brief” should open the RaWorld country interface inside ChatGPT. Today `get_country_brief` returns an AI assessment, evidence and articles. Its compact widget renders those fields. The website instead assembles `CountryDeepDivePanel`, with 23 ordinary section cards, CII and resilience summaries, and an additional China section when relevant. The AI assessment is one section. The MCP data contract cannot currently populate the whole country interface.
 
 The captured baseline inventory contains compact widgets and a news/map view using real dashboard components. The country mismatch is confirmed. Other compact widgets need behavioral comparison. Tools without their own UI are data capabilities rather than established defects. Their data should serve the relevant embedded views. Current tool totals come from the generated server card and inventory facts.
 

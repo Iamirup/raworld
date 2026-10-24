@@ -286,7 +286,7 @@ const parseVisiblePricingRows = (html) => {
 };
 
 const assertVisiblePricesMatchCatalog = (html) => {
-  assert.match(html, /How much does World Monitor Pro cost\?/);
+  assert.match(html, /How much does RaWorld Pro cost\?/);
   const rows = parseVisiblePricingRows(html);
   assert.deepEqual(
     Object.keys(rows).sort(),

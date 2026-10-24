@@ -18,7 +18,7 @@ const ROOT = resolve(__dirname, '..');
 const SNAPSHOTS_DIR = join(ROOT, 'docs/snapshots');
 
 const SNAPSHOT_PATTERN = /^github-stars-(\d{4}-\d{2}-\d{2})\.json$/;
-const REPOSITORY = 'koala73/worldmonitor';
+const REPOSITORY = 'Iamirup/raworld';
 
 // The committed snapshot is published as the homepage star count, and nothing
 // re-runs the freeze automatically except

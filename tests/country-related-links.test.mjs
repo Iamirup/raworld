@@ -226,7 +226,7 @@ describe('country Pro/API link', () => {
   it('links to Pro pricing with Umami attribution and no query tag', () => {
     const html = renderCountryProLink({ code: 'LB', name: 'Lebanon' }, escapeHtml);
     assert.equal(COUNTRY_PRO_LINK_HREF, '/pro#pricing');
-    assert.match(html, /<a href="\/pro#pricing" data-umami-event="country-page-cta" data-umami-event-target="pro-api-pricing" data-umami-event-country="LB">Compare World Monitor Pro and API plans for Lebanon risk data<\/a>/);
+    assert.match(html, /<a href="\/pro#pricing" data-umami-event="country-page-cta" data-umami-event-target="pro-api-pricing" data-umami-event-country="LB">Compare RaWorld Pro and API plans for Lebanon risk data<\/a>/);
     // Same-site links take no query tag: any utm_* or ref key is a bot 308 (#8603).
     assert.doesNotMatch(html, /[?&](utm_|ref=|wm_referral=)/);
     assert.equal((html.match(/<a /g) || []).length, 1);

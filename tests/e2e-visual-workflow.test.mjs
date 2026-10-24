@@ -168,7 +168,7 @@ describe('E2E visual workflow contract', () => {
 
   it('accepts only canonical main runs from the expected workflow and event allowlist', () => {
     const trusted = {
-      head_repository: { full_name: 'koala73/worldmonitor' },
+      head_repository: { full_name: 'Iamirup/raworld' },
       head_branch: 'main',
       path: '.github/workflows/e2e-visual.yml',
       event: 'push',
@@ -189,7 +189,7 @@ describe('E2E visual workflow contract', () => {
     for (const { allowed, ...overrides } of cases) {
       const run = { ...trusted, ...overrides };
       const actual = runInNewContext(String(publish.jobs.publish.if), {
-        github: { repository: 'koala73/worldmonitor', event: { workflow_run: run } },
+        github: { repository: 'Iamirup/raworld', event: { workflow_run: run } },
         contains: (values, value) => values.includes(value),
         fromJSON: JSON.parse,
       }, { timeout: 1000 });
@@ -235,10 +235,10 @@ fi
         env: {
           ...process.env, PATH: `${join(directory, 'bin')}:${process.env.PATH}`,
           AWS_ACCESS_KEY_ID: 'fixture', S3_ENDPOINT: 'https://storage.invalid', S3_BUCKET: 'fixture',
-          GITHUB_TOKEN: 'fixture', GH_REPO: 'koala73/worldmonitor', WORKFLOW_RUN_ID: '200',
+          GITHUB_TOKEN: 'fixture', GH_REPO: 'Iamirup/raworld', WORKFLOW_RUN_ID: '200',
           PLAYWRIGHT_RUN_ID: '200', PLAYWRIGHT_RUN_ATTEMPT: '2', PLAYWRIGHT_RUN_NUMBER: '9',
           PLAYWRIGHT_BRANCH: 'main', PLAYWRIGHT_EVENT: 'push', PLAYWRIGHT_SHA: '2222222',
-          PLAYWRIGHT_RUN_URL: 'https://github.com/koala73/worldmonitor/actions/runs/200',
+          PLAYWRIGHT_RUN_URL: 'https://github.com/Iamirup/raworld/actions/runs/200',
         },
       });
       const run = replay();

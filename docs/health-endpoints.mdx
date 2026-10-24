@@ -1,6 +1,6 @@
 ---
 title: "Health Endpoints"
-description: "Two health endpoints World Monitor exposes for monitoring data pipeline integrity — Edge Runtime handlers querying Upstash Redis for system state."
+description: "Two health endpoints RaWorld exposes for monitoring data pipeline integrity — Edge Runtime handlers querying Upstash Redis for system state."
 ---
 
 ## `/api/health`
@@ -119,7 +119,7 @@ The seeder validates every page before it replaces the snapshot. A verified empt
 
 The consumer-prices-core service exposes `GET /wm/consumer-prices/v1/coverage?market=ae` (the service API key is required). Its response includes attempted, completed, failed, and validator-rejected page counts for the market and each active retailer. `status` is `healthy`, `partial`, or `degraded`; a partial result remains publishable, while a rejected observation is never admitted merely to improve the coverage count. The publisher writes the same snapshot to `consumer-prices:coverage:<market>` and includes its aggregate completion ratio in `seed-meta`, so `/api/health` can distinguish a fresh partial run from a stopped producer.
 
-This operational contract complements, rather than replaces, the source-quality work in [#5445](https://github.com/koala73/worldmonitor/issues/5445) and [#5811](https://github.com/koala73/worldmonitor/issues/5811).
+This operational contract complements, rather than replaces, the source-quality work in [#5445](https://github.com/Iamirup/raworld/issues/5445) and [#5811](https://github.com/Iamirup/raworld/issues/5811).
 
 ### Relay ingestion telemetry
 
@@ -545,7 +545,7 @@ is `COVERAGE_DEGRADED`, unconditionally. The window is kept in source as the
 audit record of what was granted and until when — it is deliberately *not*
 reopened, because the producer has since published the block and re-granting the
 softening would undo exactly the bound
-[#6111](https://github.com/koala73/worldmonitor/issues/6111) asked for.
+[#6111](https://github.com/Iamirup/raworld/issues/6111) asked for.
 
 In steady state, therefore, **`contentFreshnessPendingUntil` is not emitted at
 all.** It appears only while some key's window is open, which today means only
@@ -578,7 +578,7 @@ single producer cadence from which to derive a safe deadline. This path never
 softens a meta-bearing content-freshness failure. A scheduled content schema
 must use `contentFreshnessActivation` and its reviewed window instead. This
 closes the clean-absent activation gap in
-[#6111](https://github.com/koala73/worldmonitor/issues/6111).
+[#6111](https://github.com/Iamirup/raworld/issues/6111).
 
 Any check whose verdict rested on an unreadable marker carries
 `activationUnknown: true`, on both endpoints and in every status. Without it the
@@ -961,7 +961,7 @@ The first successful capture fixes the baseline success time. Resume the same ch
 | `crossStraitActivityTaiwanMnd` | Two separate three-hour member runs that advance Taiwan's success time and clear its error | 6 hours 30 minutes from deployment confirmation |
 | `physicalDivergence` | One successful publication with two records, future `inputFreshUntil`, and healthy status | Through 09:25 UTC on the first eligible schedule day |
 
-Wildfire acceptance targets the primary-retry repair in [PR #7701](https://github.com/koala73/worldmonitor/pull/7701). Its producer emits `trying primary retry`. An older producer's `trying secondary` message does not prove that repair. Use #7701's merge commit as the required revision after it merges.
+Wildfire acceptance targets the primary-retry repair in [PR #7701](https://github.com/Iamirup/raworld/pull/7701). Its producer emits `trying primary retry`. An older producer's `trying secondary` message does not prove that repair. Use #7701's merge commit as the required revision after it merges.
 
 Each observation checks the active image, commit ancestry, and configured cron. Source success must advance after both the baseline and the first observation that verifies that image. Deployment changes reset the run sequence. A source failure or a missed member observation also breaks consecutive proof. Polls with the same success time do not add runs.
 

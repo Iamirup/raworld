@@ -34,9 +34,9 @@ pub const PENDING_TICKET_MAX_AGE: Duration = Duration::from_secs(50);
 const ACCEPT_POLL: Duration = Duration::from_millis(100);
 
 const RETURN_PAGE: &str = "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\">\
-<title>World Monitor</title><style>body{font:16px -apple-system,system-ui,sans-serif;\
+<title>RaWorld</title><style>body{font:16px -apple-system,system-ui,sans-serif;\
 background:#0f0f0f;color:#e8e8e8;display:grid;place-items:center;height:100vh;margin:0}\
-</style></head><body><p>Return to World Monitor to finish signing in. You can close this tab.</p>\
+</style></head><body><p>Return to RaWorld to finish signing in. You can close this tab.</p>\
 </body></html>";
 
 fn random_token() -> String {

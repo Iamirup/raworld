@@ -331,7 +331,7 @@ describe('#6038 ai-search.md is generated, not hand-maintained', () => {
       assert.deepEqual(validateVolatileInventoryClaims(), [], 'the sandbox copy must start clean');
       const path = join(sandbox, AI_SEARCH_PATH);
       const source = readFileSync(path, 'utf8');
-      const claim = 'World Monitor ingests 500+ curated feeds.';
+      const claim = 'RaWorld ingests 500+ curated feeds.';
 
       writeFileSync(path, source.replace('## Source Examples\n', `## Source Examples\n\n${claim}\n`));
       assert.ok(
@@ -368,7 +368,7 @@ describe('#6038 ai-search.md is generated, not hand-maintained', () => {
         path,
         source
           .replace('## Source Examples', '### Source Examples')
-          .replace('### Source Examples\n', '### Source Examples\n\nWorld Monitor ingests 500+ curated feeds.\n'),
+          .replace('### Source Examples\n', '### Source Examples\n\nRaWorld ingests 500+ curated feeds.\n'),
       );
       assert.ok(
         validateVolatileInventoryClaims().some((f) => f.startsWith(`${AI_SEARCH_PATH}:`)),

@@ -1,10 +1,10 @@
-// U3 — `get_sources`: runtime discovery of what WorldMonitor actually covers.
+// U3 — `get_sources`: runtime discovery of what RaWorld actually covers.
 //
 // Two populations, deliberately NOT merged. They are keyed differently and
 // describe different things, and a joined list would be a fabricated one:
 //
 //   providers — shared/source-attribution-manifest.json, keyed by HOST
-//     ("acleddata.com"). Every upstream WorldMonitor fetches from: feeds,
+//     ("acleddata.com"). Every upstream RaWorld fetches from: feeds,
 //     structured APIs, operational-status endpoints. Carries licensing and
 //     attribution obligations.
 //   outlets   — the merged source-tier registry, keyed by DISPLAY NAME
@@ -114,7 +114,7 @@ export function outletRecord(name: string) {
   // SOURCE_TIERS is read directly rather than through getSourceTier(), which
   // defaults an unknown name to tier 4. A defaulted number is indistinguishable
   // from a declared one, and this tool's whole job is telling the caller what
-  // WorldMonitor actually knows versus what it is guessing.
+  // RaWorld actually knows versus what it is guessing.
   const raw = SOURCE_TIERS[name];
   const tier = typeof raw === 'number' ? raw : null;
   const platformIdentities = PLATFORM_IDENTITIES_BY_SOURCE.get(name);
@@ -146,7 +146,7 @@ export const SOURCE_TOOLS: ToolDef[] = [
     // generic, so adding a screened tool later is this one line.
     _freeTier: true,
     description:
-      "WorldMonitor's live source inventory, for deciding whether and how far to trust what the other tools return. Two separate populations: `providers` are upstream hosts data is fetched from (with licence and attribution status), and `outlets` are named public source identities carrying an editorial tier plus propaganda-risk and source-type provenance. Platform channels include stable platform identities instead of pretending every source is a newsroom masthead. Defaults to `summary` (counts only); pass a view to enumerate. Static registry read — no network, no cache, always current with the deployed build. Credential-free: callable anonymously with no daily quota, under a separate ceiling of 10 unauthenticated calls per minute per IP.",
+      "RaWorld's live source inventory, for deciding whether and how far to trust what the other tools return. Two separate populations: `providers` are upstream hosts data is fetched from (with licence and attribution status), and `outlets` are named public source identities carrying an editorial tier plus propaganda-risk and source-type provenance. Platform channels include stable platform identities instead of pretending every source is a newsroom masthead. Defaults to `summary` (counts only); pass a view to enumerate. Static registry read — no network, no cache, always current with the deployed build. Credential-free: callable anonymously with no daily quota, under a separate ceiling of 10 unauthenticated calls per minute per IP.",
     inputSchema: {
       type: 'object',
       properties: {
@@ -222,7 +222,7 @@ export const SOURCE_TOOLS: ToolDef[] = [
             type: 'object',
             properties: {
               name: { type: 'string' },
-              tier: { type: ['number', 'null'], description: 'Declared editorial tier, or null when WorldMonitor has not declared one. Never defaulted to a number.' },
+              tier: { type: ['number', 'null'], description: 'Declared editorial tier, or null when RaWorld has not declared one. Never defaulted to a number.' },
               provenance: { type: 'object', description: 'Same provenance shape the news tools attach to stories, minus the prose `summary`. `knownBiases` is always present; empty means no perspective label recorded, not neutral.' },
               platformIdentities: {
                 type: 'array',

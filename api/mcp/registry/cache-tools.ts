@@ -732,7 +732,7 @@ export function forecastScorecardDescription(configured?: ForecastAccuracyAudit 
   const override = accuracyAuditOverride(configured);
   const lead = override
     ? `Forecast resolution scorecard, under audit since ${override.since} (issue ${override.issue}): its scores are unverified.`
-    : 'Forecast resolution scorecard: the accuracy record of WorldMonitor forecasts; underAudit marks scores still under audit.';
+    : 'Forecast resolution scorecard: the accuracy record of RaWorld forecasts; underAudit marks scores still under audit.';
   return `${lead} ${FORECAST_SCORECARD_DESCRIPTION}`;
 }
 
@@ -2605,7 +2605,7 @@ export const CACHE_TOOLS: ToolDef[] = [
         license: 'CC BY 4.0',
         licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
         termsUrl: 'https://data.unhcr.org/en/disclaimer/',
-        changes: 'WorldMonitor normalizes portal aggregate reports and derives change figures; per-situation source URLs and dates are retained.',
+        changes: 'RaWorld normalizes portal aggregate reports and derives change figures; per-situation source URLs and dates are retained.',
         notice: 'ODP dataset license applies except where otherwise indicated. No UNHCR endorsement. Situations overlap; do not sum totals.',
       } } };
     },

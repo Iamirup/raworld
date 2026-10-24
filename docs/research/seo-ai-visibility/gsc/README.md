@@ -82,7 +82,7 @@ by-property number directly, and the window `totals` are labelled
 compare the site with the chart, never one with the other.
 
 **Brand and non-brand are split with one pattern.** `BRAND_QUERY_PATTERN` in
-the collector names World Monitor and its common misspellings. Google applies
+the collector names RaWorld and its common misspellings. Google applies
 it as a query filter; the snapshot applies the same source to its own top
 queries. A query filter drops anonymized queries, so the site table reports
 them as the remainder (`anonymized`) instead of losing them, and per-family
@@ -110,7 +110,7 @@ the whole window, not one URL, and it holds no inspection result for an
 undeclared URL. The 2026-09-25 snapshot recorded `/zh/map-engine` with 9,486
 impressions at position 1.18. A separate check on 2026-09-29 ran URL
 Inspection and Search Analytics filtered to that page, by query and by week
-([results on #8700](https://github.com/koala73/worldmonitor/issues/8700#issuecomment-5886812477)).
+([results on #8700](https://github.com/Iamirup/raworld/issues/8700#issuecomment-5886812477)).
 It found the following:
 
 - Every impression came from a brand query such as "world monitor", at
@@ -139,7 +139,7 @@ Console, Indexing, Pages, and append a reading to `coverage-totals.json`:
   "pageWithRedirect": 0,
   "notFound404": 0,
   "crawledNotIndexed": 0,
-  "source": "https://github.com/koala73/worldmonitor/issues/..."
+  "source": "https://github.com/Iamirup/raworld/issues/..."
 }
 ```
 

@@ -108,7 +108,7 @@ describe('glossary data integrity', () => {
 
   it('claims no forecast-calibration capability that does not exist (#4930)', () => {
     // No Brier/resolution/calibration scoring exists yet; the glossary must
-    // not imply WorldMonitor computes it. "prediction market" is fine.
+    // not imply RaWorld computes it. "prediction market" is fine.
     const forbidden = /\bbrier\b|\bcalibration score|\bresolution score|\bwe (?:compute|calculate|score) (?:brier|calibration)/i;
     for (const t of GLOSSARY_TERMS) {
       const blob = [t.short, ...t.body].join(' ');
@@ -134,7 +134,7 @@ describe('glossary data integrity', () => {
     }
     assert.doesNotMatch(blob, /fused into the Strategic Risk/i);
     assert.match(blob, /not military readiness/);
-    assert.ok(pizza.metaTitle.length <= 60 && pizza.metaTitle.endsWith('| World Monitor'));
+    assert.ok(pizza.metaTitle.length <= 60 && pizza.metaTitle.endsWith('| RaWorld'));
     assert.ok(pizza.metaDescription.length <= 160);
     assert.ok(pizza.learnMore.some((link) => link.href === 'https://www.worldmonitor.app/dashboard'));
   });

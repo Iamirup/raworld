@@ -196,7 +196,6 @@
     "foodStocksHelp": "USDA生産・供給・流通商品在庫対使用率（マーケティング年度別）、世界比率を参考情報として併記。生産・供給・流通データが完全な国別収支を持たない場合、FAOSTATの食料バランスで生産・国内供給を補完。",
     "loadingFoodStocks": "Loading food stocks…",
     "foodStocksUnavailable": "Food stocks unavailable.",
-    "foodStocksProLocked": "Upgrade to PRO for commodity stocks-to-use",
     "foodStocksCommodity": "Commodity",
     "foodStocksMarketingYear": "Marketing year",
     "foodStocksRatio": "Stocks-to-use",
@@ -214,7 +213,6 @@
       "help": "国連世界人口推計、ユネスコ統計研究所、世界銀行世界開発指標、ILOSTATから得た年齢構成、教育パイプライン、産業労働力キャパシティ。",
       "loading": "Loading demographics and workforce data…",
       "unavailable": "Demographics and workforce data unavailable.",
-      "proLocked": "Upgrade to PRO for demographics and workforce data",
       "notAvailable": "Not available",
       "ageStructure": "Age structure",
       "education": "Education pipeline",
@@ -240,7 +238,6 @@
       "help": "食料、エネルギー、人口動態、技術、防衛のv1凍結エビデンススコア。行を展開して入力値、ソースの出典、欠損データの理由を確認できます。",
       "loading": "5要素スコアカードを読み込み中…",
       "unavailable": "5要素スコアカードは利用できません。",
-      "proLocked": "5要素レジリエンススコアカードにはPROへのアップグレードが必要です",
       "insufficient": "データ不足",
       "notAvailable": "利用不可",
       "noEvidence": "このピラーのエビデンスは利用できません。",
@@ -297,9 +294,7 @@
         "defense_supplierDiversity": "兵器サプライヤーの多様性"
       }
     },
-    "defenseIndustrialBase": {
-      "proLocked": "PRO にアップグレードして武器供給業者の依存関係と軍事能力を表示"
-    }
+    "defenseIndustrialBase": {}
   },
   "header": {
     "world": "世界",
@@ -709,8 +704,7 @@
       "alertTitle": {
         "configured": "デスクトップ設定が構成済",
         "needsKeys": "機能を有効にするためAPIキーを設定してください",
-        "some": "一部の機能にAPIキーが必要",
-        "pro": "World Monitor Pro がアクティブです"
+        "some": "一部の機能にAPIキーが必要"
       },
       "summary": {
         "desktop": "デスクトップモード",
@@ -739,10 +733,7 @@
         "NASA_FIRMS_API_KEY": "Fire Information for Resource Management System。",
         "OLLAMA_API_URL": "e.g. http://127.0.0.1:11434 (Ollama) or http://127.0.0.1:1234/v1 (LM Studio) — OpenAI-compatible endpoint.",
         "OLLAMA_MODEL": "e.g. llama3.1:8b — model tag to use for summarization."
-      },
-      "proCloud": "ローカル API キーがないフィーチャーは World Monitor クラウドデータを使用します。",
-      "skipSetupPro": "セットアップをスキップ: World Monitor Pro でサインインして、独自の API キーの代わりにクラウドデータを使用します。",
-      "getPro": "World Monitor Pro を入手"
+      }
     },
     "settingsWindow": {
       "validating": "APIキーを検証中...",
@@ -763,12 +754,6 @@
           "title": "ライセンス / APIキー",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "description": "API StarterまたはAPI Businessの利用者は、ウェブダッシュボードのSettings → API Keysからこのキーを作成します。完全なキーを紛失した場合は、失効させて新しいキーを作成してください。"
-        },
-        "dividerOr": "または",
-        "register": {
-          "title": "APIキーが必要ですか？",
-          "description": "手順についてはworldmonitor.app/docs/api-keysをご覧ください。手動APIキーにはAPI StarterまたはAPI Businessプランが必要です。",
-          "submitBtn": "APIプランを見る"
         }
       },
       "table": {
@@ -781,9 +766,7 @@
       "shellTitle": "ワールドモニター設定",
       "shellSearchPlaceholder": "設定を検索...",
       "shellCancel": "キャンセル",
-      "shellSaveClose": "保存して閉じる",
-      "freePanelLimit": "無料プラン: 最大 {{max}} パネル。PRO にアップグレードして無制限にしましょう。",
-      "freeSourceLimit": "無料プラン: 最大 {{max}} ソース。PRO にアップグレードして無制限にしましょう。"
+      "shellSaveClose": "保存して閉じる"
     },
     "countryIntel": {
       "identifying": "国を特定中...",
@@ -989,8 +972,7 @@
       "refineryStage": "Refine",
       "stageUnavailable": "No published figures for this stage",
       "withheldNote": "W withheld",
-      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them.",
-      "productionProLocked": "PROにアップグレードして、鉱山・精製所の国別シェアおよび段階別の集中度（生産者集中度指数）を確認してください。"
+      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them."
     },
     "tradePolicy": {
       "tariffs": "関税",
@@ -1084,7 +1066,7 @@
       "skipToEnd": "Skip to end"
     },
     "pizzint": {
-      "indexSource": "指数: World Monitor · 店舗データ:",
+      "indexSource": "指数: RaWorld · 店舗データ:",
       "statusNormal": "通常",
       "statusNoData": "データなし",
       "statusNoBaseline": "基準なし",
@@ -1093,7 +1075,7 @@
       "defcon": "DEFCON {{level}}",
       "updated": "{{timeAgo}}に更新",
       "tensionsTitle": "地政学的緊張",
-      "tensionsSource": "緊張度：GDELTのイベントに基づくWorld Monitorの算出値",
+      "tensionsSource": "緊張度：GDELTのイベントに基づくRaWorldの算出値",
       "insufficientData": "データ不足",
       "pizzaUnavailable": "ピザ店の活動データを取得できません",
       "source": "ソース:",
@@ -1771,7 +1753,7 @@
       "staleReport": "古い報告",
       "reported": "件数",
       "period": "期間",
-      "movementNote": "各行は出典、報告日、指標を保持します。ある時点の人口、到着者数、国境取締りの事案数は異なる指標です。出典の対象が重複する場合があるため、数値を合計しないでください。WorldMonitorはリンク先の出典からこの表示を作成しており、提供元による支持を意味しません。",
+      "movementNote": "各行は出典、報告日、指標を保持します。ある時点の人口、到着者数、国境取締りの事案数は異なる指標です。出典の対象が重複する場合があるため、数値を合計しないでください。RaWorldはリンク先の出典からこの表示を作成しており、提供元による支持を意味しません。",
       "recent": "最近",
       "last30Days": "過去30日間",
       "newThisWeek": "今週の新規",
@@ -2165,7 +2147,7 @@
       "tripDays": "移動日数"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>WM アナリスト</strong> 地政学、市場、軍事、経済分野のライブコンテキストを持つAIアナリスト。WorldMonitorのアクティブフィードからリアルタイムデータを注入したClaudeで稼働。"
+      "infoTooltip": "<strong>WM アナリスト</strong> 地政学、市場、軍事、経済分野のライブコンテキストを持つAIアナリスト。RaWorldのアクティブフィードからリアルタイムデータを注入したClaudeで稼働。"
     },
     "cotPositioning": {
       "infoTooltip": "<strong>先物ポジショニング</strong> 商品先物および金融先物における商業トレーダー、大規模投機家、小規模トレーダーの週単位のネットポジション。出典は商品先物取引委員会（CFTC）の「Commitments of Traders」レポート（金曜日公表）。"
@@ -2223,7 +2205,7 @@
       "infoTooltip": "<strong>経済カレンダー</strong> 予定された経済指標発表：消費者物価指数、非農業部門雇用者数、国内総生産、購買担当者指数、中央銀行決定。予測値、実績値、前回値を表示。高インパクトイベントはハイライト。出典：経済データプロバイダー。"
     },
     "fsi": {
-      "infoTooltip": "<strong>金融ストレス指標</strong> World Monitorの高利回り格付債からロング米国債への比率を株式ボラティリティとハイイールドスプレッドで調整：(HYG / TLT) / (VIX × ハイイールドスプレッド / 100)。これはカンザスシティ連邦準備銀行の金融ストレス指数ではありません。1.5以上は低ストレス、0.3未満は高ストレスです。",
+      "infoTooltip": "<strong>金融ストレス指標</strong> RaWorldの高利回り格付債からロング米国債への比率を株式ボラティリティとハイイールドスプレッドで調整：(HYG / TLT) / (VIX × ハイイールドスプレッド / 100)。これはカンザスシティ連邦準備銀行の金融ストレス指数ではありません。1.5以上は低ストレス、0.3未満は高ストレスです。",
       "title": "金融ストレス指数",
       "usFsiValue": "米国金融ストレス指標値",
       "cissTitle": "EU CISS(ユーロ圏システミックストレス)",
@@ -2281,8 +2263,7 @@
       "dependentCommodities": "依存商品",
       "stateOk": "最新",
       "stateStale": "古い入力",
-      "stateInsufficient": "データ不足",
-      "proLocked": "PRO にアップグレードして商品脆弱性スコアを表示"
+      "stateInsufficient": "データ不足"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>ホルムズ海峡トレーカー</strong> ホルムズ海峡を通過する船舶のライブ追跡。世界最重要の石油輸送ボトルネック。タンカー数、供給支障イベント、週単位の流量変化を監視。世界の石油供給の約20%が毎日ここを経由します。",
@@ -2307,7 +2288,7 @@
       "infoTooltip": "<strong>マクロ指標</strong> 米国、ユーロ圏、中国の物価、経済活動、政策および通貨指標。中国の現在の報道が必要です。各タイルにはその出典と観察日が表示されます。"
     },
     "monitors": {
-      "infoTooltip": "<strong>キーワードモニター</strong> 任意の用語を追加してWorldMonitorの全ソースからリアルタイムのニュース言及を追跡。マッチする記事が取り込まれると結果がリアルタイムで更新。"
+      "infoTooltip": "<strong>キーワードモニター</strong> 任意の用語を追加してRaWorldの全ソースからリアルタイムのニュース言及を追跡。マッチする記事が取り込まれると結果がリアルタイムで更新。"
     },
     "renewable": {
       "infoTooltip": "<strong>再生可能エネルギー</strong> 地域および年別の再生可能エネルギーからの発電シェア、および米国の太陽光、風力、石炭の設置済み容量（MW）。出典：世界銀行（EG.ELC.RNEW.ZS）およびUS Energy Information Administration。"
@@ -2533,108 +2514,11 @@
     "wsbTickerScanner": {
       "infoTooltip": "<strong>ウォールストリートベッツ ティッカースキャナー</strong> r/wallstreetbets、r/stocks、r/investingからのリアルタイムティッカーメンション。メンション頻度とエンゲージメントでランク付け。ベロシティはティッカーが投稿全体でどれだけ急速に勢いを増しているかを測定します。"
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Proがローンチしました",
-      "tagline": "より多くのシグナル、ノイズ削減。AI ブリーフィングの強化。あなたのための地政学&エクイティリサーチャー。",
-      "cta": "Pro にアップグレード →",
-      "dismiss": "閉じる"
-    },
-    "billingState": {
-      "onHoldDesc": "お支払いに失敗しました。プレミアムアクセスを復元するには、お支払い方法を更新してください。",
-      "onHoldBannerMessage": "お支払いに失敗しました。サブスクリプションを有効に保つには、お支払い方法を更新してください。",
-      "updatePayment": "支払い方法を更新",
-      "renewalPendingDesc": "サブスクリプションの更新を確認しています。確認が完了すると、プレミアムアクセスは自動的に復元されます。",
-      "refreshStatus": "ステータスを更新",
-      "renewalFailedDesc": "サブスクリプションの更新を確認できませんでした。問題が続く場合は、請求を管理するかサポートにお問い合わせください。",
-      "manageBilling": "請求を管理",
-      "lapsedDesc": "Proサブスクリプションが終了しました。プレミアムアクセスを取り戻すには再登録してください。",
-      "resubscribe": "再登録"
-    },
     "checkoutFailureBanner": {
       "message": "お支払いが完了できませんでした。請求はされていません。",
       "retry": "もう一度試す",
       "retrying": "再試行中…",
       "dismiss": "閉じる"
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "ステップ {{current}} / {{total}}",
-      "closeLabel": "セットアップをスキップ",
-      "ariaLabel": "Proアクティベーション設定",
-      "signedInAs": "{{email}} としてサインイン中",
-      "steps": {
-        "brief": {
-          "heading": "毎朝届くデイリーブリーフ",
-          "body": "毎朝、受信トレイに厳選されたインテリジェンスブリーフをお届け — 一晩の重要なシグナルを5分で読める内容に凝縮。",
-          "confirmCta": "モーニングブリーフをオンにする",
-          "confirming": "オンにしています…",
-          "doneNote": "モーニングブリーフはすでに配信中です。",
-          "scheduleNote": "現在の配信時刻を維持します。",
-          "summaryLabel": "モーニングブリーフ",
-          "summaryVerified": "オン — 次回のモーニングブリーフから開始します。",
-          "deliverAt": "配信時刻",
-          "previewLoading": "最初のブリーフのプレビューを準備しています…",
-          "previewLabel": "今朝のブリーフ"
-        },
-        "alerts": {
-          "heading": "重大アラート",
-          "body": "紛争の激化、市場ショック、新たな制裁など、大きな出来事が起きたときにブラウザで通知を受け取れます。頻度は設定でいつでも調整できます。",
-          "confirmCta": "アラートを有効にする",
-          "confirming": "有効にしています…",
-          "doneNote": "ブラウザアラートはすでにオンです。",
-          "blockedNote": "ブラウザで通知がブロックされています。アラートを受け取るには、ブラウザのサイト設定でオンにしてください。",
-          "declinedNote": "問題ありません — ブラウザアラートは送信しません。後でブラウザのサイト設定からいつでもオンにできます。",
-          "summaryLabel": "重大アラート",
-          "summaryVerified": "オン — 重大なシグナルがブラウザに届きます。"
-        },
-        "power": {
-          "heading": "あなたのProツールキット",
-          "body": "カスタムウィジェット、MCP接続、AIリサーチャーが解放されました。本当に見ておきたいボードを作りましょう。",
-          "confirmCta": "Proツールを見る",
-          "confirming": "開いています…",
-          "doneNote": "すでにProツールを使用中です。",
-          "summaryLabel": "Proツールキット",
-          "summaryVerified": "解放済み — いつでも準備完了です。",
-          "channelsNote": "Telegram、Slack、Discord、またはWebhookがお好みですか？",
-          "pointers": {
-            "search": "ダッシュボード全体を検索",
-            "widgets": "カスタムウィジェットを作成",
-            "analyst": "AIアナリストに質問",
-            "mcpClients": "MCPをセットアップ",
-            "channels": "通知設定でセットアップ"
-          }
-        }
-      },
-      "status": {
-        "pending": "未設定",
-        "inFlight": "設定中…",
-        "verified": "準備完了",
-        "failed": "うまくいきませんでした",
-        "blocked": "ブロック済み",
-        "unavailable": "利用できません",
-        "blockedNote": "現在ご利用いただけません — 後で設定から設定できます。",
-        "unavailableNote": "お使いのデバイスではご利用いただけません — 後で設定できます。",
-        "failedBody": "問題が発生しました。もう一度お試しいただくか、後で設定から設定してください。",
-        "retry": "もう一度試す"
-      },
-      "actions": {
-        "skip": "今はスキップ",
-        "continue": "続ける"
-      },
-      "summary": {
-        "heading": "準備完了です",
-        "subVerified": "アカウントで有効になっている内容です。",
-        "subPending": "セットアップは設定からいつでも完了できます。",
-        "linePending": "まだ設定されていません — 設定からいつでも完了できます。",
-        "lineFailed": "設定できませんでした — 設定からもう一度お試しください。",
-        "finish": "ダッシュボードに移動"
-      },
-      "chip": {
-        "message": "Proアカウントのセットアップを完了してください。",
-        "action": "セットアップを完了",
-        "dismissLabel": "閉じる"
-      }
     },
     "frameworkSelector": {
       "label": "分析フレームワーク",
@@ -2848,20 +2732,10 @@
       }
     },
     "exportGate": {
-      "signedOutDesc": "ダッシュボードデータをCSV、JSON、またはPDFとしてエクスポートするにはサインインしてください。",
-      "upgradeDesc": "データエクスポート（CSV、JSON、PDF）はPro Businessに含まれています。",
-      "upgradeCta": "Pro Businessにアップグレード",
       "lockedAriaLabel": "データをエクスポート — ロック済み。{{reason}}",
       "unlockedAnnouncement": "データエクスポートのロックが解除されました。",
       "preparingPdf": "PDFを準備中…",
       "pdfFailed": "PDFレポートを生成できませんでした。もう一度試すか、JSONエクスポートを使用してください。"
-    },
-    "tabCap": {
-      "signedOutDesc": "サインアウト状態のワークスペースは{{cap}}個のダッシュボードタブに制限されています。追加するにはサインインしてください。",
-      "upgradeDesc": "{{cap}}個のダッシュボードタブの上限に達しました。",
-      "upgradeCta": "さらに追加するにはアップグレード",
-      "lockedAriaLabel": "タブを追加 — ロック済み。{{reason}}",
-      "unlockedAnnouncement": "ダッシュボードタブの制限が解除されました。"
     },
     "fx": {
       "infoTooltip": "<strong>為替レート</strong> ストレスランキングは45通貨を24ヶ月での最大下落で順位付けし、12ヶ月の変動を表示。スポットレートは米ドルおよびユーロの個別基準を使用。ロシアルーブルレートはルーブル/単位。情報源にはYahoo Finance、欧州中央銀行、ロシア中央銀行が含まれます。",
@@ -2895,18 +2769,6 @@
       "rubPerUnit": "単位あたりルーブル",
       "sourceCbr": "出典: ロシア中央銀行"
     },
-    "passkeyOffer": {
-      "title": "パスキーを保存しますか?",
-      "body": "次回は指紋、顔、またはデバイスPINで簡単にサインインできます。覚えておくべきパスワードはありません。",
-      "accept": "パスキーを保存",
-      "dismiss": "後で",
-      "close": "閉じる",
-      "announce": "次回のサインインを高速化するためにパスキーを保存してください。",
-      "busy": "デバイスの処理を待機中…",
-      "succeeded": "パスキーが保存されました。次回のサインイン時に使用できます。",
-      "retryable": "完了しませんでした。もう一度試すことができます。",
-      "failed": "このデバイスにパスキーを保存できませんでした。"
-    },
     "decisionBrief": {
       "commodityTitle": "コモディティ意思決定ブリーフ",
       "commodity": "コモディティ / 製品",
@@ -2925,8 +2787,7 @@
       "changed": "選択が変更されました。エクスポート前に両方のシナリオを取得してください。",
       "loading": "両方のシナリオを取得中…",
       "captured": "取得しました。ダウンロード前に観測日と制約を確認してください。",
-      "failed": "シナリオを取得できませんでした。アクセス権を確認して再試行してください。エクスポートできる結果はありません。",
-      "locked": "意思決定ブリーフはProで利用できます。"
+      "failed": "シナリオを取得できませんでした。アクセス権を確認して再試行してください。エクスポートできる結果はありません。"
     },
     "liveMedia": {
       "idleStatus": "アクティビティがないため一時停止中",
@@ -3652,7 +3513,7 @@
     "documentTitle": "ワールドモニター — リアルタイム グローバルインテリジェンスダッシュボード",
     "metaDescription": "リアルタイム世界情報プラットフォーム。WIREDで紹介。190カ国、200万人以上が利用。紛争、市場、軍事、オープンソース・インテリジェンスを一つのビューで。",
     "offlineTitle": "オフラインです",
-    "offlineMessage": "World Monitorはリアルタイムインテリジェンスデータのためにインターネット接続が必要です。",
+    "offlineMessage": "RaWorldはリアルタイムインテリジェンスデータのためにインターネット接続が必要です。",
     "offlineRetry": "再試行"
   },
   "widgets": {
@@ -3690,16 +3551,15 @@
     "phaseError": "エラー",
     "previewCheckingHeading": "ウィジェットビルダーを接続中",
     "previewReadyHeading": "作成したいウィジェットを説明してください",
-    "previewFetchingHeading": "ライブWorldMonitorデータを取得中",
+    "previewFetchingHeading": "ライブRaWorldデータを取得中",
     "previewComposingHeading": "ウィジェットレイアウトを構成中",
     "previewErrorHeading": "プレビューに注意が必要です",
     "previewCheckingCopy": "生成を有効にする前に、ウィジェットキーとバックエンド可用性を検証しています。",
     "previewReadyCopy": "プロンプト例を使用するか、希望するライブビューを正確に説明してください。プレビューは保存前にここで更新されます。",
-    "previewFetchingCopy": "エージェントが承認されたWorldMonitorエンドポイントを呼び出し、ウィジェット用にデータセットを整形しています。",
+    "previewFetchingCopy": "エージェントが承認されたRaWorldエンドポイントを呼び出し、ウィジェット用にデータセットを整形しています。",
     "previewComposingCopy": "プレビューが最新のライブデータとダッシュボードスタイルでレンダリングされています。",
     "previewErrorCopy": "問題を修正して再試行してください。既存のウィジェットは影響を受けません。",
     "createInteractive": "インタラクティブウィジェットを作成",
-    "proBadge": "PRO",
     "preflightProUnavailable": "PROウィジェットエージェントが利用できません。サーバーのPRO_WIDGET_KEYを確認してください。",
     "preflightInvalidProKey": "PROキーが拒否されました。wm-pro-keyを更新して再読み込みしてください。",
     "preflightProSubscriptionRequired": "Proサブスクリプションが必要です。アップグレード直後の場合はページを更新してください。それ以外の場合はサポートに連絡してください。",
@@ -3721,28 +3581,6 @@
     "offlineCached": "オフライン — {{freshness}}からのキャッシュデータを表示しています。",
     "offlineUnavailable": "オフライン — ライブデータは現在利用できません。",
     "cachedFallback": "ライブデータが利用できません — {{freshness}}からのキャッシュデータを表示しています。"
-  },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "World Monitor ライセンスキーが必要です",
-    "signInToUnlock": "サインインしてプレミアム機能を利用",
-    "signIn": "サインインして利用",
-    "upgradeDesc": "Proにアップグレードしてプレミアム分析に完全アクセス",
-    "upgradeToPro": "Proにアップグレード",
-    "features": {
-      "orefSirens1": "イスラエルのミサイル・ロケット警報をリアルタイム配信",
-      "orefSirens2": "サイレンゾーンマッピングと脅威分類",
-      "telegramIntel1": "厳選されたTelegram公開ソースインテリジェンスチャネル",
-      "telegramIntel2": "ほぼリアルタイムの紛争・地政学的最新情報",
-      "xIntel1": "Curated public news accounts on X",
-      "xIntel2": "API-fresh posts with official permalinks"
-    }
-  },
-  "auth": {
-    "signIn": "サインイン",
-    "createAccount": "アカウントを作成",
-    "settings": "設定",
-    "passkeyOffer": {}
   },
   "mcp": {
     "connectPanel": "MCPを接続",
@@ -3831,8 +3669,6 @@
     "resilience": "レジリエンス",
     "ciiMissing": "CIIは利用できません",
     "resilienceMissing": "レジリエンスは利用できません",
-    "noEvents": "この日付の選択された見出しは記録されていません。出来事がなかったことを意味するものではありません。",
-    "unlock90": "Proで90日間を利用",
-    "unlock365": "APIプランで365日間を利用"
+    "noEvents": "この日付の選択された見出しは記録されていません。出来事がなかったことを意味するものではありません。"
   }
 }

@@ -25,7 +25,7 @@ function createFixture(t) {
     const entry = registry.find((candidate) => candidate.service === name);
     config.services[id] = {
       source: {
-        repo: 'koala73/worldmonitor',
+        repo: 'Iamirup/raworld',
         rootDirectory: entry?.deployMode === 'nixpacks-root-scripts' ? 'scripts' : '',
       },
       build: { watchPatterns: entry?.watchPatterns ?? ['scripts/**', 'shared/**'], dockerfilePath: entry?.dockerfile },
@@ -34,7 +34,7 @@ function createFixture(t) {
     };
   }
   const state = {
-    inventory: fleet.map((service) => ({ ...service, source: { repo: 'koala73/worldmonitor' } })),
+    inventory: fleet.map((service) => ({ ...service, source: { repo: 'Iamirup/raworld' } })),
     config,
     edits: [],
   };

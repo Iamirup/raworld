@@ -1,4 +1,4 @@
-// Run with: npm test (node --import tsx, so WorldMonitor's TypeScript modules load).
+// Run with: npm test (node --import tsx, so RaWorld's TypeScript modules load).
 import assert from 'node:assert/strict';
 import path from 'node:path';
 import { test } from 'node:test';
@@ -20,7 +20,7 @@ const snapshotDesk = () => ({
   anchor,
 });
 
-test('the bridge calls WorldMonitor, it does not re-implement it', () => {
+test('the bridge calls RaWorld, it does not re-implement it', () => {
   // Same composition as the dashboard's resolveCredibilityScore.
   for (const name of ['AP News', 'Daily Sabah', 'RT', 'Hacker News', 'Some Unlisted Blog']) {
     assert.equal(sourceCredibility(name, 3), computeCredibilityScore({
@@ -29,7 +29,7 @@ test('the bridge calls WorldMonitor, it does not re-implement it', () => {
   }
   // The dashboard's badge bands.
   assert.deepEqual([39, 40, 69, 70].map(credibilityBand), ['low', 'medium', 'medium', 'high']);
-  // WorldMonitor's own UI wording.
+  // RaWorld's own UI wording.
   assert.equal(WM_TEXT.singlePublisher, 'Single publisher');
   assert.equal(WM_TEXT.tier4Only, 'Low-tier sources only');
 });
@@ -51,15 +51,15 @@ test('figures go through the brief seeders\' grounding gate', () => {
   assert.equal(groundFigures('Strike ends after nine days', 'ending a strike that lasted 9 days').gate, 'grounded');
 });
 
-test('generated anchor scripts must pass WorldMonitor\'s brief validators', () => {
+test('generated anchor scripts must pass RaWorld\'s brief validators', () => {
   const ground = 'Daily Sabah reports 31 civilians killed in Sudan';
   assert.equal(validateScript('Daily Sabah reports 31 civilians killed.', ground).ok, true);
   assert.equal(validateScript('Reuters confirms 31 civilians killed.', ground).ok, false);
   assert.equal(validateScript('Daily Sabah reports 40 civilians killed.', ground).ok, false);
 });
 
-test('verdict card is WorldMonitor\'s judgments, arranged', () => {
-  assert.equal(computeVerdict({ found: false }).word, 'Not in WorldMonitor’s sources');
+test('verdict card is RaWorld\'s judgments, arranged', () => {
+  assert.equal(computeVerdict({ found: false }).word, 'Not in RaWorld’s sources');
   assert.match(computeVerdict({ found: false, sourcesUnreachable: true }).reasons[0], /could not reach/);
   const single = computeVerdict({ found: true, coverage: { state: 'single-publisher', publishers: 1 } });
   assert.equal(single.word, WM_TEXT.singlePublisher);
@@ -72,7 +72,7 @@ test('retrieval: paraphrases match, unrelated headlines do not', () => {
   assert.ok(heuristicSearchTerms('Trump strikes diesel deal with Putin').includes('Trump'));
 });
 
-// Real WorldMonitor data captured 2026-10-09 (snapshots/).
+// Real RaWorld data captured 2026-10-09 (snapshots/).
 test('real snapshot: split clusters, ungrounded figures, state media, single publishers', async () => {
   const deps = snapshotDesk();
   const diesel = await gradeToResult('Trump strikes diesel deal with Putin', deps);
@@ -95,7 +95,7 @@ test('real snapshot: split clusters, ungrounded figures, state media, single pub
   assert.equal(none.verdict.key, 'not-found');
 });
 
-test('reveal: WorldMonitor counts six iHeart station sites as one publisher', async () => {
+test('reveal: RaWorld counts six iHeart station sites as one publisher', async () => {
   const [top] = await findRevealCandidates(snapshotDesk().source);
   assert.equal(top.pattern, 'syndication');
   assert.equal(top.headlineCount, 6);
@@ -107,7 +107,7 @@ test('an outage is reported as an outage, never as "nobody carried it"', async (
   const mcp = { async callTool() { throw new Error('fetch failed'); } };
   const r = await gradeToResult('Trump strikes diesel deal', { source: new CombinedSource(new LiveSource(mcp), null), anchor });
   assert.equal(r.verdict.key, 'unreachable');
-  assert.match(r.script, /can't reach WorldMonitor/);
+  assert.match(r.script, /can't reach RaWorld/);
 });
 
 test('MCP client: initialize, session header, SSE tool result', async () => {
@@ -128,7 +128,7 @@ test('MCP client: initialize, session header, SSE tool result', async () => {
   assert.equal(calls.at(-1).headers['X-WorldMonitor-Key'], 'k');
 });
 
-test('today\'s board: one event across clusters is one story, graded by WorldMonitor', async () => {
+test('today\'s board: one event across clusters is one story, graded by RaWorld', async () => {
   const { buildBoard } = await import('../lib/board.mjs');
   const { clusters, from } = await snapshotDesk().source.boardClusters();
   assert.equal(from, 'archive');
@@ -210,7 +210,7 @@ test('committed snapshots never age out; rolling archives do', async () => {
   assert.ok(clusters.length > 0, 'the offline board has data whatever the date');
 });
 
-test('a failed snapshot load is remembered for a minute, then WorldMonitor is asked again', async () => {
+test('a failed snapshot load is remembered for a minute, then RaWorld is asked again', async () => {
   const { FAILURE_TTL_MS } = await import('../lib/sources.mjs');
   let calls = 0;
   const mcp = { async callTool() { calls += 1; throw new Error('fetch failed'); } };
@@ -221,7 +221,7 @@ test('a failed snapshot load is remembered for a minute, then WorldMonitor is as
   assert.equal(calls, 1, 'the failure is cached: no second timeout on the next check');
   live.snapshots.get('markets').at -= FAILURE_TTL_MS + 1;
   await live.markets(['x']).catch(() => {});
-  assert.equal(calls, 2, 'after the failure TTL WorldMonitor is asked again');
+  assert.equal(calls, 2, 'after the failure TTL RaWorld is asked again');
   // A refresh that fails keeps the last good value instead of throwing.
   let ok = true;
   const flaky = { async callTool() { if (!ok) throw new Error('fetch failed'); return { topStories: [{ primaryTitle: 'A' }] }; } };
@@ -240,7 +240,7 @@ test('an over-budget tool result is an error, never an empty board', async () =>
     return new Response(JSON.stringify({ jsonrpc: '2.0', id: body.id, result: { content: [{ type: 'text', text: JSON.stringify(envelope) }], structuredContent: envelope } }), { headers: { 'content-type': 'application/json' } });
   };
   const mcp = new WorldMonitorMcp({ apiKey: 'k', fetchImpl });
-  await assert.rejects(() => mcp.callTool('get_news_intelligence', { limit: 0 }), /exceeds WorldMonitor's tool output budget/);
+  await assert.rejects(() => mcp.callTool('get_news_intelligence', { limit: 0 }), /exceeds RaWorld's tool output budget/);
   // The whole-snapshot tools are capped so the budget is not reached in the first place.
   const seen = [];
   const capped = { async callTool(name, args) { seen.push([name, args.limit]); return name === 'get_news_intelligence' ? { topStories: [] } : { clusters: [] }; } };
@@ -254,7 +254,7 @@ test('an over-budget tool result is an error, never an empty board', async () =>
 test('a board that is not live is narrated as a dated snapshot, never as "right now"', async () => {
   const { templateBoard } = await import('../lib/anchor.mjs');
   const b = { totals: { stories: 12, corroborated: 6, singlePublisher: 6 }, supported: [], thin: [], asOf: '2026-10-09T21:10:10.756Z' };
-  assert.match(templateBoard({ ...b, from: 'live' }), /^Good evening.*Right now WorldMonitor is tracking 12 stories/);
+  assert.match(templateBoard({ ...b, from: 'live' }), /^Good evening.*Right now RaWorld is tracking 12 stories/);
   const archived = templateBoard({ ...b, from: 'archive' });
   assert.doesNotMatch(archived, /right now|today/i);
   assert.match(archived, /last snapshot, from Saturday 10 October at 01:10/);
@@ -273,7 +273,7 @@ test('the grade stream stops at the next step once the browser is gone', async (
   await it.return();
   const after = calls.length;
   assert.equal((await it.next()).done, true);
-  assert.equal(calls.length, after, 'no further WorldMonitor calls after the stream is abandoned');
+  assert.equal(calls.length, after, 'no further RaWorld calls after the stream is abandoned');
 });
 
 test('the repo .env.local backs the demo .env, and an empty assignment never blocks it', async () => {

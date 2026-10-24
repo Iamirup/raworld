@@ -23,7 +23,7 @@ function fixtureDir(files) {
   return dir;
 }
 
-function snapshot(capturedAt, stargazersCount, repository = 'koala73/worldmonitor') {
+function snapshot(capturedAt, stargazersCount, repository = 'Iamirup/raworld') {
   return JSON.stringify({
     repository,
     stargazers_count: stargazersCount,
@@ -225,7 +225,7 @@ describe('freeze-github-stars', () => {
     try {
       const ok = () => Promise.resolve({ ok: true, json: () => Promise.resolve({ stargazers_count: 42 }) });
       const { path, snapshot } = await freezeGithubStars({ fetchImpl: ok, outputDir: dir, today: '2026-09-03' });
-      assert.deepEqual(snapshot, { repository: 'koala73/worldmonitor', stargazers_count: 42, capturedAt: '2026-09-03' });
+      assert.deepEqual(snapshot, { repository: 'Iamirup/raworld', stargazers_count: 42, capturedAt: '2026-09-03' });
       assert.deepEqual(JSON.parse(readFileSync(path, 'utf8')), snapshot);
     } finally {
       rmSync(dir, { recursive: true, force: true });

@@ -7,7 +7,7 @@ import { claimPairingToken } from "../notificationChannels";
 const modules = import.meta.glob("../**/*.ts");
 
 // ---------------------------------------------------------------------------
-// Regression tests for koala73/worldmonitor#3767
+// Regression tests for Iamirup/raworld#3767
 //
 // The /api/telegram-pair-callback webhook MUST fail closed: requests are
 // rejected unless they carry the `X-Telegram-Bot-Api-Secret-Token` header

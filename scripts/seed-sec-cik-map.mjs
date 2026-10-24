@@ -21,7 +21,7 @@ export const MIN_CIK_ENTRIES = 5000;
 
 // SEC requires a declared User-Agent identifying the requester (no browser
 // spoofing) — same convention as scripts/seed-regulatory-actions.mjs.
-export const SEC_USER_AGENT = 'WorldMonitor/2.0 (monitor@worldmonitor.app)';
+export const SEC_USER_AGENT = 'RaWorld/2.0 (monitor@worldmonitor.app)';
 
 const TICKERS_URL = 'https://www.sec.gov/files/company_tickers.json';
 

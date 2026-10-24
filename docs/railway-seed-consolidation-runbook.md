@@ -117,7 +117,7 @@ deployment-state gates above. The utility deliberately has no credentials for
 those systems. It independently resolves the explicit Railway project and
 environment, pins every subsequent read and edit to that resolved environment
 ID, runs the live watch/config audit, requires every repository
-source to be `koala73/worldmonitor` on `main`, and rejects duplicate, unknown,
+source to be `Iamirup/raworld` on `main`, and rejects duplicate, unknown,
 malformed, or oversized selections.
 
 Preview a named batch before applying it. An apply or rollback requires one to
@@ -219,7 +219,7 @@ Railway inventory with `scripts/railway-native-autodeploy-fleet.json`. That file
 contains the 80 service names and IDs proven by terminally accepted run
 `31696921882` at `a3e735a089c66448c29c2f8c000249f31470956c`. It is an identity
 contract, not an exception or acceptance baseline: an expected service that is
-missing, renamed, replaced, detached from `koala73/worldmonitor`, or joined by
+missing, renamed, replaced, detached from `Iamirup/raworld`, or joined by
 an unregistered repository service fails the run before source filtering. Edit
 the roster only with evidence for an intentional Railway inventory change; do
 not use it to acknowledge drift.
@@ -231,7 +231,7 @@ enrolled, so every health run from then on failed with
 the roster and registered it as a Dockerfile service
 (`demos/verification-desk/Dockerfile`, built from the repository root). Its
 watch paths are `demos/verification-desk/**`, the image's file inputs, and the
-exact WorldMonitor modules the desk imports. The closure audit in
+exact RaWorld modules the desk imports. The closure audit in
 `tests/railway-watch-path-audit.test.mjs` fails when a new desk import is not
 watched.
 

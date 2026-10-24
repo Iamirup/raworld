@@ -1,4 +1,4 @@
-// Pure, dependency-free logic for the WorldMonitor CLI: argument parsing,
+// Pure, dependency-free logic for the RaWorld CLI: argument parsing,
 // request planning, and output formatting. Nothing here touches the network or
 // the process — every export is unit-testable in isolation, and the thin
 // network/IO wrapper lives in ./run.mjs.
@@ -360,7 +360,7 @@ export function renderListing(rows) {
   return `${rows.length} operation(s):\n${lines.join('\n')}`;
 }
 
-export const HELP = `worldmonitor — command-line client for the World Monitor global-intelligence API
+export const HELP = `worldmonitor — command-line client for the RaWorld global-intelligence API
 
 USAGE
   worldmonitor                       Open the terminal dashboard (TUI)

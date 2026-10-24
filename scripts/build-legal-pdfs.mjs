@@ -86,9 +86,9 @@ function pageHtml({ title, bodyHtml, version, docPath }) {
 </style></head>
 <body>
 <h1>${title}</h1>
-<p class="doc-meta">World Monitor · version <strong>${version}</strong> ·
+<p class="doc-meta">RaWorld · version <strong>${version}</strong> ·
 Authoritative text: https://www.worldmonitor.app/${docPath.replace(/\.mdx$/, '')} ·
-Previous versions: https://github.com/koala73/worldmonitor/commits/main/${docPath}</p>
+Previous versions: https://github.com/Iamirup/raworld/commits/main/${docPath}</p>
 ${bodyHtml}
 </body></html>`;
 }
@@ -175,7 +175,7 @@ async function build() {
         headerTemplate: '<div></div>',
         footerTemplate:
           '<div style="width:100%;font:8pt Georgia,serif;color:#666;padding:0 18mm;display:flex;justify-content:space-between">'
-          + `<span>World Monitor — version ${expected.version}</span>`
+          + `<span>RaWorld — version ${expected.version}</span>`
           + '<span class="pageNumber"></span></div>',
         margin: { top: '20mm', right: '18mm', bottom: '22mm', left: '18mm' },
       });

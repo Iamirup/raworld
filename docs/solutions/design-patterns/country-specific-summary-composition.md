@@ -18,7 +18,7 @@ tags: [country-intel, china, source-attribution, progressive-loading]
 
 A country deep dive can need a domain-specific overview that does not fit the generic economic rows. The durable pattern is to compose that overview from the country page's existing data contracts, rather than creating a parallel aggregate endpoint or silently re-fetching the same sources.
 
-This was applied to the China overview opened in [Issue #5277](https://github.com/koala73/worldmonitor/issues/5277) and is pending in [PR #5297](https://github.com/koala73/worldmonitor/pull/5297) at documentation time.
+This was applied to the China overview opened in [Issue #5277](https://github.com/Iamirup/raworld/issues/5277) and is pending in [PR #5297](https://github.com/Iamirup/raworld/pull/5297) at documentation time.
 
 ## Guidance
 
@@ -59,4 +59,4 @@ For China, the card contains five independently rendered groups: macro and polic
 ## Related
 
 - [Reject degraded China macro snapshots at the seed publish boundary](../logic-errors/reject-degraded-china-macro-seed-publication.md)
-- [Issue #5277](https://github.com/koala73/worldmonitor/issues/5277)
+- [Issue #5277](https://github.com/Iamirup/raworld/issues/5277)

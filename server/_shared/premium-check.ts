@@ -125,6 +125,17 @@ export type PremiumCallerIdentity =
     unauthenticated?: true;
   };
 
+/** Identity for callers without credentials; everyone has full access. */
+const ANONYMOUS_FULL_ACCESS: PremiumCallerIdentity = Object.freeze({
+  isPremium: true,
+  userId: null,
+  kind: 'enterprise',
+  quotaExempt: false,
+  quotaUserId: 'raworld:anonymous',
+  alarmPrincipal: 'raworld:anonymous',
+  directLlmDailyLimit: OPERATOR_KEY_DAILY_CEILINGS.directLlmCalls,
+});
+
 /** The deny arm of the union, named so `{ ...DENIED, billingDenial }` stays in it. */
 type DeniedIdentity = Extract<PremiumCallerIdentity, { isPremium: false }>;
 
@@ -427,12 +438,10 @@ export async function resolvePremiumCallerIdentity(request: Request): Promise<Pr
   if (userKeyLookupUnavailable) {
     return { ...DENIED, billingDenial: unverifiableEntitlementDenial() };
   }
-  // No credential resolved an identity: no bearer at all, a bearer that carried
-  // no subject, an unknown `wm_` key, a rejected `X-WorldMonitor-Key`, or a
-  // spoofed internal-MCP marker that fell through. Every arm that DID identify
-  // someone, or that failed for a reason other than the credential, has already
-  // returned above, so this is the credential denial (#5619).
-  return UNAUTHENTICATED;
+  // RaWorld has no accounts or paid plans: a caller without any credential gets
+  // the full feature set. Direct-LLM spend from these callers shares one
+  // principal, metered against the operator-key circuit breaker.
+  return ANONYMOUS_FULL_ACCESS;
 }
 
 /**

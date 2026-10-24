@@ -3,12 +3,12 @@
  * and `link` on notification events (issue #8397, Sept 2026 pentest).
  *
  * `payload.title`, `payload.source` and `payload.link` reach every delivery
- * channel: the email subject/body (`WorldMonitor Alert: <title>`,
+ * channel: the email subject/body (`RaWorld Alert: <title>`,
  * `Source: <source>`, bare `<link>`), the chat text for Telegram/Slack/
  * Discord (`formatMessage`), and the web-push click URL. PR #8384 closed only
  * the web-push click path; a hostile event still produced a real email from
  * alerts@worldmonitor.app with a forged subject, a forged
- * `Source: WorldMonitor Security` line, and an off-origin link verbatim.
+ * `Source: RaWorld Security` line, and an off-origin link verbatim.
  *
  * Two entry points consume this module:
  *   - `api/notify.ts` validates user-submitted payloads BEFORE queueing, so
@@ -35,7 +35,7 @@
  *     Deliverable off-origin https article links are KEPT for text sinks —
  *     they are the point of an rss_alert, and legitimate RSS publishers span
  *     a long tail outside any allowlist — but always rendered with their
- *     destination host disclosed inline, so WorldMonitor branding can never
+ *     destination host disclosed inline, so RaWorld branding can never
  *     mask the target. The web-push click target has no room for that inline
  *     disclosure, so caller-submitted events collapse to first-party there.
  *
@@ -146,7 +146,7 @@ export function redactNotificationUrlTokens(value: string): string {
 /**
  * Characters removed before the first-party marker match. Punctuation,
  * separators and control classes defeat a substring match while rendering as
- * a word break ('World-Monitor Security'); symbols and nonspacing marks do
+ * a word break ('RaWorld Security'); symbols and nonspacing marks do
  * the same ('World+Monitor Security', 'World\u034fMonitor Security'). None
  * carry identity, so all are dropped from the comparison value only — never
  * from the delivered text.
@@ -205,7 +205,7 @@ export function sanitizeNotificationTitle(value: unknown): string {
 }
 
 /**
- * Mark caller-submitted titles as community content, not WorldMonitor copy,
+ * Mark caller-submitted titles as community content, not RaWorld copy,
  * and redact clickable URL tokens so free text cannot carry a click target.
  *
  * The prefix is added AFTER truncation, not before: prefixing first spent 17
@@ -335,7 +335,7 @@ export function sanitizeNotificationLinkUrl(value: unknown): string {
 /**
  * Render a link for text channels (email body, Telegram/Slack/Discord).
  * Deliverable article links keep their URL with the destination host
- * disclosed inline (`<url> (source: <host>)`), so WorldMonitor branding can
+ * disclosed inline (`<url> (source: <host>)`), so RaWorld branding can
  * never mask the target. Non-deliverable links collapse to the dashboard.
  * Absent links render nothing.
  *

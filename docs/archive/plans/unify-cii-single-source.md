@@ -1,7 +1,7 @@
 # Unify the CII — one engine, server-canonical
 
 Origin: Issue #3738 ("Security dimension is 100% GPS jamming"). Investigation showed the
-mislabel is a symptom, not the bug. The bug: **WorldMonitor runs two CII engines that
+mislabel is a symptom, not the bug. The bug: **RaWorld runs two CII engines that
 diverge in formula, inputs, and output shape.** This plan unifies them.
 
 > Reviewed 2026-05-22 by three parallel reviewers (feasibility / adversarial / coherence).

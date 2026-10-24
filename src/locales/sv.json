@@ -314,8 +314,7 @@
       "alertTitle": {
         "configured": "Skrivbordsinställningar konfigurerade",
         "needsKeys": "Konfigurera API-nycklar för att låsa upp funktioner",
-        "some": "Vissa funktioner behöver API-nycklar",
-        "pro": "World Monitor Pro är aktivt"
+        "some": "Vissa funktioner behöver API-nycklar"
       },
       "summary": {
         "desktop": "Skrivbordsläge",
@@ -344,10 +343,7 @@
         "NASA_FIRMS_API_KEY": "Brandinformationssystem för resurshantering.",
         "OLLAMA_API_URL": "e.g. http://127.0.0.1:11434 (Ollama) or http://127.0.0.1:1234/v1 (LM Studio) — OpenAI-compatible endpoint.",
         "OLLAMA_MODEL": "e.g. llama3.1:8b — model tag to use for summarization."
-      },
-      "proCloud": "Funktioner utan lokal API-nyckel använder World Monitor cloud-data.",
-      "skipSetupPro": "Hoppa över installationen: logga in med World Monitor Pro för att använda cloud-data istället för dina egna API-nycklar.",
-      "getPro": "Skaffa World Monitor Pro"
+      }
     },
     "countryIntel": {
       "identifying": "Identifierar land...",
@@ -459,20 +455,12 @@
           "description": "Prenumeranter på API Starter och API Business skapar nyckeln i webbpanelen via Settings → API Keys. Om den fullständiga nyckeln går förlorad ska du återkalla den och skapa en ny.",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "title": "Licens- / API-nyckel"
-        },
-        "dividerOr": "ELLER",
-        "register": {
-          "description": "Se worldmonitor.app/docs/api-keys för stegvisa instruktioner. Manuella API-nycklar kräver abonnemanget API Starter eller API Business.",
-          "submitBtn": "Visa API-abonnemang",
-          "title": "Behöver du en API-nyckel?"
         }
       },
-      "shellTitle": "World Monitor-inställningar",
+      "shellTitle": "RaWorld-inställningar",
       "shellSearchPlaceholder": "Sök inställningar...",
       "shellCancel": "Avbryt",
-      "shellSaveClose": "Spara & Stäng",
-      "freePanelLimit": "Gratisplan: max {{max}} paneler. Uppgradera till PRO för obegränsat.",
-      "freeSourceLimit": "Gratisplan: max {{max}} källor. Uppgradera till PRO för obegränsat."
+      "shellSaveClose": "Spara & Stäng"
     }
   },
   "components": {
@@ -781,14 +769,14 @@
       "info": "INFO"
     },
     "pizzint": {
-      "indexSource": "Index: World Monitor · platsdata:",
+      "indexSource": "Index: RaWorld · platsdata:",
       "statusNormal": "NORMALT",
       "statusNoData": "INGA DATA",
       "statusNoBaseline": "INGEN REFERENS",
       "vsUsual": "jämfört med normalt",
       "title": "Pentagon Pizza Index",
       "tensionsTitle": "Geopolitiska spänningar",
-      "tensionsSource": "Spänningar: World Monitor utifrån GDELT-händelser",
+      "tensionsSource": "Spänningar: RaWorld utifrån GDELT-händelser",
       "insufficientData": "Otillräckliga data",
       "pizzaUnavailable": "Pizzeriornas aktivitet är inte tillgänglig",
       "source": "Källa:",
@@ -1111,7 +1099,7 @@
       "staleReport": "Inaktuell rapport",
       "reported": "Antal",
       "period": "Period",
-      "movementNote": "Varje rad behåller sin källa, sitt rapportdatum och sitt mått. Bestånd, ankomster och gränskontrollhändelser är olika mått. Källor kan överlappa; summera inte deras antal. WorldMonitor tar fram denna vy från de länkade källorna; det innebär inget stöd från leverantörerna.",
+      "movementNote": "Varje rad behåller sin källa, sitt rapportdatum och sitt mått. Bestånd, ankomster och gränskontrollhändelser är olika mått. Källor kan överlappa; summera inte deras antal. RaWorld tar fram denna vy från de länkade källorna; det innebär inget stöd från leverantörerna.",
       "recent": "Nyligen",
       "last30Days": "Senaste 30 dagarna",
       "newThisWeek": "Nytt denna vecka",
@@ -1667,8 +1655,7 @@
       "refineryStage": "Refine",
       "stageUnavailable": "No published figures for this stage",
       "withheldNote": "W withheld",
-      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them.",
-      "productionProLocked": "Uppgradera till PRO för gruv- och raffinaderiländsandelar med koncentration (producentkoncentrationsindex) per steg."
+      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them."
     },
     "positiveNewsFeed": {
       "noStories": "Inga berättelser i denna kategori ännu"
@@ -1785,7 +1772,7 @@
       "tripDays": "Resedagar"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>WM Analytiker</strong> AI-analytiker med livekontext inom geopolitiska, marknads-, militära och ekonomiska domäner. Drivs av Claude med realtidsdata injicerade från aktiva WorldMonitor-flöden."
+      "infoTooltip": "<strong>RaWorld Analytiker</strong> AI-analytiker med livekontext inom geopolitiska, marknads-, militära och ekonomiska domäner. Drivs av Claude med realtidsdata injicerade från aktiva WorldMonitor-flöden."
     },
     "cotPositioning": {
       "infoTooltip": "<strong>Futures-positionering</strong> Veckovisa nettopositoner för kommersiella handlare, stora spekulanter och små handlare över råvaru- och finansfutures. Källan är Commodity Futures Trading Commission Commitments of Traders-rapport, publicerad på fredagar."
@@ -1906,8 +1893,7 @@
       "dependentCommodities": "Beroende råvaror",
       "stateOk": "Aktuellt",
       "stateStale": "Inaktuell indata",
-      "stateInsufficient": "Otillräckliga data",
-      "proLocked": "Uppgradera till PRO för råvarusårbarhetsbedömning"
+      "stateInsufficient": "Otillräckliga data"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>Hormuz Trade Tracker</strong> Direkt skeppsspårning genom Hormuzsträndet, världens mest kritiska oljeflaskhals. Övervakar tankskeppet, avbrottshändelser och veckovisa flödesförändringar. Ungefär 20% av det globala oljeöverföringen passerar här dagligen.",
@@ -2159,108 +2145,11 @@
     "wsbTickerScanner": {
       "infoTooltip": "<strong>WallStreetBets Ticker Scanner</strong> Realtidsmärkesnämnanden från r/wallstreetbets, r/stocks och r/investing. Rangerad efter nämnningsfrekvens och engagemang. Velocity mäter hur snabbt en ticker ökar momentum över inlägg."
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro är lanserad",
-      "tagline": "Mer signal, mindre brus. Fler AI-uppdateringar. En geopolitisk och aktieanalytiker bara för dig.",
-      "cta": "Uppgradera till Pro →",
-      "dismiss": "Stäng"
-    },
-    "billingState": {
-      "onHoldDesc": "Betalningen misslyckades. Uppdatera din betalningsmetod för att återställa premiumåtkomsten.",
-      "onHoldBannerMessage": "Betalningen misslyckades. Uppdatera din betalningsmetod för att hålla din prenumeration aktiv.",
-      "updatePayment": "Uppdatera betalning",
-      "renewalPendingDesc": "Vi verifierar förnyelsen av din prenumeration. Premiumåtkomsten återställs automatiskt när den har bekräftats.",
-      "refreshStatus": "Uppdatera status",
-      "renewalFailedDesc": "Vi kunde inte verifiera förnyelsen av din prenumeration. Hantera fakturering eller kontakta supporten om problemet kvarstår.",
-      "manageBilling": "Hantera fakturering",
-      "lapsedDesc": "Din Pro-prenumeration har upphört. Prenumerera igen för att återfå premiumåtkomsten.",
-      "resubscribe": "Prenumerera igen"
-    },
     "checkoutFailureBanner": {
       "message": "Betalningen kunde inte genomföras. Ingen debitering gjordes.",
       "retry": "Försök igen",
       "retrying": "Försöker igen…",
       "dismiss": "Stäng"
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "Steg {{current}} av {{total}}",
-      "closeLabel": "Hoppa över installationen",
-      "ariaLabel": "Inställning för Pro-aktivering",
-      "signedInAs": "Inloggad som {{email}}",
-      "steps": {
-        "brief": {
-          "heading": "Din dagliga sammanfattning, varje morgon",
-          "body": "En sammanställd underrättelsesammanfattning i din inkorg varje morgon — nattens viktiga signaler, komprimerade till fem minuters läsning.",
-          "confirmCta": "Slå på min morgonsammanfattning",
-          "confirming": "Slår på…",
-          "doneNote": "Din morgonsammanfattning körs redan.",
-          "scheduleNote": "Vi behåller din nuvarande leveranstid.",
-          "summaryLabel": "Morgonsammanfattning",
-          "summaryVerified": "På — börjar med din nästa morgonsammanfattning.",
-          "deliverAt": "Leverans kl.",
-          "previewLoading": "Förbereder en förhandsvisning av din första sammanfattning…",
-          "previewLabel": "Dagens morgonsammanfattning"
-        },
-        "alerts": {
-          "heading": "Kritiska varningar",
-          "body": "Få ett meddelande i din webbläsare när något stort händer — konflikteskaleringar, marknadschocker, nya sanktioner. Justera frekvensen när som helst i Inställningar.",
-          "confirmCta": "Aktivera varningar",
-          "confirming": "Aktiverar…",
-          "doneNote": "Webbläsarvarningar är redan på.",
-          "blockedNote": "Aviseringar är blockerade i din webbläsare. Slå på dem i webbläsarens webbplatsinställningar för att få varningar.",
-          "declinedNote": "Inga problem — vi skickar inga webbläsarvarningar. Du kan slå på dem senare via webbläsarens webbplatsinställningar.",
-          "summaryLabel": "Kritiska varningar",
-          "summaryVerified": "På — kritiska signaler når din webbläsare."
-        },
-        "power": {
-          "heading": "Din Pro-verktygslåda",
-          "body": "Anpassade widgetar, MCP-anslutningar och AI-forskaren är upplåsta. Bygg den vy du verkligen vill bevaka.",
-          "confirmCta": "Utforska Pro-verktyg",
-          "confirming": "Öppnar…",
-          "doneNote": "Du använder redan dina Pro-verktyg.",
-          "summaryLabel": "Pro-verktygslåda",
-          "summaryVerified": "Upplåst och redo när du är det.",
-          "channelsNote": "Föredrar du Telegram, Slack, Discord eller en webhook?",
-          "pointers": {
-            "search": "Sök i hela instrumentpanelen",
-            "widgets": "Skapa en anpassad widget",
-            "analyst": "Fråga AI-analytikern",
-            "mcpClients": "Konfigurera MCP",
-            "channels": "Ställ in dem i aviseringsinställningarna"
-          }
-        }
-      },
-      "status": {
-        "pending": "Inte konfigurerat",
-        "inFlight": "Konfigurerar…",
-        "verified": "Klart",
-        "failed": "Det fungerade inte",
-        "blocked": "Blockerat",
-        "unavailable": "Inte tillgängligt",
-        "blockedNote": "Det här är inte tillgängligt just nu — du kan konfigurera det senare i inställningarna.",
-        "unavailableNote": "Det här är inte tillgängligt på din enhet — du kan konfigurera det senare.",
-        "failedBody": "Något gick fel. Du kan försöka igen eller konfigurera det senare i inställningarna.",
-        "retry": "Försök igen"
-      },
-      "actions": {
-        "skip": "Hoppa över för nu",
-        "continue": "Fortsätt"
-      },
-      "summary": {
-        "heading": "Allt är klart",
-        "subVerified": "Så här är det på ditt konto just nu.",
-        "subPending": "Du kan slutföra installationen när som helst i inställningarna.",
-        "linePending": "Inte konfigurerat än — slutför när som helst i inställningarna.",
-        "lineFailed": "Vi kunde inte konfigurera det här — försök igen i inställningarna.",
-        "finish": "Gå till min instrumentpanel"
-      },
-      "chip": {
-        "message": "Slutför installationen av ditt Pro-konto.",
-        "action": "Slutför installation",
-        "dismissLabel": "Stäng"
-      }
     },
     "frameworkSelector": {
       "label": "Analysramverk",
@@ -2483,20 +2372,10 @@
       }
     },
     "exportGate": {
-      "signedOutDesc": "Logga in för att exportera instrumentpaneldata som CSV, JSON eller PDF.",
-      "upgradeDesc": "Dataexport (CSV, JSON, PDF) ingår i Pro Business.",
-      "upgradeCta": "Uppgradera till Pro Business",
       "lockedAriaLabel": "Exportera data — låst. {{reason}}",
       "unlockedAnnouncement": "Dataexport upplåst.",
       "preparingPdf": "Förbereder PDF…",
       "pdfFailed": "PDF-rapporten kunde inte genereras. Försök igen eller använd JSON-exporten."
-    },
-    "tabCap": {
-      "signedOutDesc": "Utloggade arbetsytor är begränsade till {{cap}} instrumentpanelflikar. Logga in för att lägga till fler.",
-      "upgradeDesc": "Du har nått din gräns på {{cap}} instrumentpanelflikar.",
-      "upgradeCta": "Uppgradera för mer",
-      "lockedAriaLabel": "Lägg till flik — låst. {{reason}}",
-      "unlockedAnnouncement": "Gränsen för instrumentpanelflikar upphävd."
     },
     "fx": {
       "infoTooltip": "<strong>Växelkurser</strong> Stress rangordnar 45 valutor efter deras största nedgång under 24 månader, med 12-månadersförändringen. Spoträntor använder separata amerikanska dollar- och eurobaser. Ryska rubel-kurser är rubel per enhet. Källor inkluderar Yahoo Finance, Europeiska centralbanken och Ryska centralbanken.",
@@ -2530,18 +2409,6 @@
       "rubPerUnit": "Rubel per enhet",
       "sourceCbr": "Källa: Rysslands centralbank"
     },
-    "passkeyOffer": {
-      "title": "Spara en passkey?",
-      "body": "Logga in nästa gång med ditt fingeravtryck, ansikte eller enhets-PIN — inget lösenord att komma ihåg.",
-      "accept": "Spara passkey",
-      "dismiss": "Inte nu",
-      "close": "Stäng",
-      "announce": "Spara en passkey för att logga in snabbare nästa gång.",
-      "busy": "Väntar på din enhet…",
-      "succeeded": "Passkey sparad. Du kan använda den nästa gång du loggar in.",
-      "retryable": "Det blev inte klart. Du kan försöka igen.",
-      "failed": "Vi kunde inte spara en passkey på den här enheten."
-    },
     "decisionBrief": {
       "commodityTitle": "Beslutsunderlag för råvaror",
       "commodity": "Råvara / produkt",
@@ -2560,8 +2427,7 @@
       "changed": "Urvalet har ändrats. Hämta båda scenarierna före export.",
       "loading": "Hämtar båda scenarierna…",
       "captured": "Hämtat. Kontrollera observationsdatum och begränsningar före nedladdning.",
-      "failed": "Det gick inte att hämta scenarierna. Kontrollera din åtkomst och försök igen. Inget resultat kan exporteras.",
-      "locked": "Beslutsunderlaget är tillgängligt med Pro."
+      "failed": "Det gick inte att hämta scenarierna. Kontrollera din åtkomst och försök igen. Inget resultat kan exporteras."
     },
     "liveMedia": {
       "idleStatus": "Pausad på grund av inaktivitet",
@@ -3535,7 +3401,6 @@
     "foodStocksHelp": "USDA Production, Supply and Distribution lagernivåer i förhållande till användning per marknadsår, med världsratio för kontext. FAOSTAT Food Balances tillhandahåller produktion och inhemsk tillgång när Production, Supply and Distribution saknar fullständig landsbalans.",
     "loadingFoodStocks": "Loading food stocks…",
     "foodStocksUnavailable": "Food stocks unavailable.",
-    "foodStocksProLocked": "Upgrade to PRO for commodity stocks-to-use",
     "foodStocksCommodity": "Commodity",
     "foodStocksMarketingYear": "Marketing year",
     "foodStocksRatio": "Stocks-to-use",
@@ -3553,7 +3418,6 @@
       "help": "Åldersstruktur, utbildningsföljd och industriell arbetskraftskapacitet från FN:s World Population Prospects, UNESCO Institute for Statistics och World Banks World Development Indicators, samt ILOSTAT.",
       "loading": "Loading demographics and workforce data…",
       "unavailable": "Demographics and workforce data unavailable.",
-      "proLocked": "Upgrade to PRO for demographics and workforce data",
       "notAvailable": "Not available",
       "ageStructure": "Age structure",
       "education": "Education pipeline",
@@ -3579,7 +3443,6 @@
       "help": "Frysta v1 bevispoäng för livsmedel, energi, demografi, teknik och försvar. Expandera en rad för att inspektera indata, källhärledning och anledningar till saknad data.",
       "loading": "Läser in femfaktorspoängbordet…",
       "unavailable": "Femfaktorspoängbordet är inte tillgängligt.",
-      "proLocked": "Upgradera till PRO för femfaktorsresilienspoängbordet",
       "insufficient": "Ofullständig data",
       "notAvailable": "Inte tillgängligt",
       "noEvidence": "Inget bevis är tillgängligt för denna pelare.",
@@ -3636,9 +3499,7 @@
         "defense_supplierDiversity": "Diversifiering av vapenleverantörer"
       }
     },
-    "defenseIndustrialBase": {
-      "proLocked": "Uppgradera till PRO för vapenleverantörsberoende och militär kapacitet"
-    }
+    "defenseIndustrialBase": {}
   },
   "preferences": {
     "display": "Visning",
@@ -3669,10 +3530,10 @@
     "copyCoordinates": "Kopiera koordinater"
   },
   "shell": {
-    "documentTitle": "World Monitor — Realtidsinstrumentpanel för global underrättelse",
+    "documentTitle": "RaWorld — Realtidsinstrumentpanel för global underrättelse",
     "metaDescription": "Realtidsplattform för global underrättelseanalys. Presenterad i WIRED. Används av 2M+ människor i 190 länder. Konflikter, marknader, militär och öppen källkodsunderrättelser i en vy.",
     "offlineTitle": "Du är offline",
-    "offlineMessage": "World Monitor kräver en internetanslutning för realtidsunderrättelsedata.",
+    "offlineMessage": "RaWorld kräver en internetanslutning för realtidsunderrättelsedata.",
     "offlineRetry": "Försök igen"
   },
   "widgets": {
@@ -3719,7 +3580,6 @@
     "previewComposingCopy": "Förhandsvisningen renderas med de senaste livedata och instrumentpanelsstilen.",
     "previewErrorCopy": "Åtgärda problemet och försök sedan igen. Dina befintliga widgetar påverkas inte.",
     "createInteractive": "Skapa interaktiv widget",
-    "proBadge": "PRO",
     "preflightProUnavailable": "PRO-widgetagent otillgänglig. Kontrollera PRO_WIDGET_KEY på servern.",
     "preflightInvalidProKey": "PRO-nyckel avvisad. Uppdatera wm-pro-key och ladda om.",
     "preflightProSubscriptionRequired": "Pro-prenumeration krävs. Om du precis uppgraderade bör du uppdatera sidan, annars kontaktar du support.",
@@ -3741,28 +3601,6 @@
     "offlineCached": "Offline — visar cachad data från {{freshness}}.",
     "offlineUnavailable": "Offline — livedata är för närvarande otillgänglig.",
     "cachedFallback": "Livedata otillgänglig — visar cachad data från {{freshness}}."
-  },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "Kräver en World Monitor-licensnyckel",
-    "signInToUnlock": "Logga in för att låsa upp premiumfunktioner",
-    "signIn": "Logga in för att låsa upp",
-    "upgradeDesc": "Uppgradera till Pro för fullständig åtkomst till premiumanalytik",
-    "upgradeToPro": "Uppgradera till Pro",
-    "features": {
-      "orefSirens1": "Varningar om missiler och raketer från Israel i realtid",
-      "orefSirens2": "Sirenzoner med hotklassificering",
-      "telegramIntel1": "Kurerad Telegram-underrättelseinformation från öppna källor",
-      "telegramIntel2": "Uppdateringar om konflikter och geopolitik nästan i realtid",
-      "xIntel1": "Curated public news accounts on X",
-      "xIntel2": "API-fresh posts with official permalinks"
-    }
-  },
-  "auth": {
-    "signIn": "Logga in",
-    "createAccount": "Skapa konto",
-    "settings": "Inställningar",
-    "passkeyOffer": {}
   },
   "mcp": {
     "connectPanel": "Anslut MCP",
@@ -3851,8 +3689,6 @@
     "resilience": "Motståndskraft",
     "ciiMissing": "CII otillgängligt",
     "resilienceMissing": "Motståndskraft otillgänglig",
-    "noEvents": "Inga utvalda rubriker registrerades för detta datum. Det bevisar inte att inga händelser inträffade.",
-    "unlock90": "Lås upp 90 dagar med Pro",
-    "unlock365": "Lås upp 365 dagar med ett API-abonnemang"
+    "noEvents": "Inga utvalda rubriker registrerades för detta datum. Det bevisar inte att inga händelser inträffade."
   }
 }

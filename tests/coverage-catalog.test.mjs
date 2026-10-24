@@ -166,11 +166,11 @@ describe('coverage catalog page', () => {
     assert.match(html, new RegExp(`${dataset.counts.panels} dashboard panels in ${dataset.counts.panelGroups} groups, ${dataset.counts.layers} map layers and ${dataset.counts.tools} MCP tools`));
   });
 
-  it('answers "What does World Monitor cover?" in FAQ markup and is linked from every corpus page', () => {
+  it('answers "What does RaWorld cover?" in FAQ markup and is linked from every corpus page', () => {
     const faq = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
       .map(([, raw]) => JSON.parse(raw))
       .find((entry) => entry['@type'] === 'FAQPage');
-    assert.equal(faq?.mainEntity?.[0]?.name, 'What does World Monitor cover?');
+    assert.equal(faq?.mainEntity?.[0]?.name, 'What does RaWorld cover?');
     assert.match(html, /<link rel="canonical" href="https:\/\/www\.worldmonitor\.app\/reference\/coverage\/">/);
     assert.equal(manifest.sections.coverage.index, '/reference/coverage/');
     for (const page of ['chokepoints/index.html', 'sources/index.html', ...manifest.sections.sources.routes.map((route) => `${route.slice(1)}index.html`)]) {

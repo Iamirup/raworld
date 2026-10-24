@@ -413,7 +413,7 @@ function adaptHazards(
         availability: cycloneObservedAt ? 'available' : 'stale',
         publisher: {
           id: 'publisher:worldmonitor-western-pacific-coverage',
-          name: 'WorldMonitor Western Pacific hazard coverage',
+          name: 'RaWorld Western Pacific hazard coverage',
           type: 'derived',
         },
         sourceUrl: null,
@@ -434,7 +434,7 @@ function adaptHazards(
         corridorIds: [corridorId],
         publisher: {
           id: 'publisher:worldmonitor-western-pacific-coverage',
-          name: 'WorldMonitor Western Pacific hazard coverage',
+          name: 'RaWorld Western Pacific hazard coverage',
           type: 'derived',
         },
         sourceUrl: null,
@@ -664,7 +664,7 @@ function adaptEnergy(
       selectorId: 'energy:spine:v1:CN',
       publisher: {
         id: 'publisher:worldmonitor-energy-spine',
-        name: 'WorldMonitor energy spine',
+        name: 'RaWorld energy spine',
         type: 'derived',
       },
       sourceUrl: null,
@@ -691,7 +691,7 @@ function adaptEnergy(
     availability: observedAt ? 'available' : 'stale',
     publisher: {
       id: 'publisher:worldmonitor-energy-spine',
-      name: 'WorldMonitor energy spine',
+      name: 'RaWorld energy spine',
       type: 'derived',
     },
     sourceUrl: null,

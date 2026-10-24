@@ -1,9 +1,9 @@
 ---
 title: "维护与发布 WebMCP"
-description: "更改、验证并发布 WorldMonitor WebMCP 契约，同时避免工具清单、UI 行为、安全边界与双语文档发生偏移。"
+description: "更改、验证并发布 RaWorld WebMCP 契约，同时避免工具清单、UI 行为、安全边界与双语文档发生偏移。"
 ---
 
-更改 WorldMonitor WebMCP 实现时，请使用本指南。宿主设置、工具 schema、浏览器智能体流程与用户可见限制见 [WebMCP 参考](/zh/webmcp)。
+更改 RaWorld WebMCP 实现时，请使用本指南。宿主设置、工具 schema、浏览器智能体流程与用户可见限制见 [WebMCP 参考](/zh/webmcp)。
 
 每次 WebMCP 变更都是公开 UI 契约变更。工具名称、描述、schema、annotation、输出、可见效果、取消策略、安全响应头、测试、eval 与两种语言的指南必须保持一致。
 
@@ -112,7 +112,7 @@ npm run test:e2e:webmcp:production
 
 ## 兼容与移除策略
 
-WorldMonitor 优先使用 `document.modelContext.registerTool()`。仅支持旧版 API 的宿主依次回退到 `navigator.modelContext.registerTool()` 和 `provideContext({ tools })`。此路径支持仍检测 `navigator` 的旧版宿主和 isitagentready.com 等扫描器。当这些使用者支持当前基于 document 的发现方式后，由 WebMCP 维护者负责移除此回退。回退不创建全局对象，也不会在两个提供者上重复注册。
+RaWorld 优先使用 `document.modelContext.registerTool()`。仅支持旧版 API 的宿主依次回退到 `navigator.modelContext.registerTool()` 和 `provideContext({ tools })`。此路径支持仍检测 `navigator` 的旧版宿主和 isitagentready.com 等扫描器。当这些使用者支持当前基于 document 的发现方式后，由 WebMCP 维护者负责移除此回退。回退不创建全局对象，也不会在两个提供者上重复注册。
 
 如果未来浏览器迁移需要临时 fallback：
 
@@ -123,4 +123,4 @@ WorldMonitor 优先使用 `document.modelContext.registerTool()`。仅支持旧�
 
 WebMCP 不可用时，托管 MCP 服务器仍是受支持的替代接口。它是一套独立产品接口，不是浏览器 fallback。
 
-Chrome 文档说明，从 Chrome 153 开始，注销工具不会取消正在执行的调用。该生命周期变化不能证明已发布浏览器会把调用的 `AbortSignal` 传给页面。WorldMonitor 的单参数回调说明基于已记录的 Chrome 149–151 证据。每个浏览器里程碑都必须重新运行生产冒烟测试，并根据观察结果更新 [WebMCP 参考](/zh/webmcp)。
+Chrome 文档说明，从 Chrome 153 开始，注销工具不会取消正在执行的调用。该生命周期变化不能证明已发布浏览器会把调用的 `AbortSignal` 传给页面。RaWorld 的单参数回调说明基于已记录的 Chrome 149–151 证据。每个浏览器里程碑都必须重新运行生产冒烟测试，并根据观察结果更新 [WebMCP 参考](/zh/webmcp)。

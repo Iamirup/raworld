@@ -173,7 +173,7 @@
     {
       "path": "api/mcp/registry/news-dashboard.ts",
       "category": "external-protocol",
-      "reason": "MCP tool definitions for the WorldMonitor news dashboard and analysis adapter. Uses existing sebuf news RPCs; tool metadata and execution envelopes follow the external MCP protocol. No HTTP handler.",
+      "reason": "MCP tool definitions for the RaWorld news dashboard and analysis adapter. Uses existing sebuf news RPCs; tool metadata and execution envelopes follow the external MCP protocol. No HTTP handler.",
       "owner": "@SebastienMelki",
       "removal_issue": null
     },
@@ -439,7 +439,7 @@
     {
       "path": "api/mcp/ui/news-dashboard-app.ts",
       "category": "external-protocol",
-      "reason": "MCP Apps HTML resource loader for the compiled WorldMonitor dashboard. The ui:// resource envelope and CSP metadata follow the external MCP Apps protocol. No standalone HTTP data endpoint.",
+      "reason": "MCP Apps HTML resource loader for the compiled RaWorld dashboard. The ui:// resource envelope and CSP metadata follow the external MCP Apps protocol. No standalone HTTP data endpoint.",
       "owner": "@SebastienMelki",
       "removal_issue": null
     },

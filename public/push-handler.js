@@ -25,7 +25,7 @@
 //
 // The distinction is the whole guard: navigating the already-open dashboard
 // to an attacker-supplied link replaces a trusted surface with a page
-// WorldMonitor does not control. Opening a fresh tab is the same thing the
+// RaWorld does not control. Opening a fresh tab is the same thing the
 // email / Telegram / Slack channels already do with the link in the message.
 // Anything that is neither same-origin nor https collapses to the dashboard,
 // so a javascript: or data: target can never become a navigation.
@@ -117,7 +117,7 @@ self.addEventListener('push', (event) => {
   } catch (_err) {
     // Non-JSON payload: treat the text body as the notification body.
     try {
-      data = { title: 'WorldMonitor', body: event.data ? event.data.text() : '' };
+      data = { title: 'RaWorld', body: event.data ? event.data.text() : '' };
     } catch {
       data = {};
     }
@@ -125,7 +125,7 @@ self.addEventListener('push', (event) => {
 
   const title = typeof data.title === 'string' && data.title.length > 0
     ? data.title
-    : 'WorldMonitor';
+    : 'RaWorld';
   const body = typeof data.body === 'string' ? data.body : '';
   const url = classifyClickTarget(data.url).url;
   const tag = typeof data.tag === 'string' ? data.tag : 'worldmonitor-generic';

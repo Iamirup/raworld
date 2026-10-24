@@ -1,7 +1,7 @@
 name: 'Build Desktop App'
 run-name: Build Desktop App (${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref_name }})
 
-# One published desktop binary (#5908). World Monitor ships as a single build
+# One published desktop binary (#5908). RaWorld ships as a single build
 # and every variant — tech, finance, commodity, energy, happy — is selected
 # in-app after install. There is deliberately no per-variant build leg or
 # per-variant tag: `/api/version` and `/api/download` read `/releases/latest`,
@@ -323,7 +323,7 @@ jobs:
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
         with:
           tagName: v__VERSION__
-          releaseName: 'World Monitor v__VERSION__'
+          releaseName: 'RaWorld v__VERSION__'
           releaseBody: 'See changelog below.'
           # Always upload into a DRAFT release (#5908). With fail-fast: false and
           # five platforms, a non-draft first leg would make v__VERSION__ the
@@ -356,7 +356,7 @@ jobs:
           CONVEX_URL: ${{ secrets.CONVEX_URL }}
         with:
           tagName: v__VERSION__
-          releaseName: 'World Monitor v__VERSION__'
+          releaseName: 'RaWorld v__VERSION__'
           releaseBody: 'See changelog below.'
           # Always upload into a DRAFT release (#5908). With fail-fast: false and
           # five platforms, a non-draft first leg would make v__VERSION__ the
@@ -550,7 +550,7 @@ jobs:
           ASSETS=$(gh release view "$TAG" --json assets --jq '.assets[].name')
           echo "Assets on $TAG:"; printf '  %s\n' $ASSETS
 
-          # Keep only assets that carry the World Monitor identity, applying the
+          # Keep only assets that carry the RaWorld identity, applying the
           # same canonicalisation `/api/download` uses (lowercase, strip
           # non-alphanumerics, require `worldmonitor`). Checking the platform
           # suffix alone would let a stray branded artifact satisfy this gate for
@@ -565,7 +565,7 @@ jobs:
               printf '%s\n' "$name"
             fi
           done)
-          echo "Servable (World Monitor identity) assets:"; printf '  %s\n' $SERVABLE
+          echo "Servable (RaWorld identity) assets:"; printf '  %s\n' $SERVABLE
 
           MISSING=""
           # Mirrors PLATFORM_PATTERNS in api/download.js — every platform the

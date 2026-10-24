@@ -1,4 +1,4 @@
-// Where the desk reads from. LiveSource calls WorldMonitor's MCP tools,
+// Where the desk reads from. LiveSource calls RaWorld's MCP tools,
 // ArchiveSource replays snapshots taken by scripts/snapshot.mjs (the MCP news
 // tools only see the live digest window, so "last week" needs an archive).
 
@@ -15,7 +15,7 @@ export const FULL_CATEGORIES = [
 ];
 
 const USER_AGENT = 'Mozilla/5.0 (compatible; WorldMonitor-VerificationDesk/1.0; +https://worldmonitor.app)';
-/** How long a failed snapshot load is remembered before WorldMonitor is asked again. */
+/** How long a failed snapshot load is remembered before RaWorld is asked again. */
 export const FAILURE_TTL_MS = 60_000;
 /** Per-list caps for the two whole-snapshot tools. `0` (no cap) can exceed the
  *  tool output budget, which comes back as a successful empty-looking envelope. */
@@ -104,7 +104,7 @@ function stripHtml(html) {
     .trim();
 }
 
-// Article links come from WorldMonitor's clusters, but a link (or a redirect
+// Article links come from RaWorld's clusters, but a link (or a redirect
 // it answers with) must never reach this host's own network: loopback, private
 // ranges, link-local and cloud metadata addresses are refused at every hop.
 function ipv4Private(ip) {
@@ -313,7 +313,7 @@ export class LiveSource {
   }
 
   /**
-   * Today's board: WorldMonitor's top stories plus the newest clusters. Two
+   * Today's board: RaWorld's top stories plus the newest clusters. Two
    * calls, cached for the TTL; `force` (the presenter's refresh) fetches both again.
    */
   async boardClusters({ force = false } = {}) {
@@ -451,7 +451,7 @@ export class CombinedSource {
     const [l, a, stories] = await Promise.all([
       this.live ? this.live.searchClusters(terms) : { clusters: [], failures: [] },
       this.archive ? this.archive.searchClusters(terms) : { clusters: [], failures: [] },
-      // WorldMonitor's top stories are on the board too, so they must be findable.
+      // RaWorld's top stories are on the board too, so they must be findable.
       this.intelligenceStories().catch(() => []),
     ]);
     const lower = terms.map((t) => t.toLowerCase());
@@ -506,7 +506,7 @@ export class CombinedSource {
     return this.archive ? (await this.archive.load()).clusters : [];
   }
 
-  /** Live when connected; the archive only when WorldMonitor cannot be reached or there is no key. */
+  /** Live when connected; the archive only when RaWorld cannot be reached or there is no key. */
   async boardClusters({ force = false } = {}) {
     if (this.live) {
       try {

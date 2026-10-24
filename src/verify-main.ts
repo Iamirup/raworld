@@ -1,7 +1,7 @@
 /**
  * `/verify` page bootstrap (#9092): paste a claim, see who is reporting it.
  *
- * Each check searches every fresh headline in WorldMonitor's feed caches for
+ * Each check searches every fresh headline in RaWorld's feed caches for
  * the claim's words, then builds the same evidence card the verify_claim MCP
  * tool returns, in the browser. It works signed out. The claim lives in
  * `?claim=` so a result can be shared as a link.

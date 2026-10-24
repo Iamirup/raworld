@@ -4,7 +4,7 @@
 //
 // These constants drive the published Composite Instability Index (CII) and
 // Strategic Risk roll-up scores. They are EDITORIAL WEIGHTS authored by the
-// WorldMonitor intelligence team — NOT derived from a published academic
+// RaWorld intelligence team — NOT derived from a published academic
 // index, peer-reviewed paper, or external risk product. Treat them as
 // opinionated, not empirical.
 //
@@ -54,7 +54,7 @@ export const CII_CONFLICT_ACTIVITY_PIVOT = 4000;
 
 /**
  * GDELT escalation terms inside Conflict and Unrest, used only while the ACLED
- * API returns no events (WorldMonitor has no ACLED access). Input per country
+ * API returns no events (RaWorld has no ACLED access). Input per country
  * and signal, from gdelt:bulk:country-events:v1: `current`, the last 24h of
  * distinct articles reporting events located there (Conflict: CAMEO 18/19/20
  * material conflict; Unrest: CAMEO 14 protest), and `baselineMedian`, the

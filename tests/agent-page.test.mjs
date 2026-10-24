@@ -1,4 +1,4 @@
-// /agent: the page that tells AI agents how to connect to World Monitor.
+// /agent: the page that tells AI agents how to connect to RaWorld.
 // Pins the approved product description, the tool-count wording, the skills list
 // against skills/, SEO registration and the no-utm rule for internal links.
 import { describe, it } from 'node:test';
@@ -17,7 +17,7 @@ const read = (path) => readFileSync(join(ROOT, path), 'utf8');
 const PAGE = read('public/agent/index.html');
 const SCRIPT = read('public/agent/agent.js');
 const URL_CANONICAL = 'https://www.worldmonitor.app/agent/';
-const APPROVED_DESCRIPTION = 'World Monitor: real-time geopolitical intelligence dashboard. A free live map of conflicts, shipping, flights, markets and cyber, with an API and MCP server.';
+const APPROVED_DESCRIPTION = 'RaWorld: real-time geopolitical intelligence dashboard. A free live map of conflicts, shipping, flights, markets and cyber, with an API and MCP server.';
 
 const metaDescription = (html) => html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? null;
 

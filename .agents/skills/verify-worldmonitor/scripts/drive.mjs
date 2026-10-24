@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * WorldMonitor verification driver.
+ * RaWorld verification driver.
  *
  *   node .agents/skills/verify-worldmonitor/scripts/drive.mjs <step.mjs> [--name <label>]
  *

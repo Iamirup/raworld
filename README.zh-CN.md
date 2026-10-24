@@ -1,16 +1,16 @@
-# World Monitor
+# RaWorld
 
 [English](README.md) | [日本語](README.ja-JP.md) | [Русский](README.ru.md)
 
 **实时全球情报仪表盘** — 在统一的态势感知界面中，汇集 AI 驱动的新闻聚合、地缘政治监测和基础设施追踪。
 
-[![GitHub stars](https://img.shields.io/github/stars/koala73/worldmonitor?style=social)](https://github.com/koala73/worldmonitor/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/Iamirup/raworld?style=social)](https://github.com/Iamirup/raworld/stargazers)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Last commit](https://img.shields.io/github/last-commit/koala73/worldmonitor)](https://github.com/koala73/worldmonitor/commits/main)
-[![Latest release](https://img.shields.io/github/v/release/koala73/worldmonitor?style=flat)](https://github.com/koala73/worldmonitor/releases/latest)
+[![Last commit](https://img.shields.io/github/last-commit/Iamirup/raworld)](https://github.com/Iamirup/raworld/commits/main)
+[![Latest release](https://img.shields.io/github/v/release/Iamirup/raworld?style=flat)](https://github.com/Iamirup/raworld/releases/latest)
 [![npm: worldmonitor](https://img.shields.io/npm/v/worldmonitor?logo=npm&label=npm)](https://www.npmjs.com/package/worldmonitor)
-[![skills.sh](https://skills.sh/b/koala73/worldmonitor)](https://skills.sh/koala73/worldmonitor)
+[![skills.sh](https://skills.sh/b/Iamirup/raworld)](https://skills.sh/Iamirup/raworld)
 
 <p align="center">
   <a href="https://www.worldmonitor.app"><img src="https://img.shields.io/badge/Web_App-worldmonitor.app-blue?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Web 应用"></a>&nbsp;
@@ -26,7 +26,7 @@
   <a href="https://www.npmjs.com/package/worldmonitor"><img src="https://img.shields.io/badge/CLI-npx%20worldmonitor-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="npx worldmonitor"></a>&nbsp;
   <a href="https://pypi.org/project/worldmonitor-sdk/"><img src="https://img.shields.io/pypi/v/worldmonitor-sdk?style=for-the-badge&logo=pypi&logoColor=white&label=pip%20install%20worldmonitor-sdk&color=3775A9" alt="pip install worldmonitor-sdk"></a>&nbsp;
   <a href="https://rubygems.org/gems/worldmonitor"><img src="https://img.shields.io/gem/v/worldmonitor?style=for-the-badge&logo=rubygems&logoColor=white&label=gem%20install%20worldmonitor&color=E9573F" alt="gem install worldmonitor"></a>&nbsp;
-  <a href="https://pkg.go.dev/github.com/koala73/worldmonitor/sdk/go"><img src="https://img.shields.io/badge/go%20get-sdk%2Fgo-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="go get github.com/koala73/worldmonitor/sdk/go"></a>
+  <a href="https://pkg.go.dev/github.com/Iamirup/raworld/sdk/go"><img src="https://img.shields.io/badge/go%20get-sdk%2Fgo-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="go get github.com/Iamirup/raworld/sdk/go"></a>
 </p>
 
 <p align="center">
@@ -38,11 +38,11 @@
 
 <p align="center">
   <a href="https://www.worldmonitor.app/docs/zh/documentation"><strong>文档</strong></a> &nbsp;·&nbsp;
-  <a href="https://github.com/koala73/worldmonitor/releases/latest"><strong>发布版本</strong></a> &nbsp;·&nbsp;
+  <a href="https://github.com/Iamirup/raworld/releases/latest"><strong>发布版本</strong></a> &nbsp;·&nbsp;
   <a href="https://www.worldmonitor.app/docs/zh/contributing"><strong>贡献指南</strong></a>
 </p>
 
-![World Monitor 仪表盘](docs/images/worldmonitor-7-mar-2026.jpg)
+![RaWorld 仪表盘](docs/images/worldmonitor-7-mar-2026.jpg)
 
 ---
 
@@ -54,7 +54,7 @@
 - **国家不稳定指数（CII）** — 面向一级国家注册表的服务器权威 CII v14 压力评分
 - **金融雷达** — 证券交易所、大宗商品、加密货币，以及市场综合指标
 - **本地 AI** — 通过 Ollama 运行全部功能，无需 API 密钥
-- **站点变体**，均来自同一代码库（World Monitor、Tech Monitor、Finance Monitor、Commodity Monitor、Happy Monitor、Energy Monitor）
+- **站点变体**，均来自同一代码库（RaWorld、Tech Monitor、Finance Monitor、Commodity Monitor、Happy Monitor、Energy Monitor）
 - **原生桌面应用**（Tauri 2），支持 macOS、Windows 和 Linux
 - **多语言界面**，提供本地语言信息流和 RTL 支持
 
@@ -71,14 +71,14 @@
 | `worldmonitor.app`、`tech.`、`finance.`、`commodity.`、`happy.`、`energy.` | 稳定 | 从本仓库构建的公开部署，持续维护中 |
 | 桌面二进制文件（Windows / macOS Apple Silicon / macOS Intel / Linux AppImage） | 稳定 | 一个可在应用内切换变体的 Tauri 二进制文件；当前 CI 发布目标为 `full` 和 `tech` |
 
-上述任一产品形态的问题都会进入同一待办队列；请查看[问题看板](https://github.com/koala73/worldmonitor/issues)了解当前公开工作。
+上述任一产品形态的问题都会进入同一待办队列；请查看[问题看板](https://github.com/Iamirup/raworld/issues)了解当前公开工作。
 
 ---
 
 ## 快速开始
 
 ```bash
-git clone https://github.com/koala73/worldmonitor.git
+git clone https://github.com/Iamirup/raworld.git
 cd worldmonitor
 npm install
 npm run dev
@@ -119,7 +119,7 @@ npm run dev:energy     # energy.worldmonitor.app
 
 ## 编程访问
 
-World Monitor 同时为智能体、脚本和浏览器而构建：
+RaWorld 同时为智能体、脚本和浏览器而构建：
 
 - **MCP Server** — `https://worldmonitor.app/mcp`（Streamable HTTP）。公开提供 `tools/list`；`tools/call` 通过 `X-WorldMonitor-Key` 请求头或 OAuth 进行身份验证。
 - **REST API** — 基础地址为 `https://api.worldmonitor.app`，详见 [OpenAPI 规范](https://worldmonitor.app/openapi.yaml)。
@@ -131,7 +131,7 @@ World Monitor 同时为智能体、脚本和浏览器而构建：
   worldmonitor risk IR --api-key wm_xxx
   ```
 
-- **SDK** — 与 CLI 对应的官方零依赖客户端库：Python [`worldmonitor-sdk`](https://pypi.org/project/worldmonitor-sdk/)（源代码位于 [`sdk/python/`](sdk/python/)）、Ruby [`worldmonitor`](https://rubygems.org/gems/worldmonitor)（[`sdk/ruby/`](sdk/ruby/)）、Go [`github.com/koala73/worldmonitor/sdk/go`](https://pkg.go.dev/github.com/koala73/worldmonitor/sdk/go)（[`sdk/go/`](sdk/go/)）。指南：[worldmonitor.app/docs/zh/sdks](https://www.worldmonitor.app/docs/zh/sdks)。
+- **SDK** — 与 CLI 对应的官方零依赖客户端库：Python [`worldmonitor-sdk`](https://pypi.org/project/worldmonitor-sdk/)（源代码位于 [`sdk/python/`](sdk/python/)）、Ruby [`worldmonitor`](https://rubygems.org/gems/worldmonitor)（[`sdk/ruby/`](sdk/ruby/)）、Go [`github.com/Iamirup/raworld/sdk/go`](https://pkg.go.dev/github.com/Iamirup/raworld/sdk/go)（[`sdk/go/`](sdk/go/)）。指南：[worldmonitor.app/docs/zh/sdks](https://www.worldmonitor.app/docs/zh/sdks)。
 
 智能体发现文件：[`llms.txt`](https://worldmonitor.app/llms.txt) · [智能体技能清单](https://worldmonitor.app/.well-known/agent-skills/index.json) · [API 目录](https://worldmonitor.app/.well-known/api-catalog)。请在 [worldmonitor.app/pro](https://www.worldmonitor.app/pro) 获取 API 密钥。
 
@@ -145,7 +145,7 @@ World Monitor 同时为智能体、脚本和浏览器而构建：
 
 ## 数据源
 
-WorldMonitor 汇聚来自地缘政治、金融、能源、气候、航空、网络、军事、基础设施和新闻情报领域的外部上游主机。精选信息流和新鲜度监控详情，请参阅完整的[数据源目录](https://www.worldmonitor.app/docs/zh/data-sources)，其中说明提供商、信息流层级和采集方法。
+RaWorld 汇聚来自地缘政治、金融、能源、气候、航空、网络、军事、基础设施和新闻情报领域的外部上游主机。精选信息流和新鲜度监控详情，请参阅完整的[数据源目录](https://www.worldmonitor.app/docs/zh/data-sources)，其中说明提供商、信息流层级和采集方法。
 
 ---
 
@@ -184,8 +184,8 @@ npm run build:full       # Production build
 
 ## 贡献者
 
-<a href="https://github.com/koala73/worldmonitor/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=koala73/worldmonitor" />
+<a href="https://github.com/Iamirup/raworld/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Iamirup/raworld" />
 </a>
 
 ## 安全致谢
@@ -207,9 +207,9 @@ npm run build:full       # Production build
 
 ## 星标历史
 
-<a href="https://star-history.dera.page/#koala73/worldmonitor&type=Date">
+<a href="https://star-history.dera.page/#Iamirup/raworld&type=Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=koala73/worldmonitor&type=Date&theme=dark" />
-   <img alt="星标历史图表" src="https://star-history.dera.page/svg?repos=koala73/worldmonitor&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=Iamirup/raworld&type=Date&theme=dark" />
+   <img alt="星标历史图表" src="https://star-history.dera.page/svg?repos=Iamirup/raworld&type=Date" />
  </picture>
 </a>

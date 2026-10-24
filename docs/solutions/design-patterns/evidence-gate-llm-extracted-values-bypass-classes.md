@@ -25,7 +25,7 @@ tags:
 
 ## Context
 
-WorldMonitor's consumer-price extractor (Firecrawl/Exa structured extraction over retailer pages) went through three failure generations in one week (#6182):
+RaWorld's consumer-price extractor (Firecrawl/Exa structured extraction over retailer pages) went through three failure generations in one week (#6182):
 
 1. **Fabrication era**: a worked numeric example in the extraction prompt became an anchor the model emitted verbatim for priceless pages (#6270) — fabricated observations that passed every downstream gate because the model also echoed the title and currency.
 2. **False-negative era**: the fabrication fix hardened the prompt ("never invent, return null") *and* a schema change made `price` nullable+required. Together they handed the extractor a sanctioned null escape hatch, and fleet-wide `missing-price` failures surged the very next scheduled run — the extractor nulled prices that were literally printed on the page (Carrefour BR prints `R$ 7,90` above an out-of-stock notice; prod extracted `null`).

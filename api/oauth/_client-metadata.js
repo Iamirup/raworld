@@ -412,6 +412,6 @@ export function describeClientFailure(result) {
   if (result.reason === 'storage_unavailable') return 'Authorization service is temporarily unavailable. Please try again shortly.';
   if (result.transient) return 'The client could not be verified right now. Please try again shortly.';
   if (result.reason === 'unknown_client') return 'The client_id is not registered or has expired. Please re-register the client.';
-  if (result.reason === 'untrusted_client_id') return 'This client_id URL is not on the list of MCP clients WorldMonitor accepts.';
+  if (result.reason === 'untrusted_client_id') return 'This client_id URL is not on the list of MCP clients RaWorld accepts.';
   return 'The client metadata document for this client_id is invalid.';
 }

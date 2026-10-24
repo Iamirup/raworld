@@ -1,6 +1,6 @@
 # Curated country coverage: 2026-09-13
 
-Related: [issue #7748](https://github.com/koala73/worldmonitor/issues/7748).
+Related: [issue #7748](https://github.com/Iamirup/raworld/issues/7748).
 
 ## Baseline
 

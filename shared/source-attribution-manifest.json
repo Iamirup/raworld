@@ -552,7 +552,7 @@
       "provider": "Axiom telemetry",
       "kind": "structured",
       "observed": true,
-      "license": "Excluded: World Monitor operational telemetry, not an external data provider",
+      "license": "Excluded: RaWorld operational telemetry, not an external data provider",
       "attribution": "Excluded from the provider count: internal usage telemetry.",
       "status": "excluded",
       "references": [
@@ -931,7 +931,7 @@
       "provider": "India Meteorological Department",
       "kind": "structured",
       "observed": true,
-      "license": "IMD public API is account- and key-gated. RTI IMETD/R/E/25/00381 states APIs are without charges for non-commercial use only. World Monitor public-display and redistribution rights are validated.",
+      "license": "IMD public API is account- and key-gated. RTI IMETD/R/E/25/00381 states APIs are without charges for non-commercial use only. RaWorld public-display and redistribution rights are validated.",
       "attribution": "Data source: India Meteorological Department. Link https://api.imd.gov.in/public/api_reference.html and the official product page.",
       "status": "reviewed",
       "references": [
@@ -1466,10 +1466,10 @@
     },
     {
       "host": "api.worldmonitor.app",
-      "provider": "World Monitor hosted API",
+      "provider": "RaWorld hosted API",
       "kind": "feed+structured",
       "observed": true,
-      "license": "Excluded: World Monitor own service/control plane",
+      "license": "Excluded: RaWorld own service/control plane",
       "attribution": "Excluded from the external-provider count: first-party API endpoint.",
       "status": "excluded",
       "references": [
@@ -2048,7 +2048,7 @@
       "provider": "Binance",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit Binance and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -2362,7 +2362,7 @@
       "provider": "Chainwire",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit Chainwire and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -2619,7 +2619,7 @@
       "provider": "Coinbase",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit Coinbase and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -3117,7 +3117,7 @@
       "kind": "structured",
       "observed": true,
       "license": "ODP footer states datasets are CC BY 4.0 (observed 2026-10-19).",
-      "attribution": "UNHCR Operational Data Portal; link the situation and CC BY 4.0. WorldMonitor normalizes and derives the view. No UNHCR endorsement.",
+      "attribution": "UNHCR Operational Data Portal; link the situation and CC BY 4.0. RaWorld normalizes and derives the view. No UNHCR endorsement.",
       "status": "reviewed",
       "references": [
         {
@@ -4224,7 +4224,7 @@
       "provider": "Business Wire",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit Business Wire and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -5064,7 +5064,7 @@
       "provider": "GTA Update",
       "kind": "structured",
       "observed": true,
-      "license": "Reuse permission held by WorldMonitor, as confirmed by the repository owner on 2026-08-21. The private grant is not stored in this public repository. Production activation remains separately blocked on official TPS/TFS upstream provenance and the safety, cadence, capacity, and product acceptance gates in issue #7012.",
+      "license": "Reuse permission held by RaWorld, as confirmed by the repository owner on 2026-08-21. The private grant is not stored in this public repository. Production activation remains separately blocked on official TPS/TFS upstream provenance and the safety, cadence, capacity, and product acceptance gates in issue #7012.",
       "attribution": "GTA Update (unofficial third-party TPS/TFS dispatch mirror; not official, not verified, entertainment-only per publisher). Used with permission. Production disabled pending upstream provenance and product activation. https://gtaupdate.com/about.php",
       "status": "reviewed",
       "catalogActive": false,
@@ -5520,7 +5520,7 @@
       "provider": "Interfax",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit Interfax and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -5748,7 +5748,7 @@
       "provider": "Jin10",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit Jin10 and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -6425,7 +6425,7 @@
       "provider": "India Meteorological Department",
       "kind": "structured",
       "observed": true,
-      "license": "Public IMD sea-area and coastal bulletin pages, parsed without an account or key. The RTI IMETD/R/E/25/00381 non-commercial-only terms recorded for the IMD API apply to these pages too. World Monitor public-display and redistribution rights are validated.",
+      "license": "Public IMD sea-area and coastal bulletin pages, parsed without an account or key. The RTI IMETD/R/E/25/00381 non-commercial-only terms recorded for the IMD API apply to these pages too. RaWorld public-display and redistribution rights are validated.",
       "attribution": "Data source: India Meteorological Department. Link the official marine/coastal bulletin page.",
       "status": "reviewed",
       "references": [
@@ -6671,7 +6671,7 @@
       "provider": "Fox Business",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit Fox Business and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -7814,7 +7814,7 @@
       "provider": "PR Newswire",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit PR Newswire and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -7887,10 +7887,10 @@
     },
     {
       "host": "proxy.worldmonitor.app",
-      "provider": "World Monitor proxy",
+      "provider": "RaWorld proxy",
       "kind": "structured",
       "observed": true,
-      "license": "Excluded: World Monitor own service/control plane",
+      "license": "Excluded: RaWorld own service/control plane",
       "attribution": "Excluded from the external-provider count: first-party proxy endpoint.",
       "status": "excluded",
       "references": [
@@ -10094,7 +10094,7 @@
       "provider": "Times of India",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit Times of India and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -10453,7 +10453,7 @@
       "provider": "Sentry error tracking",
       "kind": "structured",
       "observed": true,
-      "license": "Excluded: World Monitor operational telemetry, not an external data provider",
+      "license": "Excluded: RaWorld operational telemetry, not an external data provider",
       "attribution": "Excluded from the provider count: internal error-tracking request.",
       "status": "excluded",
       "references": [
@@ -10824,10 +10824,10 @@
     },
     {
       "host": "worldmonitor.app",
-      "provider": "World Monitor web app",
+      "provider": "RaWorld web app",
       "kind": "structured",
       "observed": true,
-      "license": "Excluded: World Monitor own web application",
+      "license": "Excluded: RaWorld own web application",
       "attribution": "Excluded from the external-provider count: first-party web origin.",
       "status": "excluded",
       "references": [
@@ -10997,7 +10997,7 @@
     },
     {
       "host": "worldmonitor.invalid",
-      "provider": "WorldMonitor test origin",
+      "provider": "RaWorld test origin",
       "kind": "structured",
       "observed": true,
       "license": "Excluded: test-only origin",
@@ -11568,7 +11568,7 @@
       "provider": "Business Insider",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit Business Insider and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -12626,7 +12626,7 @@
       "provider": "GlobeNewswire",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit GlobeNewswire and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -12793,7 +12793,7 @@
       "provider": "Handelsblatt",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit Handelsblatt and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -12974,7 +12974,7 @@
       "provider": "Interfax",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit Interfax and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -14623,7 +14623,7 @@
       "provider": "The Telegraph",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit The Telegraph and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -14839,7 +14839,7 @@
       "provider": "Toronto Fire Services",
       "kind": "structured",
       "observed": true,
-      "license": "Direct permission: World Monitor's owner confirmed on 2026-08-21 that World Monitor holds redistribution and public-display rights for the Toronto Fire Services live CAD XML. This does not claim that the feed is licensed under the City of Toronto Open Government Licence: no data-bound CKAN package was found for toronto-fire-active-incidents or livecad.xml. City of Toronto copyright and the source-specific permission still apply. Not the historical fire-incidents CKAN datasets.",
+      "license": "Direct permission: RaWorld's owner confirmed on 2026-08-21 that RaWorld holds redistribution and public-display rights for the Toronto Fire Services live CAD XML. This does not claim that the feed is licensed under the City of Toronto Open Government Licence: no data-bound CKAN package was found for toronto-fire-active-incidents or livecad.xml. City of Toronto copyright and the source-specific permission still apply. Not the historical fire-incidents CKAN datasets.",
       "attribution": "Toronto Fire Services, Active Incidents (CAD). https://www.toronto.ca/community-people/public-safety-alerts/alerts-notifications/toronto-fire-active-incidents/",
       "status": "reviewed",
       "references": [
@@ -15050,7 +15050,7 @@
       "provider": "Welt",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit Welt and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -15144,7 +15144,7 @@
       "provider": "Wired",
       "kind": "feed",
       "observed": true,
-      "license": "Licensed publisher content; redistribution governed by the World Monitor agreement",
+      "license": "Licensed publisher content; redistribution governed by the RaWorld agreement",
       "attribution": "Credit Wired and link to the original item.",
       "status": "reviewed",
       "references": [
@@ -15172,10 +15172,10 @@
     },
     {
       "host": "www.worldmonitor.app",
-      "provider": "World Monitor web app",
+      "provider": "RaWorld web app",
       "kind": "structured",
       "observed": true,
-      "license": "Excluded: World Monitor own web application",
+      "license": "Excluded: RaWorld own web application",
       "attribution": "Excluded from the external-provider count: first-party web origin.",
       "status": "excluded",
       "references": [

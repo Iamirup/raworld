@@ -1,4 +1,4 @@
-# OpenRouter Free Fallback Model for WorldMonitor
+# OpenRouter Free Fallback Model for RaWorld
 
 - Research date: 2026-08-15
 - Scope: exact zero-price OpenRouter chat-model IDs that can replace the Groq
@@ -51,9 +51,9 @@ situation deductions), skips this model. The daily
 `openrouter-free-models-live.yml` probe fails when either free model is delisted,
 is within 14 days of its expiration date, or loses its last usable endpoint.
 
-## Why this fits WorldMonitor
+## Why this fits RaWorld
 
-WorldMonitor currently uses the Groq model for fast extraction and parsing,
+RaWorld currently uses the Groq model for fast extraction and parsing,
 prompt-driven JSON, insight narratives and summaries, and forecast resolution.
 The relevant callers generally give an attempt 15 to 30 seconds, validate the
 returned text themselves, and do not consistently send `response_format` or a
@@ -73,19 +73,19 @@ good instruction following, and reliable plain-text JSON, not only tool support.
   multilingual support. Those properties match extraction, international news
   summaries, and bounded forecast-resolution prompts.
 - Disable reasoning for short utility calls. This avoids spending a small output
-  budget on hidden reasoning and is consistent with WorldMonitor's existing
+  budget on hidden reasoning and is consistent with RaWorld's existing
   OpenRouter utility-call policy.
 
 The main quality risk is size: Gemma 4 26B A4B has 25.2B total parameters and
 3.8B active per token, so it is not a like-for-like replacement for Llama 3.3
 70B. Forecast resolution and long narrative synthesis need validation against
-WorldMonitor's real prompts before promotion beyond fallback status. The free
+RaWorld's real prompts before promotion beyond fallback status. The free
 Google endpoint also logs prompts for 55 days, although its OpenRouter policy
 says prompts are not used for training.
 
 ## Shortlist
 
-| Exact model ID | Zero price | Context / max output | Advertised JSON and tools | WorldMonitor assessment |
+| Exact model ID | Zero price | Context / max output | Advertised JSON and tools | RaWorld assessment |
 |---|---:|---:|---|---|
 | `google/gemma-4-26b-a4b-it:free` | $0 / $0 | 262K catalog; 131K portable endpoint floor / 32K | `response_format`, structured outputs, tools | **Default.** Best fit for short extraction, multilingual summaries, and bounded JSON. Validate forecast decisions. |
 | `openai/gpt-oss-20b:free` | $0 / $0 | 131K / 32K | `response_format`, structured outputs, tools | **Backup.** Strong instruction, tool, and adjustable reasoning support, but smaller and English-heavy. Provider availability and data policy can change. |
@@ -97,7 +97,7 @@ OpenAI describes gpt-oss-20b as a 21B-total, 3.6B-active, text-only model with
 128K context, adjustable reasoning effort, instruction following, tool use, and
 Structured Outputs. It is a reasonable independent backup, but its mostly
 English training mix and smaller active size make it less suitable than Gemma 4
-for WorldMonitor's multilingual and judgment-heavy tasks.
+for RaWorld's multilingual and judgment-heavy tasks.
 
 ## All exact `:free` IDs in the live catalog
 
@@ -131,7 +131,7 @@ input and output prices are nonzero. Do not hard-code the old free slug.
 
 Most other exact free entries are specialized for coding, content safety,
 multimodal reasoning, or long-horizon agents, or they do not advertise structured
-outputs. They are weaker matches for the combined WorldMonitor workload.
+outputs. They are weaker matches for the combined RaWorld workload.
 
 ## Availability, privacy, and migration risks
 
@@ -147,7 +147,7 @@ outputs. They are weaker matches for the combined WorldMonitor workload.
 4. **Context is route-dependent:** use the smallest context among eligible free
    endpoints, not only the model-page headline.
 5. **Structured support is not structured reliability:** a catalog parameter only
-   proves that a route accepts the parameter. Keep WorldMonitor's parse,
+   proves that a route accepts the parameter. Keep RaWorld's parse,
    validation, citation, and fail-closed gates, and add a schema request where the
    caller can safely do so.
 6. **No deprecation notice found:** the official free-variant and API docs had no
@@ -156,7 +156,7 @@ outputs. They are weaker matches for the combined WorldMonitor workload.
    both exact IDs and monitor 404, 429, and provider-unavailable responses.
 
 Before promoting either free model beyond fallback duty, run the default and backup against a frozen, non-sensitive
-sample of each WorldMonitor call shape: extraction JSON, insight narrative,
+sample of each RaWorld call shape: extraction JSON, insight narrative,
 summary, and forecast resolution. Measure parse acceptance, citation validity,
 decision agreement, latency at the existing timeout, and quota consumption. Do
 not send private or user-submitted data through a free endpoint without a separate

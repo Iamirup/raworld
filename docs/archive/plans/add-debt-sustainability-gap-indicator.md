@@ -1,4 +1,4 @@
-# Plan: Add `debtSustainabilityGap` indicator to WorldMonitor resilience
+# Plan: Add `debtSustainabilityGap` indicator to RaWorld resilience
 
 **Status**: APPROVED by Codex (gpt-5.5) after 4 rounds of review on 2026-05-12.
 **Origin**: session pivot from the orphan-fiscal-data finding — `govExpenditurePct` + `primaryBalancePct` were ingested via `seed-imf-macro.mjs` but no resilience indicator consumed them. Plan #1 (descriptive UI surface) is separately shipped this session.
@@ -7,7 +7,7 @@
 
 ## Context
 
-WorldMonitor scores 190+ countries on a resilience composite. One dimension is `fiscalSpace`, with three sub-indicators today (all read from one Redis blob `resilience:recovery:fiscal-space:v1`, populated by `scripts/seed-recovery-fiscal-space.mjs`):
+RaWorld scores 190+ countries on a resilience composite. One dimension is `fiscalSpace`, with three sub-indicators today (all read from one Redis blob `resilience:recovery:fiscal-space:v1`, populated by `scripts/seed-recovery-fiscal-space.mjs`):
 
 ```
 recoveryGovRevenue       weight 0.4  higherBetter   goalposts 5..45    GGR_NGDP

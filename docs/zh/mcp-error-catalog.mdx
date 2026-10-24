@@ -1,6 +1,6 @@
 ---
 title: "MCP 错误目录"
-description: "WorldMonitor MCP 服务器可能返回的每一种错误形态的完整目录：JSON-RPC 错误代码、HTTP 状态码与软行为响应信封，每一项均附具体触发条件、示例负载结构、客户端处理建议与重试与退避策略，帮助集成方稳健实现异常处理、可观测性告警、故障恢复与优雅降级流程。"
+description: "RaWorld MCP 服务器可能返回的每一种错误形态的完整目录：JSON-RPC 错误代码、HTTP 状态码与软行为响应信封，每一项均附具体触发条件、示例负载结构、客户端处理建议与重试与退避策略，帮助集成方稳健实现异常处理、可观测性告警、故障恢复与优雅降级流程。"
 ---
 
 {/*
@@ -138,7 +138,7 @@ Content-Type: application/json
   "id": 7,
   "error": {
     "code": -32002,
-    "message": "This tool requires a WorldMonitor Pro subscription.",
+    "message": "This tool requires a RaWorld Pro subscription.",
     "data": {
       "reason": "upgrade-required",
       "nextStep": "Call a free-account tool or subscribe to Pro.",
@@ -368,7 +368,7 @@ Content-Type: application/json
 | `-32600` | 406 | `Accept` 中不含 `text/event-stream` 的 `subscriptions/listen`。 |
 | `-32602` | 400 | `params.notifications` 不是对象的 `subscriptions/listen`。 |
 
-`2026-07-28` 版本将 `-32020` 到 `-32099` 保留给规范使用，并停用了 `-32002`，因此仅在这些请求上有两个 WorldMonitor 代码发生变化：
+`2026-07-28` 版本将 `-32020` 到 `-32099` 保留给规范使用，并停用了 `-32002`，因此仅在这些请求上有两个 RaWorld 代码发生变化：
 
 - `-32029`（速率限制、每日上限或额度）改为 `-31029`。
 - `-32002`（所有终止性权益拒绝）改为 `-31002`。

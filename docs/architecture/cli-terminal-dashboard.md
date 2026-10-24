@@ -1,4 +1,4 @@
-# WorldMonitor TUI: design and implementation plan
+# RaWorld TUI: design and implementation plan
 
 Date: 2026-10-17, map/globe, brief and expand-everything added 2026-10-18. Status: implemented (PR pending). Owner: CLI (`cli/`).
 

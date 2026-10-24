@@ -1,11 +1,11 @@
-// Live WorldMonitor scenes for the stage deck (public/deck.html).
+// Live RaWorld scenes for the stage deck (public/deck.html).
 //
 // The deck is a hand-researched, scripted show. These two scenes are the
-// live part: "Live board" (today's WorldMonitor stories, split by its own
+// live part: "Live board" (today's RaWorld stories, split by its own
 // coverage verdict) and "Live check" (a headline from the room, checked
-// against WorldMonitor in real time). They use the deck's own components,
+// against RaWorld in real time). They use the deck's own components,
 // voice, captions and avatar; every judgment comes from the desk server
-// (/api/board, /api/grade), which calls WorldMonitor's code.
+// (/api/board, /api/grade), which calls RaWorld's code.
 //
 // Loaded as a module after the deck's scripts and before its boot, so it can
 // register scenes and extend the keyboard. If the desk server is not running
@@ -99,7 +99,7 @@ async function toggleHeygen() {
       console.debug('[avatar] switch off requested');
       await heygen.stop();
       a.classList.remove('heygen');
-      toast('WM Analyst: animated avatar');
+      toast('RaWorld Analyst: animated avatar');
       return;
     }
     if (!LIVE.config.avatar) { toast('Live avatar not configured: staying on the animated avatar'); return; }
@@ -130,7 +130,7 @@ async function loadBoard(force = false) {
 }
 
 /**
- * Streams one check. Resolves as soon as WorldMonitor's verdict is in, so the
+ * Streams one check. Resolves as soon as RaWorld's verdict is in, so the
  * scene starts playing while the anchor's line is still being written; the
  * line arrives through `result.script` (a promise, null if it never comes).
  * Only one check streams at a time: opening a new one closes the last, and
@@ -167,7 +167,7 @@ function boardPicks(b) {
 }
 
 addScene({
-  id: 'liveboard', title: 'Live board', sub: 'Today on WorldMonitor', globe: 'dim', steps: 3, factual: true,
+  id: 'liveboard', title: 'Live board', sub: 'Today on RaWorld', globe: 'dim', steps: 3, factual: true,
   voice: () => LIVE.boardVoice ?? null,
   build(root) {
     root.innerHTML = `<div class="head"><div class="kick"><span class="live">LIVE</span><span class="when">WORLDMONITOR · TODAY</span></div><div class="h1">That was last week, by hand. This is today, live.</div></div>
@@ -175,7 +175,7 @@ addScene({
   },
   async enter(root) {
     const body = root.querySelector('.body');
-    if (!LIVE.board) body.innerHTML = '<div class="glass offline">Loading WorldMonitor…</div>';
+    if (!LIVE.board) body.innerHTML = '<div class="glass offline">Loading RaWorld…</div>';
     const b = await loadBoard();
     if (!b) {
       body.innerHTML = `<div class="glass offline"><b>Live desk not reachable.</b> ${esc(LIVE.boardError ?? '')}<br>Start it with <code>npm start</code> in demos/verification-desk and open this deck from http://localhost:4317.</div>`;
@@ -188,7 +188,7 @@ addScene({
     root.querySelector('.when').textContent = live
       ? `WORLDMONITOR · LIVE · ${when.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`
       : `WORLDMONITOR · LAST SNAPSHOT · ${when.toLocaleString([], { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })}`;
-    root.querySelector('.h1').textContent = live ? 'That was last week, by hand. This is today, live.' : 'That was last week, by hand. This is WorldMonitor\'s last snapshot.';
+    root.querySelector('.h1').textContent = live ? 'That was last week, by hand. This is today, live.' : 'That was last week, by hand. This is RaWorld\'s last snapshot.';
     root.querySelector('.live').textContent = live ? 'LIVE' : 'SNAPSHOT';
     const picks = boardPicks(b);
     LIVE.picks = picks; // story numbers on the board are live before the check scene is opened
@@ -196,7 +196,7 @@ addScene({
     body.innerHTML = `<div class="totals"><div class="tot"><b class="n0">0</b><span>stories<br>tracked</span></div><div class="tot"><b class="n1 c-ver">0</b><span>corroborated<br>2+ publishers</span></div><div class="tot"><b class="n2 c-unv">0</b><span>single<br>publisher</span></div></div>
       <div class="cols"><div class="col"><div class="secthead c-ver"><span class="dot"></span>CORROBORATED · WORLDMONITOR</div><div class="vstack"></div></div>
       <div class="col"><div class="secthead c-unv"><span class="dot"></span>IN CIRCULATION · ONE PUBLISHER</div><div class="posts"></div></div></div>
-      <div class="foot">WorldMonitor's coverage verdict and CRED score on every story. Tiers rank sources; they do not judge the claim. Click a story, or press its number, to check it live.</div>`;
+      <div class="foot">RaWorld's coverage verdict and CRED score on every story. Tiers rank sources; they do not judge the claim. Click a story, or press its number, to check it live.</div>`;
     root._totals = [t.stories, t.corroborated, t.singlePublisher + t.lowTierOnly + t.unknown];
     const vs = body.querySelector('.vstack');
     b.supported.slice(0, 4).forEach((s, i) => {
@@ -239,8 +239,8 @@ addScene({
     });
   },
   notes: [
-    'LIVE from WorldMonitor. The counters are today\'s stories, graded by WorldMonitor\'s own corroboration rule. PageDown builds the columns. V: the analyst reads the board.',
-    'Corroborated: 2+ independent publishers, with WorldMonitor\'s CRED score and the best-tier sources. 1–4 checks one live.',
+    'LIVE from RaWorld. The counters are today\'s stories, graded by RaWorld\'s own corroboration rule. PageDown builds the columns. V: the analyst reads the board.',
+    'Corroborated: 2+ independent publishers, with RaWorld\'s CRED score and the best-tier sources. 1–4 checks one live.',
     'In circulation: one publisher only. Point at the stamp: "coverage, not accuracy". 5–7 checks one live. PageDown goes to the live check.',
   ],
 });
@@ -261,7 +261,7 @@ addScene({
   id: 'livecheck', title: 'Live check', sub: 'A headline from the room', globe: 'horizon', steps: 2, factual: true,
   voice: (step) => (step >= 1 && LIVE.checkVoice ? LIVE.checkVoice : null),
   build(root) {
-    root.innerHTML = `<div class="head"><div class="kick"><span class="n">LIVE</span>WORLDMONITOR DATA · NOT A SCRIPT</div><div class="h1">Name a headline. Watch WorldMonitor check it.</div></div><div class="pick"></div>
+    root.innerHTML = `<div class="head"><div class="kick"><span class="n">LIVE</span>WORLDMONITOR DATA · NOT A SCRIPT</div><div class="h1">Name a headline. Watch RaWorld check it.</div></div><div class="pick"></div>
       <div class="typebox"><input id="lcin" placeholder="Type the headline the room shouts…" maxlength="160"><div class="hint">ENTER to check<br>ESC to cancel</div></div>
       <div class="run"><div class="glass claimbar"><div class="lb">HEADLINE</div><div class="tx"></div></div><div class="parsed"></div>
       <div class="pipe">${['CAPTURE', 'FIND IN WORLDMONITOR', 'PUBLISHERS', 'SOURCE QUALITY', 'GROUNDING', 'VERDICT'].map((x, i) => `<div class="st" data-i="${i}"><i>${i + 1}</i>${x}</div>`).join('')}</div>
@@ -288,7 +288,7 @@ addScene({
       e.onclick = (ev) => { ev.stopPropagation(); checkPick(i); };
       pk.appendChild(e);
     });
-    const cu = h('div', 'glass pc custom', '<div class="n">T · TYPE WHAT THE ROOM SHOUTS</div><div class="t">Any headline from this week: WorldMonitor checks it live.</div>');
+    const cu = h('div', 'glass pc custom', '<div class="n">T · TYPE WHAT THE ROOM SHOUTS</div><div class="t">Any headline from this week: RaWorld checks it live.</div>');
     cu.onclick = (ev) => { ev.stopPropagation(); openType(); };
     pk.appendChild(cu);
     if (!b) pk.insertAdjacentHTML('beforebegin', `<div class="glass offline"><b>Live desk not reachable.</b> Typed headlines still work if the server comes back.</div>`);
@@ -304,7 +304,7 @@ addScene({
   },
   notes: [
     'LIVE. Click a story, press its number, or T and type what the room shouts. PageDown checks the highlighted story.',
-    'Every node is a real publisher, placed by WorldMonitor\'s source type: tier, CRED, state affiliation. The dial is WorldMonitor\'s credibility score. V: the analyst reads the verdict. Backspace: pick another.',
+    'Every node is a real publisher, placed by RaWorld\'s source type: tier, CRED, state affiliation. The dial is RaWorld\'s credibility score. V: the analyst reads the verdict. Backspace: pick another.',
   ],
 });
 
@@ -353,7 +353,7 @@ async function runCheck(headline) {
   const cl = root.querySelector('.dialw .cl'); cl.textContent = '—'; cl.style.color = '';
   const setSt = (i) => pipe.forEach((p, j) => { p.classList.toggle('done', j < i); p.classList.toggle('act', j === i); });
 
-  // Type the headline while WorldMonitor is queried.
+  // Type the headline while RaWorld is queried.
   setSt(0);
   let k = 0;
   const typer = () => { k += 2; tx.innerHTML = `${esc(headline.slice(0, k))}<span class="cur"></span>`; if (k < headline.length) at(24, typer); else tx.textContent = headline; };
@@ -383,7 +383,7 @@ function play(root, r, { setSt, parsed, lanes, vd, cl, run }) {
   const rated = who?.rated ?? [];
   const chips = found
     ? { 'found': r.match.title.length > 70 ? `${r.match.title.slice(0, 70)}…` : r.match.title, 'lead': r.when?.primarySource ?? rated[0]?.name ?? '?', 'first seen': r.when?.firstSeen ? new Date(r.when.firstSeen).toLocaleString([], { weekday: 'short', hour: '2-digit', minute: '2-digit' }) : '?', 'clusters': String(r.when?.mergedClusters ?? 1) }
-    : { 'found': 'nothing in WorldMonitor\'s window', 'searched': (r.terms ?? []).join(' · ') };
+    : { 'found': 'nothing in RaWorld\'s window', 'searched': (r.terms ?? []).join(' · ') };
   Object.entries(chips).forEach(([key, v], i) => {
     const s = h('span', '', `<b>${key.toUpperCase()}</b>${esc(v)}`);
     parsed.appendChild(s);
@@ -427,7 +427,7 @@ function play(root, r, { setSt, parsed, lanes, vd, cl, run }) {
     setSt(4);
     const ul = root.querySelector('.issues ul');
     // The card's flags, without the two lines the tiles and dial already show.
-    const flags = (r.verdict?.reasons ?? []).filter((x) => !/^Reported by|^WorldMonitor credibility/.test(x));
+    const flags = (r.verdict?.reasons ?? []).filter((x) => !/^Reported by|^RaWorld credibility/.test(x));
     (flags.length ? flags : ['Nothing flagged.']).slice(0, 4).forEach((x, i) => { const li = h('li', '', esc(x)); ul.appendChild(li); at(120 + i * 300, () => li.classList.add('in')); });
   });
   t += 1100;
@@ -484,14 +484,14 @@ window.onKey = function onKeyLive(e) {
   const d = cur();
   if (k === 'g' || k === 'G') { $('#start')?.classList.add('gone'); toggleHeygen(); return; }
   if (d.id === 'liveboard' && /^Digit[1-9]$/.test(code)) { checkPick(+code[5] - 1); return; }
-  // Shift+U: plain U is the deck's mute key, and a reflex mute must not spend WorldMonitor calls.
+  // Shift+U: plain U is the deck's mute key, and a reflex mute must not spend RaWorld calls.
   if (d.id === 'liveboard' && k === 'U' && e.shiftKey) {
-    toast('Refreshing from WorldMonitor…');
+    toast('Refreshing from RaWorld…');
     loadBoard(true).then(async () => {
       if (cur().id !== 'liveboard') return;
       S.step = 0; updateHud();
       await SC.liveboard.enter($('#s-liveboard'));
-      toast(LIVE.boardError ? `Refresh failed: ${LIVE.boardError}` : 'Board refreshed from WorldMonitor');
+      toast(LIVE.boardError ? `Refresh failed: ${LIVE.boardError}` : 'Board refreshed from RaWorld');
     });
     return;
   }
@@ -510,7 +510,7 @@ window.onKey = function onKeyLive(e) {
 const LIVE_BUTTONS = [
   { key: 'g', label: '👤 G AVATAR', title: 'G: live avatar on / off (metered while on)', always: true, on: () => heygen.isWanted() },
   { key: 'l', label: '▶ L AUTO', title: 'L: speak each beat on arrival', always: true, on: () => S.autoNarrate },
-  { key: 'U', shift: true, label: '⟳ ⇧U REFRESH', title: 'Shift+U: refresh the board from WorldMonitor (2 calls)', scene: 'liveboard' },
+  { key: 'U', shift: true, label: '⟳ ⇧U REFRESH', title: 'Shift+U: refresh the board from RaWorld (2 calls)', scene: 'liveboard' },
   { key: 't', label: '⌨ T TYPE', title: 'T: type a headline from the room', scene: 'livecheck' },
   { key: 'Enter', label: '↵ RE-RUN', title: 'Enter: run the last headline again', scene: 'livecheck', enabled: () => Boolean(LIVE.lastHeadline) },
   { key: 'Backspace', label: '⌫ PICKS', title: 'Backspace: back to the story picks', scene: 'livecheck' },

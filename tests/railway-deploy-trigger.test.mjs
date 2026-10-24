@@ -481,7 +481,7 @@ describe('deploy call', () => {
 });
 
 const PRODUCER = {
-  repository: 'koala73/worldmonitor',
+  repository: 'Iamirup/raworld',
   workflow: 'railway-deploy-trigger.yml',
   runId: '31210000001',
   runAttempt: 1,
@@ -627,7 +627,7 @@ describe('protected leased mutation orchestration', () => {
       env: {
         GITHUB_ACTIONS: 'true',
         GITHUB_REF: 'refs/heads/main',
-        GITHUB_WORKFLOW_REF: 'koala73/worldmonitor/.github/workflows/railway-deploy-trigger.yml@refs/heads/main',
+        GITHUB_WORKFLOW_REF: 'Iamirup/raworld/.github/workflows/railway-deploy-trigger.yml@refs/heads/main',
         GITHUB_REPOSITORY: PRODUCER.repository,
         GITHUB_RUN_ID: PRODUCER.runId,
         GITHUB_RUN_ATTEMPT: '1',

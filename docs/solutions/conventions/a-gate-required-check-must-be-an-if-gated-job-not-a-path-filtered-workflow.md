@@ -34,7 +34,7 @@ tags:
 
 ## Context
 
-Only four check contexts are enforced by branch protection on `koala73/worldmonitor` main: `biome`, `typecheck`, `unit`, and `gate` (observed 2026-09-06 by reading the GitHub branch-protection API). Every other CI job blocks merge only indirectly, through `gate`, which `.github/scripts/deploy-gate.sh` computes by aggregating the check runs named in its `required` list at `.github/scripts/deploy-gate.sh:140`.
+Only four check contexts are enforced by branch protection on `Iamirup/raworld` main: `biome`, `typecheck`, `unit`, and `gate` (observed 2026-09-06 by reading the GitHub branch-protection API). Every other CI job blocks merge only indirectly, through `gate`, which `.github/scripts/deploy-gate.sh` computes by aggregating the check runs named in its `required` list at `.github/scripts/deploy-gate.sh:140`.
 
 That makes "where does this lint actually run?" a different question from "what stops a bad change merging?". Markdown lint was a live example. It ran in two places: as a step inside the `biome` job, which is a branch-protection context, and again in a separate `.github/workflows/lint.yml` (since deleted by PR #7798) that carried a top-level `paths:` filter on markdown. Issue #7772 proposed deleting the step inside `biome` and giving `lint.yml` a push trigger. Read literally that is a de-duplication. In effect it would have left markdown lint enforced by nothing: the only enforcing copy was the `biome` step, and a path-filtered workflow cannot be gate-required. Nobody would have noticed until a broken markdown change merged clean.
 

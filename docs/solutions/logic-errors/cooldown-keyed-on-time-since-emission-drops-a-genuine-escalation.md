@@ -42,7 +42,7 @@ under one assumption: that a suppressed candidate will still be there, unchanged
 so suppression *defers*. The moment your "what changed?" comparison reads from a store that advances
 even on suppressed runs, that assumption breaks and suppression silently becomes *deletion*.
 
-WorldMonitor hit this in the physical-premium regime emitter shipped in PR #7400. The classifier
+RaWorld hit this in the physical-premium regime emitter shipped in PR #7400. The classifier
 compares the newly computed reading against the last **published** snapshot, and the seeder publishes
 that snapshot on every run whether or not a transition was emitted — the publish at
 `scripts/seed-physical-premiums.mjs:504` is unconditional, and the "previous" side of the comparison
@@ -88,7 +88,7 @@ Persist that state in the cooldown record. Inside the window, allow an escalatio
 
 Four concrete rules for designing one:
 
-**1. The cooldown record stores content, not just a clock.** In WorldMonitor the record is written as
+**1. The cooldown record stores content, not just a clock.** In RaWorld the record is written as
 `{ emittedAt, transitionId, toRegime }` at `scripts/seed-physical-premiums.mjs:423`, and — critically
 — it is written only for transitions that actually emitted, since `cooldownWrites` maps over
 `snapshot.transitions` at `scripts/seed-physical-premiums.mjs:419`. That is what makes it a record of

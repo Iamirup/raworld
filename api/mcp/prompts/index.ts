@@ -58,7 +58,7 @@ export const PROMPT_REGISTRY: McpPromptDef[] = [
       purpose: 'Open the embedded country interface. Its sections load through the authenticated host and keep their observation dates and source states.',
     }],
     intro:
-      'Open the WorldMonitor country brief for ${iso2} with the linked interactive view. Use its topic tabs and evidence rather than replacing the interface with paragraphs. If the user explicitly requests text only or the host cannot render apps, use get_country_risk, get_country_brief and get_country_macro for a labeled text assessment.',
+      'Open the RaWorld country brief for ${iso2} with the linked interactive view. Use its topic tabs and evidence rather than replacing the interface with paragraphs. If the user explicitly requests text only or the host cannot render apps, use get_country_risk, get_country_brief and get_country_macro for a labeled text assessment.',
   },
   {
     name: 'country-briefing',

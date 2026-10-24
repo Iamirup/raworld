@@ -1,7 +1,7 @@
 /**
  * GTA Update third-party TPS/TFS dispatch mirror (#7012).
  *
- * Unofficial, delayed, incomplete, entertainment-only. WorldMonitor holds
+ * Unofficial, delayed, incomplete, entertainment-only. RaWorld holds
  * reuse permission, confirmed by the repository owner on 2026-08-21. The
  * private grant is not stored in this public repository. Parser + denylist +
  * ID contracts are locked here; the production writer stays disabled until
@@ -40,7 +40,7 @@ export const GTA_UPDATE_WRITER_ENABLED = false;
 export const GTA_UPDATE_PRODUCTION_ENABLED = false;
 export const GTA_UPDATE_RIGHTS_STATUS = 'permission-held';
 export const GTA_UPDATE_ACTIVATION_BLOCKER = [
-  'WorldMonitor holds reuse permission; the private grant is not stored in',
+  'RaWorld holds reuse permission; the private grant is not stored in',
   'this public repository. Production remains disabled while official TPS/TFS',
   'upstream provenance is unidentified and the remaining safety, cadence,',
   'capacity, and product activation gates in issue #7012 are unaccepted.',

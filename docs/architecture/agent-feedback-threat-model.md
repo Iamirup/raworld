@@ -289,7 +289,7 @@ send sets `notifiedAt` on the rows it lists only after Resend accepts it.
 
 **Decision 13. The private disclosure path never depends on this channel
 admitting the report.** The advisory URL
-(`https://github.com/koala73/worldmonitor/security/advisories/new`) appears in
+(`https://github.com/Iamirup/raworld/security/advisories/new`) appears in
 four places:
 
 - The `report_issue` tool description, so an agent has it before calling.

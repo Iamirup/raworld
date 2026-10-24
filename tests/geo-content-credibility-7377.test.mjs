@@ -147,7 +147,7 @@ describe('issue #7377 GEO content credibility', () => {
       assert.equal(new URL(match[1]).hostname, 'www.worldmonitor.app', 'the discovery index uses first-party press documents');
     }
     const sections = {
-      'public/world-monitor.md': ['## Press mentions that name World Monitor', /^## /m],
+      'public/world-monitor.md': ['## Press mentions that name RaWorld', /^## /m],
       'docs/about.mdx': ['## In the press', /^## /m],
       'docs/zh/about.mdx': ['## 媒体报道', /^## /m],
       // #7869: round 7 found the WIRED feature absent from ai-search.md, one of
@@ -212,10 +212,10 @@ describe('issue #7377 GEO content credibility', () => {
   it('(c3) names the outlets in the llms.txt press section, without leaving the first-party links (#7869)', () => {
     // Round 7: the WIRED feature is absent from llms.txt, which points at
     // world-monitor.md and names nobody. A model that reads only the index
-    // learns World Monitor has "external reporting" and no more. The links here
+    // learns RaWorld has "external reporting" and no more. The links here
     // stay first-party — (c2) above enforces that — so the outlets have to be
     // named in the prose instead.
-    const heading = '## Press mentions that name World Monitor';
+    const heading = '## Press mentions that name RaWorld';
     const identity = read('public/world-monitor.md');
     const afterHeading = identity.slice(identity.indexOf(heading) + heading.length);
     const nextHeading = afterHeading.search(/^## /m);

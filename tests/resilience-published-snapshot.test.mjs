@@ -78,7 +78,7 @@ describe('published resilience snapshot freshness', () => {
         norway.includes(`data-snapshot-source="${data.sources.resilienceSnapshot}"`),
         'country page must identify the selected dated snapshot',
       );
-      assert.match(norway, /Source: World Monitor Country Resilience Index snapshot, \w+ \d{1,2}, \d{4}\./);
+      assert.match(norway, /Source: RaWorld Country Resilience Index snapshot, \w+ \d{1,2}, \d{4}\./);
       // Coverage-story pages (Tuvalu, Macau, San Marino) swap the shared snapshot
       // note for a country-specific reading guide (#7527) but keep the corrections
       // link and the dated snapshot source line.

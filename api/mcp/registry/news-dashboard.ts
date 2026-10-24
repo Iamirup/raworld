@@ -16,8 +16,8 @@ function newsDashboardView(params: Record<string, unknown>) {
 
 export const NEWS_DASHBOARD_TOOLS: ToolDef[] = [{
   name: 'open_news_dashboard',
-  title: 'WorldMonitor news and maps',
-  description: 'Open the embedded WorldMonitor news and map dashboard and return the full feed digest (categories with items, publication dates, source provenance, coordinates, feedStatuses, coverage) plus requestedView. The view arguments (query, source, category, country, time_range, renderer, map_layers, map center and zoom) configure the rendered instance; requestedView echoes what was requested, not an already-open map\'s applied state, and empty arguments open the default dashboard. Requires a paid plan; weight 2 on API plans. On dedicated paid plans one dashboard request covers the news load and bounded map snapshot loads, repeat opens reuse it for at least five minutes, and refresh with request_id starts one new request. Read-only; up to 1 MB of digest.',
+  title: 'RaWorld news and maps',
+  description: 'Open the embedded RaWorld news and map dashboard and return the full feed digest (categories with items, publication dates, source provenance, coordinates, feedStatuses, coverage) plus requestedView. The view arguments (query, source, category, country, time_range, renderer, map_layers, map center and zoom) configure the rendered instance; requestedView echoes what was requested, not an already-open map\'s applied state, and empty arguments open the default dashboard. Requires a paid plan; weight 2 on API plans. On dedicated paid plans one dashboard request covers the news load and bounded map snapshot loads, repeat opens reuse it for at least five minutes, and refresh with request_id starts one new request. Read-only; up to 1 MB of digest.',
   _uiResourceUri: NEWS_DASHBOARD_UI_URI,
   _openaiEntrypoints: [{ type: 'global' }, { type: 'thread' }],
   _outputBudgetBytes: 1048576,
@@ -51,7 +51,7 @@ export const NEWS_DASHBOARD_TOOLS: ToolDef[] = [{
 }, {
   name: 'analyze_news_headlines',
   title: 'Summarize or translate headlines',
-  description: 'Summarize up to 8 supplied headlines (mode brief, the default) or translate exactly one headline (mode translate) with the dashboard\'s LLM route, returning {summary, provider, model, tokens, fallback} or an error with errorType. The text is generated per call from the headlines and optional bodies (article snippets, up to 400 characters each, that ground the summary); nothing is fetched from WorldMonitor\'s own feeds. lang is the target language code for a translation and the output language for a brief (default en); geoContext adds a short framing hint. Requires a paid plan; one live LLM request, weight 2 on API plans, up to 25 s. Read-only.',
+  description: 'Summarize up to 8 supplied headlines (mode brief, the default) or translate exactly one headline (mode translate) with the dashboard\'s LLM route, returning {summary, provider, model, tokens, fallback} or an error with errorType. The text is generated per call from the headlines and optional bodies (article snippets, up to 400 characters each, that ground the summary); nothing is fetched from RaWorld\'s own feeds. lang is the target language code for a translation and the output language for a brief (default en); geoContext adds a short framing hint. Requires a paid plan; one live LLM request, weight 2 on API plans, up to 25 s. Read-only.',
   _outputBudgetBytes: 32768,
   _apiPaths: ['POST /api/news/v1/summarize-article'],
   inputSchema: {

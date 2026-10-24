@@ -20,7 +20,7 @@ tags: [llm-hallucination, output-validation, prompt-only-fix, brief-digest, stit
 
 ## Problem
 
-The WorldMonitor email brief sent on 2026-09-20 opened its second executive-summary sentence with "This development comes as former President Trump returns to the UN", joining the Iran peace-terms story to the Trump/UN story with a weak temporal connective. The same prompt that produced that lead already listed "this comes as", "this declaration comes as", and "this announcement comes as" as banned stitching phrases.
+The RaWorld email brief sent on 2026-09-20 opened its second executive-summary sentence with "This development comes as former President Trump returns to the UN", joining the Iran peace-terms story to the Trump/UN story with a weak temporal connective. The same prompt that produced that lead already listed "this comes as", "this declaration comes as", and "this announcement comes as" as banned stitching phrases.
 
 ## Symptoms
 

@@ -1,5 +1,5 @@
 // The desktop alert used to pitch a waitlist for a license that already ships
-// as World Monitor Pro, and kept telling Pro users their features needed keys
+// as RaWorld Pro, and kept telling Pro users their features needed keys
 // after Pro started supplying cloud data on desktop (#9396).
 import { after, afterEach, describe, it } from 'node:test';
 import assert from 'node:assert/strict';
@@ -13,7 +13,7 @@ afterEach(() => harness.reset());
 after(() => harness.cleanup());
 
 describe('runtime config alert Pro copy', () => {
-  it('offers World Monitor Pro, not a waitlist, to a free desktop', () => {
+  it('offers RaWorld Pro, not a waitlist, to a free desktop', () => {
     harness.setRuntimeState(PARTIAL);
     const html = harness.createPanel().content.innerHTML;
     assert.equal(harness.getAlertState(harness.createPanel()), 'some');

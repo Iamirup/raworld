@@ -140,7 +140,7 @@ function buildCover(env: Envelope): any {
                 type: 'div',
                 props: {
                   style: { fontSize: 140, lineHeight: 0.92, fontWeight: 900, letterSpacing: '-0.02em' },
-                  children: 'WorldMonitor',
+                  children: 'RaWorld',
                 },
               },
               {
@@ -190,7 +190,7 @@ function buildThreads(env: Envelope): any {
           type: 'div',
           props: {
             style: { display: 'flex', justifyContent: 'space-between', borderBottom: `1px solid ${COLORS.sienna}40`, paddingBottom: 14, fontSize: 16, letterSpacing: '0.2em', textTransform: 'uppercase', color: COLORS.sienna, fontWeight: 600 },
-            children: [`· WorldMonitor Brief · ${data.issue} ·`, 'Digest / On The Desk'],
+            children: [`· RaWorld Brief · ${data.issue} ·`, 'Digest / On The Desk'],
           },
         },
         {

@@ -1,9 +1,9 @@
 ---
 title: "新闻摘要与简报方法论"
-description: "WorldMonitor 如何采集 RSS 与 Atom 信息流、对新闻条目进行主题分类、按重要性评分、追踪话题报道趋势、过滤每日简报内容、调用 LLM 生成结构化摘要，并通过多源均衡与提示工程严格控制模型偏见与幻觉，构建一条透明、可审计的编辑管线与研究流程。"
+description: "RaWorld 如何采集 RSS 与 Atom 信息流、对新闻条目进行主题分类、按重要性评分、追踪话题报道趋势、过滤每日简报内容、调用 LLM 生成结构化摘要，并通过多源均衡与提示工程严格控制模型偏见与幻觉，构建一条透明、可审计的编辑管线与研究流程。"
 ---
 
-_本方法论由 World Monitor 创始人 [Elie Habib](https://www.worldmonitor.app/blog/authors/elie-habib/) 维护。已发布的修订记录在[更正日志](/zh/corrections)中。_
+_本方法论由 RaWorld 创始人 [Elie Habib](https://www.worldmonitor.app/blog/authors/elie-habib/) 维护。已发布的修订记录在[更正日志](/zh/corrections)中。_
 
 ## 从这里开始
 
@@ -39,7 +39,7 @@ flowchart TD
 
 ## 范围
 
-本页是新闻信息流摘要、每日摘要通知和 WorldMonitor Brief 的规范公开
+本页是新闻信息流摘要、每日摘要通知和 RaWorld Brief 的规范公开
 方法论。它涵盖了将 RSS/Atom 信息流转化为排序后的面板条目、持久化的
 报道轨迹、摘要通知和个性化编辑简报的自动化管道。
 
@@ -363,7 +363,7 @@ LLM 被用作有界的编辑助手，而非记录的真相源。
 分类缓存路径可以更新类别/严重性，但仅在上述历史标记、高置信度
 critical 和 `+2` 升级上限控制范围内。
 
-WorldMonitor Brief 使用两个 LLM 界面：
+RaWorld Brief 使用两个 LLM 界面：
 
 - 摘要文稿（`brief:llm:digest:v9`）从可见报道池生成 JSON 导语、线索列表、
   信号和 `rankedStoryHashes`。

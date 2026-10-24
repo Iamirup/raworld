@@ -111,7 +111,7 @@ export const UI_RESOURCE_REGISTRY: UiResourceDef[] = [
     uri: COUNTRY_BRIEF_UI_URI,
     name: 'Country Brief (interactive)',
     description:
-      'Interactive in-conversation app shell for get_country_brief: renders the AI-synthesised per-country intelligence brief as paragraphs, the grounding sources, and cited WorldMonitor data. Linked from the get_country_brief tool via _meta.ui.resourceUri; an MCP-Apps host renders it inline and streams the tool result in via postMessage. Static, data-free template — public and quota-exempt.',
+      'Interactive in-conversation app shell for get_country_brief: renders the AI-synthesised per-country intelligence brief as paragraphs, the grounding sources, and cited RaWorld data. Linked from the get_country_brief tool via _meta.ui.resourceUri; an MCP-Apps host renders it inline and streams the tool result in via postMessage. Static, data-free template — public and quota-exempt.',
     mimeType: UI_RESOURCE_MIME_TYPE,
     _meta: buildUiMeta(),
     html: COUNTRY_BRIEF_APP_HTML,
@@ -138,7 +138,7 @@ export const UI_RESOURCE_REGISTRY: UiResourceDef[] = [
     uri: NEWS_INTELLIGENCE_UI_URI,
     name: 'News Intelligence (interactive)',
     description:
-      'Interactive in-conversation app shell for get_news_intelligence: renders AI-classified top stories (title, category, alert flag, country, source) from WorldMonitor\'s intelligence layer. Linked from the get_news_intelligence tool via _meta.ui.resourceUri; an MCP-Apps host renders it inline and streams the tool result in via postMessage. Static, data-free template — public and quota-exempt.',
+      'Interactive in-conversation app shell for get_news_intelligence: renders AI-classified top stories (title, category, alert flag, country, source) from RaWorld\'s intelligence layer. Linked from the get_news_intelligence tool via _meta.ui.resourceUri; an MCP-Apps host renders it inline and streams the tool result in via postMessage. Static, data-free template — public and quota-exempt.',
     mimeType: UI_RESOURCE_MIME_TYPE,
     _meta: buildUiMeta(),
     html: NEWS_INTELLIGENCE_APP_HTML,
@@ -174,7 +174,7 @@ export const UI_RESOURCE_REGISTRY: UiResourceDef[] = [
     uri: FORECASTS_UI_URI,
     name: 'Forecasts (interactive)',
     description:
-      'Interactive in-conversation app shell for get_forecast_predictions: renders WorldMonitor\'s AI-generated forecasts with local domain/region filters and original case analysis. Analysis expansion loads original cases; Active theaters loads latest original theater summaries under the same signed forecast panel allocation, with independent run/time and completion coverage. Provided full cases and loaded theater details expand locally. Linked from the get_forecast_predictions tool via _meta.ui.resourceUri; an MCP-Apps host renders it inline and streams the tool result in via postMessage. Static, data-free template — public and quota-exempt.',
+      'Interactive in-conversation app shell for get_forecast_predictions: renders RaWorld\'s AI-generated forecasts with local domain/region filters and original case analysis. Analysis expansion loads original cases; Active theaters loads latest original theater summaries under the same signed forecast panel allocation, with independent run/time and completion coverage. Provided full cases and loaded theater details expand locally. Linked from the get_forecast_predictions tool via _meta.ui.resourceUri; an MCP-Apps host renders it inline and streams the tool result in via postMessage. Static, data-free template — public and quota-exempt.',
     mimeType: UI_RESOURCE_MIME_TYPE,
     _meta: buildUiMeta(),
     html: FORECASTS_APP_HTML,
@@ -244,16 +244,16 @@ export async function buildUiResourceRead(
 
 UI_RESOURCE_LIST_RESPONSE.push({
   uri: NEWS_DASHBOARD_UI_URI,
-  name: 'WorldMonitor news and maps',
+  name: 'RaWorld news and maps',
   description:
-    'WorldMonitor news panels and interactive map, rendered with the dashboard components.',
+    'RaWorld news panels and interactive map, rendered with the dashboard components.',
   mimeType: UI_RESOURCE_MIME_TYPE,
   _meta: NEWS_DASHBOARD_META,
 });
 
 UI_RESOURCE_LIST_RESPONSE.push({
   uri: COUNTRY_VIEW_UI_URI,
-  name: 'WorldMonitor country view',
+  name: 'RaWorld country view',
   description:
     'Shared country deep dive with progressive authenticated sections.',
   mimeType: UI_RESOURCE_MIME_TYPE,

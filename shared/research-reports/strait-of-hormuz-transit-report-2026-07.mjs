@@ -29,7 +29,7 @@ export const REPORT = {
     'Strait of Hormuz transits are down {{m:declinePct}} since the March 2026 closure — {{m:disruptionDailyAvg}} ships/day since March 1 versus {{m:sameWindow2025DailyAvg}} in the same 2025 window — with July at about {{m:julVsFebShare}} of the February baseline, from IMF PortWatch daily data.',
   disruptionStart: '2026-03-01',
   author: {
-    name: 'World Monitor Research',
+    name: 'RaWorld Research',
     url: 'https://www.worldmonitor.app/',
   },
   datePublished: '2026-07-27',
@@ -58,7 +58,7 @@ export const REPORT = {
   ],
 
   // News-context layer: every entry was retrieved and read on the stated date.
-  // Claims here are attributed to their source and are NOT World Monitor
+  // Claims here are attributed to their source and are NOT RaWorld
   // observations.
   newsContext: [
     {
@@ -127,7 +127,7 @@ export const REPORT = {
       layer: 'news',
       block: 'news-context',
       paragraphs: [
-        'World Monitor does not independently verify the events below; they are third-party reporting, listed with source and dates, and kept separate from the observed transit data above.',
+        'RaWorld does not independently verify the events below; they are third-party reporting, listed with source and dates, and kept separate from the observed transit data above.',
       ],
     },
     {
@@ -135,7 +135,7 @@ export const REPORT = {
       heading: 'Methodology',
       layer: 'methodology',
       paragraphs: [
-        'All transit figures derive from one source: IMF PortWatch daily chokepoint transit calls (portwatch.imf.org, based on UN Global Platform AIS data), retrieved on {{m:capturedAtDate}} from the public PortWatch ArcGIS service and frozen into the versioned snapshot named below. A transit call is an AIS-observed passage; vessel classes (tanker, container, dry bulk, general cargo, ro-ro) and deadweight-tonnage aggregates are PortWatch fields, not World Monitor estimates.',
+        'All transit figures derive from one source: IMF PortWatch daily chokepoint transit calls (portwatch.imf.org, based on UN Global Platform AIS data), retrieved on {{m:capturedAtDate}} from the public PortWatch ArcGIS service and frozen into the versioned snapshot named below. A transit call is an AIS-observed passage; vessel classes (tanker, container, dry bulk, general cargo, ro-ro) and deadweight-tonnage aggregates are PortWatch fields, not RaWorld estimates.',
         'Derived figures are arithmetic over that series only — period averages, sums, and percentage comparisons, each documented in the provenance table below. No smoothing, interpolation, forecasting, or cross-source blending is applied. Missing days would be listed explicitly rather than filled; this snapshot has {{m:missingDatesTotal}} missing days across all four series. The report page is rebuilt deterministically from the committed snapshot, so every figure can be recomputed from the published data files.',
       ],
     },

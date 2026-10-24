@@ -1,6 +1,6 @@
 # Intel-history cost measurements
 
-Issue [#5745](https://github.com/koala73/worldmonitor/issues/5745) requires a measured storage and embedding-cost baseline before adding collectors. This telemetry prepares that baseline. It does not enable a collector, run a backfill, or establish production acceptance before deployment and observation.
+Issue [#5745](https://github.com/Iamirup/raworld/issues/5745) requires a measured storage and embedding-cost baseline before adding collectors. This telemetry prepares that baseline. It does not enable a collector, run a backfill, or establish production acceptance before deployment and observation.
 
 ## Embedding accounting
 

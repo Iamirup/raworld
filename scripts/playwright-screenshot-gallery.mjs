@@ -80,7 +80,7 @@ export function renderDashboard(history) {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark" />
-  <title>Playwright · World Monitor</title>
+  <title>Playwright · RaWorld</title>
   <style>
     :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #070b10; color: #f4f1ea; }
     * { box-sizing: border-box; }
@@ -115,7 +115,7 @@ export function renderDashboard(history) {
   <main>
     <header>
       <div>
-        <p class="eyebrow">World Monitor · visual evidence</p>
+        <p class="eyebrow">RaWorld · visual evidence</p>
         <h1>Playwright</h1>
         <p class="subtitle">Named chrome captures and results from the deterministic e2e suite. Not a merge gate.</p>
       </div>
@@ -228,7 +228,7 @@ export function renderScreenshotGallery(input) {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark" />
-  <title>Run screenshots · World Monitor</title>
+  <title>Run screenshots · RaWorld</title>
   <style>
     :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #070b10; color: #f4f1ea; }
     * { box-sizing: border-box; }
@@ -254,7 +254,7 @@ export function renderScreenshotGallery(input) {
 <body>
   <main>
     <header>
-      <p class="eyebrow">World Monitor · visual review</p>
+      <p class="eyebrow">RaWorld · visual review</p>
       <h1>Run screenshots</h1>
       <p class="subtitle">Scan every captured product state from this Playwright run.</p>
     </header>

@@ -17,15 +17,13 @@
     "resilience": "Resilience",
     "ciiMissing": "CII unavailable",
     "resilienceMissing": "Resilience unavailable",
-    "noEvents": "No selected headlines were captured for this date. This does not prove no events occurred.",
-    "unlock90": "Unlock 90 days with Pro",
-    "unlock365": "Unlock 365 days with an API plan"
+    "noEvents": "No selected headlines were captured for this date. This does not prove no events occurred."
   },
   "shell": {
-    "documentTitle": "World Monitor — Real-Time Global Intelligence Dashboard",
+    "documentTitle": "RaWorld — Real-Time Global Intelligence Dashboard",
     "metaDescription": "Real-time global intelligence platform. Featured in WIRED. Used by 2M+ people across 190 countries. Conflicts, markets, military, open-source intelligence in one view.",
     "offlineTitle": "You're Offline",
-    "offlineMessage": "World Monitor requires an internet connection for real-time intelligence data.",
+    "offlineMessage": "RaWorld requires an internet connection for real-time intelligence data.",
     "offlineRetry": "Retry"
   },
   "widgets": {
@@ -63,16 +61,15 @@
     "phaseError": "Error",
     "previewCheckingHeading": "Connecting the widget builder",
     "previewReadyHeading": "Describe the widget you want",
-    "previewFetchingHeading": "Fetching live WorldMonitor data",
+    "previewFetchingHeading": "Fetching live RaWorld data",
     "previewComposingHeading": "Composing the widget layout",
     "previewErrorHeading": "The preview needs attention",
     "previewCheckingCopy": "We are validating your widget key and backend availability before enabling generation.",
     "previewReadyCopy": "Use a prompt example or describe the exact live view you want. The preview will update here before you save it.",
-    "previewFetchingCopy": "The agent is calling approved WorldMonitor endpoints and shaping the dataset for the widget.",
+    "previewFetchingCopy": "The agent is calling approved RaWorld endpoints and shaping the dataset for the widget.",
     "previewComposingCopy": "The preview is rendering with the latest live data and dashboard styling.",
     "previewErrorCopy": "Fix the issue, then retry. Your existing widgets are unaffected.",
     "createInteractive": "Create Interactive Widget",
-    "proBadge": "PRO",
     "preflightProUnavailable": "PRO widget agent unavailable. Check PRO_WIDGET_KEY on the server.",
     "preflightInvalidProKey": "PRO key rejected. Update wm-pro-key and reload.",
     "preflightProSubscriptionRequired": "Pro subscription required. If you just upgraded, refresh the page; otherwise contact support.",
@@ -104,20 +101,16 @@
     "foodStocksHelp": "USDA Production, Supply and Distribution commodity stocks-to-use by marketing year, with the world ratio alongside for context. FAOSTAT Food Balances supplies production and domestic supply when Production, Supply and Distribution has no complete country balance.",
     "loadingFoodStocks": "Loading food stocks…",
     "foodStocksUnavailable": "Food stocks unavailable.",
-    "foodStocksProLocked": "Upgrade to PRO for commodity stocks-to-use",
     "foodStocksCommodity": "Commodity",
     "foodStocksMarketingYear": "Marketing year",
     "foodStocksRatio": "Stocks-to-use",
     "foodStocksWorld": "World",
-    "defenseIndustrialBase": {
-      "proLocked": "Upgrade to PRO for arms-supplier dependency and military capacity"
-    },
+    "defenseIndustrialBase": {},
     "demographicsCapability": {
       "title": "Demographics & Workforce",
       "help": "Age structure, education pipeline, and industrial workforce capacity from UN World Population Prospects, UNESCO Institute for Statistics and World Bank World Development Indicators, and ILOSTAT.",
       "loading": "Loading demographics and workforce data…",
       "unavailable": "Demographics and workforce data unavailable.",
-      "proLocked": "Upgrade to PRO for demographics and workforce data",
       "notAvailable": "Not available",
       "statusNotSupplied": "Estimate and imputation status not supplied",
       "ageStructure": "Age structure",
@@ -143,7 +136,6 @@
       "help": "Frozen v1 evidence scores for food, energy, demographics, technology, and defense. Expand a row to inspect inputs, source provenance, and missing-data reasons.",
       "loading": "Loading the five-factor scorecard…",
       "unavailable": "Five-factor scorecard unavailable.",
-      "proLocked": "Upgrade to PRO for the five-factor resilience scorecard",
       "insufficient": "Insufficient data",
       "notAvailable": "Not available",
       "noEvidence": "No evidence is available for this pillar.",
@@ -803,12 +795,8 @@
       "alertTitle": {
         "configured": "Desktop settings configured",
         "needsKeys": "Configure API keys to unlock features",
-        "some": "Some features need API keys",
-        "pro": "World Monitor Pro is active"
+        "some": "Some features need API keys"
       },
-      "proCloud": "Features without a local API key use World Monitor cloud data.",
-      "skipSetupPro": "Skip the setup: sign in with World Monitor Pro to use cloud data instead of your own API keys.",
-      "getPro": "Get World Monitor Pro",
       "summary": {
         "desktop": "Desktop mode",
         "web": "Web mode (read-only, server-managed credentials)",
@@ -839,12 +827,10 @@
       }
     },
     "settingsWindow": {
-      "shellTitle": "World Monitor Settings",
+      "shellTitle": "RaWorld Settings",
       "shellSearchPlaceholder": "Search settings...",
       "shellCancel": "Cancel",
       "shellSaveClose": "Save & Close",
-      "freePanelLimit": "Free plan: max {{max}} panels. Upgrade to PRO for unlimited.",
-      "freeSourceLimit": "Free plan: max {{max}} sources. Upgrade to PRO for unlimited.",
       "validating": "Validating API keys...",
       "saved": "Settings saved",
       "failed": "Save failed: {{error}}",
@@ -863,12 +849,6 @@
           "title": "License / API Key",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "description": "API Starter and API Business subscribers create this key on the web dashboard under Settings → API Keys. If a full key is lost, revoke it and create a replacement."
-        },
-        "dividerOr": "OR",
-        "register": {
-          "title": "Need an API key?",
-          "description": "See worldmonitor.app/docs/api-keys for step-by-step help. Manual API keys require an API Starter or API Business plan.",
-          "submitBtn": "View API plans"
         }
       },
       "table": {
@@ -1114,7 +1094,6 @@
       "stageUnavailable": "No published figures for this stage",
       "withheldNote": "W withheld",
       "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them.",
-      "productionProLocked": "Upgrade to PRO for mine and refinery country shares with concentration (producer concentration index) by stage.",
       "risk": "Risk",
       "infoTooltip": "<strong>Supply Chain Monitor</strong> Global logistics and resource tracking:<ul><li><strong>Chokepoints</strong>: Maritime transit status, disruption scores, and vessel counts</li><li><strong>Shipping</strong>: Baltic Dry Index and freight rate trends</li><li><strong>Minerals</strong>: Critical mineral concentration risk (producer concentration index) and top producers</li></ul>Click a chokepoint card to expand transit history chart."
     },
@@ -1251,7 +1230,7 @@
       "skipToEnd": "Skip to end"
     },
     "pizzint": {
-      "indexSource": "Index: World Monitor · venue data:",
+      "indexSource": "Index: RaWorld · venue data:",
       "statusNormal": "NORMAL",
       "statusNoData": "NO DATA",
       "statusNoBaseline": "NO BASELINE",
@@ -1260,7 +1239,7 @@
       "defcon": "DEFCON {{level}}",
       "updated": "Updated {{timeAgo}}",
       "tensionsTitle": "Geopolitical Tensions",
-      "tensionsSource": "Tensions: World Monitor from GDELT events",
+      "tensionsSource": "Tensions: RaWorld from GDELT events",
       "insufficientData": "Insufficient data",
       "pizzaUnavailable": "Pizza activity unavailable",
       "source": "Source:",
@@ -1939,7 +1918,7 @@
       "reported": "Count",
       "period": "Period",
       "crossBorderNote": "UN Refugee Agency Operational Data Portal: people who crossed borders in each crisis, from the latest country reports. Situations overlap, so they are not added together.",
-      "movementNote": "Each row keeps its source, report date and measure. Stocks, arrivals and encounter events are different measures. Sources can overlap; do not add their counts. WorldMonitor derives this view from the linked sources; no provider endorsement is implied.",
+      "movementNote": "Each row keeps its source, report date and measure. Stocks, arrivals and encounter events are different measures. Sources can overlap; do not add their counts. RaWorld derives this view from the linked sources; no provider endorsement is implied.",
       "recent": "Recent",
       "last30Days": "Last 30 days",
       "newThisWeek": "New this week",
@@ -2475,7 +2454,7 @@
       "loadError": "Climate news temporarily unavailable"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>WM Analyst</strong> AI analyst with live context across geopolitical, market, military, and economic domains. Powered by Claude with real-time data injected from active WorldMonitor feeds."
+      "infoTooltip": "<strong>RaWorld Analyst</strong> AI analyst with live context across geopolitical, market, military, and economic domains. Powered by Claude with real-time data injected from active RaWorld feeds."
     },
     "cotPositioning": {
       "infoTooltip": "<strong>Futures positioning</strong> Weekly net positions for commercial traders, large speculators and small traders across commodity and financial futures. Source is the Commodity Futures Trading Commission Commitments of Traders report, published on Fridays."
@@ -2563,7 +2542,7 @@
       "infoTooltip": "<strong>Economic Calendar</strong> Scheduled macroeconomic releases: consumer price index, nonfarm payrolls, gross domestic product, purchasing managers index, and central bank decisions. Shows forecast vs actual vs prior. High-impact events highlighted. Source: economic data providers."
     },
     "fsi": {
-      "infoTooltip": "<strong>Financial Stress Indicator</strong> WorldMonitor ratio of high-yield credit to long Treasuries, adjusted for equity volatility and the high-yield spread: (HYG / TLT) / (VIX × High-yield spread / 100). This is not the Kansas City Fed Financial Stress Index. A reading of 1.5 or higher is low stress; below 0.3 is high stress.",
+      "infoTooltip": "<strong>Financial Stress Indicator</strong> RaWorld ratio of high-yield credit to long Treasuries, adjusted for equity volatility and the high-yield spread: (HYG / TLT) / (VIX × High-yield spread / 100). This is not the Kansas City Fed Financial Stress Index. A reading of 1.5 or higher is low stress; below 0.3 is high stress.",
       "title": "Financial Stress Indicator",
       "usFsiValue": "US Financial Stress Indicator value",
       "cissTitle": "EU CISS (Euro Area Systemic Stress)",
@@ -2621,8 +2600,7 @@
       "dependentCommodities": "Dependent commodities",
       "stateOk": "Current",
       "stateStale": "Stale input",
-      "stateInsufficient": "Insufficient data",
-      "proLocked": "Upgrade to PRO for commodity vulnerability scoring"
+      "stateInsufficient": "Insufficient data"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>Hormuz Trade Tracker</strong> Live ship tracking through the Strait of Hormuz, the world's most critical oil chokepoint. Monitors tanker counts, disruption events, and weekly flow changes. Approximately 20% of global oil supply transits here daily.",
@@ -2647,7 +2625,7 @@
       "infoTooltip": "<strong>Macro indicators</strong> US, euro area and China prices, activity, policy and currency indicators. China requires current coverage. Each tile shows its source and observation date."
     },
     "monitors": {
-      "infoTooltip": "<strong>Keyword Monitors</strong> Add any term to track live news mentions across all WorldMonitor sources. Results update in real time as matching articles are ingested."
+      "infoTooltip": "<strong>Keyword Monitors</strong> Add any term to track live news mentions across all RaWorld sources. Results update in real time as matching articles are ingested."
     },
     "renewable": {
       "infoTooltip": "<strong>Renewable Energy</strong> Share of electricity generation from renewables by region and year, plus US installed capacity for solar, wind, and coal (MW). Sources: World Bank (EG.ELC.RNEW.ZS) and US Energy Information Administration."
@@ -2667,124 +2645,17 @@
     "yieldCurve": {
       "infoTooltip": "<strong>Yield Curve &amp; Rates</strong> US Treasury yield curve (2Y, 5Y, 10Y, 30Y) and key rate spreads including the 10Y-2Y inversion indicator. Also shows Euro area rates (EURIBOR, ESTR). An inverted curve historically precedes recessions. Source: Federal Reserve Economic Data."
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro is launched",
-      "tagline": "More Signal, Less Noise. More AI Briefings. A Geopolitical & Equity Researcher just for you.",
-      "cta": "Upgrade to Pro →",
-      "dismiss": "Dismiss"
-    },
-    "billingState": {
-      "onHoldDesc": "Payment failed. Update your payment method to restore premium access.",
-      "onHoldBannerMessage": "Payment failed. Update your payment method to keep your subscription active.",
-      "updatePayment": "Update Payment",
-      "renewalPendingDesc": "We're verifying your subscription renewal. Premium access will be restored automatically once confirmed.",
-      "refreshStatus": "Refresh Status",
-      "renewalFailedDesc": "We couldn't verify your subscription renewal. Manage billing or contact support if this persists.",
-      "manageBilling": "Manage Billing",
-      "lapsedDesc": "Your Pro subscription has ended. Resubscribe to regain premium access.",
-      "resubscribe": "Resubscribe"
-    },
     "exportGate": {
-      "signedOutDesc": "Sign in to export dashboard data as CSV, JSON or PDF.",
-      "upgradeDesc": "Data export (CSV, JSON, PDF) is included with Pro Business.",
-      "upgradeCta": "Upgrade to Pro Business",
       "lockedAriaLabel": "Export data — locked. {{reason}}",
       "unlockedAnnouncement": "Data export unlocked.",
       "preparingPdf": "Preparing PDF…",
       "pdfFailed": "The PDF report could not be generated. Try again, or use the JSON export."
-    },
-    "tabCap": {
-      "signedOutDesc": "Signed-out workspaces are limited to {{cap}} dashboard tabs. Sign in to add more.",
-      "upgradeDesc": "You've reached your limit of {{cap}} dashboard tabs.",
-      "upgradeCta": "Upgrade for more",
-      "lockedAriaLabel": "Add tab — locked. {{reason}}",
-      "unlockedAnnouncement": "Dashboard tab limit lifted."
     },
     "checkoutFailureBanner": {
       "message": "Payment couldn't be completed. No charge was made.",
       "retry": "Try again",
       "retrying": "Retrying…",
       "dismiss": "Dismiss"
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "Step {{current}} of {{total}}",
-      "closeLabel": "Skip setup",
-      "ariaLabel": "Pro activation setup",
-      "signedInAs": "Signed in as {{email}}",
-      "steps": {
-        "brief": {
-          "heading": "Your daily brief, every morning",
-          "body": "A curated intelligence briefing in your inbox each morning — the overnight signals that matter, distilled into a five-minute read.",
-          "confirmCta": "Turn on my morning brief",
-          "confirming": "Turning it on…",
-          "doneNote": "Your morning brief is already running.",
-          "scheduleNote": "We'll keep your current delivery time.",
-          "summaryLabel": "Morning brief",
-          "summaryVerified": "On — starts with your next morning brief.",
-          "deliverAt": "Deliver at",
-          "previewLoading": "Preparing a preview of your first brief…",
-          "previewLabel": "This morning's brief"
-        },
-        "alerts": {
-          "heading": "Critical alerts",
-          "body": "Get pinged in your browser when something big breaks — conflict escalations, market shocks, fresh sanctions. Tune the cadence anytime in Settings.",
-          "confirmCta": "Enable alerts",
-          "confirming": "Enabling…",
-          "doneNote": "Browser alerts are already on.",
-          "blockedNote": "Notifications are blocked in your browser. Turn them on in your browser's site settings to get alerts.",
-          "declinedNote": "No problem — we won't send browser alerts. You can turn them on later from your browser's site settings.",
-          "summaryLabel": "Critical alerts",
-          "summaryVerified": "On — critical signals will reach your browser."
-        },
-        "power": {
-          "heading": "Your Pro toolkit",
-          "body": "Custom widgets, MCP connections, and the AI researcher are unlocked. Build the board you actually want to watch.",
-          "confirmCta": "Explore Pro tools",
-          "confirming": "Opening…",
-          "doneNote": "You're already using your Pro tools.",
-          "summaryLabel": "Pro toolkit",
-          "summaryVerified": "Unlocked and ready when you are.",
-          "channelsNote": "Prefer Telegram, Slack, Discord, or a webhook?",
-          "pointers": {
-            "search": "Search the entire dashboard",
-            "widgets": "Build a custom widget",
-            "analyst": "Ask the AI analyst",
-            "mcpClients": "Set up MCP",
-            "channels": "Set those up in notification settings"
-          }
-        }
-      },
-      "status": {
-        "pending": "Not set up",
-        "inFlight": "Setting up…",
-        "verified": "Ready",
-        "failed": "Didn't work",
-        "blocked": "Blocked",
-        "unavailable": "Not available",
-        "blockedNote": "This isn't available right now — you can set it up later from settings.",
-        "unavailableNote": "This isn't available on your device — you can set it up later.",
-        "failedBody": "Something went wrong. You can try again, or set it up later from settings.",
-        "retry": "Try again"
-      },
-      "actions": {
-        "skip": "Skip for now",
-        "continue": "Continue"
-      },
-      "summary": {
-        "heading": "You're all set",
-        "subVerified": "Here's what's running on your account.",
-        "subPending": "You can finish setup any time from settings.",
-        "linePending": "Not set up yet — finish any time in settings.",
-        "lineFailed": "We couldn't set this up — try again from settings.",
-        "finish": "Go to my dashboard"
-      },
-      "chip": {
-        "message": "Finish setting up your Pro account.",
-        "action": "Finish setup",
-        "dismissLabel": "Dismiss"
-      }
     },
     "frameworkSelector": {
       "label": "Analysis Framework",
@@ -3035,18 +2906,6 @@
       "rubPerUnit": "RUB per unit",
       "sourceCbr": "Source: Bank of Russia"
     },
-    "passkeyOffer": {
-      "title": "Save a passkey?",
-      "body": "Sign in next time with your fingerprint, face, or device PIN — no password to remember.",
-      "accept": "Save passkey",
-      "dismiss": "Not now",
-      "close": "Close",
-      "announce": "Save a passkey to sign in faster next time.",
-      "busy": "Waiting for your device…",
-      "succeeded": "Passkey saved. You can use it next time you sign in.",
-      "retryable": "That didn't finish. You can try again.",
-      "failed": "We couldn't save a passkey on this device."
-    },
     "decisionBrief": {
       "commodityTitle": "Commodity decision brief",
       "commodity": "Commodity / product",
@@ -3065,8 +2924,7 @@
       "changed": "Selection changed. Capture both scenarios before exporting.",
       "loading": "Capturing both scenarios…",
       "captured": "Captured. Review observation dates and constraints before downloading.",
-      "failed": "Could not capture the scenarios. Check your access and retry. No result is available to export.",
-      "locked": "Decision brief is available on Pro."
+      "failed": "Could not capture the scenarios. Check your access and retry. No result is available to export."
     }
   },
   "popups": {
@@ -3786,30 +3644,9 @@
     "fontMono": "Monospace",
     "fontSystem": "System Default"
   },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "Requires a World Monitor license key",
-    "signInToUnlock": "Sign in to unlock premium features",
-    "signIn": "Sign In to Unlock",
-    "upgradeDesc": "Upgrade to Pro for full access to premium analytics",
-    "upgradeToPro": "Upgrade to Pro",
-    "features": {
-      "orefSirens1": "Real-time Israel missile & rocket alerts",
-      "orefSirens2": "Siren zone mapping with threat classification",
-      "telegramIntel1": "Curated Telegram open-source intelligence channels",
-      "telegramIntel2": "Near-real-time conflict & geopolitical updates",
-      "xIntel1": "Curated X news accounts",
-      "xIntel2": "API-fresh posts and permalinks"
-    }
-  },
   "contextMenu": {
     "openCountryBrief": "Open Country Brief",
     "copyCoordinates": "Copy Coordinates"
-  },
-  "auth": {
-    "signIn": "Sign In",
-    "createAccount": "Create account",
-    "settings": "Settings"
   },
   "mcp": {
     "connectPanel": "Connect MCP",

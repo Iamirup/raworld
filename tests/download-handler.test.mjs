@@ -2,7 +2,7 @@ import { strict as assert } from 'node:assert';
 import test from 'node:test';
 import handler from '../api/download.js';
 
-const RELEASES_PAGE = 'https://github.com/koala73/worldmonitor/releases/latest';
+const RELEASES_PAGE = 'https://github.com/Iamirup/raworld/releases/latest';
 const WORLD_APPIMAGE = 'https://downloads.example/World.Monitor_2.5.7_amd64.AppImage';
 
 function makeGitHubReleaseResponse(assets) {
@@ -43,7 +43,7 @@ test('resolves the platform asset when no variant is supplied', async () => {
   assert.equal(response.headers.get('location'), WORLD_APPIMAGE);
 });
 
-test('applies the World Monitor identity filter even with no variant supplied', async () => {
+test('applies the RaWorld identity filter even with no variant supplied', async () => {
   // The desktop updater stopped sending `variant` under the one-binary model,
   // so the no-variant path is the app's own download path. A stray branded
   // asset ordered first must not win it.
@@ -88,7 +88,7 @@ for (const variant of ['full', 'world', 'tech', 'finance', 'commodity', 'energy'
 test('treats an empty variant the same as omitting it', async () => {
   // `variant=` is falsy, so it skips the supported-set check. It must still get
   // the identity filter — that is now unconditional precisely so no path can
-  // resolve a non-World-Monitor asset.
+  // resolve a non-RaWorld asset.
   const response = await download('platform=linux-appimage&variant=', [
     {
       name: 'Tech-Monitor_2.5.7_amd64.AppImage',
@@ -106,7 +106,7 @@ test('is case-insensitive about the variant', async () => {
   assert.equal(response.headers.get('location'), WORLD_APPIMAGE);
 });
 
-test('still resolves to the World Monitor asset when a stray branded asset is present', async () => {
+test('still resolves to the RaWorld asset when a stray branded asset is present', async () => {
   // Defends the collapse itself: a leftover per-variant artifact on a release
   // must not resurrect per-variant asset selection.
   const response = await download('platform=linux-appimage&variant=tech', [

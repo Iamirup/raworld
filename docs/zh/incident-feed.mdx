@@ -1,9 +1,9 @@
 ---
 title: "事件流 API"
-description: "把全球事件和风险信号接入你自己的应用：World Monitor 的冲突、动荡、新闻聚类和事件历史端点，各自返回的字段、筛选条件、保留期限、签名 webhook、SDK 和自助订阅方案。"
+description: "把全球事件和风险信号接入你自己的应用：RaWorld 的冲突、动荡、新闻聚类和事件历史端点，各自返回的字段、筛选条件、保留期限、签名 webhook、SDK 和自助订阅方案。"
 ---
 
-本页回答一个问题：如何把全球事件和风险信号拉取到内部应用中？World Monitor 通过 REST API、MCP 服务器、官方 SDK 和签名告警 webhook 提供这些数据。方案均为自助订阅：在 [worldmonitor.app/pro](https://www.worldmonitor.app/pro) 注册并创建密钥，无需联系销售。
+本页回答一个问题：如何把全球事件和风险信号拉取到内部应用中？RaWorld 通过 REST API、MCP 服务器、官方 SDK 和签名告警 webhook 提供这些数据。方案均为自助订阅：在 [worldmonitor.app/pro](https://www.worldmonitor.app/pro) 注册并创建密钥，无需联系销售。
 
 目前没有单一的“事件”端点。事件来自下列数据流，每个数据流有各自的记录结构和保留期限。按任务选择数据流：
 
@@ -163,7 +163,7 @@ npx worldmonitor call get_intel_timeline --args '{"domain":"conflict","country":
 
 ## 构建前须知
 
-- World Monitor 聚合已发布的报道，不在现场核实事件；来自 GDELT 的记录是媒体信号。
+- RaWorld 聚合已发布的报道，不在现场核实事件；来自 GDELT 的记录是媒体信号。
 - 并非所有上游来源都已完成条款审查。再分发数据前请确认复用条款。免费的 `get_sources` MCP 工具会列出每个媒体的层级和审查状态。
 - 没有公布的可用性 SLA。
-- 时间线可分页读取现有的 180 天存储。国家历史回放由 [issue #4276](https://github.com/koala73/worldmonitor/issues/4276) 跟踪，更多事件领域由 [issue #5745](https://github.com/koala73/worldmonitor/issues/5745) 跟踪。延长保留期需要买方需求和存储成本证据。
+- 时间线可分页读取现有的 180 天存储。国家历史回放由 [issue #4276](https://github.com/Iamirup/raworld/issues/4276) 跟踪，更多事件领域由 [issue #5745](https://github.com/Iamirup/raworld/issues/5745) 跟踪。延长保留期需要买方需求和存储成本证据。

@@ -1,13 +1,13 @@
 # worldmonitor (Go)
 
-Official Go SDK for the [World Monitor](https://worldmonitor.app) global-intelligence API — country briefs, risk scores, conflict / cyber / market / news feeds, and every MCP tool, without writing an HTTP integration.
+Official Go SDK for the [RaWorld](https://worldmonitor.app) global-intelligence API — country briefs, risk scores, conflict / cyber / market / news feeds, and every MCP tool, without writing an HTTP integration.
 
 Stdlib-only (zero dependencies), MCP-first: the same design as the official [`worldmonitor` npm CLI](https://www.npmjs.com/package/worldmonitor). The [MCP server](https://www.worldmonitor.app/docs/mcp-overview) is the live, documented agent surface; a small REST escape hatch rounds it out.
 
 ## Install
 
 ```sh
-go get github.com/koala73/worldmonitor/sdk/go
+go get github.com/Iamirup/raworld/sdk/go
 ```
 
 ## Quickstart
@@ -19,7 +19,7 @@ import (
 	"context"
 	"fmt"
 
-	worldmonitor "github.com/koala73/worldmonitor/sdk/go"
+	worldmonitor "github.com/Iamirup/raworld/sdk/go"
 )
 
 func main() {
@@ -73,4 +73,4 @@ Use `errors.As` to branch on them.
 | `MCPURL` | `WORLDMONITOR_MCP_URL` | `https://worldmonitor.app/mcp` |
 | `HTTPClient` | — | `http.Client` with a 30s timeout |
 
-The source lives in [`sdk/go/`](https://github.com/koala73/worldmonitor/tree/main/sdk/go) in the main repository and is versioned with `sdk/go/vX.Y.Z` tags. Docs: [worldmonitor.app/docs/sdks](https://www.worldmonitor.app/docs/sdks). License: MIT (thin client; the World Monitor platform itself remains AGPL-3.0).
+The source lives in [`sdk/go/`](https://github.com/Iamirup/raworld/tree/main/sdk/go) in the main repository and is versioned with `sdk/go/vX.Y.Z` tags. Docs: [worldmonitor.app/docs/sdks](https://www.worldmonitor.app/docs/sdks). License: MIT (thin client; the RaWorld platform itself remains AGPL-3.0).

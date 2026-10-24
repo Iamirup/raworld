@@ -91,8 +91,8 @@ describe('Company Monitoring bounded Exa discovery contract', () => {
     });
     assert.equal(confirmation.queryVersion, fixture.frozenDiscovery.confirmationQueryVersion);
     assert.notEqual(confirmation.query, discovery.query);
-    assert.equal(confirmation.query.includes('WorldMonitor discovery v1'), false);
-    assert.equal(discovery.query.includes('WorldMonitor confirmation v1'), false);
+    assert.equal(confirmation.query.includes('RaWorld discovery v1'), false);
+    assert.equal(discovery.query.includes('RaWorld confirmation v1'), false);
   });
 
   it('preserves contract-valid long legal identifiers or closes the company as a byte omission', () => {

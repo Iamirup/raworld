@@ -1,7 +1,7 @@
 ---
 name: fetch-country-brief
 version: 2
-description: Open the WorldMonitor country interface in a UI-capable MCP host. Use the text assessment endpoint for explicit text-only requests or clients without embedded UI.
+description: Open the RaWorld country interface in a UI-capable MCP host. Use the text assessment endpoint for explicit text-only requests or clients without embedded UI.
 ---
 
 # fetch-country-brief

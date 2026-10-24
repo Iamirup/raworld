@@ -40,7 +40,7 @@ export const CANONICAL_ORIGIN = 'https://www.worldmonitor.app/';
  * desktop builds and an Android TV app, which the narrower subtype would
  * misdescribe, and /schemamap.xml already advertises the supertype.
  * `BusinessApplication` rather than the FinanceApplication / SecurityApplication
- * split it replaces: World Monitor is neither a finance app nor a security app.
+ * split it replaces: RaWorld is neither a finance app nor a security app.
  *
  * This pins the values the product decision turns on. It is deliberately NOT
  * the whole guard — enumerating properties would only freeze the ones that
@@ -53,7 +53,7 @@ export const CANONICAL_ORIGIN = 'https://www.worldmonitor.app/';
 export const SOFTWARE_SHARED_PROPERTIES = {
   '@type': 'SoftwareApplication',
   '@id': SOFTWARE_ID,
-  name: 'World Monitor',
+  name: 'RaWorld',
   url: CANONICAL_ORIGIN,
   description:
     'Free real-time global intelligence dashboard. Curated news feeds, conflict tracking, market data, shipping chokepoints, satellite passes and cyber signals fused into one live map of the world, with AI analysis layered on top.',
@@ -62,7 +62,7 @@ export const SOFTWARE_SHARED_PROPERTIES = {
   // The product's own profiles. https://x.com/eliehabib is the founder's
   // account and stays on the Organization node.
   sameAs: [
-    'https://github.com/koala73/worldmonitor',
+    'https://github.com/Iamirup/raworld',
     'https://www.npmjs.com/package/worldmonitor',
     'https://www.wikidata.org/wiki/Q141237754',
     'https://x.com/worldmonitorai',
@@ -78,8 +78,8 @@ export const SOFTWARE_SHARED_PROPERTIES = {
 export const WEBSITE_SHARED_PROPERTIES = {
   '@type': 'WebSite',
   '@id': WEBSITE_ID,
-  name: 'World Monitor',
-  alternateName: 'WorldMonitor',
+  name: 'RaWorld',
+  alternateName: 'RaWorld',
   url: CANONICAL_ORIGIN,
   description:
     'Real-time global intelligence dashboard — live news, markets, military tracking, infrastructure monitoring, and geopolitical data.',

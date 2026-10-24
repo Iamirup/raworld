@@ -44,7 +44,7 @@ export const CLAIM_CARD_MAX_HEADLINES = 10;
 export const CLAIM_CANDIDATE_LIMIT = 100;
 
 /** Shown with every claim card, found or not. */
-export const CLAIM_CARD_CAVEAT = 'Coverage, not accuracy: this shows who reported the claim and whether they are independent, not whether it is true. Not found means not in WorldMonitor\'s current sources.';
+export const CLAIM_CARD_CAVEAT = 'Coverage, not accuracy: this shows who reported the claim and whether they are independent, not whether it is true. Not found means not in RaWorld\'s current sources.';
 
 const STOPWORDS = new Set(`a an and are as at be been but by can could did do does for from had has have he her his how
 i if in into is it its just more most new news no not now of on or our out over says said say she so than that the their

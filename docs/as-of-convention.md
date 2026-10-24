@@ -42,12 +42,12 @@ Historical input errors use JSON-RPC code `-32602` and `error.data.reason`:
 
 The helper throws `AsOfError` with `code` and `data` for the first three reasons. A future MCP adapter must map those properties to the JSON-RPC error envelope. Invalid stored timestamps and invalid granularity are store configuration errors, not caller errors.
 
-The adopting tool enforces the 7, 90, or 365-day tier depth from [#4276](https://github.com/koala73/worldmonitor/issues/4276). It must distinguish the store's actual history start from the entitlement boundary. Do not pass an entitlement-truncated list to the helper and report its first row as the store's history start.
+The adopting tool enforces the 7, 90, or 365-day tier depth from [#4276](https://github.com/Iamirup/raworld/issues/4276). It must distinguish the store's actual history start from the entitlement boundary. Do not pass an entitlement-truncated list to the helper and report its first row as the store's history start.
 
 ## Adoption requirements
 
 A tool adopts `as_of` only after it has a history store, a documented observation shape, health registration, and a registry flag naming its history key. A historical seeded-cache read stays weight 1.
 
-The first intended adopter is `get_forecast_predictions`. Its existing `forecast:predictions:history:v1` list needs health registration and documentation that each run stores only the top 25 forecasts. Next is `get_country_risk`, after the daily snapshots in #4276 exist. Lake-backed adoption follows the history API in [#9081](https://github.com/koala73/worldmonitor/issues/9081).
+The first intended adopter is `get_forecast_predictions`. Its existing `forecast:predictions:history:v1` list needs health registration and documentation that each run stores only the top 25 forecasts. Next is `get_country_risk`, after the daily snapshots in #4276 exist. Lake-backed adoption follows the history API in [#9081](https://github.com/Iamirup/raworld/issues/9081).
 
 `get_prediction_markets` needs a separate market history store before adoption. This change adds no store, registry flag, or tool input. Venue redistribution terms must be confirmed before storing and serving historical prices.

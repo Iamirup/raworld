@@ -7,7 +7,7 @@ description: "Construct definition for the financialSystemExposure resilience di
 **Dimension ID**: `financialSystemExposure`
 **Domain**: `economic` (weight 0.50 within domain)
 **Type**: `stress`
-**Rollout**: `RESILIENCE_FIN_SYS_EXPOSURE_ENABLED=true` is live in Vercel production. The code default remains `false` for CI and rollback; see the [flag-flip runbook](https://github.com/koala73/worldmonitor/blob/main/docs/methodology/financial-system-exposure-flag-flip-runbook.md).
+**Rollout**: `RESILIENCE_FIN_SYS_EXPOSURE_ENABLED=true` is live in Vercel production. The code default remains `false` for CI and rollback; see the [flag-flip runbook](https://github.com/Iamirup/raworld/blob/main/docs/methodology/financial-system-exposure-flag-flip-runbook.md).
 
 ## Question answered
 
@@ -442,4 +442,4 @@ Measured effect on the 2026-08-11 production payloads (dimension score, before â
 | before | 68 | 48 | 52 | 0 | 100 | 45 | 59 | 54 | 54 | 54 | 80 | 89 | 30 |
 | after | 15 | 15 | 15 | 0 | 15 | 15 | 15 | 15 | 72 | 72 | 81 | 85 | 55 |
 
-The dimension is live behind `RESILIENCE_FIN_SYS_EXPOSURE_ENABLED` in production. The code default remains flag-off for CI and rollback. The cache rotation, read-only acceptance capture, and operator closeout are defined in [the activation runbook](https://github.com/koala73/worldmonitor/blob/main/docs/methodology/financial-system-exposure-flag-flip-runbook.md). #6461 is already closed by #6515, so no reprioritization mutation is required.
+The dimension is live behind `RESILIENCE_FIN_SYS_EXPOSURE_ENABLED` in production. The code default remains flag-off for CI and rollback. The cache rotation, read-only acceptance capture, and operator closeout are defined in [the activation runbook](https://github.com/Iamirup/raworld/blob/main/docs/methodology/financial-system-exposure-flag-flip-runbook.md). #6461 is already closed by #6515, so no reprioritization mutation is required.

@@ -44,7 +44,7 @@ describe('reported landing-page SEO metadata', () => {
     assertDescription('glossary index', glossaryDescription);
     assert.match(
       glossaryTerm,
-      /const metaTitle = term\.abbr[\s\S]*?\$\{term\.abbr\} Definition \| World Monitor/,
+      /const metaTitle = term\.abbr[\s\S]*?\$\{term\.abbr\} Definition \| RaWorld/,
       'abbreviated glossary terms must use compact definition titles',
     );
   });
@@ -70,7 +70,7 @@ describe('reported landing-page SEO metadata', () => {
     assertDescription('Pro', proDescription);
     assertTitle('built Pro', builtProTitle);
     assertDescription('built Pro', builtProDescription);
-    assert.equal(proLocale.meta.title, 'World Monitor Pro | AI Intelligence & MCP');
+    assert.equal(proLocale.meta.title, 'RaWorld Pro | AI Intelligence & MCP');
     assertDescription('Pro locale', proLocale.meta.description);
     assertDescription('English sandbox', englishSandboxDescription);
     assertDescription('Chinese sandbox', sandboxDescription);
@@ -79,8 +79,8 @@ describe('reported landing-page SEO metadata', () => {
   it('keeps the homepage description product-led, canonical, and bounded', () => {
     const welcomeHtml = source('pro-test/welcome.html');
     const welcomeLocale = JSON.parse(source('pro-test/src/locales/en.json')).welcome.meta;
-    const expectedDescription = 'World Monitor: real-time geopolitical intelligence dashboard. A free live map of conflicts, shipping, flights, markets and cyber, with an API and MCP server.';
-    const expectedTitle = 'World Monitor: Free Geopolitical Intelligence Dashboard';
+    const expectedDescription = 'RaWorld: real-time geopolitical intelligence dashboard. A free live map of conflicts, shipping, flights, markets and cyber, with an API and MCP server.';
+    const expectedTitle = 'RaWorld: Free Geopolitical Intelligence Dashboard';
 
     assertTitle('homepage locale', welcomeLocale.title);
     assertDescription('homepage locale', welcomeLocale.description);

@@ -16,18 +16,18 @@ function organizationBlocks(html) {
     .filter((block) => block['@type'] === 'Organization');
 }
 
-describe('World Monitor brand-identity page', () => {
+describe('RaWorld brand-identity page', () => {
   it('opens with the brand-named H1 and a NAP table crawlers can quote', () => {
     const body = read(BRAND_PAGE);
-    assert.match(body, /^---\n[\s\S]*?\n---\n+# World Monitor\n/, 'world-monitor.md must retain its brand H1 after metadata');
+    assert.match(body, /^---\n[\s\S]*?\n---\n+# RaWorld\n/, 'world-monitor.md must retain its brand H1 after metadata');
     assert.match(body, /## Official identity \(NAP\)/);
-    assert.match(body, /\|\s*Name\s*\|\s*World Monitor\s*\|/);
+    assert.match(body, /\|\s*Name\s*\|\s*RaWorld\s*\|/);
     assert.match(body, /https:\/\/www\.worldmonitor\.app/);
     assert.match(body, /https:\/\/worldmonitor\.app \(permanent redirect to www\)/);
     assert.match(
       body,
       /^\|\s*Wikidata \(product\)\s*\|\s*https:\/\/www\.wikidata\.org\/wiki\/Q141237754\s*\|$/m,
-      'the NAP table must identify the World Monitor product Wikidata item',
+      'the NAP table must identify the RaWorld product Wikidata item',
     );
     assert.match(
       body,
@@ -39,7 +39,7 @@ describe('World Monitor brand-identity page', () => {
     assert.match(body, /\|\s*Locality\s*\|\s*Dubai\s*\|/);
     assert.match(body, /\|\s*Country\s*\|\s*AE \(United Arab Emirates\)\s*\|/);
     assert.match(body, /does not publish a street address or telephone number/i);
-    assert.match(body, /## Not World Monitor[\s\S]*world-monitor\.com[\s\S]*worldmonitorintel\.com/, 'brand page must name the same-name sites answer engines confuse with it');
+    assert.match(body, /## Not RaWorld[\s\S]*world-monitor\.com[\s\S]*worldmonitorintel\.com/, 'brand page must name the same-name sites answer engines confuse with it');
     // The digest email footer linked x.com/worldmonitorapp, an unregistered handle,
     // while every sameAs list names x.com/worldmonitorai.
     // The digest HTML template lives in scripts/lib/digest-email-html.mjs.
@@ -51,7 +51,7 @@ describe('World Monitor brand-identity page', () => {
     assert.doesNotMatch(body, /\|\s*Street\s*\|/i);
   });
 
-  it('cites press mentions that already name World Monitor and link the product', () => {
+  it('cites press mentions that already name RaWorld and link the product', () => {
     const body = read(BRAND_PAGE);
     assert.match(body, /www\.wired\.com\/story\/world-monitor-elie-habib/);
     assert.match(body, /mena\.entrepreneur\.com/);
@@ -62,10 +62,10 @@ describe('World Monitor brand-identity page', () => {
   it('names both Wikidata items so agents can resolve the product, not only the founder (#7373)', () => {
     const body = read(BRAND_PAGE);
     // The founder's item was already here; the product's item -- the one every
-    // AI engine reconciles "World Monitor" against -- was not. A brand-identity
+    // AI engine reconciles "RaWorld" against -- was not. A brand-identity
     // record that cites only the person leaves the product unresolvable.
     assert.match(body, /https:\/\/www\.wikidata\.org\/wiki\/Q121365724/, 'brand page must cite the founder Wikidata item');
-    assert.match(body, /https:\/\/www\.wikidata\.org\/wiki\/Q141237754/, 'brand page must cite the World Monitor Wikidata item');
+    assert.match(body, /https:\/\/www\.wikidata\.org\/wiki\/Q141237754/, 'brand page must cite the RaWorld Wikidata item');
   });
 
   it('is advertised on catalog, llms, agents, and IndexNow discovery surfaces', () => {
@@ -119,7 +119,7 @@ describe('Organization JSON-LD NAP alignment', () => {
       'https://www.wikidata.org/wiki/Q141437464',
       'https://rubygems.org/gems/worldmonitor',
       'https://pypi.org/project/worldmonitor-sdk/',
-      'https://pkg.go.dev/github.com/koala73/worldmonitor/sdk/go',
+      'https://pkg.go.dev/github.com/Iamirup/raworld/sdk/go',
     ]) {
       assert.ok(org.sameAs.includes(edge), `Organization sameAs must include ${edge}`);
     }

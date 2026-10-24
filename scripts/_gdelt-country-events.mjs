@@ -1,7 +1,7 @@
 // Per-country GDELT conflict and protest volume for every country, as daily
 // buckets plus each country's own trailing baseline. The CII scores the excess
 // over that baseline for its Conflict and Unrest components while ACLED is
-// unavailable (WorldMonitor has no ACLED access).
+// unavailable (RaWorld has no ACLED access).
 //
 // The row-level conflict feed (gdelt:bulk:conflict-events:v1) keeps only the
 // crisis-registry countries: replaying October 2026 exports showed a worldwide

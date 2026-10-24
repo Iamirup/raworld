@@ -47,7 +47,7 @@ paths:
                                 "quotes":
                                     - "change": 1.5
                                       "display": "example"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "sparkline":
                                           - 1.5
@@ -180,7 +180,7 @@ paths:
                                 "quotes":
                                     - "change": 1.5
                                       "change7d": 1.5
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "sparkline":
                                           - 1.5
@@ -316,7 +316,7 @@ paths:
                                 "quotes":
                                     - "change": 1.5
                                       "display": "example"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "sparkline":
                                           - 1.5
@@ -730,7 +730,7 @@ paths:
                             example:
                                 "sectors":
                                     - "change": 1.5
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "symbol": "AAPL"
                             schema:
                                 $ref: '#/components/schemas/GetSectorSummaryResponse'
@@ -1167,7 +1167,7 @@ paths:
                                 "code": "US"
                                 "currency": "USD"
                                 "fetchedAt": "2026-01-15T12:00:00Z"
-                                "indexName": "WorldMonitor Analyst"
+                                "indexName": "RaWorld Analyst"
                             schema:
                                 $ref: '#/components/schemas/GetCountryStockIndexResponse'
                 "400":
@@ -1432,7 +1432,7 @@ paths:
                                     - "change": 1.5
                                       "country": "US"
                                       "flag": "example"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                 "rateLimited": true
                             schema:
@@ -1543,7 +1543,7 @@ paths:
                   in: query
                   description: Optional company display name used to disambiguate the symbol.
                   required: false
-                  example: "WorldMonitor Analyst"
+                  example: "RaWorld Analyst"
                   schema:
                     type: string
                 - name: include_news
@@ -1836,7 +1836,7 @@ paths:
                   in: query
                   description: Optional company display name used to disambiguate the symbol.
                   required: false
-                  example: "WorldMonitor Analyst"
+                  example: "RaWorld Analyst"
                   schema:
                     type: string
                 - name: eval_window_days
@@ -2113,7 +2113,7 @@ paths:
                                 "sectors":
                                     - "change": 1.5
                                       "id": "example-id"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                             schema:
                                 $ref: '#/components/schemas/ListCryptoSectorsResponse'
                 "400":
@@ -2224,7 +2224,7 @@ paths:
                                 "tokens":
                                     - "change": 1.5
                                       "change7d": 1.5
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "sparkline":
                                           - 1.5
@@ -2339,7 +2339,7 @@ paths:
                                 "tokens":
                                     - "change": 1.5
                                       "change7d": 1.5
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "sparkline":
                                           - 1.5
@@ -2454,7 +2454,7 @@ paths:
                                 "tokens":
                                     - "change": 1.5
                                       "change7d": 1.5
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "sparkline":
                                           - 1.5
@@ -3404,12 +3404,12 @@ components:
             type: apiKey
             in: header
             name: X-WorldMonitor-Key
-            description: User-issued WorldMonitor API key.
+            description: User-issued RaWorld API key.
         ApiKeyHeader:
             type: apiKey
             in: header
             name: X-Api-Key
-            description: Alias header for the WorldMonitor API key (X-WorldMonitor-Key).
+            description: Alias header for the RaWorld API key (X-WorldMonitor-Key).
         BearerAuth:
             type: http
             scheme: bearer

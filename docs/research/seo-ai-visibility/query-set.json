@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "querySetId": "seo-ai-visibility-v1",
   "reviewedAt": "2026-07-27",
-  "reviewNotes": "Twenty-five English-language decision queries reviewed against World Monitor's current page families. Reference entities are comparison candidates or primary sources to inspect; their inclusion is not an endorsement or a ranking claim.",
+  "reviewNotes": "Twenty-five English-language decision queries reviewed against RaWorld's current page families. Reference entities are comparison candidates or primary sources to inspect; their inclusion is not an endorsement or a ranking claim.",
   "queries": [
     {
       "id": "q01",
@@ -68,8 +68,8 @@
         },
         {
           "role": "source",
-          "name": "World Monitor GitHub repository",
-          "url": "https://github.com/koala73/worldmonitor"
+          "name": "RaWorld GitHub repository",
+          "url": "https://github.com/Iamirup/raworld"
         }
       ]
     },
@@ -374,7 +374,7 @@
     },
     {
       "id": "q17",
-      "query": "World Monitor alternatives for geopolitical intelligence",
+      "query": "RaWorld alternatives for geopolitical intelligence",
       "intent": "evaluation",
       "targetAudience": "Buyers shortlisting intelligence platforms",
       "targetPage": {
@@ -397,7 +397,7 @@
     },
     {
       "id": "q18",
-      "query": "World Monitor vs GDELT",
+      "query": "RaWorld vs GDELT",
       "intent": "evaluation",
       "targetAudience": "Researchers and developers choosing data workflows",
       "targetPage": {
@@ -413,14 +413,14 @@
         },
         {
           "role": "source",
-          "name": "World Monitor source catalog",
+          "name": "RaWorld source catalog",
           "url": "https://www.worldmonitor.app/docs/data-sources"
         }
       ]
     },
     {
       "id": "q19",
-      "query": "World Monitor vs Liveuamap",
+      "query": "RaWorld vs Liveuamap",
       "intent": "evaluation",
       "targetAudience": "News, OSINT, and security analysts",
       "targetPage": {
@@ -436,8 +436,8 @@
         },
         {
           "role": "source",
-          "name": "World Monitor GitHub repository",
-          "url": "https://github.com/koala73/worldmonitor"
+          "name": "RaWorld GitHub repository",
+          "url": "https://github.com/Iamirup/raworld"
         }
       ]
     },
@@ -466,7 +466,7 @@
     },
     {
       "id": "q21",
-      "query": "World Monitor capabilities",
+      "query": "RaWorld capabilities",
       "intent": "branded_entity",
       "targetAudience": "Prospective users checking product scope",
       "targetPage": {
@@ -477,19 +477,19 @@
       "referenceEntities": [
         {
           "role": "source",
-          "name": "World Monitor product reference",
+          "name": "RaWorld product reference",
           "url": "https://www.worldmonitor.app/llms.txt"
         },
         {
           "role": "source",
-          "name": "World Monitor GitHub repository",
-          "url": "https://github.com/koala73/worldmonitor"
+          "name": "RaWorld GitHub repository",
+          "url": "https://github.com/Iamirup/raworld"
         }
       ]
     },
     {
       "id": "q22",
-      "query": "World Monitor data sources and methodology",
+      "query": "RaWorld data sources and methodology",
       "intent": "branded_entity",
       "targetAudience": "Analysts performing source due diligence",
       "targetPage": {
@@ -500,19 +500,19 @@
       "referenceEntities": [
         {
           "role": "source",
-          "name": "World Monitor data-source catalog",
+          "name": "RaWorld data-source catalog",
           "url": "https://www.worldmonitor.app/docs/data-sources"
         },
         {
           "role": "source",
-          "name": "World Monitor health endpoint documentation",
+          "name": "RaWorld health endpoint documentation",
           "url": "https://www.worldmonitor.app/docs/health-endpoints"
         }
       ]
     },
     {
       "id": "q23",
-      "query": "World Monitor pricing",
+      "query": "RaWorld pricing",
       "intent": "branded_entity",
       "targetAudience": "Users evaluating paid access",
       "targetPage": {
@@ -523,19 +523,19 @@
       "referenceEntities": [
         {
           "role": "source",
-          "name": "World Monitor pricing reference",
+          "name": "RaWorld pricing reference",
           "url": "https://www.worldmonitor.app/pricing.md"
         },
         {
           "role": "source",
-          "name": "World Monitor Pro page",
+          "name": "RaWorld Pro page",
           "url": "https://www.worldmonitor.app/pro#pricing"
         }
       ]
     },
     {
       "id": "q24",
-      "query": "World Monitor MCP access",
+      "query": "RaWorld MCP access",
       "intent": "branded_entity",
       "targetAudience": "Developers and assistant users checking MCP access",
       "targetPage": {
@@ -546,7 +546,7 @@
       "referenceEntities": [
         {
           "role": "source",
-          "name": "World Monitor MCP server reference",
+          "name": "RaWorld MCP server reference",
           "url": "https://www.worldmonitor.app/mcp-server.md"
         },
         {
@@ -558,7 +558,7 @@
     },
     {
       "id": "q25",
-      "query": "how fresh is World Monitor data",
+      "query": "how fresh is RaWorld data",
       "intent": "branded_entity",
       "targetAudience": "Analysts validating operational freshness",
       "targetPage": {
@@ -569,12 +569,12 @@
       "referenceEntities": [
         {
           "role": "source",
-          "name": "World Monitor health endpoint documentation",
+          "name": "RaWorld health endpoint documentation",
           "url": "https://www.worldmonitor.app/docs/health-endpoints"
         },
         {
           "role": "source",
-          "name": "World Monitor compact health API",
+          "name": "RaWorld compact health API",
           "url": "https://www.worldmonitor.app/api/health?compact=1"
         }
       ]

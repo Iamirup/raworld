@@ -20,7 +20,7 @@
   "gcc-investments": "Lists Saudi and UAE investments in critical infrastructure worldwide from a built-in database, filterable by investor and sector and linked to the map.",
   "global-procurement": "Lists open public tenders from SAM.gov, EU TED, UK Contracts Finder, CanadaBuys and the World Bank, searchable by buyer, country and source.",
   "intel": "Lists defense and foreign-policy news and analysis from sources such as Defense One, The War Zone, Foreign Policy and RAND.",
-  "latest-brief": "Shows the cover card of your latest World Monitor Brief, the AI-written intelligence digest, with a link to read the full edition.",
+  "latest-brief": "Shows the cover card of your latest RaWorld Brief, the AI-written intelligence digest, with a link to read the full edition.",
   "live-news": "Streams live news video channels from YouTube, such as Bloomberg, Sky News, DW and Al Jazeera, in a switchable player.",
   "map": "Maps conflicts, military activity, hotspots, nuclear sites, sanctions, weather and outages as toggleable layers on a WebGL map with an optional 3D globe.",
   "market-breadth": "Charts the share of S&P 500 stocks trading above their 20, 50 and 200-day moving averages, computed from a TradingView screener scan.",

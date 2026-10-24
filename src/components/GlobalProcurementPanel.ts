@@ -7,7 +7,6 @@ import {
 } from '@/config/webmcp';
 import type { GlobalTender, ListGlobalTendersResponse } from '@/generated/client/worldmonitor/economic/v1/service_client';
 import type { GlobalTenderFilters } from '@/services/global-tenders';
-import { PanelGateReason } from '@/services/panel-gating';
 import { isMobileDevice } from '@/utils';
 import { setTrustedHtml, trustedHtml } from '@/utils/dom-utils';
 import { escapeHtml, sanitizeUrl } from '@/utils/sanitize';
@@ -477,32 +476,6 @@ export class GlobalProcurementPanel extends Panel {
   public override clearSensitiveContent(): void {
     this.clear();
     this.principalResetHandler?.();
-  }
-
-  public override showGatedCta(reason: PanelGateReason, onAction: () => void): void {
-    const lifecycleEpoch = ++this.lifecycleEpoch;
-    const hadPendingInvocation = this.pendingAgentInvocation !== null || this.settlingAgentForm !== null;
-    this.cancelForUnavailablePanel();
-    if (hadPendingInvocation) {
-      this.deferAfterAgentSettlement(() => {
-        if (!this.disposed && this.lifecycleEpoch === lifecycleEpoch) super.showGatedCta(reason, onAction);
-      });
-      return;
-    }
-    super.showGatedCta(reason, onAction);
-  }
-
-  public override showLocked(features: string[] = []): void {
-    const lifecycleEpoch = ++this.lifecycleEpoch;
-    const hadPendingInvocation = this.pendingAgentInvocation !== null || this.settlingAgentForm !== null;
-    this.cancelForUnavailablePanel();
-    if (hadPendingInvocation) {
-      this.deferAfterAgentSettlement(() => {
-        if (!this.disposed && this.lifecycleEpoch === lifecycleEpoch) super.showLocked(features);
-      });
-      return;
-    }
-    super.showLocked(features);
   }
 
   public override unlockPanel(): void {

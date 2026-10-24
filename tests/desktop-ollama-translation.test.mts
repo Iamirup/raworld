@@ -11,7 +11,7 @@ const payload = {
   provider: 'ollama', headlines: ['Breaking news'], mode: 'translate', variant: 'de', lang: '',
 };
 
-test('desktop Ollama translation uses native transport auth without a World Monitor key', async () => {
+test('desktop Ollama translation uses native transport auth without a RaWorld key', async () => {
   const originalEnv = { ...process.env };
   const nativeFetch = globalThis.fetch;
   const root = await mkdtemp(join(tmpdir(), 'desktop-translate-'));

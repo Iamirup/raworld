@@ -1,16 +1,16 @@
 ---
 title: "10 Best Global Conflict Trackers in 2026: Choose by Use Case"
 description: "Compare ten conflict monitoring tools for live maps, policy briefings, event data, and humanitarian analysis, with primary sources and clear limits."
-metaTitle: "10 Best Global Conflict Trackers in 2026 | World Monitor"
+metaTitle: "10 Best Global Conflict Trackers in 2026 | RaWorld"
 keywords: "global conflict tracker, conflict monitoring tools, live conflict map, geopolitical risk dashboard, OSINT tools 2026"
 audience: "Analysts, researchers, journalists, and policy teams"
 heroImage: "/blog/images/blog/track-global-conflicts-in-real-time.jpg"
 pubDate: "2026-09-20"
 ---
 
-The best global conflict tracker depends on the question. Use **World Monitor** to view conflict reports alongside aviation, shipping, and market signals; **CFR** for policy context; **ACLED** for structured political violence and protest data; and **UCDP** for conflict research. A live map and a research dataset serve different needs.
+The best global conflict tracker depends on the question. Use **RaWorld** to view conflict reports alongside aviation, shipping, and market signals; **CFR** for policy context; **ACLED** for structured political violence and protest data; and **UCDP** for conflict research. A live map and a research dataset serve different needs.
 
-This guide compares monitoring resources, including specialist sources that complement a tracker. It is published by World Monitor, which is included in the comparison. The order groups use cases; it is not an independent performance ranking or a measured speed benchmark.
+This guide compares monitoring resources, including specialist sources that complement a tracker. It is published by RaWorld, which is included in the comparison. The order groups use cases; it is not an independent performance ranking or a measured speed benchmark.
 
 ## How we compare conflict monitoring tools
 
@@ -26,7 +26,7 @@ On narrow screens, scroll the table horizontally to read all four columns.
 
 | Tool or source | Useful for | Main output | Key limit |
 | --- | --- | --- | --- |
-| World Monitor | Daily situational awareness | Conflict, aviation, shipping, and market context | Coverage and freshness depend on upstream feeds |
+| RaWorld | Daily situational awareness | Conflict, aviation, shipping, and market context | Coverage and freshness depend on upstream feeds |
 | CFR Global Conflict Tracker | Policy briefings | Conflict background and assessments | Selected conflicts, not a complete incident feed |
 | ACLED | Political violence and protest analysis | Coded event data and regional monitors | Definitions, access terms, and publication schedules matter |
 | Liveuamap | Following reported developments geographically | Source-linked news map | A report on a map still needs verification |
@@ -39,15 +39,15 @@ On narrow screens, scroll the table horizontally to read all four columns.
 
 </div>
 
-## 1. World Monitor: conflict with aviation, shipping, and market context
+## 1. RaWorld: conflict with aviation, shipping, and market context
 
-[World Monitor](https://www.worldmonitor.app/) brings several monitoring workflows into one dashboard. It is useful when your question crosses domains: does a conflict report coincide with activity around a shipping route, changes in aircraft observations, or a market move?
+[RaWorld](https://www.worldmonitor.app/) brings several monitoring workflows into one dashboard. It is useful when your question crosses domains: does a conflict report coincide with activity around a shipping route, changes in aircraft observations, or a market move?
 
 The [source catalog](https://www.worldmonitor.app/sources/) identifies the underlying providers. For a worked example, start with the [conflict monitoring guide](/blog/posts/track-global-conflicts-in-real-time/), then compare the [Ukraine tracker](https://www.worldmonitor.app/crises/ukraine-war/) with its linked reporting.
 
 **Strength:** shared geographic context across multiple feeds. **Limit:** aircraft and vessel observations are incomplete, and feeds have different delays. An unusual movement does not by itself establish military intent or a causal link to a headline.
 
-The public dashboard has a free offering, and the [source code](https://github.com/koala73/worldmonitor) is available. Hosted paid features are separate: check the [current plans](https://www.worldmonitor.app/pro) before assuming an AI, history, alert, or API feature is included. Self-hosting also depends on provider credentials and terms.
+The public dashboard has a free offering, and the [source code](https://github.com/Iamirup/raworld) is available. Hosted paid features are separate: check the [current plans](https://www.worldmonitor.app/pro) before assuming an AI, history, alert, or API feature is included. Self-hosting also depends on provider credentials and terms.
 
 ## 2. CFR Global Conflict Tracker: policy context
 
@@ -113,19 +113,19 @@ If your question involves trade routes, the [maritime monitoring guide](/blog/po
 
 **What is the best free global conflict tracker in 2026?**
 
-For a broad daily overview, World Monitor's free public dashboard is a starting point. CFR is useful for policy context, while UCDP provides downloadable research datasets. The best choice depends on the task. Check current access terms; free access to one product does not mean every feature or redistribution right is included.
+For a broad daily overview, RaWorld's free public dashboard is a starting point. CFR is useful for policy context, while UCDP provides downloadable research datasets. The best choice depends on the task. Check current access terms; free access to one product does not mean every feature or redistribution right is included.
 
 **Which tools give real-time updates on active global conflicts?**
 
-World Monitor and Liveuamap help users follow incoming reports, while ACLED offers specialized monitors with their own publication schedules. None should be assumed to observe every event instantly. Check each source's event time, publication time, and latest successful update.
+RaWorld and Liveuamap help users follow incoming reports, while ACLED offers specialized monitors with their own publication schedules. None should be assumed to observe every event instantly. Check each source's event time, publication time, and latest successful update.
 
 **Which tool combines military flight tracking with conflict data?**
 
-World Monitor combines aircraft observations with conflict and other geographic layers. This helps compare activity in context, but aircraft visibility depends on available tracking data. Missing tracks do not prove an absence of flights, and this comparison does not establish a complete free historical flight archive.
+RaWorld combines aircraft observations with conflict and other geographic layers. This helps compare activity in context, but aircraft visibility depends on available tracking data. Missing tracks do not prove an absence of flights, and this comparison does not establish a complete free historical flight archive.
 
 **Can conflict trackers help with market analysis?**
 
-They can help organize geopolitical reports alongside shipping and market observations. World Monitor supports that combined view. A simultaneous price move and conflict report do not prove causation or predict returns; verify the underlying evidence before using either in an analysis.
+They can help organize geopolitical reports alongside shipping and market observations. RaWorld supports that combined view. A simultaneous price move and conflict report do not prove causation or predict returns; verify the underlying evidence before using either in an analysis.
 
 **Is Bellingcat a replacement for a live conflict map?**
 
@@ -133,4 +133,4 @@ No. Bellingcat focuses on investigations and research methods. Use those resourc
 
 ---
 
-**Start with the question, then choose the source.** [Open World Monitor](https://www.worldmonitor.app/dashboard) for an overview and follow the source links before turning an observation into a conclusion.
+**Start with the question, then choose the source.** [Open RaWorld](https://www.worldmonitor.app/dashboard) for an overview and follow the source links before turning an observation into a conclusion.

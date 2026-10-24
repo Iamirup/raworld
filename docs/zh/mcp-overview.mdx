@@ -1,12 +1,12 @@
 ---
-title: "WorldMonitor MCP 服务器：接入 Claude 与 Cursor"
-description: "通过 Model Context Protocol 将 Claude、Cursor 及其他兼容 MCP 的 AI 客户端与 IDE 无缝接入 WorldMonitor 的实时全球情报数据，涵盖新闻、市场、军事、海事、能源与地缘政治信号，构建可直接调用真实世界数据的智能 Agent 与工作流。"
+title: "RaWorld MCP 服务器：接入 Claude 与 Cursor"
+description: "通过 Model Context Protocol 将 Claude、Cursor 及其他兼容 MCP 的 AI 客户端与 IDE 无缝接入 RaWorld 的实时全球情报数据，涵盖新闻、市场、军事、海事、能源与地缘政治信号，构建可直接调用真实世界数据的智能 Agent 与工作流。"
 ---
 
-WorldMonitor 将其情报栈作为 [Model Context Protocol](https://modelcontextprotocol.io) 服务器对外开放，因此任何兼容 MCP 的客户端（Claude Desktop、Claude web、Cursor、MCP Inspector、自定义 agent）都可以将实时数据直接拉取到模型上下文中。其工具覆盖以下领域：市场、大宗商品与宏观经济；能源；冲突、国家风险、制裁、网络威胁与咽喉要道；海运、航空与供应链；气候与自然灾害；健康信号；流离失所与人道危机；AI 简报、预测与情报历史；关税与贸易政策。
+RaWorld 将其情报栈作为 [Model Context Protocol](https://modelcontextprotocol.io) 服务器对外开放，因此任何兼容 MCP 的客户端（Claude Desktop、Claude web、Cursor、MCP Inspector、自定义 agent）都可以将实时数据直接拉取到模型上下文中。其工具覆盖以下领域：市场、大宗商品与宏观经济；能源；冲突、国家风险、制裁、网络威胁与咽喉要道；海运、航空与供应链；气候与自然灾害；健康信号；流离失所与人道危机；AI 简报、预测与情报历史；关税与贸易政策。
 
 <Tip>
-**初次使用？** [MCP 快速入门](/zh/mcp-quickstart) 是把 Claude、ChatGPT、Codex 或 Cursor 接入 WorldMonitor 的最短路径：粘贴一个地址并登录，无需 API key。如需认证模式、套餐、OAuth 配置和完整工具目录，请回到本页查看。
+**初次使用？** [MCP 快速入门](/zh/mcp-quickstart) 是把 Claude、ChatGPT、Codex 或 Cursor 接入 RaWorld 的最短路径：粘贴一个地址并登录，无需 API key。如需认证模式、套餐、OAuth 配置和完整工具目录，请回到本页查看。
 </Tip>
 
 <Note>
@@ -14,7 +14,7 @@ WorldMonitor 将其情报栈作为 [Model Context Protocol](https://modelcontext
 </Note>
 
 <Info>
-**Pro 和 API 套餐均可通过 OAuth 接入 —— 无需 API key。** Pro 订阅者只需在授权页点击 _"Sign in with WorldMonitor Pro"_；API Starter / Business / Enterprise 用户可以同样的方式登录，或者粘贴 `wm_…` key。已确认的**免费账户**以及服务方确认已结束付费覆盖期的账户同样可以完成 OAuth 流程：其令牌仅限 `free-account` 工具，并按免费额度计量。只有经确认但不具备免费账户资格的权益不足或已停用套餐，才会在 OAuth 步骤被拒绝并看到 Pro-required 页面。
+**Pro 和 API 套餐均可通过 OAuth 接入 —— 无需 API key。** Pro 订阅者只需在授权页点击 _"Sign in with RaWorld Pro"_；API Starter / Business / Enterprise 用户可以同样的方式登录，或者粘贴 `wm_…` key。已确认的**免费账户**以及服务方确认已结束付费覆盖期的账户同样可以完成 OAuth 流程：其令牌仅限 `free-account` 工具，并按免费额度计量。只有经确认但不具备免费账户资格的权益不足或已停用套餐，才会在 OAuth 步骤被拒绝并看到 Pro-required 页面。
 
 `get_sources` 不需要 OAuth：它是唯一无需凭据且不消耗每日配额的数据工具。匿名调用使用独立的失败关闭限额：每个 IP 每分钟 10 次。其他数据工具需要绑定用户的凭据；标记为 `free-account` 的缓存工具可使用已确认免费账户的小额额度，标记为 `subscription` 的实时获取工具需要 Pro。
 </Info>
@@ -42,7 +42,7 @@ Pro 订阅者无需粘贴任何 API key 即可接入 Claude Desktop / Cursor / c
 
 ### 协议协商
 
-WorldMonitor 位于 `/.well-known/mcp/server-card.json` 的静态服务器卡片声明协议版本 `2025-11-25`，而实时的 `initialize` 握手默认会协商该版本 —— 因此所声明的底线版本与实际协商出的版本保持一致：
+RaWorld 位于 `/.well-known/mcp/server-card.json` 的静态服务器卡片声明协议版本 `2025-11-25`，而实时的 `initialize` 握手默认会协商该版本 —— 因此所声明的底线版本与实际协商出的版本保持一致：
 
 - 默认情况下，`initialize` 支持 `2025-03-26`、`2025-06-18` 和 `2025-11-25`。
 - 请求其中任一版本的客户端会原样得到该版本；请求其他版本的客户端会得到 `2025-11-25`。
@@ -55,7 +55,7 @@ WorldMonitor 位于 `/.well-known/mcp/server-card.json` 的静态服务器卡片
 
 ### Streamable HTTP 响应
 
-WorldMonitor 支持 Streamable HTTP POST 流程，可返回 JSON 或 SSE 响应：
+RaWorld 支持 Streamable HTTP POST 流程，可返回 JSON 或 SSE 响应：
 
 - 在 `Accept` 中省略 `text/event-stream` 的客户端会收到标准的 JSON-RPC JSON 响应体。
 - 发送 `Accept: application/json, text/event-stream` 的客户端在 JSON-RPC POST 成功时可收到 `text/event-stream` 响应。
@@ -123,7 +123,7 @@ Claude Code、Cursor 桌面版、VS Code 桌面版、Codex、Gemini CLI、goose�
 
 ## Pro 登录流程
 
-Pro 订阅者（以及不愿粘贴 key 的 API Starter+ 用户）可通过其已有的 WorldMonitor 账户授权 MCP 客户端 —— 无需 API key。
+Pro 订阅者（以及不愿粘贴 key 的 API Starter+ 用户）可通过其已有的 RaWorld 账户授权 MCP 客户端 —— 无需 API key。
 
 1. **在 MCP 客户端中添加服务器 URL**。规范入口为：
 
@@ -133,7 +133,7 @@ Pro 订阅者（以及不愿粘贴 key 的 API Starter+ 用户）可通过其已
 
    这是唯一的产品 MCP 传输端点。已列出的生产别名（`www`、`api` 以及各仪表盘子域）不是额外的服务器。这些主机上普通 GET/HEAD `/mcp` 与 `/api/mcp` 会 308 到 `https://worldmonitor.app/mcp`；普通 GET/HEAD `/.well-known/mcp` 与 `/.well-known/mcp.json` 会 308 到 `https://worldmonitor.app/.well-known/mcp` 与 `https://worldmonitor.app/.well-known/mcp.json`。查询字符串不会转发。传输层 POST/SSE/replay 会收到 HTTP 410，JSON-RPC `-32000` 提示客户端改用 `https://worldmonitor.app/mcp`。
 
-2. **在授权页点击 "Sign in with WorldMonitor Pro"**。这是默认 CTA。你会跳转到 `worldmonitor.app/mcp-grant`（受 Clerk 保护 —— 如需登录请先登录），然后回到 `api.worldmonitor.app/oauth/authorize-pro`，最后跳转到你客户端的 redirect。
+2. **在授权页点击 "Sign in with RaWorld Pro"**。这是默认 CTA。你会跳转到 `worldmonitor.app/mcp-grant`（受 Clerk 保护 —— 如需登录请先登录），然后回到 `api.worldmonitor.app/oauth/authorize-pro`，最后跳转到你客户端的 redirect。
 
 3. **完成。** 你的机器上不会创建或存储任何 `wm_…` key。客户端会收到一个标准 OAuth 2.1 access token（1 小时 TTL，refresh token 在最近一次刷新后 30 天内有效）。
 
@@ -179,7 +179,7 @@ OAuth 和控制面板签发的 key 的突发额度按用户计算，因此一个
 
 达到 MCP 每日配额会返回 JSON-RPC 错误 `-32029` 以及 HTTP `429`，并附带指向下一个 UTC 午夜的 `Retry-After` 头。达到每分钟限制会返回相同的错误码，但 `Retry-After` 较短。
 
-WorldMonitor 还会在 Settings 中显示当前的 MCP 套餐限额通知，并在付费用户接近或超出其套餐额度时以受限频率发送邮件。这些通知以信息告知和行动引导为目的：它们提供重试/重置指引、在下一套餐可自助购买时提供结账入口，或在不可自助时提供支持联系方式。它们不会自动升级账户，也不会产生超额费用。
+RaWorld 还会在 Settings 中显示当前的 MCP 套餐限额通知，并在付费用户接近或超出其套餐额度时以受限频率发送邮件。这些通知以信息告知和行动引导为目的：它们提供重试/重置指引、在下一套餐可自助购买时提供结账入口，或在不可自助时提供支持联系方式。它们不会自动升级账户，也不会产生超额费用。
 
 ### 其他速率限制
 
@@ -197,7 +197,7 @@ WorldMonitor 还会在 Settings 中显示当前的 MCP 套餐限额通知，并�
 
 通过 **Customize → Connectors → + Add → Add custom connector** 添加：
 
-- 名称：`WorldMonitor`
+- 名称：`RaWorld`
 - URL：`https://worldmonitor.app/mcp`
 
 保留自动检测到的登录设置并点击 **Add**，然后登录。连接器属于你的 Claude 账户，因此 Claude 网页版、Claude Desktop 与移动应用共用同一个连接器。在 Team 与 Enterprise 上，需先由所有者在 **Organization settings → Connectors** 中添加。Claude Desktop 的 `claude_desktop_config.json` 只启动本地（stdio）服务器，在其中写入远程 `url` 条目并不是受支持的连接方式；请使用连接器，或下文的 `mcp-remote` 桥接。
@@ -470,14 +470,14 @@ npx @modelcontextprotocol/inspector https://worldmonitor.app/mcp
 
 当前的后续跟踪项：
 
-- [#4525](https://github.com/koala73/worldmonitor/issues/4525) —— 延后的纯读取 MCP 覆盖候选项。
-- [#4526](https://github.com/koala73/worldmonitor/issues/4526) —— 手动映射和 fetch-on-miss 分诊。
+- [#4525](https://github.com/Iamirup/raworld/issues/4525) —— 延后的纯读取 MCP 覆盖候选项。
+- [#4526](https://github.com/Iamirup/raworld/issues/4526) —— 手动映射和 fetch-on-miss 分诊。
 
 有关完整的实时工具目录，请参见上方的[工具目录](#工具目录)；有关各工具详情，请参阅 [MCP 工具参考](/zh/mcp-tools-reference)。
 
 ## Prompt 与资源
 
-除实时工具目录外，WorldMonitor 还暴露 MCP prompt 和资源，使客户端无需从零编排工具计划即可发现常见工作流并寻址稳定的数据切片。
+除实时工具目录外，RaWorld 还暴露 MCP prompt 和资源，使客户端无需从零编排工具计划即可发现常见工作流并寻址稳定的数据切片。
 
 ### Prompt
 
@@ -641,7 +641,7 @@ MCP handler 在三个独立层次上发出失败信号 —— **HTTP 状态**、
 
 ## 相关
 
-- [WebMCP](/zh/webmcp) —— 操作可见 WorldMonitor 网站的实验性、标签页绑定工具
+- [WebMCP](/zh/webmcp) —— 操作可见 RaWorld 网站的实验性、标签页绑定工具
 - [MCP 快速入门](/zh/mcp-quickstart) —— 五分钟从零到首次调用的演练
 - [JMESPath 指南](/zh/mcp-jmespath) —— 投影语法 + 12 个实例
 - [MCP 工具参考](/zh/mcp-tools-reference) —— 各工具参数和 `curl` 示例

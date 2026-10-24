@@ -15380,7 +15380,7 @@ a.prediction-link:hover {
     display: none !important;
   }
 
-  /* Mobile: show "World Monitor" instead of "MONITOR" */
+  /* Mobile: show "RaWorld" instead of "MONITOR" */
   .logo {
     display: none;
   }
@@ -26202,7 +26202,7 @@ body.map-width-resizing {
   opacity: 0.7;
 }
 
-/* ── WM Analyst Chat Panel ──────────────────────────────────────── */
+/* ── RaWorld Analyst Chat Panel ──────────────────────────────────────── */
 .chat-analyst-wrapper {
   display: flex;
   flex-direction: column;

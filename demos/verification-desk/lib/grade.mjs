@@ -1,5 +1,5 @@
-// "Grade a headline". The desk finds which WorldMonitor story the audience
-// means (retrieval); every judgment after that is WorldMonitor's (lib/wm.mjs).
+// "Grade a headline". The desk finds which RaWorld story the audience
+// means (retrieval); every judgment after that is RaWorld's (lib/wm.mjs).
 // Checks are emitted one at a time so the stage reveals each as the anchor
 // reaches it.
 
@@ -30,7 +30,7 @@ function bestMatch(headline, clusters) {
  * 2026-10-09 the Trump/Putin diesel deal sat in 8 clusters, each a lone outlet,
  * so each cluster alone read "single-publisher". The desk gathers every
  * cluster that matches the headline and the best cluster, then hands all of
- * their feed labels to WorldMonitor's assessCorroboration in one evidence
+ * their feed labels to RaWorld's assessCorroboration in one evidence
  * set, with the highest digest-reported count as the floor (the same way
  * evidenceFromCluster takes the max).
  */
@@ -85,7 +85,7 @@ export async function* gradeHeadline(headline, { source, anchor }) {
   const detail = story ? await source.storyDetail(story, terms[0]) : null;
   const memberTitles = story ? [...new Set([...(detail?.memberTitles ?? []), ...story.memberTitles])] : [];
 
-  // 1. Who said it? WorldMonitor's coverage verdict, publisher roster and source ratings.
+  // 1. Who said it? RaWorld's coverage verdict, publisher roster and source ratings.
   let cov = null;
   let rated = [];
   let credibility = null;
@@ -93,7 +93,7 @@ export async function* gradeHeadline(headline, { source, anchor }) {
     cov = coverage(story.labels, story.reported);
     const count = cov.verdict.publishers ?? 1;
     rated = ratePublishers(cov.roster, count);
-    // One cluster: the credibility WorldMonitor already computed for it. Several:
+    // One cluster: the credibility RaWorld already computed for it. Several:
     // the same formula over the gathered evidence, led by the best-rated source.
     const own = story.clusters.length === 1 && Number.isFinite(story.credibilityScore) ? story.credibilityScore : null;
     const lead = rated[0];
@@ -116,7 +116,7 @@ export async function* gradeHeadline(headline, { source, anchor }) {
     : null;
   yield { step: 'who', data: result.who };
 
-  // 2. When did it first appear and how fast did it spread? WorldMonitor's cluster timestamps.
+  // 2. When did it first appear and how fast did it spread? RaWorld's cluster timestamps.
   result.when = story
     ? {
       firstSeen: story.firstSeen,
@@ -129,7 +129,7 @@ export async function* gradeHeadline(headline, { source, anchor }) {
     : null;
   yield { step: 'when', data: result.when };
 
-  // 3. Is every figure grounded? WorldMonitor's fact extractor and grounding gate.
+  // 3. Is every figure grounded? RaWorld's fact extractor and grounding gate.
   const article = story?.link ? await source.articleText(story.link) : null;
   const groundText = [...memberTitles, article ?? ''].join('\n');
   // "Stated by one publisher only" needs text from at least two publishers to mean anything.
@@ -141,7 +141,7 @@ export async function* gradeHeadline(headline, { source, anchor }) {
     : { gate: 'not-checked', facts: [], evidence: null };
   yield { step: 'numbers', data: result.numbers };
 
-  // 4. What is money saying? WorldMonitor's prediction-market feed.
+  // 4. What is money saying? RaWorld's prediction-market feed.
   let markets = [];
   try {
     markets = (await source.markets(terms))
@@ -155,7 +155,7 @@ export async function* gradeHeadline(headline, { source, anchor }) {
   result.money = { markets };
   yield { step: 'money', data: result.money };
 
-  // 5. The card: WorldMonitor's judgments, arranged.
+  // 5. The card: RaWorld's judgments, arranged.
   const sourcesUnreachable = !story && (search.failures?.length ?? 0) > 0 && search.failures.length >= Math.min(terms.length, 3);
   result.verdict = computeVerdict({
     found: Boolean(story),

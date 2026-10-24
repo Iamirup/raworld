@@ -31,7 +31,7 @@ import { isMainModule } from './lib/main-module.mjs';
 
 const execFileAsync = promisify(execFile);
 
-const REPO = process.env.MERGE_TRAIN_REPO ?? 'koala73/worldmonitor';
+const REPO = process.env.MERGE_TRAIN_REPO ?? 'Iamirup/raworld';
 const GATE_WORKFLOW = 'deploy-gate.yml';
 /** A gate evaluation reads checks twice with a 60s pause, so allow for both. */
 export const GATE_TIMEOUT_MS = 12 * 60 * 1000;

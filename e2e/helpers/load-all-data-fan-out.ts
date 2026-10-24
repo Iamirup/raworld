@@ -6,7 +6,7 @@
  *
  * CI evidence for the split (do not collapse drain back onto the 6s start
  * window):
- * - PR job https://github.com/koala73/worldmonitor/actions/runs/33242503567/job/99074126316
+ * - PR job https://github.com/Iamirup/raworld/actions/runs/33242503567/job/99074126316
  *   (`variant-smoke-full`, mobile uncacheable arm): START increased, then END
  *   stayed put for 6000ms on both attempts (`Expected > 4, Received 4` then
  *   `Expected > 5, Received 5`).

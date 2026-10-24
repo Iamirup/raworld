@@ -164,7 +164,7 @@ describe('canonical parity with the real agent HTML page', () => {
               fetchCount += 1;
               const markdown = representation === 'markdown'
                 && new Headers(init?.headers).get('accept').startsWith('text/markdown');
-              const body = markdown ? '# World Monitor for AI agents\n' : html;
+              const body = markdown ? '# RaWorld for AI agents\n' : html;
               return new Response(init?.method === 'HEAD' ? null : body, {
                 headers: { 'content-type': markdown ? 'text/markdown' : 'text/html' },
               });

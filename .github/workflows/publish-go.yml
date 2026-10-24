@@ -6,7 +6,7 @@ name: Publish Go SDK to the module proxy
 # indexed on pkg.go.dev (the proxy only learns about a version when someone
 # requests it; this is that first request).
 #
-# The module lives at sdk/go/ (module github.com/koala73/worldmonitor/sdk/go),
+# The module lives at sdk/go/ (module github.com/Iamirup/raworld/sdk/go),
 # so per Go's monorepo convention its release tags are prefixed with the
 # module directory: sdk/go/v1.2.3.
 
@@ -62,7 +62,7 @@ jobs:
           else
             VERSION="${GITHUB_REF_NAME#sdk/go/}"
           fi
-          MODULE="github.com/koala73/worldmonitor/sdk/go"
+          MODULE="github.com/Iamirup/raworld/sdk/go"
           echo "Requesting ${MODULE}@${VERSION} from proxy.golang.org"
           # Retry: the proxy fetches from GitHub on first request and can lag a
           # just-pushed tag by a minute or two.

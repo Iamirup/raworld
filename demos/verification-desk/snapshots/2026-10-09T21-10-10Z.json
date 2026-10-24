@@ -1,5 +1,5 @@
 {
- "_provenance": "Real WorldMonitor data, read through the World Monitor MCP connector (get_news_clusters, get_news_intelligence) on 2026-10-09 between 21:00 and 21:15 UTC. Fields not returned by the projected calls (tiers, keywords) are null or empty, never guessed.",
+ "_provenance": "Real RaWorld data, read through the RaWorld MCP connector (get_news_clusters, get_news_intelligence) on 2026-10-09 between 21:00 and 21:15 UTC. Fields not returned by the projected calls (tiers, keywords) are null or empty, never guessed.",
  "takenAt": "2026-10-09T21:10:10.756Z",
  "clusters": [
   {

@@ -356,7 +356,7 @@ const DOCS_PERSON_AUTHOR = Object.freeze({
 const DOCS_ORGANIZATION_AUTHOR = Object.freeze({
   '@id': ORGANIZATION_ID,
   '@type': 'Organization',
-  name: 'World Monitor',
+  name: 'RaWorld',
   url: CANONICAL_ORIGIN,
 });
 

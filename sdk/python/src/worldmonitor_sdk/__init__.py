@@ -1,4 +1,4 @@
-"""Official Python SDK for the World Monitor global-intelligence API.
+"""Official Python SDK for the RaWorld global-intelligence API.
 
 Dependency-free (stdlib only), MCP-first — the same design as the
 ``worldmonitor`` npm CLI this mirrors (``cli/`` in the main repository).
@@ -38,7 +38,7 @@ DEFAULT_BASE_URL = "https://api.worldmonitor.app"
 DEFAULT_MCP_URL = "https://worldmonitor.app/mcp"
 
 # Header the API accepts for a user-issued key (alias: X-Api-Key).
-_AUTH_HEADER_NAME_PARTS = ("X", "WorldMonitor", "Key")
+_AUTH_HEADER_NAME_PARTS = ("X", "RaWorld", "Key")
 API_KEY_HEADER = "-".join(_AUTH_HEADER_NAME_PARTS)
 
 # JSON-RPC error code the MCP server returns when a call needs authentication.
@@ -151,7 +151,7 @@ def _default_transport(request, timeout):
 
 
 class Client:
-    """Thin client for the World Monitor MCP server and REST API.
+    """Thin client for the RaWorld MCP server and REST API.
 
     All keyword arguments are optional; unset values fall back to the
     ``WORLDMONITOR_API_KEY`` (or ``WM_API_KEY``), ``WORLDMONITOR_BASE_URL``,

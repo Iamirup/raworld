@@ -1,5 +1,5 @@
 // Science panel (2026-10-17 audit of /verify against Google News World:
-// science stories it carried reached no WorldMonitor feed). The panel is
+// science stories it carried reached no RaWorld feed). The panel is
 // opt-in on the full dashboard; its sources are EN default-on, so the panel
 // has content when enabled and /verify searches them either way.
 import assert from 'node:assert/strict';

@@ -1,9 +1,9 @@
 {
   "shell": {
-    "documentTitle": "World Monitor — Real-Time Global Intelligence Dashboard",
+    "documentTitle": "RaWorld — Real-Time Global Intelligence Dashboard",
     "metaDescription": "پلتفرم اطلاعات جهانی در زمان واقعی. منتشر شده در WIRED. استفاده شده توسط بیش از 2 میلیون نفر در 190 کشور. درگیری‌ها، بازارها، نیروی نظامی و اطلاعات متن‌باز در یک نمای.",
     "offlineTitle": "You're Offline",
-    "offlineMessage": "World Monitor requires an internet connection for real-time intelligence data.",
+    "offlineMessage": "RaWorld requires an internet connection for real-time intelligence data.",
     "offlineRetry": "Retry"
   },
   "widgets": {
@@ -41,16 +41,15 @@
     "phaseError": "Error",
     "previewCheckingHeading": "Connecting the widget builder",
     "previewReadyHeading": "Describe the widget you want",
-    "previewFetchingHeading": "Fetching live WorldMonitor data",
+    "previewFetchingHeading": "Fetching live RaWorld data",
     "previewComposingHeading": "Composing the widget layout",
     "previewErrorHeading": "The preview needs attention",
     "previewCheckingCopy": "We are validating your widget key and backend availability before enabling generation.",
     "previewReadyCopy": "Use a prompt example or describe the exact live view you want. The preview will update here before you save it.",
-    "previewFetchingCopy": "The agent is calling approved WorldMonitor endpoints and shaping the dataset for the widget.",
+    "previewFetchingCopy": "The agent is calling approved RaWorld endpoints and shaping the dataset for the widget.",
     "previewComposingCopy": "The preview is rendering with the latest live data and dashboard styling.",
     "previewErrorCopy": "Fix the issue, then retry. Your existing widgets are unaffected.",
     "createInteractive": "Create Interactive Widget",
-    "proBadge": "PRO",
     "preflightProUnavailable": "PRO widget agent unavailable. Check PRO_WIDGET_KEY on the server.",
     "preflightInvalidProKey": "PRO key rejected. Update wm-pro-key and reload.",
     "preflightProSubscriptionRequired": "Pro subscription required. If you just upgraded, refresh the page; otherwise contact support.",
@@ -267,7 +266,6 @@
     "foodStocksHelp": "موجودی کالاهای تولید، عرضه و توزیع USDA نسبت به استفاده بر اساس سال بازاریابی، همراه با نسبت جهانی برای مقایسه. عرضه تغذیه FAOSTAT تولید و عرضه داخلی را زمانی فراهم می‌کند که تولید، عرضه و توزیع موجودی کامل کشور را ندارد.",
     "loadingFoodStocks": "Loading food stocks…",
     "foodStocksUnavailable": "Food stocks unavailable.",
-    "foodStocksProLocked": "Upgrade to PRO for commodity stocks-to-use",
     "foodStocksCommodity": "Commodity",
     "foodStocksMarketingYear": "Marketing year",
     "foodStocksRatio": "Stocks-to-use",
@@ -285,7 +283,6 @@
       "help": "ساختار سنی، خط لوله آموزشی و ظرفیت نیروی کار صنعتی از پیش‌بینی جمعیت جهانی سازمان ملل، موسسه آمار یونسکو و شاخص‌های توسعه جهانی بانک جهانی و ILOSTAT.",
       "loading": "Loading demographics and workforce data…",
       "unavailable": "Demographics and workforce data unavailable.",
-      "proLocked": "Upgrade to PRO for demographics and workforce data",
       "notAvailable": "Not available",
       "ageStructure": "Age structure",
       "education": "Education pipeline",
@@ -311,7 +308,6 @@
       "help": "امتیازهای ثابت نسخه ۱ شواهد برای غذا، انرژی، جمعیت‌شناسی، فناوری و دفاع. برای بررسی ورودی‌ها، مبدأ منابع و دلایل داده‌های گمشده، یک ردیف را باز کنید.",
       "loading": "در حال بارگذاری کارت امتیازدهی پنج‌عاملی…",
       "unavailable": "کارت امتیازدهی پنج‌عاملی در دسترس نیست.",
-      "proLocked": "برای دسترسی به کارت امتیازدهی تاب‌آوری پنج‌عاملی به نسخه PRO ارتقا دهید",
       "insufficient": "داده‌های ناکافی",
       "notAvailable": "در دسترس نیست",
       "noEvidence": "شواهدی برای این ستون در دسترس نیست.",
@@ -368,9 +364,7 @@
         "defense_supplierDiversity": "تنوع تأمین‌کنندگان تسلیحات"
       }
     },
-    "defenseIndustrialBase": {
-      "proLocked": "برای دسترسی به وابستگی تامین‌کننده تسلیحات و ظرفیت نظامی به PRO ارتقا دهید."
-    }
+    "defenseIndustrialBase": {}
   },
   "header": {
     "world": "WORLD",
@@ -781,8 +775,7 @@
       "alertTitle": {
         "configured": "Desktop settings configured",
         "needsKeys": "Configure API keys to unlock features",
-        "some": "Some features need API keys",
-        "pro": "World Monitor Pro فعال است"
+        "some": "Some features need API keys"
       },
       "summary": {
         "desktop": "Desktop mode",
@@ -811,18 +804,13 @@
         "NASA_FIRMS_API_KEY": "Fire Information for Resource Management System.",
         "OLLAMA_API_URL": "e.g. http://127.0.0.1:11434 (Ollama) or http://127.0.0.1:1234/v1 (LM Studio) — OpenAI-compatible endpoint.",
         "OLLAMA_MODEL": "e.g. llama3.1:8b — model tag to use for summarization."
-      },
-      "proCloud": "ویژگی‌هایی که کلید API محلی ندارند از داده‌های ابری World Monitor استفاده می‌کنند.",
-      "skipSetupPro": "از راه‌اندازی صرف‌نظر کنید: برای استفاده از داده‌های ابری به جای کلیدهای API خود، با World Monitor Pro وارد شوید.",
-      "getPro": "دریافت World Monitor Pro"
+      }
     },
     "settingsWindow": {
-      "shellTitle": "World Monitor Settings",
+      "shellTitle": "RaWorld Settings",
       "shellSearchPlaceholder": "Search settings...",
       "shellCancel": "Cancel",
       "shellSaveClose": "Save & Close",
-      "freePanelLimit": "Free plan: max {{max}} panels. Upgrade to PRO for unlimited.",
-      "freeSourceLimit": "Free plan: max {{max}} sources. Upgrade to PRO for unlimited.",
       "validating": "Validating API keys...",
       "saved": "Settings saved",
       "failed": "Save failed: {{error}}",
@@ -841,12 +829,6 @@
           "title": "کلید مجوز / API",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "description": "مشترکان API Starter و API Business این کلید را در داشبورد وب از مسیر Settings → API Keys ایجاد می‌کنند. اگر کلید کامل گم شد، آن را لغو و یک کلید جایگزین ایجاد کنید."
-        },
-        "dividerOr": "یا",
-        "register": {
-          "title": "به کلید API نیاز دارید؟",
-          "description": "برای راهنمای گام‌به‌گام به worldmonitor.app/docs/api-keys مراجعه کنید. کلیدهای دستی API به طرح API Starter یا API Business نیاز دارند.",
-          "submitBtn": "مشاهده طرح‌های API"
         }
       },
       "table": {
@@ -1093,8 +1075,7 @@
       "refineryStage": "Refine",
       "stageUnavailable": "No published figures for this stage",
       "withheldNote": "W withheld",
-      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them.",
-      "productionProLocked": "برای سهم کشور معدن و پالایشگاه با تمرکز (شاخص تمرکز تولید‌کننده) بر اساس مرحله، به PRO ارتقا دهید."
+      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them."
     },
     "tradePolicy": {
       "overview": "Overview",
@@ -1229,7 +1210,7 @@
       "skipToEnd": "Skip to end"
     },
     "pizzint": {
-      "indexSource": "شاخص: World Monitor · داده‌های مکان‌ها:",
+      "indexSource": "شاخص: RaWorld · داده‌های مکان‌ها:",
       "statusNormal": "عادی",
       "statusNoData": "بدون داده",
       "statusNoBaseline": "بدون مبنا",
@@ -1238,7 +1219,7 @@
       "defcon": "DEFCON {{level}}",
       "updated": "Updated {{timeAgo}}",
       "tensionsTitle": "Geopolitical Tensions",
-      "tensionsSource": "تنش‌ها: World Monitor بر اساس رویدادهای GDELT",
+      "tensionsSource": "تنش‌ها: RaWorld بر اساس رویدادهای GDELT",
       "insufficientData": "داده‌های ناکافی",
       "pizzaUnavailable": "اطلاعات فعالیت پیتزافروشی‌ها در دسترس نیست",
       "source": "Source:",
@@ -1917,7 +1898,7 @@
       "staleReport": "گزارش قدیمی",
       "reported": "تعداد",
       "period": "دوره",
-      "movementNote": "هر ردیف منبع، تاریخ گزارش و نوع سنجش خود را حفظ می‌کند. جمعیت موجود، ورودها و رویدادهای کنترل مرزی معیارهای متفاوتی هستند. منابع ممکن است هم‌پوشانی داشته باشند؛ اعداد آن‌ها را جمع نکنید. WorldMonitor این نما را از منابع پیوندشده استخراج می‌کند؛ این به معنی تأیید ارائه‌دهندگان نیست.",
+      "movementNote": "هر ردیف منبع، تاریخ گزارش و نوع سنجش خود را حفظ می‌کند. جمعیت موجود، ورودها و رویدادهای کنترل مرزی معیارهای متفاوتی هستند. منابع ممکن است هم‌پوشانی داشته باشند؛ اعداد آن‌ها را جمع نکنید. RaWorld این نما را از منابع پیوندشده استخراج می‌کند؛ این به معنی تأیید ارائه‌دهندگان نیست.",
       "recent": "اخیر",
       "last30Days": "۳۰ روز اخیر",
       "newThisWeek": "جدید این هفته",
@@ -2423,7 +2404,7 @@
       "loadError": "Climate news temporarily unavailable"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>WM Analyst</strong> AI analyst with live context across geopolitical, market, military, and economic domains. Powered by Claude with real-time data injected from active WorldMonitor feeds."
+      "infoTooltip": "<strong>RaWorld Analyst</strong> AI analyst with live context across geopolitical, market, military, and economic domains. Powered by Claude with real-time data injected from active RaWorld feeds."
     },
     "cotPositioning": {
       "infoTooltip": "<strong>موضع‌گیری قراردادهای آتی</strong> موضع‌های خالص هفتگی برای معامله‌گران تجاری، سفته‌باز‌های بزرگ، و معامله‌گران کوچک در قراردادهای آتی کالا و مالی. منبع گزارش Commitments of Traders کمیسیون تجارت آتی کالاها است که در روزهای جمعه منتشر می‌شود."
@@ -2511,7 +2492,7 @@
       "infoTooltip": "<strong>تقویم اقتصادی</strong> انتشارات اقتصادی کلان زمان‌بندی‌شده: شاخص قیمت مصرف‌کننده، دستمزد‌های غیرکشاورزی، تولید ناخالص داخلی، شاخص مدیران خریدار، و تصمیمات بانک مرکزی. برآورد در مقابل واقعی در مقابل قبلی را نشان می‌دهد. رویدادهای تأثیرگذار برجسته‌شده‌اند. منبع: ارائه‌دهندگان داده‌های اقتصادی."
     },
     "fsi": {
-      "infoTooltip": "<strong>شاخص تنش مالی</strong> نسبت World Monitor اوراق قرضه پرریسک به اوراق خزانه بلندمدت، تعدیل‌شده برای نوسان‌پذیری سهام و گسترش اوراق قرضه پرریسک: (HYG / TLT) / (VIX × گسترش اوراق قرضه پرریسک / 100). این شاخص تنش مالی فدرال رزرو کنزاس سیتی نیست. خواندن ۱/۵ یا بالاتر تنش پایین است؛ کمتر از ۰/۳ تنش بالا است.",
+      "infoTooltip": "<strong>شاخص تنش مالی</strong> نسبت RaWorld اوراق قرضه پرریسک به اوراق خزانه بلندمدت، تعدیل‌شده برای نوسان‌پذیری سهام و گسترش اوراق قرضه پرریسک: (HYG / TLT) / (VIX × گسترش اوراق قرضه پرریسک / 100). این شاخص تنش مالی فدرال رزرو کنزاس سیتی نیست. خواندن ۱/۵ یا بالاتر تنش پایین است؛ کمتر از ۰/۳ تنش بالا است.",
       "title": "Financial Stress Indicator",
       "usFsiValue": "مقدار شاخص تنش مالی آمریکا",
       "cissTitle": "EU CISS (Euro Area Systemic Stress)",
@@ -2569,8 +2550,7 @@
       "dependentCommodities": "کالاهای وابسته",
       "stateOk": "به‌روز",
       "stateStale": "ورودی قدیمی",
-      "stateInsufficient": "داده ناکافی",
-      "proLocked": "برای دسترسی به امتیازدهی آسیب‌پذیری کالا به PRO ارتقا دهید."
+      "stateInsufficient": "داده ناکافی"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>پایش تجارت هرمز</strong> پایش کشتی زنده از طریق تنگه هرمز، حیاتی‌ترین نقطه تنگنای نفت جهان. پایش تعداد تانکرها، رویدادهای اختلال، و تغییرات جریان هفتگی. تقریباً ۲۰ درصد از عرضه نفت جهانی روزانه از اینجا عبور می‌کند.",
@@ -2595,7 +2575,7 @@
       "infoTooltip": "<strong>شاخص‌های کلان</strong> شاخص‌های قیمت، فعالیت، سیاست و ارز برای ایالات متحده، منطقه یورو و چین. چین نیاز به پوشش جاری دارد. هر کاشی منبع و تاریخ مشاهده خود را نشان می‌دهد."
     },
     "monitors": {
-      "infoTooltip": "<strong>Keyword Monitors</strong> Add any term to track live news mentions across all WorldMonitor sources. Results update in real time as matching articles are ingested."
+      "infoTooltip": "<strong>Keyword Monitors</strong> Add any term to track live news mentions across all RaWorld sources. Results update in real time as matching articles are ingested."
     },
     "renewable": {
       "infoTooltip": "<strong>انرژی تجدیدپذیر</strong> سهم تولید الکتریسیته از انرژی‌های تجدیدپذیر بر اساس منطقه و سال، به‌علاوه ظرفیت نصب‌شده ایالات متحده برای انرژی خورشیدی، باد، و زغال (مگاوات). منابع: بانک جهانی (EG.ELC.RNEW.ZS) و ایالات متحده ادارة اطلاعات انرژی."
@@ -2615,108 +2595,11 @@
     "yieldCurve": {
       "infoTooltip": "<strong>منحنی بازده و نرخ‌ها</strong> منحنی بازده اوراق قرضه آمریکایی (۲س، ۵س، ۱۰س، ۳۰س) و گسترش‌های نرخ کلیدی شامل شاخص وارونگی ۱۰س-۲س. همچنین نرخ‌های منطقه یورو (EURIBOR، ESTR) را نشان می‌دهد. منحنی وارونه از نظر تاریخی مقدم بر رکود‌ها است. منبع: Federal Reserve Economic Data."
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro is launched",
-      "tagline": "More Signal, Less Noise. More AI Briefings. A Geopolitical & Equity Researcher just for you.",
-      "cta": "Upgrade to Pro →",
-      "dismiss": "Dismiss"
-    },
-    "billingState": {
-      "onHoldDesc": "پرداخت ناموفق بود. روش پرداخت خود را به‌روزرسانی کنید تا دسترسی ویژه بازیابی شود.",
-      "onHoldBannerMessage": "پرداخت ناموفق بود. روش پرداخت خود را به‌روزرسانی کنید تا اشتراک شما فعال بماند.",
-      "updatePayment": "به‌روزرسانی پرداخت",
-      "renewalPendingDesc": "در حال بررسی تمدید اشتراک شما هستیم. دسترسی ویژه پس از تأیید به‌طور خودکار بازیابی می‌شود.",
-      "refreshStatus": "به‌روزرسانی وضعیت",
-      "renewalFailedDesc": "تمدید اشتراک شما تأیید نشد. صورتحساب را مدیریت کنید یا در صورت ادامه مشکل با پشتیبانی تماس بگیرید.",
-      "manageBilling": "مدیریت صورتحساب",
-      "lapsedDesc": "اشتراک Pro شما به پایان رسیده است. برای بازیابی دسترسی ویژه دوباره مشترک شوید.",
-      "resubscribe": "اشتراک مجدد"
-    },
     "checkoutFailureBanner": {
       "message": "Payment couldn't be completed. No charge was made.",
       "retry": "Try again",
       "retrying": "Retrying…",
       "dismiss": "Dismiss"
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "Step {{current}} of {{total}}",
-      "closeLabel": "Skip setup",
-      "ariaLabel": "Pro activation setup",
-      "signedInAs": "Signed in as {{email}}",
-      "steps": {
-        "brief": {
-          "heading": "Your daily brief, every morning",
-          "body": "A curated intelligence briefing in your inbox each morning — the overnight signals that matter, distilled into a five-minute read.",
-          "confirmCta": "Turn on my morning brief",
-          "confirming": "Turning it on…",
-          "doneNote": "Your morning brief is already running.",
-          "scheduleNote": "We'll keep your current delivery time.",
-          "summaryLabel": "Morning brief",
-          "summaryVerified": "On — starts with your next morning brief.",
-          "deliverAt": "Deliver at",
-          "previewLoading": "Preparing a preview of your first brief…",
-          "previewLabel": "This morning's brief"
-        },
-        "alerts": {
-          "heading": "Critical alerts",
-          "body": "Get pinged in your browser when something big breaks — conflict escalations, market shocks, fresh sanctions. Tune the cadence anytime in Settings.",
-          "confirmCta": "Enable alerts",
-          "confirming": "Enabling…",
-          "doneNote": "Browser alerts are already on.",
-          "blockedNote": "Notifications are blocked in your browser. Turn them on in your browser's site settings to get alerts.",
-          "declinedNote": "No problem — we won't send browser alerts. You can turn them on later from your browser's site settings.",
-          "summaryLabel": "Critical alerts",
-          "summaryVerified": "On — critical signals will reach your browser."
-        },
-        "power": {
-          "heading": "Your Pro toolkit",
-          "body": "Custom widgets, MCP connections, and the AI researcher are unlocked. Build the board you actually want to watch.",
-          "confirmCta": "Explore Pro tools",
-          "confirming": "Opening…",
-          "doneNote": "You're already using your Pro tools.",
-          "summaryLabel": "Pro toolkit",
-          "summaryVerified": "Unlocked and ready when you are.",
-          "channelsNote": "Prefer Telegram, Slack, Discord, or a webhook?",
-          "pointers": {
-            "search": "جستجو در کل داشبورد",
-            "widgets": "Build a custom widget",
-            "analyst": "Ask the AI analyst",
-            "mcpClients": "Set up MCP",
-            "channels": "Set those up in notification settings"
-          }
-        }
-      },
-      "status": {
-        "pending": "Not set up",
-        "inFlight": "Setting up…",
-        "verified": "Ready",
-        "failed": "Didn't work",
-        "blocked": "Blocked",
-        "unavailable": "Not available",
-        "blockedNote": "This isn't available right now — you can set it up later from settings.",
-        "unavailableNote": "This isn't available on your device — you can set it up later.",
-        "failedBody": "Something went wrong. You can try again, or set it up later from settings.",
-        "retry": "Try again"
-      },
-      "actions": {
-        "skip": "Skip for now",
-        "continue": "Continue"
-      },
-      "summary": {
-        "heading": "You're all set",
-        "subVerified": "Here's what's running on your account.",
-        "subPending": "You can finish setup any time from settings.",
-        "linePending": "Not set up yet — finish any time in settings.",
-        "lineFailed": "We couldn't set this up — try again from settings.",
-        "finish": "Go to my dashboard"
-      },
-      "chip": {
-        "message": "Finish setting up your Pro account.",
-        "action": "Finish setup",
-        "dismissLabel": "Dismiss"
-      }
     },
     "frameworkSelector": {
       "label": "Analysis Framework",
@@ -2936,20 +2819,10 @@
       }
     },
     "exportGate": {
-      "signedOutDesc": "برای خروجی داده‌های داشبورد به‌صورت CSV، JSON یا PDF وارد شوید.",
-      "upgradeDesc": "خروجی داده (CSV، JSON، PDF) در Pro Business موجود است.",
-      "upgradeCta": "ارتقا به Pro Business",
       "lockedAriaLabel": "خروجی داده — قفل‌شده. {{reason}}",
       "unlockedAnnouncement": "خروجی داده قفل‌گشایی شد.",
       "preparingPdf": "آماده‌سازی PDF…",
       "pdfFailed": "گزارش PDF قابل تولید نیست. دوباره امتحان کنید یا از خروجی JSON استفاده کنید."
-    },
-    "tabCap": {
-      "signedOutDesc": "فضاهای کاری بدون ورود به {{cap}} برگه محدود هستند. برای افزودن بیشتر وارد شوید.",
-      "upgradeDesc": "به حد {{cap}} برگه داشبورد رسیده‌اید.",
-      "upgradeCta": "ارتقا برای بیشتر",
-      "lockedAriaLabel": "افزودن برگه — قفل‌شده. {{reason}}",
-      "unlockedAnnouncement": "محدودیت برگه‌های داشبورد برداشته شد."
     },
     "fx": {
       "infoTooltip": "<strong>نرخ‌های ارز</strong> تنش ۴۵ ارز را بر اساس بزرگترین کاهش آنها در ۲۴ ماه رتبه‌بندی می‌کند، با تغییر ۱۲ ماه. نرخ‌های فوری از پایه‌های دلار آمریکا و یورو جداگانه استفاده می‌کند. نرخ‌های روبل روسیه روبل برای هر واحد هستند. منابع شامل Yahoo Finance، بانک مرکزی اروپا و بانک روسیه می‌باشند.",
@@ -2983,18 +2856,6 @@
       "rubPerUnit": "روبل به ازای هر واحد",
       "sourceCbr": "منبع: بانک مرکزی روسیه"
     },
-    "passkeyOffer": {
-      "title": "ذخیره کلید دسترسی؟",
-      "body": "دفعه بعد با اثر انگشت، چهره یا کد PIN دستگاه خود وارد شوید — نیازی نیست رمز عبور را یادداشت کنید.",
-      "accept": "ذخیره کلید دسترسی",
-      "dismiss": "اکنون نه",
-      "close": "بستن",
-      "announce": "کلید دسترسی را ذخیره کنید تا دفعه بعد سریع‌تر وارد شوید.",
-      "busy": "در انتظار دستگاه شما…",
-      "succeeded": "کلید دسترسی ذخیره شد. می‌توانید آن را دفعه بعد هنگام ورود استفاده کنید.",
-      "retryable": "این کار تکمیل نشد. می‌توانید دوباره تلاش کنید.",
-      "failed": "نتوانستیم کلید دسترسی را در این دستگاه ذخیره کنیم."
-    },
     "decisionBrief": {
       "commodityTitle": "گزارش تصمیم‌گیری کالا",
       "commodity": "کالا / محصول",
@@ -3013,8 +2874,7 @@
       "changed": "انتخاب تغییر کرد. پیش از خروجی گرفتن، هر دو سناریو را دریافت کنید.",
       "loading": "در حال دریافت هر دو سناریو…",
       "captured": "دریافت شد. پیش از بارگیری، تاریخ مشاهدات و محدودیت‌ها را بررسی کنید.",
-      "failed": "دریافت سناریوها ممکن نشد. دسترسی خود را بررسی کرده و دوباره تلاش کنید. نتیجه‌ای برای خروجی گرفتن موجود نیست.",
-      "locked": "خلاصه تصمیم با Pro در دسترس است."
+      "failed": "دریافت سناریوها ممکن نشد. دسترسی خود را بررسی کرده و دوباره تلاش کنید. نتیجه‌ای برای خروجی گرفتن موجود نیست."
     },
     "liveMedia": {
       "idleStatus": "به دلیل عدم فعالیت متوقف شده",
@@ -3738,31 +3598,9 @@
     "panelFontScale": "اندازه متن",
     "followGlobalFontScale": "استفاده از تنظیم سراسری"
   },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "Requires a World Monitor license key",
-    "signInToUnlock": "Sign in to unlock premium features",
-    "signIn": "Sign In to Unlock",
-    "upgradeDesc": "Upgrade to Pro for full access to premium analytics",
-    "upgradeToPro": "Upgrade to Pro",
-    "features": {
-      "orefSirens1": "Real-time Israel missile & rocket alerts",
-      "orefSirens2": "Siren zone mapping with threat classification",
-      "telegramIntel1": "کانال‌های اطلاعاتی منبع‌باز تلگرام منتخب",
-      "telegramIntel2": "Near-real-time conflict & geopolitical updates",
-      "xIntel1": "Curated public news accounts on X",
-      "xIntel2": "API-fresh posts with official permalinks"
-    }
-  },
   "contextMenu": {
     "openCountryBrief": "Open Country Brief",
     "copyCoordinates": "Copy Coordinates"
-  },
-  "auth": {
-    "signIn": "Sign In",
-    "createAccount": "Create account",
-    "settings": "Settings",
-    "passkeyOffer": {}
   },
   "mcp": {
     "connectPanel": "Connect MCP",
@@ -3851,8 +3689,6 @@
     "resilience": "تاب‌آوری",
     "ciiMissing": "CII در دسترس نیست",
     "resilienceMissing": "تاب‌آوری در دسترس نیست",
-    "noEvents": "برای این تاریخ تیتر منتخبی ثبت نشده است. این به معنای رخ ندادن رویداد نیست.",
-    "unlock90": "۹۰ روز را با Pro باز کنید",
-    "unlock365": "۳۶۵ روز را با طرح API باز کنید"
+    "noEvents": "برای این تاریخ تیتر منتخبی ثبت نشده است. این به معنای رخ ندادن رویداد نیست."
   }
 }

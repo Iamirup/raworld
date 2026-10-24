@@ -1,7 +1,7 @@
 ---
 title: "Country risk with a memory"
 description: "How daily country snapshots help analysts compare CII, resilience and selected headlines without hiding missing days or formula changes."
-metaTitle: "Daily country history and risk trends | World Monitor"
+metaTitle: "Daily country history and risk trends | RaWorld"
 keywords: "country risk history, CII timeline, resilience history, daily country snapshots"
 audience: "Country-risk analysts and monitoring teams"
 heroImage: "/blog/images/blog/country-risk-monitoring-workflow-for-analysts.jpg"
@@ -9,7 +9,7 @@ pubDate: "2026-10-19"
 ---
 
 A current score tells you where to look. A dated record helps you explain what changed.
-World Monitor's daily country history pairs CII and resilience observations with selected source-linked headlines.
+RaWorld's daily country history pairs CII and resilience observations with selected source-linked headlines.
 History starts when the daily archive worker is activated. An empty archive means no daily snapshots are available yet.
 
 Open a country's detail panel and select a date in **Daily country history**.

@@ -24,7 +24,7 @@ export const USE_CASE_PAGES = [
     title: 'Verify Breaking News',
     path: '/use-cases/verify-breaking-news/',
     hubCard:
-      'Capture a claim, assess sources, test independent World Monitor signals, record contradictions and freshness gaps, then choose a qualified next action.',
+      'Capture a claim, assess sources, test independent RaWorld signals, record contradictions and freshness gaps, then choose a qualified next action.',
   },
   {
     slug: 'monitor-supply-chain-disruptions',
@@ -107,7 +107,7 @@ function assertMetaDescription(description, label) {
 const WORLD_MONITOR_ORG = Object.freeze({
   '@id': 'https://www.worldmonitor.app/#organization',
   '@type': 'Organization',
-  name: 'World Monitor',
+  name: 'RaWorld',
   url: 'https://www.worldmonitor.app/',
 });
 
@@ -171,7 +171,7 @@ function renderUseCasesIndex({ tpl, baseUrl, lastmod }) {
   const { escapeHtml, absoluteUrl, breadcrumbLd, pageDocument } = tpl;
   const path = '/use-cases/';
   const description =
-    'Evergreen World Monitor use-case workflows that turn a monitoring question into an exact dashboard decision, with provenance, limits, and clear next steps.';
+    'Evergreen RaWorld use-case workflows that turn a monitoring question into an exact dashboard decision, with provenance, limits, and clear next steps.';
   assertMetaDescription(description, 'use-cases hub');
 
   const cards = USE_CASE_PAGES.map((page) => `        <a class="card" href="${escapeHtml(page.path)}"><strong>${escapeHtml(page.title)}</strong><br><span>${escapeHtml(page.hubCard)}</span></a>`).join('\n');
@@ -180,7 +180,7 @@ function renderUseCasesIndex({ tpl, baseUrl, lastmod }) {
       <h1>Evergreen monitoring workflows</h1>
       <p class="lede">${escapeHtml(description)}</p>
       <h2>What this collection is</h2>
-      <p>Use-case pages are durable task guides. Each one defines a user, a decision, a trigger, and an expected output, then walks a repeatable sequence that ends in an exact World Monitor product state.</p>
+      <p>Use-case pages are durable task guides. Each one defines a user, a decision, a trigger, and an expected output, then walks a repeatable sequence that ends in an exact RaWorld product state.</p>
       <h2>Who it serves</h2>
       <p>Analysts, duty-of-care officers, newsroom researchers, and operators who need a monitoring procedure — not a dated news article and not a generic marketing landing page.</p>
       <h2>How use cases differ from editorial posts</h2>
@@ -193,7 +193,7 @@ ${cards}
   return pageDocument({
     baseUrl,
     path,
-    title: 'Use Cases | World Monitor',
+    title: 'Use Cases | RaWorld',
     description,
     lastmod,
     ogType: 'website',
@@ -210,7 +210,7 @@ ${cards}
       { name: 'Use cases', path },
     ]),
     body,
-    footerBody: `${UMAMI_SCRIPT_TAG}World Monitor use-case corpus. Evergreen workflows use committed product evidence; live API results belong on dashboard and country pages.`,
+    footerBody: `${UMAMI_SCRIPT_TAG}RaWorld use-case corpus. Evergreen workflows use committed product evidence; live API results belong on dashboard and country pages.`,
   });
 }
 
@@ -218,7 +218,7 @@ function renderCountryRiskUseCase({ tpl, baseUrl, lastmod }) {
   const { escapeHtml, absoluteUrl, breadcrumbLd, pageDocument } = tpl;
   const path = '/use-cases/monitor-country-risk/';
   const description =
-    'A repeatable World Monitor country-risk workflow: establish a baseline, review live instability, check corroborating signals, record uncertainty, then act.';
+    'A repeatable RaWorld country-risk workflow: establish a baseline, review live instability, check corroborating signals, record uncertainty, then act.';
   assertMetaDescription(description, 'monitor-country-risk');
 
   const handoffs = {
@@ -250,11 +250,11 @@ function renderCountryRiskUseCase({ tpl, baseUrl, lastmod }) {
 
   const body = `      <p class="eyebrow">Use case</p>
       <h1>Monitor country risk</h1>
-      <p class="lede"><strong>Direct answer:</strong> treat country risk as a continuous watch, not an annual PDF. Establish structural and live baselines, review movers and corroborating signals, record what you cannot prove, and continue into an exact World Monitor country brief.</p>
+      <p class="lede"><strong>Direct answer:</strong> treat country risk as a continuous watch, not an annual PDF. Establish structural and live baselines, review movers and corroborating signals, record what you cannot prove, and continue into an exact RaWorld country brief.</p>
 
       <h2>Who this is for</h2>
       <p>Risk analysts, corporate security, procurement, investors, and NGO security officers who need a repeatable monitoring decision for a defined country set.</p>
-      <p><strong>Not for:</strong> emergency dispatch, legal certification, military targeting, or any decision that requires primary field reporting. World Monitor aggregates public and licensed signals; it does not certify events.</p>
+      <p><strong>Not for:</strong> emergency dispatch, legal certification, military targeting, or any decision that requires primary field reporting. RaWorld aggregates public and licensed signals; it does not certify events.</p>
 
       <h2>Workflow inputs and output</h2>
       <ul>
@@ -291,7 +291,7 @@ function renderCountryRiskUseCase({ tpl, baseUrl, lastmod }) {
         <li><strong>Provenance:</strong> CII/CRI methodology pages and country corpus pages disclose inputs; treat blog methodology posts as supporting editorial.</li>
         <li><strong>Freshness:</strong> live instability updates continuously in product; resilience snapshots refresh on a published cadence. Always record observation time in the monitoring note.</li>
         <li><strong>Blind spots:</strong> media-based event data can lag or miss closed societies; multipliers and baselines are model judgments; prediction markets are forecasts, not observations.</li>
-        <li><strong>What World Monitor cannot prove:</strong> intent, classified activity, or that a quiet sensor means a quiet ground truth.</li>
+        <li><strong>What RaWorld cannot prove:</strong> intent, classified activity, or that a quiet sensor means a quiet ground truth.</li>
       </ul>
 
       <h2>Exact next action</h2>
@@ -341,7 +341,7 @@ function renderCountryRiskUseCase({ tpl, baseUrl, lastmod }) {
   return pageDocument({
     baseUrl,
     path,
-    title: 'Monitor Country Risk | World Monitor Use Cases',
+    title: 'Monitor Country Risk | RaWorld Use Cases',
     description,
     lastmod,
     ogType: 'article',
@@ -354,7 +354,7 @@ function renderCountryRiskUseCase({ tpl, baseUrl, lastmod }) {
       }),
       faqPageLd([
         [
-          'How do you monitor country risk with World Monitor?',
+          'How do you monitor country risk with RaWorld?',
           'Establish a baseline with the Country Instability Index and Country Resilience Index, review live instability and forecasts, check corroborating economic and security signals, record uncertainty, then set the follow-up or escalation into an exact product state.',
         ],
         [
@@ -363,7 +363,7 @@ function renderCountryRiskUseCase({ tpl, baseUrl, lastmod }) {
         ],
         [
           'What is the expected output of a country-risk watch?',
-          'A dated monitoring note with baseline, live pressure, corroboration, uncertainty, and the next action, continuing into an exact World Monitor country brief rather than a generic homepage.',
+          'A dated monitoring note with baseline, live pressure, corroboration, uncertainty, and the next action, continuing into an exact RaWorld country brief rather than a generic homepage.',
         ],
       ]),
       howToLd({
@@ -380,7 +380,7 @@ function renderCountryRiskUseCase({ tpl, baseUrl, lastmod }) {
     ]),
     body,
     inlineScript: HANDOFF_PRESERVE_SCRIPT,
-    footerBody: `${UMAMI_SCRIPT_TAG}World Monitor use-case corpus. Evergreen workflows use committed product evidence; live API results belong on dashboard and country pages.`,
+    footerBody: `${UMAMI_SCRIPT_TAG}RaWorld use-case corpus. Evergreen workflows use committed product evidence; live API results belong on dashboard and country pages.`,
   });
 }
 
@@ -388,7 +388,7 @@ function renderVerifyBreakingNewsUseCase({ tpl, baseUrl, lastmod }) {
   const { escapeHtml, absoluteUrl, breadcrumbLd, pageDocument } = tpl;
   const path = '/use-cases/verify-breaking-news/';
   const description =
-    'Verify a breaking claim with World Monitor: capture it, assess sources, check independent signals, record contradictions, then take a qualified next action.';
+    'Verify a breaking claim with RaWorld: capture it, assess sources, check independent signals, record contradictions, then take a qualified next action.';
   assertMetaDescription(description, 'verify-breaking-news');
 
   const handoffs = {
@@ -423,11 +423,11 @@ function renderVerifyBreakingNewsUseCase({ tpl, baseUrl, lastmod }) {
 
   const body = `      <p class="eyebrow">Use case</p>
       <h1>Verify breaking news</h1>
-      <p class="lede"><strong>Direct answer:</strong> treat a viral claim as a hypothesis. Capture the exact claim and window, assess the source chain, test only the World Monitor signal families that can support or contradict it, record contradictions and coverage gaps, then assign a qualified outcome before you brief anyone.</p>
+      <p class="lede"><strong>Direct answer:</strong> treat a viral claim as a hypothesis. Capture the exact claim and window, assess the source chain, test only the RaWorld signal families that can support or contradict it, record contradictions and coverage gaps, then assign a qualified outcome before you brief anyone.</p>
 
       <h2>Who this is for</h2>
       <p>Newsroom researchers, OSINT analysts, duty-of-care officers, and desk editors who need a bounded verification record in minutes — not a rewritten article and not a generic homepage tour.</p>
-      <p><strong>Not for:</strong> sole basis for emergency, military, legal, medical, or safety decisions. World Monitor aggregates public and licensed signals; correlated sensors are evidence, not certainty, and this workflow does not certify that an event is true.</p>
+      <p><strong>Not for:</strong> sole basis for emergency, military, legal, medical, or safety decisions. RaWorld aggregates public and licensed signals; correlated sensors are evidence, not certainty, and this workflow does not certify that an event is true.</p>
 
       <h2>Workflow inputs and output</h2>
       <ul>
@@ -463,10 +463,10 @@ function renderVerifyBreakingNewsUseCase({ tpl, baseUrl, lastmod }) {
 
       <h2>Provenance, freshness, and limits</h2>
       <ul>
-        <li><strong>Provenance:</strong> AIS aggregators, NASA FIRMS, USGS seismic catalogs, flight/NOTAM feeds, Cloudflare Radar-style connectivity signals, and World Monitor convergence scoring each disclose different publishers and coverage.</li>
+        <li><strong>Provenance:</strong> AIS aggregators, NASA FIRMS, USGS seismic catalogs, flight/NOTAM feeds, Cloudflare Radar-style connectivity signals, and RaWorld convergence scoring each disclose different publishers and coverage.</li>
         <li><strong>Freshness:</strong> AIS and flights can move in minutes; thermal passes can lag hours; news velocity can spike before sensors settle. Always stamp the verification note with observation time.</li>
         <li><strong>Blind spots:</strong> thin AIS regions, small events below sensor thresholds, cloud-obscured thermal passes, webcam geometry, and claims about intent rather than physics.</li>
-        <li><strong>What World Monitor cannot prove:</strong> that a quiet map means nothing happened, or that repeated headlines are independent confirmations.</li>
+        <li><strong>What RaWorld cannot prove:</strong> that a quiet map means nothing happened, or that repeated headlines are independent confirmations.</li>
       </ul>
 
       <h2>Exact next action</h2>
@@ -520,7 +520,7 @@ function renderVerifyBreakingNewsUseCase({ tpl, baseUrl, lastmod }) {
   return pageDocument({
     baseUrl,
     path,
-    title: 'Verify Breaking News | World Monitor Use Cases',
+    title: 'Verify Breaking News | RaWorld Use Cases',
     description,
     lastmod,
     ogType: 'article',
@@ -533,15 +533,15 @@ function renderVerifyBreakingNewsUseCase({ tpl, baseUrl, lastmod }) {
       }),
       faqPageLd([
         [
-          'How do you verify breaking news with World Monitor?',
-          'Treat a viral claim as a hypothesis: capture the exact claim and window, assess the source chain, test only the World Monitor signal families that can support or contradict it, record contradictions and coverage gaps, then assign a qualified outcome before you brief anyone.',
+          'How do you verify breaking news with RaWorld?',
+          'Treat a viral claim as a hypothesis: capture the exact claim and window, assess the source chain, test only the RaWorld signal families that can support or contradict it, record contradictions and coverage gaps, then assign a qualified outcome before you brief anyone.',
         ],
         [
           'Who is the breaking-news verification workflow for?',
           'Newsroom researchers, OSINT analysts, duty-of-care officers, and desk editors who need a bounded verification record in minutes — not a rewritten article and not a generic homepage tour.',
         ],
         [
-          'What can World Monitor not prove about a breaking claim?',
+          'What can RaWorld not prove about a breaking claim?',
           'That a quiet map means nothing happened, or that repeated headlines are independent confirmations. Correlated sensors are evidence, not certainty, and this workflow does not certify that an event is true.',
         ],
       ]),
@@ -559,7 +559,7 @@ function renderVerifyBreakingNewsUseCase({ tpl, baseUrl, lastmod }) {
     ]),
     body,
     inlineScript: HANDOFF_PRESERVE_SCRIPT,
-    footerBody: `${UMAMI_SCRIPT_TAG}World Monitor use-case corpus. Evergreen workflows use committed product evidence; live API results belong on dashboard and country pages.`,
+    footerBody: `${UMAMI_SCRIPT_TAG}RaWorld use-case corpus. Evergreen workflows use committed product evidence; live API results belong on dashboard and country pages.`,
   });
 }
 
@@ -567,7 +567,7 @@ function renderSupplyChainDisruptionsUseCase({ tpl, baseUrl, lastmod }) {
   const { escapeHtml, absoluteUrl, breadcrumbLd, pageDocument } = tpl;
   const path = '/use-cases/monitor-supply-chain-disruptions/';
   const description =
-    'Monitor supply-chain disruption with World Monitor: define exposure, baseline routes, detect signals, test transmission paths, record uncertainty, then act.';
+    'Monitor supply-chain disruption with RaWorld: define exposure, baseline routes, detect signals, test transmission paths, record uncertainty, then act.';
   assertMetaDescription(description, 'monitor-supply-chain-disruptions');
 
   const handoffs = {
@@ -606,7 +606,7 @@ function renderSupplyChainDisruptionsUseCase({ tpl, baseUrl, lastmod }) {
 
       <h2>Who this is for</h2>
       <p>Procurement, logistics risk, commodity, and corporate security teams who need a monitoring procedure across chokepoints, maritime activity, country risk, sanctions, and markets.</p>
-      <p><strong>Not for:</strong> ERP inventory planning, shipment tracking, route optimization, or guaranteed forecasts of price, shortage, delay, or downstream impact. World Monitor does not replace specialist logistics platforms.</p>
+      <p><strong>Not for:</strong> ERP inventory planning, shipment tracking, route optimization, or guaranteed forecasts of price, shortage, delay, or downstream impact. RaWorld does not replace specialist logistics platforms.</p>
 
       <h2>Workflow inputs and output</h2>
       <ul>
@@ -653,7 +653,7 @@ function renderSupplyChainDisruptionsUseCase({ tpl, baseUrl, lastmod }) {
         <li><strong>Provenance:</strong> chokepoint methodology, AIS aggregators, sanctions lists, country indexes, and market feeds each have distinct publishers.</li>
         <li><strong>Freshness:</strong> maritime and hotspot layers can move within hours; resilience and some policy datasets refresh more slowly. Stamp observation time.</li>
         <li><strong>Blind spots:</strong> dark shipping, delayed AIS in thin-coverage regions, model latency, and commodity series that lag the physical constraint.</li>
-        <li><strong>What World Monitor cannot prove:</strong> that an event will cause a specific price, shortage, delay, or customer impact.</li>
+        <li><strong>What RaWorld cannot prove:</strong> that an event will cause a specific price, shortage, delay, or customer impact.</li>
       </ul>
 
       <h2>Exact next action</h2>
@@ -720,7 +720,7 @@ function renderSupplyChainDisruptionsUseCase({ tpl, baseUrl, lastmod }) {
   return pageDocument({
     baseUrl,
     path,
-    title: 'Monitor Supply-Chain Disruptions | World Monitor Use Cases',
+    title: 'Monitor Supply-Chain Disruptions | RaWorld Use Cases',
     description,
     lastmod,
     ogType: 'article',
@@ -733,7 +733,7 @@ function renderSupplyChainDisruptionsUseCase({ tpl, baseUrl, lastmod }) {
       }),
       faqPageLd([
         [
-          'How do you monitor supply-chain disruptions with World Monitor?',
+          'How do you monitor supply-chain disruptions with RaWorld?',
           'Define the exposure first, keep a routine baseline, then switch to incident mode only when a signal can touch that exposure. Separate observed evidence, forecasts, and analyst inference before you escalate.',
         ],
         [
@@ -741,7 +741,7 @@ function renderSupplyChainDisruptionsUseCase({ tpl, baseUrl, lastmod }) {
           'Routine monitoring defines exposure, establishes a baseline, runs the daily scan, and sets watch thresholds. Incident response identifies the first-order constraint, tests exposure fit, maps transmission paths, separates evidence classes, and records stale or contradictory sources before escalating.',
         ],
         [
-          'What can World Monitor not prove about a disruption?',
+          'What can RaWorld not prove about a disruption?',
           'That an event will cause a specific price, shortage, delay, or customer impact. Market moves are confirmation signals, not causal proof.',
         ],
       ]),
@@ -759,7 +759,7 @@ function renderSupplyChainDisruptionsUseCase({ tpl, baseUrl, lastmod }) {
     ]),
     body,
     inlineScript: HANDOFF_PRESERVE_SCRIPT,
-    footerBody: `${UMAMI_SCRIPT_TAG}World Monitor use-case corpus. Evergreen workflows use committed product evidence; live API results belong on dashboard and country pages.`,
+    footerBody: `${UMAMI_SCRIPT_TAG}RaWorld use-case corpus. Evergreen workflows use committed product evidence; live API results belong on dashboard and country pages.`,
   });
 }
 

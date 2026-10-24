@@ -39,7 +39,7 @@ service MilitaryService {
     option (sebuf.http.config) = {path: "/get-aircraft-details-batch", method: HTTP_METHOD_POST};
   }
 
-  // Check whether Wingbits aircraft enrichment is configured for World Monitor, using the configuration flag before requesting aircraft details or batch enrichment.
+  // Check whether Wingbits aircraft enrichment is configured for RaWorld, using the configuration flag before requesting aircraft details or batch enrichment.
   rpc GetWingbitsStatus(GetWingbitsStatusRequest) returns (GetWingbitsStatusResponse) {
     option (sebuf.http.config) = {path: "/get-wingbits-status", method: HTTP_METHOD_GET};
   }

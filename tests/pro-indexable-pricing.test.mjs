@@ -40,7 +40,7 @@ function parsePricingRows(visibleRootMarkup) {
 
 function assertVisibleCatalogPrices(html, label) {
   const { visibleRootMarkup } = crawlerDocumentSnapshot(html);
-  assert.match(visibleRootMarkup, /How much does World Monitor Pro cost\?/, `${label} must ask the pricing question inside #root`);
+  assert.match(visibleRootMarkup, /How much does RaWorld Pro cost\?/, `${label} must ask the pricing question inside #root`);
   const rows = parsePricingRows(visibleRootMarkup);
   assert.deepEqual(
     Object.keys(rows).sort(),
@@ -73,7 +73,7 @@ function assertIndexableRobots(html, label) {
   );
 }
 
-const PRICING_COPY = `<h2>How much does World Monitor Pro cost?</h2>
+const PRICING_COPY = `<h2>How much does RaWorld Pro cost?</h2>
 <table><tbody>
   <tr><td>Free</td><td>$0</td><td>$0</td></tr>
   <tr><td>Pro</td><td>$39.99</td><td>$359.99</td></tr>
@@ -92,11 +92,11 @@ describe('crawler-visible HTML must not count noscript (#7458)', () => {
   it('treats a noscript-only pricing table as invisible', () => {
     const noscriptOnly = htmlFixture({
       head: `<meta name="robots" content="${INDEXABLE_ROBOTS_CONTENT}">`,
-      root: `<h1>World Monitor Pro</h1><noscript>${PRICING_COPY}</noscript>`,
+      root: `<h1>RaWorld Pro</h1><noscript>${PRICING_COPY}</noscript>`,
     });
     const visible = crawlerDocumentSnapshot(noscriptOnly).visibleRootMarkup;
     assert.doesNotMatch(visible, /\$39\.99/);
-    assert.doesNotMatch(visible, /How much does World Monitor Pro cost\?/);
+    assert.doesNotMatch(visible, /How much does RaWorld Pro cost\?/);
     assert.throws(
       () => assertVisibleCatalogPrices(noscriptOnly, 'noscript-only fixture'),
       /inside #root|pricing table/,
@@ -105,7 +105,7 @@ describe('crawler-visible HTML must not count noscript (#7458)', () => {
 
   it('does not treat JSON-LD Offer prices as visible body copy', () => {
     const jsonLdOnly = htmlFixture({
-      root: `<h1>World Monitor Pro</h1><script type="application/ld+json">
+      root: `<h1>RaWorld Pro</h1><script type="application/ld+json">
         {"@type":"Offer","name":"Pro","price":"39.99","priceCurrency":"USD"}
       </script>`,
     });

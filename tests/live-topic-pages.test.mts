@@ -392,7 +392,7 @@ ${topic.renderSection(null, { live: false })}
     assert.equal(response.headers.get('x-wm-live-page'), topic.slug);
     assert.equal(response.headers.get('cache-control'), 'public, max-age=300, must-revalidate');
     assert.equal(response.headers.get('etag'), null);
-    assert.match(html, /World Monitor Fear &amp; Greed Index reads 56\.8 out of 100/);
+    assert.match(html, /RaWorld Fear &amp; Greed Index reads 56\.8 out of 100/);
     const statusCall = calls.find((url) => url.includes(liveTopicRpcPath(topic)));
     assert.equal(new URL(statusCall!).search, '?public=1');
   });

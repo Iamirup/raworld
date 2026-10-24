@@ -1,7 +1,7 @@
 /**
  * Item-level label history (#9093).
  *
- * WorldMonitor labels each story with how widely it is covered
+ * RaWorld labels each story with how widely it is covered
  * (assessCorroboration). When that label moves between single-publisher and
  * corroborated, the change is recorded here, in the open, with the publishers
  * behind it. The log is append-only and bounded: entries are kept for

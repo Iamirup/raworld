@@ -1,6 +1,6 @@
 // U3 — get_sources: runtime source discovery (R13).
 //
-// The load-bearing behaviour is honesty about what WorldMonitor knows:
+// The load-bearing behaviour is honesty about what RaWorld knows:
 //   - an outlet with no declared tier reports tier null, NOT the 4 that
 //     getSourceTier() would default it to. A defaulted number is
 //     indistinguishable from a declared one.

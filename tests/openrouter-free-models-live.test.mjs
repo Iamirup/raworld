@@ -177,7 +177,7 @@ describe(`OpenRouter free models live completion (${LIVE && API_KEY ? 'ENABLED' 
           Authorization: `Bearer ${API_KEY}`,
           'Content-Type': 'application/json',
           'HTTP-Referer': 'https://worldmonitor.app',
-          'X-Title': 'World Monitor',
+          'X-Title': 'RaWorld',
         },
         // Production's request shape, so a routing or data-policy refusal
         // shows up here the way it would in the seeders.

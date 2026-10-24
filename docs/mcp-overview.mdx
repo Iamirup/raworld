@@ -1,9 +1,9 @@
 ---
-title: "WorldMonitor MCP server: connect Claude, Cursor, and agents"
-description: "Connect Claude or Cursor to WorldMonitor MCP for country risk, markets, conflicts, chokepoints, current US duties, and historical tariff schedules."
+title: "RaWorld MCP server: connect Claude, Cursor, and agents"
+description: "Connect Claude or Cursor to RaWorld MCP for country risk, markets, conflicts, chokepoints, current US duties, and historical tariff schedules."
 ---
 
-WorldMonitor exposes its intelligence stack as a [Model Context Protocol](https://modelcontextprotocol.io) server so any MCP-compatible client (Claude Desktop, Claude web, Cursor, MCP Inspector, custom agents) can pull live data directly into a model's context. Its tools cover these domains: {/* mcp-domains:start */}markets, commodities and macro; energy; conflicts, country risk, sanctions, cyber threats and chokepoints; maritime, aviation and supply chains; climate and natural disasters; health signals; displacement and humanitarian crises; AI briefs, forecasts and intel history; tariffs and trade policy{/* mcp-domains:end */}.
+RaWorld exposes its intelligence stack as a [Model Context Protocol](https://modelcontextprotocol.io) server so any MCP-compatible client (Claude Desktop, Claude web, Cursor, MCP Inspector, custom agents) can pull live data directly into a model's context. Its tools cover these domains: {/* mcp-domains:start */}markets, commodities and macro; energy; conflicts, country risk, sanctions, cyber threats and chokepoints; maritime, aviation and supply chains; climate and natural disasters; health signals; displacement and humanitarian crises; AI briefs, forecasts and intel history; tariffs and trade policy{/* mcp-domains:end */}.
 
 To compare data coverage and access options, see [MCP servers for geopolitical data](https://www.worldmonitor.app/compare/mcp-servers-for-geopolitical-data/).
 
@@ -16,7 +16,7 @@ Looking for tools that operate the dashboard already open in a Chrome tab? See [
 </Note>
 
 <Info>
-**Pro and API tiers can both connect via OAuth — no API key required.** Pro subscribers click _"Sign in with WorldMonitor Pro"_ on the consent page; API Starter / Business / Enterprise users may sign in the same way OR paste a `wm_…` key. A confirmed **free account** also completes the OAuth flow: its token is restricted to `free-account` tools and metered by the free allowance. A provider-confirmed lapse follows that same free-account path because the shared gate treats ended coverage as a confirmed free state. Retryable verification failures still return `503`; an expired or disabled paid row without that provider-confirmed lapse, or another genuinely insufficient entitlement, is refused with the Pro-required page.
+**Pro and API tiers can both connect via OAuth — no API key required.** Pro subscribers click _"Sign in with RaWorld Pro"_ on the consent page; API Starter / Business / Enterprise users may sign in the same way OR paste a `wm_…` key. A confirmed **free account** also completes the OAuth flow: its token is restricted to `free-account` tools and metered by the free allowance. A provider-confirmed lapse follows that same free-account path because the shared gate treats ended coverage as a confirmed free state. Retryable verification failures still return `503`; an expired or disabled paid row without that provider-confirmed lapse, or another genuinely insufficient entitlement, is refused with the Pro-required page.
 
 OAuth is not needed for `get_sources`: it is the sole credential-free, daily-quota-free data tool. Anonymous calls use a separate fail-closed limit of 10 requests/minute/IP. Other data tools require a user-bound credential. Tools marked `free-account` (direct cache reads) can use the small confirmed-free allowance; tools marked `subscription` (everything with server-side execute logic — live fetches, plus a few local-compute tools) require Pro.
 </Info>
@@ -44,7 +44,7 @@ Registry listings: the server is published in the [official MCP registry](https:
 
 ### Protocol negotiation
 
-WorldMonitor's static server card at `/.well-known/mcp/server-card.json` advertises protocol version `2025-11-25`, and the live `initialize` handshake negotiates it by default — so the advertised floor and the negotiated version stay in lock-step:
+RaWorld's static server card at `/.well-known/mcp/server-card.json` advertises protocol version `2025-11-25`, and the live `initialize` handshake negotiates it by default — so the advertised floor and the negotiated version stay in lock-step:
 
 - By default, `initialize` supports `2025-03-26`, `2025-06-18`, and `2025-11-25`.
 - Clients requesting one of those receive it unchanged; a client requesting any other version receives `2025-11-25`.
@@ -57,7 +57,7 @@ Tool `outputSchema` metadata is emitted on `tools/list` regardless of the negoti
 
 ### Streamable HTTP responses
 
-WorldMonitor supports the Streamable HTTP POST flow with either JSON or SSE responses:
+RaWorld supports the Streamable HTTP POST flow with either JSON or SSE responses:
 
 - Clients that omit `text/event-stream` from `Accept` receive the standard JSON-RPC JSON response body.
 - Clients that send `Accept: application/json, text/event-stream` can receive a `text/event-stream` response for successful JSON-RPC POSTs.
@@ -116,14 +116,14 @@ Claude Code, Cursor desktop, VS Code desktop, Codex, Gemini CLI, goose, Zed, and
 
 A client can skip registration and send the HTTPS URL of its published [Client ID Metadata Document](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/) as `client_id`. The AS metadata advertises `client_id_metadata_document_supported: true` next to `registration_endpoint`, and a client picks one method at discovery. Existing registrations and their refresh tokens keep working; a client that switches to CIMD signs in again as a new connection.
 
-WorldMonitor accepts only the document URLs below, matched exactly, and fetches no other URL. A request is accepted when:
+RaWorld accepts only the document URLs below, matched exactly, and fetches no other URL. A request is accepted when:
 
 - the document's `client_id` equals the URL it was fetched from;
 - the `redirect_uri` is one of the document's `redirect_uris`, exactly, except that an `http://localhost`, `http://127.0.0.1`, or `http://[::1]` callback may use any port ([RFC 8252 §7.3](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3));
 - the `redirect_uri` is `https:` or http loopback, with no credentials or fragment;
 - the document offers `token_endpoint_auth_method` `none` (public client with PKCE `S256`), has no `client_secret`, and includes the `authorization_code` grant when it lists grants.
 
-The document is fetched over HTTPS with redirects refused, a 3-second timeout, and a 16 KB cap. A valid document is cached for its `Cache-Control` lifetime, at most one hour (`private` and `no-store` are not cached), so a vendor's change reaches WorldMonitor within that time. A failed fetch is never cached. A missing document (`404` or `410`) is an unknown client; any other failure, such as a timeout, a `5xx` or `403`, an HTML page, or a body that is not valid JSON, is retryable, and the token endpoint keeps the authorization code or refresh token for the retry. For an exact listed URL, a retryable failure falls back to a vetted copy of the document captured when it was listed; chatgpt.com answers every fetch from WorldMonitor's servers with a `403` page, so ChatGPT and Codex connect this way. The copy is never cached, so the live document is tried on every request, and a missing or invalid live document still rejects the client. A per-connector document such as Vercel Connect's has no copy. The consent page shows the client name from the document, the host that published it, and the redirect host, and warns when the authorization goes to a localhost callback.
+The document is fetched over HTTPS with redirects refused, a 3-second timeout, and a 16 KB cap. A valid document is cached for its `Cache-Control` lifetime, at most one hour (`private` and `no-store` are not cached), so a vendor's change reaches RaWorld within that time. A failed fetch is never cached. A missing document (`404` or `410`) is an unknown client; any other failure, such as a timeout, a `5xx` or `403`, an HTML page, or a body that is not valid JSON, is retryable, and the token endpoint keeps the authorization code or refresh token for the retry. For an exact listed URL, a retryable failure falls back to a vetted copy of the document captured when it was listed; chatgpt.com answers every fetch from RaWorld's servers with a `403` page, so ChatGPT and Codex connect this way. The copy is never cached, so the live document is tried on every request, and a missing or invalid live document still rejects the client. A per-connector document such as Vercel Connect's has no copy. The consent page shows the client name from the document, the host that published it, and the redirect host, and warns when the authorization goes to a localhost callback.
 
 | Client | `client_id` (metadata document) |
 |--------|----------------------------------|
@@ -144,7 +144,7 @@ The document is fetched over HTTPS with redirects refused, a 3-second timeout, a
 | MCPJam | `https://www.mcpjam.com/.well-known/oauth/client-metadata.json` |
 | Vercel Connect | `https://connect.vercel.com/connectors/<connector id>`, one document per connector, with the callback pinned to `https://connect.vercel.com/callback` ([Vercel Connect provider docs](https://vercel.com/docs/connect/providers)) |
 
-ChatGPT's document prefers `private_key_jwt` but also lists `none`; WorldMonitor advertises only `none`, so ChatGPT uses PKCE without a client assertion. Make.com's published client URL redirects instead of serving a document, so it is not on the list. A client whose document is not listed gets an "Unknown Client" error; ask for it to be added.
+ChatGPT's document prefers `private_key_jwt` but also lists `none`; RaWorld advertises only `none`, so ChatGPT uses PKCE without a client assertion. Make.com's published client URL redirects instead of serving a document, so it is not on the list. A client whose document is not listed gets an "Unknown Client" error; ask for it to be added.
 
 The authorization response carries `iss` ([RFC 9207](https://datatracker.ietf.org/doc/html/rfc9207)), set to the `issuer` of the host where the flow started. ChatGPT requires it to use its stable callback.
 
@@ -160,7 +160,7 @@ The authorization response carries `iss` ([RFC 9207](https://datatracker.ietf.or
 
 ## Pro sign-in flow
 
-Pro subscribers (and API Starter+ users who'd rather not paste a key) can authorize MCP clients via their existing WorldMonitor account — no API key needed.
+Pro subscribers (and API Starter+ users who'd rather not paste a key) can authorize MCP clients via their existing RaWorld account — no API key needed.
 
 1. **Add the server URL** in your MCP client. The canonical entrypoint is:
 
@@ -170,7 +170,7 @@ Pro subscribers (and API Starter+ users who'd rather not paste a key) can author
 
    This is the only product MCP transport endpoint. Listed production aliases (`www`, `api`, and the dashboard variants) are not additional servers. Ordinary GET/HEAD `/mcp` and `/api/mcp` on those hosts redirect (308) to `https://worldmonitor.app/mcp`; ordinary GET/HEAD `/.well-known/mcp` and `/.well-known/mcp.json` redirect (308) to `https://worldmonitor.app/.well-known/mcp` and `https://worldmonitor.app/.well-known/mcp.json`. Query is not forwarded. A transport POST/SSE/replay receives HTTP 410 with JSON-RPC `-32000` telling the client to use `https://worldmonitor.app/mcp`.
 
-2. **Click "Sign in with WorldMonitor Pro"** on the consent page. This is the default CTA. You'll bounce through `worldmonitor.app/mcp-grant` (Clerk-protected — sign in if needed), then back to `api.worldmonitor.app/oauth/authorize-pro`, then to your client's redirect.
+2. **Click "Sign in with RaWorld Pro"** on the consent page. This is the default CTA. You'll bounce through `worldmonitor.app/mcp-grant` (Clerk-protected — sign in if needed), then back to `api.worldmonitor.app/oauth/authorize-pro`, then to your client's redirect.
 
 3. **Done.** No `wm_…` key is created or stored on your machine. The client receives a standard OAuth 2.1 access token (1 h TTL, refresh token valid for 30 days after the last refresh).
 
@@ -216,7 +216,7 @@ The OAuth and dashboard-key burst is per-USER, so a user with 3 Claude installat
 
 Hitting the MCP daily quota returns JSON-RPC error `-32029` plus HTTP `429` with a `Retry-After` header pointing at the next UTC midnight. Hitting the per-minute limit returns the same error code with a short `Retry-After`.
 
-WorldMonitor also surfaces current MCP plan-limit notices in Settings and sends a bounded-cadence email when a paid user approaches or exceeds their plan allowance. Notices are informational and action-oriented: they offer retry/reset guidance, checkout when the next tier is self-serve, or support contact when it is not. They do not automatically upgrade the account or create overage charges.
+RaWorld also surfaces current MCP plan-limit notices in Settings and sends a bounded-cadence email when a paid user approaches or exceeds their plan allowance. Notices are informational and action-oriented: they offer retry/reset guidance, checkout when the next tier is self-serve, or support contact when it is not. They do not automatically upgrade the account or create overage charges.
 
 ### Other rate limits
 
@@ -234,7 +234,7 @@ Step-by-step setup with screenshots for Claude, ChatGPT, Codex, Claude Code and 
 
 Add via **Customize → Connectors → + Add → Add custom connector**:
 
-- Name: `WorldMonitor`
+- Name: `RaWorld`
 - URL: `https://worldmonitor.app/mcp`
 
 Keep the detected sign-in settings and click **Add**, then sign in. Connectors belong to your Claude account, so Claude web, Claude Desktop and the mobile apps use the same one. On Team and Enterprise, an owner adds it first under **Organization settings → Connectors**. Claude Desktop's `claude_desktop_config.json` launches local (stdio) servers only, so a remote `url` entry there is not a supported way to connect; use the connector, or the `mcp-remote` bridge below.
@@ -531,14 +531,14 @@ In this table, `covered` means a tool declares the exact operation in `_apiPaths
 
 Current follow-up trackers:
 
-- [#4525](https://github.com/koala73/worldmonitor/issues/4525) — pure-read deferred MCP coverage candidates.
-- [#4526](https://github.com/koala73/worldmonitor/issues/4526) — manual mapping and fetch-on-miss triage.
+- [#4525](https://github.com/Iamirup/raworld/issues/4525) — pure-read deferred MCP coverage candidates.
+- [#4526](https://github.com/Iamirup/raworld/issues/4526) — manual mapping and fetch-on-miss triage.
 
 See the [Tool catalog](#tool-catalog) above for the complete live tool registry, or the [MCP Tools Reference](/mcp-tools-reference) for per-tool details.
 
 ## Prompts and resources
 
-In addition to the live tool registry, WorldMonitor exposes MCP prompts and resources so clients can discover common workflows and address stable data slices without inventing tool plans from scratch.
+In addition to the live tool registry, RaWorld exposes MCP prompts and resources so clients can discover common workflows and address stable data slices without inventing tool plans from scratch.
 
 ### Prompts
 
@@ -703,7 +703,7 @@ Triage from the outside in: HTTP status → JSON-RPC code → soft envelope. The
 
 ## Related
 
-- [WebMCP](/webmcp) — experimental, tab-bound tools that operate the visible WorldMonitor website
+- [WebMCP](/webmcp) — experimental, tab-bound tools that operate the visible RaWorld website
 - [MCP Quickstart](/mcp-quickstart) — connect Claude, ChatGPT, Codex or Cursor in about a minute
 - [JMESPath guide](/mcp-jmespath) — projection grammar + 12 worked examples
 - [MCP Tools Reference](/mcp-tools-reference) — per-tool parameters and `curl` examples

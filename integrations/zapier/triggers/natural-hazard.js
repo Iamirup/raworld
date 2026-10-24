@@ -150,9 +150,9 @@ const performList = async (z, bundle) => {
   const failed = (response) => !response || response.status >= 400;
   if (failed(quakes) && failed(natural)) {
     if (quakes.status === 401) {
-      throw new z.errors.ExpiredAuthError('WorldMonitor rejected the API key. Reconnect with an active wm_ key from Settings, API Keys.');
+      throw new z.errors.ExpiredAuthError('RaWorld rejected the API key. Reconnect with an active wm_ key from Settings, API Keys.');
     }
-    throw new z.errors.Error(`WorldMonitor API error ${quakes.status} on both hazard lists.`, 'ApiError', quakes.status);
+    throw new z.errors.Error(`RaWorld API error ${quakes.status} on both hazard lists.`, 'ApiError', quakes.status);
   }
   const quakeList = !failed(quakes) && quakes.data && Array.isArray(quakes.data.earthquakes) ? quakes.data.earthquakes : [];
   const eventList = !failed(natural) && natural.data && Array.isArray(natural.data.events) ? natural.data.events : [];

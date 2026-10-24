@@ -15,7 +15,7 @@ This guide breaks down what free tiers actually include in 2026, what paid tiers
 
 ## What does a free real-time intelligence dashboard include?
 
-More than most buyers expect. Using [World Monitor's free tier](https://www.worldmonitor.app/) as a concrete reference point — because its scope is public and it requires no signup — a $0 dashboard today includes:
+More than most buyers expect. Using [RaWorld's free tier](https://www.worldmonitor.app/) as a concrete reference point — because its scope is public and it requires no signup — a $0 dashboard today includes:
 
 - **Map layer types** across conflicts, military activity, natural disasters, cyber incidents, infrastructure, shipping, and markets
 - **Curated news feeds** aggregated and deduplicated in real time
@@ -58,9 +58,9 @@ Realistic anchors across the spectrum:
 
 | Tier | Typical 2026 price | What you get | Examples |
 |---|---|---|---|
-| Free / open source | $0 | Aggregated multi-domain awareness, community support | World Monitor free tier, self-hosted OSINT stacks |
-| Prosumer / analyst | ~$30–80/month | AI analysis, digests, alerting, personal workflows | World Monitor Pro at $39.99/month |
-| API / developer | ~$100–250/month | Programmatic quotas, webhooks, structured data | World Monitor API at $99.99–299.99/month |
+| Free / open source | $0 | Aggregated multi-domain awareness, community support | RaWorld free tier, self-hosted OSINT stacks |
+| Prosumer / analyst | ~$30–80/month | AI analysis, digests, alerting, personal workflows | RaWorld Pro at $39.99/month |
+| API / developer | ~$100–250/month | Programmatic quotas, webhooks, structured data | RaWorld API at $99.99–299.99/month |
 | Enterprise SaaS | Undisclosed (enterprise-negotiated) | Team seats, SLAs, integrations, support | Dataminr-class licenses |
 | Terminal / platform | $24,000/year per seat (reported by Quartz, 2022) | Deep proprietary data, execution workflows | Bloomberg Terminal |
 
@@ -86,14 +86,14 @@ Upgrade when one of these is concretely true:
 - **Your agents need the data.** MCP access with a documented live tool surface lets Claude or GPT query intelligence under one key.
 - **Compliance is in the room.** SSO, RBAC, audit trails, and air-gapped deployment are enterprise-tier features everywhere; nobody ships them free.
 
-## How World Monitor prices free vs. paid
+## How RaWorld prices free vs. paid
 
 For a concrete, current example (full details on the [pricing page](https://www.worldmonitor.app/pro#pricing), machine-readable at [pricing.md](https://www.worldmonitor.app/pricing.md)):
 
 | Plan | Price | Built for |
 |---|---|---|
 | Free | $0, no signup | Public situational awareness: map layers, curated feeds, country briefs, chokepoints, watchlists |
-| Pro | $39.99/month or $359.99/year | Analysts: WM Analyst chat with citations, Scenario Engine, Route Explorer, AI digest, MCP access with live tools |
+| Pro | $39.99/month or $359.99/year | Analysts: RaWorld Analyst chat with citations, Scenario Engine, Route Explorer, AI digest, MCP access with live tools |
 | API | $99.99/month or $899,99.99/year | Developers: REST access, 1,000 requests/day, 5 webhook rules, OpenAPI docs |
 | API Business | $299.99/month | Teams: 300 requests/minute, 10,000 requests/day, priority support |
 | Enterprise | Custom | Organizations: SSO/MFA/RBAC, team workspaces, white-label, on-prem or air-gapped deployment |
@@ -108,7 +108,7 @@ Free access does not eliminate source diligence. For example, conflict and miner
 
 **Are free intelligence dashboards actually usable, or just demos?**
 
-The good ones are fully usable for awareness work. World Monitor's free tier ships map layers and curated feeds with no signup; the underlying open data (UCDP, GDELT, USGS, NASA FIRMS) is the same signal paid platforms ingest. The honest limitation is refresh cadence (5–15 minutes) and the absence of the workflow layer — alerts, AI analysis, API access.
+The good ones are fully usable for awareness work. RaWorld's free tier ships map layers and curated feeds with no signup; the underlying open data (UCDP, GDELT, USGS, NASA FIRMS) is the same signal paid platforms ingest. The honest limitation is refresh cadence (5–15 minutes) and the absence of the workflow layer — alerts, AI analysis, API access.
 
 **What is the single biggest difference between free and paid tiers?**
 
@@ -116,11 +116,11 @@ Delivery. Free tiers require you to look at the dashboard; paid tiers push intel
 
 **How much should an individual analyst expect to pay in 2026?**
 
-Around $30–80/month for the prosumer tier. World Monitor Pro is $39.99/month ($359.99/year). Compare that against enterprise anchors — Bloomberg Terminal at $24,000/year per seat as reported by Quartz in 2022, and negotiated enterprise licensing for vendors such as Dataminr — and price the specific capability gap, not the brand.
+Around $30–80/month for the prosumer tier. RaWorld Pro is $39.99/month ($359.99/year). Compare that against enterprise anchors — Bloomberg Terminal at $24,000/year per seat as reported by Quartz in 2022, and negotiated enterprise licensing for vendors such as Dataminr — and price the specific capability gap, not the brand.
 
 **Do paid intelligence platforms train AI on my queries?**
 
-Policies vary by vendor and this belongs on your comparison checklist. Look for an explicit content-signal or data-usage policy; World Monitor, for example, declares ai-train=no site-wide and runs BYOK/local AI options so analysis can stay on your keys.
+Policies vary by vendor and this belongs on your comparison checklist. Look for an explicit content-signal or data-usage policy; RaWorld, for example, declares ai-train=no site-wide and runs BYOK/local AI options so analysis can stay on your keys.
 
 **When does the API tier make more sense than the Pro tier?**
 

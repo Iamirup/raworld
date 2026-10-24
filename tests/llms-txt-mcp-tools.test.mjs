@@ -39,7 +39,7 @@ function citedTools(text) {
   return [...new Set([...text.matchAll(TOOL_TOKEN_RE)].map((m) => m[1]))].sort();
 }
 
-// Guards the "When to Use World Monitor (Agent Guidance)" section of the
+// Guards the "When to Use RaWorld (Agent Guidance)" section of the
 // public agent files (orank Identity when-to-use gap, PR #4690). llms.txt is
 // hand-maintained and no other test reads its content — docs-stats only checks
 // numeric layer claims in llms-full.txt, and lint:md globs `**/*.md` (skips

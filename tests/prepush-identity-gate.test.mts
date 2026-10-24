@@ -7,7 +7,7 @@
  * those OVERRIDE the fixture's cwd — the identity write lands in the SHARED
  * .git/config, and every later commit from ANY worktree silently carries the
  * fake author (observed: "Fixture <fixture@example.invalid>" 2026-08-30,
- * "test <test@example.com>" 2026-08-29/30, "WorldMonitor Test", "e <e@e.co>").
+ * "test <test@example.com>" 2026-08-29/30, "RaWorld Test", "e <e@e.co>").
  *
  * Contract under test:
  *  1. scripts/prepush-identity-gate.sh blocks a push whose outgoing commits

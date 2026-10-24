@@ -5,7 +5,7 @@
  * The sebuf OpenAPI generator currently preserves request-schema `required`
  * arrays, but many matching query parameter objects are still emitted as
  * `required: false`. It also cannot infer runtime-required fields that are
- * expressed with WorldMonitor's local `(sebuf.http.query).required` annotation
+ * expressed with RaWorld's local `(sebuf.http.query).required` annotation
  * until the generated artifacts have been post-processed.
  *
  * This step is intentionally formatting-preserving for YAML artifacts and uses

@@ -174,7 +174,7 @@ describe('renderBriefEvidenceFooter', () => {
       { id: 'E2', label: 'Fiscal space', value: '28 of 100', asOf: '2026-09-21T00:00:00.000Z', url: 'https://www.worldmonitor.app/resilience/fi' },
     ], { className: 'cb-brief-sources cb-brief-evidence' });
     assert.match(html, /<details class="cb-brief-sources cb-brief-evidence">/);
-    assert.match(html, /<summary>World Monitor data \(2\)<\/summary>/);
+    assert.match(html, /<summary>RaWorld data \(2\)<\/summary>/);
     assert.match(html, /<a href="https:\/\/www\.worldmonitor\.app\/resilience\/fi" target="_blank" rel="noopener noreferrer">Fiscal space<\/a>/);
     assert.match(html, /28 of 100/);
     assert.match(html, /2026-09-21/);

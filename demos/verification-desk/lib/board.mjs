@@ -1,7 +1,7 @@
-// Today's board: what WorldMonitor is tracking right now, split by its own
+// Today's board: what RaWorld is tracking right now, split by its own
 // coverage verdict. The desk only groups clusters that are one event (the
 // digest can split an event across many one-outlet clusters, which would put
-// a well-covered story in the "thin" column several times); WorldMonitor
+// a well-covered story in the "thin" column several times); RaWorld
 // grades every group (lib/wm.mjs).
 
 import { overlapScore, tokenize } from './text.mjs';
@@ -35,14 +35,14 @@ export function groupClusters(clusters) {
   return groups;
 }
 
-/** WorldMonitor's grade for one group of clusters. */
+/** RaWorld's grade for one group of clusters. */
 export function gradeGroup(group) {
   const all = group.members;
   const labels = [...new Set(all.flatMap((c) => [...(c.sources ?? []), ...(c.publishers ?? []).flatMap((p) => p.labels ?? [])]))];
   const reported = Math.max(0, ...all.map((c) => c.corroboration?.publishers ?? 0)) || null;
   const { verdict, roster } = coverage(labels, reported);
   const rated = ratePublishers(roster, verdict.publishers ?? 1);
-  // The lead cluster's own WorldMonitor credibility when it stands alone; otherwise
+  // The lead cluster's own RaWorld credibility when it stands alone; otherwise
   // the same formula over the group, led by the best-rated source.
   const own = all.length === 1 && Number.isFinite(group.lead.credibilityScore) ? group.lead.credibilityScore : null;
   const score = own ?? (rated[0] ? sourceCredibility(rated[0].labels[0] ?? rated[0].name, verdict.publishers ?? 1) : null);
@@ -67,7 +67,7 @@ export function gradeGroup(group) {
 }
 
 /**
- * @param {object[]} clusters WorldMonitor clusters, in WorldMonitor's own order
+ * @param {object[]} clusters RaWorld clusters, in RaWorld's own order
  * @param {{limit?: number}} [opts]
  */
 export function buildBoard(clusters, { limit = 5, asOf = null } = {}) {

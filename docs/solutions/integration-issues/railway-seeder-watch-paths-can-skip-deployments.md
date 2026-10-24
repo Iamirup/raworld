@@ -144,7 +144,7 @@ merge happened to rebuild them, which is not a defect at all.
    `scripts/trigger-railway-deploys.mjs` deploys exactly the services whose
    closure changed, gated on `main`'s own required-gate status rather than on
    Railway's reading of the whole check suite. That is
-   [#6142](https://github.com/koala73/worldmonitor/issues/6142).
+   [#6142](https://github.com/Iamirup/raworld/issues/6142).
 
 This does not remove the safety Railway's check-suite rule was providing — it
 replaces the rule with the repository's own definition of green, which is the
@@ -546,6 +546,6 @@ deployment commit SHA and compact health have both advanced.
 
 ## Related Issues
 
-- [Issue #5288](https://github.com/koala73/worldmonitor/issues/5288)
-- [Issue #6141](https://github.com/koala73/worldmonitor/issues/6141)
-- [Issue #6142](https://github.com/koala73/worldmonitor/issues/6142)
+- [Issue #5288](https://github.com/Iamirup/raworld/issues/5288)
+- [Issue #6141](https://github.com/Iamirup/raworld/issues/6141)
+- [Issue #6142](https://github.com/Iamirup/raworld/issues/6142)

@@ -1,11 +1,11 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "app.worldmonitor/mcp",
-  "title": "World Monitor",
+  "title": "RaWorld",
   "description": "Real-time global intelligence across conflict, markets, energy, trade, shipping and cyber.",
   "websiteUrl": "https://www.worldmonitor.app",
   "repository": {
-    "url": "https://github.com/koala73/worldmonitor",
+    "url": "https://github.com/Iamirup/raworld",
     "source": "github"
   },
   "version": "1.44.0",

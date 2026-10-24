@@ -41,7 +41,7 @@ describe('FRED/rates seeder isolation', () => {
     assert.ok(fred);
 
     const liveService = (variables) => ({
-      source: { repo: 'koala73/worldmonitor', rootDirectory: 'scripts' },
+      source: { repo: 'Iamirup/raworld', rootDirectory: 'scripts' },
       build: { watchPatterns: fred.watchPatterns },
       deploy: { cronSchedule: fred.cronSchedule, startCommand: 'node seed-fred-rates.mjs' },
       variables,

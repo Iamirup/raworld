@@ -298,7 +298,7 @@ export async function applyWebMcpSwitchMonitor(
       reason: 'unavailable',
       message: navigation === 'unavailable'
         ? 'That monitor is not available on this dashboard.'
-        : 'World Monitor could not switch monitors.',
+        : 'RaWorld could not switch monitors.',
       context,
     };
   }
@@ -313,75 +313,33 @@ export async function applyWebMcpSwitchMonitor(
   };
 }
 
-async function openUnifiedSettingsOverlay(
-  ctx: AppContext,
-  currentVariant: string,
-  destination: 'settings' | 'alerts',
-  tab: 'settings' | 'notifications',
-): Promise<WebMcpNavigationResult> {
-  const context = navigationContext(ctx, currentVariant);
-  if (ctx.isDestroyed) return APP_DESTROYED_NAV_RESULT(context);
-  if (!ctx.unifiedSettings) {
-    return {
-      ok: false,
-      status: 'denied',
-      destination,
-      reason: 'unavailable',
-      message: destination === 'alerts'
-        ? 'Alerts are not available on this dashboard.'
-        : 'Settings are not available on this dashboard.',
-      context,
-    };
-  }
-  const opened = await Promise.resolve(ctx.unifiedSettings.open(tab));
-  if (ctx.isDestroyed) return APP_DESTROYED_NAV_RESULT(navigationContext(ctx, currentVariant));
-  if (opened === false) {
-    return {
-      ok: false,
-      status: 'denied',
-      destination,
-      reason: 'unavailable',
-      message: destination === 'alerts'
-        ? 'Alerts are not available on this dashboard.'
-        : 'Settings are not available on this dashboard.',
-      context: navigationContext(ctx, currentVariant),
-    };
-  }
-  return {
-    ok: true,
-    status: 'applied',
-    destination,
-    overlay: 'open',
-    tab,
-    message: destination === 'alerts' ? 'Opened alerts.' : 'Opened settings.',
-    context: navigationContext(ctx, currentVariant),
-  };
-}
-
 export async function applyWebMcpOpenSettings(
   ctx: AppContext,
   currentVariant: string,
 ): Promise<WebMcpNavigationResult> {
-  return openUnifiedSettingsOverlay(ctx, currentVariant, 'settings', 'settings');
-}
-
-export async function applyWebMcpOpenAlerts(
-  ctx: AppContext,
-  currentVariant: string,
-): Promise<WebMcpNavigationResult> {
   const context = navigationContext(ctx, currentVariant);
   if (ctx.isDestroyed) return APP_DESTROYED_NAV_RESULT(context);
-  if (ctx.isDesktopApp) {
-    return {
-      ok: false,
-      status: 'denied',
-      destination: 'alerts',
-      reason: 'unavailable',
-      message: 'Alerts are not available on this dashboard.',
-      context,
-    };
-  }
-  return openUnifiedSettingsOverlay(ctx, currentVariant, 'alerts', 'notifications');
+  const unavailable: WebMcpNavigationResult = {
+    ok: false,
+    status: 'denied',
+    destination: 'settings',
+    reason: 'unavailable',
+    message: 'Settings are not available on this dashboard.',
+    context,
+  };
+  if (!ctx.unifiedSettings) return unavailable;
+  const opened = await Promise.resolve(ctx.unifiedSettings.open('settings'));
+  if (ctx.isDestroyed) return APP_DESTROYED_NAV_RESULT(navigationContext(ctx, currentVariant));
+  if (opened === false) return { ...unavailable, context: navigationContext(ctx, currentVariant) };
+  return {
+    ok: true,
+    status: 'applied',
+    destination: 'settings',
+    overlay: 'open',
+    tab: 'settings',
+    message: 'Opened settings.',
+    context: navigationContext(ctx, currentVariant),
+  };
 }
 
 export function listWebMcpMissionPresets(

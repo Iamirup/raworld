@@ -1,6 +1,6 @@
-# Contributing to World Monitor
+# Contributing to RaWorld
 
-Thank you for your interest in contributing to World Monitor! This project thrives on community contributions — whether it's code, data sources, documentation, or bug reports.
+Thank you for your interest in contributing to RaWorld! This project thrives on community contributions — whether it's code, data sources, documentation, or bug reports.
 
 ## Table of Contents
 
@@ -21,7 +21,7 @@ Thank you for your interest in contributing to World Monitor! This project thriv
 
 ## Architecture Overview
 
-World Monitor is a real-time OSINT dashboard built with **Vanilla TypeScript** (no UI framework), **MapLibre GL + deck.gl** for map rendering, and a custom Proto-first RPC framework called **Sebuf** for all API communication.
+RaWorld is a real-time OSINT dashboard built with **Vanilla TypeScript** (no UI framework), **MapLibre GL + deck.gl** for map rendering, and a custom Proto-first RPC framework called **Sebuf** for all API communication.
 
 ### Key Technologies
 
@@ -85,7 +85,7 @@ Variants share all code but differ in default panels, map layers, and RSS feeds.
 3. **Configure the remotes** in this new clone:
    ```bash
    git remote rename origin fork
-   git remote add origin https://github.com/koala73/worldmonitor.git
+   git remote add origin https://github.com/Iamirup/raworld.git
    git config remote.pushDefault fork
    git fetch origin main
    ```
@@ -203,7 +203,7 @@ Run commands from the worktree under test. Inspect `git status --short --branch`
 first. For new work, use a branch from current `origin/main`. For existing PR work,
 use its current head and existing safe worktree.
 
-Check `git remote -v` before preflight. `origin` must identify `koala73/worldmonitor`
+Check `git remote -v` before preflight. `origin` must identify `Iamirup/raworld`
 for an upstream PR. Fork contributors should use the [remote layout above](#getting-started).
 In an existing clone, preserve its remotes and push URLs while adapting that layout.
 Do not add a second `fork` remote or overwrite an existing destination. Keep the
@@ -359,7 +359,7 @@ contract checks. These tests do not execute CodeQL or prove SARIF upload access.
 - **Performance optimizations** — faster loading, better caching
 - **Documentation** — improve docs, add examples, fix typos
 - **Accessibility** — make the dashboard usable by everyone
-- **Internationalization** — help make World Monitor available in more languages
+- **Internationalization** — help make RaWorld available in more languages
 - **Tests** — add unit or integration tests
 
 ### What We're Especially Looking For
@@ -379,7 +379,7 @@ contract checks. These tests do not execute CodeQL or prove SARIF upload access.
 5. Base recovery and follow-up PRs on `main`. A stacked PR whose parent merges and auto-deletes its branch can report `MERGED` while its commits never reach `main`.
 
 For a new contribution using the fork setup above, publish the branch with
-`git push --set-upstream fork HEAD`. Open its PR against `koala73/worldmonitor` on
+`git push --set-upstream fork HEAD`. Open its PR against `Iamirup/raworld` on
 `main`. For an existing PR, use the head repository and branch recorded in its snapshot.
 
 ### Read PR state once per phase
@@ -597,7 +597,7 @@ When filing a bug report, please include:
 - **Browser/OS** — your environment details
 - **Console errors** — any relevant browser console output
 
-Use the [Bug Report issue template](https://github.com/koala73/worldmonitor/issues/new/choose) when available.
+Use the [Bug Report issue template](https://github.com/Iamirup/raworld/issues/new/choose) when available.
 
 ## Feature Requests
 
@@ -608,7 +608,7 @@ We welcome feature ideas! When suggesting a feature:
 - **Consider alternatives** you've thought about
 - **Provide context** — who would benefit from this feature?
 
-Use the [Feature Request issue template](https://github.com/koala73/worldmonitor/issues/new/choose) when available.
+Use the [Feature Request issue template](https://github.com/Iamirup/raworld/issues/new/choose) when available.
 
 ## Code of Conduct
 
@@ -616,4 +616,4 @@ This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 
 ---
 
-Thank you for helping make World Monitor better! 🌍
+Thank you for helping make RaWorld better! 🌍

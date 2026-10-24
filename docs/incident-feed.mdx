@@ -1,9 +1,9 @@
 ---
 title: "Incident feed API"
-description: "Feed global incidents and risk signals into your own app: World Monitor's conflict, unrest, news-cluster and event-history endpoints, the fields each returns, filters, retention, signed webhooks, SDKs and self-serve plans."
+description: "Feed global incidents and risk signals into your own app: RaWorld's conflict, unrest, news-cluster and event-history endpoints, the fields each returns, filters, retention, signed webhooks, SDKs and self-serve plans."
 ---
 
-This page answers one question: how do I pull global incidents and risk signals into an internal app? World Monitor exposes them through a REST API, an MCP server, official SDKs and signed alert webhooks. Plans are self-serve. You sign up and create a key at [worldmonitor.app/pro](https://www.worldmonitor.app/pro), with no sales call.
+This page answers one question: how do I pull global incidents and risk signals into an internal app? RaWorld exposes them through a REST API, an MCP server, official SDKs and signed alert webhooks. Plans are self-serve. You sign up and create a key at [worldmonitor.app/pro](https://www.worldmonitor.app/pro), with no sales call.
 
 There is no single "incident" endpoint today. Incidents come from the feeds below, each with its own record shape and retention. Pick the feed by the job:
 
@@ -163,7 +163,7 @@ These plans are self-serve with published prices on the [pricing page](https://w
 
 ## Before you build
 
-- World Monitor aggregates published reports. It does not verify events on the ground, and a GDELT-derived row is a media signal.
+- RaWorld aggregates published reports. It does not verify events on the ground, and a GDELT-derived row is a media signal.
 - Not every upstream source has completed a terms review. Check reuse terms before you redistribute data. The free `get_sources` MCP tool lists each outlet's tier and review status.
 - There is no published availability SLA.
-- The timeline pages through the existing 180-day store. Country playback is tracked in [issue #4276](https://github.com/koala73/worldmonitor/issues/4276), and additional event domains in [issue #5745](https://github.com/koala73/worldmonitor/issues/5745). Longer retention needs evidence of buyer demand and storage cost.
+- The timeline pages through the existing 180-day store. Country playback is tracked in [issue #4276](https://github.com/Iamirup/raworld/issues/4276), and additional event domains in [issue #5745](https://github.com/Iamirup/raworld/issues/5745). Longer retention needs evidence of buyer demand and storage cost.

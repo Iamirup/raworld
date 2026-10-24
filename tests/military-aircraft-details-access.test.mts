@@ -86,7 +86,7 @@ describe('Wingbits aircraft-details access contract', () => {
       assert.match(url, /customer-api\.wingbits\.com\/v1\/flights\/details\/a835af$/);
       return Response.json({
         registration: 'N123WM',
-        manufacturerName: 'World Monitor Aerospace',
+        manufacturerName: 'RaWorld Aerospace',
         model: 'WM-1',
       });
     };

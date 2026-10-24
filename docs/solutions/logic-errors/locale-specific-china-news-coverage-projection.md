@@ -61,5 +61,5 @@ The Chinese check is supplemental: its failure is caught and produces an unavail
 
 ## Related Issues
 
-- [Issue #5272](https://github.com/koala73/worldmonitor/issues/5272)
-- [Issue #5278](https://github.com/koala73/worldmonitor/issues/5278)
+- [Issue #5272](https://github.com/Iamirup/raworld/issues/5272)
+- [Issue #5278](https://github.com/Iamirup/raworld/issues/5278)

@@ -267,9 +267,9 @@ describe('parseWhyMattersV2 — multi-sentence, analyst-path only', () => {
 
   it('rejects private forecast percentages regardless of wording, distance, or newlines', async () => {
     const { parseWhyMattersV2 } = await import('../shared/brief-llm-core.js');
-    const privateForecasts = 'WorldMonitor disruption model: Strait closure remains 84% likely.';
+    const privateForecasts = 'RaWorld disruption model: Strait closure remains 84% likely.';
     const evasive =
-      'WorldMonitor sees shipping pressure rising through the Gulf as insurers reassess the route. ' +
+      'RaWorld sees shipping pressure rising through the Gulf as insurers reassess the route. ' +
       'After several unrelated clauses and a line break, the internal outlook puts disruption risk at\n84 percent.';
     assert.equal(parseWhyMattersV2(evasive, {
       publicStory: {
@@ -292,7 +292,7 @@ describe('parseWhyMattersV2 — multi-sentence, analyst-path only', () => {
         description: 'The public NOAA outlook assigns an 80 percent chance to above-normal activity.',
         source: 'Reuters',
       },
-      privateForecasts: 'WorldMonitor storm disruption forecast: 80.0% probability.',
+      privateForecasts: 'RaWorld storm disruption forecast: 80.0% probability.',
     }), sourced);
   });
 
@@ -307,7 +307,7 @@ describe('parseWhyMattersV2 — multi-sentence, analyst-path only', () => {
         description: 'Reuters reports a revised public inflation projection.',
         source: 'Reuters',
       },
-      privateForecasts: 'WorldMonitor political-instability forecast: 84% probability.',
+      privateForecasts: 'RaWorld political-instability forecast: 84% probability.',
     }), sourced);
   });
 

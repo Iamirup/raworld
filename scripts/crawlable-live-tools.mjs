@@ -275,7 +275,7 @@ export function chokepointEvidenceNarrative({
   if (partial === true) {
     const officialClause = officialCountSentences(official, name, { through: false })
       ?? 'No IMF PortWatch daily transit count is published for this snapshot.';
-    passage = `${snapshotLead}, source coverage for ${name} is partial. ${officialClause} World Monitor cannot verify operational passage status from this snapshot.`;
+    passage = `${snapshotLead}, source coverage for ${name} is partial. ${officialClause} RaWorld cannot verify operational passage status from this snapshot.`;
   } else {
     const officialClause = officialCountSentences(official, name, { through: true })
       ?? `no IMF PortWatch daily transit count is published for ${name}.`;

@@ -64,9 +64,9 @@ export function carouselUrlsFrom(magazineUrl) {
  */
 export function subjectForBrief({ briefLead, synthesisLevel, shortDate }) {
   if (briefLead && synthesisLevel >= 1 && synthesisLevel <= 2) {
-    return `WorldMonitor Intelligence Brief — ${shortDate}`;
+    return `RaWorld Intelligence Brief — ${shortDate}`;
   }
-  return `WorldMonitor Digest — ${shortDate}`;
+  return `RaWorld Digest — ${shortDate}`;
 }
 
 /**

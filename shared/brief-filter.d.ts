@@ -1,4 +1,4 @@
-// Pure helpers for composing a WorldMonitor Brief envelope from the
+// Pure helpers for composing a RaWorld Brief envelope from the
 // digest-derived, upstream-normalized story rows + a user's alert-rule
 // preferences. Rows can retain legacy/non-clustered fields during migration.
 //

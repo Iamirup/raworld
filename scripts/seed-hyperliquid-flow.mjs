@@ -263,7 +263,7 @@ export async function fetchHyperliquidMetaAndCtxs(dex = undefined, fetchImpl = f
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
-      'User-Agent': 'WorldMonitor/1.0 (+https://worldmonitor.app)',
+      'User-Agent': 'RaWorld/1.0 (+https://worldmonitor.app)',
     },
     body: JSON.stringify(body),
     signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),

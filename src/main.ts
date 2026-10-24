@@ -429,7 +429,7 @@ function shouldSuppressCspViolation(
       if (url.protocol === 'https:'
           && ((url.hostname === 'use.typekit.net' && /^\/[^/]+\.css$/.test(url.pathname))
             || (url.hostname === 'p.typekit.net' && url.pathname === '/p.css'))) return true;
-      // unpkg's Leaflet stylesheet. WorldMonitor renders every map with
+      // unpkg's Leaflet stylesheet. RaWorld renders every map with
       // MapLibre/deck.gl and has never depended on Leaflet — the string appears
       // nowhere in src/, api/, public/, index.html or package.json — and this
       // page's style-src is `'self' 'unsafe-inline'` with no cross-origin host,

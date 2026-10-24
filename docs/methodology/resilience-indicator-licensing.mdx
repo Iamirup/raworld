@@ -3,19 +3,19 @@ title: "Country Resilience Indicator Licensing"
 description: "Raw-value redistribution decisions and attribution requirements for the 72 Country Resilience Index indicators."
 ---
 
-_Methodology maintained by [Elie Habib](https://www.worldmonitor.app/blog/authors/elie-habib/), founder of World Monitor. Published revisions are recorded in the [corrections log](/corrections)._
+_Methodology maintained by [Elie Habib](https://www.worldmonitor.app/blog/authors/elie-habib/), founder of RaWorld. Published revisions are recorded in the [corrections log](/corrections)._
 
 ## Start here
 
 **Why some numbers are blank when the data clearly exists.**
 
-WorldMonitor buys, fetches, and computes with data from dozens of publishers.
+RaWorld buys, fetches, and computes with data from dozens of publishers.
 Many of them allow us to *use* their figures but not to *republish* them. Those
 are different permissions, and the difference is the whole subject of this page.
 
 So the indicator drill-down does two things at once:
 
-- **Always** serves WorldMonitor's own derived output — the normalized score,
+- **Always** serves RaWorld's own derived output — the normalized score,
   the weight, the contribution, and full credit to whoever published the
   underlying data.
 - **Sometimes** serves the raw upstream number too, but only when that
@@ -86,7 +86,7 @@ This table reflects the repository source-attribution manifest and the issue-spe
 
 ## Time and provenance fields
 
-`sourceYear` or the source observation timestamp describes when the provider measured the phenomenon. `retrievedAt` describes when WorldMonitor fetched or seeded it. They are not interchangeable. World Bank observations from the static resilience batch use the selected country payload's `seededAt`. A dataset recovered from an older batch uses its own `_recovered.seededAt`, not the new batch metadata time. Other source paths remain unavailable until their exact contributing seed retrieval timestamp is carried into the trace. The API withholds an otherwise licensable raw value when that timestamp is unavailable; it does not reuse the response data version or another seed's time. Observation age is calculated from the source observation date, never retrieval time. If the source does not publish an observation date, the API leaves source year and observation age absent.
+`sourceYear` or the source observation timestamp describes when the provider measured the phenomenon. `retrievedAt` describes when RaWorld fetched or seeded it. They are not interchangeable. World Bank observations from the static resilience batch use the selected country payload's `seededAt`. A dataset recovered from an older batch uses its own `_recovered.seededAt`, not the new batch metadata time. Other source paths remain unavailable until their exact contributing seed retrieval timestamp is carried into the trace. The API withholds an otherwise licensable raw value when that timestamp is unavailable; it does not reuse the response data version or another seed's time. Observation age is calculated from the source observation date, never retrieval time. If the source does not publish an observation date, the API leaves source year and observation age absent.
 
 When a composite uses observations from different years, `sourceYear` is the oldest contributing year. This conservative rule prevents a recent constituent from hiding the age of an older input.
 
@@ -94,7 +94,7 @@ Composite indicators must list every provider that contributed to the selected v
 
 ## Normalized scores when raw values are suppressed
 
-A normalized score is WorldMonitor's derived output after direction, goalposts, runtime weighting, and any documented policy adjustment. The API can therefore expose the normalized score and effective contribution even when upstream terms prevent raw-value redistribution. Suppression is represented by the raw-policy status and reason; it is not represented by a numeric zero.
+A normalized score is RaWorld's derived output after direction, goalposts, runtime weighting, and any documented policy adjustment. The API can therefore expose the normalized score and effective contribution even when upstream terms prevent raw-value redistribution. Suppression is represented by the raw-policy status and reason; it is not represented by a numeric zero.
 
 ## Fail-closed review rules
 

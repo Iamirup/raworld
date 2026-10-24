@@ -307,7 +307,7 @@ describe('canonical schema graph', () => {
     assert.equal(application['@id'], SOFTWARE_ID);
     assert.deepEqual(application.isBasedOn, { '@id': SOURCE_ID });
     assert.equal(sourceCode['@id'], SOURCE_ID);
-    assert.equal(sourceCode.codeRepository, 'https://github.com/koala73/worldmonitor');
+    assert.equal(sourceCode.codeRepository, 'https://github.com/Iamirup/raworld');
     assert.equal(sourceCode.license, 'https://www.gnu.org/licenses/agpl-3.0.html');
     assert.deepEqual(sourceCode.targetProduct, { '@id': SOFTWARE_ID });
   });
@@ -334,12 +334,12 @@ describe('canonical schema graph', () => {
     assert.deepEqual(webPage.breadcrumb, { '@id': `${dashboardUrl}#breadcrumb` });
     assert.equal(crumbs['@id'], `${dashboardUrl}#breadcrumb`);
     assert.deepEqual(crumbs.itemListElement, [
-      { '@type': 'ListItem', position: 1, name: 'World Monitor', item: CANONICAL_ORIGIN },
+      { '@type': 'ListItem', position: 1, name: 'RaWorld', item: CANONICAL_ORIGIN },
       { '@type': 'ListItem', position: 2, name: 'Dashboard', item: dashboardUrl },
     ]);
   });
 
-  it('binds every canonical product surface to the World Monitor Wikidata item (#7373)', () => {
+  it('binds every canonical product surface to the RaWorld Wikidata item (#7373)', () => {
     const dashboardBlocks = jsonLdBlocks(read('index.html'));
     const proBlocks = jsonLdBlocks(read('pro-test/index.html'));
     const welcomeBlocks = jsonLdBlocks(read('pro-test/welcome.html'));
@@ -626,11 +626,11 @@ describe('canonical schema graph', () => {
     const docs = JSON.parse(read('docs/docs.json'));
     assert.deepEqual(docs.seo.organization, {
       id: ORGANIZATION_ID,
-      name: 'World Monitor',
+      name: 'RaWorld',
       url: CANONICAL_ORIGIN,
       logo: 'https://www.worldmonitor.app/favico/apple-touch-icon.png',
       sameAs: [
-        'https://github.com/koala73/worldmonitor',
+        'https://github.com/Iamirup/raworld',
         'https://www.npmjs.com/package/worldmonitor',
         'https://x.com/worldmonitorai',
         'https://x.com/eliehabib',
@@ -683,7 +683,7 @@ describe('canonical schema graph', () => {
     assert.deepEqual(WORLD_MONITOR_ORG, {
       '@id': ORGANIZATION_ID,
       '@type': 'Organization',
-      name: 'World Monitor',
+      name: 'RaWorld',
       url: CANONICAL_ORIGIN,
     });
     // The role filler must stay RESOLVABLE: `@id` alone would reference a node
@@ -694,7 +694,7 @@ describe('canonical schema graph', () => {
 
   it('disambiguates the Organization from the live name collisions (#7373)', () => {
     // Four live confusables share the name: worldmonitor.io, world-monitor.app,
-    // an impersonating "World Monitor Pro" GitHub repo, and three App Store
+    // an impersonating "RaWorld Pro" GitHub repo, and three App Store
     // apps. `alternateName` alone cannot separate them -- it only adds a second
     // string that all four also match. `disambiguatingDescription` is the
     // property schema.org defines for exactly this, and it must state the
@@ -710,7 +710,7 @@ describe('canonical schema graph', () => {
       );
       assert.ok(
         disambiguation.includes('Q141237754'),
-        `${path} disambiguation must name the World Monitor product Wikidata item`,
+        `${path} disambiguation must name the RaWorld product Wikidata item`,
       );
       assert.ok(
         disambiguation !== organization.description,
@@ -723,7 +723,7 @@ describe('canonical schema graph', () => {
       );
       assert.match(
         disambiguation,
-        /World Monitor Pro/,
+        /RaWorld Pro/,
         `${path} disambiguation must disclaim the similarly named repository`,
       );
       assert.match(
@@ -731,7 +731,7 @@ describe('canonical schema graph', () => {
         /unrelated mobile applications/,
         `${path} disambiguation must disclaim the similarly named mobile applications`,
       );
-      assert.equal(organization.alternateName, 'WorldMonitor');
+      assert.equal(organization.alternateName, 'RaWorld');
       assert.equal(organization.interactionStatistic, undefined);
     }
   });

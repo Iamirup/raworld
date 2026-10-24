@@ -6,7 +6,7 @@ Compare the same country, tier and source snapshot. The website renderer is `Cou
 
 ## Native Chrome check after the October 3 UTC reset
 
-The check used the signed-in acceptance Chrome profile. The US website brief was refreshed at 00:00:04 UTC. The country request used **WorldMonitor MCP Acceptance**, connector `asdk_app_6abe6a56ddd08191b65e684c81dfed90`, in the acceptance chat. The tool succeeded with country US and topic all. Its iframe remained on “Connecting to WorldMonitor…”. Chrome requested `country-C1t3d1eZ.js`, which returned 404. The public current build and canonical MCP resource both referenced `country-Dqvrjg_F.js`, which returned 200. The exact deployment asset origin required authentication.
+The check used the signed-in acceptance Chrome profile. The US website brief was refreshed at 00:00:04 UTC. The country request used **RaWorld MCP Acceptance**, connector `asdk_app_6abe6a56ddd08191b65e684c81dfed90`, in the acceptance chat. The tool succeeded with country US and topic all. Its iframe remained on “Connecting to RaWorld…”. Chrome requested `country-C1t3d1eZ.js`, which returned 404. The public current build and canonical MCP resource both referenced `country-Dqvrjg_F.js`, which returned 200. The exact deployment asset origin required authentication.
 
 The browser used cached resource HTML from an earlier deployment. The cache-safe shell repair has controlled browser proof. Production acceptance remains blocked until this repair is merged, deployed and the acceptance connection discovers its v2 UI resources. Legacy resource reads remain aliases for existing descriptors; the obsolete raw cached HTML requires one connection refresh. New cached shells load the current panel document on each mount and show an interface retry on failure.
 
@@ -22,7 +22,7 @@ The browser used cached resource HTML from an earlier deployment. The cache-safe
 | BIS | Residential 154.2 and commercial 187.3 in 2026 Q2; household DSR 8.0 in 2026 Q1 | No rendered values | Compare values, dates and missing-source notices |
 | Atlas | No asset rows in this website snapshot | No rendered rows; PR #8799 remains unmerged | Recheck populated source coverage and original detail actions after merge |
 | Usage | Website is a separate entitlement path | The opening tool succeeded; widget usage notice could not render | Controlled shell check uses one allocation; native accounting remains open |
-| Installed cloud plugin | WorldMonitor version 2.10.1 visible as installed | Its headline starter redirected to Open ChatGPT Desktop | This is a separate installation path from the MCP Acceptance connection |
+| Installed cloud plugin | RaWorld version 2.10.1 visible as installed | Its headline starter redirected to Open ChatGPT Desktop | This is a separate installation path from the MCP Acceptance connection |
 
 The website and acceptance connection's tiers have not been proved equal. These are captured observations, not a value-parity pass. News map markers, 2D and 3D interaction, host follow-up context and composer obstruction still need native production checks. Compact-panel parity remains open.
 
@@ -121,7 +121,7 @@ Production deployment of the panel-metering merge succeeded at 15:22 UTC. The si
 | Dashboard shows country signals and military observations | The inspected country context reported signals and military unavailable | The military projection now shares the website owner and has controlled activity/outage checks. Signals remain open. Fresh native comparison remains open. |
 | News panels and map display current source data | A new call hit quota exhaustion; an existing expanded app renders populated news and 2D/3D markers | Loaded-snapshot rendering and local search were observed. Fresh request, usage notice, error delivery and recovery remain open. |
 
-Further inspection of the existing expanded `WorldMonitor MCP Acceptance` app showed populated news panels and markers in both the 3D globe and the 2D WebGL map. Local search found the Afghanistan article and applied its Asia-Pacific category. This proves rendering and navigation of the loaded snapshot. It does not prove a fresh paid request or the receipt/usage notice. The host composer covers part of the expanded map. Chrome also lists a separate installed `WorldMonitor` cloud plugin at version 2.10.1; acceptance must identify which connection supplies each tool call.
+Further inspection of the existing expanded `RaWorld MCP Acceptance` app showed populated news panels and markers in both the 3D globe and the 2D WebGL map. Local search found the Afghanistan article and applied its Asia-Pacific category. This proves rendering and navigation of the loaded snapshot. It does not prove a fresh paid request or the receipt/usage notice. The host composer covers part of the expanded map. Chrome also lists a separate installed `RaWorld` cloud plugin at version 2.10.1; acceptance must identify which connection supplies each tool call.
 
 Bootstrap recovery now preserves successful siblings when another dataset times out, fails or returns an invalid payload. The shared country renderer labels missing measurements as partial coverage and clears the notice after recovery. This warning is included in the model's rendered context and report capture. These checks remain controlled local evidence until the repair is deployed and tested natively.
 
@@ -150,7 +150,7 @@ The website's existing severity and three-recent-item projection is now a shared
 
 ## October 3 market chart checkpoint
 
-[PR #8813](https://github.com/koala73/worldmonitor/pull/8813) restores chart inspection from the same loaded market series. This is controlled local proof and PR delivery; it does not establish deployed ChatGPT acceptance.
+[PR #8813](https://github.com/Iamirup/raworld/pull/8813) restores chart inspection from the same loaded market series. This is controlled local proof and PR delivery; it does not establish deployed ChatGPT acceptance.
 
 | Website behavior | Plugin baseline | Repair proof | Remaining acceptance |
 |---|---|---|---|
@@ -168,7 +168,7 @@ The initial DOM-test typecheck failed because a fixture used `Strike` instead of
 
 ## Native setup burst repair, October 3
 
-An ordinary USA panel opened through WorldMonitor MCP Acceptance after the paid-panel burst deployment. It reported 16 ready and seven unavailable sections. Resilience reported a 60-per-minute user limit. The daily notice decreased once, from 48 to 47 of 50. Those observations do not attribute every unavailable section to the limiter.
+An ordinary USA panel opened through RaWorld MCP Acceptance after the paid-panel burst deployment. It reported 16 ready and seven unavailable sections. Resilience reported a 60-per-minute user limit. The daily notice decreased once, from 48 to 47 of 50. Those observations do not attribute every unavailable section to the limiter.
 
 The matching account window recorded 39 initialization attempts, including 20 refusals, and 19 successful initialized acknowledgments. Another 39 methods were recorded as unregistered, so their actual names remain unknown. Recognized data-free methods shared the ordinary data bucket before the repair.
 
@@ -182,7 +182,7 @@ Local verification passed 2,098 MCP JavaScript checks and 223 typed MCP checks, 
 
 ## Deployed native checkpoint, October 4
 
-The exact handshake merge deployed to Vercel Production at 00:43:15 UTC. Native Chrome country and news panels identify WorldMonitor MCP Acceptance. The separate cloud plugin installation remains unaccepted. The country validation chat completed its native report and a later anonymous website comparison; the panels chat delivered 66 controlled passing checks but could not initialize native computer use. The owner retained both evidence sets and resumed the news interactions in signed-in Chrome. These are partial acceptance results.
+The exact handshake merge deployed to Vercel Production at 00:43:15 UTC. Native Chrome country and news panels identify RaWorld MCP Acceptance. The separate cloud plugin installation remains unaccepted. The country validation chat completed its native report and a later anonymous website comparison; the panels chat delivered 66 controlled passing checks but could not initialize native computer use. The owner retained both evidence sets and resumed the news interactions in signed-in Chrome. These are partial acceptance results.
 
 | Expected website concept | Native result | Remaining difference |
 |---|---|---|

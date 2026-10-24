@@ -72,6 +72,6 @@ export async function readPluginDocument(id: unknown, corsHeaders: Record<string
     const text = buildPluginShell({ origin: ASSET_ORIGIN, entry, root });
     return rpcOk(id, { contents: [{ uri, mimeType: UI_RESOURCE_MIME_TYPE, text, _meta: root === 'pluginRoot' ? NEWS_DASHBOARD_META : root === 'marketRoot' ? MARKET_RADAR_META : COUNTRY_VIEW_META }] }, corsHeaders);
   } catch {
-    return rpcError(id, -32603, 'WorldMonitor dashboard assets are unavailable. Retry after the plugin build is deployed.', corsHeaders);
+    return rpcError(id, -32603, 'RaWorld dashboard assets are unavailable. Retry after the plugin build is deployed.', corsHeaders);
   }
 }

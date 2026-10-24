@@ -676,7 +676,7 @@ paths:
             tags:
                 - MilitaryService
             summary: GetWingbitsStatus
-            description: Check whether Wingbits aircraft enrichment is configured for World Monitor, using the configuration flag before requesting aircraft details or batch enrichment.
+            description: Check whether Wingbits aircraft enrichment is configured for RaWorld, using the configuration flag before requesting aircraft details or batch enrichment.
             operationId: GetWingbitsStatus
             parameters:
                 - name: jmespath
@@ -1146,7 +1146,7 @@ paths:
                         application/json:
                             example:
                                 "flight":
-                                    "airlineName": "WorldMonitor Analyst"
+                                    "airlineName": "RaWorld Analyst"
                                     "altitude": 1.5
                                     "arrDelayedMin": 1
                                     "arrEstimatedUtc": "example"
@@ -1518,12 +1518,12 @@ components:
             type: apiKey
             in: header
             name: X-WorldMonitor-Key
-            description: User-issued WorldMonitor API key.
+            description: User-issued RaWorld API key.
         ApiKeyHeader:
             type: apiKey
             in: header
             name: X-Api-Key
-            description: Alias header for the WorldMonitor API key (X-WorldMonitor-Key).
+            description: Alias header for the RaWorld API key (X-WorldMonitor-Key).
         BearerAuth:
             type: http
             scheme: bearer

@@ -1,8 +1,8 @@
-# World Monitor threat model (OSS Scanner)
+# RaWorld threat model (OSS Scanner)
 
 ## What this project does and where untrusted input enters
 
-World Monitor is a real-time geopolitical and markets intelligence dashboard
+RaWorld is a real-time geopolitical and markets intelligence dashboard
 (worldmonitor.app), with a free tier, a paid Pro tier, a public REST/RPC API,
 an MCP server, and a Tauri desktop app. One repository holds every deployed
 component:

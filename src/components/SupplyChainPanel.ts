@@ -960,14 +960,6 @@ export class SupplyChainPanel extends Panel {
       </tr>`;
     }).join('');
 
-    // Reached whenever the production snapshot is absent — for a free viewer
-    // that is now the steady state, because the mine/refinery shares are Pro
-    // (#6439) and the loader skips the fetch. The free deposits table above is
-    // a genuine fallback, not an error, so the only addition is a line naming
-    // what the upgrade buys.
-    const productionUpsell = hasPremiumAccess(getAuthState())
-      ? ''
-      : `<p class="sc-mineral-caption">${escapeHtml(t('components.supplyChain.productionProLocked'))}</p>`;
 
     return `<div class="trade-tariffs-table">
       <table>
@@ -981,7 +973,7 @@ export class SupplyChainPanel extends Panel {
         </thead>
         <tbody>${rows}</tbody>
       </table>
-      ${productionUpsell}
+      
     </div>`;
   }
 

@@ -1,6 +1,6 @@
 # Zapier event triggers: evidence, backtest and design
 
-Date: 2026-10-17. Scope: redesign the WorldMonitor Zapier integration (`integrations/zapier/`, app 248027) around events users act on, backed by the existing push infrastructure. This document records the evidence (Phase 1) and the design that shipped (Phase 2). Production was read-only throughout: no Redis writes, no seeder runs, no Convex mutations, no Zapier push.
+Date: 2026-10-17. Scope: redesign the RaWorld Zapier integration (`integrations/zapier/`, app 248027) around events users act on, backed by the existing push infrastructure. This document records the evidence (Phase 1) and the design that shipped (Phase 2). Production was read-only throughout: no Redis writes, no seeder runs, no Convex mutations, no Zapier push.
 
 ## Decision
 

@@ -13,7 +13,7 @@ const FISCAL = {
 };
 const ADVISORY = {
   id: 'E3', kind: 'advisory', value: 'Exercise Increased Caution',
-  factText: 'The most severe government travel advisory World Monitor tracks for Egypt is Exercise Increased Caution, as of Sep 23, 2026.',
+  factText: 'The most severe government travel advisory RaWorld tracks for Egypt is Exercise Increased Caution, as of Sep 23, 2026.',
 };
 const MARKET = {
   id: 'E4', kind: 'market', value: '41%',
@@ -66,7 +66,7 @@ describe('isEvidenceLimitClaim', () => {
       'No data is available on the outlook for Egypt.',
       'The sources do not specify any risks.',
       'This is not established by the supplied titles.',
-      'World Monitor data does not indicate a forecast.',
+      'RaWorld data does not indicate a forecast.',
       'It is unclear from the headlines whether talks will continue.',
     ]) {
       assert.equal(isEvidenceLimitClaim(claim), true, claim);

@@ -154,7 +154,7 @@ message CompanyClaimInput {
 
 // CompanyClaim is one independently attributed and expiring claim.
 message CompanyClaim {
-  // Stable WorldMonitor logical ID; never a storage-layer document ID.
+  // Stable RaWorld logical ID; never a storage-layer document ID.
   string claim_id = 1 [(buf.validate.field).string.pattern = "^cm_claim_[0-9A-HJKMNP-TV-Z]{26}$"];
   CompanyClaimType type = 2;
   string value = 3;
@@ -206,7 +206,7 @@ message MonitoredCompanyInput {
 
 // MonitoredCompany is a compact account-scoped portfolio row.
 message MonitoredCompany {
-  // Stable WorldMonitor logical ID; never a storage-layer document ID.
+  // Stable RaWorld logical ID; never a storage-layer document ID.
   string company_id = 1 [(buf.validate.field).string.pattern = "^cm_company_[0-9A-HJKMNP-TV-Z]{26}$"];
   string name = 2;
   DomicileCountry domicile_country = 3;
@@ -262,7 +262,7 @@ message CompanyCoverage {
 
 // CompanyEvidenceReference is a bounded public evidence record.
 message CompanyEvidenceReference {
-  // Stable WorldMonitor logical ID; never a storage-layer document ID.
+  // Stable RaWorld logical ID; never a storage-layer document ID.
   string evidence_id = 1 [(buf.validate.field).string.pattern = "^cm_evidence_[0-9A-HJKMNP-TV-Z]{26}$"];
   MonitoringProvider provider = 2;
   string source_id = 3 [(buf.validate.field).string.max_bytes = 512];
@@ -275,7 +275,7 @@ message CompanyEvidenceReference {
 
 // MaterialEvent is the neutral occurrence revision pinned by every impact.
 message MaterialEvent {
-  // Stable WorldMonitor logical ID; never a storage-layer document ID.
+  // Stable RaWorld logical ID; never a storage-layer document ID.
   string event_id = 1 [(buf.validate.field).string.pattern = "^cm_event_[0-9A-HJKMNP-TV-Z]{26}$"];
   int32 revision = 2 [(buf.validate.field).int32.gte = 1];
   MaterialImpactLifecycle lifecycle = 3;
@@ -288,7 +288,7 @@ message MaterialEvent {
 
 // CompanyMaterialImpact is the latest company-specific state for one occurrence.
 message CompanyMaterialImpact {
-  // Stable WorldMonitor logical IDs; never storage-layer document IDs.
+  // Stable RaWorld logical IDs; never storage-layer document IDs.
   string impact_id = 1 [(buf.validate.field).string.pattern = "^cm_impact_[0-9A-HJKMNP-TV-Z]{26}$"];
   string event_id = 2 [(buf.validate.field).string.pattern = "^cm_event_[0-9A-HJKMNP-TV-Z]{26}$"];
   string company_id = 3 [(buf.validate.field).string.pattern = "^cm_company_[0-9A-HJKMNP-TV-Z]{26}$"];

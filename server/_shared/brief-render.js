@@ -1,4 +1,4 @@
-// Deterministic renderer for the WorldMonitor Brief magazine.
+// Deterministic renderer for the RaWorld Brief magazine.
 //
 // Pure function: (BriefEnvelope) -> HTML string. No I/O, no LLM calls,
 // no network, no time-dependent output. The composer writes the
@@ -423,7 +423,7 @@ function logoRef({ size, color }) {
   const styleAttr = color ? ` style="color: ${color};"` : '';
   return (
     `<svg class="wm-logo" width="${size}" height="${size}" viewBox="0 0 64 64" ` +
-    `aria-label="WorldMonitor"${styleAttr}>` +
+    `aria-label="RaWorld"${styleAttr}>` +
     '<use href="#wm-logo-core"/>' +
     '</svg>'
   );
@@ -437,7 +437,7 @@ function digestRunningHead(dateShort, label) {
     '<div class="running-head">' +
     '<span class="mono left">' +
     logoRef({ size: 22 }) +
-    ` · WorldMonitor Brief · ${escapeHtml(dateShort)} ·` +
+    ` · RaWorld Brief · ${escapeHtml(dateShort)} ·` +
     '</span>' +
     `<span class="mono">${escapeHtml(label)}</span>` +
     '</div>'
@@ -471,13 +471,13 @@ function renderCover({ dateLong, issue, storyCount, pageIndex, totalPages, greet
     '<div class="meta-top">' +
     '<span class="brand">' +
     logoRef({ size: 48 }) +
-    '<span class="mono">WorldMonitor</span>' +
+    '<span class="mono">RaWorld</span>' +
     '</span>' +
     `<span class="mono">Issue № ${escapeHtml(issue)}</span>` +
     '</div>' +
     '<div class="hero">' +
     `<div class="kicker">${escapeHtml(dateLong)}</div>` +
-    '<h1>WorldMonitor<br/>Brief.</h1>' +
+    '<h1>RaWorld<br/>Brief.</h1>' +
     `<p class="blurb">${escapeHtml(blurb)}</p>` +
     '</div>' +
     '<div class="meta-bottom">' +
@@ -705,7 +705,7 @@ function renderStoryPage({ story, rank, palette, pageIndex, totalPages, issueDat
     '</div>' +
     '<div class="logo-chrome">' +
     logoRef({ size: 28 }) +
-    '<span class="mono">WorldMonitor Brief</span>' +
+    '<span class="mono">RaWorld Brief</span>' +
     '</div>' +
     `<div class="page-number mono">${pad2(pageIndex)} / ${pad2(totalPages)}</div>` +
     '</section>'
@@ -759,7 +759,7 @@ function renderBackCover({ tz, pageIndex, totalPages, publicMode, refCode }) {
 
 const STYLE_BLOCK = `<style>
   :root {
-    /* WorldMonitor brand palette — aligned with /pro landing + dashboard.
+    /* RaWorld brand palette — aligned with /pro landing + dashboard.
        Previous sienna rust (#8b3a1f) was the only off-brand color in the
        product; swapped to WM mint at two strengths so the accent harmonises
        on both light and dark pages. Paper unified to a single crisp white
@@ -1189,8 +1189,8 @@ const SHARE_SCRIPT = `<script>
     if (btn.dataset.state === 'sharing') return;
     btn.dataset.state = 'sharing';
     try {
-      var shareTitle = 'WorldMonitor Brief';
-      var shareText = 'My WorldMonitor Brief for today:';
+      var shareTitle = 'RaWorld Brief';
+      var shareText = 'My RaWorld Brief for today:';
       if (navigator.share) {
         try {
           await navigator.share({ title: shareTitle, text: shareText, url: shareUrl });
@@ -1419,7 +1419,7 @@ function redactForPublic(data) {
     : derivePublicThreadsStub(data.stories);
   return {
     ...data,
-    user: { ...data.user, name: 'WorldMonitor' },
+    user: { ...data.user, name: 'RaWorld' },
     digest: {
       ...data.digest,
       lead: safeLead,
@@ -1428,7 +1428,7 @@ function redactForPublic(data) {
     },
     stories: data.stories.map((s) => ({
       ...s,
-      whyMatters: 'Subscribe to WorldMonitor Brief to see the full editorial on this story.',
+      whyMatters: 'Subscribe to RaWorld Brief to see the full editorial on this story.',
     })),
   };
 }
@@ -1614,7 +1614,7 @@ export function renderBriefMagazine(envelope, options = {}) {
     }),
   );
 
-  const title = `WorldMonitor Brief · ${escapeHtml(dateLong)}`;
+  const title = `RaWorld Brief · ${escapeHtml(dateLong)}`;
 
   // In public view: the per-hash mirror is noindexed via the HTTP
   // header AND a meta tag, and we prepend a subscribe strip pointing
@@ -1622,7 +1622,7 @@ export function renderBriefMagazine(envelope, options = {}) {
   const publicStripHref = `https://worldmonitor.app/pro${refCode ? `?ref=${encodeURIComponent(refCode)}` : ''}`;
   const publicStripHtml = publicMode
     ? '<div class="wm-public-strip">'
-      + '<span>WorldMonitor Brief \u00b7 shared issue</span>'
+      + '<span>RaWorld Brief \u00b7 shared issue</span>'
       // Match renderBackCover's pattern: escapeHtml on the full href
       // even though encodeURIComponent already handles HTML-special
       // chars inside refCode — consistency for anyone auditing XSS

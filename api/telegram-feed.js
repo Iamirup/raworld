@@ -371,7 +371,7 @@ export default async function handler(req) {
     const response = await fetchWithTimeout(relayUrl, {
       headers: getRelayHeaders({
         Accept: 'application/json',
-        'User-Agent': 'WorldMonitor/1.0',
+        'User-Agent': 'RaWorld/1.0',
       }),
     }, TELEGRAM_RELAY_TIMEOUT_MS[mode]);
 

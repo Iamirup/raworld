@@ -33,12 +33,12 @@ const terms = visible(read('docs/terms.mdx'));
  *
  * The review's first P0 was that no document named a legal entity — you cannot
  * sign, serve notice on, or sue a description. Now that the party is
- * "World Monitor FZ LLC", the failure mode moves: one document gets updated and
+ * "RaWorld FZ LLC", the failure mode moves: one document gets updated and
  * the others keep describing an unnamed operator, so a buyer's counsel finds
  * two different counterparties across the agreement they are accepting.
  */
 describe('every document names the same legal entity', () => {
-  const LEGAL_NAME = /World Monitor FZ LLC/;
+  const LEGAL_NAME = /RaWorld FZ LLC/;
 
   for (const [label, path] of [
     ['Terms', 'docs/terms.mdx'],
@@ -57,7 +57,7 @@ describe('every document names the same legal entity', () => {
     for (const path of ['docs/terms.mdx', 'docs/eula.mdx', 'docs/privacy.mdx']) {
       assert.doesNotMatch(
         visible(read(path)),
-        /World Monitor, based in the United Arab Emirates/,
+        /RaWorld, based in the United Arab Emirates/,
         `${path} still carries the pre-entity wording`,
       );
     }

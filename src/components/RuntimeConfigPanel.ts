@@ -17,7 +17,7 @@ import {
 } from '@/services/runtime-config';
 import { escapeHtml } from '@/utils/sanitize';
 import { isDesktopRuntime } from '@/services/runtime';
-import { isEntitled, onEntitlementChange } from '@/services/entitlements';
+import { onEntitlementChange } from '@/services/entitlements';
 import { openExternalUrl } from '@/services/external-navigation';
 import { fetchOllamaModels as fetchOllamaModelsFromService } from '@/services/ollama-models';
 import { t } from '@/services/i18n';
@@ -241,16 +241,9 @@ export class RuntimeConfigPanel extends Panel {
 
       // Pro supplies cloud data for features without a local key, so a Pro
       // desktop gets confirmation instead of a key-setup prompt and upsell.
-      const pro = isEntitled();
-      const shownState = pro ? 'pro' : alertState;
+      const shownState = alertState;
       const alertTitle = t(`modals.runtimeConfig.alertTitle.${shownState}`);
-      const alertClass = pro || missingFeatures === 0 ? 'ok' : 'warn';
-      const proOffer = pro
-        ? `<p class="runtime-alert-skip">${t('modals.runtimeConfig.proCloud')}</p>`
-        : `<p class="runtime-alert-skip">${t('modals.runtimeConfig.skipSetupPro')}</p>
-          <button type="button" class="runtime-early-access-btn" data-get-pro>
-            ${t('modals.runtimeConfig.getPro')}
-          </button>`;
+      const alertClass = missingFeatures === 0 ? 'ok' : 'warn';
 
       this.setEffectiveVisibility(true);
       setTrustedHtml(this.content, trustedHtml(`
@@ -259,7 +252,6 @@ export class RuntimeConfigPanel extends Panel {
           <p>
             ${availableFeatures}/${totalFeatures} ${t('modals.runtimeConfig.summary.available')}${configuredCount > 0 ? ` · ${configuredCount} ${t('modals.runtimeConfig.summary.secrets')}` : ''}.
           </p>
-          ${proOffer}
         </section>
       `, "legacy direct innerHTML migration"));
       this.attachListeners();
@@ -380,13 +372,7 @@ export class RuntimeConfigPanel extends Panel {
 
     if (!isDesktopRuntime()) return;
 
-    if (this.mode === 'alert') {
-      this.content.querySelector<HTMLButtonElement>('[data-get-pro]')?.addEventListener('click', () => {
-        const url = 'https://www.worldmonitor.app/pro';
-        void openExternalUrl(url);
-      });
-      return;
-    }
+    if (this.mode === 'alert') return;
 
     // Ollama model dropdown: fetch models and handle selection
     const modelSelect = this.content.querySelector<HTMLSelectElement>('select[data-model-select]');

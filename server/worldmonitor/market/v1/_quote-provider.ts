@@ -4,7 +4,7 @@
  * Decision (#6304, see docs/finance-data.mdx § Authorized market-data providers):
  *   - Financial Modeling Prep (FMP) is **not** selected: FMP ToS prohibit
  *     commercial display/redistribution without a separate Data Display and
- *     Licensing Agreement (ToS §2.2.1–2.2.2). WorldMonitor is a commercial
+ *     Licensing Agreement (ToS §2.2.1–2.2.2). RaWorld is a commercial
  *     product that redistributes quotes to subscribers.
  *   - **Finnhub** is primary for request-time equity gap fetches (the watchlist
  *     picker already resolves symbols through Finnhub search).

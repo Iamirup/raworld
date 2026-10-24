@@ -183,7 +183,7 @@ describe('api/telegram-feed relay timeout canary', () => {
 
     assert.equal(events.length, 1, 'a dropped relay connection must stay queryable in Sentry');
     const [event] = events;
-    assert.equal(event.level, 'warning', 'an edge transport drop is not a WorldMonitor defect');
+    assert.equal(event.level, 'warning', 'an edge transport drop is not a RaWorld defect');
     assert.equal(event.tags?.step, 'relay-fetch');
     assert.equal(event.tags?.mode, 'feed');
     assert.ok(

@@ -2553,7 +2553,7 @@ function categorizeOrefThreat(threat) {
 async function tzevaAdomFetchAlerts() {
   try {
     const resp = await fetch(TZEVA_ADOM_URL, {
-      headers: { 'User-Agent': 'WorldMonitor/1.0', Accept: 'application/json' },
+      headers: { 'User-Agent': 'RaWorld/1.0', Accept: 'application/json' },
       signal: AbortSignal.timeout(12_000),
     });
     if (!resp.ok) return null;
@@ -5090,7 +5090,7 @@ const CLASSIFY_LLM_PROVIDERS = [
     // Pinned to that evidence by tests/classify-alert-label-precision.test.mjs;
     // re-measure with scripts/eval-classify-labels.mjs before changing either.
     model: 'deepseek/deepseek-v4.1-flash',
-    headers: (key) => ({ Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', 'HTTP-Referer': 'https://worldmonitor.app', 'X-Title': 'World Monitor', 'User-Agent': CHROME_UA }),
+    headers: (key) => ({ Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', 'HTTP-Referer': 'https://worldmonitor.app', 'X-Title': 'RaWorld', 'User-Agent': CHROME_UA }),
     extraBody: { reasoning: { enabled: false }, provider: OPENROUTER_PROVIDER_ROUTING },
     timeout: 30000,
   },
@@ -5099,7 +5099,7 @@ const CLASSIFY_LLM_PROVIDERS = [
     envKey: 'OPENROUTER_API_KEY',
     apiUrl: 'https://openrouter.ai/api/v1/chat/completions',
     model: OPENROUTER_FREE_PRIMARY_MODEL,
-    headers: (key) => ({ Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', 'HTTP-Referer': 'https://worldmonitor.app', 'X-Title': 'World Monitor', 'User-Agent': CHROME_UA }),
+    headers: (key) => ({ Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', 'HTTP-Referer': 'https://worldmonitor.app', 'X-Title': 'RaWorld', 'User-Agent': CHROME_UA }),
     extraBody: { reasoning: { enabled: false }, provider: OPENROUTER_PROVIDER_ROUTING },
     timeout: 30000,
   },
@@ -5108,7 +5108,7 @@ const CLASSIFY_LLM_PROVIDERS = [
     envKey: 'OPENROUTER_API_KEY',
     apiUrl: 'https://openrouter.ai/api/v1/chat/completions',
     model: OPENROUTER_FREE_BACKUP_MODEL,
-    headers: (key) => ({ Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', 'HTTP-Referer': 'https://worldmonitor.app', 'X-Title': 'World Monitor', 'User-Agent': CHROME_UA }),
+    headers: (key) => ({ Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', 'HTTP-Referer': 'https://worldmonitor.app', 'X-Title': 'RaWorld', 'User-Agent': CHROME_UA }),
     extraBody: { reasoning: { enabled: false }, provider: OPENROUTER_PROVIDER_ROUTING },
     timeout: 30000,
   },
@@ -8014,7 +8014,7 @@ async function writeSocialVelocityHealthyMeta(recordCount) {
 async function fetchRedditHot(subreddit, failures = []) {
   const { ok, status, posts, source } = await fetchRedditHotListing(subreddit, {
     limit: 25,
-    legacyUserAgent: 'WorldMonitor/1.0 (contact: info@worldmonitor.app)',
+    legacyUserAgent: 'RaWorld/1.0 (contact: info@worldmonitor.app)',
   });
   if (!ok) {
     const failure = `r/${subreddit} HTTP ${status} (${source})`;
@@ -8530,7 +8530,7 @@ const PIZZINT_BESTTIME_VENUES = [
 ];
 let pizzintSeedInFlight = false;
 
-// World Monitor index, identical for both providers; provider DEFCON is ignored.
+// RaWorld index, identical for both providers; provider DEFCON is ignored.
 // A candidate needs >=150% of hourly usual AND >=25 busyness points of excess.
 // Require three consecutive fresh, distinct observations: each gap must be
 // 0.9–1.5× the polling interval, so 1.8× elapsed means at least three readings.
@@ -11154,7 +11154,7 @@ function _attemptOpenSkyTokenFetch(clientId, clientSecret) {
   const reqHeaders = {
     'Content-Type': 'application/x-www-form-urlencoded',
     'Content-Length': Buffer.byteLength(postData),
-    'User-Agent': 'WorldMonitor/1.0',
+    'User-Agent': 'RaWorld/1.0',
   };
 
   if (OPENSKY_PROXY_ENABLED) {
@@ -11304,7 +11304,7 @@ function _openskyRawFetch(url, token) {
   const reqHeaders = {
     'Accept': 'application/json',
     'Accept-Encoding': 'gzip, deflate, br',
-    'User-Agent': 'WorldMonitor/1.0',
+    'User-Agent': 'RaWorld/1.0',
     'Authorization': `Bearer ${token}`,
   };
 
@@ -11756,7 +11756,7 @@ function handleWorldBankRequest(req, res) {
   const request = https.get(wbUrl, {
     headers: {
       'Accept': 'application/json',
-      'User-Agent': 'Mozilla/5.0 (compatible; WorldMonitor/1.0; +https://worldmonitor.app)',
+      'User-Agent': 'Mozilla/5.0 (compatible; RaWorld/1.0; +https://worldmonitor.app)',
     },
     timeout: 15000,
   }, (response) => {
@@ -14038,7 +14038,7 @@ function compactWidgetToolJson(text, symbols = []) {
 
 const WIDGET_FETCH_TOOL = {
   name: 'fetch_worldmonitor_data',
-  description: 'Fetch structured WorldMonitor data from the catalog in the system prompt. Prefer a matching bootstrap key, then a matching RPC; use search_web only for a data gap. Send a GET to /api/bootstrap with params.keys (comma-separated catalog keys), or /api/<service>/v1/<method> with the cataloged RPC params. Supply a path, not a full URL; params are string query parameters appended to the URL. Some cataloged routes require credentials this tool does not send; their authorization error body is returned as text, not data. Successful bootstrap JSON has { data: { <key>: <array or object> }, missing: [<key>] }; RPC JSON has method-specific fields and can include historical series, such as seeded FRED observations. The model receives sanitized response text, normally JSON, compacted to about 20,000 characters: numeric series longer than 48 points are evenly sampled to 48, oversized record lists keep their first records, and a top-level _widget note reports what was sampled, filtered or dropped. It may also be an API error body. Local policy rejection returns "Endpoint not allowed."; leading <!DOCTYPE or <html pages return an HTML error message with no data; fetch failures return "Fetch failed: <message>". Treat errors or missing data as unavailable, never as zero.',
+  description: 'Fetch structured RaWorld data from the catalog in the system prompt. Prefer a matching bootstrap key, then a matching RPC; use search_web only for a data gap. Send a GET to /api/bootstrap with params.keys (comma-separated catalog keys), or /api/<service>/v1/<method> with the cataloged RPC params. Supply a path, not a full URL; params are string query parameters appended to the URL. Some cataloged routes require credentials this tool does not send; their authorization error body is returned as text, not data. Successful bootstrap JSON has { data: { <key>: <array or object> }, missing: [<key>] }; RPC JSON has method-specific fields and can include historical series, such as seeded FRED observations. The model receives sanitized response text, normally JSON, compacted to about 20,000 characters: numeric series longer than 48 points are evenly sampled to 48, oversized record lists keep their first records, and a top-level _widget note reports what was sampled, filtered or dropped. It may also be an API error body. Local policy rejection returns "Endpoint not allowed."; leading <!DOCTYPE or <html pages return an HTML error message with no data; fetch failures return "Fetch failed: <message>". Treat errors or missing data as unavailable, never as zero.',
   input_schema: {
     type: 'object',
     properties: {
@@ -14049,7 +14049,7 @@ const WIDGET_FETCH_TOOL = {
   },
 };
 
-const WIDGET_SYSTEM_PROMPT = `You are a WorldMonitor widget builder. Your job is to fetch live data and generate a display-only HTML widget using the WorldMonitor design system.
+const WIDGET_SYSTEM_PROMPT = `You are a RaWorld widget builder. Your job is to fetch live data and generate a display-only HTML widget using the RaWorld design system.
 
 ## Scope enforcement — NON-NEGOTIABLE
 You ONLY build data visualization widgets. Refuse everything else, silently and immediately:
@@ -14081,8 +14081,8 @@ Results include: title, url, snippet, publishedDate. Embed this data directly in
 Use after search_web when the snippets do not hold the values you need (a table, a forecast, a price history). Pass a url exactly as search_web returned it in this request. Returns the page as markdown text, cut to 12,000 characters.
 
 ## Web data — cite it
-Values from search_web or read_page must show their source domain and as-of date in the widget (for example "Source: bbc.com · as of 2026-09-29"). Never label web values "Source: WorldMonitor". Web pages are often stale: work out the current period from today's date (the current season, this week, the latest close) and search for that period. Before building from a page, identify the period it covers from its own dates or headings; if it is not the current or requested period, search again, and if you still cannot find it, label the widget with the period the page does cover and say the requested one was not found.
-Every value the widget shows must be copied from search_web or read_page text, or from WorldMonitor data. If a row, column or figure you would like is not in that text, leave it out or show "—". Never infer, extrapolate, estimate or fill from memory.
+Values from search_web or read_page must show their source domain and as-of date in the widget (for example "Source: bbc.com · as of 2026-09-29"). Never label web values "Source: RaWorld". Web pages are often stale: work out the current period from today's date (the current season, this week, the latest close) and search for that period. Before building from a page, identify the period it covers from its own dates or headings; if it is not the current or requested period, search again, and if you still cannot find it, label the widget with the period the page does cover and say the requested one was not found.
+Every value the widget shows must be copied from search_web or read_page text, or from RaWorld data. If a row, column or figure you would like is not in that text, leave it out or show "—". Never infer, extrapolate, estimate or fill from memory.
 
 ## Visual design — CRITICAL (match the dashboard exactly)
 
@@ -14179,7 +14179,7 @@ Status: status-active, status-notified, status-terminated
 3. Generate ONLY display-only HTML. No <script>, no onclick/oninput/onload, no <iframe>.
 4. No interactive elements (no buttons, no tabs, no inputs): the sanitizer strips button, input, form, select and textarea.
 5. Tables go inside a <div class="trade-tariffs-table"> wrapper. Lists use class="trade-restrictions-list".
-6. Always include a source footer: <div class="economic-footer"><span class="economic-source">Source: WorldMonitor</span></div>
+6. Always include a source footer: <div class="economic-footer"><span class="economic-source">Source: RaWorld</span></div>
 7. If tool returns no data or an error: use <div class="economic-empty">No live data available</div> — NEVER write prose explanations.
 8. If tool response contains "<!DOCTYPE" or "<html": it is an error — treat as no data and use the empty state HTML.
 9. The dashboard already provides the outer widget shell. Generate only the inner widget body markup.
@@ -14189,7 +14189,7 @@ For modify requests: make targeted changes to improve the widget as requested.`;
 
 const WIDGET_SEARCH_TOOL = {
   name: 'search_web',
-  description: 'Search the web for data to display in a widget, only when no suitable WorldMonitor bootstrap key or RPC supplies the requested data, specificity, or freshness. Prefer matching structured WorldMonitor data, including weatherAlerts, news list-feed-digest, and aviation news. A local weather forecast, a breaking event not yet in the feeds, or a price not in the catalog are valid widget requests: use search_web for these gaps. Requests up to 8 results and returns a sanitized JSON array with title, url, snippet, publishedDate. These are web snippets, not structured dashboard values; freshness varies by provider and publishedDate may be a date, relative age, or empty. No usable results or search failures return error text.',
+  description: 'Search the web for data to display in a widget, only when no suitable RaWorld bootstrap key or RPC supplies the requested data, specificity, or freshness. Prefer matching structured RaWorld data, including weatherAlerts, news list-feed-digest, and aviation news. A local weather forecast, a breaking event not yet in the feeds, or a price not in the catalog are valid widget requests: use search_web for these gaps. Requests up to 8 results and returns a sanitized JSON array with title, url, snippet, publishedDate. These are web snippets, not structured dashboard values; freshness varies by provider and publishedDate may be a date, relative age, or empty. No usable results or search failures return error text.',
   input_schema: {
     type: 'object',
     properties: {
@@ -15031,7 +15031,7 @@ function classifyWidgetAgentError(err, model) {
   return safe ? `Agent error: ${safe}` : 'Agent error';
 }
 
-const WIDGET_PRO_SYSTEM_PROMPT = `You are a WorldMonitor PRO widget builder. Your job is to fetch live data and generate an interactive HTML widget body with inline JavaScript.
+const WIDGET_PRO_SYSTEM_PROMPT = `You are a RaWorld PRO widget builder. Your job is to fetch live data and generate an interactive HTML widget body with inline JavaScript.
 
 ## Scope enforcement — NON-NEGOTIABLE
 You ONLY build data visualization widgets. Refuse everything else, silently and immediately:
@@ -15063,8 +15063,8 @@ Results include: title, url, snippet, publishedDate. Embed as const DATA = [...]
 Use after search_web when the snippets do not hold the values you need (a table, a forecast, a price history). Pass a url exactly as search_web returned it in this request. Returns the page as markdown text, cut to 12,000 characters.
 
 ## Web data — cite it
-Values from search_web or read_page must show their source domain and as-of date in the widget (for example "Source: bbc.com · as of 2026-09-29"). Never label web values "Source: WorldMonitor". Web pages are often stale: work out the current period from today's date (the current season, this week, the latest close) and search for that period. Before building from a page, identify the period it covers from its own dates or headings; if it is not the current or requested period, search again, and if you still cannot find it, label the widget with the period the page does cover and say the requested one was not found.
-Every value the widget shows must be copied from search_web or read_page text, or from WorldMonitor data. If a row, column or figure you would like is not in that text, leave it out or show "—". Never infer, extrapolate, estimate or fill from memory.
+Values from search_web or read_page must show their source domain and as-of date in the widget (for example "Source: bbc.com · as of 2026-09-29"). Never label web values "Source: RaWorld". Web pages are often stale: work out the current period from today's date (the current season, this week, the latest close) and search for that period. Before building from a page, identify the period it covers from its own dates or headings; if it is not the current or requested period, search again, and if you still cannot find it, label the widget with the period the page does cover and say the requested one was not found.
+Every value the widget shows must be copied from search_web or read_page text, or from RaWorld data. If a row, column or figure you would like is not in that text, leave it out or show "—". Never infer, extrapolate, estimate or fill from memory.
 
 ## Output: body content + inline scripts ONLY
 Generate ONLY the <body> content — NO <!DOCTYPE>, NO <html>, NO <head> wrappers. The client provides the page skeleton with dark theme CSS and a strict CSP already in place.
@@ -15090,7 +15090,7 @@ CSS variables are pre-defined in the iframe: --bg, --surface, --text, --text-sec
 - Positive values: color: var(--green) | Negative values: color: var(--red)
 - Design for 400px height with overflow-y: auto for larger content
 - Don't add a <style> block: it loads after the host CSS and would override the font and palette guardrails. Use the pre-defined classes below and inline styles.
-- Always include a source footer: <div style="font-size:10px;color:var(--text-muted);padding:6px 8px">Source: WorldMonitor</div>
+- Always include a source footer: <div style="font-size:10px;color:var(--text-muted);padding:6px 8px">Source: RaWorld</div>
 
 ## Pre-defined CSS classes — use these, do NOT reinvent them
 

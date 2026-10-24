@@ -1,6 +1,6 @@
 # AGENTS.md
 
-WorldMonitor is a real-time global intelligence dashboard for geopolitics, military activity, markets, climate, cyber threats, maritime traffic, and aviation. A TypeScript browser app uses Vercel Edge APIs, Railway data workers, and Upstash Redis. Tauri adds a desktop app and Node.js sidecar.
+RaWorld is a real-time global intelligence dashboard for geopolitics, military activity, markets, climate, cyber threats, maritime traffic, and aviation. A TypeScript browser app uses Vercel Edge APIs, Railway data workers, and Upstash Redis. Tauri adds a desktop app and Node.js sidecar.
 
 ## Own the outcome
 

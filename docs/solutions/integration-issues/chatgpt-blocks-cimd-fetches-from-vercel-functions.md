@@ -18,7 +18,7 @@ tags: [mcp, oauth, cimd, chatgpt, codex, vercel-functions, egress, waf, snapshot
 
 ## Problem
 
-#9280 made WorldMonitor advertise Client ID Metadata Documents. ChatGPT and Codex choose CIMD when it is advertised and do not fall back to registration, so every new connection from them depended on the server fetching `https://chatgpt.com/oauth/client.json` (or `/oauth/codex/client.json`). From Vercel Functions that fetch always fails, so neither client could connect. The 14 other listed clients worked. Existing DCR connections kept refreshing.
+#9280 made RaWorld advertise Client ID Metadata Documents. ChatGPT and Codex choose CIMD when it is advertised and do not fall back to registration, so every new connection from them depended on the server fetching `https://chatgpt.com/oauth/client.json` (or `/oauth/codex/client.json`). From Vercel Functions that fetch always fails, so neither client could connect. The 14 other listed clients worked. Existing DCR connections kept refreshing.
 
 ## Symptoms
 

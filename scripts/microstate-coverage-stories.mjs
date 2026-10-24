@@ -41,7 +41,7 @@ const MICROSTATE_COVERAGE_STORIES = Object.freeze({
     // The introduction names trade, digital, fiscal and continuity inputs outright.
     requiredObserved: ['tradePolicy', 'cyberDigital', 'macroFiscal', 'stateContinuity'],
     build: (facts) => ({
-      introduction: `World Monitor records Macau separately in the rankable universe. Its trade, digital, fiscal, and continuity inputs form a distinct partial profile, while several providers do not expose the SAR as the same standalone unit.`,
+      introduction: `RaWorld records Macau separately in the rankable universe. Its trade, digital, fiscal, and continuity inputs form a distinct partial profile, while several providers do not expose the SAR as the same standalone unit.`,
       gap: `WHO and Reporters Without Borders do not contribute separate Macau observations to this snapshot. The World Bank external-debt slot is also unmonitored for Macau. As a special administrative region, Macau is a standalone reporting unit in some provider systems but is included in China series in others. The remaining inputs cover ${facts.coverage}, short of the ${facts.coverageFloor}% rank threshold.`,
       evidence: `For Macau, ${facts.readingCount} dimensions carry usable observed inputs. Their readings are ${facts.readings}. Covered provider families include ${facts.sourceExamples}. This list supports a partial SAR profile rather than a hidden composite result.`,
       comparatorLead: 'Macau uses a ranked East Asia and Pacific reference set.',

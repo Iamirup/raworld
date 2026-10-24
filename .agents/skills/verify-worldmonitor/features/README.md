@@ -1,4 +1,4 @@
-# WorldMonitor verification map
+# RaWorld verification map
 
 This directory indexes browser verification recipes. Start with the matching
 feature and use its strict test when available. Read the

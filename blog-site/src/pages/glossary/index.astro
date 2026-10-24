@@ -15,9 +15,9 @@ const jsonLd = {
   '@type': 'CollectionPage',
   '@id': `${pageUrl}#webpage`,
   url: pageUrl,
-  name: 'World Monitor Global Intelligence Glossary',
+  name: 'RaWorld Global Intelligence Glossary',
   description:
-    'Definitions of the global-intelligence, OSINT, resilience-scoring, and maritime-chokepoint terms used across World Monitor.',
+    'Definitions of the global-intelligence, OSINT, resilience-scoring, and maritime-chokepoint terms used across RaWorld.',
   inLanguage: 'en-US',
   isPartOf: { '@id': 'https://www.worldmonitor.app/#website' },
   publisher: { '@id': 'https://www.worldmonitor.app/#organization' },
@@ -28,9 +28,9 @@ const jsonLd = {
   breadcrumb: { '@id': `${pageUrl}#breadcrumb` },
   mainEntity: {
     '@type': 'DefinedTermSet',
-    name: 'World Monitor Global Intelligence Glossary',
+    name: 'RaWorld Global Intelligence Glossary',
     description:
-      'Definitions of the global-intelligence, OSINT, resilience-scoring, and maritime-chokepoint terms used across World Monitor.',
+      'Definitions of the global-intelligence, OSINT, resilience-scoring, and maritime-chokepoint terms used across RaWorld.',
     url: pageUrl,
     inLanguage: 'en-US',
     hasDefinedTerm: sorted.map((t) => ({
@@ -57,8 +57,8 @@ const breadcrumbLd = {
 
 <Base
   title="Global Intelligence Glossary"
-  description="Plain-English definitions of global intelligence, OSINT, country risk, resilience, detection, and maritime chokepoints for World Monitor readers and analysts."
-  metaTitle="Global Intelligence & OSINT Glossary | World Monitor"
+  description="Plain-English definitions of global intelligence, OSINT, country risk, resilience, detection, and maritime chokepoints for RaWorld readers and analysts."
+  metaTitle="Global Intelligence & OSINT Glossary | RaWorld"
   keywords="OSINT glossary, country instability index, country resilience index, maritime chokepoint, geographic convergence, focal point detection"
   jsonLd={jsonLd}
   breadcrumbLd={breadcrumbLd}
@@ -71,7 +71,7 @@ const breadcrumbLd = {
     <h1>Intelligence<span class="green">.</span>Glossary</h1>
     <p class="subtitle">
       Plain-English definitions of the scoring indices, detection signals, maritime chokepoints,
-      and OSINT methodology terms used across World Monitor. Each entry links to the methodology
+      and OSINT methodology terms used across RaWorld. Each entry links to the methodology
       behind it.
     </p>
   </div>

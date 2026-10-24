@@ -8,12 +8,15 @@ import { t } from '@/services/i18n';
 import { setTrustedHtml, trustedHtml } from '@/utils/dom-utils';
 import { showToast } from '@/utils/toast';
 import { buildDataReportDocument, printReportDocument, sanitizeExportData } from '@/utils/export-report';
-import { SUPPORTED_EXPORT_FORMATS, type DataExportFormat } from '@/services/gates/export-resolver';
 
 // Iran-events domain sunset (war ended 2026-07). Default OFF: omit the IRAN
 // EVENTS CSV block. Set VITE_ENABLE_IRAN_ATTACKS=true to restore. Guarded so
 // node:test never dereferences import.meta.env.
 const IRAN_ATTACKS_ENABLED = typeof window !== 'undefined' && import.meta.env.VITE_ENABLE_IRAN_ATTACKS === 'true';
+
+/** Formats the dashboard can produce. */
+export const SUPPORTED_EXPORT_FORMATS = ['csv', 'json', 'pdf'] as const;
+export type DataExportFormat = (typeof SUPPORTED_EXPORT_FORMATS)[number];
 
 type ExportFormat = DataExportFormat;
 
@@ -59,7 +62,7 @@ export function exportToCSV(data: ExportData, filename = 'worldmonitor-export'):
   const clean = sanitizeExportData(data);
   const lines: string[] = [];
 
-  lines.push(`# WorldMonitor Export — ${new Date(clean.timestamp).toISOString()}`);
+  lines.push(`# RaWorld Export — ${new Date(clean.timestamp).toISOString()}`);
   lines.push('# Note: CSV is a structured summary. Use JSON export for full fidelity.');
   if (clean.meta?.note) lines.push(csvRow([`# ${clean.meta.note}`]));
   lines.push('');
@@ -343,7 +346,7 @@ export interface CountryEvidenceBundle {
 }
 
 export const COUNTRY_EVIDENCE_PROVENANCE_DISCLAIMER =
-  'This WorldMonitor evidence bundle packages user-visible context and source metadata for analyst handoff. It is not a legal evidentiary record; verify source availability, timestamps, and claims before reuse.';
+  'This RaWorld evidence bundle packages user-visible context and source metadata for analyst handoff. It is not a legal evidentiary record; verify source availability, timestamps, and claims before reuse.';
 
 const SIGNAL_LABELS: Record<string, string> = {
   criticalNews: 'Critical news',
@@ -617,7 +620,7 @@ export function buildCountryEvidenceBundle(input: CountryEvidenceBundleInput): C
 
 export function renderCountryEvidenceMarkdown(bundle: CountryEvidenceBundle): string {
   const lines: string[] = [];
-  lines.push(`# WorldMonitor Evidence Bundle: ${bundle.country} (${bundle.code})`);
+  lines.push(`# RaWorld Evidence Bundle: ${bundle.country} (${bundle.code})`);
   lines.push('');
   lines.push(`- Context: ${markdownListValue(bundle.context)}`);
   lines.push(`- Exported at: ${markdownListValue(bundle.exportedAt)}`);

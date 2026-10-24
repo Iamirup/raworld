@@ -1,6 +1,6 @@
 # Country reporting after the RSS entry cap: 2026-09-13
 
-Related: [issue #7748](https://github.com/koala73/worldmonitor/issues/7748). Follows the [regional feed expansion](2026-09-13-curated-country-coverage.md) and [country RSS recovery](2026-09-13-country-rss-recovery.md).
+Related: [issue #7748](https://github.com/Iamirup/raworld/issues/7748). Follows the [regional feed expansion](2026-09-13-curated-country-coverage.md) and [country RSS recovery](2026-09-13-country-rss-recovery.md).
 
 ## Finding and change
 

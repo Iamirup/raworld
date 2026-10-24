@@ -170,7 +170,7 @@ export const CHINA_ACTIVITY_PROXY_REGISTRY: readonly Readonly<ChinaActivityProxy
       freshnessBudgetMinutes: 210 * 24 * 60,
       source: {
         publisherId: 'publisher:worldmonitor-energy-spine',
-        publisherName: 'WorldMonitor energy spine',
+        publisherName: 'RaWorld energy spine',
         url: 'https://www.worldmonitor.app/docs/data-sources',
         provenance: 'Consumed only when the reviewed #5578 energy condition exposes a directional observed metric. The value sums TOTDEMO for the available GASOLINE, GASDIES, JETKERO, RESFUEL, and LPG products; at least three matching products are required and absolute changes above 50% are refused.',
       },
@@ -230,7 +230,7 @@ export const CHINA_ACTIVITY_PROXY_REGISTRY: readonly Readonly<ChinaActivityProxy
       freshnessBudgetMinutes: 72 * 60,
       source: {
         publisherId: 'publisher:worldmonitor-china-corridors',
-        publisherName: 'WorldMonitor China corridor control towers',
+        publisherName: 'RaWorld China corridor control towers',
         url: 'https://www.worldmonitor.app/docs/data-sources',
         provenance: 'Derived only from reproducible #5578 corridor snapshots whose conditions retain source provenance.',
       },

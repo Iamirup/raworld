@@ -37,7 +37,7 @@ import {
 // the rider.
 //
 //   get_sources — its `license` field IS the attribution manifest. The whole
-//   payload is the licence inventory for every provider WorldMonitor serves,
+//   payload is the licence inventory for every provider RaWorld serves,
 //   so projecting it (counting providers by licence, listing the CC-BY set)
 //   is the tool working as intended, not a way to detach a value from its
 //   licence. There is no separate source list to re-attach: the sources are

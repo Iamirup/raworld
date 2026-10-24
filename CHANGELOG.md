@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to World Monitor are documented here.
+All notable changes to RaWorld are documented here.
 
 ## [Unreleased]
 
@@ -187,7 +187,7 @@ All notable changes to World Monitor are documented here.
 
 - **Pro Business tier ($49.99/month · $499/year, #5604)** — a commercial-license plan between Pro and the API plans, covering client work, internal tools and reporting. Dashboard data export (CSV, JSON, and a new PDF report) is now an entitlement of the plans that carry data export — Pro Business, both API plans, and Enterprise — instead of being open to every visitor; the export control stays visible and explains what unlocks it. Dashboard tabs are capped when a tab is created (3 Free / 10 Pro / 25 Pro Business) and existing tabs are never pruned. MCP + SDK daily quotas are now plan-driven (50/day on Pro, 250/day on Pro Business). `/pro` moves to a five-plan grid with a personal/commercial axis and an Enterprise band. Pro and Pro Business are separate products, so a Pro subscriber upgrades by cancelling in the billing portal and starting the Pro Business checkout — the app walks through both steps.
 - **Global inflation (all countries)** — the Consumer Prices panel gains a **World** tab surfacing IMF WEO official annual CPI inflation for every reporting economy (~195 countries), sorted highest-first, leading with year-over-year period-average inflation and an end-of-period secondary column, plus a country filter and severity colour bands. Reuses the already-hydrated `imfMacro` bootstrap bundle (no new network). Discoverable via CMD+K — typing "inflation", "global inflation", or "inflation by country" lands directly on the tab through the new `panel:consumer-prices@world` deep-link command.
-- **Unified OpenAPI bundle** — `docs/api/worldmonitor.openapi.yaml` is now emitted alongside per-service specs, merging every WorldMonitor RPC into a single OpenAPI 3.1 document (190 operations). Powered by sebuf v0.11.1's origin-level bundle support ([SebastienMelki/sebuf#158](https://github.com/SebastienMelki/sebuf/issues/158)). Bumps `SEBUF_VERSION` in the Makefile from v0.7.0 to v0.11.1 — rerun `make install-plugins` after pulling.
+- **Unified OpenAPI bundle** — `docs/api/worldmonitor.openapi.yaml` is now emitted alongside per-service specs, merging every RaWorld RPC into a single OpenAPI 3.1 document (190 operations). Powered by sebuf v0.11.1's origin-level bundle support ([SebastienMelki/sebuf#158](https://github.com/SebastienMelki/sebuf/issues/158)). Bumps `SEBUF_VERSION` in the Makefile from v0.7.0 to v0.11.1 — rerun `make install-plugins` after pulling.
 - **Route Explorer**: standalone full-screen modal (CMD+K) for planning shipments between any two countries. Includes Current/Alternatives/Land/Impact tabs, keyboard-first navigation, URL state sharing, strategic-product trade data, dependency flags, and free-tier blur with public route highlight (#2980, #2982, #2994, #2996, #2997, #2998)
 - US Treasury customs revenue in Trade Policy panel with monthly data, FYTD year-over-year comparison, and revenue spike highlighting (#1663)
 - Security advisories gold standard migration: Railway cron seed fetches 24 government RSS feeds hourly, Vercel reads Redis only (#1637)
@@ -208,7 +208,7 @@ All notable changes to World Monitor are documented here.
   - `/api/supply-chain/v1/country-products` → `/api/supply-chain/v1/get-country-products`
   - `/api/supply-chain/v1/multi-sector-cost-shock` → `/api/supply-chain/v1/get-multi-sector-cost-shock`
 
-  Aliases will retire at the next v1→v2 break ([#3282](https://github.com/koala73/worldmonitor/issues/3282)).
+  Aliases will retire at the next v1→v2 break ([#3282](https://github.com/Iamirup/raworld/issues/3282)).
 
 - `POST /api/scenario/v1/run-scenario` now returns `200 OK` instead of the pre-migration `202 Accepted` on successful enqueue. sebuf's HTTP annotations don't support per-RPC status codes. Branch on response body `status === "pending"` instead of `response.status === 202`. `statusUrl` is preserved.
 

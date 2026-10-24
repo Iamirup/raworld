@@ -1,6 +1,6 @@
 ---
 title: "SWF Classification Rubric"
-description: "How World Monitor classifies sovereign wealth funds and sets haircut factors for the resilience sovereignFiscalBuffer dimension."
+description: "How RaWorld classifies sovereign wealth funds and sets haircut factors for the resilience sovereignFiscalBuffer dimension."
 ---
 
 Central rubric for classifying sovereign wealth funds under the

@@ -131,7 +131,7 @@ Condensed from the release-infra audit; each row feeds a child issue or the
 release-candidate checklist:
 
 1. ~~Variant release model structurally broken~~ — **resolved by #5908.** The
-   supported model is now one published World Monitor binary with in-app variant
+   supported model is now one published RaWorld binary with in-app variant
    switching, so the endpoints' single-release read is correct by design. The
    workflow keeps one build-leg pair and one tag (`v__VERSION__`), the AppImage
    re-upload and release-notes step can no longer target different tags,

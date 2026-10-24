@@ -1,7 +1,7 @@
 {
   "$comment": "Machine-readable homepage view served at /?mode=agent (vercel.json rewrite). Structured summary for AI agents instead of marketing HTML. Parity with the MCP server card and agent card is guarded in tests/agent-mode-view.test.mjs.",
   "kind": "agent-view",
-  "product": "World Monitor",
+  "product": "RaWorld",
   "url": "https://www.worldmonitor.app",
   "description": "Live global-intelligence platform serving machine-readable JSON, correlated across layers, with forecasts and AI-generated briefs in these domains: markets, commodities and macro; energy; conflicts, country risk, sanctions, cyber threats and chokepoints; maritime, aviation and supply chains; climate and natural disasters; health signals; displacement and humanitarian crises; AI briefs, forecasts and intel history; tariffs and trade policy. On-demand NLP utilities add classification, entity extraction, news clusters, and keyword spikes.",
   "endpoints": {
@@ -52,16 +52,16 @@
         "url": "https://rubygems.org/gems/worldmonitor"
       },
       "go": {
-        "package": "github.com/koala73/worldmonitor/sdk/go",
+        "package": "github.com/Iamirup/raworld/sdk/go",
         "registry": "Go modules",
-        "install": "go get github.com/koala73/worldmonitor/sdk/go",
-        "url": "https://pkg.go.dev/github.com/koala73/worldmonitor/sdk/go",
+        "install": "go get github.com/Iamirup/raworld/sdk/go",
+        "url": "https://pkg.go.dev/github.com/Iamirup/raworld/sdk/go",
         "searchUrl": "https://pkg.go.dev/search?q=worldmonitor",
-        "moduleProxyUrl": "https://proxy.golang.org/github.com/koala73/worldmonitor/sdk/go/@latest",
-        "source": "https://github.com/koala73/worldmonitor/tree/main/sdk/go"
+        "moduleProxyUrl": "https://proxy.golang.org/github.com/Iamirup/raworld/sdk/go/@latest",
+        "source": "https://github.com/Iamirup/raworld/tree/main/sdk/go"
       },
       "guide": "https://www.worldmonitor.app/docs/sdks",
-      "note": "Use the exact package names above. npm, PyPI and RubyGems link to worldmonitor.app in their project metadata. Go modules have no homepage field: verify the module path in the official koala73/worldmonitor repository and its product links on pkg.go.dev. The Python package is worldmonitor-sdk; the PyPI package named worldmonitor is unrelated."
+      "note": "Use the exact package names above. npm, PyPI and RubyGems link to worldmonitor.app in their project metadata. Go modules have no homepage field: verify the module path in the official Iamirup/raworld repository and its product links on pkg.go.dev. The Python package is worldmonitor-sdk; the PyPI package named worldmonitor is unrelated."
     },
     "docsMcp": {
       "url": "https://www.worldmonitor.app/docs/mcp",

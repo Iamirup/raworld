@@ -2,11 +2,10 @@ import { Panel } from './Panel';
 import { validateUrl } from '@/utils/sanitize';
 import { t } from '@/services/i18n';
 import { isDesktopRuntime } from '@/services/runtime';
-import { hasPremiumAccess, PanelGateReason } from '@/services/panel-gating';
+import { hasPremiumAccess } from '@/services/panel-gating';
 import { h, replaceChildren, safeHtml } from '@/utils/dom-utils';
 import {
   TELEGRAM_TOPICS,
-  clearTelegramIntelCache,
   getTelegramIntelGeneration,
   fetchTelegramChannelFeed,
   fetchTelegramChannelPreview,
@@ -565,33 +564,6 @@ export class TelegramIntelPanel extends Panel {
 
   private canUseFeed(): boolean {
     return !this.disposed && !this.isLocked && (!isDesktopRuntime() || hasPremiumAccess());
-  }
-
-  private resetFeed(): void {
-    this.relayEnabled = false;
-    this.watchlistRequestId++;
-    this.baseItems = [];
-    this.watchlistItems = [];
-    this.cancelPreviewResolve();
-    if (this.inputEl) {
-      this.inputEl.value = '';
-      this.inputEl.disabled = true;
-    }
-    if (this.previewEl) replaceChildren(this.previewEl);
-    if (this.watchlistPillsEl) replaceChildren(this.watchlistPillsEl);
-    this.setCount(0);
-    this.clearSensitiveContent();
-    clearTelegramIntelCache();
-  }
-
-  public override showLocked(features: string[] = []): void {
-    if (!this.isLocked) this.resetFeed();
-    super.showLocked(features);
-  }
-
-  public override showGatedCta(reason: PanelGateReason, onAction: () => void): void {
-    if (reason !== PanelGateReason.NONE && !this.isLocked) this.resetFeed();
-    super.showGatedCta(reason, onAction);
   }
 
   public setAccessGrantedHandler(handler: () => void): void {

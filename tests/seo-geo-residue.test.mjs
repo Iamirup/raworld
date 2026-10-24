@@ -685,7 +685,7 @@ describe('GEO residue #7746 (compare discoverability)', () => {
     assert.ok(once.includes(`\n${COMPARISONS_HEADING}\n`), 'first run inserts the section');
     assert.ok(once.indexOf(COMPARISONS_HEADING) < once.indexOf('## Live Instances'), 'inserted ahead of Live Instances');
     assert.equal(withComparisonsSection(once), once, 'the inserted document is a fixed point');
-    const edited = once.replace('- [Compare World Monitor]', '- [Stale]');
+    const edited = once.replace('- [Compare RaWorld]', '- [Stale]');
     assert.notEqual(edited, once);
     assert.equal(withComparisonsSection(edited), once, 'a hand-edited section is replaced in place');
     assert.throws(() => withComparisonsSection('# X\n\n## Documentation\n\n- a\n'), /Live Instances/);

@@ -7,7 +7,7 @@
 //   LUR — Unemployment rate, %
 //   LP  — Population, persons (millions)
 //
-// Per WorldMonitor #3027 — feeds resilience macroFiscal scoring (LUR
+// Per RaWorld #3027 — feeds resilience macroFiscal scoring (LUR
 // sub-metric) and CountryDeepDivePanel demographic tiles (LP).
 
 import { loadEnvFile, runSeed, loadSharedConfig, imfSdmxFetchIndicator, imfSdmxFetchIndicatorWithRelease } from './_seed-utils.mjs';

@@ -134,7 +134,7 @@ it('preserves a genuine PizzINT miss as a cacheable empty response', async () =>
   assert.match(response.headers.get('Cache-Control') ?? '', /^private, max-age=300(?:,|$)/);
   assert.deepEqual(await response.json(), { tensionPairs: [] });
 });
-it('never serves legacy PizzINT tension scores as World Monitor scores', async () => {
+it('never serves legacy PizzINT tension scores as RaWorld scores', async () => {
   mode = 'hit';
   const payload = { pizzint: { locations: [], defconLevel: 5 }, tensionPairs: [{ pair: 'usa_china' }] };
   cache.set('intelligence:pizzint:seed:v1', payload);

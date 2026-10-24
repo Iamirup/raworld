@@ -319,7 +319,7 @@ export function normalizeVerifiedEmail(
 // phone, billing address) and amounts stay in our records so complaints,
 // authority requests, and bookkeeping can still resolve who paid (owner
 // decision 2026-09-21; Dodo is not the system of record). Only the internal
-// World Monitor identity bridge is stripped — the signed Clerk userId and the
+// RaWorld identity bridge is stripped — the signed Clerk userId and the
 // checkout login-email bridge — because the retained userId tombstone
 // (`deleted:<sha256>`) replaces the userId link and the customers row keeps
 // the account email.

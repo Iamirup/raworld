@@ -36,7 +36,7 @@ origin: docs/brainstorms/2026-04-09-worldwide-shipping-intelligence-requirements
 
 ## Overview
 
-WorldMonitor's supply chain backend (Sprints 0–2) is complete: bypass corridors config, chokepoint exposure seeder, bypass RPC, cost-shock RPC, and chokepoint index RPC are all live and PRO-gated. What remains is the UI layer that surfaces this data in the panel and map, plus the async scenario engine.
+RaWorld's supply chain backend (Sprints 0–2) is complete: bypass corridors config, chokepoint exposure seeder, bypass RPC, cost-shock RPC, and chokepoint index RPC are all live and PRO-gated. What remains is the UI layer that surfaces this data in the panel and map, plus the async scenario engine.
 
 This plan covers four implementation sprints in priority order:
 - **Sprint A** — Supply Chain Panel UI: bypass cards + sector exposure + war risk badges
@@ -52,7 +52,7 @@ Reference: `gcc-optimal-shipping-routes.vercel.app` was the product reference ap
 
 The backend intelligence (bypass corridors, cost shock, chokepoint exposure) exists in Redis but nothing surfaces it to users. The supply chain panel shows chokepoints with disruption scores but no bypass options, no sector exposure breakdown, and no war risk tier badge. The map arcs are static blue — no disruption coloring. The scenario engine doesn't exist.
 
-Users cannot answer "if Hormuz closes, what are my options?" from the WorldMonitor UI today.
+Users cannot answer "if Hormuz closes, what are my options?" from the RaWorld UI today.
 
 ---
 

@@ -31,7 +31,7 @@ describe('calendar handler ranges', () => {
   it('returns an available empty earnings window instead of claiming source failure', () => {
     const response = buildEarningsCalendarResponse({
       earnings: [{
-        symbol: 'WM', company: 'World Monitor', date: '2026-08-20', hour: '',
+        symbol: 'WM', company: 'RaWorld', date: '2026-08-20', hour: '',
         epsEstimate: 1, revenueEstimate: 2, epsActual: 0, revenueActual: 0,
         hasActuals: false, surpriseDirection: '',
       }],

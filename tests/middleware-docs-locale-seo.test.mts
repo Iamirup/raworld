@@ -22,9 +22,9 @@ describe('middleware docs locale SEO proxy', () => {
     const organization = {
       '@id': id,
       '@type': ['Organization'],
-      name: 'World Monitor',
+      name: 'RaWorld',
       logo: { '@type': 'ImageObject', url: 'https://www.worldmonitor.app/logo.png' },
-      sameAs: ['https://github.com/koala73/worldmonitor'],
+      sameAs: ['https://github.com/Iamirup/raworld'],
     };
     const otherOrganization = { '@type': 'Organization', '@id': 'https://example.org/#organization', name: 'Source' };
     const upstream = `<html><head><script TYPE = 'application/ld+json'>${JSON.stringify({
@@ -44,7 +44,7 @@ describe('middleware docs locale SEO proxy', () => {
         assert.deepEqual(graph[1].author, {
           '@id': id,
           '@type': 'Organization',
-          name: 'World Monitor',
+          name: 'RaWorld',
           url: 'https://www.worldmonitor.app/',
         });
         assert.deepEqual(graph[1].provider, otherOrganization);

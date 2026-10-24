@@ -238,7 +238,7 @@ describe('decision-signal provenance contract (#5581)', () => {
       (derived.claims.publisher as { value: { type: string; registryReference: null } }).value,
       {
         id: 'publisher:worldmonitor-derived',
-        name: 'WorldMonitor derived output',
+        name: 'RaWorld derived output',
         type: 'derived_output',
         registryReference: null,
       },

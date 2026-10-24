@@ -273,7 +273,7 @@ export class HormuzPanel extends Panel {
     }
     if (this.dependencyState === 'pro-locked' || !response || response.upstreamUnavailable || response.dependencies.length === 0) {
       const emptyMessage = this.dependencyState === 'pro-locked'
-        ? t('components.supplyVulnerability.proLocked')
+        ? t('common.failedToLoad')
         : !response || response.upstreamUnavailable
           ? t('components.supplyVulnerability.unavailable')
           : t('components.supplyVulnerability.noCoverage');

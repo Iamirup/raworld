@@ -21,9 +21,9 @@ tags: [seed-meta, last-good, retention, ttl, freshness-tracking, health, alarm-d
 
 A seeder's failure path retains last-good data by extending the payload key's TTL. If it extends *only* the payload and lets the freshness marker that reports on that payload expire on its own schedule, the alarm dies before the outage does — and the stale payload keeps being served behind a green health check.
 
-Found while reviewing [PR #7862](https://github.com/koala73/worldmonitor/pull/7862) (issue [#7845](https://github.com/koala73/worldmonitor/issues/7845)), in the fix's own first draft, before merge.
+Found while reviewing [PR #7862](https://github.com/Iamirup/raworld/pull/7862) (issue [#7845](https://github.com/Iamirup/raworld/issues/7845)), in the fix's own first draft, before merge.
 
-> **History worth knowing, because it is the same lesson twice.** Two independent fixes for [#7845](https://github.com/koala73/worldmonitor/issues/7845) were open at once. [#7876](https://github.com/koala73/worldmonitor/pull/7876) merged first and shipped the retention path *without* the marker extension — so the failure described on this page went live on `main` before the page describing it did. [#7862](https://github.com/koala73/worldmonitor/pull/7862) adds the marker extension on top. If you are reading this before #7862 lands, `COMPANIONS`, `companionMetaKey` and the `preserveKeyTtls` meta entries are not yet on `main`, and the seven-day decay to `OK` is live.
+> **History worth knowing, because it is the same lesson twice.** Two independent fixes for [#7845](https://github.com/Iamirup/raworld/issues/7845) were open at once. [#7876](https://github.com/Iamirup/raworld/pull/7876) merged first and shipped the retention path *without* the marker extension — so the failure described on this page went live on `main` before the page describing it did. [#7862](https://github.com/Iamirup/raworld/pull/7862) adds the marker extension on top. If you are reading this before #7862 lands, `COMPANIONS`, `companionMetaKey` and the `preserveKeyTtls` meta entries are not yet on `main`, and the seven-day decay to `OK` is live.
 
 ## Symptoms
 
@@ -88,7 +88,7 @@ Note what is *not* fixed by this: the payload is still served. That is intended 
 
 **The rule: if you extend a value's lifetime on failure, extend the lifetime of the signal that reports on that value — or the alarm expires before the problem does.**
 
-This is the same invariant the fleet already guards from the other direction. [`tests/seed-ttl-outlives-staleness-fleet.test.mjs`](../../../tests/seed-ttl-outlives-staleness-fleet.test.mjs) enforces `ttlSeconds > maxStaleMin * 60` so a merely-late seeder degrades `STALE_SEED` → `EMPTY` in that order rather than reporting a crit for a source that is only running behind (issue #5309; the same family was fixed for reference data in [PR #7847](https://github.com/koala73/worldmonitor/pull/7847), merged). Both directions say one thing: **the reporting signal must outlive the value it reports on.**
+This is the same invariant the fleet already guards from the other direction. [`tests/seed-ttl-outlives-staleness-fleet.test.mjs`](../../../tests/seed-ttl-outlives-staleness-fleet.test.mjs) enforces `ttlSeconds > maxStaleMin * 60` so a merely-late seeder degrades `STALE_SEED` → `EMPTY` in that order rather than reporting a crit for a source that is only running behind (issue #5309; the same family was fixed for reference data in [PR #7847](https://github.com/Iamirup/raworld/pull/7847), merged). Both directions say one thing: **the reporting signal must outlive the value it reports on.**
 
 Two reasons that fleet test cannot catch this variant, which is why it needs its own guard:
 

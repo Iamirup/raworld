@@ -1,10 +1,10 @@
 # Country reporting before dashboard caps: 2026-09-13
 
-Related: [issue #7748](https://github.com/koala73/worldmonitor/issues/7748), following the [curated-feed expansion audit](2026-09-13-curated-country-coverage.md).
+Related: [issue #7748](https://github.com/Iamirup/raworld/issues/7748), following the [curated-feed expansion audit](2026-09-13-curated-country-coverage.md).
 
 ## Finding
 
-The remaining gap includes reporting that WorldMonitor already acquires. The full digest ranks each category and keeps 20 items. Country snapshots read that dashboard selection, so a fresh article can exist in the RSS cache and still never reach its country page. Adding a regional feed alone does not fix this loss.
+The remaining gap includes reporting that RaWorld already acquires. The full digest ranks each category and keeps 20 items. Country snapshots read that dashboard selection, so a fresh article can exist in the RSS cache and still never reach its country page. Adding a regional feed alone does not fix this loss.
 
 A read-only cache audit at **2026-09-13 10:46:25 UTC** found:
 

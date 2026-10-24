@@ -1,5 +1,5 @@
 // MCP Apps (extension `io.modelcontextprotocol/ui`, spec 2026-01-26) — the
-// SHARED app-shell foundation for the WorldMonitor interactive-dashboard fleet.
+// SHARED app-shell foundation for the RaWorld interactive-dashboard fleet.
 //
 // The first shipped widget (get_country_risk, v1.11.0) inlined its whole HTML —
 // DOCTYPE, CSP, dark-mode CSS vars, and the ~150-line postMessage bridge — in

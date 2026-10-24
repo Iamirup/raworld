@@ -30,7 +30,7 @@ import {
 const PARENT_6996 = Object.freeze({
   number: 6996,
   title: 'fix(aviation): bind budget to live access',
-  html_url: 'https://github.com/koala73/worldmonitor/pull/6996',
+  html_url: 'https://github.com/Iamirup/raworld/pull/6996',
   state: 'closed',
   merged_at: '2026-08-20T12:53:04Z',
   head: { ref: 'fix/aviation-budget-binds-v2' },
@@ -39,7 +39,7 @@ const PARENT_6996 = Object.freeze({
 const CHILD_6997 = Object.freeze({
   number: 6997,
   title: 'fix(aviation): require live access for airport flights',
-  html_url: 'https://github.com/koala73/worldmonitor/pull/6997',
+  html_url: 'https://github.com/Iamirup/raworld/pull/6997',
   state: 'closed',
   merged: true,
   merged_at: '2026-08-20T12:53:16Z',
@@ -51,7 +51,7 @@ const CHILD_6997 = Object.freeze({
 const PARENT_6991 = Object.freeze({
   number: 6991,
   title: 'fix(aviation): cache ttl 900',
-  html_url: 'https://github.com/koala73/worldmonitor/pull/6991',
+  html_url: 'https://github.com/Iamirup/raworld/pull/6991',
   state: 'closed',
   merged_at: '2026-08-20T11:13:25Z',
   head: { ref: 'fix/aviation-cache-ttl-900' },
@@ -60,7 +60,7 @@ const PARENT_6991 = Object.freeze({
 const CHILD_6993 = Object.freeze({
   number: 6993,
   title: 'fix(aviation): stacked follow-up',
-  html_url: 'https://github.com/koala73/worldmonitor/pull/6993',
+  html_url: 'https://github.com/Iamirup/raworld/pull/6993',
   state: 'closed',
   merged: true,
   merged_at: '2026-08-20T11:28:36Z',
@@ -73,7 +73,7 @@ function pullEvent(pull, { eventName = 'pull_request', action = 'synchronize', d
   return {
     eventName,
     action,
-    repository: { default_branch: defaultBranch, full_name: 'koala73/worldmonitor' },
+    repository: { default_branch: defaultBranch, full_name: 'Iamirup/raworld' },
     pull_request: pull,
   };
 }
@@ -81,7 +81,7 @@ function pullEvent(pull, { eventName = 'pull_request', action = 'synchronize', d
 function pushEvent({ defaultBranch = 'main' } = {}) {
   return {
     eventName: 'push',
-    repository: { default_branch: defaultBranch, full_name: 'koala73/worldmonitor' },
+    repository: { default_branch: defaultBranch, full_name: 'Iamirup/raworld' },
     ref: `refs/heads/${defaultBranch}`,
   };
 }
@@ -196,7 +196,7 @@ describe('GitHub pull listing helpers', () => {
     };
     const pulls = listPullsByHead({
       gh,
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       owner: 'koala73',
       headRef: 'fix/aviation-budget-binds-v2',
     });
@@ -313,8 +313,8 @@ describe('checkStackedMerge orchestrator', () => {
 
   it('rechecks nested descendants and keeps them pending through an open grandparent', () => {
     const grandparent = { number: 10, state: 'open', head: { ref: 'grandparent', sha: 'g'.repeat(40) }, base: { ref: 'main' } };
-    const parent = { number: 20, state: 'closed', merged_at: '2026-09-11T15:00:00Z', merge_commit_sha: 'b'.repeat(40), head: { ref: 'parent', repo: { full_name: 'koala73/worldmonitor' } }, base: { ref: 'grandparent' } };
-    const child = { number: 30, state: 'closed', merged_at: '2026-09-11T14:00:00Z', merge_commit_sha: 'c'.repeat(40), head: { ref: 'child', repo: { full_name: 'koala73/worldmonitor' } }, base: { ref: 'parent' } };
+    const parent = { number: 20, state: 'closed', merged_at: '2026-09-11T15:00:00Z', merge_commit_sha: 'b'.repeat(40), head: { ref: 'parent', repo: { full_name: 'Iamirup/raworld' } }, base: { ref: 'grandparent' } };
+    const child = { number: 30, state: 'closed', merged_at: '2026-09-11T14:00:00Z', merge_commit_sha: 'c'.repeat(40), head: { ref: 'child', repo: { full_name: 'Iamirup/raworld' } }, base: { ref: 'parent' } };
     const pulls = [grandparent, parent, child];
     const result = checkClosedPull({
       event: pullEvent(parent, { action: 'closed' }),
@@ -412,7 +412,7 @@ describe('checkStackedMerge orchestrator', () => {
         merged: false,
         state: 'open',
       }, { action: 'synchronize' }),
-      gh: (args) => (args.at(-1) === 'repos/koala73/worldmonitor/pulls/6997'
+      gh: (args) => (args.at(-1) === 'repos/Iamirup/raworld/pulls/6997'
         ? JSON.stringify(CHILD_6997)
         : JSON.stringify([[PARENT_6996]])),
     });
@@ -445,7 +445,7 @@ describe('checkStackedMerge orchestrator', () => {
         },
         create: (issue) => {
           created.push(issue);
-          return { number: 7007, html_url: 'https://github.com/koala73/worldmonitor/issues/7007' };
+          return { number: 7007, html_url: 'https://github.com/Iamirup/raworld/issues/7007' };
         },
         comment: (prNumber, body) => {
           comments.push({ prNumber, body });
@@ -498,7 +498,7 @@ describe('checkStackedMerge orchestrator', () => {
         number: 7003,
         merged: true,
         merge_commit_sha: 'e'.repeat(40),
-        html_url: 'https://github.com/koala73/worldmonitor/pull/7003',
+        html_url: 'https://github.com/Iamirup/raworld/pull/7003',
         title: 're-land',
         base: { ref: 'main', repo: { owner: { login: 'koala73' } } },
       }, { action: 'closed' }),
@@ -683,12 +683,12 @@ describe('CLI replay of the recorded tombstone', () => {
           base: CHILD_6997.base,
           head: CHILD_6997.head,
         },
-        repository: { default_branch: 'main', full_name: 'koala73/worldmonitor' },
+        repository: { default_branch: 'main', full_name: 'Iamirup/raworld' },
       }));
       writeFileSync(ghPath, `#!/bin/sh
 case "$*" in
   *pulls/6997) echo '{"number":6997,"base":{"ref":"fix/aviation-budget-binds-v2"}}' ;;
-  *) echo '[[{"number":6996,"merged_at":"2026-08-20T12:53:04Z","title":"parent","html_url":"https://github.com/koala73/worldmonitor/pull/6996","state":"closed","base":{"ref":"main"}}]]' ;;
+  *) echo '[[{"number":6996,"merged_at":"2026-08-20T12:53:04Z","title":"parent","html_url":"https://github.com/Iamirup/raworld/pull/6996","state":"closed","base":{"ref":"main"}}]]' ;;
 esac
 `);
       chmodSync(ghPath, 0o755);
@@ -732,8 +732,8 @@ describe('closed stack CLI with real git ancestry', () => {
       git('commit', '--allow-empty', '-m', 'child merged into parent');
       const childSha = git('rev-parse', 'HEAD');
       git('branch', 'child');
-      const parent = { number: 8003, state: 'open', merged_at: null, head: { ref: 'parent', sha: childSha, repo: { full_name: 'koala73/worldmonitor' } }, base: { ref: 'main' } };
-      const child = { number: 8035, state: 'closed', merged: true, merged_at: '2026-09-11T14:05:06Z', merge_commit_sha: childSha, head: { ref: 'child', sha: childSha, repo: { full_name: 'koala73/worldmonitor' } }, base: { ref: 'parent' } };
+      const parent = { number: 8003, state: 'open', merged_at: null, head: { ref: 'parent', sha: childSha, repo: { full_name: 'Iamirup/raworld' } }, base: { ref: 'main' } };
+      const child = { number: 8035, state: 'closed', merged: true, merged_at: '2026-09-11T14:05:06Z', merge_commit_sha: childSha, head: { ref: 'child', sha: childSha, repo: { full_name: 'Iamirup/raworld' } }, base: { ref: 'parent' } };
       const statePath = join(dir, 'api.json');
       const eventPath = join(dir, 'event.json');
       const state = { pulls: [parent, child], issues: [], comments: [] };
@@ -840,12 +840,12 @@ console.log(JSON.stringify(answer));
 const PARENT_8518 = Object.freeze({
   number: 8518,
   title: 'fix(live-news): play Live News through the verified live video session (3/5)',
-  html_url: 'https://github.com/koala73/worldmonitor/pull/8518',
+  html_url: 'https://github.com/Iamirup/raworld/pull/8518',
   state: 'closed',
   merged: true,
   merged_at: '2026-09-22T20:45:49Z',
-  base: { ref: 'main', repo: { full_name: 'koala73/worldmonitor' } },
-  head: { ref: 'feat/live-news-session-v2', sha: '4e9b2b9edacf0b485cf09824dd003b14f8420610', repo: { full_name: 'koala73/worldmonitor' } },
+  base: { ref: 'main', repo: { full_name: 'Iamirup/raworld' } },
+  head: { ref: 'feat/live-news-session-v2', sha: '4e9b2b9edacf0b485cf09824dd003b14f8420610', repo: { full_name: 'Iamirup/raworld' } },
 });
 
 const CHILD_8519 = Object.freeze({
@@ -854,15 +854,15 @@ const CHILD_8519 = Object.freeze({
   state: 'open',
   merged: false,
   merged_at: null,
-  base: { ref: 'feat/live-news-session-v2', repo: { full_name: 'koala73/worldmonitor', owner: { login: 'koala73' } } },
-  head: { ref: 'feat/live-video-audit-v2', sha: 'a490f44bb9b2e982f3b7f076ed28df45c499e3d6', repo: { full_name: 'koala73/worldmonitor' } },
+  base: { ref: 'feat/live-news-session-v2', repo: { full_name: 'Iamirup/raworld', owner: { login: 'koala73' } } },
+  head: { ref: 'feat/live-video-audit-v2', sha: 'a490f44bb9b2e982f3b7f076ed28df45c499e3d6', repo: { full_name: 'Iamirup/raworld' } },
 });
 
 const CHILD_8520 = Object.freeze({
   ...CHILD_8519,
   number: 8520,
   title: 'chore(live-video): retire the YouTube live scraper (5/5)',
-  head: { ref: 'chore/retire-youtube-live-scraper-v2', sha: 'd1e4988d6c51ad82ba570e249e739629b738c93d', repo: { full_name: 'koala73/worldmonitor' } },
+  head: { ref: 'chore/retire-youtube-live-scraper-v2', sha: 'd1e4988d6c51ad82ba570e249e739629b738c93d', repo: { full_name: 'Iamirup/raworld' } },
 });
 
 describe('#8518 → #8519 orphaned-base guard', () => {
@@ -921,7 +921,7 @@ describe('#8518 → #8519 orphaned-base guard', () => {
       mode: 'pre-merge',
       event: pullEvent(CHILD_8519),
       gh: (args) => {
-        if (args.at(-1) === 'repos/koala73/worldmonitor/pulls/8519') return JSON.stringify(CHILD_8519);
+        if (args.at(-1) === 'repos/Iamirup/raworld/pulls/8519') return JSON.stringify(CHILD_8519);
         return JSON.stringify([[PARENT_8518]]);
       },
     });
@@ -938,7 +938,7 @@ describe('#8518 → #8519 orphaned-base guard', () => {
       event: pullEvent(CHILD_8519),
       gh: (args) => {
         calls.push(args.at(-1));
-        if (args.at(-1) === 'repos/koala73/worldmonitor/pulls/8519') {
+        if (args.at(-1) === 'repos/Iamirup/raworld/pulls/8519') {
           return JSON.stringify({ ...CHILD_8519, base: { ...CHILD_8519.base, ref: 'main' } });
         }
         return JSON.stringify([[PARENT_8518]]);
@@ -946,7 +946,7 @@ describe('#8518 → #8519 orphaned-base guard', () => {
     });
     assert.equal(result.ok, true);
     assert.equal(result.reason, 'base-is-default');
-    assert.deepEqual(calls, ['repos/koala73/worldmonitor/pulls/8519']);
+    assert.deepEqual(calls, ['repos/Iamirup/raworld/pulls/8519']);
   });
 
   it('reads the live base on a rerun even when the stale payload names the default branch', () => {
@@ -958,13 +958,13 @@ describe('#8518 → #8519 orphaned-base guard', () => {
       runAttempt: 2,
       gh: (args) => {
         calls.push(args.at(-1));
-        if (args.at(-1) === 'repos/koala73/worldmonitor/pulls/8519') return JSON.stringify(CHILD_8519);
+        if (args.at(-1) === 'repos/Iamirup/raworld/pulls/8519') return JSON.stringify(CHILD_8519);
         return JSON.stringify([[PARENT_8518]]);
       },
     });
     assert.equal(result.ok, false);
     assert.equal(result.reason, 'base-pr-merged');
-    assert.equal(calls[0], 'repos/koala73/worldmonitor/pulls/8519');
+    assert.equal(calls[0], 'repos/Iamirup/raworld/pulls/8519');
   });
 
   it('makes no API call on a first run whose payload names the default branch', () => {
@@ -980,7 +980,7 @@ describe('#8518 → #8519 orphaned-base guard', () => {
 });
 
 describe('stacked child retarget plan', () => {
-  const repository = 'koala73/worldmonitor';
+  const repository = 'Iamirup/raworld';
 
   it('retargets #8519 and #8520 to main when #8518 merges', () => {
     const plan = planStackRetargets({
@@ -1092,20 +1092,20 @@ describe('retargetStackedChildren executor', () => {
     const { gh, log } = fakeGh([CHILD_8519, CHILD_8520]);
     const result = retargetStackedChildren({ event: pullEvent(PARENT_8518, { action: 'closed' }), gh });
     assert.equal(result.exitCode, 0);
-    assert.equal(log[0].path, 'repos/koala73/worldmonitor/pulls?state=open&base=feat%2Flive-news-session-v2&per_page=100');
+    assert.equal(log[0].path, 'repos/Iamirup/raworld/pulls?state=open&base=feat%2Flive-news-session-v2&per_page=100');
     const patches = log.filter(entry => entry.method === 'PATCH');
     assert.deepEqual(patches.map(entry => [entry.path, entry.input]), [
-      ['repos/koala73/worldmonitor/pulls/8519', { base: 'main' }],
-      ['repos/koala73/worldmonitor/pulls/8520', { base: 'main' }],
+      ['repos/Iamirup/raworld/pulls/8519', { base: 'main' }],
+      ['repos/Iamirup/raworld/pulls/8520', { base: 'main' }],
     ]);
     assert.deepEqual(log.filter(entry => entry.path.endsWith('/rerun')).map(entry => entry.path), [
-      'repos/koala73/worldmonitor/actions/runs/a490f4/rerun',
-      'repos/koala73/worldmonitor/actions/runs/d1e498/rerun',
+      'repos/Iamirup/raworld/actions/runs/a490f4/rerun',
+      'repos/Iamirup/raworld/actions/runs/d1e498/rerun',
     ]);
     const comments = log.filter(entry => entry.path.endsWith('/comments'));
     assert.deepEqual(comments.map(entry => entry.path), [
-      'repos/koala73/worldmonitor/issues/8519/comments',
-      'repos/koala73/worldmonitor/issues/8520/comments',
+      'repos/Iamirup/raworld/issues/8519/comments',
+      'repos/Iamirup/raworld/issues/8520/comments',
     ]);
     assert.match(comments[0].input.body, /#8518/);
     assert.match(comments[0].input.body, /`main`/);

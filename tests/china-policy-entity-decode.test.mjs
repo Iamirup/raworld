@@ -5,7 +5,7 @@ import { __testing__ } from '../scripts/china-policy/adapters.mjs';
 
 const { stripHtml } = __testing__;
 
-// Regression coverage for koala73/worldmonitor#5436: the adapters' private
+// Regression coverage for Iamirup/raworld#5436: the adapters' private
 // entity decoder ran `&amp;` before the other replaces, so one pass decoded
 // TWO levels (`&amp;lt;` -> `<`), turning escaped text into live markup.
 // stripHtml is the exported seam that runs text through the decoder.

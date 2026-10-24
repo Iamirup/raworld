@@ -28,10 +28,10 @@ export function renderOperationalWorksheet(snapshot: OperationalSnapshot): HTMLE
     h('p', { className: 'operational-cost' }, snapshot.additionalDeliveryCostUsd === null ? 'Delivery cost comparison unavailable. One or more prices are unknown.' : `Additional delivery spending: ${snapshot.additionalDeliveryCostUsd} USD. This excludes operating costs and the value of unmet demand.`),
   );
   const assumptions = h('details', { className: 'operational-method' }, h('summary', {}, 'Assumptions & delivery details'),
-    h('p', {}, input.basis === 'example' ? 'Labeled example. Edit these assumptions; actual operating data is optional.' : 'User assumptions. These values are not WorldMonitor observations.'),
+    h('p', {}, input.basis === 'example' ? 'Labeled example. Edit these assumptions; actual operating data is optional.' : 'User assumptions. These values are not RaWorld observations.'),
     h('p', {}, `Unit: ${input.unit}. Starting usable stock: ${input.startingStock}. Start: ${input.startDate}. Horizon: ${input.horizonDays} days.`),
     h('p', {}, 'Deliveries become usable at the start of the selected day. Remaining stock carries forward. Unmet demand is recorded daily and is not carried as backlog; later deliveries cannot erase an earlier gap.'),
-    h('p', {}, 'Alternative includes baseline deliveries plus additional deliveries and the selected alternative daily demand. This is a conditional stock balance, not a shutdown forecast. Delivery feasibility and supplier capacity remain unverified. WorldMonitor country and route context is separate from these assumptions.'));
+    h('p', {}, 'Alternative includes baseline deliveries plus additional deliveries and the selected alternative daily demand. This is a conditional stock balance, not a shutdown forecast. Delivery feasibility and supplier capacity remain unverified. RaWorld country and route context is separate from these assumptions.'));
   for (const [label, rows] of [['Baseline deliveries', input.deliveries], ['Additional alternative deliveries', input.alternativeDeliveries]] as const) {
     assumptions.append(h('h4', {}, label), h('ul', {}, ...(rows.length ? rows.map(row => h('li', {}, `${row.date}: ${row.quantity} ${row.unit}; total cost ${row.costUsd === null ? 'unknown' : `${row.costUsd} USD`}`)) : [h('li', {}, 'None')])));
   }

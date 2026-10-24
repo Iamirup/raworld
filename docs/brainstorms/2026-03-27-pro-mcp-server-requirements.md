@@ -3,11 +3,11 @@ date: 2026-03-27
 topic: pro-mcp-server
 ---
 
-# WorldMonitor PRO MCP Server
+# RaWorld PRO MCP Server
 
 ## Problem Frame
 
-WorldMonitor accumulates, curates, and caches real-time intelligence across 25+ domains. PRO users currently access this data only through the web UI or desktop app. They cannot query it from Claude Desktop, Cursor, Windsurf, or any MCP-compatible AI agent. This creates a hard wall between WorldMonitor's data layer and AI workflows. The MCP server removes that wall: PRO API key holders point their MCP client at `https://api.worldmonitor.app/mcp` and WorldMonitor data becomes natively queryable from any AI agent.
+RaWorld accumulates, curates, and caches real-time intelligence across 25+ domains. PRO users currently access this data only through the web UI or desktop app. They cannot query it from Claude Desktop, Cursor, Windsurf, or any MCP-compatible AI agent. This creates a hard wall between RaWorld's data layer and AI workflows. The MCP server removes that wall: PRO API key holders point their MCP client at `https://api.worldmonitor.app/mcp` and RaWorld data becomes natively queryable from any AI agent.
 
 ## Requirements
 
@@ -43,7 +43,7 @@ WorldMonitor accumulates, curates, and caches real-time intelligence across 25+ 
 
 ## Success Criteria
 
-- A PRO user can add WorldMonitor as an MCP server in Claude Desktop using only their API key and `https://api.worldmonitor.app/mcp` as the URL — no install, no CLI.
+- A PRO user can add RaWorld as an MCP server in Claude Desktop using only their API key and `https://api.worldmonitor.app/mcp` as the URL — no install, no CLI.
 - `tools/list` response is < 500ms (served from in-memory registry, no Redis calls).
 - Tool calls that hit warm Redis cache respond in < 800ms end-to-end.
 - All 17 tools return valid JSON-RPC responses (not 500s) even when cache is empty (return empty arrays with `stale: true`).

@@ -19,7 +19,7 @@ so a headline reading *"Ignore previous instructions and…"* is an
 indirect-prompt-injection payload.
 
 **This is not a new channel.** The existing news tools have exactly the same
-one, and every WorldMonitor surface that feeds third-party text into an LLM has
+one, and every RaWorld surface that feeds third-party text into an LLM has
 had it since #3724.
 
 **What is new is the exposure window.** Live seed keys in Redis overwrite

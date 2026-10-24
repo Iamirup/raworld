@@ -3,7 +3,7 @@ title: "CII Risk Scoring Methodology"
 description: "Editorial methodology behind the Country Instability Index: baseline risk, event multiplier, four-component score, and strategic-risk bands."
 ---
 
-_Methodology maintained by [Elie Habib](https://www.worldmonitor.app/blog/authors/elie-habib/), founder of World Monitor. Published revisions are recorded in the [corrections log](/corrections)._
+_Methodology maintained by [Elie Habib](https://www.worldmonitor.app/blog/authors/elie-habib/), founder of RaWorld. Published revisions are recorded in the [corrections log](/corrections)._
 
 ## Start here
 
@@ -63,13 +63,13 @@ the opposite question: not *what is happening to this country*, but *how well
 could it take a hit*. The dashboard shows them together because a country can
 be calm and fragile, or under heavy pressure and structurally tough.
 
-Where WorldMonitor does forecast, that record is published. The
+Where RaWorld does forecast, that record is published. The
 [forecast accuracy scorecard](https://www.worldmonitor.app/accuracy/) publishes
 the forecast track record and its methodology.
 
 <Warning>
 **These weights are editorial, not empirical.** They were authored by the
-WorldMonitor intelligence team from internal review of historical incidents and
+RaWorld intelligence team from internal review of historical incidents and
 current geopolitical posture. They are **not** derived from a published academic
 index, a peer-reviewed paper, or a third-party risk product. Reasonable analysts
 will disagree with individual entries.
@@ -185,7 +185,7 @@ Component details that are easy to miss:
   day, the largest severity count any published window has shown for that
   day, so an incident whose id changes between cycles is never counted
   twice.
-- **GDELT escalation terms (Conflict and Unrest)**: WorldMonitor has no ACLED
+- **GDELT escalation terms (Conflict and Unrest)**: RaWorld has no ACLED
   access, so the ACLED terms above are 0 in production. While the ACLED API
   returns no events, each component instead adds a GDELT term read from
   `gdelt:bulk:country-events:v1`, which the bulk materializer builds from the
@@ -348,13 +348,13 @@ Both are hand-set values, published here so you can argue with them.
 
 These are the editorial values applied by server-side API scoring. The source
 of truth is
-[`shared/cii-weights.ts`](https://github.com/koala73/worldmonitor/blob/main/shared/cii-weights.ts); the scorer derives its coefficients from that module so
+[`shared/cii-weights.ts`](https://github.com/Iamirup/raworld/blob/main/shared/cii-weights.ts); the scorer derives its coefficients from that module so
 coefficient drift fails in tests instead of shipping silently. The browser
 consumes cached server-produced CII scores rather than calculating a local
 fallback.
 
 Climate anomaly attribution uses the canonical
-[`shared/cii-climate-zones.ts`](https://github.com/koala73/worldmonitor/blob/main/shared/cii-climate-zones.ts)
+[`shared/cii-climate-zones.ts`](https://github.com/Iamirup/raworld/blob/main/shared/cii-climate-zones.ts)
 map. Changes to that map can shift server/API scores and follow the score
 contract-change protocol above.
 
@@ -476,7 +476,7 @@ overallScore = min(100, round(weightedAvg * 0.70 + 15))             # banded to 
 
 The decay step, top-N window, scale-floor (`15`), and scale-factor (`0.70`)
 are all defined in
-[`server/worldmonitor/intelligence/v1/_risk-config.ts`](https://github.com/koala73/worldmonitor/blob/main/server/worldmonitor/intelligence/v1/_risk-config.ts).
+[`server/worldmonitor/intelligence/v1/_risk-config.ts`](https://github.com/Iamirup/raworld/blob/main/server/worldmonitor/intelligence/v1/_risk-config.ts).
 Their **rationale**:
 
 - **`STRATEGIC_RISK_POSITIONAL_DECAY = 0.15`** — the most-affected country
@@ -605,7 +605,7 @@ in `CURATED_COUNTRIES`.
 > `methodology_version` is now `v11`, so clients pinned on `methodology_version`
 > should re-baseline.
 
-> **v10 (2026-10-19).** Conflict and Unrest get a live input again. WorldMonitor
+> **v10 (2026-10-19).** Conflict and Unrest get a live input again. RaWorld
 > has no ACLED access, so the ACLED event terms in both components were 0 for
 > every country: the October 2026 Houthi strikes on Riyadh and France's
 > nationwide riots left Saudi Conflict and French Unrest at 0. While the ACLED
@@ -671,7 +671,7 @@ in `CURATED_COUNTRIES`.
 > clarified without changing scoring coefficients, CII formula version, or
 > `risk:scores:sebuf:v8` cache keys. The UCDP seeder now prefers the newest GED
 > release that returns events instead of stopping at the first responding
-> version ([#4200](https://github.com/koala73/worldmonitor/issues/4200)), and
+> version ([#4200](https://github.com/Iamirup/raworld/issues/4200)), and
 > the CII refresh path warns when ACLED returns zero events for both comparison
 > windows so operators can distinguish a quiet feed from an auth/upstream gap.
 
@@ -740,7 +740,7 @@ in `CURATED_COUNTRIES`.
 > **Implementation note (2026-05-27).** `baselineRisk` and `eventMultiplier`
 > now come from one shared coefficient table used by both the server and
 > frontend. This resolves the 7-country drift tracked in
-> [#3789](https://github.com/koala73/worldmonitor/issues/3789) by keeping the
+> [#3789](https://github.com/Iamirup/raworld/issues/3789) by keeping the
 > previously published server/API values for AF, EG, IQ, JP, KR, LB and QA.
 > Frontend client-side CII rendering now uses those same values. Server/API
 > values were unchanged by this refactor — the v3 bump above is from the

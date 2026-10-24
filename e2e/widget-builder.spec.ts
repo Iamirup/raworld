@@ -37,13 +37,13 @@ function buildTallWidgetHtml(title: string, markerClass: string): string {
       </div>
       <div class="economic-header" style="display:grid;gap:4px;">
         <strong>${title}</strong>
-        <span>Live WorldMonitor snapshot</span>
+        <span>Live RaWorld snapshot</span>
       </div>
       <div class="economic-grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;">
         ${rows}
       </div>
       <div class="economic-footer">
-        <span>Source: WorldMonitor</span>
+        <span>Source: RaWorld</span>
       </div>
     </div>
   `;

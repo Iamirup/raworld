@@ -1559,7 +1559,8 @@ export function createDomainGateway(
       (request.method === 'GET' || request.method === 'HEAD') &&
       pathname === COUNTRY_INTEL_BRIEF_PATH &&
       process.env.LOCAL_API_MODE === 'docker';
-    const needsLegacyProBearerGate = !internalMcpVerified && !isPublicNoAuthRpc && PREMIUM_RPC_PATHS.has(pathname) && !isTierGated;
+    // RaWorld has no paid plans, so premium RPCs no longer demand a Pro bearer.
+    const needsLegacyProBearerGate = false;
     const isProFreshCacheRpc = PRO_FRESH_CACHE_RPC_PATHS.has(pathname);
     const needsProFreshnessResolution =
       !internalMcpVerified &&

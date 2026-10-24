@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# WorldMonitor verification harness.
+# RaWorld verification harness.
 #
 #   .agents/skills/verify-worldmonitor/scripts/wm-verify.sh launch [port]
 #   .agents/skills/verify-worldmonitor/scripts/wm-verify.sh doctor

@@ -1,9 +1,9 @@
 ---
 title: "WM 分析师"
-description: "WM Analyst 是 WorldMonitor 的对话式 AI 分析师，直接调用平台实时缓存的地缘政治、金融市场、军事部署、区域情报与预测数据，即时回答用户关于当前形势、事件影响、传导路径与情景推演的临时问题，支持自然语言追问、来源溯源与跨面板上下文串联。"
+description: "RaWorld Analyst 是 RaWorld 的对话式 AI 分析师，直接调用平台实时缓存的地缘政治、金融市场、军事部署、区域情报与预测数据，即时回答用户关于当前形势、事件影响、传导路径与情景推演的临时问题，支持自然语言追问、来源溯源与跨面板上下文串联。"
 ---
 
-**WM Analyst** 面板（内部 id `chat-analyst`）是仪表盘的对话式情报界面：一个聊天界面，你可以直接输入问题——"红海今天发生了什么？"、"哪些经济体对霍尔木兹海峡关闭最为脆弱？"——并获得基于实时 WorldMonitor 缓存的、具有来源感知的结构化回答。
+**RaWorld Analyst** 面板（内部 id `chat-analyst`）是仪表盘的对话式情报界面：一个聊天界面，你可以直接输入问题——"红海今天发生了什么？"、"哪些经济体对霍尔木兹海峡关闭最为脆弱？"——并获得基于实时 RaWorld 缓存的、具有来源感知的结构化回答。
 
 ## 面板显示内容
 
@@ -16,7 +16,7 @@ description: "WM Analyst 是 WorldMonitor 的对话式 AI 分析师，直接调�
 - **仪表盘控制** — 一个可选的 `Control dashboard` 开关，带 `Pause` 控制。启用时，经模式校验的分析师动作事件可聚焦已活跃的面板、移动地图视图或切换允许的地图图层。关闭或暂停时，回答仍会流式返回，但仪表盘动作会被跳过。
 - **输入框** — 自由文本输入；Enter 发送。
 
-面板 id 为 `chat-analyst`；规范组件为 `src/components/ChatAnalystPanel.ts`。标题 "WM Analyst" 见 `src/config/panels.ts:52`。
+面板 id 为 `chat-analyst`；规范组件为 `src/components/ChatAnalystPanel.ts`。标题 "RaWorld Analyst" 见 `src/config/panels.ts:52`。
 
 ## 如何访问
 

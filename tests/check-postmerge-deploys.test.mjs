@@ -363,7 +363,7 @@ describe('post-merge deploy monitor', () => {
           assert.match(args.join(' '), /workflows\/convex-deploy\.yml\/runs/);
           return JSON.stringify({ workflow_runs: stalePositions.includes(read) ? stale : fresh });
         },
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         workflowFile: 'convex-deploy.yml',
         now: NOW,
         noRunWindowMs: 7 * 24 * HOUR,
@@ -384,7 +384,7 @@ describe('post-merge deploy monitor', () => {
           ],
         });
       },
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       workflowFile: 'convex-deploy.yml',
       now: NOW,
       noRunWindowMs: 7 * 24 * HOUR,
@@ -414,7 +414,7 @@ describe('post-merge deploy monitor', () => {
           read += 1;
           return JSON.stringify({ total_count: 10, workflow_runs: [order[read]] });
         },
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         workflowFile: 'deploy-worker.yml',
         now: NOW,
       });
@@ -456,7 +456,7 @@ describe('post-merge deploy monitor', () => {
     assert.throws(
       () => readNewestRun({
         gh: () => { read += 1; return payloads[read]; },
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         workflowFile: 'convex-deploy.yml',
         now: NOW,
         noRunWindowMs: 7 * 24 * HOUR,
@@ -477,7 +477,7 @@ describe('post-merge deploy monitor', () => {
     assert.throws(
       () => readNewestRun({
         gh: () => { read += 1; return payloads[read]; },
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         workflowFile: 'convex-deploy.yml',
         now: NOW,
         noRunWindowMs: 7 * 24 * HOUR,
@@ -502,7 +502,7 @@ describe('post-merge deploy monitor', () => {
     let read = -1;
     const newest = readNewestRun({
       gh: () => { read += 1; return payloads[read]; },
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       workflowFile: 'convex-deploy.yml',
       now: NOW,
       noRunWindowMs: 7 * 24 * HOUR,
@@ -524,7 +524,7 @@ describe('post-merge deploy monitor', () => {
         }
         return JSON.stringify({ total_count: 3168, workflow_runs: [fresh] });
       },
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       workflowFile: 'convex-deploy.yml',
       now: NOW,
       noRunWindowMs: 7 * 24 * HOUR,
@@ -549,7 +549,7 @@ describe('post-merge deploy monitor', () => {
           error.githubReadSource = 'github-api';
           throw error;
         },
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         workflowFile: 'convex-deploy.yml',
         now: NOW,
         noRunWindowMs: 7 * 24 * HOUR,
@@ -562,7 +562,7 @@ describe('post-merge deploy monitor', () => {
     // instead of claiming a failed deploy.
     const perWorkflow = new Map();
     const results = checkPostmergeDeploys({
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       gh: (args) => {
         const joined = args.join(' ');
         const workflow = joined.match(/workflows\/([^/]+)\/runs/)?.[1];
@@ -597,7 +597,7 @@ describe('post-merge deploy monitor', () => {
           if (read === 0) return JSON.stringify({ total_count: 0, workflow_runs: [] });
           throw Object.assign(new Error('gh api ... failed (1): tls handshake timeout'), { githubReadSource: 'github-api' });
         },
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         workflowFile: 'convex-deploy.yml',
         now: NOW,
       }),
@@ -609,7 +609,7 @@ describe('post-merge deploy monitor', () => {
     // must still alarm.
     const newest = readNewestRun({
       gh: () => JSON.stringify({ total_count: 0, workflow_runs: [] }),
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       workflowFile: 'convex-deploy.yml',
       now: NOW,
     });
@@ -624,7 +624,7 @@ describe('post-merge deploy monitor', () => {
     assert.throws(
       () => readNewestRun({
         gh: () => JSON.stringify({ total_count: 3168, workflow_runs: [] }),
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         workflowFile: 'convex-deploy.yml',
         now: NOW,
       }),
@@ -646,7 +646,7 @@ describe('post-merge deploy monitor', () => {
           if (read === 0) return JSON.stringify({ total_count: 1366, workflow_runs: [staleInWindow] });
           throw Object.assign(new Error('gh api ... failed (1): tls handshake timeout'), { githubReadSource: 'github-api' });
         },
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         workflowFile: 'deploy-worker.yml',
         now: NOW,
         noRunWindowMs: 14 * 24 * HOUR,
@@ -683,7 +683,7 @@ describe('post-merge deploy monitor', () => {
     let read = -1;
     const newest = readNewestRun({
       gh: () => { read += 1; return payloads[read]; },
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       workflowFile: 'convex-deploy.yml',
       now: NOW,
       noRunWindowMs: 7 * 24 * HOUR,
@@ -702,7 +702,7 @@ describe('post-merge deploy monitor', () => {
           workflow_runs: [{ id: 900, created_at: new Date(NOW - HOUR).toISOString(), conclusion: 'success', run_attempt: 1, head_sha: 'd'.repeat(40), event: 'push', display_title: 'push' }],
         });
       },
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       workflowFile: 'convex-deploy.yml',
       now: NOW,
     });
@@ -721,7 +721,7 @@ describe('post-merge deploy monitor', () => {
           workflow_runs: [{ id: 900, created_at: new Date(NOW - HOUR).toISOString(), conclusion: 'success', run_attempt: 1, head_sha: 'd'.repeat(40), event: 'push', display_title: 'push' }],
         });
       },
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       workflowFile: 'convex-deploy.yml',
       now: NOW,
       clock: () => fakeNow,
@@ -736,7 +736,7 @@ describe('post-merge deploy monitor', () => {
         { id: 1, created_at: new Date(NOW - 2 * HOUR).toISOString(), conclusion: 'success', run_attempt: 1, head_sha: 'b'.repeat(40), event: 'push', display_title: 'push' },
         { id: 2, created_at: new Date(NOW - HOUR).toISOString(), conclusion: 'failure', run_attempt: 2, head_sha: 'c'.repeat(40), event: 'push', display_title: 'push' },
       ]),
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       workflowFile: 'convex-deploy.yml',
       now: NOW,
     });
@@ -752,7 +752,7 @@ describe('post-merge deploy monitor', () => {
           { name: 'deploy', conclusion: 'skipped', status: 'completed' },
         ]);
       },
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       runId: 2,
       runAttempt: 2,
     });
@@ -775,7 +775,7 @@ describe('post-merge deploy monitor', () => {
           }],
         });
       },
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       workflowFile: 'deploy-worker.yml',
       now: NOW,
     });
@@ -796,7 +796,7 @@ describe('post-merge deploy monitor', () => {
     assert.throws(
       () => readNewestRun({
         gh: () => JSON.stringify({ not_workflow_runs: true }),
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         workflowFile: 'convex-deploy.yml',
         now: NOW,
       }),
@@ -811,7 +811,7 @@ describe('post-merge deploy monitor', () => {
           run_attempt: 1,
           head_sha: '7'.repeat(40),
         }]),
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         workflowFile: 'deploy-worker.yml',
         now: NOW,
       }),
@@ -820,7 +820,7 @@ describe('post-merge deploy monitor', () => {
     assert.throws(
       () => readRunJobs({
         gh: () => JSON.stringify({ jobs: 'nope' }),
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         runId: 2,
         runAttempt: 1,
       }),
@@ -895,7 +895,7 @@ describe('post-merge deploy monitor', () => {
     };
 
     const results = checkPostmergeDeploys({
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       gh,
       git: (args) => { gitCalls.push(args); return ''; },
       now: NOW,
@@ -930,7 +930,7 @@ describe('post-merge deploy monitor', () => {
       gh: ghRuns('convex-deploy.yml', [
         { id: 5, created_at: new Date(NOW - DEFAULT_NO_RUN_WINDOW_MS + 1000).toISOString(), conclusion: 'success', run_attempt: 1, head_sha: 'd'.repeat(40) },
       ]),
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       workflowFile: 'convex-deploy.yml',
       now: NOW,
     });
@@ -940,7 +940,7 @@ describe('post-merge deploy monitor', () => {
       gh: ghRuns('convex-deploy.yml', [
         { id: 6, created_at: new Date(NOW - DEFAULT_NO_RUN_WINDOW_MS - 1000).toISOString(), conclusion: 'success', run_attempt: 1, head_sha: 'e'.repeat(40) },
       ]),
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       workflowFile: 'convex-deploy.yml',
       now: NOW,
     });
@@ -957,8 +957,8 @@ describe('post-merge deploy monitor', () => {
 describe('post-merge deploy monitor — read-path resilience (#6479)', () => {
   // The verbatim stderr from run 31560494370. A transport error never reached
   // GitHub, so there is no HTTP status in it — that absence is the signal.
-  const TLS_STDERR = 'gh api repos/koala73/worldmonitor/actions/runs/30741257511/attempts/1/jobs failed (1): '
-    + 'Get "https://api.github.com/repos/koala73/worldmonitor/actions/runs/30741257511/attempts/1/jobs": '
+  const TLS_STDERR = 'gh api repos/Iamirup/raworld/actions/runs/30741257511/attempts/1/jobs failed (1): '
+    + 'Get "https://api.github.com/repos/Iamirup/raworld/actions/runs/30741257511/attempts/1/jobs": '
     + 'tls: failed to verify certificate: x509: certificate is not valid for any names, but wanted to match api.github.com';
 
   function githubReadFailure(message, properties = {}) {
@@ -1112,7 +1112,7 @@ describe('post-merge deploy monitor — read-path resilience (#6479)', () => {
 
     it('reports the remaining workflows when the first read fails', () => {
       const results = checkPostmergeDeploys({
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         gh: ghFleet({ unreadable: 'convex-deploy.yml' }),
         git: () => '',
         now: NOW,
@@ -1157,7 +1157,7 @@ describe('post-merge deploy monitor — read-path resilience (#6479)', () => {
       };
 
       const results = checkPostmergeDeploys({
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         gh,
         git: () => '',
         now: NOW,
@@ -1182,7 +1182,7 @@ describe('post-merge deploy monitor — read-path resilience (#6479)', () => {
 
     it('fails the monitor for git and GitHub 4xx throws, not only for deploy ALARMs', () => {
       const gitThrow = checkPostmergeDeploys({
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         gh: ghFleet({}),
         git: (args) => {
           throw new Error(`git ${args.join(' ')} failed (128): not a tree`);
@@ -1201,7 +1201,7 @@ describe('post-merge deploy monitor — read-path resilience (#6479)', () => {
 
       const gh = ghFleet({ unreadable: 'convex-deploy.yml' });
       const answered = checkPostmergeDeploys({
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         gh: (args) => {
           const joined = args.join(' ');
           if (joined.includes('workflows/convex-deploy.yml/runs')) {
@@ -1222,7 +1222,7 @@ describe('post-merge deploy monitor — read-path resilience (#6479)', () => {
       const missing = new Error('spawn gh ENOENT');
       missing.code = 'ENOENT';
       const results = checkPostmergeDeploys({
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         gh: () => { throw missing; },
         git: () => '',
         now: NOW,
@@ -1239,7 +1239,7 @@ describe('post-merge deploy monitor — read-path resilience (#6479)', () => {
       for (const status of [408, 429]) {
         let calls = 0;
         const results = checkPostmergeDeploys({
-          repository: 'koala73/worldmonitor',
+          repository: 'Iamirup/raworld',
           gh: createRetryingGh({
             gh: () => {
               calls += 1;
@@ -1266,7 +1266,7 @@ describe('post-merge deploy monitor — read-path resilience (#6479)', () => {
         () => { throw new Error('gh auth login required'); },
       ]) {
         const results = checkPostmergeDeploys({
-          repository: 'koala73/worldmonitor',
+          repository: 'Iamirup/raworld',
           gh,
           git: () => '',
           now: NOW,
@@ -1278,7 +1278,7 @@ describe('post-merge deploy monitor — read-path resilience (#6479)', () => {
       const gitProcessError = new Error('spawn git EACCES');
       gitProcessError.code = 'EACCES';
       const results = checkPostmergeDeploys({
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         gh: ghFleet({}),
         git: () => { throw gitProcessError; },
         now: NOW,
@@ -1436,7 +1436,7 @@ describe('convex deploy drift against the deployed baseline (#7359)', () => {
 
   function runMonitor({ git, deployConclusion = 'skipped' }) {
     return checkPostmergeDeploys({
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       gh: (args) => {
         const joined = args.join(' ');
         const answer = healthyOtherWorkflows(joined) ?? convexGh(joined, deployConclusion);

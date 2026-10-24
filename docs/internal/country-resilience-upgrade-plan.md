@@ -198,7 +198,7 @@ model.** Three specific gaps keep it below reference grade:
    capacity as first-class top-level pillars. INFORM centers
    hazard/vulnerability/coping capacity. ND-GAIN centers vulnerability and
    readiness. WorldRiskIndex separates exposure from societal vulnerability.
-   Today's WorldMonitor resilience reads as a "readiness-plus-stress" model,
+   Today's RaWorld resilience reads as a "readiness-plus-stress" model,
    not a full resilience model. Confidence is also collapsed: the API exposes
    coverage, imputation share, and optional score intervals, but the widget
    reduces all of it to a single label.

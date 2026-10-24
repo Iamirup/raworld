@@ -1,9 +1,9 @@
 ---
 title: "Commerce Endpoints"
-description: "Checkout, customer portal, product catalog, and referral endpoints — thin edge proxies over Convex and Dodo Payments for World Monitor billing."
+description: "Checkout, customer portal, product catalog, and referral endpoints — thin edge proxies over Convex and Dodo Payments for RaWorld billing."
 ---
 
-WorldMonitor uses [Dodo Payments](https://dodopayments.com) for PRO subscriptions and [Convex](https://convex.dev) as the source-of-truth for entitlements. These edge endpoints are thin auth proxies — they validate the Clerk JWT, then forward to Convex HTTP actions via `RELAY_SHARED_SECRET`.
+RaWorld uses [Dodo Payments](https://dodopayments.com) for PRO subscriptions and [Convex](https://convex.dev) as the source-of-truth for entitlements. These edge endpoints are thin auth proxies — they validate the Clerk JWT, then forward to Convex HTTP actions via `RELAY_SHARED_SECRET`.
 
 ## Checkout
 
@@ -95,7 +95,7 @@ Returns the tier view-model used by the `/pro` pricing page. Cached in Redis und
     {
       "name": "API Business",
       "localeKey": "apiBusiness",
-      "description": "Launch your own product on WorldMonitor data",
+      "description": "Launch your own product on RaWorld data",
       "features": ["..."],
       "highlighted": false,
       "monthlyPrice": 299.99,

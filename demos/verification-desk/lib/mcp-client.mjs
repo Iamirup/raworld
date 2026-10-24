@@ -1,4 +1,4 @@
-// Minimal streamable-HTTP MCP client for the WorldMonitor server.
+// Minimal streamable-HTTP MCP client for the RaWorld server.
 //
 // Speaks JSON-RPC over POST, accepts either a JSON body or an SSE stream back,
 // and keeps the Mcp-Session-Id the server hands out on initialize. No SDK so
@@ -42,7 +42,7 @@ export class WorldMonitorMcp {
   // call never blocks the next check.
   constructor({ url = 'https://worldmonitor.app/mcp', apiKey, bearerToken, timeoutMs = 10_000, fetchImpl } = {}) {
     if (!apiKey && !bearerToken) {
-      throw new McpError('WorldMonitor MCP needs WORLDMONITOR_API_KEY (or WORLDMONITOR_MCP_TOKEN).');
+      throw new McpError('RaWorld MCP needs WORLDMONITOR_API_KEY (or WORLDMONITOR_MCP_TOKEN).');
     }
     this.url = url;
     this.apiKey = apiKey;
@@ -141,7 +141,7 @@ export class WorldMonitorMcp {
     // charged result holding only this envelope. Read as data it is an empty
     // board; surfaced as an error it falls back to the archive.
     if (payload?._budget_exceeded) {
-      throw new McpError(`${name}: response exceeds WorldMonitor's tool output budget (${payload.actual_bytes} > ${payload.budget_bytes} bytes); lower the limit`, { data: payload });
+      throw new McpError(`${name}: response exceeds RaWorld's tool output budget (${payload.actual_bytes} > ${payload.budget_bytes} bytes); lower the limit`, { data: payload });
     }
     return payload;
   }

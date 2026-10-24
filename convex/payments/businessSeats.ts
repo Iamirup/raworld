@@ -260,7 +260,7 @@ async function sendSeatEmail(ctx: Pick<ActionCtx, "runQuery">, opts: {
   try {
     result = await sendResendEmail(ctx, {
       apiKey,
-      from: "World Monitor <noreply@worldmonitor.app>",
+      from: "RaWorld <noreply@worldmonitor.app>",
       to: opts.to,
       subject: opts.subject,
       html: opts.html,
@@ -295,7 +295,7 @@ export const sendTeamAccessEndedEmail = internalAction({
   <div style="padding: 40px 32px;">
     <p style="font-size: 22px; font-weight: 700; color: #fff; margin: 0 0 12px;">Team access ended</p>
     <p style="font-size: 14px; color: #999; line-height: 1.5; margin: 0 0 24px;">
-      Your WorldMonitor Pro seat on a team Business plan has ended because the plan is no longer active.
+      Your RaWorld Pro seat on a team Business plan has ended because the plan is no longer active.
       Your account has returned to the free tier.
     </p>
     <div style="text-align: center;">
@@ -309,7 +309,7 @@ export const sendTeamAccessEndedEmail = internalAction({
 
     await sendSeatEmail(ctx, {
       to: args.inviteeEmail,
-      subject: "Your WorldMonitor team access has ended",
+      subject: "Your RaWorld team access has ended",
       html,
       skipLogContext: "team-access-ended email",
       failureLabel: "team-access-ended email",
@@ -335,9 +335,9 @@ export const sendBusinessInviteEmail = internalAction({
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #e0e0e0;">
   <div style="background: #4ade80; height: 4px;"></div>
   <div style="padding: 40px 32px;">
-    <p style="font-size: 22px; font-weight: 700; color: #fff; margin: 0 0 12px;">You're invited to WorldMonitor Pro</p>
+    <p style="font-size: 22px; font-weight: 700; color: #fff; margin: 0 0 12px;">You're invited to RaWorld Pro</p>
     <p style="font-size: 14px; color: #999; line-height: 1.5; margin: 0 0 24px;">
-      ${escapeHtml(args.ownerEmail)} has invited you to a Pro seat on their WorldMonitor API Business plan.
+      ${escapeHtml(args.ownerEmail)} has invited you to a Pro seat on their RaWorld API Business plan.
       Accept the invite to unlock all Pro features — no billing setup required.
     </p>
     <div style="text-align: center;">
@@ -351,7 +351,7 @@ export const sendBusinessInviteEmail = internalAction({
 
     await sendSeatEmail(ctx, {
       to: args.inviteeEmail,
-      subject: "You've been invited to WorldMonitor Pro",
+      subject: "You've been invited to RaWorld Pro",
       html,
       skipLogContext: "invite email",
       failureLabel: "invite email",

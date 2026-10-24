@@ -51,7 +51,7 @@ Wrap both auxiliary Redis helpers in the same retry contract already used by `re
 
 The boolean contract of `extendExistingTtl` is preserved: it still returns `true` only when every `EXPIRE` returns `1`. A successful response with some `EXPIRE` no-ops (missing/expired keys) is a real data condition, not a transient error, so it returns `false` without burning retries.
 
-Fixed in PR [#5364](https://github.com/koala73/worldmonitor/pull/5364).
+Fixed in PR [#5364](https://github.com/Iamirup/raworld/pull/5364).
 
 ## Why This Works
 

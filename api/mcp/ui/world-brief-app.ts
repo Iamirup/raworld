@@ -40,7 +40,7 @@ const STYLES = `
 const BODY = `
   <div class="head">
     <div class="title" id="title">World Brief</div>
-    <div class="badge">WorldMonitor Intelligence</div>
+    <div class="badge">RaWorld Intelligence</div>
   </div>
   <div class="empty" id="empty">Waiting for world-brief data…</div>
   <div id="card" style="display:none">
@@ -163,7 +163,7 @@ const RENDER = `
 `;
 
 export const WORLD_BRIEF_APP_HTML = buildAppHtml({
-  title: 'World Brief — WorldMonitor',
+  title: 'World Brief — RaWorld',
   appName: 'worldmonitor-world-brief',
   styles: STYLES,
   body: BODY,

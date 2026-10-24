@@ -41,16 +41,15 @@
     "phaseError": "Hiba",
     "previewCheckingHeading": "Widget szerkesztő csatlakoztatása",
     "previewReadyHeading": "Írja le a kívánt widgetet",
-    "previewFetchingHeading": "Élő WorldMonitor adatok lekérése",
+    "previewFetchingHeading": "Élő RaWorld adatok lekérése",
     "previewComposingHeading": "Widget elrendezés összeállítása",
     "previewErrorHeading": "Az előnézet figyelmet igényel",
     "previewCheckingCopy": "Widget kulcsát és backend rendelkezésre állását ellenőrizzük a generálás engedélyezése előtt.",
     "previewReadyCopy": "Használjon egy prompt példát vagy írja le a kívánt élő nézetet. Az előnézet frissül itt, mielőtt mentené.",
-    "previewFetchingCopy": "Az ügynök jóváhagyott WorldMonitor végpontokat hív meg és formálja az adathalmazt a widgethez.",
+    "previewFetchingCopy": "Az ügynök jóváhagyott RaWorld végpontokat hív meg és formálja az adathalmazt a widgethez.",
     "previewComposingCopy": "Az előnézet a legújabb élő adatokkal és irányítópult stílust használva jelenik meg.",
     "previewErrorCopy": "Hárítsa el a problémát, majd próbálkozzon újra. Meglévő widgetjei érintetlen maradnak.",
     "createInteractive": "Interaktív widget létrehozása",
-    "proBadge": "PRO",
     "preflightProUnavailable": "PRO widget ügynök nem érhető el. Ellenőrizze a PRO_WIDGET_KEY értéket a szerveren.",
     "preflightInvalidProKey": "PRO kulcs visszautasítva. Frissítse a wm-pro-key értéket és töltse újra az oldalt.",
     "preflightProSubscriptionRequired": "Pro előfizetés szükséges. Ha éppen frissített, frissítse az oldalt; egyéb esetben forduljon az ügyfélszolgálathoz.",
@@ -267,7 +266,6 @@
     "foodStocksHelp": "USDA Termelés, Ellátás és Elosztás árujavak készletei a felhasználáshoz viszonyítva marketingév alapján, világarány melléklettel. Az FAOSTAT Élelmiszer-mérlegek termelési és belföldi ellátási adatokat tartalmaznak, ha a Termelés, Ellátás és Elosztás nem rendelkezik teljes országmérleggel.",
     "loadingFoodStocks": "Loading food stocks…",
     "foodStocksUnavailable": "Food stocks unavailable.",
-    "foodStocksProLocked": "Upgrade to PRO for commodity stocks-to-use",
     "foodStocksCommodity": "Commodity",
     "foodStocksMarketingYear": "Marketing year",
     "foodStocksRatio": "Stocks-to-use",
@@ -285,7 +283,6 @@
       "help": "Korstruktúra, oktatási csatorna és ipari munkaerő-kapacitás az ENSZ Világpopulációs Kilátások, az UNESCO Statisztikai Intézet és a Világbank Világfejlesztési Mutatóinak, valamint az ILOSTAT adataiból.",
       "loading": "Loading demographics and workforce data…",
       "unavailable": "Demographics and workforce data unavailable.",
-      "proLocked": "Upgrade to PRO for demographics and workforce data",
       "notAvailable": "Not available",
       "ageStructure": "Age structure",
       "education": "Education pipeline",
@@ -311,7 +308,6 @@
       "help": "Fagyasztott v1 bizonyítékpontszámok élelmiszer, energia, demográfia, technológia és védelem terén. Bontsa ki a sort a bemenetek, az adatforrás eredete és a hiányzó adatok okainak megtekintéséhez.",
       "loading": "Öt tényezős pontszám betöltése…",
       "unavailable": "Öt tényezős pontszám nem érhető el.",
-      "proLocked": "Frissítsen PRO-ra az öt tényezős ellenállóképesség-pontszámért",
       "insufficient": "Nem elegendő adat",
       "notAvailable": "Nem érhető el",
       "noEvidence": "Nincs elérhető bizonyíték erre a pillérre.",
@@ -368,9 +364,7 @@
         "defense_supplierDiversity": "Fegyverbeszállítók sokszínűsége"
       }
     },
-    "defenseIndustrialBase": {
-      "proLocked": "Frissítsen PRO verzióra a fegyverszállító függőségek és katonai kapacitások megtekintéséhez"
-    }
+    "defenseIndustrialBase": {}
   },
   "header": {
     "world": "VILÁG",
@@ -781,8 +775,7 @@
       "alertTitle": {
         "configured": "Asztali beállítások konfigurálva",
         "needsKeys": "Konfiguráld az API-kulcsokat a funkciók feloldásához",
-        "some": "Néhány funkció API-kulcsokat igényel",
-        "pro": "A World Monitor Pro aktív"
+        "some": "Néhány funkció API-kulcsokat igényel"
       },
       "summary": {
         "desktop": "Asztali mód",
@@ -811,18 +804,13 @@
         "NASA_FIRMS_API_KEY": "Fire Information for Resource Management System.",
         "OLLAMA_API_URL": "pl. http://127.0.0.1:11434 (Ollama) vagy http://127.0.0.1:1234/v1 (LM Studio) — OpenAI-kompatibilis végpont.",
         "OLLAMA_MODEL": "pl. llama3.1:8b — összegzéshez használandó modelltag."
-      },
-      "proCloud": "Az API-kulcs nélküli funkciók a World Monitor felhőadatait használják.",
-      "skipSetupPro": "Hagyja ki a beállítást: jelentkezzen be a World Monitor Pro segítségével a felhőadatok használatához a saját API-kulcsok helyett.",
-      "getPro": "World Monitor Pro beszerzése"
+      }
     },
     "settingsWindow": {
-      "shellTitle": "World Monitor beállítások",
+      "shellTitle": "RaWorld beállítások",
       "shellSearchPlaceholder": "Beállítások keresése...",
       "shellCancel": "Mégse",
       "shellSaveClose": "Mentés és bezárás",
-      "freePanelLimit": "Ingyenes csomag: max {{max}} panel. Frissítsen PRO-ra a korlátlan verzióért.",
-      "freeSourceLimit": "Ingyenes csomag: max {{max}} forrás. Frissítsen PRO-ra a korlátlan verzióért.",
       "validating": "API-kulcsok ellenőrzése...",
       "saved": "Beállítások mentve",
       "failed": "Mentés sikertelen: {{error}}",
@@ -841,12 +829,6 @@
           "title": "Licenc- / API-kulcs",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "description": "Az API Starter és API Business előfizetők a webes irányítópult Settings → API Keys részében hozzák létre ezt a kulcsot. Ha a teljes kulcs elveszett, vonja vissza, és hozzon létre újat."
-        },
-        "dividerOr": "VAGY",
-        "register": {
-          "title": "API-kulcsra van szüksége?",
-          "description": "A részletes útmutatóért keresse fel a worldmonitor.app/docs/api-keys oldalt. A kézi API-kulcsokhoz API Starter vagy API Business csomag szükséges.",
-          "submitBtn": "API-csomagok megtekintése"
         }
       },
       "table": {
@@ -1093,8 +1075,7 @@
       "refineryStage": "Refine",
       "stageUnavailable": "No published figures for this stage",
       "withheldNote": "W withheld",
-      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them.",
-      "productionProLocked": "Frissítsen PRO-ra az erőmű- és finomítóország-részesedésekhez koncentrációval (szállítói koncentrációs index) szakaszonként."
+      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them."
     },
     "tradePolicy": {
       "overview": "Áttekintés",
@@ -1229,7 +1210,7 @@
       "skipToEnd": "Ugrás a végére"
     },
     "pizzint": {
-      "indexSource": "Index: World Monitor · helyadatok:",
+      "indexSource": "Index: RaWorld · helyadatok:",
       "statusNormal": "NORMÁL",
       "statusNoData": "NINCS ADAT",
       "statusNoBaseline": "NINCS VISZONYÍTÁSI ALAP",
@@ -1238,7 +1219,7 @@
       "defcon": "DEFCON {{level}}",
       "updated": "Frissítve: {{timeAgo}}",
       "tensionsTitle": "Geopolitikai feszültségek",
-      "tensionsSource": "Feszültségek: World Monitor a GDELT eseményei alapján",
+      "tensionsSource": "Feszültségek: RaWorld a GDELT eseményei alapján",
       "insufficientData": "Nincs elegendő adat",
       "pizzaUnavailable": "A pizzériák forgalmi adatai nem érhetők el",
       "source": "Forrás:",
@@ -1917,7 +1898,7 @@
       "staleReport": "Elavult jelentés",
       "reported": "Létszám",
       "period": "Időszak",
-      "movementNote": "Minden sor megőrzi a forrását, a jelentés dátumát és a mérőszámát. Az állomány, az érkezések és a határellenőrzési események különböző mérőszámok. A források átfedhetik egymást; ne adja össze az értékeiket. A WorldMonitor ezt a nézetet a hivatkozott forrásokból állítja elő; ez nem jelent szolgáltatói jóváhagyást.",
+      "movementNote": "Minden sor megőrzi a forrását, a jelentés dátumát és a mérőszámát. Az állomány, az érkezések és a határellenőrzési események különböző mérőszámok. A források átfedhetik egymást; ne adja össze az értékeiket. A RaWorld ezt a nézetet a hivatkozott forrásokból állítja elő; ez nem jelent szolgáltatói jóváhagyást.",
       "recent": "Közelmúlt",
       "last30Days": "Utolsó 30 nap",
       "newThisWeek": "Ezen a héten új",
@@ -2420,7 +2401,7 @@
       "loadError": "Éghajlat hírek átmenetileg nem érhetőek el"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>WM Analyst</strong> AI-elemző élő kontextussal a geopolitikai, piaci, katonai és gazdasági területeken. A Claude által működtetett, valós idejű adatok az aktív WorldMonitor feedekből."
+      "infoTooltip": "<strong>RaWorld Analyst</strong> AI-elemző élő kontextussal a geopolitikai, piaci, katonai és gazdasági területeken. A Claude által működtetett, valós idejű adatok az aktív RaWorld feedekből."
     },
     "cotPositioning": {
       "infoTooltip": "<strong>Futures pozicionálás</strong> Kereskedelmi kereskedők, nagy spekulánsok és kis kereskedők heti nettó pozíciói a nyersanyag- és pénzügyi futures piacokon. Forrás: a Commodity Futures Trading Commission Commitments of Traders jelentése, pénteken közzétéve."
@@ -2508,7 +2489,7 @@
       "infoTooltip": "<strong>Gazdasági naptár</strong> Ütemezett makrogazdasági kiadások: fogyasztói árindex, nem mezőgazdasági munkahelyek, bruttó hazai termék, felvásárlási menedzserek index és központi banki döntések. A prognózist az aktualokkal és az előzővel szemben mutatja. A magas hatású eseményeket kiemelik. Forrás: gazdasági adatszolgáltatók."
     },
     "fsi": {
-      "infoTooltip": "<strong>Pénzügyi stressz mutató</strong> WorldMonitor magas hozamú hitel-Treasury hosszú arány, tőzsdei volatilitásra és magas hozamú spread-re korrigálva: (HYG / TLT) / (VIX × magas hozamú spread / 100). Ez nem a Kansas City Fed pénzügyi stressz indexe. Az 1,5 vagy magasabb érték alacsony stresszt jelent; 0,3 alatt magas stresszt.",
+      "infoTooltip": "<strong>Pénzügyi stressz mutató</strong> RaWorld magas hozamú hitel-Treasury hosszú arány, tőzsdei volatilitásra és magas hozamú spread-re korrigálva: (HYG / TLT) / (VIX × magas hozamú spread / 100). Ez nem a Kansas City Fed pénzügyi stressz indexe. Az 1,5 vagy magasabb érték alacsony stresszt jelent; 0,3 alatt magas stresszt.",
       "title": "Financial Stress Indicator",
       "usFsiValue": "US pénzügyi stressz mutató érték",
       "cissTitle": "EU CISS (Euró Terület Szisztematikus Stressz)",
@@ -2566,8 +2547,7 @@
       "dependentCommodities": "Függő áruk",
       "stateOk": "Aktuális",
       "stateStale": "Elavult bemenet",
-      "stateInsufficient": "Elégtelen adat",
-      "proLocked": "Frissítsen PRO verzióra az árucikk-sebezhetőségi pontszám megtekintéséhez"
+      "stateInsufficient": "Elégtelen adat"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>Hormuzi kereskedelmi követő</strong> Élő hajókövetés a Hormuzi szoroson keresztül, a világ legfontosabb olaj szűk pontján. Tankerszámokat, zavaró eseményeket és heti flow-változásokat figyel. A globális olajkészlet körülbelül 20%-a naponta tranzitál itt.",
@@ -2592,7 +2572,7 @@
       "infoTooltip": "<strong>Makro mutatók</strong> Az Egyesült Államok, euróövezet és Kína árak, aktivitás, politika és valuta mutatók. Kína aktuális lefedettséget igényel. Minden csempe megjeleníti a forrást és megfigyelési dátumát."
     },
     "monitors": {
-      "infoTooltip": "<strong>Keyword Monitors</strong> Adjon hozzá bármilyen kifejezést az összes WorldMonitor forrásban való élő hírerwähnungen nyomon követéséhez. Az eredmények valós időben frissülnek, miközben a megfelelő cikkeket feldolgozzák."
+      "infoTooltip": "<strong>Keyword Monitors</strong> Adjon hozzá bármilyen kifejezést az összes RaWorld forrásban való élő hírerwähnungen nyomon követéséhez. Az eredmények valós időben frissülnek, miközben a megfelelő cikkeket feldolgozzák."
     },
     "renewable": {
       "infoTooltip": "<strong>Megújuló energia</strong> A megújuló forrásokból származó villamos energia részesedése régió és év szerint, valamint az Egyesült Államok telepített kapacitása a napelemes, szél és szén energiához (MW). Források: Világbank (EG.ELC.RNEW.ZS) és az Egyesült Államok Energiainformációs Adminisztrációja."
@@ -2612,108 +2592,11 @@
     "yieldCurve": {
       "infoTooltip": "<strong>Hozamgörbe és kamatláb</strong> US Treasury hozamgörbe (2Y, 5Y, 10Y, 30Y) és kulcs kamatlábak közötti spread-ek, beleértve a 10Y-2Y inverzió indikátort. Mutatja az euróövezet kamatait is (EURIBOR, ESTR). Az inverzált görbe történelmileg megelőzi a recessziókat. Forrás: Federal Reserve Economic Data."
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro elindult",
-      "tagline": "Több jel, kevesebb zaj. Több AI Brief. Egy Geopolitikai & Részvény Kutató, csak neked.",
-      "cta": "Frissítés Pro-ra →",
-      "dismiss": "Eltüntetés"
-    },
-    "billingState": {
-      "onHoldDesc": "A fizetés sikertelen. Frissítse fizetési módját a prémium hozzáférés visszaállításához.",
-      "onHoldBannerMessage": "A fizetés sikertelen. Frissítse fizetési módját, hogy előfizetése aktív maradjon.",
-      "updatePayment": "Fizetés frissítése",
-      "renewalPendingDesc": "Ellenőrizzük előfizetése megújítását. A prémium hozzáférés a megerősítés után automatikusan helyreáll.",
-      "refreshStatus": "Állapot frissítése",
-      "renewalFailedDesc": "Nem sikerült ellenőrizni előfizetése megújítását. Kezelje a számlázást, vagy lépjen kapcsolatba az ügyfélszolgálattal, ha a probléma továbbra is fennáll.",
-      "manageBilling": "Számlázás kezelése",
-      "lapsedDesc": "Pro előfizetése lejárt. Fizessen elő újra a prémium hozzáférés visszaszerzéséhez.",
-      "resubscribe": "Újra előfizetek"
-    },
     "checkoutFailureBanner": {
       "message": "A fizetés nem fejeződött be. Nem történt költség.",
       "retry": "Próbáld újra",
       "retrying": "Újrapróbálás…",
       "dismiss": "Eltüntetés"
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "{{current}}. lépés / {{total}}",
-      "closeLabel": "Beállítás kihagyása",
-      "ariaLabel": "Pro aktiválás beállítása",
-      "signedInAs": "Bejelentkezve mint {{email}}",
-      "steps": {
-        "brief": {
-          "heading": "Napi összefoglalója minden reggel",
-          "body": "Válogatott hírszerzési összefoglaló a postafiókjában minden reggel — az éjszaka fontos jelei öt perces olvasmányba sűrítve.",
-          "confirmCta": "Reggeli összefoglaló bekapcsolása",
-          "confirming": "Bekapcsolás…",
-          "doneNote": "A reggeli összefoglalója már fut.",
-          "scheduleNote": "Megtartjuk a jelenlegi kézbesítési időpontját.",
-          "summaryLabel": "Reggeli összefoglaló",
-          "summaryVerified": "Bekapcsolva — a következő reggeli összefoglalóval indul.",
-          "deliverAt": "Kézbesítés ekkor",
-          "previewLoading": "Az első összefoglaló előnézetének előkészítése…",
-          "previewLabel": "A mai reggeli összefoglaló"
-        },
-        "alerts": {
-          "heading": "Kritikus riasztások",
-          "body": "Kapjon értesítést a böngészőjében, ha valami nagy dolog történik — konfliktusok eszkalációja, piaci sokkok, friss szankciók. A gyakoriságot bármikor módosíthatja a Beállításokban.",
-          "confirmCta": "Riasztások engedélyezése",
-          "confirming": "Engedélyezés…",
-          "doneNote": "A böngészőriasztások már be vannak kapcsolva.",
-          "blockedNote": "Az értesítések le vannak tiltva a böngészőjében. Kapcsolja be őket a böngésző webhelybeállításaiban, hogy riasztásokat kapjon.",
-          "declinedNote": "Semmi gond — nem küldünk böngészőriasztásokat. Később bármikor bekapcsolhatja őket a böngésző webhelybeállításaiban.",
-          "summaryLabel": "Kritikus riasztások",
-          "summaryVerified": "Bekapcsolva — a kritikus jelzések eljutnak a böngészőjéhez."
-        },
-        "power": {
-          "heading": "Az Ön Pro eszköztára",
-          "body": "Egyéni widgetek, MCP-kapcsolatok és az AI kutató fel vannak oldva. Építse fel azt az irányítópultot, amit valóban figyelni szeretne.",
-          "confirmCta": "Pro eszközök felfedezése",
-          "confirming": "Megnyitás…",
-          "doneNote": "Már használja Pro eszközeit.",
-          "summaryLabel": "Pro eszköztár",
-          "summaryVerified": "Feloldva és készen áll, amikor Ön is az.",
-          "channelsNote": "Inkább Telegramot, Slacket, Discordot vagy egy webhookot szeretne?",
-          "pointers": {
-            "search": "Keresés a teljes irányítópulton",
-            "widgets": "Egyéni widget létrehozása",
-            "analyst": "Kérdezze meg az AI elemzőt",
-            "mcpClients": "MCP beállítása",
-            "channels": "Állítsa be ezeket az értesítési beállításokban"
-          }
-        }
-      },
-      "status": {
-        "pending": "Nincs beállítva",
-        "inFlight": "Beállítás…",
-        "verified": "Kész",
-        "failed": "Nem sikerült",
-        "blocked": "Blokkolva",
-        "unavailable": "Nem elérhető",
-        "blockedNote": "Ez most nem elérhető — később beállíthatja a beállításokban.",
-        "unavailableNote": "Ez nem elérhető az Ön eszközén — később beállíthatja.",
-        "failedBody": "Valami elromlott. Próbálja újra, vagy állítsa be később a beállításokban.",
-        "retry": "Próbálja újra"
-      },
-      "actions": {
-        "skip": "Kihagyás egyelőre",
-        "continue": "Folytatás"
-      },
-      "summary": {
-        "heading": "Minden készen áll",
-        "subVerified": "Íme, mi fut a fiókján.",
-        "subPending": "A beállítást bármikor befejezheti a beállításokban.",
-        "linePending": "Még nincs beállítva — bármikor befejezheti a beállításokban.",
-        "lineFailed": "Ezt nem sikerült beállítanunk — próbálja újra a beállításokban.",
-        "finish": "Ugrás az irányítópultomra"
-      },
-      "chip": {
-        "message": "Fejezze be Pro fiókja beállítását.",
-        "action": "Beállítás befejezése",
-        "dismissLabel": "Elvetés"
-      }
     },
     "frameworkSelector": {
       "label": "Elemzési Keretrendszer",
@@ -2936,20 +2819,10 @@
       }
     },
     "exportGate": {
-      "signedOutDesc": "Jelentkezzen be az irányítópult adatainak CSV, JSON vagy PDF formátumban való exportálásához.",
-      "upgradeDesc": "Az adatexportálás (CSV, JSON, PDF) a Pro Business csomagban szerepel.",
-      "upgradeCta": "Váltás Pro Business csomagra",
       "lockedAriaLabel": "Adatok exportálása — zárolva. {{reason}}",
       "unlockedAnnouncement": "Az adatexportálás feloldva.",
       "preparingPdf": "PDF előkészítése…",
       "pdfFailed": "A PDF-jelentés nem hozható létre. Próbálja újra, vagy használja a JSON exportot."
-    },
-    "tabCap": {
-      "signedOutDesc": "A bejelentkezés nélküli munkaterületek {{cap}} irányítópult-fülre korlátozódnak. Többe való hozzáadáshoz jelentkezzen be.",
-      "upgradeDesc": "Elérte a(z) {{cap}} irányítópult-fül korlátját.",
-      "upgradeCta": "Frissítés többért",
-      "lockedAriaLabel": "Fül hozzáadása — zárolva. {{reason}}",
-      "unlockedAnnouncement": "Az irányítópult-fülek korlátja feloldva."
     },
     "fx": {
       "infoTooltip": "<strong>Árfolyamok</strong> A stressz 45 valutat rangsorol a 24 hónapon belüli legnagyobb csökkenés alapján, a 12 hónapos változással. A spot árfolyamok külön dollár és euró bázist használnak. A rubelárfolyamok rubel egy egységenként. A források között szerepel a Yahoo Finance, az Európai Központi Bank és az Orosz Központi Bank.",
@@ -2983,18 +2856,6 @@
       "rubPerUnit": "Rubel egységenként",
       "sourceCbr": "Forrás: Orosz jegybank"
     },
-    "passkeyOffer": {
-      "title": "Passkey mentése?",
-      "body": "Következő alkalommal ujjlenyomatoddal, arcod felismerésével vagy eszközöd PIN-kódjával jelentkezz be — nincs szükség jelszóra.",
-      "accept": "Passkey mentése",
-      "dismiss": "Később",
-      "close": "Bezárás",
-      "announce": "Mentsen egy passkey-t a gyorsabb bejelentkezéshez.",
-      "busy": "Az eszköz válaszára várakozás…",
-      "succeeded": "Passkey mentve. Használhatod a következő bejelentkezéskor.",
-      "retryable": "Ez nem fejeződött be. Megpróbálhatod újra.",
-      "failed": "Erre az eszközre nem sikerült passkey-t menteni."
-    },
     "decisionBrief": {
       "commodityTitle": "Árupiaci döntési összefoglaló",
       "commodity": "Árucikk / termék",
@@ -3013,8 +2874,7 @@
       "changed": "A kiválasztás módosult. Exportálás előtt töltse be mindkét forgatókönyvet.",
       "loading": "Mindkét forgatókönyv betöltése…",
       "captured": "Betöltve. Letöltés előtt ellenőrizze a megfigyelési dátumokat és a korlátokat.",
-      "failed": "Nem sikerült betölteni a forgatókönyveket. Ellenőrizze hozzáférését, és próbálja újra. Nincs exportálható eredmény.",
-      "locked": "A döntési összefoglaló Pro csomaggal érhető el."
+      "failed": "Nem sikerült betölteni a forgatókönyveket. Ellenőrizze hozzáférését, és próbálja újra. Nincs exportálható eredmény."
     },
     "liveMedia": {
       "idleStatus": "Szüneteltetve az inaktivitás miatt",
@@ -3738,31 +3598,9 @@
     "panelFontScale": "Szövegméret",
     "followGlobalFontScale": "Globális beállítás használata"
   },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "World Monitor licenckulcs szükséges",
-    "signInToUnlock": "Jelentkezzen be a prémium funkciók feloldásához",
-    "signIn": "Jelentkezzen be a feloldáshoz",
-    "upgradeDesc": "Frissítsen Pro verzióra a teljes hozzáféréshez a prémium elemzésekhez",
-    "upgradeToPro": "Frissítés Pro verzióra",
-    "features": {
-      "orefSirens1": "Valós idejű izraeli rakéta- és légicsapás-riasztások",
-      "orefSirens2": "Szirénazóna térképezése veszélyforrás besorolással",
-      "telegramIntel1": "Kurátorált Telegram nyílt forráskódú hírszerzési csatornák",
-      "telegramIntel2": "Közeli valós idejű konfliktus- és geopolitikai frissítések",
-      "xIntel1": "Curated public news accounts on X",
-      "xIntel2": "API-fresh posts with official permalinks"
-    }
-  },
   "contextMenu": {
     "openCountryBrief": "Országbeszámoló megnyitása",
     "copyCoordinates": "Koordináták másolása"
-  },
-  "auth": {
-    "signIn": "Bejelentkezés",
-    "createAccount": "Fiók létrehozása",
-    "settings": "Beállítások",
-    "passkeyOffer": {}
   },
   "mcp": {
     "connectPanel": "MCP csatlakoztatása",
@@ -3851,8 +3689,6 @@
     "resilience": "Ellenálló képesség",
     "ciiMissing": "A CII nem érhető el",
     "resilienceMissing": "Az ellenálló képesség nem érhető el",
-    "noEvents": "Erre a napra nem rögzítettek kiválasztott hírcímeket. Ez nem bizonyítja az események hiányát.",
-    "unlock90": "90 nap feloldása Pro csomaggal",
-    "unlock365": "365 nap feloldása API-csomaggal"
+    "noEvents": "Erre a napra nem rögzítettek kiválasztott hírcímeket. Ez nem bizonyítja az események hiányát."
   }
 }

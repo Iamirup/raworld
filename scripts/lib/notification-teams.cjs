@@ -70,7 +70,7 @@ function linkAction(rawLink, articleTitle = 'Open original report') {
   const classified = classifyNotificationLink(rawLink);
   if (classified.kind === 'absent') return null;
   if (classified.kind === 'dashboard') {
-    return { type: 'Action.OpenUrl', title: 'Open WorldMonitor', url: NOTIFY_DASHBOARD_URL };
+    return { type: 'Action.OpenUrl', title: 'Open RaWorld', url: NOTIFY_DASHBOARD_URL };
   }
   const title = isFirstPartyNotificationHost(classified.host)
     ? articleTitle
@@ -109,7 +109,7 @@ function buildTeamsAlertPayload(alert) {
   const body = [
     {
       type: 'TextBlock',
-      text: 'WorldMonitor alert',
+      text: 'RaWorld alert',
       size: 'Small',
       weight: 'Bolder',
       color,
@@ -210,7 +210,7 @@ function buildTeamsDigestPayload(digest) {
   const stories = Array.isArray(digest.stories) ? digest.stories.filter(s => s && s.title) : [];
   const actions = [];
   if (digest.briefUrl) {
-    const action = linkAction(digest.briefUrl, 'Open your WorldMonitor Brief');
+    const action = linkAction(digest.briefUrl, 'Open your RaWorld Brief');
     if (action) actions.push(action);
   }
   actions.push({ type: 'Action.OpenUrl', title: 'Open dashboard', url: NOTIFY_DASHBOARD_URL });

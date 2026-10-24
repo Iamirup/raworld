@@ -1,9 +1,9 @@
 ---
 title: "MCP Quickstart"
-description: "Connect Claude, ChatGPT, Codex or Cursor to World Monitor in about a minute: paste one address, sign in with your World Monitor account, and ask a question. No API key needed."
+description: "Connect Claude, ChatGPT, Codex or Cursor to RaWorld in about a minute: paste one address, sign in with your RaWorld account, and ask a question. No API key needed."
 ---
 
-World Monitor plugs into your AI assistant as a connector. You paste one address, sign in with your World Monitor account, and the assistant can answer from live data covering {/* mcp-domains:start */}markets, commodities and macro; energy; conflicts, country risk, sanctions, cyber threats and chokepoints; maritime, aviation and supply chains; climate and natural disasters; health signals; displacement and humanitarian crises; AI briefs, forecasts and intel history; tariffs and trade policy{/* mcp-domains:end */}.
+RaWorld plugs into your AI assistant as a connector. You paste one address, sign in with your RaWorld account, and the assistant can answer from live data covering {/* mcp-domains:start */}markets, commodities and macro; energy; conflicts, country risk, sanctions, cyber threats and chokepoints; maritime, aviation and supply chains; climate and natural disasters; health signals; displacement and humanitarian crises; AI briefs, forecasts and intel history; tariffs and trade policy{/* mcp-domains:end */}.
 
 <Info>
 **The address to paste:** `https://worldmonitor.app/mcp`
@@ -24,39 +24,39 @@ Works in the Claude desktop app, on claude.ai and in the mobile apps. You add th
     </Frame>
   </Step>
   <Step title="Paste the address">
-    Name it `World Monitor` and paste `https://worldmonitor.app/mcp`. Click **Continue**. Claude detects the right sign-in settings on the next screen, so just click **Add**.
+    Name it `RaWorld` and paste `https://worldmonitor.app/mcp`. Click **Continue**. Claude detects the right sign-in settings on the next screen, so just click **Add**.
 
     <Frame>
-      <img width="520" src="/images/mcp/claude-add-dialog.webp" alt="Add custom connector dialog with the name World Monitor and the URL https://worldmonitor.app/mcp filled in" />
+      <img width="520" src="/images/mcp/claude-add-dialog.webp" alt="Add custom connector dialog with the name RaWorld and the URL https://worldmonitor.app/mcp filled in" />
     </Frame>
   </Step>
-  <Step title="Sign in with World Monitor">
-    A World Monitor window opens. Click **Sign in with WorldMonitor Pro**, sign in with your email code or passkey, then click **Authorize**.
+  <Step title="Sign in with RaWorld">
+    A RaWorld window opens. Click **Sign in with RaWorld Pro**, sign in with your email code or passkey, then click **Authorize**.
 
     <Columns cols={2}>
       <Frame>
-        <img src="/images/mcp/consent.webp" alt="World Monitor window: Claude wants access, with a Sign in with WorldMonitor Pro button" />
+        <img src="/images/mcp/consent.webp" alt="RaWorld window: Claude wants access, with a Sign in with RaWorld Pro button" />
       </Frame>
       <Frame>
-        <img src="/images/mcp/authorize.webp" alt="World Monitor window after sign-in, showing the signed-in account and an Authorize button" />
+        <img src="/images/mcp/authorize.webp" alt="RaWorld window after sign-in, showing the signed-in account and an Authorize button" />
       </Frame>
     </Columns>
   </Step>
   <Step title="Turn it on in a chat">
-    In a new chat, click **+**, open **Connectors**, and check that World Monitor is switched on.
+    In a new chat, click **+**, open **Connectors**, and check that RaWorld is switched on.
 
     <Frame>
-      <img width="474" src="/images/mcp/claude-enable-in-chat.webp" alt="Claude chat + menu with Connectors open and the World Monitor toggle switched on" />
+      <img width="474" src="/images/mcp/claude-enable-in-chat.webp" alt="Claude chat + menu with Connectors open and the RaWorld toggle switched on" />
     </Frame>
   </Step>
   <Step title="Ask a question">
-    Ask in plain language. The first time Claude uses each World Monitor tool it asks permission. Choose **Always allow** so it stops asking.
+    Ask in plain language. The first time Claude uses each RaWorld tool it asks permission. Choose **Always allow** so it stops asking.
 
     <Frame>
-      <img src="/images/mcp/claude-approve-tool.webp" alt="Claude asking permission to use get_market_data from World Monitor, with Deny, Always allow and Allow once buttons" />
+      <img src="/images/mcp/claude-approve-tool.webp" alt="Claude asking permission to use get_market_data from RaWorld, with Deny, Always allow and Allow once buttons" />
     </Frame>
     <Frame>
-      <img src="/images/mcp/claude-answer.webp" alt="Claude's answer summarising oil, gold, US and Asian index moves from World Monitor data" />
+      <img src="/images/mcp/claude-answer.webp" alt="Claude's answer summarising oil, gold, US and Asian index moves from RaWorld data" />
     </Frame>
   </Step>
 </Steps>
@@ -69,10 +69,10 @@ On Claude Team and Enterprise, an owner first adds the connector under **Organiz
 
 <Steps>
   <Step title="Add the server">
-    Open **Plugins**, click **+**, and choose **Add custom MCP server**. Name it `World Monitor`, paste `https://worldmonitor.app/mcp`, choose **OAuth** for authentication, and confirm.
+    Open **Plugins**, click **+**, and choose **Add custom MCP server**. Name it `RaWorld`, paste `https://worldmonitor.app/mcp`, choose **OAuth** for authentication, and confirm.
   </Step>
   <Step title="Sign in and ask">
-    Sign in with your World Monitor account in the window that opens, then pick World Monitor from the **+** menu in a chat.
+    Sign in with your RaWorld account in the window that opens, then pick RaWorld from the **+** menu in a chat.
   </Step>
 </Steps>
 
@@ -99,7 +99,7 @@ Then type `/mcp` in Claude Code, pick `worldmonitor`, and choose **Authenticate*
 
 ## Cursor
 
-[Add World Monitor to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=worldmonitor&config=eyJ1cmwiOiJodHRwczovL3dvcmxkbW9uaXRvci5hcHAvbWNwIn0=) with one click, or put this in `~/.cursor/mcp.json`:
+[Add RaWorld to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=worldmonitor&config=eyJ1cmwiOiJodHRwczovL3dvcmxkbW9uaXRvci5hcHAvbWNwIn0=) with one click, or put this in `~/.cursor/mcp.json`:
 
 ```json
 {
@@ -117,13 +117,13 @@ Perplexity, Mistral Le Chat, Grok, Microsoft 365 Copilot, VS Code, Gemini CLI an
 
 ## Questions to try
 
-- _Draft a duty-of-care brief for our staff in Riyadh using today's World Monitor data._
+- _Draft a duty-of-care brief for our staff in Riyadh using today's RaWorld data._
 - _Compare the US, UK and Australian travel advisories for the Gulf states. Which changed most recently?_
 - _Is anything disrupting flights or shipping through the Strait of Hormuz right now?_
 - _Give me a country brief on Venezuela with the main risks for the next two weeks._
 - _How are oil, gold and the main equity indices moving today, and why?_
 
-The assistant picks the right World Monitor tools on its own. Answers carry timestamps, so you can see how fresh the data is.
+The assistant picks the right RaWorld tools on its own. Answers carry timestamps, so you can see how fresh the data is.
 
 ## What your plan includes
 
@@ -135,16 +135,16 @@ The assistant picks the right World Monitor tools on its own. Answers carry time
 | API Starter, API Business | Every tool, shared with your REST budget | 1,000 or 10,000 units (most calls cost 1–2) |
 | Enterprise | Every tool | 25,000 calls |
 
-A call is one request from the assistant to World Monitor. Allowances reset at 00:00 UTC. Upgrade at [worldmonitor.app/pro](https://www.worldmonitor.app/pro). Full limits are in [plans and limits](/mcp-overview#plans-&-limits).
+A call is one request from the assistant to RaWorld. Allowances reset at 00:00 UTC. Upgrade at [worldmonitor.app/pro](https://www.worldmonitor.app/pro). Full limits are in [plans and limits](/mcp-overview#plans-&-limits).
 
 ## If something goes wrong
 
 - **The sign-in window never opened.** Remove the connector and add it again, then click **Connect**. Pop-up blockers can stop the window.
-- **Claude says "Connection has expired".** The sign-in lapses after 30 days without use. Open **Customize → Connectors → World Monitor** and click **Reconnect**.
-- **The World Monitor window says sign-in was cancelled after a passkey prompt.** The passkey step was cancelled, timed out, or was closed by a password manager. Click **Sign in** to try again, or use the email code.
+- **Claude says "Connection has expired".** The sign-in lapses after 30 days without use. Open **Customize → Connectors → RaWorld** and click **Reconnect**.
+- **The RaWorld window says sign-in was cancelled after a passkey prompt.** The passkey step was cancelled, timed out, or was closed by a password manager. Click **Sign in** to try again, or use the email code.
 - **The code email didn't arrive.** Check spam or quarantine. Corporate filters sometimes hold it.
 - **The assistant says it needs a subscription.** Your account is on the free plan. Upgrade, then ask again; there's no need to reconnect. The new plan usually applies within a minute, and at most 15 minutes later.
-- **The assistant doesn't use World Monitor.** Make sure the connector is switched on for that chat, and mention World Monitor in your question.
+- **The assistant doesn't use RaWorld.** Make sure the connector is switched on for that chat, and mention RaWorld in your question.
 
 ## For developers: scripts and API keys
 

@@ -76,7 +76,7 @@ function makeEvent(link = EVIL) {
   return {
     eventType: 'rss_alert',
     severity: 'critical',
-    payload: { title: `Verify your account #${eventSeq}`, source: 'WorldMonitor Security', link },
+    payload: { title: `Verify your account #${eventSeq}`, source: 'RaWorld Security', link },
   };
 }
 

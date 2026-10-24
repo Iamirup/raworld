@@ -706,12 +706,12 @@ http.route({
       if (botToken) {
         await telegramBotCall(botToken, "answerCallbackQuery", {
           callback_query_id: callback.id,
-          text: claimed.ok ? "Connected" : "This link has expired. Start again from WorldMonitor settings.",
+          text: claimed.ok ? "Connected" : "This link has expired. Start again from RaWorld settings.",
         });
         if (claimed.ok) {
           await telegramBotCall(botToken, "sendMessage", {
             chat_id: chatId,
-            text: "✅ WorldMonitor connected! You'll receive breaking news alerts here.",
+            text: "✅ RaWorld connected! You'll receive breaking news alerts here.",
           });
         }
       }
@@ -750,12 +750,12 @@ http.route({
       } catch {
         accountEmail = undefined;
       }
-      const account = accountEmail ? `the WorldMonitor account ${maskEmail(accountEmail)}` : "a WorldMonitor account";
+      const account = accountEmail ? `the RaWorld account ${maskEmail(accountEmail)}` : "a RaWorld account";
       await telegramBotCall(botToken, "sendMessage", {
         chat_id: chatId,
         text:
           `Connect this chat to ${account}?\n\n` +
-          "Only confirm if you started this from your own WorldMonitor settings. " +
+          "Only confirm if you started this from your own RaWorld settings. " +
           "If someone sent you this link, ignore this message.",
         reply_markup: {
           inline_keyboard: [[{ text: "Confirm", callback_data: `wmpair:${match[1]}` }]],
@@ -821,16 +821,16 @@ http.route({
 // ---------------------------------------------------------------------------
 
 const UNSUBSCRIBE_LIST_COPY = {
-  brief: { name: "the World Monitor daily brief", done: "You will no longer get the daily brief by email." },
-  alerts: { name: "World Monitor alert emails", done: "You will no longer get real-time alerts by email." },
-  marketing: { name: "World Monitor product emails", done: "You will no longer get product and win-back emails. Account and billing notices still arrive." },
+  brief: { name: "the RaWorld daily brief", done: "You will no longer get the daily brief by email." },
+  alerts: { name: "RaWorld alert emails", done: "You will no longer get real-time alerts by email." },
+  marketing: { name: "RaWorld product emails", done: "You will no longer get product and win-back emails. Account and billing notices still arrive." },
 } as const;
 
 function unsubscribePage(status: number, title: string, bodyHtml: string): Response {
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${title}</title></head>
 <body style="margin:0;background:#0a0a0a;color:#e0e0e0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
 <div style="max-width:520px;margin:64px auto;padding:32px;background:#111;border:1px solid #1f1f1f;">
-<p style="font-size:13px;font-weight:800;letter-spacing:1px;color:#4ade80;margin:0 0 16px;">WORLD MONITOR</p>
+<p style="font-size:13px;font-weight:800;letter-spacing:1px;color:#4ade80;margin:0 0 16px;">RAWORLD</p>
 <h1 style="font-size:20px;color:#fff;margin:0 0 12px;">${title}</h1>
 ${bodyHtml}
 <p style="font-size:12px;color:#777;line-height:1.5;margin:24px 0 0;">Manage daily brief and alert emails in <a href="https://www.worldmonitor.app/dashboard?settings=notifications" style="color:#4ade80;">Notification settings</a>. For product emails, <a href="mailto:support@worldmonitor.app?subject=Unsubscribe%20from%20product%20emails" style="color:#4ade80;">email support to unsubscribe</a>.</p>

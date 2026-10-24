@@ -20,7 +20,7 @@ import { ReconcileAuthorizationError } from '../scripts/trigger-railway-deploys.
 
 const HEAD = 'a'.repeat(40);
 const ENV = {
-  GITHUB_REPOSITORY: 'koala73/worldmonitor',
+  GITHUB_REPOSITORY: 'Iamirup/raworld',
   GITHUB_RUN_ID: '31181545167',
   GITHUB_RUN_ATTEMPT: '1',
 };

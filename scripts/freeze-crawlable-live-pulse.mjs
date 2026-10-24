@@ -486,7 +486,7 @@ function briefRecord(payload, digestUrls) {
   };
 }
 
-// World Monitor data points an evidence-grounded brief cites. Claims were
+// RaWorld data points an evidence-grounded brief cites. Claims were
 // validated against factText server-side; the corpus re-checks against the
 // same text, so it is frozen verbatim. A non-https link is dropped, not the
 // item: the value stands without it.
@@ -1381,7 +1381,7 @@ export async function freezeCrawlableLivePulse({
       briefCountryCount: Object.values(countries)
         .filter((row) => row.developments?.brief != null).length,
       // Evidence-grounded briefs (the server returned an evidence array), the
-      // ones among them citing at least one World Monitor data point, and the
+      // ones among them citing at least one RaWorld data point, and the
       // ones a page shows beyond Situation (which "Recent developments" covers).
       briefEvidenceFormatCount: evidenceFormatBriefs(countries).length,
       briefEvidenceCitedCount: evidenceFormatBriefs(countries)
@@ -1517,7 +1517,7 @@ export async function freezeCrawlableLivePulse({
       formatCount: snapshot.coverage.briefEvidenceFormatCount,
       citedCount: snapshot.coverage.briefEvidenceCitedCount,
     });
-    const evidenceMessage = `${snapshot.coverage.briefEvidenceFormatCount} evidence-grounded briefs cited no World Monitor data point`;
+    const evidenceMessage = `${snapshot.coverage.briefEvidenceFormatCount} evidence-grounded briefs cited no RaWorld data point`;
     if (evidenceVerdict === 'fail') {
       throw new Error(`Pulse freeze: ${evidenceMessage}; the evidence pack is unavailable`);
     }

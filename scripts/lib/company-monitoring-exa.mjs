@@ -4,8 +4,8 @@ import { createHash } from 'node:crypto';
 
 const encoder = new TextEncoder();
 const EXA_ENDPOINT = 'https://api.exa.ai/search';
-const QUERY_HEADER = 'WorldMonitor discovery v1 | recent factual company news | candidate-only attribution';
-const CONFIRMATION_HEADER = 'WorldMonitor confirmation v1 | exact-company source check';
+const QUERY_HEADER = 'RaWorld discovery v1 | recent factual company news | candidate-only attribution';
+const CONFIRMATION_HEADER = 'RaWorld confirmation v1 | exact-company source check';
 const DOMAIN = /^(?=.{1,253}$)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z](?:[a-z0-9-]{0,61}[a-z0-9])?$/;
 const SAFE_TEXT_TOKEN = /[\p{L}\p{M}\p{N}]+(?:[&'-][\p{L}\p{M}\p{N}]+)*/gu;
 const DISCOVERY_CLAIM_TYPES = new Set(['alias', 'domain', 'legal_identifier', 'location']);

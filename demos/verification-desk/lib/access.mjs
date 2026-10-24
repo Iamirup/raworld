@@ -46,7 +46,7 @@ export const LOGIN_PAGE = (failed) => `<!doctype html>
   p{color:#ff7a6b;margin:0;font-size:14px}
 </style></head>
 <body><form method="post" action="/login">
-  <h1>WorldMonitor · Verification Desk</h1>
+  <h1>RaWorld · Verification Desk</h1>
   <input type="password" name="password" placeholder="Password" autofocus autocomplete="current-password" required>
   <button type="submit">Open the desk</button>
   ${failed ? '<p>Wrong password.</p>' : ''}

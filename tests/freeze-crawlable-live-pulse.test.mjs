@@ -1997,7 +1997,7 @@ describe('freeze per-country developments capture', () => {
       const thin = await runFreeze({ serviceKey: 'test-key' });
       assert.equal(thin.snapshot.coverage.briefEvidenceCitedCount, 0);
       assert.ok(thin.snapshot.errors.developments.some((entry) => (
-        entry.stage === 'brief-evidence' && entry.message.includes('cited no World Monitor data point')
+        entry.stage === 'brief-evidence' && entry.message.includes('cited no RaWorld data point')
       )), JSON.stringify(thin.snapshot.errors.developments));
     });
 

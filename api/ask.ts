@@ -1,5 +1,5 @@
 // NLWeb /ask endpoint (Microsoft NLWeb protocol, github.com/microsoft/NLWeb)
-// — natural-language queries over WorldMonitor's public agent surface.
+// — natural-language queries over RaWorld's public agent surface.
 //
 // Answers are the same honest, anonymous, quota-free material the A2A
 // concierge serves: the live MCP tool catalog (what tools/list publishes
@@ -82,7 +82,7 @@ export function buildResults(query: string): NlwebResult[] {
       documentation: TOOLS_DOC_URL,
       // The actionable endpoint: call the tool via MCP tools/call.
       url: MCP_ENDPOINT,
-      provider: { '@type': 'Organization', name: 'World Monitor', url: 'https://www.worldmonitor.app' },
+      provider: { '@type': 'Organization', name: 'RaWorld', url: 'https://www.worldmonitor.app' },
     },
   }));
   if (results.length === 0) {
@@ -90,15 +90,15 @@ export function buildResults(query: string): NlwebResult[] {
     // fabricating a match.
     results.push({
       url: 'https://worldmonitor.app/llms.txt',
-      name: 'World Monitor agent guidance (llms.txt)',
+      name: 'RaWorld agent guidance (llms.txt)',
       site: SITE,
       score: 0,
       description:
-        'No specific tool matched that query. World Monitor covers conflicts, sanctions, country risk, markets, commodities, energy, maritime/aviation activity, chokepoints, cyber threats, natural disasters, forecasts and prediction markets — start from the agent guidance, or issue tools/list on the MCP server for the full catalog.',
+        'No specific tool matched that query. RaWorld covers conflicts, sanctions, country risk, markets, commodities, energy, maritime/aviation activity, chokepoints, cyber threats, natural disasters, forecasts and prediction markets — start from the agent guidance, or issue tools/list on the MCP server for the full catalog.',
       schema_object: {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        name: 'World Monitor',
+        name: 'RaWorld',
         url: 'https://www.worldmonitor.app',
       },
     });

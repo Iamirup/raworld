@@ -32,7 +32,6 @@ import { STRATEGIC_WATERWAYS } from '@/config/geo';
 import { hasPremiumAccess, readClientEntitlementBelief, readPremiumAccessGrant } from '@/services/panel-gating';
 import { getAuthState, subscribeAuthState } from '@/services/auth-state';
 import { onEntitlementChange } from '@/services/entitlements';
-import { trackGateHit } from '@/services/analytics';
 import { fetchBypassOptions, fetchChokepointStatus } from '@/services/supply-chain';
 import { haversineDistanceKm } from '@/services/related-assets';
 import { enqueueSentryCall } from '@/bootstrap/sentry-defer';
@@ -95,7 +94,6 @@ import type { ComputeEnergyShockScenarioResponse, ProductImpact } from '@/genera
 import { setTrustedHtml, trustedHtml } from '@/utils/dom-utils';
 import { overlayHistory, type OverlayCloseOrigin } from '@/utils/overlay-history';
 import type { GetDefenseIndustrialBaseResponse } from '@/generated/client/worldmonitor/military/v1/service_client';
-
 
 type ThreatLevel = 'critical' | 'high' | 'medium' | 'low' | 'info';
 type TrendDirection = 'up' | 'down' | 'flat';
@@ -312,7 +310,7 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
     }
     const { card } = section;
     const body = id === 'energy' && this.hostedAtlasBody ? this.energyBody! : section.body;
-    const notice = state === 'locked' ? this.makeProLocked(reason) : this.makeEmpty(reason);
+    const notice = state === 'locked' ? this.makeEmpty(reason) : this.makeEmpty(reason);
     notice.dataset.briefState = state;
     if (id === 'signals' && state === 'unavailable' && this.signalBreakdownBody && this.signalRecentBody) {
       this.currentSignalDetails = 'unavailable';
@@ -652,7 +650,6 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
     if (deduped.length > 3) this.newsBody.append(more);
   }
 
-
   public updateMilitaryActivity(summary: CountryDeepDiveMilitarySummary | null): void {
     this.currentMilitarySummary = summary;
     const card = this.militaryBody?.closest('section');
@@ -706,7 +703,7 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
       const section = this.sections.find(section => section.id === id);
       if (section) section.body.replaceChildren(hasAccess
         ? this.makeLoading(`Loading ${section.title.toLowerCase()}…`)
-        : this.makeProLocked(`Upgrade to PRO for ${section.title.toLowerCase()}`));
+        : this.makeEmpty(`${section.title} is unavailable`));
     }
     if (hasAccess && this.currentCode) {
       if (this.foodStocksBody) void this.renderFoodStocks(this.currentCode, this.foodStocksBody);
@@ -722,7 +719,7 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
     if (!this.commodityVulnerabilityBody) return;
     this.commodityVulnerabilityBody.replaceChildren(hasAccess
       ? this.makeLoading(t('components.supplyVulnerability.loading'))
-      : this.makeProLocked(t('components.supplyVulnerability.proLocked')));
+      : this.makeEmpty(t('common.failedToLoad')));
   }
 
   private renderMilitaryActivity(): void {
@@ -774,12 +771,12 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
       return;
     }
     if (state === 'locked') {
-      body.append(this.makeProLocked(t('countryBrief.defenseIndustrialBase.proLocked')));
+      body.append(this.makeEmpty(t('common.failedToLoad')));
       return;
     }
     const failure = this.defenseIndustrialFailure;
     if (failure?.state === 'locked') {
-      const notice = this.makeProLocked(failure.reason);
+      const notice = this.makeEmpty(failure.reason);
       notice.dataset.briefState = 'locked';
       body.append(notice);
       return;
@@ -789,7 +786,7 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
     // whose free-tier flight/base data stays free — without this the section
     // would simply vanish for a free viewer instead of naming the paywall.
     if (!this.canRequestPremium()) {
-      body.append(this.makeProLocked(t('countryBrief.defenseIndustrialBase.proLocked')));
+      body.append(this.makeEmpty(t('common.failedToLoad')));
       return;
     }
     if (!this.currentDefenseIndustrial?.available) {
@@ -1315,15 +1312,6 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
     } catch {
       if (current()) this.setCostShockCalculationStatus('unavailable');
     }
-  }
-
-  private makeProLocked(text: string): HTMLElement {
-    const wrap = this.el('div', 'cdp-pro-locked');
-    wrap.append(
-      this.el('span', 'cdp-pro-lock-icon', '\uD83D\uDD12'),
-      this.el('span', 'cdp-pro-lock-text', text),
-    );
-    return wrap;
   }
 
   private proMetricBox(label: string, value: string): HTMLElement {
@@ -2569,12 +2557,7 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
     bypassSection.append(bypassHeading);
     const bypassContent = this.el('div');
 
-    const isPro = this.canRequestPremium();
-    if (!isPro) {
-      const gateEl = this.makeProLocked('Bypass corridors available with PRO');
-      gateEl.addEventListener('click', () => trackGateHit('sector-bypass-corridors'), { once: true });
-      bypassContent.append(gateEl);
-    } else {
+    {
       bypassContent.append(this.makeLoading('Loading bypass options\u2026'));
       this.sectorBypassAbort = new AbortController();
       const signal = this.sectorBypassAbort.signal;
@@ -3180,7 +3163,7 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
     const flag = this.el('span', 'cdp-flag', CountryDeepDivePanel.toFlagEmoji(code));
     const titleWrap = this.el('div', 'cdp-title-wrap');
     const name = this.el('h2', 'cdp-country-name', country);
-    const subtitle = this.el('div', 'cdp-country-subtitle', `WORLD MONITOR · COUNTRY BRIEF · ${code.toUpperCase()}`);
+    const subtitle = this.el('div', 'cdp-country-subtitle', `RAWORLD · COUNTRY BRIEF · ${code.toUpperCase()}`);
     titleWrap.append(subtitle, name);
 
     // `resetPanelContent` (called at the top of renderSkeleton) already
@@ -3190,7 +3173,7 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
     followHost.dataset.country = code;
     const notifyHost = this.el('span', 'cdp-notify-link-host');
     if (this.source?.mode === 'host') {
-      const link = this.el('a', 'cdp-action-btn', 'Follow / notifications on WorldMonitor') as HTMLAnchorElement;
+      const link = this.el('a', 'cdp-action-btn', 'Follow / notifications on RaWorld') as HTMLAnchorElement;
       link.href = `https://www.worldmonitor.app/dashboard?c=${encodeURIComponent(code)}`;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
@@ -3259,14 +3242,9 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
     });
     const evidenceButton = this.el('button', 'cdp-action-btn cdp-evidence-export-btn', 'Evidence') as HTMLButtonElement;
     evidenceButton.setAttribute('type', 'button');
-    evidenceButton.setAttribute('title', 'Export evidence bundle as Markdown (PRO)');
+    evidenceButton.setAttribute('title', 'Export evidence bundle as Markdown');
     evidenceButton.addEventListener('click', async () => {
       if (evidenceButton.disabled) return;
-      if (!this.canRequestPremium()) {
-        trackGateHit('evidence-export');
-        showToast('Evidence export is available on Pro.');
-        return;
-      }
       const signal = this.signal;
       const code = this.currentCode;
       evidenceButton.disabled = true;
@@ -3280,17 +3258,11 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
     const decisionButton = this.el('button', 'cdp-action-btn', t('components.decisionBrief.title')) as HTMLButtonElement;
     decisionButton.type = 'button';
     decisionButton.addEventListener('click', () => {
-      if (!this.canRequestPremium()) {
-        trackGateHit('decision-brief');
-        showToast(t('components.decisionBrief.locked'));
-        return;
-      }
       void this.openDecisionBrief(decisionButton);
     });
     const commodityButton = this.el('button', 'cdp-action-btn', t('components.decisionBrief.commodityTitle')) as HTMLButtonElement;
     commodityButton.type = 'button';
     commodityButton.addEventListener('click', () => {
-      if (!this.canRequestPremium()) { trackGateHit('decision-brief'); showToast(t('components.decisionBrief.locked')); return; }
       void this.openDecisionBrief(commodityButton, true);
     });
     right.append(shareBtn, maxBtn, storyButton, exportButton, decisionButton, commodityButton, evidenceButton);
@@ -3359,17 +3331,8 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
       t('countryBrief.foodStocksHelp'),
     );
     this.foodStocksBody = foodStocksBody;
-    // Pro-gated like every other premium card in this panel. Firing the two
-    // premium RPCs for a free user cost two guaranteed 401s per deep-dive open
-    // and painted a dead "unavailable" card where the sibling cards show the
-    // upgrade prompt.
-    const isPro = this.canRequestPremium();
-    if (isPro) {
-      foodStocksBody.append(this.makeLoading(t('countryBrief.loadingFoodStocks')));
-      void this.renderFoodStocks(code, foodStocksBody);
-    } else {
-      foodStocksBody.append(this.makeProLocked(t('countryBrief.foodStocksProLocked')));
-    }
+    foodStocksBody.append(this.makeLoading(t('countryBrief.loadingFoodStocks')));
+    void this.renderFoodStocks(code, foodStocksBody);
 
     const [demographicsCard, demographicsBody] = this.sectionCard(
       'demographics',
@@ -3377,12 +3340,8 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
       t('countryBrief.demographicsCapability.help'),
     );
     this.demographicsBody = demographicsBody;
-    if (isPro) {
-      demographicsBody.append(this.makeLoading(t('countryBrief.demographicsCapability.loading')));
-      void this.renderDemographicsCapability(code, demographicsBody);
-    } else {
-      demographicsBody.append(this.makeProLocked(t('countryBrief.demographicsCapability.proLocked')));
-    }
+    demographicsBody.append(this.makeLoading(t('countryBrief.demographicsCapability.loading')));
+    void this.renderDemographicsCapability(code, demographicsBody);
 
     const [fiveFactorScorecardCard, fiveFactorScorecardBody] = this.sectionCard(
       'factors',
@@ -3406,12 +3365,12 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
     );
     this.costShockCalcBody = costShockCalcBody;
     costShockCalcBody.append(
-      isPro ? this.makeLoading('Loading cost shock calculator\u2026') : this.makeProLocked('Upgrade to PRO for multi-sector cost shock modelling'),
+      this.makeLoading('Loading cost shock calculator\u2026'),
     );
 
     const [productImportsCard, productImportsCardBody] = this.sectionCard('products', 'Product Imports', 'Top imported products by HS4 code with supplier breakdown and concentration risk.');
     this.productImportsBody = productImportsCardBody;
-    productImportsCardBody.append(isPro ? this.makeLoading('Loading product data\u2026') : this.makeProLocked('Upgrade to PRO for product import data'));
+    productImportsCardBody.append(this.makeLoading('Loading product data\u2026'));
 
     const [commodityVulnerabilityCard, commodityVulnerabilityCardBody] = this.sectionCard(
       'commodities',
@@ -3419,26 +3378,23 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
       t('components.supplyVulnerability.help'),
     );
     this.commodityVulnerabilityBody = commodityVulnerabilityCardBody;
-    commodityVulnerabilityCardBody.append(isPro
-      ? this.makeLoading(t('components.supplyVulnerability.loading'))
-      : this.makeProLocked(t('components.supplyVulnerability.proLocked')));
+    commodityVulnerabilityCardBody.append(this.makeLoading(t('components.supplyVulnerability.loading')));
 
     const [debtCard, debtBody] = this.sectionCard('debt', 'National Debt', 'Government debt-to-GDP ratio, total debt, and year-over-year change in the ratio.');
     this.debtBody = debtBody;
-    debtBody.append(isPro ? this.makeLoading('Loading debt data\u2026') : this.makeProLocked('Upgrade to PRO for national debt data'));
+    debtBody.append(this.makeLoading('Loading debt data\u2026'));
 
     const [sanctionsCard, sanctionsBody] = this.sectionCard('sanctions', 'Sanctions Pressure', 'Sanctioned entities, vessels, and aircraft linked to this country.');
     this.sanctionsBody = sanctionsBody;
-    sanctionsBody.append(isPro ? this.makeLoading('Loading sanctions data\u2026') : this.makeProLocked('Upgrade to PRO for sanctions data'));
+    sanctionsBody.append(this.makeLoading('Loading sanctions data\u2026'));
 
     const [comtradeCard, comtradeBody] = this.sectionCard('flows', 'Trade Flows', 'Top Comtrade trade flows sorted by value, with partner and commodity.');
     this.comtradeBody = comtradeBody;
-    comtradeBody.append(isPro ? this.makeLoading('Loading trade flows\u2026') : this.makeProLocked('Upgrade to PRO for trade flow data'));
+    comtradeBody.append(this.makeLoading('Loading trade flows\u2026'));
 
     const [tariffCard, tariffBody] = this.sectionCard('tariffs', 'Tariff Trends', 'Effective tariff rate and historical trend direction.');
     this.tariffBody = tariffBody;
-    tariffBody.append(isPro ? this.makeLoading('Loading tariff data\u2026') : this.makeProLocked('Upgrade to PRO for tariff trend data'));
-
+    tariffBody.append(this.makeLoading('Loading tariff data\u2026'));
 
     this.signalsBody = signalBody;
     this.timelineBody = timelineBody;
@@ -3627,7 +3583,7 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
       this.fiveFactorScorecardAbortController?.abort();
       this.fiveFactorScorecardAbortController = null;
       if (!hasAccess) {
-        body.replaceChildren(this.makeProLocked(t('countryBrief.fiveFactorScorecard.proLocked')));
+        body.replaceChildren(this.makeEmpty(t('common.failedToLoad')));
         return;
       }
       body.replaceChildren(this.makeLoading(t('countryBrief.fiveFactorScorecard.loading')));
@@ -4466,7 +4422,6 @@ export class CountryDeepDivePanel implements CountryBriefPanel {
     data.signalCoverageNotes = this.signalCoverageNotes;
     return this.downloadText(countryEvidenceMarkdownArtifact(data), signal);
   }
-
 
   private trendArrow(trend: CountryScore['trend']): string {
     if (trend === 'rising') return '↑';

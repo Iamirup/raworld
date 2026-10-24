@@ -387,7 +387,7 @@ async function mountPlugin(): Promise<void> {
         send({ method: 'notifications/cancelled', params: { requestId: id, reason: 'Country view changed' } });
         finish(signal?.reason);
       };
-      const timeout = setTimeout(() => finish(method === 'ui/download-file' ? new CountryDownloadRequestError('timeout') : method === 'ui/update-model-context' ? new CountryModelContextError('timeout') : new Error('WorldMonitor host request timed out.')), 30_000);
+      const timeout = setTimeout(() => finish(method === 'ui/download-file' ? new CountryDownloadRequestError('timeout') : method === 'ui/update-model-context' ? new CountryModelContextError('timeout') : new Error('RaWorld host request timed out.')), 30_000);
       const cleanup = () => { clearTimeout(timeout); signal?.removeEventListener('abort', abort); };
       pending.set(id, { method, resolve, reject, cleanup });
       signal?.addEventListener('abort', abort, { once: true });
@@ -781,7 +781,7 @@ async function mountPlugin(): Promise<void> {
       const result = message.params?.result ?? message.params;
       if (result?.isError) {
         hostInput = undefined;
-        status.textContent = result.content?.find((item: { type: string; text?: string }) => item.type === 'text')?.text ?? 'WorldMonitor could not open this country brief.';
+        status.textContent = result.content?.find((item: { type: string; text?: string }) => item.type === 'text')?.text ?? 'RaWorld could not open this country brief.';
         return;
       }
       const data = result?.structuredContent;
@@ -854,7 +854,7 @@ async function mountPlugin(): Promise<void> {
   async function start(): Promise<void> {
     await initI18n({ waitForFullTranslation: true });
     document.getElementById('deep-dive-close')!.setAttribute('aria-label', 'Close country brief');
-    const initialized = await request('ui/initialize', { appInfo: { name: 'WorldMonitor country brief', version: '1.0.0' }, appCapabilities: { tools: {} }, protocolVersion: '2026-01-26' }) as { hostCapabilities?: { serverTools?: object; openLinks?: object; updateModelContext?: object }; hostContext?: { theme?: string } };
+    const initialized = await request('ui/initialize', { appInfo: { name: 'RaWorld country brief', version: '1.0.0' }, appCapabilities: { tools: {} }, protocolVersion: '2026-01-26' }) as { hostCapabilities?: { serverTools?: object; openLinks?: object; updateModelContext?: object }; hostContext?: { theme?: string } };
     initialization = initialized;
     negotiationState = 'received';
     renderConnection();

@@ -1,6 +1,6 @@
 # Sitemap ownership and freshness
 
-World Monitor publishes three independent sitemap families. Each publisher owns
+RaWorld publishes three independent sitemap families. Each publisher owns
 its complete inventory so a second hand-maintained list cannot drift from it.
 
 | Sitemap | Owner | Inventory |

@@ -22,7 +22,7 @@ Each page is parsed on its own:
 - A page whose validity window has ended publishes no records. The run still counts as healthy, because IMD replied and the page parsed.
 - A page that fails to load or parse keeps its last-good records until their validity window ends. The snapshot reports `coverageState: degraded` and names the page under `products.<id>.pages`.
 
-To verify a deployment, call the WorldMonitor MCP tool `get_imd_cyclone_marine`. Accept the deployment only when the response has `stale: false`, its IMD snapshot has `coverageState: ok`, and `generatedAt` is later than the deployment time. Also confirm that `https://api.worldmonitor.app/api/health?compact=1` does not list `imdCycloneMarine` in `problems`.
+To verify a deployment, call the RaWorld MCP tool `get_imd_cyclone_marine`. Accept the deployment only when the response has `stale: false`, its IMD snapshot has `coverageState: ok`, and `generatedAt` is later than the deployment time. Also confirm that `https://api.worldmonitor.app/api/health?compact=1` does not list `imdCycloneMarine` in `problems`.
 
 ## GDACS (Global Disaster Alert and Coordination System)
 

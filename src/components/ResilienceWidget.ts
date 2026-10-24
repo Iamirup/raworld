@@ -4,17 +4,12 @@ import {
   onEntitlementChange,
   onEntitlementVerificationChange,
 } from '@/services/entitlements';
-import { PanelGateReason, getPanelGateReason } from '@/services/panel-gating';
-import { loadStoredMissionPreset, onMissionPresetChange } from '@/services/mission-presets';
-import { trackProPreviewCta, trackProPreviewViewed } from '@/services/analytics';
+import { onMissionPresetChange } from '@/services/mission-presets';
 import { isProTierResolved } from '@/services/widget-store';
 import { getResilienceScore, type ResilienceDomain, type ResilienceScoreResponse } from '@/services/resilience';
 import { h, replaceChildren } from '@/utils/dom-utils';
-import { createCheckoutConsentElement } from '@/utils/legal-links';
-import { WEB_APP_ORIGIN } from '@/config/web-origin';
 import {
   type DimensionConfidence,
-  LOCKED_PREVIEW,
   RESILIENCE_VISUAL_LEVEL_COLORS,
   collectDimensionConfidences,
   formatBaselineStress,
@@ -60,8 +55,6 @@ export class ResilienceWidget {
   private unsubscribeEntitlement: (() => void) | null = null;
   private unsubscribeVerification: (() => void) | null = null;
   private unsubscribeMission: (() => void) | null = null;
-  private crisisPreviewObserver: IntersectionObserver | null = null;
-  private crisisPreviewFallbackTimer: number | null = null;
   private currentCountryCode: string | null = null;
   private currentData: ResilienceScoreResponse | null = null;
   private loading = false;
@@ -126,7 +119,7 @@ export class ResilienceWidget {
       return;
     }
 
-    if ((!this.managed && this.authState.isPending) || this.getGateReason() !== PanelGateReason.NONE) {
+    if (!this.managed && this.authState.isPending) {
       this.render();
       return;
     }
@@ -169,7 +162,6 @@ export class ResilienceWidget {
     this.unsubscribeVerification = null;
     this.unsubscribeMission?.();
     this.unsubscribeMission = null;
-    this.stopCrisisPreviewTracking();
   }
 
   /**
@@ -179,10 +171,9 @@ export class ResilienceWidget {
    * drift.
    */
   private reactToAccessChange(): void {
-    const gateReason = this.getGateReason();
     const loadedCountryCode = normalizeCountryCode(this.currentData?.countryCode);
     const needsRefresh = !this.currentData || (loadedCountryCode !== null && loadedCountryCode !== this.currentCountryCode);
-    if (gateReason === PanelGateReason.NONE && this.currentCountryCode && !this.loading && needsRefresh) {
+    if (this.currentCountryCode && !this.loading && needsRefresh) {
       void this.refresh();
       return;
     }
@@ -214,13 +205,8 @@ export class ResilienceWidget {
     return status === 'idle' || status === 'pending';
   }
 
-  private getGateReason(): PanelGateReason {
-    return this.managed ? PanelGateReason.NONE : getPanelGateReason(this.authState, true);
-  }
-
   private render(): void {
-    const gateReason = this.getGateReason();
-    const body = this.renderBody(gateReason);
+    const body = this.renderBody();
 
     replaceChildren(
       this.element,
@@ -240,10 +226,9 @@ export class ResilienceWidget {
       ),
       body,
     );
-    this.reconcileCrisisPreviewTracking();
   }
 
-  private renderBody(gateReason: PanelGateReason): HTMLElement {
+  private renderBody(): HTMLElement {
     if (!this.currentCountryCode) {
       return h('div', { className: 'cdp-card-body' }, this.makeEmpty('Resilience data loads when a country is selected.'));
     }
@@ -265,10 +250,6 @@ export class ResilienceWidget {
       return h('div', { className: 'cdp-card-body' }, this.makeLoading('Checking access…'));
     }
 
-    if (gateReason !== PanelGateReason.NONE) {
-      return this.renderLocked(gateReason);
-    }
-
     if (this.loading) {
       return h('div', { className: 'cdp-card-body' }, this.makeLoading('Loading resilience score…'));
     }
@@ -283,106 +264,6 @@ export class ResilienceWidget {
     }
 
     return this.renderScoreCard(this.currentData);
-  }
-
-  // KTD7: crisis-desk's Release 1 preview IS this locked surface — it ships
-  // already, so its treated-mission work is instrumentation only. Events are
-  // scoped to the active mission so ordinary locked renders stay unattributed.
-  private crisisDeskPreviewViewedTracked = false;
-
-  private isCrisisDeskMissionActive(): boolean {
-    try {
-      return loadStoredMissionPreset()?.id === 'crisis-desk';
-    } catch {
-      return false;
-    }
-  }
-
-  private renderLocked(gateReason: PanelGateReason): HTMLElement {
-    const description = gateReason === PanelGateReason.ANONYMOUS
-      ? 'Sign in to unlock premium resilience scores.'
-      : 'Upgrade to Pro to unlock resilience scores.';
-    const cta = gateReason === PanelGateReason.ANONYMOUS ? 'Sign In' : 'Upgrade to Pro';
-
-    const preview = this.renderScoreCard(LOCKED_PREVIEW, true);
-    preview.classList.add('resilience-widget__preview');
-
-    const button = h('button', {
-      type: 'button',
-      className: 'panel-locked-cta resilience-widget__cta',
-      onclick: () => {
-        if (gateReason === PanelGateReason.ANONYMOUS) {
-          void import('@/services/clerk')
-            .then((module) => module.openSignIn())
-            .catch(() => this.showAuthUnavailable());
-          return;
-        }
-        const crisisDesk = this.isCrisisDeskMissionActive();
-        if (crisisDesk) trackProPreviewCta('crisis-desk', 'cii');
-        void this.openUpgradeFlow(crisisDesk).catch(() => {
-          window.open('https://worldmonitor.app/pro', '_blank', 'noopener,noreferrer');
-        });
-      },
-    }, cta) as HTMLButtonElement;
-
-    return h(
-      'div',
-      { className: 'cdp-card-body resilience-widget__locked' },
-      preview,
-      h('div', { className: 'panel-locked-desc resilience-widget__gate-desc' }, description),
-      // Assent above the CTA (#6976) — only on the upgrade branch. The
-      // ANONYMOUS branch opens Clerk sign-in, which carries its own Terms and
-      // Privacy links via the appearance layout options.
-      ...(gateReason === PanelGateReason.ANONYMOUS
-        ? []
-        : [createCheckoutConsentElement(WEB_APP_ORIGIN)]),
-      button,
-    );
-  }
-
-  private reconcileCrisisPreviewTracking(): void {
-    this.stopCrisisPreviewTracking();
-    if (this.crisisDeskPreviewViewedTracked || !this.isCrisisDeskMissionActive()) return;
-    if (!this.element.querySelector('.resilience-widget__locked')) return;
-
-    const recordView = (): void => {
-      if (this.crisisDeskPreviewViewedTracked) return;
-      if (!this.element.isConnected || !this.isCrisisDeskMissionActive()) return;
-      if (!this.element.querySelector('.resilience-widget__locked')) return;
-      this.crisisDeskPreviewViewedTracked = true;
-      this.stopCrisisPreviewTracking();
-      trackProPreviewViewed('crisis-desk', 'cii');
-    };
-
-    if (typeof IntersectionObserver === 'undefined') {
-      this.crisisPreviewFallbackTimer = window.setTimeout(recordView, 0);
-      return;
-    }
-
-    this.crisisPreviewObserver = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) recordView();
-    }, { threshold: 0.3 });
-    this.crisisPreviewObserver.observe(this.element);
-  }
-
-  private stopCrisisPreviewTracking(): void {
-    this.crisisPreviewObserver?.disconnect();
-    this.crisisPreviewObserver = null;
-    if (this.crisisPreviewFallbackTimer !== null) {
-      window.clearTimeout(this.crisisPreviewFallbackTimer);
-      this.crisisPreviewFallbackTimer = null;
-    }
-  }
-
-  private async showAuthUnavailable(): Promise<void> {
-    const message = 'Sign-in is temporarily unavailable. Please try again.';
-    try {
-      const { showCheckoutErrorToast } = await import('@/services/checkout-error-toast');
-      showCheckoutErrorToast(message);
-      return;
-    } catch {
-      window.alert(message);
-    }
   }
 
   private renderError(message: string): HTMLElement {
@@ -626,10 +507,4 @@ export class ResilienceWidget {
     return h('div', { className: 'cdp-empty' }, text);
   }
 
-  private async openUpgradeFlow(crisisDeskAttribution = false): Promise<void> {
-    const { openUpgradeCheckout } = await import('@/services/upgrade-flow');
-    await openUpgradeCheckout(
-      crisisDeskAttribution ? { missionId: 'crisis-desk', panelKey: 'cii' } : undefined,
-    );
-  }
 }

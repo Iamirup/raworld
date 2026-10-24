@@ -2,7 +2,7 @@
 /**
  * Inject gateway-level rate-limit and error-envelope contracts into OpenAPI.
  *
- * protoc-gen-openapiv3 only sees proto handler shapes, but WorldMonitor's REST
+ * protoc-gen-openapiv3 only sees proto handler shapes, but RaWorld's REST
  * gateway can reject any operation before a handler runs: origin/auth routing,
  * 404/405 dispatch, global/per-endpoint/per-account rate limits, and malformed
  * JSON body parsing. This post-generation pass documents those gateway-level

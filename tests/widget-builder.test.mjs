@@ -513,9 +513,9 @@ describe('widget data-tool contracts', () => {
     ['Chart the historical FRED unemployment series UNRATE', 'get-fred-series'],
     ['Show dashboard weather alerts', 'weatherAlerts'],
     ['Show tomorrow\'s hourly local weather forecast for Dubai Marina', null, /local weather forecast/i],
-    ['Show the WorldMonitor news feed digest', 'list-feed-digest'],
-    ['Build a breaking-news widget for a local power outage in Dubai Marina that is not yet in WorldMonitor news feeds', null, /breaking event.*not.*feeds/i],
-    ['Show the current UAE retail price of Sony WH-1000XM6 headphones, which is not in the WorldMonitor catalog', null, /price.*not.*catalog/i],
+    ['Show the RaWorld news feed digest', 'list-feed-digest'],
+    ['Build a breaking-news widget for a local power outage in Dubai Marina that is not yet in RaWorld news feeds', null, /breaking event.*not.*feeds/i],
+    ['Show the current UAE retail price of Sony WH-1000XM6 headphones, which is not in the RaWorld catalog', null, /price.*not.*catalog/i],
   ];
   for (const [request, capability, gapExample] of routingCases) {
     it(`routing contract: ${request}`, () => {
@@ -564,7 +564,7 @@ describe('widget data-tool contracts', () => {
     for (const prompt of prompts) {
       assert.match(prompt, /### read_page — read a page that search_web returned/);
       assert.match(prompt, /source domain and as-of date/);
-      assert.match(prompt, /Never label web values "Source: WorldMonitor"/);
+      assert.match(prompt, /Never label web values "Source: RaWorld"/);
       assert.match(prompt, /identify the period it covers/);
       assert.match(prompt, /Never infer, extrapolate, estimate or fill from memory/);
       assert.match(prompt, /4 tool calls once you have used search_web/);
@@ -665,7 +665,7 @@ describe('widget data-tool contracts', () => {
 describe('widget-agent relay — data fetch credentials', () => {
   const oneFetch = () => [widgetResponse('tool_use', [widgetTool('1')]), widgetResponse('end_turn')];
 
-  it('authenticates data fetches with an anonymous WorldMonitor session', async () => {
+  it('authenticates data fetches with an anonymous RaWorld session', async () => {
     const result = await runWidgetAgent(oneFetch());
     assert.equal(result.fetchInits[0].headers['X-WorldMonitor-Key'], 'wms_fixture');
     assert.equal(result.fetchInits[0].redirect, 'error');
@@ -877,7 +877,7 @@ describe('widget-agent relay — web pages and source verification', () => {
     assert.equal(toolResultsFor(result.requests[1]).some(r => r.is_error), false);
   });
 
-  it('does not verify a widget built only from WorldMonitor data', async () => {
+  it('does not verify a widget built only from RaWorld data', async () => {
     const result = await runWidgetAgent([widgetResponse('tool_use', [widgetTool('1')]), draft('ok')]);
     assert.equal(result.verifyCalls.length, 0);
     assert.equal(endpoints(result).includes('verify:sources'), false);
@@ -1062,7 +1062,7 @@ describe('widget page reader', () => {
     const read = load(async (_url, init) => { inits.push(init); abort.abort(); return { ok: false }; });
     assert.equal(await read('https://example.com/t', { signal: abort.signal }), null);
     assert.equal(inits.length, 1, 'no Firecrawl fallback after cancellation');
-    assert.match(inits[0].headers['User-Agent'], /WorldMonitor/);
+    assert.match(inits[0].headers['User-Agent'], /RaWorld/);
     assert.equal(inits[0].signal.aborted, true);
   });
 

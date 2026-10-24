@@ -1,9 +1,9 @@
 ---
 title: "Agent Skills Catalog"
-description: "Human-readable catalog of World Monitor agent skills advertised through the /.well-known/agent-skills/index.json discovery endpoint."
+description: "Human-readable catalog of RaWorld agent skills advertised through the /.well-known/agent-skills/index.json discovery endpoint."
 ---
 
-The catalog contains focused, ready-to-run World Monitor agent skills for agents that do not need a full OpenAPI crawl. Each skill is a public `SKILL.md` file with when-to-use guidance, auth shape, REST examples, response notes, and content-safety handling.
+The catalog contains focused, ready-to-run RaWorld agent skills for agents that do not need a full OpenAPI crawl. Each skill is a public `SKILL.md` file with when-to-use guidance, auth shape, REST examples, response notes, and content-safety handling.
 
 The machine-readable source of truth is [`/.well-known/agent-skills/index.json`](https://worldmonitor.app/.well-known/agent-skills/index.json). Each row below links to the served recipe whose SHA-256 digest is pinned in that manifest.
 
@@ -30,7 +30,7 @@ If the agent is helping a person inside an already-open Chrome dashboard, [WebMC
 
 | Skill | Use it for | Recipe |
 |---|---|---|
-| `fetch-country-brief` | Open the WorldMonitor country interface in a UI-capable MCP host. Use the text assessment endpoint for explicit text-only requests or clients without embedded UI. | [SKILL.md](https://worldmonitor.app/.well-known/agent-skills/fetch-country-brief/SKILL.md) |
+| `fetch-country-brief` | Open the RaWorld country interface in a UI-capable MCP host. Use the text assessment endpoint for explicit text-only requests or clients without embedded UI. | [SKILL.md](https://worldmonitor.app/.well-known/agent-skills/fetch-country-brief/SKILL.md) |
 | `fetch-resilience-score` | Retrieve the composite country resilience score (0-100) and its domain/pillar breakdown for a single country. Use when the user asks how resilient a country is, or wants its numeric resilience score, trend, or per-domain breakdown. | [SKILL.md](https://worldmonitor.app/.well-known/agent-skills/fetch-resilience-score/SKILL.md) |
 | `check-country-risk` | Retrieve composite country risk intelligence — Country Instability Index (CII), travel advisory level, and active sanctions exposure — for one country by ISO code. Use when the user asks how risky or unstable a country is right now. | [SKILL.md](https://worldmonitor.app/.well-known/agent-skills/check-country-risk/SKILL.md) |
 
@@ -55,7 +55,7 @@ If the agent is helping a person inside an already-open Chrome dashboard, [WebMC
 | `lookup-bilateral-tariff` | Look up the applied tariff on one HS6 product imported by one country from another (MFN, partner-specific preferential, and the best available applied rate), from UNCTAD TRAINS via World Bank WITS. Use when the user asks what duty a specific product pays between two specific countries. | [SKILL.md](https://worldmonitor.app/.well-known/agent-skills/lookup-bilateral-tariff/SKILL.md) |
 | `lookup-us-import-duty` | Look up the current US import duty on one HTS product from one country — the HTS column rate (MFN, trade-agreement or column 2) plus the Section 301 and 232 duties in chapter 99 — from the live USITC Harmonized Tariff Schedule. Use when the user asks what the US charges today on a product from a specific country, including China tariffs and other additional duties. | [SKILL.md](https://worldmonitor.app/.well-known/agent-skills/lookup-us-import-duty/SKILL.md) |
 | `trace-trade-flows` | Retrieve strategic UN Comtrade commodity flows with anomaly flags. Use when the user asks who trades a critical commodity, which flows changed sharply, or how trade exposure is shifting. | [SKILL.md](https://worldmonitor.app/.well-known/agent-skills/trace-trade-flows/SKILL.md) |
-| `check-forecast-signals` | Retrieve probabilistic forecasts and their scorecard context. Use when the user asks what World Monitor is forecasting, how probabilities shifted, or how calibrated the forecasts are. | [SKILL.md](https://worldmonitor.app/.well-known/agent-skills/check-forecast-signals/SKILL.md) |
+| `check-forecast-signals` | Retrieve probabilistic forecasts and their scorecard context. Use when the user asks what RaWorld is forecasting, how probabilities shifted, or how calibrated the forecasts are. | [SKILL.md](https://worldmonitor.app/.well-known/agent-skills/check-forecast-signals/SKILL.md) |
 
 ### Maritime, Logistics, And Energy
 
@@ -71,7 +71,7 @@ If the agent is helping a person inside an already-open Chrome dashboard, [WebMC
 
 | Skill | Use it for | Recipe |
 |---|---|---|
-| `fetch-news-digest` | Retrieve the pre-aggregated digest of World Monitor's curated news feeds, bucketed by category, with per-article threat classification and alert flags. Use when the user asks what's in the news right now, wants headlines by topic, or needs a current-events sweep. | [SKILL.md](https://worldmonitor.app/.well-known/agent-skills/fetch-news-digest/SKILL.md) |
+| `fetch-news-digest` | Retrieve the pre-aggregated digest of RaWorld's curated news feeds, bucketed by category, with per-article threat classification and alert flags. Use when the user asks what's in the news right now, wants headlines by topic, or needs a current-events sweep. | [SKILL.md](https://worldmonitor.app/.well-known/agent-skills/fetch-news-digest/SKILL.md) |
 | `check-airport-delays` | Retrieve current airport delay and cancellation alerts worldwide — delay type, severity, average delay minutes, and affected-flight percentages per airport. Use when the user asks whether an airport is delayed, disrupted, or experiencing cancellations. | [SKILL.md](https://worldmonitor.app/.well-known/agent-skills/check-airport-delays/SKILL.md) |
 | `track-military-flights` | Retrieve tracked military aircraft positions (OpenSky + Wingbits) with callsign, type, operator, altitude, and activity clusters, filterable by bounding box, operator, and aircraft type. Use when the user asks about military air activity in a region. | [SKILL.md](https://worldmonitor.app/.well-known/agent-skills/track-military-flights/SKILL.md) |
 | `monitor-internet-outages` | Retrieve detected internet outages (Cloudflare Radar) with country, cause, severity, and time bounds. Use when the user asks whether a country's internet is down, throttled, or experiencing a shutdown. | [SKILL.md](https://worldmonitor.app/.well-known/agent-skills/monitor-internet-outages/SKILL.md) |

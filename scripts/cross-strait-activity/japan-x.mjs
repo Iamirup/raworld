@@ -91,7 +91,7 @@ export async function fetchJapanXOutcome({
         requestCount++;
         const response = await fetchFn(url.href, { redirect: 'error',
           headers: { Authorization: `Bearer ${token.trim()}`, Accept: 'application/json',
-            'User-Agent': 'WorldMonitor/2.10 (+https://worldmonitor.app)' },
+            'User-Agent': 'RaWorld/2.10 (+https://worldmonitor.app)' },
           signal: AbortSignal.timeout(20000) });
         const reader = response.body.getReader();
         const chunks = [];

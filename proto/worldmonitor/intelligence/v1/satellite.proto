@@ -3,7 +3,7 @@ package worldmonitor.intelligence.v1;
 
 import "buf/validate/validate.proto";
 
-// Satellite represents an orbital asset tracked by WorldMonitor.
+// Satellite represents an orbital asset tracked by RaWorld.
 message Satellite {
   // NORAD identifier (e.g., "25544").
   string id = 1 [

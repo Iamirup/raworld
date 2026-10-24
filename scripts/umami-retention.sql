@@ -1,4 +1,4 @@
--- World Monitor Umami relational retention contract.
+-- RaWorld Umami relational retention contract.
 --
 -- Run this file from a controlled maintenance job with the Umami Postgres
 -- connection variables. It is intentionally not invoked by the application or

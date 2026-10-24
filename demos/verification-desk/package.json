@@ -2,7 +2,7 @@
   "name": "worldmonitor-verification-desk",
   "version": "1.0.0",
   "private": true,
-  "description": "Live stage demo: an AI anchor grades headlines with WorldMonitor's own corroboration, source-tier, provenance, credibility and grounding code.",
+  "description": "Live stage demo: an AI anchor grades headlines with RaWorld's own corroboration, source-tier, provenance, credibility and grounding code.",
   "type": "module",
   "engines": {
     "node": ">=22"

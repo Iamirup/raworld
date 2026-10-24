@@ -189,7 +189,7 @@ describe('renderBriefMagazine — chrome invariants', () => {
     assert.equal(useRefs.length, expected);
 
     // Every reference still carries the aria label for a11y.
-    const ariaLabels = html.match(/aria-label="WorldMonitor"/g) || [];
+    const ariaLabels = html.match(/aria-label="RaWorld"/g) || [];
     assert.equal(ariaLabels.length, expected);
   });
 
@@ -924,7 +924,7 @@ describe('renderBriefMagazine — publicMode', () => {
     const publicHtml = renderBriefMagazine(env, { publicMode: true });
     assert.ok(!publicHtml.includes('Hormuz is roughly a fifth'), 'whyMatters stripped on public');
     assert.ok(
-      publicHtml.includes('Subscribe to WorldMonitor Brief to see the full editorial'),
+      publicHtml.includes('Subscribe to RaWorld Brief to see the full editorial'),
       'generic placeholder callout rendered',
     );
   });

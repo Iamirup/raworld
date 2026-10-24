@@ -145,7 +145,7 @@ export async function publishScorecardCohortAtomically(stagingKey, {
   // The retry-idempotency branch answers "did MY payload already land?". It used
   // to answer that with GET KEYS[1] == ARGV[1], copying and comparing the whole
   // multi-MB canonical value inside a single-threaded, atomically-executing
-  // script on a Redis instance shared with every other WorldMonitor service --
+  // script on a Redis instance shared with every other RaWorld service --
   // on exactly the ambiguous-retry path the retry logic exists for. Compare a
   // sha256 of the payload written alongside the canonical SET instead. The
   // fingerprint carries the canonical TTL so it can never outlive what it

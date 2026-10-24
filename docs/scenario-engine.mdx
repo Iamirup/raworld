@@ -3,7 +3,7 @@ title: "Scenario Engine"
 description: "Run pre-built supply-chain disruption scenarios — conflicts, sanctions, tariff shocks, and weather — to see exposed chokepoints, sectors, and countries."
 ---
 
-Scenario Engine turns WorldMonitor's live supply-chain graph into an interactive what-if tool. Instead of asking "what is the state of this lane today," you pick a named disruption scenario — a Hormuz closure, a Panama drought, a tariff shock on semiconductors — and the engine resolves the downstream impact on chokepoints, HS2 sectors, and the currently seeded reporter countries, then paints the result onto the existing map.
+Scenario Engine turns RaWorld's live supply-chain graph into an interactive what-if tool. Instead of asking "what is the state of this lane today," you pick a named disruption scenario — a Hormuz closure, a Panama drought, a tariff shock on semiconductors — and the engine resolves the downstream impact on chokepoints, HS2 sectors, and the currently seeded reporter countries, then paints the result onto the existing map.
 
 ## Who it is for
 
@@ -94,7 +94,7 @@ impactPct = round(countryTotalImpact / max(maxReturnedTotalImpact, 1) * 100)
 
 - [Route Explorer](/route-explorer) — run a specific lane against *today's* state.
 - [Scenarios API](/api-scenarios) — the underlying HTTP contract.
-- [Supply Chain](https://github.com/koala73/worldmonitor/blob/main/docs/api/SupplyChainService.openapi.yaml) — the broader service that backs the Supply Chain panel.
+- [Supply Chain](https://github.com/Iamirup/raworld/blob/main/docs/api/SupplyChainService.openapi.yaml) — the broader service that backs the Supply Chain panel.
 
 
 ## Scenario coverage and export

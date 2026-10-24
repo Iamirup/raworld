@@ -15,7 +15,7 @@ function findTab(language, label) {
 }
 
 describe('Mintlify OpenAPI download contract', () => {
-  it('binds both API Reference tabs to the unified World Monitor bundle', () => {
+  it('binds both API Reference tabs to the unified RaWorld bundle', () => {
     for (const [language, label] of [
       ['en', 'API Reference'],
       ['zh', 'API 参考'],
@@ -33,7 +33,7 @@ describe('Mintlify OpenAPI download contract', () => {
   it('keeps the configured bundle real and production-directed', () => {
     const bundle = loadYaml(readFileSync(bundlePath, 'utf8'));
     assert.equal(bundle.openapi, '3.1.0');
-    assert.equal(bundle.info?.title, 'WorldMonitor API');
+    assert.equal(bundle.info?.title, 'RaWorld API');
     assert.deepEqual(bundle.servers, [{ url: 'https://api.worldmonitor.app' }]);
     assert.ok(Object.keys(bundle.paths ?? {}).length > 0, 'the unified bundle must contain API paths');
   });

@@ -1,6 +1,6 @@
-# 🌍 Self-Hosting World Monitor
+# 🌍 Self-Hosting RaWorld
 
-Run the full World Monitor stack locally with Docker/Podman.
+Run the full RaWorld stack locally with Docker/Podman.
 
 ## 📋 Prerequisites
 
@@ -12,7 +12,7 @@ Run the full World Monitor stack locally with Docker/Podman.
 
 ```bash
 # 1. Clone and enter the repo
-git clone https://github.com/koala73/worldmonitor.git
+git clone https://github.com/Iamirup/raworld.git
 cd worldmonitor
 npm install
 
@@ -88,10 +88,10 @@ Native administration routes under `/api/local-` return `403` in Docker mode, in
 - Direct-LLM spend on that route is capped at 50 calls per UTC day per client IP. nginx stamps `X-Real-IP` from `$remote_addr`, so a caller cannot rotate the header to reset the cap. Rotating the session token also does not reset spend.
 - Every other premium route still requires an API key or a Clerk entitlement. Cloud deployments do not set `LOCAL_API_MODE=docker` and keep key plus entitlement enforcement on this route too.
 
-If another reverse proxy sits in front of the World Monitor container, set
+If another reverse proxy sits in front of the RaWorld container, set
 `WM_TRUSTED_PROXY_CIDRS` to that proxy's IP address or network. Separate multiple
 values with commas, for example `WM_TRUSTED_PROXY_CIDRS=172.20.0.0/16,2001:db8::/32`.
-World Monitor then uses `X-Forwarded-For` only when it comes through those trusted
+RaWorld then uses `X-Forwarded-For` only when it comes through those trusted
 peers, and nginx resolves the original client address recursively. Invalid values
 stop the container at startup. Leave this variable unset for direct connections;
 never trust a network that can contain untrusted clients, because those clients

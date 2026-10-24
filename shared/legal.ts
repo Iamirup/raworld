@@ -77,7 +77,7 @@ export const LEGAL_DOCUMENT_DIGESTS: Readonly<Record<string, string>> = {
 
 /** Where the text behind any recorded version can be read back. */
 export function legalHistoryUrl(docPath: string): string {
-  return `https://github.com/koala73/worldmonitor/commits/main/${docPath}`;
+  return `https://github.com/Iamirup/raworld/commits/main/${docPath}`;
 }
 
 /**

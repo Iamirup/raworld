@@ -9,7 +9,7 @@
 // `/oauth/*` turns a registration POST into a GET and kills it with 405
 // (#4938). Everything else redirects.
 //
-// #7660 measured the cost: 26 of the 76 World Monitor URLs in llms.txt and
+// #7660 measured the cost: 26 of the 76 RaWorld URLs in llms.txt and
 // llms-full.txt were apex, so 34% of our AI-facing link surface taught crawlers
 // a redirecting URL, and Google fetches these files. Search Console's "Page
 // with redirect" bucket was rising through 1,271 at the time. This file is the

@@ -1,4 +1,4 @@
-// Brief-exclusion classifier for the WorldMonitor pipeline.
+// Brief-exclusion classifier for the RaWorld pipeline.
 //
 // The brief is event-driven intelligence — an op-ed column is not an
 // event. On 2026-05-14 a Le Monde opinion column ("'Russia's invasion

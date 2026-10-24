@@ -163,13 +163,13 @@ async function handleMessageSend(id: JsonRpcId, params: unknown): Promise<Respon
   const lines: string[] = [];
   if (suggestions.length > 0) {
     lines.push(
-      `Best-fit WorldMonitor tools for "${echoedQuery}": ${suggestions.map((s) => s.name).join(', ')}.`,
+      `Best-fit RaWorld tools for "${echoedQuery}": ${suggestions.map((s) => s.name).join(', ')}.`,
       `Call them on the MCP server at ${HOW_TO_CALL.mcp.endpoint} (${HOW_TO_CALL.mcp.note})`,
       `REST equivalents are documented in the OpenAPI spec at ${HOW_TO_CALL.rest.openapi}.`,
     );
   } else {
     lines.push(
-      'No specific tool matched that request. WorldMonitor covers conflicts, sanctions, country risk, markets, commodities, energy, maritime/aviation activity, chokepoints, cyber threats, natural disasters, forecasts and prediction markets.',
+      'No specific tool matched that request. RaWorld covers conflicts, sanctions, country risk, markets, commodities, energy, maritime/aviation activity, chokepoints, cyber threats, natural disasters, forecasts and prediction markets.',
       `Issue tools/list on ${HOW_TO_CALL.mcp.endpoint} for the full catalog, or start from ${HOW_TO_CALL.agentGuidance}.`,
     );
   }

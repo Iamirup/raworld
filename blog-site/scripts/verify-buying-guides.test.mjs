@@ -63,7 +63,7 @@ for (const [category, count] of Object.entries(categories)) {
       assert.equal((html.match(/<h1(?:\s|>)/g) ?? []).length, 1, 'one page title');
       assert.ok(html.includes(`<link rel="canonical" href="${site}${path}"`), 'canonical route');
       assert.ok(html.includes('<table>') && html.includes('<thead>') && html.includes('<tbody>'), 'rendered comparison table');
-      assert.ok(html.includes('World Monitor editorial team'), 'disclosed publisher');
+      assert.ok(html.includes('RaWorld editorial team'), 'disclosed publisher');
       const visibleDate = new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
       assert.ok(html.includes(`>${visibleDate}</time>`), 'visible date agrees with metadata');
       assert.ok(html.includes('not a hands-on benchmark'), 'evaluation limits');
@@ -77,7 +77,7 @@ for (const [category, count] of Object.entries(categories)) {
         .map(match => JSON.parse(match[1]));
       const article = nodes.find(node => node['@type'] === 'BlogPosting');
       assert.equal(article?.url, `${site}${path}`, 'article URL agrees with canonical');
-      assert.equal(article?.author.name, 'World Monitor editorial team');
+      assert.equal(article?.author.name, 'RaWorld editorial team');
       assert.equal(article?.author['@type'], 'Organization', 'editorial team is not a person');
       assert.ok(article?.citation.length > 0, 'official sources included in structured data');
       const faq = nodes.find(node => node['@type'] === 'FAQPage');

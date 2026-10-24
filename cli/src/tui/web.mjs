@@ -1,4 +1,4 @@
-// `worldmonitor web`: open the original web dashboard. Inside a WorldMonitor
+// `worldmonitor web`: open the original web dashboard. Inside a RaWorld
 // repository checkout this starts the Vite dev server and opens it; elsewhere
 // it opens the hosted dashboard in the default browser.
 import { spawn } from 'node:child_process';
@@ -51,7 +51,7 @@ export async function runWeb({ options = {}, stdout = (s) => process.stdout.writ
     stderr(`Invalid port: ${port}\n`);
     return 2;
   }
-  stdout(`WorldMonitor checkout found at ${root}\nStarting the web dashboard: npm run dev -- --port ${port}\n`);
+  stdout(`RaWorld checkout found at ${root}\nStarting the web dashboard: npm run dev -- --port ${port}\n`);
   // Node refuses to spawn .cmd files without a shell on Windows (CVE-2024-27980),
   // so npm.cmd runs through one there; every argument is a fixed literal or the
   // digits-only port checked above.

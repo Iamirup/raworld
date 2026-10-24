@@ -377,7 +377,7 @@ describe('crawlable live intelligence view models', () => {
     const { document } = new Window({ url: 'https://www.worldmonitor.app/chokepoints/strait-of-hormuz/' });
     document.body.innerHTML = html;
     const passage = document.querySelector('[data-chokepoint-open-status]').textContent;
-    assert.match(passage, /source coverage for the Strait of Hormuz is partial\. No IMF PortWatch daily transit count is published for this snapshot\. World Monitor cannot verify operational passage status from this snapshot\./);
+    assert.match(passage, /source coverage for the Strait of Hormuz is partial\. No IMF PortWatch daily transit count is published for this snapshot\. RaWorld cannot verify operational passage status from this snapshot\./);
     assert.equal(document.querySelector('[data-chokepoint-official-transits]').textContent, '—');
     assert.equal(document.querySelector('[data-chokepoint-official-date]').textContent, '');
     assert.equal(document.querySelector('[data-chokepoint-official-average]').textContent, '—');
@@ -1066,7 +1066,7 @@ describe('crawlable live intelligence view models', () => {
       officialLatestTotal: 12,
     });
     assert.match(narrative.passage, /source coverage for the Taiwan Strait is partial/);
-    assert.match(narrative.passage, /IMF PortWatch counted 12 transits on Aug 30, 2026 \(latest published day\)\. World Monitor cannot verify/);
+    assert.match(narrative.passage, /IMF PortWatch counted 12 transits on Aug 30, 2026 \(latest published day\)\. RaWorld cannot verify/);
     assert.match(narrative.passage, /cannot verify operational passage status/);
     assert.doesNotMatch(narrative.passage, / is (?:open|restricted|effectively closed) /);
     assert.match(narrative.scoreDriver, /Observed score inputs: maximum AIS congestion severity Low\./);

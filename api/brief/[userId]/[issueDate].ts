@@ -69,12 +69,12 @@ function renderErrorPage(heading: string, body: string): string {
   return (
     '<!DOCTYPE html><html lang="en"><head>'
     + '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
-    + `<title>${heading} · WorldMonitor</title>`
+    + `<title>${heading} · RaWorld</title>`
     + `<style>${ERROR_PAGE_STYLES}</style>`
     + '</head><body><div>'
     + `<h1>${heading}</h1>`
     + `<p>${body}</p>`
-    + '<p><a href="https://worldmonitor.app">Return to WorldMonitor</a></p>'
+    + '<p><a href="https://worldmonitor.app">Return to RaWorld</a></p>'
     + '</div></body></html>'
   );
 }
@@ -86,7 +86,7 @@ const EXPIRED_PAGE = renderErrorPage(
 
 const FORBIDDEN_PAGE = renderErrorPage(
   'This link is no longer valid.',
-  "The brief link you followed is incomplete or has been tampered with. Open the most recent notification from WorldMonitor to read today's brief.",
+  "The brief link you followed is incomplete or has been tampered with. Open the most recent notification from RaWorld to read today's brief.",
 );
 
 const UNAVAILABLE_PAGE = renderErrorPage(

@@ -93,11 +93,6 @@ export class CountryHistory {
       this.mount.append(dates, detail);
       (dates.lastElementChild as HTMLButtonElement).click();
     }
-    if (this.days >= data.allowedDays && data.allowedDays < 365) {
-      const upsell = this.element('a', t(data.allowedDays <= 7 ? 'countryHistory.unlock90' : 'countryHistory.unlock365'), 'panel-locked-cta');
-      upsell.href = '/pro#pricing';
-      this.mount.append(upsell);
-    }
   }
 
   private renderDetail(detail: HTMLElement, point: CountryHistoryPoint): void {

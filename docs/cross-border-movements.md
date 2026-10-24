@@ -8,7 +8,7 @@ Issue #9023 extends the ODP situation view with independently published route re
 
 | Source | Automatic retrieval | Normal cadence | Maximum report age | Licence and access evidence, 2026-10-20 |
 | --- | --- | --- | --- | --- |
-| UNHCR Operational Data Portal | Existing situation JSON | Daily worker | 45 days per country report | [ODP](https://data.unhcr.org/) footer states datasets are CC BY 4.0. Credit UNHCR and the situation; identify WorldMonitor transformations. |
+| UNHCR Operational Data Portal | Existing situation JSON | Daily worker | 45 days per country report | [ODP](https://data.unhcr.org/) footer states datasets are CC BY 4.0. Credit UNHCR and the situation; identify RaWorld transformations. |
 | UK Home Office | GOV.UK Content API, daily table and linked SB_01 ODS sheet | Daily worker | 3 days | [OGL v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). Contains public sector information licensed under the Open Government Licence v3.0. |
 | US CBP | Official Nationwide Encounters AOR CSV, southwest land border only | Daily discovery of monthly releases | 75 days | [CBP copyright notice](https://www.cbp.gov/site-policy-notices/copyright-notice). US government work unless otherwise noted. Encounters count enforcement events, not unique people or new arrivals. |
 | Frontex | Official monthly XLSX, discovered from the migratory map | Daily discovery of monthly releases | 75 days | Repository owner confirmed reuse permission on 2026-10-20. Credit Frontex; label counts as detections, not unique people. [Source](https://www.frontex.europa.eu/what-we-do/monitoring-and-risk-analysis/migratory-map/) and [legal disclaimer](https://www.frontex.europa.eu/legal-disclaimer/). |

@@ -20,7 +20,7 @@ tags: [cls, core-web-vitals, layout-shift, panel-mount, deferred-shell, sentry-i
 
 ## Problem
 
-Desktop Core Web Vitals for `/dashboard` (koala73/worldmonitor) had one failing metric: Cumulative Layout Shift, stuck at CrUX 63% "good" against a 75% pass bar. Two prior fixes aimed at the panels that Chrome and DebugBear ranked as shifting the most had no field effect, because both rankings name the elements that get pushed, not the element that does the pushing.
+Desktop Core Web Vitals for `/dashboard` (Iamirup/raworld) had one failing metric: Cumulative Layout Shift, stuck at CrUX 63% "good" against a 75% pass bar. Two prior fixes aimed at the panels that Chrome and DebugBear ranked as shifting the most had no field effect, because both rankings name the elements that get pushed, not the element that does the pushing.
 
 ## Symptoms
 
@@ -174,8 +174,8 @@ Residual: `#main div#panelsGrid` at 0.142 — attributed to the boot cold window
 
 ## Related Issues
 
-- koala73/worldmonitor#5332 — the issue thread carrying the mover verdicts and acceptance data. Note: its own spec ("Slice A") described the victim-aimed height-pin fix, and PR #5333's merge keyword auto-closed it on 2026-07-15 — before the real fix existed. PR #5344 (the actual fix) had no dedicated issue; its verdicts were posted to this thread.
-- koala73/worldmonitor#4580 — parent tracking issue for the desktop CLS regression (#5332 was its slice A)
-- koala73/worldmonitor#4490 — prior "reserve space for dynamically-mounted panels" fix whose contract left the immediate tier uncovered
-- koala73/worldmonitor#5336 — the mover-tracker instrumentation PR whose field data named the mechanism
-- koala73/worldmonitor#5333 / koala73/worldmonitor#5137 — the two victim-aimed fixes with null/partial field effect that motivated mover attribution
+- Iamirup/raworld#5332 — the issue thread carrying the mover verdicts and acceptance data. Note: its own spec ("Slice A") described the victim-aimed height-pin fix, and PR #5333's merge keyword auto-closed it on 2026-07-15 — before the real fix existed. PR #5344 (the actual fix) had no dedicated issue; its verdicts were posted to this thread.
+- Iamirup/raworld#4580 — parent tracking issue for the desktop CLS regression (#5332 was its slice A)
+- Iamirup/raworld#4490 — prior "reserve space for dynamically-mounted panels" fix whose contract left the immediate tier uncovered
+- Iamirup/raworld#5336 — the mover-tracker instrumentation PR whose field data named the mechanism
+- Iamirup/raworld#5333 / Iamirup/raworld#5137 — the two victim-aimed fixes with null/partial field effect that motivated mover attribution

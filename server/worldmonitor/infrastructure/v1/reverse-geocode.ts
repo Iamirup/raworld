@@ -10,7 +10,7 @@ import { checkScopedRateLimit } from '../../../_shared/rate-limit';
 import { geocodeCacheKey } from '../../../../shared/geocode-cache-key.js';
 
 const NOMINATIM_BASE = 'https://nominatim.openstreetmap.org/reverse';
-const CHROME_UA = 'WorldMonitor/2.0 (https://worldmonitor.app)';
+const CHROME_UA = 'RaWorld/2.0 (https://worldmonitor.app)';
 const PROVIDER_RATE_LIMIT_SCOPE = 'reverse-geocode';
 const PROVIDER_RATE_LIMIT_IDENTIFIER = 'global';
 const PROVIDER_RATE_LIMIT_PER_SECOND = 1;

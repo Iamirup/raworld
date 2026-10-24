@@ -45,7 +45,7 @@ module.exports = {
   noun: 'Headline',
   display: {
     label: 'Find News by Keyword',
-    description: 'Finds current WorldMonitor digest headlines containing a keyword, most important first.',
+    description: 'Finds current RaWorld digest headlines containing a keyword, most important first.',
   },
   operation: {
     inputFields: [
@@ -71,7 +71,7 @@ module.exports = {
         required: false,
         default: 'full',
         choices: Object.fromEntries(VARIANTS.map((v) => [v, v])),
-        helpText: 'Which WorldMonitor digest to search: full (geopolitics, default), tech, finance, commodity or happy.',
+        helpText: 'Which RaWorld digest to search: full (geopolitics, default), tech, finance, commodity or happy.',
       },
     ],
     perform,

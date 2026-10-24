@@ -235,7 +235,7 @@ paths:
                                     - "countryCode": "US"
                                       "countryName": "US"
                                       "indicatorCode": "NY.GDP.MKTP.CD"
-                                      "indicatorName": "WorldMonitor Analyst"
+                                      "indicatorName": "RaWorld Analyst"
                                       "value": 1.5
                                       "year": 1
                                 "pagination":
@@ -363,7 +363,7 @@ paths:
                                 "prices":
                                     - "change": 1.5
                                       "commodity": "example"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "priceAt": 1717200000000
                                       "unit": "example"
@@ -872,7 +872,7 @@ paths:
                                         - "capacityMw": 1.5
                                           "year": 1
                                       "energySource": "example"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                             schema:
                                 $ref: '#/components/schemas/GetEnergyCapacityResponse'
                 "400":
@@ -1519,7 +1519,7 @@ paths:
                                           - "available": true
                                             "currency": "USD"
                                             "itemId": "example-id"
-                                            "itemName": "WorldMonitor Analyst"
+                                            "itemName": "RaWorld Analyst"
                                             "localPrice": 75.25
                                 "fetchedAt": "2026-01-15T12:00:00Z"
                                 "mostExpensiveCountry": "US"
@@ -4885,12 +4885,12 @@ components:
             type: apiKey
             in: header
             name: X-WorldMonitor-Key
-            description: User-issued WorldMonitor API key.
+            description: User-issued RaWorld API key.
         ApiKeyHeader:
             type: apiKey
             in: header
             name: X-Api-Key
-            description: Alias header for the WorldMonitor API key (X-WorldMonitor-Key).
+            description: Alias header for the RaWorld API key (X-WorldMonitor-Key).
         BearerAuth:
             type: http
             scheme: bearer

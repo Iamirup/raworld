@@ -27,7 +27,7 @@ describe('API Business redistribution rights', () => {
       assert.match(pricing, /OpenSky data is display-only/i, `${path} must name the provider exception`);
       assert.match(pricing, /R4[^\n]*not redistributable/i, `${path} must preserve the R4 boundary`);
       assert.doesNotMatch(pricing, /embed our data in what you sell/i, `${path} must not publish the old promise`);
-      assert.doesNotMatch(pricing, /embed WorldMonitor data in what you sell/i, `${path} must not publish the old license line`);
+      assert.doesNotMatch(pricing, /embed RaWorld data in what you sell/i, `${path} must not publish the old license line`);
     }
   });
 
@@ -36,7 +36,7 @@ describe('API Business redistribution rights', () => {
     const terms = read('docs/terms.mdx');
 
     for (const [label, text] of [['EULA', eula], ['Terms', terms]]) {
-      assert.match(text, /R1, R2, and R3 Outputs from every source World Monitor distributes/i, `${label} must state the grant`);
+      assert.match(text, /R1, R2, and R3 Outputs from every source RaWorld distributes/i, `${label} must state the grant`);
       assert.match(text, /OpenSky data is display-only/i, `${label} must name the provider exception`);
       assert.match(text, /R4[^\n]*not redistributable/i, `${label} must preserve the R4 boundary`);
       assert.doesNotMatch(text, /R3 rights are available per source on request/i, `${label} must remove the stale request gate`);

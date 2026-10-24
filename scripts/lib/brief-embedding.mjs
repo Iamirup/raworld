@@ -162,7 +162,7 @@ async function callEmbeddingsApi({ fetchImpl, apiKey, missingTitles, timeoutMs, 
         Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
         'HTTP-Referer': 'https://worldmonitor.app',
-        'X-Title': 'World Monitor',
+        'X-Title': 'RaWorld',
         'User-Agent': 'worldmonitor-digest/1.0',
       },
       body: JSON.stringify({

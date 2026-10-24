@@ -37,10 +37,6 @@
 
 import type { FunctionReference } from 'convex/server';
 import { toIso2 } from '../utils/country-codes';
-import {
-  getEntitlementState as _getEntitlementState,
-  hasTier as _hasTier,
-} from './entitlements';
 import { getCurrentClerkUser as _getCurrentClerkUser } from './clerk';
 import { subscribeAuthState as _subscribeAuthState } from './auth-state';
 import {
@@ -152,8 +148,6 @@ export interface ConvexClientLike {
 // hooks. Production callers never touch these.
 
 type ClerkUserGetter = () => { id: string } | null;
-type EntitlementStateGetter = () => { features?: { tier?: number } } | null;
-type HasTierFn = (minTier: number) => boolean;
 
 /**
  * Strongly-typed Convex API surface this module needs. Mirrors the
@@ -171,9 +165,6 @@ interface ConvexApiLike {
 
 let _clerkUserGetter: ClerkUserGetter = () =>
   _getCurrentClerkUser() as { id: string } | null;
-let _entitlementStateGetter: EntitlementStateGetter = () =>
-  _getEntitlementState();
-let _hasTierFn: HasTierFn = (n) => _hasTier(n);
 let _featureFlagOverride: boolean | null = null;
 let _convexClientGetter: () => Promise<ConvexClientLike | null> = async () =>
   (await _getConvexClient()) as ConvexClientLike | null;
@@ -210,8 +201,6 @@ let _waitForConvexAuthFn: (
  */
 export function _setDepsForTests(deps: {
   getCurrentClerkUser?: ClerkUserGetter | null;
-  getEntitlementState?: EntitlementStateGetter | null;
-  hasTier?: HasTierFn | null;
   featureFlagEnabled?: boolean | null;
   convexClient?: ConvexClientLike | null | 'force-null';
   convexApi?: ConvexApiLike | null | 'force-null';
@@ -221,13 +210,6 @@ export function _setDepsForTests(deps: {
     _clerkUserGetter =
       deps.getCurrentClerkUser ??
       (() => _getCurrentClerkUser() as { id: string } | null);
-  }
-  if (deps.getEntitlementState !== undefined) {
-    _entitlementStateGetter =
-      deps.getEntitlementState ?? (() => _getEntitlementState());
-  }
-  if (deps.hasTier !== undefined) {
-    _hasTierFn = deps.hasTier ?? ((n) => _hasTier(n));
   }
   if (deps.featureFlagEnabled !== undefined) {
     _featureFlagOverride = deps.featureFlagEnabled;
@@ -561,11 +543,8 @@ function dispatchCapDrop(kept: number, dropped: number): void {
  * entitlement loading.
  */
 export function serviceEntitlementState(): ServiceEntitlementState {
-  const user = _clerkUserGetter();
-  if (!user) return 'free';
-  const ent = _entitlementStateGetter();
-  if (ent === null) return 'loading';
-  return _hasTierFn(1) ? 'pro' : 'free';
+  // Every RaWorld install has the full feature set: no follow cap.
+  return 'pro';
 }
 
 // ---------------------------------------------------------------------------

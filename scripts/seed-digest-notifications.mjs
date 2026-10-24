@@ -165,8 +165,8 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY ?? '';
 const RESEND_FROM =
   normalizeResendSender(
     process.env.RESEND_FROM_BRIEF ?? process.env.RESEND_FROM_EMAIL,
-    'WorldMonitor Brief',
-  ) ?? 'WorldMonitor Brief <brief@worldmonitor.app>';
+    'RaWorld Brief',
+  ) ?? 'RaWorld Brief <brief@worldmonitor.app>';
 const DIGEST_LAST_RUN_KEY = 'digest:last-run';
 const DIGEST_LAST_RUN_META_KEY = 'seed-meta:digest:last-run';
 const DIGEST_LAST_RUN_TTL_SECONDS = 7 * 24 * 60 * 60;
@@ -1052,7 +1052,7 @@ function formatDigest(stories, nowMs, target = 'plain') {
     month: 'long', day: 'numeric', year: 'numeric',
   }).format(new Date(nowMs));
 
-  const lines = [esc(`WorldMonitor Daily Digest — ${dateStr}`), ''];
+  const lines = [esc(`RaWorld Daily Digest — ${dateStr}`), ''];
 
   const buckets = { critical: [], high: [], medium: [] };
   for (const s of stories) {
@@ -1476,16 +1476,16 @@ function buildChannelBodies(storyLists, aiSummary, magazineUrl) {
     ? String(magazineUrl).replace(/[<>|]/g, '')
     : '';
   const briefFooterPlain = magazineUrl
-    ? `\n\n${DIVIDER}\n\n📖 Open your WorldMonitor Brief magazine:\n${magazineUrl}`
+    ? `\n\n${DIVIDER}\n\n📖 Open your RaWorld Brief magazine:\n${magazineUrl}`
     : '';
   const briefFooterTelegram = magazineUrl
-    ? `\n\n${DIVIDER}\n\n📖 <a href="${telegramSafeUrl}">Open your WorldMonitor Brief magazine</a>`
+    ? `\n\n${DIVIDER}\n\n📖 <a href="${telegramSafeUrl}">Open your RaWorld Brief magazine</a>`
     : '';
   const briefFooterSlack = magazineUrl
-    ? `\n\n${DIVIDER}\n\n📖 <${slackSafeUrl}|Open your WorldMonitor Brief magazine>`
+    ? `\n\n${DIVIDER}\n\n📖 <${slackSafeUrl}|Open your RaWorld Brief magazine>`
     : '';
   const briefFooterDiscord = magazineUrl
-    ? `\n\n${DIVIDER}\n\n📖 [Open your WorldMonitor Brief magazine](${magazineUrl})`
+    ? `\n\n${DIVIDER}\n\n📖 [Open your RaWorld Brief magazine](${magazineUrl})`
     : '';
   if (!aiSummary) {
     return {
@@ -2573,7 +2573,7 @@ async function main() {
           // the long-form story list goes in the text message below so
           // it remains forwardable / quotable on its own.
           if (magazineUrl) {
-            const caption = `<b>WorldMonitor Brief — ${shortDate}</b>\n${formatterStories.length} ${formatterStories.length === 1 ? 'thread' : 'threads'} on the desk today.`;
+            const caption = `<b>RaWorld Brief — ${shortDate}</b>\n${formatterStories.length} ${formatterStories.length === 1 ? 'thread' : 'threads'} on the desk today.`;
             await sendTelegramBriefCarousel(rule.userId, ch.chatId, caption, magazineUrl);
           }
           ok = await sendTelegram(rule.userId, ch.chatId, telegramText);

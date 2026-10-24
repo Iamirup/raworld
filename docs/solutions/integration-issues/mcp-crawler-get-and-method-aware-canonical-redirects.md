@@ -176,6 +176,6 @@ and for a **live protocol endpoint**, prefer the stronger invariant: emit no cac
 
 ## Related Issues
 
-- [Issue #4802](https://github.com/koala73/worldmonitor/issues/4802) / [PR #4808](https://github.com/koala73/worldmonitor/pull/4808): removed an overly narrow Origin allowlist from `/mcp`.
-- [PR #4809](https://github.com/koala73/worldmonitor/pull/4809): made the static MCP server card cacheable. This fix keeps that cacheability and adds the `Vary` that makes it safe.
+- [Issue #4802](https://github.com/Iamirup/raworld/issues/4802) / [PR #4808](https://github.com/Iamirup/raworld/pull/4808): removed an overly narrow Origin allowlist from `/mcp`.
+- [PR #4809](https://github.com/Iamirup/raworld/pull/4809): made the static MCP server card cacheable. This fix keeps that cacheability and adds the `Vary` that makes it safe.
 - #4937 / #4938: the uncorrelatable-response and redirected-POST outages that `mcp-live-smoke.mjs` was built for. The cache replay found here is #4937's failure mode arriving through the CDN.

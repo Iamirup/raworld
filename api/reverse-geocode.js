@@ -8,7 +8,7 @@ import { geocodeCacheKey } from './_geocode-cache-key.js';
 export const config = { runtime: 'edge' };
 
 const NOMINATIM_BASE = 'https://nominatim.openstreetmap.org/reverse';
-const CHROME_UA = 'WorldMonitor/2.0 (https://worldmonitor.app)';
+const CHROME_UA = 'RaWorld/2.0 (https://worldmonitor.app)';
 
 // Mirrors ENDPOINT_RATE_POLICIES['/api/reverse-geocode'] in
 // server/_shared/rate-limit.ts. api/*.js cannot import ../server/ (AGENTS.md),

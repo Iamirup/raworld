@@ -1,9 +1,9 @@
 ---
 title: "Design Philosophy"
-description: "Design principles, intelligence tradecraft, and algorithmic decisions behind World Monitor — how the map-first dashboard is engineered and why."
+description: "Design principles, intelligence tradecraft, and algorithmic decisions behind RaWorld — how the map-first dashboard is engineered and why."
 ---
 
-> **Looking for the system reference?** See [`ARCHITECTURE.md`](https://github.com/koala73/worldmonitor/blob/main/ARCHITECTURE.md) for deployment topology, directory layout, caching layers, CI/CD, and contributor how-to guides.
+> **Looking for the system reference?** See [`ARCHITECTURE.md`](https://github.com/Iamirup/raworld/blob/main/ARCHITECTURE.md) for deployment topology, directory layout, caching layers, CI/CD, and contributor how-to guides.
 
 ---
 
@@ -31,7 +31,7 @@ description: "Design principles, intelligence tradecraft, and algorithmic decisi
 
 ## Internationalization and Search Indexing
 
-World Monitor uses **application localization** for the dashboard and Pro
+RaWorld uses **application localization** for the dashboard and Pro
 surfaces, and **indexable localized documents** for the welcome landing. A
 `?lang=` parameter remains supported as shareable user preference state on `/`,
 `/dashboard`, and `/pro`: the client loads the requested interface dictionary,
@@ -109,7 +109,7 @@ Several non-obvious algorithmic choices are worth explaining:
 
 ### Vanilla TypeScript Architecture
 
-World Monitor is written in vanilla TypeScript — no frontend framework (React, Vue, Svelte, Angular) is used. This is a deliberate architectural decision, not an oversight.
+RaWorld is written in vanilla TypeScript — no frontend framework (React, Vue, Svelte, Angular) is used. This is a deliberate architectural decision, not an oversight.
 
 **Why no framework:**
 
@@ -316,7 +316,7 @@ Seeds use `cachedFetchJson` with in-flight promise coalescing — if a seed run 
 
 ### Edge Function Architecture
 
-World Monitor uses Vercel Edge Functions as a lightweight API layer, split into two generations. Legacy endpoints in `api/*.js` each handle a single data source concern — proxying, caching, or transforming external APIs. The newer proto-first endpoints use **per-domain thin entry points**, each importing only its own handler module. This replaced the original monolithic gateway that loaded every domain on each cold start. Each domain's function tree-shakes to include only its dependencies, reducing cold-start time by ~85% (sub-100ms for most endpoints vs. 500ms+ with the monolithic handler). A shared `server/gateway.ts` provides common routing logic. Both generations coexist, with new features built proto-first. This architecture avoids a monolithic backend while keeping API keys server-side:
+RaWorld uses Vercel Edge Functions as a lightweight API layer, split into two generations. Legacy endpoints in `api/*.js` each handle a single data source concern — proxying, caching, or transforming external APIs. The newer proto-first endpoints use **per-domain thin entry points**, each importing only its own handler module. This replaced the original monolithic gateway that loaded every domain on each cold start. Each domain's function tree-shakes to include only its dependencies, reducing cold-start time by ~85% (sub-100ms for most endpoints vs. 500ms+ with the monolithic handler). A shared `server/gateway.ts` provides common routing logic. Both generations coexist, with new features built proto-first. This architecture avoids a monolithic backend while keeping API keys server-side:
 
 - **RSS Proxy** — domain-allowlisted proxy for the registered feed catalog, preventing CORS issues and hiding origin servers. The Edge proxy and Railway relay both keep redirects manual and re-check the RSS domain allowlist before every hop. Feeds from domains that block Vercel IPs are automatically routed through the Railway relay.
 - **AI Pipeline** — Ollama and OpenRouter summarization edge functions with Redis deduplication, so identical headlines across concurrent users only trigger one LLM call. The classify-event endpoint pauses its queue on 500 errors to avoid wasting API quota.
@@ -889,7 +889,7 @@ This ensures a single escalation (e.g., Ukraine military flights + protests + ne
 
 ## Service Status Monitoring
 
-The Service Status panel tracks the operational health of external services that WorldMonitor users may depend on.
+The Service Status panel tracks the operational health of external services that RaWorld users may depend on.
 
 ### Monitored Services
 

@@ -34,7 +34,7 @@ const STYLES = `
 const BODY = `
   <div class="head">
     <div class="title">Chokepoint Monitor</div>
-    <div class="badge">WorldMonitor Maritime</div>
+    <div class="badge">RaWorld Maritime</div>
   </div>
   <div class="empty" id="empty">Waiting for chokepoint data…</div>
   <div id="card" style="display:none">
@@ -164,7 +164,7 @@ const RENDER = `
 `;
 
 export const CHOKEPOINT_MONITOR_APP_HTML = buildAppHtml({
-  title: 'Chokepoint Monitor — WorldMonitor',
+  title: 'Chokepoint Monitor — RaWorld',
   appName: 'worldmonitor-chokepoint-monitor',
   styles: STYLES,
   body: BODY,

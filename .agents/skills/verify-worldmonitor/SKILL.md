@@ -1,13 +1,13 @@
 ---
 name: verify-worldmonitor
-description: Verify WorldMonitor dashboard behavior with existing browser tests or a scoped manual drive. Use for panels, map layers, settings, search, country briefs, boot, or dashboard screenshots.
+description: Verify RaWorld dashboard behavior with existing browser tests or a scoped manual drive. Use for panels, map layers, settings, search, country briefs, boot, or dashboard screenshots.
 metadata:
   internal: true
 ---
 
-# Verify WorldMonitor
+# Verify RaWorld
 
-WorldMonitor's primary surface is a browser dashboard: a Vite/TypeScript SPA served at `/dashboard`, with a map, a panel grid, a settings overlay, and a command palette. This skill launches one isolated instance of it, drives a feature the way a user does, and leaves evidence behind.
+RaWorld's primary surface is a browser dashboard: a Vite/TypeScript SPA served at `/dashboard`, with a map, a panel grid, a settings overlay, and a command palette. This skill launches one isolated instance of it, drives a feature the way a user does, and leaves evidence behind.
 
 This skill proves browser behavior. Use the [code and check map](../../../AGENTS.md#find-the-code-and-its-checks) for backend, desktop, worker, or documentation changes.
 

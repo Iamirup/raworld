@@ -71,7 +71,7 @@ import {
 loadEnvFile(import.meta.url);
 
 const MASTER_TAIL_BYTES = 65_536;
-const USER_AGENT = 'WorldMonitor/1.0 (+https://www.worldmonitor.app)';
+const USER_AGENT = 'RaWorld/1.0 (+https://www.worldmonitor.app)';
 const REQUEST_TIMEOUT_MS = 30_000;
 // The state key runs ~4MB. The 5s default timed out its body read on the
 // first attempt of every Railway run and exhausted all retries 1 run in 8.

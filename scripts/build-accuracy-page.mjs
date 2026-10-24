@@ -192,18 +192,18 @@ function horizonGradesState(section, generatedAt) {
   return { status: 'captured', grades };
 }
 
-const ISSUE_URL = 'https://github.com/koala73/worldmonitor/issues';
+const ISSUE_URL = 'https://github.com/Iamirup/raworld/issues';
 const CONFIDENCE_INTERVAL_ISSUE = `${ISSUE_URL}/7072`;
 const DATASET_IDENTIFIER = 'forecast-resolution-scorecard';
 const DATASET_LICENSE = {
   '@type': 'CreativeWork',
-  name: 'World Monitor Terms of Service (27 July 2026)',
+  name: 'RaWorld Terms of Service (27 July 2026)',
   url: 'https://www.worldmonitor.app/docs/terms',
 };
 const WORLD_MONITOR_ORG = Object.freeze({
   '@id': 'https://www.worldmonitor.app/#organization',
   '@type': 'Organization',
-  name: 'World Monitor',
+  name: 'RaWorld',
   url: 'https://www.worldmonitor.app/',
 });
 const SCHEMA_ORG_CONTEXT_URL = 'https://schema.org';
@@ -224,8 +224,8 @@ const ATTRIBUTABLE_PUBLISHED = 'attributable published forecasts';
 const ledgerIsPublished = (scorecard) => isFiniteNumber(scorecard?.schemaVersion) && scorecard.schemaVersion >= PUBLISHED_LEDGER_SCHEMA;
 const BRIER_DELTA_CONVENTION = 'The published delta is the market Brier minus the forecast Brier, and lower is better, so a negative delta means the market scored better.';
 
-const META_DESCRIPTION = 'World Monitor grades its own forecasts against always forecasting how often events actually happened: skill scores, Brier and log scores, and sample sizes.';
-const AUDIT_META_DESCRIPTION = 'World Monitor\'s forecast accuracy record is under audit. Its scores are withdrawn while scoring errors are corrected; the method and the receipts stay public.';
+const META_DESCRIPTION = 'RaWorld grades its own forecasts against always forecasting how often events actually happened: skill scores, Brier and log scores, and sample sizes.';
+const AUDIT_META_DESCRIPTION = 'RaWorld\'s forecast accuracy record is under audit. Its scores are withdrawn while scoring errors are corrected; the method and the receipts stay public.';
 
 export function auditIssueUrl(audit) {
   return `${ISSUE_URL}/${audit.issue}`;
@@ -490,7 +490,7 @@ const REFERENCE = 'always forecasting how often these events actually happened';
 const SKILL_LEADS = Object.freeze({
   better: `Better than ${REFERENCE}.`,
   worse: `Worse than ${REFERENCE}.`,
-  unclear: `Cannot tell yet whether World Monitor beats ${REFERENCE}.`,
+  unclear: `Cannot tell yet whether RaWorld beats ${REFERENCE}.`,
 });
 
 function skillIntervalPhrase(reading) {
@@ -678,19 +678,19 @@ function headlineResultSentence(scorecard, interval) {
   const brierPhrase = `${formatScore(skill.brier)}${interval ? ` (${scoreIntervalText(interval)})` : ''}`;
   const reading = baseRateSkill(scorecard);
   if (!reading || reading.bss === null) {
-    return `${windowPhrase}, World Monitor's headline cohort scores a Brier of ${brierPhrase} across ${formatCount(skill.count)} scored forecasts. This capture cannot compare that with ${REFERENCE}.`;
+    return `${windowPhrase}, RaWorld's headline cohort scores a Brier of ${brierPhrase} across ${formatCount(skill.count)} scored forecasts. This capture cannot compare that with ${REFERENCE}.`;
   }
   const against = `against ${formatScore(reading.referenceBrier)} for always forecasting the actual rate, ${rateOf(reading.rate, reading.count, 'forecasts')}${intervalPhrase(proportionEstimate(reading.yesCount, reading.count))}`;
   if (!reading.measurable) {
-    return `${windowPhrase}, World Monitor's headline cohort has ${formatCount(reading.count)} scored forecasts from ${familyPhrase(reading)}: a small sample, too few to judge whether it beats ${REFERENCE}. On it the Brier score is ${brierPhrase}, ${against}.`;
+    return `${windowPhrase}, RaWorld's headline cohort has ${formatCount(reading.count)} scored forecasts from ${familyPhrase(reading)}: a small sample, too few to judge whether it beats ${REFERENCE}. On it the Brier score is ${brierPhrase}, ${against}.`;
   }
   const outcome = reading.verdict === 'unclear'
-    ? `it is not yet clear whether World Monitor's headline forecasts beat ${REFERENCE}`
-    : `World Monitor's headline forecasts were ${reading.verdict} than ${REFERENCE}`;
+    ? `it is not yet clear whether RaWorld's headline forecasts beat ${REFERENCE}`
+    : `RaWorld's headline forecasts were ${reading.verdict} than ${REFERENCE}`;
   return `${windowPhrase}, ${outcome}: a skill score of ${formatSkill(reading.bss)}${skillIntervalPhrase(reading)}, where ${SKILL_SCALE}, over ${formatCount(reading.count)} scored forecasts from ${familyPhrase(reading)}. Their Brier score was ${brierPhrase}, ${against}.`;
 }
 
-const NEGATIVE_SCOPE_LEAD = 'This page does not publish confidence intervals for the log scores or the per-domain skill scores yet. Brier scores and the headline skill score carry a 95% interval, resampled by forecast family, when the scorecard includes one, and each score is published with the number of forecasts behind it and whether they come from enough forecast families to judge. Void rates, calibration-bucket rates, the scored share of the ledger and the actual rates carry a 95% Wilson interval. World Monitor no longer publishes its 24-hour, 7-day and 30-day projections (since 2026-10-07), and removing them changed none of the scores here. ';
+const NEGATIVE_SCOPE_LEAD = 'This page does not publish confidence intervals for the log scores or the per-domain skill scores yet. Brier scores and the headline skill score carry a 95% interval, resampled by forecast family, when the scorecard includes one, and each score is published with the number of forecasts behind it and whether they come from enough forecast families to judge. Void rates, calibration-bucket rates, the scored share of the ledger and the actual rates carry a 95% Wilson interval. RaWorld no longer publishes its 24-hour, 7-day and 30-day projections (since 2026-10-07), and removing them changed none of the scores here. ';
 const NEGATIVE_SCOPE_TAIL = 'Individual forecasts appear only as receipts for the most recently resolved published forecasts; judge reasoning, the full news archive and internal data locations are not published.';
 // The grading claim holds only for an edition that carries the grades (#9057).
 function accuracyNegativeScope(gradesCaptured) {
@@ -994,7 +994,7 @@ function receiptsSection(scorecard, escapeHtml, unverified = false) {
   }
   return `${heading}
       <div class="table-scroll"><table data-forecast-receipts${unverified ? ' data-receipts-unverified' : ''}>
-        <caption>${unverified ? `${escapeHtml(UNVERIFIED_RECEIPTS)} ` : ''}The ${escapeHtml(formatCount(rows.length))} most recently resolved ${ATTRIBUTABLE_PUBLISHED}, newest first, leaving out experimental, synthetic and unattributed origins, voids included. ${escapeHtml(unverified ? UNVERIFIED_SCORED_CHANCE : SCORED_CHANCE)} A hard forecast is settled by reading a World Monitor data feed; a judged one by AI judges reading archived news, and the linked item is one they cited. Dates are UTC.</caption>
+        <caption>${unverified ? `${escapeHtml(UNVERIFIED_RECEIPTS)} ` : ''}The ${escapeHtml(formatCount(rows.length))} most recently resolved ${ATTRIBUTABLE_PUBLISHED}, newest first, leaving out experimental, synthetic and unattributed origins, voids included. ${escapeHtml(unverified ? UNVERIFIED_SCORED_CHANCE : SCORED_CHANCE)} A hard forecast is settled by reading a RaWorld data feed; a judged one by AI judges reading archived news, and the linked item is one they cited. Dates are UTC.</caption>
         <thead><tr><th scope="col">Forecast</th><th scope="col">Made</th><th scope="col">${unverified ? 'Chance scored' : 'Chance given'}</th><th scope="col">Outcome</th><th scope="col">Resolved</th><th scope="col">How it was settled</th></tr></thead>
         <tbody>
 ${rows.map((receipt) => `          <tr data-receipt-outcome="${escapeHtml(receipt.outcome)}"><th scope="row">${escapeHtml(receipt.question)}</th><td>${escapeHtml(utcDate(receipt.forecastAt))}</td><td><span data-probability-band>${escapeHtml(isFiniteNumber(receipt.probability) ? `${Number((receipt.probability * 100).toFixed(1))}%` : 'Not recorded')}</span></td><td>${escapeHtml(RECEIPT_OUTCOME_LABELS[receipt.outcome])}</td><td>${escapeHtml(utcDate(receipt.resolvedAt))}</td><td>${receiptSourceHtml(receipt, escapeHtml)}</td></tr>`).join('\n')}
@@ -1166,7 +1166,7 @@ function marketAlertsSection(marketAlerts, escapeHtml, audited = false) {
   const hours = isFiniteNumber(marketAlerts.windowHours) ? marketAlerts.windowHours : 6;
   const days = isFiniteNumber(marketAlerts.rollingWindowDays) ? marketAlerts.rollingWindowDays : 30;
   const generated = isFiniteNumber(marketAlerts.generatedAt) ? ` and were generated ${formatUtcDateTime(marketAlerts.generatedAt)}` : '';
-  const intro = `      <p>World Monitor raises a market alert when a market or a prediction market makes an unusual move. Some alerts fire when there is no news behind the move, and one type fires when related news is already out. Each alert is checked ${escapeHtml(formatCount(hours))} hours later. It counts as a hit if an established news outlet published a new story about the same company, commodity or topic in that time. The same check also runs on the same market for a stretch of the same length one day earlier, when no alert was raised, and that gives the base rate. An alert type is useful only when its hit rate is clearly above the base rate on the same alerts. The figures cover the last ${escapeHtml(formatCount(days))} days${escapeHtml(generated)}.</p>`;
+  const intro = `      <p>RaWorld raises a market alert when a market or a prediction market makes an unusual move. Some alerts fire when there is no news behind the move, and one type fires when related news is already out. Each alert is checked ${escapeHtml(formatCount(hours))} hours later. It counts as a hit if an established news outlet published a new story about the same company, commodity or topic in that time. The same check also runs on the same market for a stretch of the same length one day earlier, when no alert was raised, and that gives the base rate. An alert type is useful only when its hit rate is clearly above the base rate on the same alerts. The figures cover the last ${escapeHtml(formatCount(days))} days${escapeHtml(generated)}.</p>`;
   // The rules come from the capture, so a rule change after it never sits
   // beside figures scored under the old rules.
   const methodology = typeof marketAlerts.methodology === 'string' ? marketAlerts.methodology.trim() : '';
@@ -1202,7 +1202,7 @@ function cohortSection(skill, unknownSentence, escapeHtml) {
 // whose Brier is rate × (1 − rate). Outcomes in this ledger are rare, so that
 // null is far stricter than the 0.25 coin flip.
 const PROBABILITY_BANDS = Object.freeze([
-  { lead: 'When World Monitor put the chance', phrase: 'under 20%', subject: 'the forecast', from: 0, below: 0.2 },
+  { lead: 'When RaWorld put the chance', phrase: 'under 20%', subject: 'the forecast', from: 0, below: 0.2 },
   { lead: 'When it put the chance', phrase: 'between 20% and 50%', subject: 'it', from: 0.2, below: 0.5 },
   { lead: 'When it put the chance at', phrase: '50% or more', subject: 'it', from: 0.5, below: Infinity },
 ]);
@@ -1269,9 +1269,9 @@ function marketVerdictSentence(vsMarketSkill) {
   }
   const delta = Number(vsMarketSkill.brierDelta);
   const closer = delta < 0
-    ? "the market's odds were closer to what happened than World Monitor's"
+    ? "the market's odds were closer to what happened than RaWorld's"
     : delta > 0
-      ? "World Monitor's odds were closer to what happened than the market's"
+      ? "RaWorld's odds were closer to what happened than the market's"
       : 'the two were equally close to what happened';
   return `In the ${formatCount(vsMarketSkill.count)} graded cases of every origin, unpublished shadow bets included, that carried a liquid prediction market's price, ${closer}. A market matched to a forecast, rather than one the forecast bet on, can ask a narrower or broader question.`;
 }
@@ -1303,7 +1303,7 @@ function skillVerdict(scorecard) {
   if (reading.bss === null) {
     return { verdict: 'none', lead: 'No skill to report yet.', text: `${tally} Every one went the same way, so always forecasting how often they happened was never wrong and there is nothing to beat.` };
   }
-  const errors = `Always forecasting that ${formatPercent(reading.rate)} would have had an error of ${formatScore(reading.referenceBrier)}. World Monitor's error was ${formatScore(reading.brier)}.`;
+  const errors = `Always forecasting that ${formatPercent(reading.rate)} would have had an error of ${formatScore(reading.referenceBrier)}. RaWorld's error was ${formatScore(reading.brier)}.`;
   const sample = `They come from ${familyPhrase(reading)}.`;
   if (!reading.measurable) {
     return {
@@ -1337,13 +1337,13 @@ ${paragraphs.map((paragraph) => `        <p>${paragraph}</p>`).join('\n')}
       </section>
       <dl data-accuracy-definitions>
         <dt>Brier score</dt>
-        <dd>${escapeHtml('The error figure used above: the average squared gap between the chance World Monitor gave and what happened. 0 is perfect and lower is better. Answering even odds to everything scores 0.25, a coin flip.')}</dd>
+        <dd>${escapeHtml('The error figure used above: the average squared gap between the chance RaWorld gave and what happened. 0 is perfect and lower is better. Answering even odds to everything scores 0.25, a coin flip.')}</dd>
         <dt>Actual rate</dt>
         <dd>${escapeHtml('How often a set of forecasts came true in the period scored, whatever the question. It is known only afterwards, so always forecasting it is a hindsight benchmark: it uses the right overall rate and nothing about any single question. Its Brier score is the rate times one minus the rate. Beating it is the first test of skill.')}</dd>
         <dt>Skill score</dt>
-        <dd>${escapeHtml(`One minus World Monitor's Brier score divided by the actual-rate Brier score, over the same forecasts: ${SKILL_SCALE}. Its 95% interval resamples whole forecast families.`)}</dd>
+        <dd>${escapeHtml(`One minus RaWorld's Brier score divided by the actual-rate Brier score, over the same forecasts: ${SKILL_SCALE}. Its 95% interval resamples whole forecast families.`)}</dd>
         <dt>Forecast family</dt>
-        <dd>${escapeHtml('One forecast question that World Monitor issues again over time, such as the same threshold for the same country. Its forecasts share a question and an outcome, so a family counts once when deciding whether a sample is large enough. A family is one forecast id, which only approximates independence: the same question is sometimes issued under more than one id.')}</dd>
+        <dd>${escapeHtml('One forecast question that RaWorld issues again over time, such as the same threshold for the same country. Its forecasts share a question and an outcome, so a family counts once when deciding whether a sample is large enough. A family is one forecast id, which only approximates independence: the same question is sometimes issued under more than one id.')}</dd>
       </dl>`;
 }
 
@@ -1371,7 +1371,7 @@ function horizonGradeRow(row, escapeHtml) {
 // the headline's family minimums; below them it prints its counts.
 function horizonSection(horizonGrades, escapeHtml) {
   const heading = '      <h2 id="horizon-grades">Grades for the 24-hour, 7-day and 30-day projections</h2>';
-  const intro = `      <p data-horizon-grades-intro>World Monitor stopped publishing these projections on 2026-10-07 and still grades the ones it made. <strong>A projection is not a probability.</strong> It comes from a fixed, hand-set curve for each domain, and each set of curves has a version number, shown beside every grade. A grade scores the projection as if it were a probability at the moment its horizon names, so a poor grade can come from the curves rather than the forecast. These grades are never pooled into the scores above.</p>`;
+  const intro = `      <p data-horizon-grades-intro>RaWorld stopped publishing these projections on 2026-10-07 and still grades the ones it made. <strong>A projection is not a probability.</strong> It comes from a fixed, hand-set curve for each domain, and each set of curves has a version number, shown beside every grade. A grade scores the projection as if it were a probability at the moment its horizon names, so a poor grade can come from the curves rather than the forecast. These grades are never pooled into the scores above.</p>`;
   if (horizonGrades.status !== 'captured') {
     const reason = horizonGrades.status === 'other-run'
       ? 'This edition read the projection grades from a different scoring run than the record above, so none are shown.'
@@ -1404,14 +1404,14 @@ function limitsSection(omittedBuckets, gradesCaptured, escapeHtml) {
       <ul>
         <li>${escapeHtml(bucketSentence)}</li>
         <li>No confidence intervals on the log scores or the per-domain skill scores, so the domain table does not say which domains beat their actual rate. An interval on a mean score needs every forecast's own score, which the public scorecard does not carry, and this page will not invent one from the averages. The Brier scores and the headline skill score carry a 95% interval when the scorecard includes one, computed by the scoring service by resampling whole forecast families. Void rates, calibration-bucket rates, the scored share of the ledger and the actual rates in the summary do carry a 95% Wilson interval, because a rate's interval needs only the two counts printed beside it. Tracking: <a href="${escapeHtml(CONFIDENCE_INTERVAL_ISSUE)}">issue #7072</a>.</li>
-        <li>No 24-hour, 7-day or 30-day projection values. World Monitor no longer publishes those projections, as of 2026-10-07, and removing them changed none of the scores on this page. ${gradesCaptured ? 'Their grades are in the <a href="#horizon-grades">projection grades</a> section, each one only once its sample is large enough.' : 'This edition carries no grades for them; the <a href="#horizon-grades">projection grades</a> section says why.'}</li>
+        <li>No 24-hour, 7-day or 30-day projection values. RaWorld no longer publishes those projections, as of 2026-10-07, and removing them changed none of the scores on this page. ${gradesCaptured ? 'Their grades are in the <a href="#horizon-grades">projection grades</a> section, each one only once its sample is large enough.' : 'This edition carries no grades for them; the <a href="#horizon-grades">projection grades</a> section says why.'}</li>
         <li>Individual forecasts appear only as the receipts for the most recently resolved ones. The judges' reasoning, the full news archive they read and internal data locations are not published.</li>
       </ul>`;
 }
 
 function relatedSection(baseUrl, tpl) {
   const { escapeHtml, absoluteUrl } = tpl;
-  return `      <a class="cta" href="${escapeHtml(absoluteUrl(baseUrl, '/dashboard'))}">Open the live forecast panel in World Monitor →</a>
+  return `      <a class="cta" href="${escapeHtml(absoluteUrl(baseUrl, '/dashboard'))}">Open the live forecast panel in RaWorld →</a>
       <h2>Related reference</h2>
       <ul class="related">
         <li><a href="/blog/posts/ai-forecast-accuracy-brier-scorecard-worldmonitor/">Why we publish the ledger</a></li>
@@ -1430,7 +1430,7 @@ function provenanceLine(state, dataset, snapshotPath, escapeHtml, audited = fals
     : audited
       ? ` The raw figures in the download were generated ${generated} and read on ${read}, and are under audit.`
       : ` Numbers generated ${generated} and read on ${read}.`;
-  return `      <p class="source" data-snapshot-source="${escapeHtml(snapshotPath)}">Download: <a href="${escapeHtml(dataset.href)}">${escapeHtml(dataset.filename)}</a>. Source: World Monitor forecast scorecard snapshot.${dated} Live results come from the credentialed forecast scorecard endpoint, which this page freezes so it can be read without one.</p>`;
+  return `      <p class="source" data-snapshot-source="${escapeHtml(snapshotPath)}">Download: <a href="${escapeHtml(dataset.href)}">${escapeHtml(dataset.filename)}</a>. Source: RaWorld forecast scorecard snapshot.${dated} Live results come from the credentialed forecast scorecard endpoint, which this page freezes so it can be read without one.</p>`;
 }
 
 function auditSection(audit, escapeHtml) {
@@ -1448,7 +1448,7 @@ function auditSection(audit, escapeHtml) {
 // so the audit does not touch it, and it is a count, not a score.
 function auditedBody({ state, baseUrl, tpl, dataset, snapshotPath, heading, audit }) {
   const { escapeHtml } = tpl;
-  const lede = '      <p class="lede">World Monitor logs every forecast it publishes and aims to score each one once its outcome is known. While the audit below is open, this page publishes no scores.</p>';
+  const lede = '      <p class="lede">RaWorld logs every forecast it publishes and aims to score each one once its outcome is known. While the audit below is open, this page publishes no scores.</p>';
   if (!state.scorecard) {
     return `${heading}
 ${lede}
@@ -1477,7 +1477,7 @@ function accuracyBody({ state, baseUrl, tpl, dataset, snapshotPath, audit }) {
 
   if (!state.scorecard) {
     return `${heading}
-      <p class="lede">World Monitor scores its own forecasts with Brier and log scores over a rolling window and publishes the result here. This edition has no numbers to publish.</p>
+      <p class="lede">RaWorld scores its own forecasts with Brier and log scores over a rolling window and publishes the result here. This edition has no numbers to publish.</p>
 ${recordStatus(state, escapeHtml)}
       <p>No score, calibration table or domain breakdown is shown. The next weekly refresh republishes the record.</p>
 ${relatedSection(baseUrl, tpl)}
@@ -1492,7 +1492,7 @@ ${provenanceLine(state, dataset, snapshotPath, escapeHtml)}`;
   const brierIntervals = shownBrierIntervals(state);
 
   return `${heading}
-      <p class="lede">World Monitor scores every forecast it publishes once the outcome is knowable, over a rolling ${escapeHtml(formatCount(scorecard.rollingWindowDays))}-day window. This is the standing record: the scores, the calibration, the sample sizes, and the parts that are not measurable yet.</p>
+      <p class="lede">RaWorld scores every forecast it publishes once the outcome is knowable, over a rolling ${escapeHtml(formatCount(scorecard.rollingWindowDays))}-day window. This is the standing record: the scores, the calibration, the sample sizes, and the parts that are not measurable yet.</p>
 ${verdictSection(scorecard, escapeHtml)}
 ${recordStatus(state, escapeHtml)}
 ${state.coverage === 'insufficient' ? '' : `${headlineTiles(scorecard, brierIntervals, escapeHtml)}\n${headlineResultParagraph(scorecard, brierIntervals.skill, escapeHtml)}`}      <p><strong>Lower Brier is better.</strong> A Brier score is the mean squared error of a probability forecast, so 0 is perfect and answering 0.5 to everything scores 0.25. Log score is harsher on confident mistakes, and lower is better there too.</p>
@@ -1530,10 +1530,10 @@ function accuracyDatasetLd({ baseUrl, tpl, state, dataset, audit }) {
     '@context': SCHEMA_ORG_CONTEXT_URL,
     '@type': 'Dataset',
     '@id': `${canonical}#dataset`,
-    name: 'World Monitor forecast resolution scorecard',
+    name: 'RaWorld forecast resolution scorecard',
     description: audit
       ? `${accuracyAuditNotice(audit, 'in this dataset')} Findings: ${auditIssueUrl(audit)}. The download keeps the raw scorecard fields as captured, flagged underAudit; they are not reliable while the audit is open.`
-      : 'Aggregate accuracy of World Monitor forecasts over a rolling window: skill against always forecasting how often the forecast events actually happened, Brier and log scores for the headline cohort and for every scored entry, calibration buckets with their sample sizes, per-domain and per-origin breakdowns, void rates, a head-to-head against liquid prediction markets, and receipts for the most recently resolved forecasts. Frozen from the credentialed forecast scorecard API into a committed snapshot, so the published figures and the machine-readable distribution always agree.',
+      : 'Aggregate accuracy of RaWorld forecasts over a rolling window: skill against always forecasting how often the forecast events actually happened, Brier and log scores for the headline cohort and for every scored entry, calibration buckets with their sample sizes, per-domain and per-origin breakdowns, void rates, a head-to-head against liquid prediction markets, and receipts for the most recently resolved forecasts. Frozen from the credentialed forecast scorecard API into a committed snapshot, so the published figures and the machine-readable distribution always agree.',
     identifier: DATASET_IDENTIFIER,
     keywords: [
       'forecast accuracy',
@@ -1570,7 +1570,7 @@ export function renderAccuracyPage({ baseUrl, tpl, state, lastmod, dataset, data
   return pageDocument({
     baseUrl,
     path: ACCURACY_PAGE_PATH,
-    title: 'Forecast Accuracy Scorecard | World Monitor',
+    title: 'Forecast Accuracy Scorecard | RaWorld',
     description,
     lastmod,
     ogType: 'article',

@@ -69,10 +69,10 @@ export function projectCrossBorderSnapshots(snapshots: Record<string, unknown>, 
           && (situation ? month?.month === surgeMonth && raw.accelerating === true : raw.surge === true), stale,
         source: source.name, sourceUrl: text(situation?.sourceUrl) || source.url, license: source.license, licenseUrl: source.licenseUrl,
         notice: source.id === 'frontex'
-          ? 'Source: Frontex. Used with permission. Counts are detections, not unique people. WorldMonitor aggregates nationality and border-type rows by route. No provider endorsement.'
+          ? 'Source: Frontex. Used with permission. Counts are detections, not unique people. RaWorld aggregates nationality and border-type rows by route. No provider endorsement.'
           : source.id === 'panama'
-            ? 'Source: Servicio Nacional de Migración, Panamá. Used with permission. WorldMonitor extracts complete monthly Darién arrival totals from the official report. Figures are preliminary and subject to revision. No provider endorsement.'
-            : 'WorldMonitor derives and normalizes this view from the linked sources. No provider endorsement. Contains public sector information licensed under the Open Government Licence v3.0 where the source is UK Home Office.',
+            ? 'Source: Servicio Nacional de Migración, Panamá. Used with permission. RaWorld extracts complete monthly Darién arrival totals from the official report. Figures are preliminary and subject to revision. No provider endorsement.'
+            : 'RaWorld derives and normalizes this view from the linked sources. No provider endorsement. Contains public sector information licensed under the Open Government Licence v3.0 where the source is UK Home Office.',
         location: latitude !== undefined && longitude !== undefined && Math.abs(latitude) <= 90 && Math.abs(longitude) <= 180 ? { latitude, longitude } : undefined,
       });
       status.contentAt = Math.max(status.contentAt, contentAt);

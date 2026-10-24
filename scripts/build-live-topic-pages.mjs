@@ -25,7 +25,7 @@ ${section}
 ${page.explainer}
 ${renderLiveDataLinks(LIVE_PAGE_RELATED[page.slug] ?? [], escapeHtml, 'Related live data')}
       <h2>See it on the dashboard</h2>
-      <p>The same data appears in the ${escapeHtml(page.dashboardPanel)} view of the <a href="/dashboard">World Monitor dashboard</a>, next to the map, alerts and related panels. Other live checks are listed on the <a href="/tools/">live tools page</a>.</p>`;
+      <p>The same data appears in the ${escapeHtml(page.dashboardPanel)} view of the <a href="/dashboard">RaWorld dashboard</a>, next to the map, alerts and related panels. Other live checks are listed on the <a href="/tools/">live tools page</a>.</p>`;
   return pageDocument({
     baseUrl,
     path: page.path,

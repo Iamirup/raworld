@@ -114,14 +114,14 @@ describe('research report corpus (#5668)', () => {
     assert.match(html, new RegExp(`<h1>${report.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</h1>`));
     assert.equal(reportLd.name, report.title);
     assert.equal(dataJson.title, report.title);
-    // The "World Monitor Research" byline stays on the page and in the download;
+    // The "RaWorld Research" byline stays on the page and in the download;
     // in the entity graph author/publisher fold into the canonical Organization
     // so the page does not publish a second org claiming the same homepage
     // (#7459b). Assert both roles against GENERATED output, not generator source.
     const CANONICAL_ORG_ROLE = {
       '@id': 'https://www.worldmonitor.app/#organization',
       '@type': 'Organization',
-      name: 'World Monitor',
+      name: 'RaWorld',
       url: 'https://www.worldmonitor.app/',
     };
     assert.deepEqual(reportLd.author, CANONICAL_ORG_ROLE);
@@ -238,7 +238,7 @@ describe('research report corpus (#5668)', () => {
     assert.match(html, new RegExp(`og:image" content="https://www\\.worldmonitor\\.app/research-assets/${report.slug}-og\\.png"`));
     assert.doesNotMatch(
       html.match(/og:image:alt" content="([^"]+)"/)[1],
-      /^World Monitor — real-time global intelligence dashboard/,
+      /^RaWorld — real-time global intelligence dashboard/,
       'report OG alt must describe the report, not the generic site card',
     );
   });

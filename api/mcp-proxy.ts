@@ -987,7 +987,7 @@ export async function handler(req, ctx) {
     return new Response(null, { status: 204, headers: cors });
 
   // Auth gate (issue #3723). The proxy can relay arbitrary customHeaders
-  // (Authorization, API keys) to any public MCP server under WorldMonitor's
+  // (Authorization, API keys) to any public MCP server under RaWorld's
   // outbound IP, and consume our outbound-IP reputation / quota — so the
   // gate must accept ONLY paying / authorised callers.
   //

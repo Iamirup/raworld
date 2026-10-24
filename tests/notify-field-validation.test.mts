@@ -4,7 +4,7 @@
  * validation. PR #8384 closed only the web-push click path;
  * a POST /api/notify with eventType rss_alert + attacker-chosen fields produced
  * a real email from alerts@worldmonitor.app with a forged subject, a forged
- * "Source: WorldMonitor Security" line, and an off-origin link verbatim.
+ * "Source: RaWorld Security" line, and an off-origin link verbatim.
  *
  * This suite pins the PoC end to end:
  *   1. /api/notify must reject or neutralise a hostile title/source/link
@@ -114,8 +114,8 @@ const POC_BODY = {
   eventType: 'rss_alert',
   severity: 'critical',
   payload: {
-    title: 'Security notice: verify your WorldMonitor account immediately',
-    source: 'WorldMonitor Security',
+    title: 'Security notice: verify your RaWorld account immediately',
+    source: 'RaWorld Security',
     link: 'https://example.com/wm-verify-account',
   },
 };
@@ -147,7 +147,7 @@ describe('/api/notify field validation (pentest PoC)', () => {
     const queuedPayload = event.payload as Record<string, unknown>;
     const queuedText = JSON.stringify(queuedPayload);
     assert.ok(
-      !queuedText.includes('WorldMonitor Security'),
+      !queuedText.includes('RaWorld Security'),
       `queued payload must not carry the forged source: ${queuedText}`,
     );
     // The forged first-party identity is replaced; the off-origin link is
@@ -156,12 +156,12 @@ describe('/api/notify field validation (pentest PoC)', () => {
     assert.equal(queuedPayload.link, 'https://example.com/wm-verify-account');
     assert.equal(
       queuedPayload.title,
-      'Community alert: Security notice: verify your WorldMonitor account immediately',
+      'Community alert: Security notice: verify your RaWorld account immediately',
     );
     const delivered = formatMessage(event);
     assert.equal(
       delivered,
-      '[CRITICAL] Community alert: Security notice: verify your WorldMonitor account immediately\n'
+      '[CRITICAL] Community alert: Security notice: verify your RaWorld account immediately\n'
         + 'Source: Community alert\n'
         + 'https://example.com/wm-verify-account (source: example.com)',
     );
@@ -170,7 +170,7 @@ describe('/api/notify field validation (pentest PoC)', () => {
     assert.equal(formatEventLinkForPush(event), 'https://worldmonitor.app/');
     const subject = formatSubject(event);
     assert.ok(subject.startsWith('Community alert:'), subject);
-    assert.ok(!subject.startsWith('WorldMonitor Alert:'), subject);
+    assert.ok(!subject.startsWith('RaWorld Alert:'), subject);
   });
 
   it('reports every field it rewrote back to the caller', async () => {
@@ -344,12 +344,12 @@ describe('formatMessage defence in depth (relay-originated events)', () => {
       eventType: 'rss_alert',
       severity: 'critical',
       payload: {
-        title: 'Security notice: verify your WorldMonitor account immediately',
-        source: 'WorldMonitor Security',
+        title: 'Security notice: verify your RaWorld account immediately',
+        source: 'RaWorld Security',
         link: 'https://example.com/wm-verify-account',
       },
     });
-    assert.ok(!text.includes('WorldMonitor Security'), `must not render forged source: ${text}`);
+    assert.ok(!text.includes('RaWorld Security'), `must not render forged source: ${text}`);
     // Reachable https article links stay deliverable (the point of rss_alert)
     // but must disclose the destination host inline, so platform branding can
     // never mask the target. Assert the disclosure form rather than
@@ -404,7 +404,7 @@ describe('formatMessage defence in depth (relay-originated events)', () => {
       severity: 'critical',
       payload: {
         title: 'Security notice',
-        source: 'WorldMonitor Security',
+        source: 'RaWorld Security',
         link: 'https://example.com/phish',
         countryCode: 'US',
       },
@@ -420,7 +420,7 @@ describe('formatMessage defence in depth (relay-originated events)', () => {
       sanitizeImpactText('Your account is locked, verify at https://evil.test/login'),
       'Your account is locked, verify at [link removed]',
     );
-    assert.equal(sanitizeImpactText('This is WorldMonitor Security speaking'), '');
+    assert.equal(sanitizeImpactText('This is RaWorld Security speaking'), '');
     assert.equal(sanitizeImpactText('Oil exposure rises for your portfolio.'),
       'Oil exposure rises for your portfolio.');
   });
@@ -437,7 +437,7 @@ describe('formatMessage defence in depth (relay-originated events)', () => {
       'World\u2060Monitor Security',
       'World\u2066Monitor\u2069 Security',
       'ＷｏｒｌｄＭｏｎｉｔｏｒ Security',
-      'World-Monitor Security',
+      'RaWorld Security',
       'World.Monitor Security',
     ]) {
       const text = formatMessage({
@@ -452,17 +452,17 @@ describe('formatMessage defence in depth (relay-originated events)', () => {
 
   it('shapes the title-less web-push fallback through the shared formatter', () => {
     assert.equal(
-      formatEventTitle({ eventType: 'rss\nalert', payload: {} }, 'WorldMonitor'),
+      formatEventTitle({ eventType: 'rss\nalert', payload: {} }, 'RaWorld'),
       'rss alert',
     );
     assert.equal(
-      formatEventTitle({ eventType: 'rss\nalert', userId: TEST_USER_ID, payload: {} }, 'WorldMonitor'),
+      formatEventTitle({ eventType: 'rss\nalert', userId: TEST_USER_ID, payload: {} }, 'RaWorld'),
       'Community alert: rss alert',
     );
     assert.equal(
       formatEventTitle(
         { eventType: 'rss\nalert', userId: TEST_USER_ID, payload: { title: '\u200b\u0000' } },
-        'WorldMonitor',
+        'RaWorld',
       ),
       'Community alert: rss alert',
     );
@@ -473,10 +473,10 @@ describe('formatMessage defence in depth (relay-originated events)', () => {
       eventType: 'rss_alert',
       userId: TEST_USER_ID,
       severity: 'critical',
-      payload: { title: 'Security notice: verify your WorldMonitor account immediately' },
+      payload: { title: 'Security notice: verify your RaWorld account immediately' },
     });
-    assert.equal(hostile, 'Community alert: Security notice: verify your WorldMonitor account immediately');
-    assert.ok(!hostile.startsWith('WorldMonitor Alert:'), hostile);
+    assert.equal(hostile, 'Community alert: Security notice: verify your RaWorld account immediately');
+    assert.ok(!hostile.startsWith('RaWorld Alert:'), hostile);
     assert.ok(!hostile.includes('\r') && !hostile.includes('\n'), `subject must be single-line: ${hostile}`);
     const injected = formatSubject({
       eventType: 'rss_alert',
@@ -488,12 +488,12 @@ describe('formatMessage defence in depth (relay-originated events)', () => {
 
   it('neutralises Slack and Discord channel markup at their sink boundaries', () => {
     assert.equal(
-      escapeSlackText('<!channel> <https://evil.test|WorldMonitor> & more'),
-      '&lt;!channel&gt; &lt;https://evil.test|WorldMonitor&gt; &amp; more',
+      escapeSlackText('<!channel> <https://evil.test|RaWorld> & more'),
+      '&lt;!channel&gt; &lt;https://evil.test|RaWorld&gt; &amp; more',
     );
     assert.equal(
-      escapeDiscordText('@everyone [WorldMonitor](https://evil.test)'),
-      '@everyone \\[WorldMonitor](https://evil.test)',
+      escapeDiscordText('@everyone [RaWorld](https://evil.test)'),
+      '@everyone \\[RaWorld](https://evil.test)',
     );
     assert.equal(
       escapeDiscordText('https://reuters.com/a_story_(update)'),
@@ -503,8 +503,8 @@ describe('formatMessage defence in depth (relay-originated events)', () => {
       text: '&lt;!channel&gt;',
       unfurl_links: false,
     });
-    assert.deepEqual(buildDiscordMessagePayload('@everyone [WorldMonitor](https://evil.test)'), {
-      content: '@everyone \\[WorldMonitor](https://evil.test)',
+    assert.deepEqual(buildDiscordMessagePayload('@everyone [RaWorld](https://evil.test)'), {
+      content: '@everyone \\[RaWorld](https://evil.test)',
       allowed_mentions: { parse: [] },
       flags: 4,
     });

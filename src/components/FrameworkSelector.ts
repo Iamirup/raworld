@@ -4,7 +4,6 @@ import {
   getActiveFrameworkForPanel,
   setActiveFrameworkForPanel,
 } from '../services/analysis-framework-store';
-import { PanelGateReason } from '../services/panel-gating';
 import type { Panel } from './Panel';
 import { t } from '../services/i18n';
 import { setTrustedHtml, trustedHtml } from '@/utils/dom-utils';
@@ -54,12 +53,6 @@ export class FrameworkSelector {
         } else {
           this.openPopup();
         }
-      });
-    } else {
-      btn.classList.add('framework-settings-btn--locked');
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        opts.panel?.showGatedCta(PanelGateReason.FREE_TIER, () => {});
       });
     }
 

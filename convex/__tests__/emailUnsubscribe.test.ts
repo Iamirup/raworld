@@ -240,12 +240,12 @@ describe("winback", () => {
       .map(([, init]) => JSON.parse(String((init as RequestInit).body)));
     expect(sends).toHaveLength(1);
     const send = sends[0];
-    expect(send.from).toBe("World Monitor <news@worldmonitor.app>");
+    expect(send.from).toBe("RaWorld <news@worldmonitor.app>");
     expect(send.reply_to).toBe("elie@worldmonitor.app");
     expect(send.headers["List-Unsubscribe-Post"]).toBe("List-Unsubscribe=One-Click");
     const url = /^<(https:\/\/[^>]+)>$/.exec(send.headers["List-Unsubscribe"])![1]!;
     expect(await verifyUnsubscribeToken(new URL(url).searchParams.get("t"))).toEqual({ userId: USER, list: "marketing" });
-    expect(send.html).toContain("Unsubscribe from World Monitor product emails");
+    expect(send.html).toContain("Unsubscribe from RaWorld product emails");
 
     // Following the link stops the next winback-class (marketing) send.
     await t.mutation(internal.emailUnsubscribe.applyUnsubscribe, { userId: USER, list: "marketing" });
@@ -259,7 +259,7 @@ describe("winback", () => {
     expect(html).not.toContain("https://www.worldmonitor.app/settings");
     const dunning = buildDunningEmail("dunning_day3", "Pro (Monthly)", "https://www.worldmonitor.app/dashboard");
     expect(dunning.html).not.toContain("Unsubscribe%20from%20product%20emails");
-    expect(dunning.html).not.toContain("Unsubscribe from World Monitor product emails");
+    expect(dunning.html).not.toContain("Unsubscribe from RaWorld product emails");
     expect(listUnsubscribeHeaders(null)).toBeUndefined();
   });
 
@@ -310,7 +310,7 @@ describe("winback", () => {
       .map(([, init]) => JSON.parse(String((init as RequestInit).body)));
     expect(sends.length).toBeGreaterThan(0);
     for (const send of sends) {
-      expect(send.from).toBe("World Monitor <noreply@worldmonitor.app>");
+      expect(send.from).toBe("RaWorld <noreply@worldmonitor.app>");
       expect(send.headers).toBeUndefined();
     }
   });

@@ -537,7 +537,7 @@ function buildDerivedNowcastProvenance(
         status: 'known',
         value: {
           id: 'worldmonitor-china-activity-nowcast',
-          name: 'WorldMonitor China Activity Nowcast',
+          name: 'RaWorld China Activity Nowcast',
           type: 'derived_output',
           registryReference: null,
         },

@@ -106,7 +106,7 @@ const PAGE_FAMILY_SCHEMA_VERSION = 2;
 const WINDOW_DAYS = Object.freeze({ '28d': 28, '90d': 90 });
 
 /**
- * Queries that name World Monitor itself, including the misspellings and the
+ * Queries that name RaWorld itself, including the misspellings and the
  * Japanese name that reach the top of the query report. Everything else is
  * non-brand: the searches the corpus pages exist to win. "war monitor" and
  * "monitor the situation" are generic and stay non-brand.

@@ -61,7 +61,7 @@ describe('authentication', () => {
         authData: { apiKey: 'wm_test' },
         inputData: { country_code: 'xx' },
       }),
-      /WorldMonitor API error 400: country_code: unknown country/,
+      /RaWorld API error 400: country_code: unknown country/,
     );
   });
 });

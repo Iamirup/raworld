@@ -1,24 +1,24 @@
 ---
-title: "World Monitor"
-description: "World Monitor: real-time geopolitical intelligence dashboard. A free live map of conflicts, shipping, flights, markets and cyber, with an API and MCP server."
+title: "RaWorld"
+description: "RaWorld: real-time geopolitical intelligence dashboard. A free live map of conflicts, shipping, flights, markets and cyber, with an API and MCP server."
 canonical: "https://www.worldmonitor.app/home.md"
 ---
 
-# World Monitor: real-time geopolitical intelligence dashboard
+# RaWorld: real-time geopolitical intelligence dashboard
 
 By the time it's news, you already knew.
 
 As of 2026-10-19.
 
-World Monitor is a free real-time global intelligence dashboard. It brings ships, aircraft, conflict events, alerts, infrastructure, markets, weather, cyber signals, and curated news onto one live map. Its analysis layer helps users see when separate signals begin to converge into one event that matters.
+RaWorld is a free real-time global intelligence dashboard. It brings ships, aircraft, conflict events, alerts, infrastructure, markets, weather, cyber signals, and curated news onto one live map. Its analysis layer helps users see when separate signals begin to converge into one event that matters.
 
 Best for analysts, journalists, traders and builders who need live geopolitical signals.
 
-The core dashboard is open source under AGPL-3.0 and needs no signup. It runs in the browser, as an installable PWA, and as a desktop app for macOS, Windows, and Linux. World Monitor has also been [featured in WIRED](https://www.wired.com/story/world-monitor-elie-habib/).
+The core dashboard is open source under AGPL-3.0 and needs no signup. It runs in the browser, as an installable PWA, and as a desktop app for macOS, Windows, and Linux. RaWorld has also been [featured in WIRED](https://www.wired.com/story/world-monitor-elie-habib/).
 
-## What World Monitor answers
+## What RaWorld answers
 
-World Monitor is useful when a question depends on more than one live signal. Typical questions include:
+RaWorld is useful when a question depends on more than one live signal. Typical questions include:
 
 - What changed in a country, region, market, or supply route since the last briefing?
 - Does a conflict, sanction, outage, or chokepoint disruption have a credible transmission path into commodities or markets?
@@ -30,13 +30,13 @@ The dashboard supports these tasks with country briefs, conflict tracking, resil
 
 ## How the correlation surface works
 
-World Monitor is designed as a correlation surface, not a single-feed news reader. A useful assessment often has three parts:
+RaWorld is designed as a correlation surface, not a single-feed news reader. A useful assessment often has three parts:
 
 1. **Pressure:** a conflict, sanction, election, disaster, outage, or other event changes the local situation.
 2. **Transmission:** shipping lanes, ports, pipelines, airspace, cables, suppliers, or financial links can carry that pressure elsewhere.
 3. **Consequence:** markets, energy flows, commodity availability, infrastructure risk, or public safety begin to respond.
 
-Users can compare these parts on one map and then open the underlying panels for detail. World Monitor does not claim that two nearby signals prove causation. It gives analysts a shared place to test the connection, inspect the cited sources, and decide what evidence is still missing.
+Users can compare these parts on one map and then open the underlying panels for detail. RaWorld does not claim that two nearby signals prove causation. It gives analysts a shared place to test the connection, inspect the cited sources, and decide what evidence is still missing.
 
 ## What you get
 
@@ -51,7 +51,7 @@ Users can compare these parts on one map and then open the underlying panels for
 
 ## Sources, provenance, and freshness
 
-World Monitor exposes the providers behind the product instead of asking users to trust a hidden source list. The [Data source catalog](https://www.worldmonitor.app/sources/) lists the current provider inventory by intelligence domain. The [data-source methodology](https://www.worldmonitor.app/docs/data-sources) explains coverage and provenance in more detail.
+RaWorld exposes the providers behind the product instead of asking users to trust a hidden source list. The [Data source catalog](https://www.worldmonitor.app/sources/) lists the current provider inventory by intelligence domain. The [data-source methodology](https://www.worldmonitor.app/docs/data-sources) explains coverage and provenance in more detail.
 
 Data surfaces include source identity, timestamps, methodology, or related context when the upstream provider makes that information available. Update intervals differ by source and domain. Cached data, delayed providers, and temporary source degradation can affect freshness. Check the timestamp and source information in a returned record before you use it in a time-sensitive decision. Operational availability is published on the [status page](https://status.worldmonitor.app).
 
@@ -59,11 +59,11 @@ Data surfaces include source identity, timestamps, methodology, or related conte
 
 The public dashboard is free and does not require an account. Pro adds advanced analysis, research, customization, and higher-value workflows. API plans cover programmatic and business use. Current features, limits, prices, and licensing terms are in the [machine-readable pricing guide](https://www.worldmonitor.app/pricing.md) and on the [visual pricing page](https://www.worldmonitor.app/pro#pricing).
 
-Public discovery endpoints do not make every data operation anonymous. An MCP or REST call can require OAuth or a World Monitor API key. Read the [authentication guide](https://www.worldmonitor.app/docs/usage-auth) and [rate-limit guide](https://www.worldmonitor.app/docs/usage-rate-limits.md) before building an integration.
+Public discovery endpoints do not make every data operation anonymous. An MCP or REST call can require OAuth or a RaWorld API key. Read the [authentication guide](https://www.worldmonitor.app/docs/usage-auth) and [rate-limit guide](https://www.worldmonitor.app/docs/usage-rate-limits.md) before building an integration.
 
 ## Live instances
 
-- [World Monitor](https://www.worldmonitor.app/dashboard) — geopolitics, military activity, conflicts, and infrastructure
+- [RaWorld](https://www.worldmonitor.app/dashboard) — geopolitics, military activity, conflicts, and infrastructure
 - [Tech Monitor](https://tech.worldmonitor.app/dashboard) — startups, AI and machine learning, cloud, and cybersecurity
 - [Finance Monitor](https://finance.worldmonitor.app/dashboard) — global markets, trading, and central banks
 - [Commodity Monitor](https://commodity.worldmonitor.app/dashboard) — mining, metals, energy, and supply chains
@@ -78,7 +78,7 @@ Start with the short [llms.txt briefing](https://www.worldmonitor.app/llms.txt),
 - [REST API](https://www.worldmonitor.app/docs/api-reference): structured endpoints described by the [OpenAPI contract](https://www.worldmonitor.app/openapi.yaml).
 - [Agent-mode homepage](https://www.worldmonitor.app/?mode=agent): a compact JSON summary of endpoints, authentication, capabilities, and discovery files.
 - [Agent Skills](https://worldmonitor.app/.well-known/agent-skills/index.json): task-focused instructions for common country, resilience, and intelligence workflows.
-- [Agent Plugin metadata](https://www.worldmonitor.app/plugin.json): public metadata for the Agent Plugins 1.0.0 repository package. Install from https://github.com/koala73/worldmonitor (root `plugin.json`, `mcp.json`, and `skills/*/SKILL.md` live in the repository, not as sibling HTTP files).
+- [Agent Plugin metadata](https://www.worldmonitor.app/plugin.json): public metadata for the Agent Plugins 1.0.0 repository package. Install from https://github.com/Iamirup/raworld (root `plugin.json`, `mcp.json`, and `skills/*/SKILL.md` live in the repository, not as sibling HTTP files).
 - [A2A agent card](https://worldmonitor.app/.well-known/agent-card.json): service identity and protocol discovery for agent-to-agent clients.
 - [SDK guide](https://www.worldmonitor.app/docs/sdks) and [worldmonitor CLI](https://www.npmjs.com/package/worldmonitor): supported clients for applications and shell workflows.
 
@@ -86,13 +86,13 @@ Use a descriptive `User-Agent` for HTTP requests. Preserve source names, timesta
 
 ## Trust boundaries
 
-World Monitor is not a general web-search engine, a complete historical archive, a classified-intelligence system, or a trading-execution venue. It does not place orders. It can show correlation and provide evidence, but it cannot prove causation or replace professional judgment. For consequential security, financial, legal, or operational decisions, inspect the primary sources and confirm the current state independently.
+RaWorld is not a general web-search engine, a complete historical archive, a classified-intelligence system, or a trading-execution venue. It does not place orders. It can show correlation and provide evidence, but it cannot prove causation or replace professional judgment. For consequential security, financial, legal, or operational decisions, inspect the primary sources and confirm the current state independently.
 
 ## Documentation
 
 - [Brand identity](https://www.worldmonitor.app/world-monitor.md) — official name, canonical domain, NAP, and press mentions
 - [Product and API documentation](https://www.worldmonitor.app/docs/documentation)
-- [Competitor comparisons](https://www.worldmonitor.app/compare/) — World Monitor against Liveuamap, ACLED, GDELT, Dataminr, Recorded Future, Deep State Map, chokepoint trackers and MCP servers, with the cells each competitor wins
+- [Competitor comparisons](https://www.worldmonitor.app/compare/) — RaWorld against Liveuamap, ACLED, GDELT, Dataminr, Recorded Future, Deep State Map, chokepoint trackers and MCP servers, with the cells each competitor wins
 - [Source catalog](https://www.worldmonitor.app/sources/)
 - [Support and contact](https://www.worldmonitor.app/support.md)
-- [GitHub repository](https://github.com/koala73/worldmonitor)
+- [GitHub repository](https://github.com/Iamirup/raworld)

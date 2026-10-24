@@ -168,7 +168,7 @@ Rules:
 8. i18next plural variants: keys ending in _zero, _one, _two, _few, _many, or _other are CLDR plural forms of the same noun. Inflect the noun's morphology to match the CLDR plural category named by the suffix for the target locale, following the standard CLDR plural rules for that language (which include teen-case exceptions — do NOT use simplified "2-4" / "5+" rules of thumb; follow CLDR exactly). Safe per-suffix semantics that always hold: _one = singular form; _two = dual form (Arabic and a few others); _zero = the zero-count form (Arabic). Keep {{count}} in the translation even when the morphology itself encodes the count (i18next convention).
 9. This is an OSINT / geopolitics / markets dashboard. The strings are labels torn out of that context, so the everyday reading of a word is usually the wrong one. Translate these terms in the sense given here:
 ${DOMAIN_GLOSSARY}
-10. Product, brand and dataset names stay untranslated: Product Hunt, Techmeme, Big Mac Index, Smartraveller, GDELT, Polymarket, Hyperliquid, OpenSky, Cloudflare Radar, World Monitor. The same holds for the app's own component names a translation cannot rename: sidecar, widget, panel, dashboard, feed.
+10. Product, brand and dataset names stay untranslated: Product Hunt, Techmeme, Big Mac Index, Smartraveller, GDELT, Polymarket, Hyperliquid, OpenSky, Cloudflare Radar, RaWorld. The same holds for the app's own component names a translation cannot rename: sidecar, widget, panel, dashboard, feed.
 
 Input (key<TAB>english):
 ${items}

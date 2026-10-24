@@ -50,9 +50,9 @@ export function analystDenialMessage(
 ): string {
   switch (verdict) {
     case 'sign_in_required':
-      return 'Sign in to use the analyst.';
+      return 'Analyst access was denied.';
     case 'upgrade_required':
-      return 'Pro subscription required.';
+      return 'Analyst unavailable.';
     case 'entitlement_desync':
       return PRO_VERIFICATION_RETRY_MESSAGE;
     case 'access_denied':

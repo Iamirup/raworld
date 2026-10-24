@@ -121,11 +121,11 @@ describe('push-handler.js — push event', () => {
     assert.equal(box.shown[0].opts.requireInteraction, false);
   });
 
-  it('falls back to "WorldMonitor" title when payload omits it', () => {
+  it('falls back to "RaWorld" title when payload omits it', () => {
     const box = makeSwSandbox();
     loadHandlerInto(box);
     box.emit('push', pushEvent({ body: 'body only, no title' }));
-    assert.equal(box.shown[0].title, 'WorldMonitor');
+    assert.equal(box.shown[0].title, 'RaWorld');
   });
 
   it('malformed JSON payload renders the raw text as the body', () => {
@@ -141,7 +141,7 @@ describe('push-handler.js — push event', () => {
     };
     box.emit('push', broken);
     assert.equal(box.shown.length, 1);
-    assert.equal(box.shown[0].title, 'WorldMonitor');
+    assert.equal(box.shown[0].title, 'RaWorld');
     assert.equal(box.shown[0].opts.body, 'plain raw text');
   });
 
@@ -150,7 +150,7 @@ describe('push-handler.js — push event', () => {
     loadHandlerInto(box);
     box.emit('push', { data: null, waitUntil() {} });
     assert.equal(box.shown.length, 1);
-    assert.equal(box.shown[0].title, 'WorldMonitor');
+    assert.equal(box.shown[0].title, 'RaWorld');
   });
 });
 
@@ -201,7 +201,7 @@ describe('push-handler.js — notificationclick', () => {
 // The article must stay reachable, so an off-origin https link is kept and
 // opened in its OWN tab. What must never happen is navigating the
 // already-open dashboard tab there: that replaces a trusted surface with a
-// page WorldMonitor does not control (phishing pivot / tab-nabbing).
+// page RaWorld does not control (phishing pivot / tab-nabbing).
 // Relay-side scheme discipline: tests/notification-relay-push-click-origin.test.mjs.
 describe('push-handler.js — off-origin click targets', () => {
   const OFF_ORIGIN = [

@@ -92,7 +92,7 @@ Upstream timeouts can persist after this repair; source errors must remain visib
 - `scripts/cross-strait-activity/adapters.mjs`, especially budget checks, candidate scheduling, and required versus optional errors.
 - `scripts/seed-cross-strait-activity.mjs`, especially `sourceAttemptMeta`, `writeSourceHealth`, and final publication completion.
 - `scripts/_bundle-runner.mjs`, especially `readSectionFreshness` and the 80-percent interval gate.
-- PRs [#7698](https://github.com/koala73/worldmonitor/pull/7698), [#7734](https://github.com/koala73/worldmonitor/pull/7734), and [#7753](https://github.com/koala73/worldmonitor/pull/7753) establish the earlier parser retry, optional-correction, and finite-pending boundaries.
+- PRs [#7698](https://github.com/Iamirup/raworld/pull/7698), [#7734](https://github.com/Iamirup/raworld/pull/7734), and [#7753](https://github.com/Iamirup/raworld/pull/7753) establish the earlier parser retry, optional-correction, and finite-pending boundaries.
 - `docs/solutions/integration-issues/vendor-sdk-hidden-retries-nested-retry-ladder.md` explains why nested retry layers must not multiply requests.
 
 No external library or provider choice is needed. Existing code and observed failure records determine the repair.

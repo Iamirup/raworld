@@ -63,7 +63,7 @@ describe('api/mcp/ui/country-brief-app.ts', () => {
       await win.happyDOM.close();
     }
   });
-  it('resolves [En] markers and lists the cited World Monitor data', async () => {
+  it('resolves [En] markers and lists the cited RaWorld data', async () => {
     const win = await render({
       countryCode: 'FI',
       countryName: 'Finland',
@@ -102,7 +102,7 @@ describe('api/mcp/ui/country-brief-app.ts', () => {
       assert.doesNotMatch(doc.getElementById('evidence').innerHTML, /javascript:/);
       assert.match(rows[2].textContent, /Plain http: 7/);
 
-      // Sources render before the World Monitor data list.
+      // Sources render before the RaWorld data list.
       const srcSec = doc.getElementById('src-sec');
       assert.ok(srcSec.compareDocumentPosition(sec) & 4, 'evidence list sits below sources');
       assert.doesNotMatch(doc.body.textContent, /seeded-model-id-xyz/);

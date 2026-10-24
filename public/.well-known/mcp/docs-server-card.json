@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
   "name": "app.worldmonitor/docs",
-  "title": "World Monitor Docs",
-  "description": "Search and read World Monitor developer docs, API references, and guides.",
+  "title": "RaWorld Docs",
+  "description": "Search and read RaWorld developer docs, API references, and guides.",
   "kind": "docs",
   "icon": "https://www.worldmonitor.app/favico/apple-touch-icon.png",
   "version": "1.0.0",

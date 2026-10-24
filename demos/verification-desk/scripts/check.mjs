@@ -26,10 +26,10 @@ if (!process.env.WORLDMONITOR_API_KEY && !process.env.WORLDMONITOR_MCP_TOKEN) {
     const tools = new Set((await mcp.listTools()).map((t) => t.name));
     const missing = REQUIRED_TOOLS.filter((t) => !tools.has(t));
     if (missing.length) fail(`MCP is up but these tools are not available to this key: ${missing.join(', ')}`);
-    else pass(`WorldMonitor MCP: ${tools.size} tools, all required tools present`);
+    else pass(`RaWorld MCP: ${tools.size} tools, all required tools present`);
     const allowance = await mcp.callTool('get_mcp_allowance', {}).catch(() => null);
     if (allowance?.limit) {
-      const line = `WorldMonitor allowance: ${allowance.used}/${allowance.limit} used today, ${allowance.remaining} left, resets ${allowance.resetsAt}`;
+      const line = `RaWorld allowance: ${allowance.used}/${allowance.limit} used today, ${allowance.remaining} left, resets ${allowance.resetsAt}`;
       if (allowance.remaining < 15) warn(`${line}. A show needs ~25 (board refreshes + 3 per checked headline).`);
       else pass(line);
     }
@@ -41,7 +41,7 @@ if (!process.env.WORLDMONITOR_API_KEY && !process.env.WORLDMONITOR_MCP_TOKEN) {
     if (markets.error) warn(`get_prediction_markets: ${markets.error} (the money check will show "no market")`);
     else pass('get_prediction_markets reachable');
   } catch (error) {
-    fail(`WorldMonitor MCP: ${error.message}`);
+    fail(`RaWorld MCP: ${error.message}`);
   }
 }
 

@@ -59,7 +59,7 @@ describe('answer-first opening', () => {
   it('fires when the narrative lede returns ahead of the definition', () => {
     const failures = validateCategoryExplainerCopy(
       REAL_STATS,
-      withCopy((s) => s.replace('World Monitor is a **free, open-source', 'Imagine 100 tabs. World Monitor is a **free, open-source')),
+      withCopy((s) => s.replace('RaWorld is a **free, open-source', 'Imagine 100 tabs. RaWorld is a **free, open-source')),
     );
     assert.equal(failures.length, 1, failures.join('\n'));
     assert.match(failures[0], /must open with the self-contained/);
@@ -71,7 +71,7 @@ describe('answer-first opening', () => {
       withCopy((s) => {
         const body = s.slice(s.match(/^---\n[\s\S]*?\n---\n/)![0].length);
         const opening = body.slice(0, body.indexOf('\n## '));
-        return s.replace(opening, 'World Monitor is a **free, open-source, real-time global intelligence dashboard**.');
+        return s.replace(opening, 'RaWorld is a **free, open-source, real-time global intelligence dashboard**.');
       }),
     );
     assert.equal(failures.length, 1, failures.join('\n'));

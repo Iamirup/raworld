@@ -1,11 +1,11 @@
 ---
-title: "Embed World Monitor Panels"
-description: "Add a free live map or paid World Monitor panels to your website. Start with a snippet, then use the developer reference for layers, keys, and integration details."
+title: "Embed RaWorld Panels"
+description: "Add a free live map or paid RaWorld panels to your website. Start with a snippet, then use the developer reference for layers, keys, and integration details."
 ---
 
-You can put a World Monitor map, Chokepoint Monitor, or Fear & Greed gauge on your website. Copy a snippet into your page's HTML. Your visitors do not need a World Monitor account.
+You can put a RaWorld map, Chokepoint Monitor, or Fear & Greed gauge on your website. Copy a snippet into your page's HTML. Your visitors do not need a RaWorld account.
 
-The free map needs no account or key. A paid plan adds more map layers and access to the other supported panels through an embed key. Every embed includes a visible link back to World Monitor.
+The free map needs no account or key. A paid plan adds more map layers and access to the other supported panels through an embed key. Every embed includes a visible link back to RaWorld.
 
 ## Allowlisted panels
 
@@ -50,7 +50,7 @@ There is no supported token URL for this setup. Keep the key in the snippet's `d
 
 ### How do I hide menus and use the full display area?
 
-The `/embed` map already omits dashboard navigation, layer selectors, and map controls. No `?view=kiosk` or `?menu=hidden` parameter is needed; these are not supported settings. The World Monitor attribution link remains visible.
+The `/embed` map already omits dashboard navigation, layer selectors, and map controls. No `?view=kiosk` or `?menu=hidden` parameter is needed; these are not supported settings. The RaWorld attribution link remains visible.
 
 Size the iframe or its container to fit your split-screen layout. Use the display browser or signage player's kiosk/fullscreen setting to hide browser controls. The embed does not switch the browser into kiosk mode.
 
@@ -58,7 +58,7 @@ Configure the display player to open your host page at startup, prevent sleep, a
 
 ## Copy a map from the dashboard
 
-1. Open the [World Monitor dashboard](https://www.worldmonitor.app/dashboard).
+1. Open the [RaWorld dashboard](https://www.worldmonitor.app/dashboard).
 2. Set the map position, zoom, theme, and layers.
 3. Click **Embed** on the map.
 4. Click **Copy snippet** under **Free — no key needed** or **With your embed key**.
@@ -234,7 +234,7 @@ A direct iframe is sufficient for the free map. Omitting `panel` selects the map
 ```html
 <iframe
   src="https://www.worldmonitor.app/embed?layers=conflicts,earthquakes,weather&center=20,0&zoom=1&theme=dark&variant=full"
-  title="World Monitor live map"
+  title="RaWorld live map"
   loading="lazy"
   referrerpolicy="strict-origin-when-cross-origin"
   style="width:100%;height:420px;border:0;display:block"
@@ -246,7 +246,7 @@ A direct iframe is sufficient for the free map. Omitting `panel` selects the map
 
 Prefer `embed.js`, which handles the credential exchange. For a custom integration, install the message listener before you set the iframe's URL. The frame accepts a credential from its parent during its initial three-second wait.
 
-The frame sends `{ source: "worldmonitor-embed", type: "ready" }`. Check both the message origin and the sending window. Reply to the exact World Monitor origin with `{ source: "worldmonitor-embed", type: "credential", key }`.
+The frame sends `{ source: "worldmonitor-embed", type: "ready" }`. Check both the message origin and the sending window. Reply to the exact RaWorld origin with `{ source: "worldmonitor-embed", type: "credential", key }`.
 
 ```html
 <div id="wm-embed"></div>
@@ -254,7 +254,7 @@ The frame sends `{ source: "worldmonitor-embed", type: "ready" }`. Check both th
   const origin = 'https://www.worldmonitor.app';
   const key = 'YOUR_WME_EMBED_KEY';
   const frame = document.createElement('iframe');
-  frame.title = 'World Monitor Fear & Greed';
+  frame.title = 'RaWorld Fear & Greed';
   frame.referrerPolicy = 'strict-origin-when-cross-origin';
   frame.style.cssText = 'width:100%;height:360px;border:0;display:block';
 
@@ -323,4 +323,4 @@ The two paid panels still accept eligible `wm_` user keys and configured enterpr
 
 ### Other integrations
 
-[WebMCP](/webmcp) lets browser agents use tools on the main World Monitor site. Embed routes expose no WebMCP tools. [MCP Apps](/mcp-apps) provide widgets inside compatible AI clients. Use `/embed` for a panel on your website.
+[WebMCP](/webmcp) lets browser agents use tools on the main RaWorld site. Embed routes expose no WebMCP tools. [MCP Apps](/mcp-apps) provide widgets inside compatible AI clients. Use `/embed` for a panel on your website.

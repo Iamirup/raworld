@@ -14,7 +14,6 @@ import {
   PRO_VERIFICATION_RETRY_MESSAGE,
 } from '@/services/analyst-denial';
 import { classifyDenialResponse, type ClientEntitlementBelief } from '@/services/premium-denial';
-import { reportEntitlementDesync } from '@/services/entitlement-desync-telemetry';
 import { trackAnalystControlAction } from '@/services/analytics';
 import { h, replaceChildren, setTrustedHtml, trustedHtml, type TrustedHtml } from '@/utils/dom-utils';
 import {
@@ -92,7 +91,6 @@ async function describeDenial(
   }
   const verdict = await classifyDenialResponse(res, requestBelief);
   if (requestIdentityChanged()) throw new DOMException('account changed while reading analyst denial', 'AbortError');
-  if (verdict === 'entitlement_desync') reportEntitlementDesync('chat-analyst');
   return analystDenialMessage(res.status, verdict);
 }
 
@@ -162,7 +160,7 @@ export class ChatAnalystPanel extends Panel {
   constructor() {
     super({
       id: 'chat-analyst',
-      title: 'WM Analyst',
+      title: 'RaWorld Analyst',
       premium: 'locked',
       defaultRowSpan: 2,
       infoTooltip: t('components.chatAnalyst.infoTooltip'),
@@ -708,7 +706,7 @@ export class ChatAnalystPanel extends Panel {
 
   private exportChat(): void {
     if (this.history.length === 0) return;
-    const lines = [`# WM Analyst Session\n*Exported: ${new Date().toISOString()}*\n`];
+    const lines = [`# RaWorld Analyst Session\n*Exported: ${new Date().toISOString()}*\n`];
     for (const msg of this.history) {
       const role = msg.role === 'user' ? '**You**' : '**Analyst**';
       lines.push(`\n${role}:\n${msg.content}`);

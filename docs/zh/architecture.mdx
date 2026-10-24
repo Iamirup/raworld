@@ -1,9 +1,9 @@
 ---
 title: "设计哲学"
-description: "World Monitor 背后的设计原则、情报工艺与算法决策深度解读：全面介绍以地图为先的实时仪表盘是如何工程化实现的、为何选择这种技术架构，涵盖前端渲染管道、边缘缓存策略、Cloudflare Workers 数据采集流水线、评分引擎、实时推送与容灾降级机制等核心模块。"
+description: "RaWorld 背后的设计原则、情报工艺与算法决策深度解读：全面介绍以地图为先的实时仪表盘是如何工程化实现的、为何选择这种技术架构，涵盖前端渲染管道、边缘缓存策略、Cloudflare Workers 数据采集流水线、评分引擎、实时推送与容灾降级机制等核心模块。"
 ---
 
-> **在找系统参考？** 请参阅 [`ARCHITECTURE.md`](https://github.com/koala73/worldmonitor/blob/main/ARCHITECTURE.md)，了解部署拓扑、目录结构、缓存层、CI/CD 以及贡献者操作指南。
+> **在找系统参考？** 请参阅 [`ARCHITECTURE.md`](https://github.com/Iamirup/raworld/blob/main/ARCHITECTURE.md)，了解部署拓扑、目录结构、缓存层、CI/CD 以及贡献者操作指南。
 
 ---
 
@@ -69,7 +69,7 @@ description: "World Monitor 背后的设计原则、情报工艺与算法决策�
 
 ### 原生 TypeScript 架构
 
-World Monitor 使用原生 TypeScript 编写 — 不使用任何前端框架（React、Vue、Svelte、Angular）。这是一个刻意的架构决策，而非疏忽。
+RaWorld 使用原生 TypeScript 编写 — 不使用任何前端框架（React、Vue、Svelte、Angular）。这是一个刻意的架构决策，而非疏忽。
 
 **为什么不用框架：**
 
@@ -276,7 +276,7 @@ Railway 定时服务持续用从外部 API 预计算的数据刷新 Redis 缓存
 
 ### 边缘函数架构
 
-World Monitor 使用 Vercel Edge Functions 作为轻量 API 层，分为两代。`api/*.js` 中的遗留端点各自处理单一数据源问题 — 代理、缓存或转换外部 API。较新的 proto 优先端点使用**每领域薄入口点**，每个仅导入其自身的处理器模块。这取代了原来在每次冷启动时加载全部领域的单体网关。每个领域的函数经 tree-shaking 仅包含其依赖，将冷启动时间减少约 85%（大多数端点低于 100ms，而单体处理器需 500ms+）。共享的 `server/gateway.ts` 提供通用路由逻辑。两代共存，新功能以 proto 优先方式构建。此架构避免了单体后端同时保持 API 密钥服务端：
+RaWorld 使用 Vercel Edge Functions 作为轻量 API 层，分为两代。`api/*.js` 中的遗留端点各自处理单一数据源问题 — 代理、缓存或转换外部 API。较新的 proto 优先端点使用**每领域薄入口点**，每个仅导入其自身的处理器模块。这取代了原来在每次冷启动时加载全部领域的单体网关。每个领域的函数经 tree-shaking 仅包含其依赖，将冷启动时间减少约 85%（大多数端点低于 100ms，而单体处理器需 500ms+）。共享的 `server/gateway.ts` 提供通用路由逻辑。两代共存，新功能以 proto 优先方式构建。此架构避免了单体后端同时保持 API 密钥服务端：
 
 - **RSS 代理** — 域名白名单代理，支持完整的订阅源目录，防止 CORS 问题并隐藏源服务器。Edge 代理和 Railway 中继都保持重定向为手动，并在每一跳前重新检查 RSS 域名白名单。来自屏蔽 Vercel IP 的域名的订阅源自动通过 Railway 中继路由。
 - **AI 管道** — Ollama 和 OpenRouter 摘要边缘函数配 Redis 去重，使并发用户间的相同标题仅触发一次 LLM 调用。classify-event 端点在 500 错误时暂停其队列以避免浪费 API 配额。
@@ -302,7 +302,7 @@ World Monitor 使用 Vercel Edge Functions 作为轻量 API 层，分为两代�
 
 ### 单一部署变体合并
 
-所有六个仪表盘变体（World Monitor、Tech Monitor、Finance Monitor、Commodity Monitor、Happy Monitor、Energy Monitor）从**单一 Vercel 部署**提供服务。变体在运行时通过主机名检测确定：
+所有六个仪表盘变体（RaWorld、Tech Monitor、Finance Monitor、Commodity Monitor、Happy Monitor、Energy Monitor）从**单一 Vercel 部署**提供服务。变体在运行时通过主机名检测确定：
 
 | 主机名 | 变体 |
 | --- | --- |
@@ -849,7 +849,7 @@ ACLED/GDELT → Protest Events ────────────────�
 
 ## 服务状态监控
 
-服务状态面板追踪 WorldMonitor 用户可能依赖的外部服务的运行健康度。
+服务状态面板追踪 RaWorld 用户可能依赖的外部服务的运行健康度。
 
 ### 受监控服务
 

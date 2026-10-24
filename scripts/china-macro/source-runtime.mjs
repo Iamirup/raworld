@@ -291,7 +291,7 @@ export async function fetchText(fetchFn, value, {
       headers: {
         Accept: 'text/html,text/plain;q=0.9,*/*;q=0.1',
         'Accept-Language': 'en,zh-CN;q=0.8',
-        'User-Agent': 'WorldMonitor/2.10 (+https://worldmonitor.app)',
+        'User-Agent': 'RaWorld/2.10 (+https://worldmonitor.app)',
       },
       redirect: 'manual',
       signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),

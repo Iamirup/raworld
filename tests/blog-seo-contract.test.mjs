@@ -195,7 +195,7 @@ describe('blog SEO and GEO corpus contract', () => {
     }
 
     for (const source of [
-      '---\ntitle: Pricing fixture\n---\n\nThis preamble is not a vendor heading.\n\n### World Monitor vs. Dataminr\n\n- Price: free vs. six-figure annual licenses',
+      '---\ntitle: Pricing fixture\n---\n\nThis preamble is not a vendor heading.\n\n### RaWorld vs. Dataminr\n\n- Price: free vs. six-figure annual licenses',
       '| Product | Dataminr |\n| --- | --- |\n| Price | $50K |',
       'A $100K+ Palantir license',
       'A Palantir license costs 100K+ annually',
@@ -230,7 +230,7 @@ describe('blog SEO and GEO corpus contract', () => {
   // the always-on docs-stats job and exercised again by the unit suite.
   it('keeps the first-party category explainer answer-first and fact-consistent', () => {
     const explainer = posts.find((post) => post.file === 'what-is-worldmonitor-real-time-global-intelligence.md');
-    assert.ok(explainer, 'missing first-party World Monitor category explainer');
+    assert.ok(explainer, 'missing first-party RaWorld category explainer');
     assert.deepEqual(validateCategoryExplainerCopy(computeStats()), []);
   });
 

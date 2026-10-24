@@ -1,6 +1,6 @@
-# WorldMonitor — Agent Authentication (auth.md)
+# RaWorld — Agent Authentication (auth.md)
 
-Use API keys or OAuth 2.1 to authenticate with the WorldMonitor API and MCP server.
+Use API keys or OAuth 2.1 to authenticate with the RaWorld API and MCP server.
 This walkthrough follows the WorkOS **auth.md** spec: <https://workos.com/auth-md>,
 in its pre-v0.2 `register_uri`/`claim_uri` form.
 

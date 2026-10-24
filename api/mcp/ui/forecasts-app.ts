@@ -44,7 +44,7 @@ const STYLES = `
 const BODY = `
   <div class="head">
     <div class="title">Forecasts</div>
-    <div class="badge">WorldMonitor Forecasts</div>
+    <div class="badge">RaWorld Forecasts</div>
   </div>
   <div class="empty" id="empty">Waiting for forecasts…</div>
   <div id="card" style="display:none">
@@ -597,7 +597,7 @@ const RENDER = `
 `;
 
 export const FORECASTS_APP_HTML = buildAppHtml({
-  title: 'Forecasts — WorldMonitor',
+  title: 'Forecasts — RaWorld',
   appName: 'worldmonitor-forecasts',
   styles: STYLES,
   body: BODY,

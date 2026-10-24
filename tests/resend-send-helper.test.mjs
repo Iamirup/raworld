@@ -38,7 +38,7 @@ function quiet(fn) {
 describe('scripts/lib/resend-send.cjs', () => {
   it('defaults Reply-To to support@ for brief@ and alerts@ senders', () => {
     assert.equal(DEFAULT_REPLY_TO, 'support@worldmonitor.app');
-    for (const from of ['WorldMonitor Brief <brief@worldmonitor.app>', 'WorldMonitor <alerts@worldmonitor.app>']) {
+    for (const from of ['RaWorld Brief <brief@worldmonitor.app>', 'RaWorld <alerts@worldmonitor.app>']) {
       const payload = buildResendEmailPayload({ from, to: 'a@example.com', subject: 's', text: 't' });
       assert.equal(payload.replyTo, 'support@worldmonitor.app');
     }

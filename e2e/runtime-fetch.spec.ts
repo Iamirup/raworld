@@ -366,7 +366,7 @@ test.describe('desktop runtime routing guardrails', () => {
         __TAURI__?: { core?: { invoke?: (command: string) => Promise<unknown> } };
       };
       const previousTauri = globalWindow.__TAURI__;
-      const releaseUrl = 'https://github.com/koala73/worldmonitor/releases/latest';
+      const releaseUrl = 'https://github.com/Iamirup/raworld/releases/latest';
 
       const updaterProto = DesktopUpdater.prototype as unknown as {
         resolveUpdateDownloadUrl: (releaseUrl: string) => Promise<string>;
@@ -434,7 +434,7 @@ test.describe('desktop runtime routing guardrails', () => {
     expect(result.macArm).toBe('https://api.worldmonitor.app/api/download?platform=macos-arm64');
     expect(result.windowsX64).toBe('https://api.worldmonitor.app/api/download?platform=windows-msi');
     expect(result.linuxX64).toBe('https://api.worldmonitor.app/api/download?platform=linux-appimage');
-    expect(result.probeFailureFallback).toBe('https://github.com/koala73/worldmonitor/releases/latest');
+    expect(result.probeFailureFallback).toBe('https://github.com/Iamirup/raworld/releases/latest');
   });
 
   test('MapContainer paints a mobile shell before heavy map renderer resources', async ({ page }) => {
@@ -1414,7 +1414,7 @@ test.describe('desktop runtime routing guardrails', () => {
     expect(result.svgWrapperCount).toBe(1);
   });
 
-  test('cloud fallback blocked without WorldMonitor API key', async ({ page }) => {
+  test('cloud fallback blocked without RaWorld API key', async ({ page }) => {
     await page.goto('/tests/runtime-harness.html');
 
     const result = await page.evaluate(async () => {
@@ -1493,7 +1493,7 @@ test.describe('desktop runtime routing guardrails', () => {
     expect(result.localCalls).toBeGreaterThan(0);
   });
 
-  test('cloud fallback allowed with valid WorldMonitor API key', async ({ page }) => {
+  test('cloud fallback allowed with valid RaWorld API key', async ({ page }) => {
     await page.goto('/tests/runtime-harness.html');
 
     const result = await page.evaluate(async () => {

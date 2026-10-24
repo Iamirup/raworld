@@ -155,5 +155,5 @@ here rather than rediscovered:
   `docs/solutions/design-patterns/contract-gate-field-names-miss-value-axis.md`,
   applied to prose instead of proto.
 
-Shipped in [PR #7653](https://github.com/koala73/worldmonitor/pull/7653) for
-[issue #7614](https://github.com/koala73/worldmonitor/issues/7614).
+Shipped in [PR #7653](https://github.com/Iamirup/raworld/pull/7653) for
+[issue #7614](https://github.com/Iamirup/raworld/issues/7614).

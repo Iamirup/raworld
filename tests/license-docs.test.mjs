@@ -47,7 +47,7 @@ describe('project license docs', () => {
     const license = readFileSync(join(root, 'LICENSE'), 'utf8');
     const firstContentLine = license.split('\n').find((line) => line.trim().length > 0);
     const agplEnd = license.indexOf('END OF TERMS AND CONDITIONS');
-    const projectHeader = license.indexOf('World Monitor — Real-time global intelligence dashboard');
+    const projectHeader = license.indexOf('RaWorld — Real-time global intelligence dashboard');
     const projectCopyright = license.indexOf('Copyright (C) 2024-2026 Elie Habib');
     const projectNotice = license.indexOf('\nThis program is free software:');
 
@@ -89,7 +89,7 @@ describe('project license docs', () => {
     );
     assert.match(
       license,
-      /does not grant rights to use the World Monitor name, logo, visual identity, or official project branding/i,
+      /does not grant rights to use the RaWorld name, logo, visual identity, or official project branding/i,
       'license docs must separate trademark rights from AGPL code rights',
     );
   });
@@ -187,8 +187,8 @@ describe('project license docs', () => {
     for (const { relativePath, sourceNoticePattern } of documents) {
       const text = readFileSync(join(root, relativePath), 'utf8');
 
-      assert.match(text, /(?:Attribution to World Monitor|World Monitor attribution) is optional/i);
-      assert.match(text, /"Source: World Monitor" or "via World Monitor" is sufficient/i);
+      assert.match(text, /(?:Attribution to RaWorld|RaWorld attribution) is optional/i);
+      assert.match(text, /"Source: RaWorld" or "via RaWorld" is sufficient/i);
       assert.match(text, sourceNoticePattern);
     }
   });

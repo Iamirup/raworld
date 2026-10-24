@@ -205,7 +205,7 @@ export function renderChokepointLiveSection({ chokepoint, pulse, live = false })
     : null;
   const openStatusHtml = narrative !== null
     ? escapeHtml(narrative.passage)
-    : `World Monitor has not published current passage evidence for ${escapeHtml(chokepoint.displayName)} yet.`;
+    : `RaWorld has not published current passage evidence for ${escapeHtml(chokepoint.displayName)} yet.`;
   const openStatusSection = `        <h2>Is ${escapeHtml(chokepoint.displayName)} open right now?</h2>
         <p data-chokepoint-open-status>${openStatusHtml}</p>
 ${narrative !== null

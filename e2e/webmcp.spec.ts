@@ -2273,7 +2273,7 @@ test.describe('top-level WebMCP dashboard contract', () => {
         try {
           await provider.registerTool({
             name: 'wmProductionEmbedDeniedProbe',
-            description: 'Must never register inside the public World Monitor embed.',
+            description: 'Must never register inside the public RaWorld embed.',
             inputSchema: { type: 'object', properties: {}, additionalProperties: false },
             execute: () => 'unexpected-success',
           });

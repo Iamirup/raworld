@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Freeze the World Monitor GitHub star count for build-populated structured
+ * Freeze the RaWorld GitHub star count for build-populated structured
  * data. Writes docs/snapshots/github-stars-<YYYY-MM-DD>.json.
  *
  * The homepage InteractionCounter is populated from the committed snapshot at
@@ -18,7 +18,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const REPO = 'koala73/worldmonitor';
+const REPO = 'Iamirup/raworld';
 const USER_AGENT = 'WorldMonitor-build/1.0 (+https://www.worldmonitor.app)';
 
 export function snapshotPathFor(outputDir, today) {

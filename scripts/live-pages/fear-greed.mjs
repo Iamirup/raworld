@@ -65,8 +65,8 @@ export function fearGreedRecord(payload, now = Date.now()) {
 }
 
 function answerText(record) {
-  if (!record) return 'World Monitor has no current Fear & Greed reading. The seeded index is older than 24 hours or unavailable.';
-  const parts = [`As of ${formatStaticDateTime(record.asOf)}, the World Monitor Fear & Greed Index reads ${record.score} out of 100, which is ${record.label}.`];
+  if (!record) return 'RaWorld has no current Fear & Greed reading. The seeded index is older than 24 hours or unavailable.';
+  const parts = [`As of ${formatStaticDateTime(record.asOf)}, the RaWorld Fear & Greed Index reads ${record.score} out of 100, which is ${record.label}.`];
   if (record.cnn) parts.push(`CNN's Fear & Greed Index reads ${record.cnn.score} (${record.cnn.label}).`);
   if (record.aaii) parts.push(`The latest AAII survey shows ${record.aaii.bull}% bullish and ${record.aaii.bear}% bearish.`);
   return parts.join(' ');
@@ -75,7 +75,7 @@ function answerText(record) {
 function bodyHtml(record) {
   if (!record) return '        <p class="tool-note">Open the live dashboard for the latest market sentiment panels.</p>';
   const metrics = [
-    metric('World Monitor index', String(record.score), record.label),
+    metric('RaWorld index', String(record.score), record.label),
     record.cnn ? metric('CNN Fear & Greed', String(record.cnn.score), record.cnn.label) : '',
     record.aaii ? metric('AAII bullish / bearish', `${record.aaii.bull}% / ${record.aaii.bear}%`) : '',
     record.vix !== null ? metric('VIX', String(record.vix)) : '',
@@ -88,7 +88,7 @@ ${metrics}
         </div>
         <div class="table-scroll">
           <table>
-            <caption>The ten categories behind the World Monitor index (0 is extreme fear, 100 is extreme greed)</caption>
+            <caption>The ten categories behind the RaWorld index (0 is extreme fear, 100 is extreme greed)</caption>
             <thead><tr><th scope="col">Category</th><th scope="col">Score</th><th scope="col">Weight</th></tr></thead>
             <tbody>
 ${rows}
@@ -101,10 +101,10 @@ export const fearGreedPage = Object.freeze({
   slug: 'fear-and-greed-index',
   path: '/tools/fear-and-greed-index/',
   statusPath: '/api/market/v1/get-fear-greed-index?public=1',
-  title: 'Fear & Greed Index Today: Live Stock Market Sentiment | World Monitor',
+  title: 'Fear & Greed Index Today: Live Stock Market Sentiment | RaWorld',
   h1: 'Fear & Greed Index today',
   question: 'What is the Fear & Greed Index today?',
-  description: 'The current stock market Fear & Greed reading: World Monitor\'s ten-category composite beside CNN\'s index and the AAII investor sentiment survey, updated live.',
+  description: 'The current stock market Fear & Greed reading: RaWorld\'s ten-category composite beside CNN\'s index and the AAII investor sentiment survey, updated live.',
   dashboardPanel: 'Fear & Greed',
   record: fearGreedRecord,
   renderSection(record, { live }) {
@@ -116,13 +116,13 @@ export const fearGreedPage = Object.freeze({
       answer: answerText(record),
       bodyHtml: bodyHtml(record),
       asOf: record?.asOf,
-      sourceHtml: 'Sources: World Monitor composite; CNN Business Fear &amp; Greed (<a href="https://www.cnn.com/markets/fear-and-greed" rel="nofollow">cnn.com</a>); AAII Sentiment Survey (<a href="https://www.aaii.com/sentimentsurvey" rel="nofollow">aaii.com</a>); Cboe VIX.',
+      sourceHtml: 'Sources: RaWorld composite; CNN Business Fear &amp; Greed (<a href="https://www.cnn.com/markets/fear-and-greed" rel="nofollow">cnn.com</a>); AAII Sentiment Survey (<a href="https://www.aaii.com/sentimentsurvey" rel="nofollow">aaii.com</a>); Cboe VIX.',
     });
   },
-  explainer: `      <h2>How the World Monitor index is built</h2>
+  explainer: `      <h2>How the RaWorld index is built</h2>
       <p>The index blends ten categories of market evidence into one 0 to 100 score: sentiment, volatility, positioning, price trend, market breadth, momentum, liquidity, credit spreads, macro stress and cross-asset moves. Each category is scored on its own and weighted; a category scored from only some of its inputs is marked "partial inputs" in the table above. A score of 20 or below reads as extreme fear, 21 to 40 as fear, 41 to 60 as neutral, 61 to 80 as greed and above 80 as extreme greed.</p>
       <h2>How it differs from CNN's Fear &amp; Greed Index</h2>
-      <p>CNN's index uses seven US stock market indicators. World Monitor shows CNN's reading beside its own composite, with credit to CNN, so the two can be compared at a glance. They often differ: World Monitor's composite also weighs credit, liquidity, macro and cross-asset conditions.</p>
+      <p>CNN's index uses seven US stock market indicators. RaWorld shows CNN's reading beside its own composite, with credit to CNN, so the two can be compared at a glance. They often differ: RaWorld's composite also weighs credit, liquidity, macro and cross-asset conditions.</p>
       <h2>The AAII investor sentiment survey</h2>
-      <p>The American Association of Individual Investors asks its members each week whether they expect stocks to rise, fall or stay flat over the next six months. The bullish and bearish shares above are the latest weekly results as captured by World Monitor.</p>`,
+      <p>The American Association of Individual Investors asks its members each week whether they expect stocks to rise, fall or stay flat over the next six months. The bullish and bearish shares above are the latest weekly results as captured by RaWorld.</p>`,
 });

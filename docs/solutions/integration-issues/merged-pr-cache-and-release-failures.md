@@ -12,14 +12,14 @@ severity: high
 
 ## Evidence
 
-The latest two merges were [#7752](https://github.com/koala73/worldmonitor/pull/7752)
-at 18:44 UTC and [#7754](https://github.com/koala73/worldmonitor/pull/7754)
+The latest two merges were [#7752](https://github.com/Iamirup/raworld/pull/7752)
+at 18:44 UTC and [#7754](https://github.com/Iamirup/raworld/pull/7754)
 at 18:38 UTC on September 5, 2026. Their red checks had separate causes.
 
 | Failed check | Direct evidence | Correction |
 | --- | --- | --- |
-| [Prepare Desktop Release](https://github.com/koala73/worldmonitor/actions/runs/33984691487) | The configuration step reports four empty secrets. No desktop build started. | Configure the existing required secrets before release preparation. |
-| [Live API Cache/Auth Sweep](https://github.com/koala73/worldmonitor/actions/runs/33984985761) | The sweep started at 18:44. Vercel reported the merge deployment ready at 18:51:38. | Start the deployment check on successful Vercel Production events. |
+| [Prepare Desktop Release](https://github.com/Iamirup/raworld/actions/runs/33984691487) | The configuration step reports four empty secrets. No desktop build started. | Configure the existing required secrets before release preparation. |
+| [Live API Cache/Auth Sweep](https://github.com/Iamirup/raworld/actions/runs/33984985761) | The sweep started at 18:44. Vercel reported the merge deployment ready at 18:51:38. | Start the deployment check on successful Vercel Production events. |
 | Same sweep, anonymous ACLED RPC | HTTP 401 carries `Cache-Control: max-age=1800` on the API host. The same path on `www` returns `no-store`. | Correct the API cache rule's error TTL and browser TTL. |
 | Same sweep, document cache | After deployment, fresh blog and agent-file requests have the new CDN header. Some canonical cache entries still have old headers. | Refresh the affected cache entries after the header deployment, then repeat canonical GET probes. |
 
@@ -120,7 +120,7 @@ this diagnosis.
 
 ## Separate ingestion failure
 
-The [Seed Freshness Monitor](https://github.com/koala73/worldmonitor/actions/runs/33985198497)
+The [Seed Freshness Monitor](https://github.com/Iamirup/raworld/actions/runs/33985198497)
 also reported `crossStraitActivityTaiwanMnd` and `wildfires` as `SEED_ERROR`.
 Its accepted-problem baseline expired at 18:00 UTC. This is production ingestion
 evidence, not a Sentry or document-cache regression. Keep the failure visible.
@@ -137,7 +137,7 @@ skip. The failures were the anonymous API rejection cache and document cache.
 The document-cache group also carries RSC and markdown negative controls. The
 September 6, 01:15 UTC scheduled run passed all three canonical HIT checks and
 failed only because an `RSC: 1` request for `/docs/documentation` received
-`text/html` ([run 34003400437](https://github.com/koala73/worldmonitor/actions/runs/34003400437)).
+`text/html` ([run 34003400437](https://github.com/Iamirup/raworld/actions/runs/34003400437)).
 A purge does not address that shape, and it passed again on a later probe, so
 treat it as a separate negotiation issue rather than evidence against the
 corrections above.

@@ -52,9 +52,9 @@ const X_BACKOFF_CAUSES = Object.freeze({
   MEMBERSHIP_DRIFT: 'membership-drift',
 });
 const X_FEED_SNAPSHOT_VERSION = 1;
-const USER_AGENT = 'WorldMonitor/1.0 (curated news-account monitoring; +https://worldmonitor.app)';
-const X_CURATED_LIST_NAME = 'WorldMonitor Curated News';
-const X_CURATED_LIST_DESCRIPTION = 'WorldMonitor production sources from data/x-accounts.json';
+const USER_AGENT = 'RaWorld/1.0 (curated news-account monitoring; +https://worldmonitor.app)';
+const X_CURATED_LIST_NAME = 'RaWorld Curated News';
+const X_CURATED_LIST_DESCRIPTION = 'RaWorld production sources from data/x-accounts.json';
 
 function toText(value) {
   return value == null ? '' : String(value);

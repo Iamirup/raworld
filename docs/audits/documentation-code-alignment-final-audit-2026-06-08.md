@@ -3,7 +3,7 @@
 ## Purpose
 
 This audit checks whether the merged code and documentation describe the same
-WorldMonitor product, API surface, MCP server, CII/CRI index methodology,
+RaWorld product, API surface, MCP server, CII/CRI index methodology,
 news/digest/briefing pipeline, and related public claims.
 
 The goal is not only to remove stale text. The stronger standard is that
@@ -94,7 +94,7 @@ server-authoritative methodology and guarded by an expanded CII drift test.
 
 ### CII
 
-CII is now documented as a WorldMonitor editorial risk index, not as an
+CII is now documented as a RaWorld editorial risk index, not as an
 academic or third-party neutral benchmark. The docs disclose the v8 component
 formula, the baseline/event mix, capped boosts and floors, advisory fallback
 behavior, movement windows, methodology version, country coverage, and

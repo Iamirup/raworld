@@ -15,7 +15,7 @@ import {
 } from '../scripts/publish-pr-media-evidence.mjs';
 
 const SHA = 'a'.repeat(40);
-const REPOSITORY = 'koala73/worldmonitor';
+const REPOSITORY = 'Iamirup/raworld';
 const PNG_SIGNATURE = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
 
 function provenanceFixture(overrides = {}) {
@@ -39,7 +39,7 @@ function provenanceFixture(overrides = {}) {
       conclusion: 'success',
       head_repository: { full_name: REPOSITORY },
       head_sha: SHA,
-      html_url: 'https://github.com/koala73/worldmonitor/actions/runs/1234',
+      html_url: 'https://github.com/Iamirup/raworld/actions/runs/1234',
       pull_requests: [{ number: 42 }],
       run_attempt: 2,
     },
@@ -83,7 +83,7 @@ describe('trusted Actions provenance', () => {
     assert.deepEqual(result.run, {
       id: 1234,
       attempt: 2,
-      url: 'https://github.com/koala73/worldmonitor/actions/runs/1234',
+      url: 'https://github.com/Iamirup/raworld/actions/runs/1234',
     });
     assert.equal(result.artifact.id, 501);
   });
@@ -141,12 +141,12 @@ describe('PNG attachment boundary', () => {
         [
           {
             filename: '002-first-view.png',
-            alt: 'WorldMonitor E2E visual evidence: first view',
+            alt: 'RaWorld E2E visual evidence: first view',
             byteSize: 8,
           },
           {
             filename: '010-second_view.png',
-            alt: 'WorldMonitor E2E visual evidence: second view',
+            alt: 'RaWorld E2E visual evidence: second view',
             byteSize: 8,
           },
         ],
@@ -347,7 +347,7 @@ function createFakeGh({ calls, initialComments = [], postComments = [], staleOnS
       await writeFile(path.join(outputDirectory, 'screenshots', 'images', '001-dashboard.png'), PNG_SIGNATURE);
       return '';
     }
-    if (args[0] === 'pr') return 'https://github.com/koala73/worldmonitor/pull/42#issuecomment-10';
+    if (args[0] === 'pr') return 'https://github.com/Iamirup/raworld/pull/42#issuecomment-10';
     if (args[0] !== 'api') throw new Error(`Unexpected command: ${args.join(' ')}`);
     if (args[1] === '--method') return '';
 

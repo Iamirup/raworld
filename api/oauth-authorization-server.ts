@@ -18,7 +18,7 @@
  * construction also satisfies isitagentready.com / mcp.cloudflare.com.
  *
  * The `agent_auth` block follows the WorkOS auth.md spec
- * (https://workos.com/auth-md). WorldMonitor supports anonymous agent
+ * (https://workos.com/auth-md). RaWorld supports anonymous agent
  * registration: an agent registers a public client via RFC 7591 Dynamic Client
  * Registration (`register_uri`) and completes an OAuth 2.1 authorization_code +
  * PKCE (S256) flow to obtain a bearer access token — no pre-asserted user

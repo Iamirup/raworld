@@ -20,7 +20,7 @@ message FactCheck {
   string publisher = 1;
   // The IFCN-allowlisted domain the link belongs to.
   string site = 2;
-  // The fact-checker's own rating, verbatim. WorldMonitor does not rate claims.
+  // The fact-checker's own rating, verbatim. RaWorld does not rate claims.
   string rating = 3;
   // When the fact-check was published, ISO 8601.
   string reviewed_at = 4;

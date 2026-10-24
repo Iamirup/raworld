@@ -1,13 +1,30 @@
 import { SITE_VARIANT } from '@/config/variant';
 import { safeStorageGet } from '@/utils/safe-storage';
 import { getClerkToken } from '@/services/clerk';
-import { sleepBeforeRetry, withBillingVerificationRetry } from '@/services/billing-retry';
 import { hasExplicitDesktopSignals, isDesktopRuntime } from './desktop-runtime';
 
 // The detector lives in a dependency-free leaf (#5911) so consumers that need
 // only the boolean do not pull this module's variant/Clerk graph. Re-exported
 // here because every existing caller imports it from `@/services/runtime`.
 export { detectDesktopRuntime, isDesktopRuntime, type RuntimeProbe } from './desktop-runtime';
+
+function sleepBeforeRetry(ms: number, signal: AbortSignal | null): Promise<void> {
+  return new Promise((resolve, reject) => {
+    if (signal?.aborted) {
+      reject(signal.reason ?? new Error('Aborted'));
+      return;
+    }
+    const timer = setTimeout(() => {
+      signal?.removeEventListener('abort', onAbort);
+      resolve();
+    }, ms);
+    function onAbort(): void {
+      clearTimeout(timer);
+      reject(signal?.reason ?? new Error('Aborted'));
+    }
+    signal?.addEventListener('abort', onAbort, { once: true });
+  });
+}
 
 const ENV = (() => {
   try {
@@ -444,7 +461,7 @@ export function installRuntimeFetchPatch(): void {
   // the same retryable billing-verification 503. This patch and the web one are
   // mutually exclusive (each returns early on the other's runtime), so wrapping
   // both is what makes the contract honored everywhere rather than only on web.
-  window.fetch = withBillingVerificationRetry(dispatch);
+  window.fetch = dispatch;
 
   (window as unknown as Record<string, unknown>).__wmFetchPatched = true;
 }
@@ -593,7 +610,7 @@ export function installWebApiRedirect(): void {
       }
       return nativeFetch(input, init);
     };
-    window.fetch = withBillingVerificationRetry(dispatch);
+    window.fetch = dispatch;
   } else {
     // No API base redirect — only inject auth headers for premium paths.
     const dispatch = async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
@@ -627,7 +644,7 @@ export function installWebApiRedirect(): void {
       }
       return nativeFetch(input, init);
     };
-    window.fetch = withBillingVerificationRetry(dispatch);
+    window.fetch = dispatch;
   }
 
   (window as unknown as Record<string, unknown>).__wmWebRedirectPatched = true;

@@ -5,7 +5,7 @@
 export const PUBLIC_PRODUCT_FACTS = {
   "_generated": "scripts/generate-public-product-facts.mjs — do not edit by hand; run `npm run product:facts`",
   "product": {
-    "name": "World Monitor",
+    "name": "RaWorld",
     "lifecycle": "launched",
     "canonicalUrl": "https://www.worldmonitor.app/",
     "pricingUrl": "https://www.worldmonitor.app/pro#pricing",
@@ -41,7 +41,7 @@ export const PUBLIC_PRODUCT_FACTS = {
       "currentForCheckout": true,
       "selfServe": true,
       "dashboardAiCallsPerDay": 500,
-      "description": "Everything in Free — panels, sources & followed countries uncapped, WM Analyst chat + AI stock analysis & backtesting, Cost-shock modelling & supply-chain stress tests, Intel memory — historical search, timelines & similar events, Physical metals divergence, minerals concentration & sovereign debt data, Scheduled AI digest + alert rules engine, MCP + SDK access for Claude Desktop & other AI clients (50 calls/day), Custom widgets & 10 dashboards (vs 3), Personal license, 1 named user"
+      "description": "Everything in Free — panels, sources & followed countries uncapped, RaWorld Analyst chat + AI stock analysis & backtesting, Cost-shock modelling & supply-chain stress tests, Intel memory — historical search, timelines & similar events, Physical metals divergence, minerals concentration & sovereign debt data, Scheduled AI digest + alert rules engine, MCP + SDK access for Claude Desktop & other AI clients (50 calls/day), Custom widgets & 10 dashboards (vs 3), Personal license, 1 named user"
     },
     {
       "planKey": "pro_annual",
@@ -271,7 +271,7 @@ export const TIER_CONFIG = {
     "description": "Full intelligence dashboard",
     "features": [
       "Everything in Free — panels, sources & followed countries uncapped",
-      "WM Analyst chat + AI stock analysis & backtesting",
+      "RaWorld Analyst chat + AI stock analysis & backtesting",
       "Cost-shock modelling & supply-chain stress tests",
       "Intel memory — historical search, timelines & similar events",
       "Physical metals divergence, minerals concentration & sovereign debt data",
@@ -347,7 +347,7 @@ export const TIER_CONFIG = {
   "api_business": {
     "name": "API Business",
     "localeKey": "apiBusiness",
-    "description": "Launch your own product on WorldMonitor data",
+    "description": "Launch your own product on RaWorld data",
     "features": [
       "Everything in API Starter",
       "R1–R3 redistribution rights for customer-facing products",

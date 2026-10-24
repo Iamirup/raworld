@@ -9,7 +9,7 @@ date: 2026-03-29
 
 ## Overview
 
-Enhance WorldMonitor's commodity variant with learnings from the `Yazan-Abuawwad/gold-monitor` fork. The fork was a fully independent Angular+Spring Boot app (not based on our codebase), but its gold layer design surfaces four concrete gaps in our current commodity variant:
+Enhance RaWorld's commodity variant with learnings from the `Yazan-Abuawwad/gold-monitor` fork. The fork was a fully independent Angular+Spring Boot app (not based on our codebase), but its gold layer design surfaces four concrete gaps in our current commodity variant:
 
 1. **10 major gold mines missing** from our `MINING_SITES` geo data
 2. **2 direct gold RSS feeds missing** from the `gold-silver` panel

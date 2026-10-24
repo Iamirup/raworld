@@ -1,7 +1,7 @@
 {
   "name": "worldmonitor",
   "version": "0.2.1",
-  "description": "Command-line client for the World Monitor global-intelligence API — script country briefs, risk scores, conflict/cyber/market feeds, and MCP tools without writing an API integration.",
+  "description": "Command-line client for the RaWorld global-intelligence API — script country briefs, risk scores, conflict/cyber/market feeds, and MCP tools without writing an API integration.",
   "keywords": [
     "worldmonitor",
     "cli",
@@ -13,12 +13,12 @@
     "agent"
   ],
   "homepage": "https://worldmonitor.app/docs/cli",
-  "bugs": "https://github.com/koala73/worldmonitor/issues",
+  "bugs": "https://github.com/Iamirup/raworld/issues",
   "license": "MIT",
-  "author": "World Monitor",
+  "author": "RaWorld",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/koala73/worldmonitor.git",
+    "url": "git+https://github.com/Iamirup/raworld.git",
     "directory": "cli"
   },
   "type": "module",

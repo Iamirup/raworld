@@ -91,7 +91,7 @@ const HAND_REFRESHED = {
 const FAILED_BEFORE_REFRESH = {
   conclusion: 'failure',
   createdAt: '2026-09-14T04:50:09Z',
-  url: 'https://github.com/koala73/worldmonitor/actions/runs/34807475235',
+  url: 'https://github.com/Iamirup/raworld/actions/runs/34807475235',
 };
 
 describe('pulse freshness thresholds', () => {
@@ -229,7 +229,7 @@ describe('pulse freshness reporting', () => {
     const calls = [];
     const verdict = evaluatePulseFreshness(snapshot(9), { conclusion: 'failure' });
     const result = publishPulseFreshness(verdict, {
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       gh: () => [[{ number: 1, title: ISSUE_TITLE, user: { login: 'outsider' } }],
         [{ number: 8339, title: ISSUE_TITLE, user: { login: 'github-actions[bot]' } }]],
       ghPost: (args, payload) => { calls.push({ args, payload }); return {}; },
@@ -244,7 +244,7 @@ describe('pulse freshness reporting', () => {
     const calls = [];
     const verdict = evaluatePulseFreshness(snapshot(9), { conclusion: 'success' });
     const result = publishPulseFreshness(verdict, {
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       gh: () => [[{ number: 1, title: 'something else' }]],
       ghPost: (args, payload) => { calls.push({ args, payload }); return {}; },
     });
@@ -258,7 +258,7 @@ describe('pulse freshness reporting', () => {
     const calls = [];
     const verdict = evaluatePulseFreshness(snapshot(9), { conclusion: 'success' });
     publishPulseFreshness(verdict, {
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       gh: () => [[{ number: 42, title: ISSUE_TITLE, pull_request: { url: 'x' } }]],
       ghPost: (args, payload) => { calls.push({ args, payload }); return {}; },
     });
@@ -272,7 +272,7 @@ describe('pulse freshness reporting', () => {
     const calls = [];
     const verdict = evaluatePulseFreshness(HAND_REFRESHED, FAILED_BEFORE_REFRESH);
     const result = publishPulseFreshness(verdict, {
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       gh: () => [[{ number: 1, title: ISSUE_TITLE, user: { login: 'outsider' } }],
         [{ number: 8417, title: ISSUE_TITLE, user: { login: 'github-actions[bot]' } }]],
       ghPost: (args, payload) => { calls.push({ args, payload }); return {}; },
@@ -292,7 +292,7 @@ describe('pulse freshness reporting', () => {
     let posted = false;
     const verdict = evaluatePulseFreshness(snapshot(1), { conclusion: 'success' });
     const result = publishPulseFreshness(verdict, {
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       gh: () => [[{ number: 1, title: 'something else' }]],
       ghPost: () => { posted = true; return {}; },
     });
@@ -306,7 +306,7 @@ describe('pulse freshness reporting', () => {
         const calls = [];
         const verdict = evaluatePulseFreshness(snapshot(alert ? 9 : 1), { conclusion: 'success' });
         const result = publishPulseFreshness(verdict, {
-          repository: 'koala73/worldmonitor',
+          repository: 'Iamirup/raworld',
           gh: () => [[{ number: 42, title: ISSUE_TITLE, user }]],
           ghPost: (args, payload) => { calls.push({ args, payload }); return {}; },
         });
@@ -314,7 +314,7 @@ describe('pulse freshness reporting', () => {
         assert.equal(calls.length, alert ? 1 : 0);
         if (alert) {
           assert.ok(calls[0].args.includes('POST'));
-          assert.ok(calls[0].args.includes('repos/koala73/worldmonitor/issues'));
+          assert.ok(calls[0].args.includes('repos/Iamirup/raworld/issues'));
         }
       }
     }

@@ -5,12 +5,12 @@ description: "Operational contract for the terminal CHECKOUT_RATE_LIMITED rate a
 
 # Checkout Rate-Limit Operations
 
-Issue [#6027](https://github.com/koala73/worldmonitor/issues/6027) stopped Dodo
+Issue [#6027](https://github.com/Iamirup/raworld/issues/6027) stopped Dodo
 `429`s from hard-blocking checkout by absorbing them in a bounded server-side
 retry ladder. This page owns the **tail** of that ladder: the checkouts where
 the ladder ran, was exhausted, and Dodo was still limiting our shared API key,
 so the buyer got a terminal `429 CHECKOUT_RATE_LIMITED` and a "please retry"
-toast. Nothing watched that rate before [#6698](https://github.com/koala73/worldmonitor/issues/6698).
+toast. Nothing watched that rate before [#6698](https://github.com/Iamirup/raworld/issues/6698).
 
 ## What the alarm measures
 
@@ -121,7 +121,7 @@ sized against.
 
 ### What those numbers imply
 
-240 requests/minute sustained is far above WorldMonitor's checkout volume, so
+240 requests/minute sustained is far above RaWorld's checkout volume, so
 the terminal 429s are almost certainly **burst** collisions against the 40/s
 ceiling rather than sustained exhaustion. Checkout traffic alone cannot
 plausibly produce a 40-request second at current volume, which points at the

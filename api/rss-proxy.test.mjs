@@ -883,7 +883,7 @@ test('sends the seeder-convention browser User-Agent on a CBC direct fetch (#662
   assert.equal(calls[0].url, CBC_CATALOG_URL);
   assert.equal(calls[0].headers['User-Agent'], RSS_BROWSER_UA);
   assert.match(calls[0].headers['User-Agent'], /Chrome\//);
-  assert.doesNotMatch(calls[0].headers['User-Agent'], /^(undici|node|WorldMonitor)/);
+  assert.doesNotMatch(calls[0].headers['User-Agent'], /^(undici|node|RaWorld)/);
 });
 
 test('keeps a browser UA on the CBC path — a bot UA would be 403ed (#6624)', async () => {

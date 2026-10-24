@@ -114,7 +114,7 @@ describe('SEO crawl-directive hygiene (#7380)', () => {
       '/blog/',
       '/docs',
       '/pro#pricing',
-      'https://github.com/koala73/worldmonitor',
+      'https://github.com/Iamirup/raworld',
     ]) {
       assert.ok(noScript.includes(`href="${href}`), `no-JavaScript fallback should link to ${href}`);
     }

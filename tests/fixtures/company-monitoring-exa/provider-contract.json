@@ -36,7 +36,7 @@
         ]
       }
     ],
-    "expectedQuery": "WorldMonitor discovery v1 | recent factual company news | candidate-only attribution | company[0]{name=\"Acme Holdings\";domicile=\"US\";aliases=[\"Acme\"];domains=[\"acme.example\"];identifiers=[];locations=[]} | company[1]{name=\"Beacon Systems\";domicile=\"GB\";aliases=[];domains=[];identifiers=[];locations=[\"London\"]}"
+    "expectedQuery": "RaWorld discovery v1 | recent factual company news | candidate-only attribution | company[0]{name=\"Acme Holdings\";domicile=\"US\";aliases=[\"Acme\"];domains=[\"acme.example\"];identifiers=[];locations=[]} | company[1]{name=\"Beacon Systems\";domicile=\"GB\";aliases=[];domains=[];identifiers=[];locations=[\"London\"]}"
   },
   "successResponse": {
     "requestId": "exa-request-001",

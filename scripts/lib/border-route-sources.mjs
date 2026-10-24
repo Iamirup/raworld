@@ -6,7 +6,7 @@ import { getOptionalUpstashCreds, upstashCommand } from '../_upstash-rest.mjs';
 const UK = 'https://www.gov.uk';
 const UK_PATH = '/government/publications/migrants-detected-crossing-the-english-channel-in-small-boats';
 const CBP = 'https://www.cbp.gov';
-const USER_AGENT = 'WorldMonitor/1.0 (+https://worldmonitor.app)';
+const USER_AGENT = 'RaWorld/1.0 (+https://worldmonitor.app)';
 
 export const BORDER_SOURCES = {
   uk: { name: 'UK Home Office', url: `${UK}${UK_PATH}`, license: 'Open Government Licence v3.0', licenseUrl: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/', maxContentAgeMin: 7.5 * 1440 },

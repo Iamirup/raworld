@@ -1,14 +1,14 @@
 ---
-title: "World Monitor agent guide"
+title: "RaWorld agent guide"
 description: "Machine interfaces, authentication, request policy, and rate limits."
 canonical: "https://www.worldmonitor.app/agents.md"
 ---
 
-# World Monitor — Agent Guide
+# RaWorld — Agent Guide
 
 > How AI agents should work with worldmonitor.app: machine surfaces, authentication, crawl policy, rate limits, and discovery endpoints. Prefer the structured surfaces below over scraping the HTML dashboard — the dashboard is a WebGL SPA and yields nothing useful to a text parser.
 
-World Monitor is a real-time global intelligence dashboard: curated news feeds, a shared map-layer catalog, concrete panel implementations, country risk/resilience scores, AI briefs, forecasts, and market/supply-chain correlation, served as machine-readable JSON with documented methodology and provenance.
+RaWorld is a real-time global intelligence dashboard: curated news feeds, a shared map-layer catalog, concrete panel implementations, country risk/resilience scores, AI briefs, forecasts, and market/supply-chain correlation, served as machine-readable JSON with documented methodology and provenance.
 
 ## Machine surfaces (use these)
 
@@ -17,11 +17,11 @@ World Monitor is a real-time global intelligence dashboard: curated news feeds, 
 - **Docs MCP server:** `https://www.worldmonitor.app/docs/mcp` — Streamable HTTP, public (no auth); search-and-retrieval tools over the documentation. Use it for "how do I…" questions; use the product MCP above for live data.
 - **REST API:** base `https://api.worldmonitor.app` — OpenAPI spec: https://www.worldmonitor.app/openapi.yaml (JSON: /openapi.json) · API catalog: https://worldmonitor.app/.well-known/api-catalog
 - **NLWeb:** `POST https://www.worldmonitor.app/ask` (supports SSE) for natural-language questions; machine-readable dashboard view at `https://www.worldmonitor.app/?mode=agent`
-- **Agent Skills:** discovery index at https://worldmonitor.app/.well-known/agent-skills/index.json · install via `npx skills add koala73/worldmonitor` (https://skills.sh/koala73/worldmonitor)
+- **Agent Skills:** discovery index at https://worldmonitor.app/.well-known/agent-skills/index.json · install via `npx skills add Iamirup/raworld` (https://skills.sh/Iamirup/raworld)
 - **Agent setup page:** https://www.worldmonitor.app/agent/ — per-client MCP setup for Claude, ChatGPT, Cursor, Gemini CLI, Grok Bot and generic MCP clients, plus skill install commands
-- **Agent Plugin metadata:** https://www.worldmonitor.app/plugin.json — public metadata for the Agent Plugins 1.0.0 repository package. Install the package from https://github.com/koala73/worldmonitor (root `plugin.json`, `mcp.json`, and `skills/*/SKILL.md` live in the repository, not as sibling HTTP files)
+- **Agent Plugin metadata:** https://www.worldmonitor.app/plugin.json — public metadata for the Agent Plugins 1.0.0 repository package. Install the package from https://github.com/Iamirup/raworld (root `plugin.json`, `mcp.json`, and `skills/*/SKILL.md` live in the repository, not as sibling HTTP files)
 - **CLI:** `npx worldmonitor tools` lists every tool (public, no key) — https://www.npmjs.com/package/worldmonitor
-- **SDKs:** Python `pip install worldmonitor-sdk` · Ruby `gem install worldmonitor` · Go `go get github.com/koala73/worldmonitor/sdk/go` · JavaScript npm `worldmonitor` — guide: https://www.worldmonitor.app/docs/sdks
+- **SDKs:** Python `pip install worldmonitor-sdk` · Ruby `gem install worldmonitor` · Go `go get github.com/Iamirup/raworld/sdk/go` · JavaScript npm `worldmonitor` — guide: https://www.worldmonitor.app/docs/sdks
 - **Sandbox / test environment:** https://www.worldmonitor.app/sandbox/index.json — deterministic, schema-valid sample responses for representative REST operations; no auth, no quota, safe for CI. Guide: https://www.worldmonitor.app/docs/sandbox
 - **LLM briefings:** https://www.worldmonitor.app/llms.txt (overview) · https://www.worldmonitor.app/llms-full.txt (full reference) · section files: https://www.worldmonitor.app/api/llms.txt (API) · https://www.worldmonitor.app/docs/llms.txt (docs) · https://www.worldmonitor.app/developers/llms.txt (developer portal) · https://www.worldmonitor.app/blog/llms.txt (blog)
 - **Schema map:** https://www.worldmonitor.app/schemamap.xml — NLWeb schemamap indexing the structured-data surfaces
@@ -51,5 +51,5 @@ World Monitor is a real-time global intelligence dashboard: curated news feeds, 
 ## Support & escalation
 
 - https://www.worldmonitor.app/support.md — support@worldmonitor.app (general) · enterprise@worldmonitor.app (sales)
-- Status: https://status.worldmonitor.app · Issues: https://github.com/koala73/worldmonitor/issues
-- Source (AGPL-3.0): https://github.com/koala73/worldmonitor
+- Status: https://status.worldmonitor.app · Issues: https://github.com/Iamirup/raworld/issues
+- Source (AGPL-3.0): https://github.com/Iamirup/raworld

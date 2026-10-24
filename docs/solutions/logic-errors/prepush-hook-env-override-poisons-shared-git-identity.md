@@ -7,7 +7,7 @@ problem_type: logic_error
 component: development_workflow
 severity: high
 symptoms:
-  - "Commits land on main and PR branches authored/committed as test <test@example.com>, Fixture <fixture@example.invalid>, WorldMonitor Test, or e <e@e.co> -- none of them real contributors"
+  - "Commits land on main and PR branches authored/committed as test <test@example.com>, Fixture <fixture@example.invalid>, RaWorld Test, or e <e@e.co> -- none of them real contributors"
   - "git config --global user.name always shows the correct identity while the poisoned value lives in the repo-local SHARED .git/config"
   - "A commit carries a fixture's fake identity even from a worktree that never ran a git-fixture test (the poison is in config every linked worktree shares)"
   - "A fixture's cd <tempdir> && git init && git config user.name writes into the real repo whenever it executes as a child of the pre-push hook"
@@ -33,7 +33,7 @@ tags:
 
 Commits were repeatedly landing under fake test-fixture identities instead of the real
 contributor — `Fixture <fixture@example.invalid>` (2026-08-30), `test <test@example.com>`
-(2026-08-29/30, this one reached `main`), `WorldMonitor Test <test@worldmonitor.app>`, and
+(2026-08-29/30, this one reached `main`), `RaWorld Test <test@worldmonitor.app>`, and
 `e <e@e.co>`. The identities didn't come from a misconfigured `git config --global`; they came
 from git itself.
 
@@ -43,7 +43,7 @@ child's `cwd`** for the purposes of git repo discovery — a process can `cd` in
 temp directory and still have every git command it runs resolve back to the *original* repo
 because the env vars win.
 
-WorldMonitor's `.husky/pre-push` hook runs the tests touched by the push
+RaWorld's `.husky/pre-push` hook runs the tests touched by the push
 (`scripts/prepush-changed-tests.sh`, invoked at `.husky/pre-push:576` and `:583`). Several of
 those test files spin up throwaway git fixtures — `git init` in a tempdir, then
 `git config user.name <fixture>` to give the fixture repo an identity — as ordinary test setup.
@@ -55,13 +55,13 @@ being pushed — the common config that every linked worktree reads. From that p
 commit made from *any* worktree of that repo silently carries the fixture's fake author until
 someone notices.
 
-This is a shared-worktree amplifier: WorldMonitor runs on the order of a hundred linked
+This is a shared-worktree amplifier: RaWorld runs on the order of a hundred linked
 worktrees off one common `.git` directory (113 at the time of this incident), so one hook run in one worktree poisons identity for all of them.
 
 ## Symptoms
 
 - Commits landing on `main` and PR branches authored/committed as `test <test@example.com>`,
-  `Fixture <fixture@example.invalid>`, `WorldMonitor Test <test@worldmonitor.app>`, or
+  `Fixture <fixture@example.invalid>`, `RaWorld Test <test@worldmonitor.app>`, or
   `e <e@e.co>` — none of them real contributors.
 - `git config --global user.name`/`user.email` always showed the correct identity, which is
   misleading and delayed diagnosis — the poison lives in the **repo-local shared config**
@@ -110,7 +110,7 @@ PR #7432 (`fix/prepush-git-env-identity-leak`; open as of this writing) adds thr
 # shells out to `git config user.name` without stripping them writes its fake
 # identity into the SHARED .git/config — poisoning every worktree's future
 # commits (2026-08-30 "Fixture <fixture@example.invalid>" incident; also
-# "test@example.com", "WorldMonitor Test", "e@e.co" before it). The hook needs
+# "test@example.com", "RaWorld Test", "e@e.co" before it). The hook needs
 # none of these vars: cwd-based discovery works in every worktree. Capture the
 # push stdin first (the gate consumes it), then strip the list git publishes.
 WM_PUSH_STDIN=$(cat || true)

@@ -25,7 +25,7 @@ export const COVERAGE_INPUT_PATHS = Object.freeze([
 ]);
 
 const VARIANTS = Object.freeze([
-  { id: 'full', name: 'World Monitor', host: 'www.worldmonitor.app' },
+  { id: 'full', name: 'RaWorld', host: 'www.worldmonitor.app' },
   { id: 'tech', name: 'Tech Monitor', host: 'tech.worldmonitor.app' },
   { id: 'finance', name: 'Finance Monitor', host: 'finance.worldmonitor.app' },
   { id: 'commodity', name: 'Commodity Monitor', host: 'commodity.worldmonitor.app' },
@@ -318,7 +318,7 @@ function variantList(variants) {
 }
 
 export function coverageAnswer(counts) {
-  return `World Monitor covers geopolitics, conflict, military activity, markets, commodities, energy, shipping and supply chains, aviation, infrastructure, cyber threats, natural hazards, climate and live news. It does so across ${counts.panels} dashboard panels in ${counts.panelGroups} groups, ${counts.layers} map layers and ${counts.tools} MCP tools, spread over ${counts.dashboards} dashboards. Every item is listed below by name with what it shows.`;
+  return `RaWorld covers geopolitics, conflict, military activity, markets, commodities, energy, shipping and supply chains, aviation, infrastructure, cyber threats, natural hazards, climate and live news. It does so across ${counts.panels} dashboard panels in ${counts.panelGroups} groups, ${counts.layers} map layers and ${counts.tools} MCP tools, spread over ${counts.dashboards} dashboards. Every item is listed below by name with what it shows.`;
 }
 
 // On a phone each row becomes a card, so a description reads at full width
@@ -382,11 +382,11 @@ export function renderCoveragePage({ catalog, baseUrl, lastmod, tpl }) {
   const { escapeHtml, absoluteUrl, breadcrumbLd, pageDocument } = tpl;
   const counts = coverageCounts(catalog);
   const url = absoluteUrl(baseUrl, COVERAGE_PAGE_PATH);
-  const description = `Every World Monitor dashboard panel, map layer and MCP tool by name: ${counts.panels} panels, ${counts.layers} map layers and ${counts.tools} agent tools, with what each one shows.`;
+  const description = `Every RaWorld dashboard panel, map layer and MCP tool by name: ${counts.panels} panels, ${counts.layers} map layers and ${counts.tools} agent tools, with what each one shows.`;
   const answer = coverageAnswer(counts);
   const groupLinks = catalog.panelGroups.map((group) => `<a href="#panels-${slug(group.label)}">${escapeHtml(group.label)}</a>`).join(' · ');
   const body = `      <p class="eyebrow">Coverage catalog</p>
-      <h1>What World Monitor covers</h1>
+      <h1>What RaWorld covers</h1>
       <p class="lede">${escapeHtml(answer)}</p>
       <div class="grid">
         <div class="metric"><small>Dashboard panels</small><strong>${counts.panels}</strong><span>${counts.proPanels} ${counts.proPanels === 1 ? 'needs' : 'need'} Pro</span></div>
@@ -403,13 +403,13 @@ ${catalog.panelGroups.map((group) => renderPanelTable(group, escapeHtml)).join('
       <p>Layers with a published explanation card list their source and freshness. "Layer catalog" means the layer is not on by default on any dashboard but can be added from the map's layer catalog.</p>
 ${renderLayerTable(catalog.layers, escapeHtml)}
       <h2 id="mcp-tools">MCP tools for AI agents</h2>
-      <p>Agents reach the same data through the <a href="/docs/mcp">World Monitor MCP server</a>. Call <code>tools/list</code> for the live inventory and <code>describe_tool</code> for a tool's full definition.</p>
+      <p>Agents reach the same data through the <a href="/docs/mcp">RaWorld MCP server</a>. Call <code>tools/list</code> for the live inventory and <code>describe_tool</code> for a tool's full definition.</p>
 ${renderToolTable(catalog.tools, escapeHtml)}
       <p class="source">Generated from src/config/panels.ts, src/config/map-layer-definitions.ts, src/locales/en.json and api/mcp/registry at build time. Open the <a href="/dashboard">live dashboard</a> to use any of them.</p>`;
   return pageDocument({
     baseUrl,
     path: COVERAGE_PAGE_PATH,
-    title: 'What World Monitor Covers: Panels, Map Layers and MCP Tools',
+    title: 'What RaWorld Covers: Panels, Map Layers and MCP Tools',
     description,
     lastmod,
     ogType: 'website',
@@ -418,7 +418,7 @@ ${renderToolTable(catalog.tools, escapeHtml)}
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
         '@id': `${url}#webpage`,
-        name: 'What World Monitor covers',
+        name: 'What RaWorld covers',
         description,
         url,
         inLanguage: 'en-US',
@@ -429,7 +429,7 @@ ${renderToolTable(catalog.tools, escapeHtml)}
         '@type': 'FAQPage',
         mainEntity: [{
           '@type': 'Question',
-          name: 'What does World Monitor cover?',
+          name: 'What does RaWorld cover?',
           acceptedAnswer: { '@type': 'Answer', text: answer },
         }],
       },

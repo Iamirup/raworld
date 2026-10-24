@@ -1,13 +1,13 @@
 ---
 title: "Desktop Application"
-description: "Tauri desktop architecture for World Monitor — sidecar process management, secret storage, cloud fallback, and multi-platform build pipelines."
+description: "Tauri desktop architecture for RaWorld — sidecar process management, secret storage, cloud fallback, and multi-platform build pipelines."
 ---
 
 ## License
 
-The desktop app is built from the World Monitor source and **the binary is licensed to you under AGPL-3.0-only** — run it, study it, modify it, redistribute it under the AGPL's terms. Source: [github.com/koala73/worldmonitor](https://github.com/koala73/worldmonitor). Every packaged build ships `resources/notices/THIRD-PARTY-NOTICES.md`, generated at build time, with the verbatim notices for the npm packages and Rust crates it contains; the bundled Node.js runtime carries its own `LICENSE` alongside it.
+The desktop app is built from the RaWorld source and **the binary is licensed to you under AGPL-3.0-only** — run it, study it, modify it, redistribute it under the AGPL's terms. Source: [github.com/Iamirup/raworld](https://github.com/Iamirup/raworld). Every packaged build ships `resources/notices/THIRD-PARTY-NOTICES.md`, generated at build time, with the verbatim notices for the npm packages and Rust crates it contains; the bundled Node.js runtime carries its own `LICENSE` alongside it.
 
-Running the app entirely against your own API keys and local sources needs no plan from us. The moment it fetches World Monitor data — cloud fallback, entitlement checks, or our API — that use is governed by the [End User License Agreement](/eula), which covers desktop and web as one license rather than two.
+Running the app entirely against your own API keys and local sources needs no plan from us. The moment it fetches RaWorld data — cloud fallback, entitlement checks, or our API — that use is governed by the [End User License Agreement](/eula), which covers desktop and web as one license rather than two.
 
 ## Overview
 
@@ -116,7 +116,7 @@ At sidecar launch, the vault is read, parsed, and injected as environment variab
 
 ### Desktop Runtime Configuration Schema
 
-World Monitor desktop uses a runtime configuration schema with per-feature toggles and secret-backed credentials.
+RaWorld desktop uses a runtime configuration schema with per-feature toggles and secret-backed credentials.
 
 ### Secret keys
 
@@ -175,7 +175,7 @@ If required secrets are missing/disabled:
 - NASA FIRMS: satellite fire detection returns empty state.
 - Wingbits: flight enrichment disabled, heuristic-only flight classification remains.
 - AIS / OpenSky relay: live tracking features are disabled cleanly.
-- World Monitor API key and no Pro sign-in: cloud requests use an anonymous session, so the desktop sees what a signed-out browser sees. Tier-gated and premium routes stay unavailable.
+- RaWorld API key and no Pro sign-in: cloud requests use an anonymous session, so the desktop sees what a signed-out browser sees. Tier-gated and premium routes stay unavailable.
 
 ## Sidecar
 
@@ -191,7 +191,7 @@ The `/api/service-status` health check endpoint is exempt from token validation 
 
 ### Dynamic Port Allocation
 
-The sidecar defaults to port 46123 but handles `EADDRINUSE` gracefully — if the port is occupied (another World Monitor instance, or any other process), the sidecar binds to port 0 and lets the OS assign an available ephemeral port. The actual bound port is written to a port file (`sidecar.port` in the logs directory) that the Rust host polls on startup (100ms intervals, 5-second timeout). The frontend discovers the port at runtime via the `get_local_api_port` IPC command, and `getApiBaseUrl()` in `runtime.ts` is the canonical accessor — hardcoding port 46123 in frontend code is prohibited. The CSP `connect-src` directive uses `http://127.0.0.1:*` to accommodate any port.
+The sidecar defaults to port 46123 but handles `EADDRINUSE` gracefully — if the port is occupied (another RaWorld instance, or any other process), the sidecar binds to port 0 and lets the OS assign an available ephemeral port. The actual bound port is written to a port file (`sidecar.port` in the logs directory) that the Rust host polls on startup (100ms intervals, 5-second timeout). The frontend discovers the port at runtime via the `get_local_api_port` IPC command, and `getApiBaseUrl()` in `runtime.ts` is the canonical accessor — hardcoding port 46123 in frontend code is prohibited. The CSP `connect-src` directive uses `http://127.0.0.1:*` to accommodate any port.
 
 ### Local RSS Proxy
 
@@ -225,7 +225,7 @@ Cloud requests carry the strongest credential the desktop has. A configured `WOR
 
 The desktop app checks for new versions by polling `worldmonitor.app/api/version` — once at startup (after a 5-second delay) and then every 6 hours. When a newer version is detected (semver comparison), a non-intrusive update badge appears with a direct link to the GitHub Release page.
 
-Update prompts are dismissable per-version — dismissing v2.5.0 won't suppress v2.6.0 notifications. One World Monitor binary ships and every variant is selected in-app, so the updater resolves the download by OS and architecture alone (`/api/download?platform=…`) rather than by variant.
+Update prompts are dismissable per-version — dismissing v2.5.0 won't suppress v2.6.0 notifications. One RaWorld binary ships and every variant is selected in-app, so the updater resolves the download by OS and architecture alone (`/api/download?platform=…`) rather than by variant.
 
 A version the updater cannot parse is reported as `version_unparsable` and never treated as "up to date" — silently concluding "no update" from an unreadable version is exactly how a single malformed release tag could stop every client updating (#5908).
 

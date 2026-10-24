@@ -68,7 +68,7 @@ export class PredictionsView extends PaneView {
   renderForecasts(ctx, r) {
     const { t } = ctx;
     const rows = this.forecasts();
-    const inner = panel(ctx, r, { title: 'Scenario forecasts', focused: this.isFocused('forecasts'), right: 'WorldMonitor AI', onClick: () => this.focusPane('forecasts') });
+    const inner = panel(ctx, r, { title: 'Scenario forecasts', focused: this.isFocused('forecasts'), right: 'RaWorld AI', onClick: () => this.focusPane('forecasts') });
     this.lists.forecasts.draw(
       ctx,
       inner,

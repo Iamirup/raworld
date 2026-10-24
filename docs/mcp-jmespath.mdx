@@ -1,16 +1,16 @@
 ---
 title: "JMESPath Projection Guide"
-description: "Cut MCP response payloads by 80-95% using JMESPath projections — twelve worked examples against real World Monitor response shapes."
+description: "Cut MCP response payloads by 80-95% using JMESPath projections — twelve worked examples against real RaWorld response shapes."
 ---
 
-Every WorldMonitor MCP tool accepts an optional `jmespath` string argument. The server applies the expression **after** any per-tool filter and `summary` args, then projects the response before serialisation. A well-chosen projection typically cuts payload size by **80–95%** — the single most effective lever you have for keeping a long agent loop inside its context window.
+Every RaWorld MCP tool accepts an optional `jmespath` string argument. The server applies the expression **after** any per-tool filter and `summary` args, then projects the response before serialisation. A well-chosen projection typically cuts payload size by **80–95%** — the single most effective lever you have for keeping a long agent loop inside its context window.
 
 This page is the practical reference: a quick orientation, then twelve worked examples against three real captured tool responses. For the grammar itself, lean on the spec — [jmespath.org/specification.html](https://jmespath.org/specification.html). Coming back here is faster than re-reading the spec.
 
 ## Quick orientation
 
 - Every tool advertises `jmespath` in its input schema, so you never have to check first. The expression root is the **full response envelope** — `{ cached_at, stale, data: { … } }` for cache tools — so most expressions start with `data.<key>` to reach the payload, and `cached_at` / `stale` are addressable from the same root when you want them.
-- **Hyphenated keys must be quoted with double quotes.** Most WorldMonitor tools have hyphenated cache keys (`stocks-bootstrap`, `ucdp-events`, `etf-flows`, `fear-greed`, `transit-summaries`). Use `data."stocks-bootstrap".quotes[*].symbol`, not `data.stocks-bootstrap.…`.
+- **Hyphenated keys must be quoted with double quotes.** Most RaWorld tools have hyphenated cache keys (`stocks-bootstrap`, `ucdp-events`, `etf-flows`, `fear-greed`, `transit-summaries`). Use `data."stocks-bootstrap".quotes[*].symbol`, not `data.stocks-bootstrap.…`.
 - **Numbers and JSON literals go in backticks, strings in single quotes.** `[?deathsBest > \`5\`]` (numeric), `[?country == 'Iraq']` (string). Mixing them up silently parses the value as something else.
 - **Server-side limits** keep edge functions healthy:
   - Expression itself: ≤ **1024 bytes**.
@@ -24,7 +24,7 @@ The three response shapes used below are the captured fixtures under `tests/fixt
 
 ## MCP result channels
 
-WorldMonitor preserves raw projection text for existing clients. `structuredContent` must be a JSON object, so it wraps every successful projection, including object projections. The channels carry the same projected value but do not always have the same shape. Validate `structuredContent` against the tool's advertised `outputSchema`, not against the parsed text.
+RaWorld preserves raw projection text for existing clients. `structuredContent` must be a JSON object, so it wraps every successful projection, including object projections. The channels carry the same projected value but do not always have the same shape. Validate `structuredContent` against the tool's advertised `outputSchema`, not against the parsed text.
 
 For example, call `get_sources` with `{"view":"summary","jmespath":"summary.providerCount"}`. If the provider count is `3`, the result contains:
 
@@ -59,7 +59,7 @@ Deprecated tool aliases add a root `deprecation` notice to `structuredContent`. 
 
 For new clients, prefer `structuredContent` and retain its metadata. Check for `_budget_exceeded` at the root. Check for `_jmespath_error` at the root or inside attribution `data` before you use a projected value. A legacy text client must handle the envelopes above as well as raw JSON values. Do not assume that `JSON.parse(content[0].text)` equals `structuredContent`, or unwrap an ordinary tool payload merely because it has a field named `data`.
 
-The [MCP structured-content specification](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#structured-content) recommends serialized structured JSON in a text block at SHOULD level. WorldMonitor keeps its existing raw-text contract for compatibility. The wrapper difference is not an output-schema failure. This guide does not introduce a new response mode or change existing response bytes.
+The [MCP structured-content specification](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#structured-content) recommends serialized structured JSON in a text block at SHOULD level. RaWorld keeps its existing raw-text contract for compatibility. The wrapper difference is not an output-schema failure. This guide does not introduce a new response mode or change existing response bytes.
 
 ## REST API (`?jmespath=`)
 
@@ -133,7 +133,7 @@ declaring its attribution extraction fails the build.
 
 ### 1. Drill into a single nested object
 
-**Intent.** Skip the equity list and just get the WorldMonitor fear-greed composite score from `get_market_data`.
+**Intent.** Skip the equity list and just get the RaWorld fear-greed composite score from `get_market_data`.
 
 **Tool call:**
 
@@ -445,7 +445,7 @@ This is the workhorse shape for "give me the top-N by some metric". The same sha
 ]
 ```
 
-**Why this works.** Filters and multiselect-hashes compose left-to-right inside the same projection — `[?...].{a:..., b:...}` filters first, then slims each surviving row. Most WorldMonitor responses use upper-snake enum strings (`SEVERITY_LEVEL_HIGH`, `TREND_DIRECTION_STABLE`, `UCDP_VIOLENCE_TYPE_*`); search them with `==` and single quotes exactly as written.
+**Why this works.** Filters and multiselect-hashes compose left-to-right inside the same projection — `[?...].{a:..., b:...}` filters first, then slims each surviving row. Most RaWorld responses use upper-snake enum strings (`SEVERITY_LEVEL_HIGH`, `TREND_DIRECTION_STABLE`, `UCDP_VIOLENCE_TYPE_*`); search them with `==` and single quotes exactly as written.
 
 ---
 

@@ -810,7 +810,7 @@ describe('China official macro source adapters', () => {
               'User-agent: *',
               'Disallow:',
               '',
-              'User-agent: WorldMonitor',
+              'User-agent: RaWorld',
               'Disallow: /',
             ].join('\n')],
           ]),
@@ -865,7 +865,7 @@ describe('China official macro source adapters', () => {
           fetchFn: officialFetch({
             calls,
             overrides: new Map([
-              [testCase.robotsUrl, `User-agent: WorldMonitor\nDisallow: ${testCase.disallow}\n`],
+              [testCase.robotsUrl, `User-agent: RaWorld\nDisallow: ${testCase.disallow}\n`],
               [testCase.releaseUrl, new Response(null, {
                 status: 302,
                 headers: { Location: testCase.blockedUrl },

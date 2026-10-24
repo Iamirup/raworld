@@ -276,7 +276,7 @@
       ],
       "sentiment": "positive",
       "accuracy": "mixed",
-      "summary": "Named World Monitor the best all-around open OSINT dashboard and linked the homepage directly. The answer also made broad numeric and adoption claims that require recurring source-of-truth review before they are treated as accurate product facts.",
+      "summary": "Named RaWorld the best all-around open OSINT dashboard and linked the homepage directly. The answer also made broad numeric and adoption claims that require recurring source-of-truth review before they are treated as accurate product facts.",
       "limitations": [
         "Anonymous ChatGPT Search did not expose a stable model identifier.",
         "Only the visible direct links were recorded; collapsed source metadata was not inferred."
@@ -297,10 +297,10 @@
       "competitorsCited": [],
       "sentiment": "positive",
       "accuracy": "mixed",
-      "summary": "Called World Monitor the strongest free single pick, but supported the claim with a third-party directory rather than a World Monitor URL. Its 435+ sources and 45+ layer counts need fact review.",
+      "summary": "Called RaWorld the strongest free single pick, but supported the claim with a third-party directory rather than a RaWorld URL. Its 435+ sources and 45+ layer counts need fact review.",
       "limitations": [
         "The answer was generated without signing in.",
-        "A third-party page mentioning World Monitor is a mention source, not a direct World Monitor citation."
+        "A third-party page mentioning RaWorld is a mention source, not a direct RaWorld citation."
       ]
     },
     {
@@ -324,7 +324,7 @@
       ],
       "sentiment": "positive",
       "accuracy": "mixed",
-      "summary": "The AI Overview called World Monitor the leading open-source geopolitical dashboard and cited the homepage plus the first-party explainer. It also used subjective ranking language and mutable provider-count claims that should remain dated and reviewable.",
+      "summary": "The AI Overview called RaWorld the leading open-source geopolitical dashboard and cited the homepage plus the first-party explainer. It also used subjective ranking language and mutable provider-count claims that should remain dated and reviewable.",
       "limitations": [
         "The result was personalized because the Google session was signed in.",
         "No account identifier or precise location was retained in the artifact."
@@ -341,13 +341,13 @@
       "directCitation": true,
       "citedUrls": [
         "https://www.worldmonitor.app/",
-        "https://github.com/koala73/worldmonitor",
+        "https://github.com/Iamirup/raworld",
         "https://www.worldmonitor.io/"
       ],
       "competitorsCited": [],
       "sentiment": "positive",
       "accuracy": "mixed",
-      "summary": "Presented World Monitor as the most comprehensive current option and cited the homepage and repository. The answer mixed first-party and similarly named third-party domains and included mutable layer, provider, SDK, and feature counts that require correction monitoring.",
+      "summary": "Presented RaWorld as the most comprehensive current option and cited the homepage and repository. The answer mixed first-party and similarly named third-party domains and included mutable layer, provider, SDK, and feature counts that require correction monitoring.",
       "limitations": [
         "Bing wrapped outbound citations in redirect URLs; the normalized destination URLs are recorded.",
         "The answer was generated without signing in."
@@ -386,7 +386,7 @@
     {
       "priority": 3,
       "title": "Correct and centralize AI-surfaced product facts",
-      "evidence": "The four answers used conflicting source, feed, layer, adoption, SDK, and feature counts; all were therefore marked mixed accuracy even when they cited World Monitor.",
+      "evidence": "The four answers used conflicting source, feed, layer, adoption, SDK, and feature counts; all were therefore marked mixed accuracy even when they cited RaWorld.",
       "experiment": "Audit the cited homepage, explainer, pricing, machine-readable product files, and repository description against the canonical product-fact source before the next observation window.",
       "successCriteria": "Repeated answers cite first-party pages with current, mutually consistent facts; mixed/inaccurate entity-answer observations decline without rewriting history.",
       "queryIds": [
@@ -400,7 +400,7 @@
     {
       "priority": 4,
       "title": "Earn a first-party Perplexity citation for the category query",
-      "evidence": "Perplexity mentioned World Monitor positively but cited only a third-party directory, while ChatGPT, Google AI, and Copilot linked first-party pages.",
+      "evidence": "Perplexity mentioned RaWorld positively but cited only a third-party directory, while ChatGPT, Google AI, and Copilot linked first-party pages.",
       "experiment": "Improve the first-party category explainer's dated evidence, visible source links, entity clarity, and internal path from homepage to explainer; then rerun q01 unchanged.",
       "successCriteria": "Perplexity links a worldmonitor.app URL directly for q01 without paid placement, reciprocal-link manipulation, or a claim-only content rewrite.",
       "queryIds": [

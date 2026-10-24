@@ -3,7 +3,7 @@ title: "国家韧性指数"
 description: "面向 196 个国家的实时韧性评分体系，其中 170 个国家进入排名（170/196）。实时 API 每 6 小时刷新，可抓取的国家快照每月发布。"
 ---
 
-_本方法论由 World Monitor 创始人 [Elie Habib](https://www.worldmonitor.app/blog/authors/elie-habib/) 维护。已发布的修订记录在[更正日志](/zh/corrections)中。_
+_本方法论由 RaWorld 创始人 [Elie Habib](https://www.worldmonitor.app/blog/authors/elie-habib/) 维护。已发布的修订记录在[更正日志](/zh/corrections)中。_
 
 ## 从这里开始
 
@@ -78,9 +78,9 @@ CRI 在产品的三个位置呈现，均由同一当前发布分数驱动：
 - **国家深度分析** — 在按国家的下钻面板内，CRI 与 CII（国家不稳定指数）并排，作为短程压力信号的结构性补充。CII 和 CRI 有意**不可互换**：CII 回答"这个国家当前承受多少压力？"；CRI 回答"这个国家在吸收和恢复冲击方面定位如何？"
 - **地图分级统计图** — 韧性分数驱动主地图上的国家级分级统计图层。从地图的图层面板或通过 Cmd+K 切换。
 
-三个仪表盘面均可免费查看。直接分数和排名 API 调用需要正常的 Pro/API 认证路径，而运行时清单在 `/api/resilience/v1/get-runtime-manifest` 公开；请参见 [Resilience service](https://github.com/koala73/worldmonitor/blob/main/docs/api/ResilienceService.openapi.yaml) 了解 HTTP 合约。
+三个仪表盘面均可免费查看。直接分数和排名 API 调用需要正常的 Pro/API 认证路径，而运行时清单在 `/api/resilience/v1/get-runtime-manifest` 公开；请参见 [Resilience service](https://github.com/Iamirup/raworld/blob/main/docs/api/ResilienceService.openapi.yaml) 了解 HTTP 合约。
 
-仅限 Pro 的 `/api/resilience/v1/get-resilience-indicators` 方法可在完整的 72 行注册表上解释单个国家的分数。它报告活动评分器所使用的确切归一化分量分数与运行时权重，然后把策略生效后的有效贡献与每个已发布的维度分数对账。各行还区分已观测、插补、缺失、回退、来源失败、未启用、已退役与不适用等状态。现有的 `get-resilience-score` 响应保持不变。原始来源值是选择性提供的，并在[指标再分发审查](./resilience-indicator-licensing.mdx)下失败关闭；受限行仍会返回 WorldMonitor 的归一化分数、贡献、来源署名，以及已知时的来源年份。
+仅限 Pro 的 `/api/resilience/v1/get-resilience-indicators` 方法可在完整的 72 行注册表上解释单个国家的分数。它报告活动评分器所使用的确切归一化分量分数与运行时权重，然后把策略生效后的有效贡献与每个已发布的维度分数对账。各行还区分已观测、插补、缺失、回退、来源失败、未启用、已退役与不适用等状态。现有的 `get-resilience-score` 响应保持不变。原始来源值是选择性提供的，并在[指标再分发审查](./resilience-indicator-licensing.mdx)下失败关闭；受限行仍会返回 RaWorld 的归一化分数、贡献、来源署名，以及已知时的来源年份。
 
 ## 它由什么构成
 
@@ -92,7 +92,7 @@ CRI 在产品的三个位置呈现，均由同一当前发布分数驱动：
 
 数据来源于官方和权威提供商：世界银行、IMF、WHO、WTO、UNHCR、UCDP、BIS、IEA、FAO、无国界记者和经济学与和平研究所等。完整清单见[数据来源](#数据来源)。
 
-WorldMonitor 国家韧性指数以 0-100 分对 196 国公开可排名范围评分，使用 72 个指标覆盖 21 个活跃维度和 6 个领域（加上 2 个结构性退役维度为模式连续性在注册表中以 `coverage=0` 保留）。排名处理器仍可将低置信度或标题不合格的国家路由到 `greyedOut[]`，但可排名范围本身由提交的 UN 成员 + SAR 白名单固定。
+RaWorld 国家韧性指数以 0-100 分对 196 国公开可排名范围评分，使用 72 个指标覆盖 21 个活跃维度和 6 个领域（加上 2 个结构性退役维度为模式连续性在注册表中以 `coverage=0` 保留）。排名处理器仍可将低置信度或标题不合格的国家路由到 `greyedOut[]`，但可排名范围本身由提交的 UN 成员 + SAR 白名单固定。
 
 ## 领域与权重
 
@@ -162,7 +162,7 @@ PR 3 §3.5 第 2 点退役了 BIS REER 支持的核心构造。BIS REER 仅覆�
 在计划 2026-04-25-004 Phase 1（Ship 1）中从"贸易与制裁"更名。
 OFAC `sanctionCount` 组件（原权重 0.45）被删除 — 统计指定方注册地是公司金融责任指标，不是国家韧性指标（像阿联酋或新加坡这样的中转枢纽承载许多空壳公司条目，但不反映所在国的结构韧性）。剩余 3 个组件重新加权至总计 1.0。独立的 `financialSystemExposure` 维度以 BIS Consolidated Banking Statistics（CBS，`WS_CBS_PUB`）+ WB IDS 短期外债 + FATF AML/CFT 列表状态的结构性制裁暴露替代了被删除的代理。Redis 键仍为 `economic:bis-lbs:v1` 以保持历史连续性。
 
-关于完整构造理由和被拒绝的替代方案（项目权重分类、中转枢纽排除列表），请参见 [known-limitations.md § tradeSanctions → tradePolicy](https://github.com/koala73/worldmonitor/blob/main/docs/methodology/known-limitations.md#tradesanctions--tradepolicy-ofac-domicile-component-dropped-ship-1-2026-04-25)。
+关于完整构造理由和被拒绝的替代方案（项目权重分类、中转枢纽排除列表），请参见 [known-limitations.md § tradeSanctions → tradePolicy](https://github.com/Iamirup/raworld/blob/main/docs/methodology/known-limitations.md#tradesanctions--tradepolicy-ofac-domicile-component-dropped-ship-1-2026-04-25)。
 
 | 指标 | 描述 | 方向 | 目标阈值（最差-最好） | 权重 | 来源 | 频率 |
 |---|---|---|---|---|---|---|
@@ -193,7 +193,7 @@ OFAC `sanctionCount` 组件（原权重 0.45）被删除 — 统计指定方注�
 
 **数据来源与许可**：BIS 数据（组件 2 + 4）按 [BIS 使用条款](https://www.bis.org/terms_conditions.htm)发布 — 公开可用，需归属；再分发受限。WB IDS（组件 1）和 FATF（组件 3）是开放数据。BIS 衍生指标按现有 BIS 分类约定在指标注册表中标记 `non-commercial` / `enrichment`；维度本身按 Codex R1 #8 为 `core`（贡献标题分数）。
 
-关于完整构造理由、考虑的替代方案（项目权重分类、中转枢纽排除、单维公式重写、完全删除）和分阶段推出决策，请参见 [financial-system-exposure.md](https://github.com/koala73/worldmonitor/blob/main/docs/methodology/financial-system-exposure.md)。
+关于完整构造理由、考虑的替代方案（项目权重分类、中转枢纽排除、单维公式重写、完全删除）和分阶段推出决策，请参见 [financial-system-exposure.md](https://github.com/Iamirup/raworld/blob/main/docs/methodology/financial-system-exposure.md)。
 
 ### 基础设施领域（权重 0.15）
 
@@ -727,7 +727,7 @@ v17.1 在评分时将修复扩展到 `liquidReserveAdequacy`（无种子器变�
 
 下次排名刷新（部署后 6 小时缓存 TTL 内）的预期影响：AE `liquidReserveAdequacy` ≈ 38 → ≈ 64（+26 分维度摆动）；PA 类似幅度。趋势指标将在部署时为这两个国家显示一次性阶跃；这是今后修正的基线。
 
-**v17.2 — `cyberDigital` 按快照爆发上限（#3971）。** 评分器在应用现有 `normalizeLowerBetter(weightedCount, 0, 25)` 变换前将每个国家的严重性加权网络威胁计数上限为 8，因此 `cyber:threats:v2` 中的同日飙升不再能将网络子组件饱和到 0 并摆动国家 5+ 排名位置。原始修复有意为时间点式，因为实时源尚未暴露可用的 `firstSeenAt`；#4008 网络种子器现在按指标持久化稳定的 WorldMonitor 观测首次见到时间戳，启用下方描述的 #4009 发现日平滑。上限修复随缓存前缀升级（`resilience:score:` 和 `resilience:ranking:` 从 `v18` → `v19`，`resilience:history:` 从 `v13` → `v14`）发布，使缓存未上限分数和 30 天趋势点不与上限分数混合。
+**v17.2 — `cyberDigital` 按快照爆发上限（#3971）。** 评分器在应用现有 `normalizeLowerBetter(weightedCount, 0, 25)` 变换前将每个国家的严重性加权网络威胁计数上限为 8，因此 `cyber:threats:v2` 中的同日飙升不再能将网络子组件饱和到 0 并摆动国家 5+ 排名位置。原始修复有意为时间点式，因为实时源尚未暴露可用的 `firstSeenAt`；#4008 网络种子器现在按指标持久化稳定的 RaWorld 观测首次见到时间戳，启用下方描述的 #4009 发现日平滑。上限修复随缓存前缀升级（`resilience:score:` 和 `resilience:ranking:` 从 `v18` → `v19`，`resilience:history:` 从 `v13` → `v14`）发布，使缓存未上限分数和 30 天趋势点不与上限分数混合。
 
 **v17.3 — 陈旧观测数据降级置信覆盖率（P1-3）。** 新鲜度不再仅用于置信语义的可观测性：标记为 `aging` 或 `stale` 的观测维度降低 `lowConfidence`、`overallCoverage` 和标题合格性的置信覆盖率，而分数聚合权重保持不变。下次排名刷新的预期影响限于特定来源种子器中断期间的置信徽章和标题合格性；稳态年度或慢频率来源在其种子器按计划运行时保持 `fresh`。修复随分数/排名缓存前缀升级（`v19` → `v20`）发布，使缓存 `overallCoverage` 和 `headlineEligible` 值不能将修复前全置信陈旧观测与修复后降级置信覆盖混合。
 
@@ -780,7 +780,7 @@ v17.1 在评分时将修复扩展到 `liquidReserveAdequacy`（无种子器变�
 | **方法论** | 7.5 | 每个维度有命名来源、方向、目标阈值范围、权重、频率和插补类。缺失数据规则显式并以四类分类法标记。聚合公式是简单领域加权均值，可从第一原理审计。间隙：总分公式仍为单轴补偿（强制度分数可冲刷弱暴露分数），Phase 2 以部分非补偿三支柱形式替代。 |
 | **可解释性** | 7.5 | widget 中按维度置信网格显示每个国家每个维度的覆盖率%、插补类和新鲜度。工具提示文本从分类法生成，使分析师可点击查看含义而无需阅读本文档。间隙：尚无个别信号贡献瀑布图，Phase 3 T3.3 落地。 |
 | **可复现性** | 8.0 | 每个维度的 sourceKey、频率和目标阈值在 `_indicator-registry.ts` 中并与本文档 lint。缓存键已在 v1.1 实现中版本化；见上方 Redis 键表了解当前分数、排名、历史和区间前缀。`dataVersion` 由种子写入并管道到 widget 页脚。间隙：基准和回测脚本尚未在 CI cron 上运行；Phase 2 T2.7 落地。 |
-| **来源质量** | 7.0 | 世界银行、IMF、WHO、IEA、UNHCR、UCDP、IPC、BIS、FAO、RSF、GPI：均权威。间隙：精选列表来源（BIS 约 40 经济体、WTO）不覆盖完整 WorldMonitor 国家集，这是 `unmonitored` 插补类存在的原因。Phase 2 T2.9 添加语言归一化信息信号以减少英语媒体偏差。 |
+| **来源质量** | 7.0 | 世界银行、IMF、WHO、IEA、UNHCR、UCDP、IPC、BIS、FAO、RSF、GPI：均权威。间隙：精选列表来源（BIS 约 40 经济体、WTO）不覆盖完整 RaWorld 国家集，这是 `unmonitored` 插补类存在的原因。Phase 2 T2.9 添加语言归一化信息信号以减少英语媒体偏差。 |
 | **时效性** | 6.5 | 结构来源为年度（WGI、GPI、RSF、WHO、IMF 宏观）并主导指数总权重。BIS EER 为月度。新鲜度分类器（T1.5）在维度级呈现，使用户可看到国家分数的哪些部分已 12 个月。压力侧栈已包含实时/小时或每日输入（`internetOutages`、`infraOutages`、`unrestEvents` 实时；`socialVelocity` 通过小时 Reddit relay 带 180 分钟健康预算；`cyberThreats`、`gpsJamming`、`shippingStress`、`transitDisruption`、`euGasStorageStress`、`energyPriceStress`、`newsThreatScore` 每日），而 `ucdpConflict` 遵循年度 UCDP GED 发布并带单独种子器活性监控。间隙：实时冲击支柱依赖这些信号但结构支柱仍受年度来源限制；Phase 2 T2.2 添加日频率 FX 波动率以缩小货币外部维度频率差距，Phase 3 参考版拆分将按支柱形式化年度与滚动频率。 |
 | **敏感度** | 7.0 | 权重扰动蒙特卡洛敏感度（#2823）存在于回测层。Phase 1 未添加新敏感度工作。总分 p5/p95 分数敏感度带在活跃分数公式下计算并暴露（#2877、#2885、#3967），widget 在分数旁渲染总分 `[p05–p95]` 范围。该带是公式感知的权重扰动敏感度范围，非输入数据不确定性区间。间隙：尚无个别信号贡献瀑布图；Phase 3 T3.3 落地。 |
 
@@ -806,7 +806,7 @@ v17.1 在评分时将修复扩展到 `liquidReserveAdequacy`（无种子器变�
 
 计划的非补偿支柱组合是方法论上更强的形式：它防止强制度分数完全冲刷严重的实时冲击暴露。在激活前我们衡量了对实时排名的实际影响。
 
-**敏感度和比较工件**（2026-04-21，提交 `048bb8b`，52 国样本，在比较脚本修正为使用生产 `buildPillarList` 聚合后重新生成）：[`docs/snapshots/resilience-pillar-sensitivity-2026-04-21.json`](https://github.com/koala73/worldmonitor/blob/main/docs/snapshots/resilience-pillar-sensitivity-2026-04-21.json)。
+**敏感度和比较工件**（2026-04-21，提交 `048bb8b`，52 国样本，在比较脚本修正为使用生产 `buildPillarList` 聚合后重新生成）：[`docs/snapshots/resilience-pillar-sensitivity-2026-04-21.json`](https://github.com/Iamirup/raworld/blob/main/docs/snapshots/resilience-pillar-sensitivity-2026-04-21.json)。
 
 | 指标 | 值 |
 |---|---|
@@ -890,7 +890,7 @@ v17.1 在评分时将修复扩展到 `liquidReserveAdequacy`（无种子器变�
 - **验收门**：Spearman 至少为 0.85；至少 60% 的国家整体变化小于 3 分；非制裁队列国家不得有超过 12 分的整体变化。标题合格变化和金融来源故障行保留在已提交工件中。
 - **问题状态**：#6461 已由 #6515 关闭，后者落地了剩余的“缺失即强度”修复，因此不需要修改已关闭问题的优先级。
 
-操作步骤见 [`financial-system-exposure-flag-flip-runbook.md`](https://github.com/koala73/worldmonitor/blob/main/docs/methodology/financial-system-exposure-flag-flip-runbook.md)；量测结果见已提交的 [`resilience-financial-system-exposure-acceptance-2026-08-13.json`](../snapshots/resilience-financial-system-exposure-acceptance-2026-08-13.json) 快照。
+操作步骤见 [`financial-system-exposure-flag-flip-runbook.md`](https://github.com/Iamirup/raworld/blob/main/docs/methodology/financial-system-exposure-flag-flip-runbook.md)；量测结果见已提交的 [`resilience-financial-system-exposure-acceptance-2026-08-13.json`](../snapshots/resilience-financial-system-exposure-acceptance-2026-08-13.json) 快照。
 
 ### v2.5（2026 年 10 月）— 主权财富输入缺失不等于“没有基金”（#9044）
 

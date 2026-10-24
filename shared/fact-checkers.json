@@ -1,5 +1,5 @@
 {
-  "$comment": "Fact-checkers whose published ratings WorldMonitor may cite (#9094): the verified signatories of the IFCN Code of Principles, by site domain, copied from the IFCN list unedited apart from lowercasing and dropping a leading www. Reviewed like source tiers: refresh it from the source below and review the diff; never add or remove a domain by hand for any reason other than the IFCN list changing. A rating from any other site is not shown.",
+  "$comment": "Fact-checkers whose published ratings RaWorld may cite (#9094): the verified signatories of the IFCN Code of Principles, by site domain, copied from the IFCN list unedited apart from lowercasing and dropping a leading www. Reviewed like source tiers: refresh it from the source below and review the diff; never add or remove a domain by hand for any reason other than the IFCN list changing. A rating from any other site is not shown.",
   "source": "https://github.com/IFCN/verified-signatories/blob/main/list",
   "sourceCommit": "d263aee1143b9204ee86d5590db44375720ade3f",
   "snapshot": "2026-10-01",

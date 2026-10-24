@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "description": "Surface-neutral registry of the push event triggers WorldMonitor delivers to API-key webhook subscribers (POST /api/v2/shipping/webhooks). Zapier triggers, the OpenAPI webhooks block and the delivery worker read this file; the MCP Events extension (#9268) will too. Mirrored byte-for-byte at scripts/shared/event-triggers.json (Railway rootDirectory=scripts) and integrations/zapier/event-triggers.json (Zapier bundles only its own folder).",
+  "description": "Surface-neutral registry of the push event triggers RaWorld delivers to API-key webhook subscribers (POST /api/v2/shipping/webhooks). Zapier triggers, the OpenAPI webhooks block and the delivery worker read this file; the MCP Events extension (#9268) will too. Mirrored byte-for-byte at scripts/shared/event-triggers.json (Railway rootDirectory=scripts) and integrations/zapier/event-triggers.json (Zapier bundles only its own folder).",
   "subscription": {
     "register": { "method": "POST", "path": "/api/v2/shipping/webhooks" },
     "list": { "method": "GET", "path": "/api/v2/shipping/webhooks" },
@@ -244,7 +244,7 @@
       "kind": "occurrence",
       "label": "Breaking News Alert",
       "noun": "Breaking News Alert",
-      "description": "Triggers when WorldMonitor's news relay classifies a headline as critical or high and it clears the subscription's importance floor, severity floor, keywords, categories and countries, once per story link.",
+      "description": "Triggers when RaWorld's news relay classifies a headline as critical or high and it clears the subscription's importance floor, severity floor, keywords, categories and countries, once per story link.",
       "source": {
         "channel": "wm:events:api:v1",
         "producer": "scripts/ais-relay.cjs publishNotificationEvent (tee of the rss_alert queue message)",
@@ -380,7 +380,7 @@
             "items": { "type": "string", "minLength": 1, "maxLength": 24 },
             "maxItems": 50,
             "default": [],
-            "description": "Quote symbols as WorldMonitor lists them (upper-cased on registration). Empty accepts every tracked symbol."
+            "description": "Quote symbols as RaWorld lists them (upper-cased on registration). Empty accepts every tracked symbol."
           },
           "minAbsPct": {
             "type": "number",
@@ -452,7 +452,7 @@
       "kind": "occurrence",
       "label": "Natural Hazard",
       "noun": "Natural Hazard",
-      "description": "Triggers when WorldMonitor first sees a natural hazard that clears the subscription's hazard types, earthquake magnitude, GDACS alert level and countries: an earthquake from USGS or Earthquakes Canada, or a storm, wildfire, flood, volcano or other event from NASA EONET, GDACS, the National Hurricane Center or the western-Pacific cyclone feed.",
+      "description": "Triggers when RaWorld first sees a natural hazard that clears the subscription's hazard types, earthquake magnitude, GDACS alert level and countries: an earthquake from USGS or Earthquakes Canada, or a storm, wildfire, flood, volcano or other event from NASA EONET, GDACS, the National Hurricane Center or the western-Pacific cyclone feed.",
       "source": {
         "redisKeys": ["seismology:earthquakes:v1", "natural:events:v1"],
         "rpcs": ["/api/seismology/v1/list-earthquakes", "/api/natural/v1/list-natural-events"],
@@ -486,7 +486,7 @@
             "type": "string",
             "enum": ["Orange", "Red"],
             "default": "Orange",
-            "description": "GDACS events only: Orange delivers every GDACS event WorldMonitor stores (it drops Green), Red delivers Red only. An escalation from Orange to Red is a second event (eventId suffix :red), so a Red scope hears of it; a fall back to Orange is not new. Western-Pacific cyclones carry no alert level and pass Orange only. Events from other sources ignore this field."
+            "description": "GDACS events only: Orange delivers every GDACS event RaWorld stores (it drops Green), Red delivers Red only. An escalation from Orange to Red is a second event (eventId suffix :red), so a Red scope hears of it; a fall back to Orange is not new. Western-Pacific cyclones carry no alert level and pass Orange only. Events from other sources ignore this field."
           },
           "countries": {
             "type": "array",

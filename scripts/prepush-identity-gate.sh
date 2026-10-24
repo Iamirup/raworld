@@ -9,7 +9,7 @@
 # the identity write lands in the SHARED .git/config, and every later commit
 # from ANY worktree silently carries the fake author. Observed incidents:
 # "Fixture <fixture@example.invalid>" (2026-08-30), "test <test@example.com>"
-# (2026-08-29/30), "WorldMonitor Test <test@worldmonitor.app>", "e <e@e.co>".
+# (2026-08-29/30), "RaWorld Test <test@worldmonitor.app>", "e <e@e.co>".
 # The hook-side env strip prevents the write at current SHAs; THIS gate is the
 # boundary that keeps any residual leak (e.g. a stale worktree's old tests)
 # from ever reaching GitHub.

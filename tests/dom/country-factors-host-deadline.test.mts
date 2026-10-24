@@ -23,7 +23,7 @@ async function harness(queueMs = 11_000, serviceMs = 1_730) {
     return new Promise((resolve, reject) => {
       const timeout = setTimeout(() => {
         release();
-        reject(new Error('WorldMonitor host request timed out.'));
+        reject(new Error('RaWorld host request timed out.'));
       }, 30_000);
       signal.addEventListener('abort', () => { clearTimeout(timeout); reject(signal.reason); }, { once: true });
       setTimeout(() => {
@@ -85,7 +85,7 @@ describe('native factors queue and dispatched response budgets', () => {
     expect(hostHarness.events.filter(event => event.section === 'factors').map(event => event.at)).toEqual([30_000]);
     await vi.advanceTimersByTimeAsync(1_730);
     expect(await factors).toEqual(value);
-    expect((await Promise.all(blockers)).map(error => error.message)).toEqual(Array(3).fill('WorldMonitor host request timed out.'));
+    expect((await Promise.all(blockers)).map(error => error.message)).toEqual(Array(3).fill('RaWorld host request timed out.'));
     expect(hostHarness.maximum()).toBe(3);
   });
 
@@ -98,7 +98,7 @@ describe('native factors queue and dispatched response budgets', () => {
     await vi.advanceTimersByTimeAsync(40_999);
     expect(outcome.error).toBeUndefined();
     await vi.advanceTimersByTimeAsync(1);
-    expect(outcome.error?.message).toContain('WorldMonitor host request timed out.');
+    expect(outcome.error?.message).toContain('RaWorld host request timed out.');
     await vi.advanceTimersByTimeAsync(1);
     expect(outcome.value).toBeUndefined();
     const retry = hostHarness.source.factors('NO', new AbortController().signal);

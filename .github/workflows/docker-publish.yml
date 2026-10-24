@@ -1,6 +1,6 @@
 name: Publish Docker image
 
-# Publishes ghcr.io/koala73/worldmonitor.
+# Publishes ghcr.io/Iamirup/raworld.
 #
 # Two kinds of run. A release tag (a release a person publishes, or the dispatch
 # build-desktop.yml sends for the one it publishes itself) cuts the version tags
@@ -155,7 +155,7 @@ jobs:
     # run this scheduled build on its own schedule; push, release and manual
     # runs in a fork are left alone (tests/ci-workflow-coverage.test.mts pins
     # the guard on every job of a scheduled workflow).
-    if: (github.event_name != 'schedule' || github.repository == 'koala73/worldmonitor')
+    if: (github.event_name != 'schedule' || github.repository == 'Iamirup/raworld')
     runs-on: ubuntu-latest
     # A multi-platform build under QEMU is slow enough that a hang is
     # plausible, and this job holds the `docker-publish` concurrency slot while
@@ -187,7 +187,7 @@ jobs:
           # created/revision pair has to be readable there too.
           DOCKER_METADATA_ANNOTATIONS_LEVELS: manifest,index
         with:
-          images: ghcr.io/koala73/worldmonitor
+          images: ghcr.io/Iamirup/raworld
           # `latest=auto` is the default, and it appends `latest` on its own
           # whenever a semver tag resolves. That would put `latest` on any tag
           # ref, a pre-release included. Turning it off makes the `type=raw`
@@ -317,7 +317,7 @@ jobs:
       always() &&
       (needs.docker.result == 'failure' || needs.docker.result == 'cancelled') &&
       (github.event_name == 'schedule' || github.event_name == 'push') &&
-      (github.event_name != 'schedule' || github.repository == 'koala73/worldmonitor')
+      (github.event_name != 'schedule' || github.repository == 'Iamirup/raworld')
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -344,7 +344,7 @@ jobs:
           TITLE: 'Docker rebuild of main failed'
         run: |
           set -euo pipefail
-          body="The ${GITHUB_EVENT_NAME}-triggered rebuild of ghcr.io/koala73/worldmonitor failed, so no \`sha-*\` image was published for this commit and the Dockerfile on \`main\` is unverified until it passes again.
+          body="The ${GITHUB_EVENT_NAME}-triggered rebuild of ghcr.io/Iamirup/raworld failed, so no \`sha-*\` image was published for this commit and the Dockerfile on \`main\` is unverified until it passes again.
 
           Run: ${RUN_URL}
           Commit: ${GITHUB_SHA}

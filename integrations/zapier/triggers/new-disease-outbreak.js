@@ -15,7 +15,7 @@ module.exports = {
   display: {
     label: 'New Disease Outbreak',
     description:
-      'Triggers when WorldMonitor lists a new disease outbreak report from WHO, ECDC, CDC, CIDRAP, or ThinkGlobalHealth.',
+      'Triggers when RaWorld lists a new disease outbreak report from WHO, ECDC, CDC, CIDRAP, or ThinkGlobalHealth.',
   },
   operation: {
     type: 'polling',

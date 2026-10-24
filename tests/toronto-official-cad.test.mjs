@@ -476,7 +476,7 @@ test('attribution records TFS and TPS licences and credits the agencies', () => 
   assert.doesNotMatch(arcgisOverride[0], /Open Data/);
   assert.doesNotMatch(arcgisOverride[0], /identityGroup/);
   assert.doesNotMatch(arcgisOverride[0], /0a239a5563a344a3bbf8452504ed8d68/);
-  assert.match(ATTRIBUTION, /Direct permission: World Monitor\\'s owner confirmed on 2026-08-21/);
+  assert.match(ATTRIBUTION, /Direct permission: RaWorld\\'s owner confirmed on 2026-08-21/);
   assert.match(ATTRIBUTION, /'www\.toronto\.ca': \{[\s\S]*?status: 'reviewed'/);
   assert.doesNotMatch(TFS_SEEDER, /code-disabled|TFS_RIGHTS_APPROVED/);
   assert.equal(EMPTY_DATA_OK_KEYS.has('torontoTfs'), false);

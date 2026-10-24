@@ -20,7 +20,7 @@ import { limitDeploymentHistory } from './railway-deployments.mjs';
 
 const execFileAsync = promisify(execFile);
 
-export const REPOSITORY = 'koala73/worldmonitor';
+export const REPOSITORY = 'Iamirup/raworld';
 export const DEPLOYMENT_READ_DEADLINE_ERROR = 'run deadline reached before deployment history read';
 const EXPECTED_REPOSITORY_FLEET_URL = new URL('./railway-native-autodeploy-fleet.json', import.meta.url);
 

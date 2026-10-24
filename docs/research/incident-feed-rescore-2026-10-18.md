@@ -1,14 +1,14 @@
 # Incident-feed AnswerRank follow-up, October 18, 2026
 
-The unchanged h04 and q015 questions now name WorldMonitor in 7/15 and 3/8
+The unchanged h04 and q015 questions now name RaWorld in 7/15 and 3/8
 web-enabled answers, respectively. Both baselines were 0. All 39 answer slots
 and their judgments completed. This is a two-question follow-up for
-[issue #9216](https://github.com/koala73/worldmonitor/issues/9216), not a repeat
+[issue #9216](https://github.com/Iamirup/raworld/issues/9216), not a repeat
 of the full AnswerRank study.
 
 ## Results
 
-| Question | Web answers naming WorldMonitor: baseline → follow-up | Web top picks: baseline → follow-up | All answers naming WorldMonitor | Follow-up CLI AEO score |
+| Question | Web answers naming RaWorld: baseline → follow-up | Web top picks: baseline → follow-up | All answers naming RaWorld | Follow-up CLI AEO score |
 |---|---|---|---|---|
 | h04, self-serve crisis alerts | 0/15 → 7/15 | 0/15 → 2/15 | 7/25 | 22.6 |
 | q015, incident-data integration | 0/8 → 3/8 | 0/8 → 2/8 | 3/14 | 18.5 |
@@ -18,11 +18,11 @@ of the full AnswerRank study.
 | h04, named / answers | 3/5 | 4/5 | 0/5 | Not in the baseline |
 | q015, named / answers | 0/2 | 1/2 | 2/2 | 0/2 |
 
-No search-disabled answer named WorldMonitor. The native Sonar answers count
+No search-disabled answer named RaWorld. The native Sonar answers count
 as web-enabled even though their original AnswerRank rows have `web: false`.
 
 The Factal alternatives page appeared in the search results for the seven h04
-answers that named WorldMonitor. Both q015 Sonar answers reported
+answers that named RaWorld. Both q015 Sonar answers reported
 `https://www.worldmonitor.app/docs/incident-feed` in their citations. The q015
 Claude mention followed retrieval of the developer API guide. For tool-search
 variants, AnswerRank records URLs returned by search as citations; these URLs

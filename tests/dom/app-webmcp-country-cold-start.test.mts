@@ -39,7 +39,7 @@ function unusedNavigationResult(
 
 function unusedNavigationBindings(): Pick<
   WebMcpAppBindings,
-  'switchMonitor' | 'openSettings' | 'openAlerts' | 'listMissionPresets' | 'applyMissionPreset'
+  'switchMonitor' | 'openSettings' | 'listMissionPresets' | 'applyMissionPreset'
     | 'openMissionPicker' | 'listFollowedCountries' | 'setCountryFollowed'
 > {
   return {
@@ -47,10 +47,6 @@ function unusedNavigationBindings(): Pick<
     openSettings: async () => unusedNavigationResult('settings', {
       overlay: 'open',
       tab: 'settings',
-    }),
-    openAlerts: async () => unusedNavigationResult('alerts', {
-      overlay: 'open',
-      tab: 'notifications',
     }),
     listMissionPresets: async () => ({
       ok: true,
@@ -159,22 +155,6 @@ describe('App WebMCP country binding cold start', () => {
       applyDashboardTabAction: async () => {
         throw new Error('Unexpected dashboard tab action.');
       },
-      getAccessContext: async () => ({
-        accountState: 'signed_out',
-        clerk: 'unavailable',
-        productTier: 'anonymous',
-        capabilities: {
-          premiumAccess: false,
-          apiAccess: false,
-          mcpAccess: false,
-          dataExport: false,
-        },
-        limits: {
-          enabledPanels: { used: 1, cap: 40 },
-          dashboardTabs: { used: 1, cap: 3, canCreate: true },
-        },
-      }),
-      openSignIn: async () => ({ ok: false, status: 'denied', reason: 'clerk_unavailable' }),
     }, () => {});
 
     await expect(tools.find((tool) => tool.name === 'openCountryBrief')!.execute({ iso2: 'FR' }))
@@ -278,22 +258,6 @@ describe('App WebMCP country binding cold start', () => {
       applyDashboardTabAction: async () => {
         throw new Error('Unexpected dashboard tab action.');
       },
-      getAccessContext: async () => ({
-        accountState: 'signed_out',
-        clerk: 'unavailable',
-        productTier: 'anonymous',
-        capabilities: {
-          premiumAccess: false,
-          apiAccess: false,
-          mcpAccess: false,
-          dataExport: false,
-        },
-        limits: {
-          enabledPanels: { used: 1, cap: 40 },
-          dashboardTabs: { used: 1, cap: 3, canCreate: true },
-        },
-      }),
-      openSignIn: async () => ({ ok: false, status: 'denied', reason: 'clerk_unavailable' }),
     };
     const countryTool = buildWebMcpTools(bindings, () => {})
       .find((tool) => tool.name === 'openCountryBrief');

@@ -31,7 +31,7 @@ function service({
   watchPatterns = [],
 } = {}) {
   return {
-    source: { repo: 'koala73/worldmonitor', rootDirectory: 'scripts' },
+    source: { repo: 'Iamirup/raworld', rootDirectory: 'scripts' },
     build: {
       watchPatterns,
       ...(dockerfilePath === undefined ? {} : { dockerfilePath }),
@@ -56,7 +56,7 @@ function viewerResponse(serviceId, {
   return {
     serviceInstance: {
       serviceId,
-      source: { repo: 'koala73/worldmonitor', image: null },
+      source: { repo: 'Iamirup/raworld', image: null },
       activeDeployments,
       ...instance,
     },
@@ -65,7 +65,7 @@ function viewerResponse(serviceId, {
       edges: [{
         node: {
           serviceId,
-          repository: 'koala73/worldmonitor',
+          repository: 'Iamirup/raworld',
           branch: 'main',
           checkSuites: false,
           provider: 'github',
@@ -98,10 +98,10 @@ describe('Viewer-compatible deployment-only projection', () => {
 
   it('projects only source, build, deploy, and trigger fields', () => {
     const projected = projectViewerDeploymentConfig({
-      service: { id: 'svc-1', name: 'seed-example', source: { repo: 'koala73/worldmonitor' } },
+      service: { id: 'svc-1', name: 'seed-example', source: { repo: 'Iamirup/raworld' } },
       instance: {
         serviceId: 'svc-1',
-        source: { repo: 'koala73/worldmonitor', image: null },
+        source: { repo: 'Iamirup/raworld', image: null },
         rootDirectory: 'scripts',
         watchPatterns: ['scripts/**'],
         dockerfilePath: null,
@@ -113,7 +113,7 @@ describe('Viewer-compatible deployment-only projection', () => {
         edges: [{
           node: {
             serviceId: 'svc-1',
-            repository: 'koala73/worldmonitor',
+            repository: 'Iamirup/raworld',
             branch: 'main',
             checkSuites: false,
             provider: 'github',
@@ -123,7 +123,7 @@ describe('Viewer-compatible deployment-only projection', () => {
     });
 
     assert.deepEqual(projected.source, {
-      repo: 'koala73/worldmonitor',
+      repo: 'Iamirup/raworld',
       rootDirectory: 'scripts',
       branch: 'main',
       checkSuites: false,
@@ -143,7 +143,7 @@ describe('Viewer-compatible deployment-only projection', () => {
   it('projects active deployment evidence only when the deploy drift caller opts in', () => {
     const response = viewerResponse('svc-1');
     const projected = projectViewerDeploymentConfig({
-      service: { id: 'svc-1', name: 'seed-example', source: { repo: 'koala73/worldmonitor' } },
+      service: { id: 'svc-1', name: 'seed-example', source: { repo: 'Iamirup/raworld' } },
       instance: response.serviceInstance,
       triggers: response.deploymentTriggers,
       includeActiveDeployments: true,
@@ -188,7 +188,7 @@ describe('Viewer-compatible deployment-only projection', () => {
   it('rejects asymmetric or malformed Viewer evidence', () => {
     const response = viewerResponse('svc-1');
     const base = {
-      service: { id: 'svc-1', name: 'relay', source: { repo: 'koala73/worldmonitor' } },
+      service: { id: 'svc-1', name: 'relay', source: { repo: 'Iamirup/raworld' } },
       instance: response.serviceInstance,
       triggers: response.deploymentTriggers,
     };
@@ -209,7 +209,7 @@ describe('Viewer-compatible deployment-only projection', () => {
     assert.throws(
       () => projectViewerDeploymentConfig({
         ...base,
-        service: { ...base.service, source: { repo: 'koala73/worldmonitor', image: 'other/image' } },
+        service: { ...base.service, source: { repo: 'Iamirup/raworld', image: 'other/image' } },
       }),
       /source repository.*inconsistent/i,
     );
@@ -223,7 +223,7 @@ describe('Viewer-compatible deployment-only projection', () => {
     assert.throws(
       () => projectViewerDeploymentConfig({
         ...base,
-        instance: { ...base.instance, source: { repo: 'koala73/worldmonitor', image: 'postgres:17' } },
+        instance: { ...base.instance, source: { repo: 'Iamirup/raworld', image: 'postgres:17' } },
       }),
       /source repository.*inconsistent/i,
     );
@@ -369,7 +369,7 @@ describe('Viewer-compatible deployment-only projection', () => {
   });
 
   it('audits native source invariants across non-seeder repository services', () => {
-    const source = { repo: 'koala73/worldmonitor', branch: 'main' };
+    const source = { repo: 'Iamirup/raworld', branch: 'main' };
     const config = {
       services: {
         relay: {
@@ -410,8 +410,8 @@ describe('Viewer-compatible deployment-only projection', () => {
 
   it('shares the run deadline across the whole service projection', async () => {
     const services = [
-      { id: 'svc-1', name: 'one', source: { repo: 'koala73/worldmonitor' } },
-      { id: 'svc-2', name: 'two', source: { repo: 'koala73/worldmonitor' } },
+      { id: 'svc-1', name: 'one', source: { repo: 'Iamirup/raworld' } },
+      { id: 'svc-2', name: 'two', source: { repo: 'Iamirup/raworld' } },
     ];
     let now = 0;
     const calls = [];
@@ -436,7 +436,7 @@ describe('Viewer-compatible deployment-only projection', () => {
 
   it('does not start Viewer reads when environment resolution exhausts the deadline', async () => {
     const services = [
-      { id: 'svc-1', name: 'one', source: { repo: 'koala73/worldmonitor' } },
+      { id: 'svc-1', name: 'one', source: { repo: 'Iamirup/raworld' } },
     ];
     let apiCalls = 0;
     await assert.rejects(
@@ -473,7 +473,7 @@ describe('Viewer-compatible deployment-only projection', () => {
     const services = Array.from({ length: 5 }, (_, index) => ({
       id: `svc-${index}`,
       name: `service-${index}`,
-      source: { repo: 'koala73/worldmonitor' },
+      source: { repo: 'Iamirup/raworld' },
     }));
     let active = 0;
     let maxActive = 0;
@@ -505,7 +505,7 @@ describe('Viewer-compatible deployment-only projection', () => {
     const services = [{
       id: 'svc-1',
       name: 'service-1',
-      source: { repo: 'koala73/worldmonitor' },
+      source: { repo: 'Iamirup/raworld' },
     }];
     const calls = [];
     const projected = await readViewerDeploymentConfig('production', services, {
@@ -527,11 +527,11 @@ describe('Viewer-compatible deployment-only projection', () => {
 
   it('fails the whole projection when one Viewer API read fails', async () => {
     const services = [
-      { id: 'svc-fail', name: 'fail', source: { repo: 'koala73/worldmonitor' } },
-      { id: 'svc-ok-1', name: 'ok-1', source: { repo: 'koala73/worldmonitor' } },
-      { id: 'svc-ok-2', name: 'ok-2', source: { repo: 'koala73/worldmonitor' } },
-      { id: 'svc-ok-3', name: 'ok-3', source: { repo: 'koala73/worldmonitor' } },
-      { id: 'svc-ok-4', name: 'ok-4', source: { repo: 'koala73/worldmonitor' } },
+      { id: 'svc-fail', name: 'fail', source: { repo: 'Iamirup/raworld' } },
+      { id: 'svc-ok-1', name: 'ok-1', source: { repo: 'Iamirup/raworld' } },
+      { id: 'svc-ok-2', name: 'ok-2', source: { repo: 'Iamirup/raworld' } },
+      { id: 'svc-ok-3', name: 'ok-3', source: { repo: 'Iamirup/raworld' } },
+      { id: 'svc-ok-4', name: 'ok-4', source: { repo: 'Iamirup/raworld' } },
     ];
     let calls = 0;
     await assert.rejects(
@@ -555,7 +555,7 @@ describe('Viewer-compatible deployment-only projection', () => {
     const config = {
       services: {
         'svc-1': {
-          source: { repo: 'koala73/worldmonitor', branch: 'feature', rootDirectory: 'scripts' },
+          source: { repo: 'Iamirup/raworld', branch: 'feature', rootDirectory: 'scripts' },
           build: { watchPatterns: ['wrong/**'], dockerfilePath: 'Dockerfile.seed' },
           deploy: { cronSchedule: '0 * * * *' },
         },

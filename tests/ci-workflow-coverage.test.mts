@@ -582,7 +582,7 @@ describe('MCP live smoke — the production detection net', () => {
 
   // These three literals are the entire gate. GitHub's API returns
   // environment 'Production' (capital P) and creator 'vercel[bot]' — verified
-  // against repos/koala73/worldmonitor/deployments on 2026-09-04. A drift to
+  // against repos/Iamirup/raworld/deployments on 2026-09-04. A drift to
   // 'production' would skip every run while looking exactly like the healthy
   // case, because most deployment_status events SHOULD skip (Preview, Railway,
   // Mintlify, and the pending/in_progress states of all of them).
@@ -660,7 +660,7 @@ describe('live cache sweep deployment timing', () => {
       ['schedule', '', '', '', true],
       ['workflow_dispatch', '', '', '', true],
     ]) {
-      const github = { event_name: event, repository: 'koala73/worldmonitor', event: event === 'deployment_status' ? {
+      const github = { event_name: event, repository: 'Iamirup/raworld', event: event === 'deployment_status' ? {
         deployment_status: { state },
         deployment: { environment, creator: { login: creator } },
       } : {} };
@@ -1521,7 +1521,7 @@ describe('CI workflow coverage', () => {
       };
       const admitted = Object.entries(jobs).filter(([, job]) => {
         const expression = (job as { if: string }).if.replace(/^\$\{\{\s*|\s*\}\}$/g, '');
-        return runInNewContext(expression, { github: { event_name: event, repository: 'koala73/worldmonitor' }, needs, always: () => true });
+        return runInNewContext(expression, { github: { event_name: event, repository: 'Iamirup/raworld' }, needs, always: () => true });
       }).map(([name]) => name);
       assert.deepEqual(admitted, completion ? ['evaluate-direct'] : ['discover', 'recover', 'evaluate', 'gate'], event);
     }
@@ -1551,7 +1551,7 @@ describe('CI workflow coverage', () => {
     assert.match(jobs.recover?.if ?? '', /always\(\).*needs\.discover\.result == 'success'/);
     assert.match(jobs.evaluate?.if ?? '', /always\(\).*needs\.recover\.result == 'success'.*outputs\.count != '0'/);
     assert.match(jobs.invalidate?.if ?? '', /needs\.discover\.result == 'success'.*outputs\.count != '0'/);
-    assert.equal(jobs.gate?.if, "${{ (always() && github.event_name != 'workflow_run') && (github.event_name != 'schedule' || github.repository == 'koala73/worldmonitor') }}");
+    assert.equal(jobs.gate?.if, "${{ (always() && github.event_name != 'workflow_run') && (github.event_name != 'schedule' || github.repository == 'Iamirup/raworld') }}");
 
     for (const name of ['invalidate', 'evaluate', 'evaluate-direct']) {
       assert.equal(jobs[name]?.concurrency?.group, 'deploy-gate-${{ matrix.sha }}', `${name} must own the SHA lock`);
@@ -2885,7 +2885,7 @@ exit 0`);
     assert.equal(dockerPublish.jobs.docker.permissions.issues, undefined, 'the build job itself no longer needs to open issues');
     assert.equal(reportJob.permissions?.issues, 'write');
 
-    const fires = (event_name: string, result: string, repository = 'koala73/worldmonitor') =>
+    const fires = (event_name: string, result: string, repository = 'Iamirup/raworld') =>
       evaluateExpression(String(reportJob.if), {
         always: () => true,
         github: { event_name, repository },
@@ -2929,7 +2929,7 @@ exit 0`);
 
     const env = stepEnvironment(report, {
       github: {
-        repository: 'koala73/worldmonitor',
+        repository: 'Iamirup/raworld',
         server_url: 'https://github.com',
         run_id: '123456',
         token: 'token',
@@ -2984,7 +2984,7 @@ describe('scheduled workflows run only in the upstream repository', () => {
   // probe production on our schedule: one day of MCP smoke traffic came from
   // ~1,600 runner IPs against ~17 upstream runs. Push, PR and manual runs in
   // forks stay allowed; only the fork's own schedule is skipped.
-  const FORK_GUARD = "github.event_name != 'schedule' || github.repository == 'koala73/worldmonitor'";
+  const FORK_GUARD = "github.event_name != 'schedule' || github.repository == 'Iamirup/raworld'";
 
   it('every job in a scheduled workflow carries the fork guard', () => {
     const missing: string[] = [];
@@ -3001,7 +3001,7 @@ describe('scheduled workflows run only in the upstream repository', () => {
 
   it('skips only a fork\'s own scheduled run', () => {
     const cases: Array<[string, string, boolean]> = [
-      ['schedule', 'koala73/worldmonitor', true],
+      ['schedule', 'Iamirup/raworld', true],
       ['schedule', 'someone/worldmonitor', false],
       ['push', 'someone/worldmonitor', true],
       ['pull_request', 'someone/worldmonitor', true],

@@ -109,7 +109,7 @@ describe('playwright screenshot gallery', () => {
       const gallery = readFileSync(join(output, 'screenshots', 'index.html'), 'utf8');
       assert.match(gallery, /01-harness-ready/);
       assert.match(gallery, /07-mobile-harness/);
-      assert.match(readFileSync(join(output, 'index.html'), 'utf8'), /World Monitor/);
+      assert.match(readFileSync(join(output, 'index.html'), 'utf8'), /RaWorld/);
       assert.match(readFileSync(join(output, 'history.json'), 'utf8'), /"id": "315"/);
     } finally {
       rmSync(root, { recursive: true, force: true });

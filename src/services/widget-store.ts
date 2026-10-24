@@ -1,8 +1,6 @@
 import { loadFromStorage, saveToStorage } from '@/utils';
 import { safeStorageGet } from '@/utils/safe-storage';
 import { clearPanelColSpanEntry, clearPanelSpanEntry } from '@/utils/panel-storage';
-import { getAuthState } from '@/services/auth-state';
-import { isEntitled, getEntitlementState } from '@/services/entitlements';
 import {
   clearBrowserKeySession,
   migrateLegacyKeysToHttpOnlySession,
@@ -234,40 +232,13 @@ export function isProWidgetEnabled(): boolean {
   return proSessionHint;
 }
 
+/** Every RaWorld user has the full feature set. */
 export function isProUser(): boolean {
-  return (
-    isWidgetFeatureEnabled() ||
-    isProWidgetEnabled() ||
-    getAuthState().user?.role === 'pro' ||
-    isEntitled()
-  );
+  return true;
 }
 
-/**
- * Whether `isProUser()` is answering from settled signals rather than from
- * "nothing has loaded yet".
- *
- * A false from isProUser() is ambiguous on a normal page load: Clerk is not
- * awaited, and for a signed-in user the Convex entitlement snapshot lands later
- * still, so a paying subscriber reads as free for the first seconds. Callers
- * that PERSIST a free-tier decision (the boot clamp, the dashboard-tab
- * snapshot heal) must wait for this before writing, or they overwrite a Pro
- * user's layout on every load.
- *
- * A true from isProUser() is always definitive — no signal that says "Pro"
- * needs confirmation.
- *
- * Mirrors `shouldDeferFreeTierEnforcement` in config/panels.ts, which App uses
- * for the same decision plus its grace-timer backstop. The rule is stated twice
- * rather than shared because importing config from services would close a
- * config <-> services import cycle; keep the two in sync.
- */
 export function isProTierResolved(): boolean {
-  if (isProUser()) return true;
-  const session = getAuthState();
-  if (session.isPending) return false;
-  // Anonymous is a settled answer; a signed-in user still needs the snapshot.
-  return session.user === null || getEntitlementState() !== null;
+  return true;
 }
 
 export function getProWidgetKey(): string {

@@ -1,16 +1,16 @@
 ---
-title: "World Monitor MCP server"
-description: "World Monitor MCP offers country risk, markets, chokepoints, current US duties, and historical tariff schedules. Connect with OAuth or an API key."
+title: "RaWorld MCP server"
+description: "RaWorld MCP offers country risk, markets, chokepoints, current US duties, and historical tariff schedules. Connect with OAuth or an API key."
 canonical: "https://www.worldmonitor.app/mcp-server.md"
 ---
 
-# World Monitor MCP Server
+# RaWorld MCP Server
 
 Last updated: August 19, 2026
 
-The World Monitor MCP Server exposes World Monitor's real-time global-intelligence stack over the [Model Context Protocol](https://modelcontextprotocol.io), so any MCP-compatible client — Claude Desktop, Claude web, Cursor, MCP Inspector, or a custom agent — can pull live data directly into a model's context across the domains listed under [Tools](#tools). It is the recommended way for AI agents to consume World Monitor data.
+The RaWorld MCP Server exposes RaWorld's real-time global-intelligence stack over the [Model Context Protocol](https://modelcontextprotocol.io), so any MCP-compatible client — Claude Desktop, Claude web, Cursor, MCP Inspector, or a custom agent — can pull live data directly into a model's context across the domains listed under [Tools](#tools). It is the recommended way for AI agents to consume RaWorld data.
 
-This persistent hosted server is distinct from [WorldMonitor WebMCP](https://www.worldmonitor.app/docs/webmcp), an experimental, page-local Chrome interface that operates the visible website. WebMCP does not replace the hosted MCP server; remote, background, headless, and direct-data agents should use the endpoint below.
+This persistent hosted server is distinct from [RaWorld WebMCP](https://www.worldmonitor.app/docs/webmcp), an experimental, page-local Chrome interface that operates the visible website. WebMCP does not replace the hosted MCP server; remote, background, headless, and direct-data agents should use the endpoint below.
 
 ## Endpoint
 
@@ -31,7 +31,7 @@ When a denial's `error.data` carries `checkoutTool: "start_upgrade"`, call `star
 
 ## MCP Apps
 
-World Monitor supports MCP Apps (`io.modelcontextprotocol/ui`) with interactive `ui://` app shells. The linked tools are `get_country_risk`, `get_world_brief`, `get_country_brief`, `get_market_data`, `get_chokepoint_status`, `get_news_intelligence`, `get_conflict_events`, `get_natural_disasters`, `get_prediction_markets`, `get_forecast_predictions`, `open_news_dashboard`, and `open_country_brief`; their UI resources are:
+RaWorld supports MCP Apps (`io.modelcontextprotocol/ui`) with interactive `ui://` app shells. The linked tools are `get_country_risk`, `get_world_brief`, `get_country_brief`, `get_market_data`, `get_chokepoint_status`, `get_news_intelligence`, `get_conflict_events`, `get_natural_disasters`, `get_prediction_markets`, `get_forecast_predictions`, `open_news_dashboard`, and `open_country_brief`; their UI resources are:
 
 - `ui://worldmonitor/country-risk-v3.html`
 - `ui://worldmonitor/world-brief-v2.html`
@@ -80,9 +80,9 @@ Add the server to Claude Desktop / Cursor via their MCP settings using the URL `
 
 ## Important query matches
 
-- World Monitor MCP server
-- World Monitor Model Context Protocol server
-- Connect Claude to World Monitor
+- RaWorld MCP server
+- RaWorld Model Context Protocol server
+- Connect Claude to RaWorld
 - Real-time geopolitical intelligence MCP server
 - MCP server for markets, conflicts, and global risk data
 

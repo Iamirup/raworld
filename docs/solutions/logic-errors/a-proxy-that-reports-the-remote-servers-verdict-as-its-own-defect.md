@@ -22,7 +22,7 @@ tags: [sentry, mcp-proxy, upstream-outcome, json-rpc, canary, double-report, exp
 
 ## Problem
 
-`api/mcp-proxy.ts` relays a caller-chosen remote MCP server. Two of that server's outcomes reached Sentry as if the proxy had failed: a JSON-RPC `error` object answered on HTTP 200, and the proxy's own 504 relaying the remote's timeout. Both are the remote server's verdict on the caller's request, not a WorldMonitor defect, and together they produced the two noisiest edge issues of the 2026-10-14 triage. Fixed in #9140. The 504 half only took effect with #9453, because a third CORS layer hid the marker header (see "Third regrowth" below).
+`api/mcp-proxy.ts` relays a caller-chosen remote MCP server. Two of that server's outcomes reached Sentry as if the proxy had failed: a JSON-RPC `error` object answered on HTTP 200, and the proxy's own 504 relaying the remote's timeout. Both are the remote server's verdict on the caller's request, not a RaWorld defect, and together they produced the two noisiest edge issues of the 2026-10-14 triage. Fixed in #9140. The 504 half only took effect with #9453, because a third CORS layer hid the marker header (see "Third regrowth" below).
 
 ## Symptoms
 

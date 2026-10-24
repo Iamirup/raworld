@@ -1,6 +1,6 @@
 ---
 title: "平台端点"
-description: "World Monitor 平台基础设施端点完整参考：涵盖引导启动、健康检查、版本探测、缓存清理与用户偏好设置等 RPC——这些是每个仪表盘客户端、桌面应用、命令行工具、SDK 与 MCP 服务器在启动握手、运行时同步、遥测上报与退出清理阶段都会调用的底层管道 API。"
+description: "RaWorld 平台基础设施端点完整参考：涵盖引导启动、健康检查、版本探测、缓存清理与用户偏好设置等 RPC——这些是每个仪表盘客户端、桌面应用、命令行工具、SDK 与 MCP 服务器在启动握手、运行时同步、遥测上报与退出清理阶段都会调用的底层管道 API。"
 ---
 
 这些端点不属于任何领域 RPC 服务 —— 它们位于 API 表面的根层,负责处理平台层面的关注点。
@@ -25,13 +25,13 @@ description: "World Monitor 平台基础设施端点完整参考：涵盖引导�
 
 ### `GET /api/version`
 
-返回 `koala73/worldmonitor` 的最新 **GitHub Release**。桌面应用使用此端点检测是否有更新的发布版本,并提示用户升级。它**不是**当前部署的 Vercel commit。
+返回 `Iamirup/raworld` 的最新 **GitHub Release**。桌面应用使用此端点检测是否有更新的发布版本,并提示用户升级。它**不是**当前部署的 Vercel commit。
 
 ```json
 {
   "version": "2.6.7",
   "tag": "v2.6.7",
-  "url": "https://github.com/koala73/worldmonitor/releases/tag/v2.6.7",
+  "url": "https://github.com/Iamirup/raworld/releases/tag/v2.6.7",
   "prerelease": false
 }
 ```
@@ -154,7 +154,7 @@ Geo-IP 回显：根据调用方 IP 的 CDN 国家头返回 `{ "country": "<ISO2>
 
 ## 运维端点
 
-内部运维表面 —— 匿名但按来源门控为 WorldMonitor 来源（其他来源得到纯文本 `403 Forbidden`），不属于公开 API 契约。
+内部运维表面 —— 匿名但按来源门控为 RaWorld 来源（其他来源得到纯文本 `403 Forbidden`），不属于公开 API 契约。
 
 ### `POST /api/security/report`
 
@@ -172,7 +172,7 @@ Geo-IP 回显：根据调用方 IP 的 CDN 国家头返回 `{ "country": "<ISO2>
 
 ### `GET /api/download?platform=<id>&variant=<id>`
 
-重定向到 `koala73/worldmonitor` 最新 GitHub release 中匹配的资产。成功时返回 `302` 指向资产 URL,任何失败时(未知平台、无匹配、GitHub 错误)返回 `302` 指向 [releases/latest](https://github.com/koala73/worldmonitor/releases/latest)。
+重定向到 `Iamirup/raworld` 最新 GitHub release 中匹配的资产。成功时返回 `302` 指向资产 URL,任何失败时(未知平台、无匹配、GitHub 错误)返回 `302` 指向 [releases/latest](https://github.com/Iamirup/raworld/releases/latest)。
 
 **`platform`**(必填,精确字符串):
 
@@ -187,7 +187,7 @@ Geo-IP 回显：根据调用方 IP 的 CDN 国家头返回 `{ "country": "<ISO2>
 
 **`variant`**(可选):`full`、`world`、`tech`、`finance`、`commodity`、`energy`、`happy`。
 
-桌面端只发布一个二进制文件,所有变体均在安装后于应用内切换,因此每个受支持的值都会解析到所请求平台的同一个 World Monitor 资产 —— 该参数只记录调用方来自哪个变体,并不会选择不同的下载。无法识别的值将重定向到 [releases/latest](https://github.com/koala73/worldmonitor/releases/latest),且不会调用 GitHub。省略 `variant` 时的解析方式与传入受支持值时完全相同 —— 身份过滤在所有路径上都会生效,因此发行版中仅仅匹配平台后缀的无关资产永远不会被选中。
+桌面端只发布一个二进制文件,所有变体均在安装后于应用内切换,因此每个受支持的值都会解析到所请求平台的同一个 RaWorld 资产 —— 该参数只记录调用方来自哪个变体,并不会选择不同的下载。无法识别的值将重定向到 [releases/latest](https://github.com/Iamirup/raworld/releases/latest),且不会调用 GitHub。省略 `variant` 时的解析方式与传入受支持值时完全相同 —— 身份过滤在所有路径上都会生效,因此发行版中仅仅匹配平台后缀的无关资产永远不会被选中。
 
 将 302 缓存 5 分钟(`s-maxage=300`、`stale-while-revalidate=60`、`stale-if-error=600`)。
 

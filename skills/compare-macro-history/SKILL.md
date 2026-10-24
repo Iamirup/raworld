@@ -10,7 +10,7 @@ Use when the user asks about inflation, policy-rate trends or sovereign yields o
 
 ## Connected plugin
 
-Call `get_macro_history` on the connected WorldMonitor MCP server at `https://worldmonitor.app/mcp`. Use the existing connection rather than requesting an API key in chat. A subscription is required; explain a denial and stop.
+Call `get_macro_history` on the connected RaWorld MCP server at `https://worldmonitor.app/mcp`. Use the existing connection rather than requesting an API key in chat. A subscription is required; explain a denial and stop.
 
 | Dataset | Country |
 |---|---|

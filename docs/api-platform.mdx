@@ -1,6 +1,6 @@
 ---
 title: "Platform Endpoints"
-description: "Bootstrap, health, version, cache-purge, and user-preference endpoints — the plumbing every World Monitor client talks to on startup and cleanup."
+description: "Bootstrap, health, version, cache-purge, and user-preference endpoints — the plumbing every RaWorld client talks to on startup and cleanup."
 ---
 
 These endpoints are not part of a domain RPC service — they sit at the root of the API surface and handle platform concerns.
@@ -30,13 +30,13 @@ provenance; see [China Decision Signals](/china-decision-signals).
 
 ### `GET /api/version`
 
-Returns the latest **GitHub Release** of `koala73/worldmonitor`. Used by the desktop app to detect a newer published release and prompt the user to update. It is **not** the currently-deployed Vercel commit.
+Returns the latest **GitHub Release** of `Iamirup/raworld`. Used by the desktop app to detect a newer published release and prompt the user to update. It is **not** the currently-deployed Vercel commit.
 
 ```json
 {
   "version": "2.6.7",
   "tag": "v2.6.7",
-  "url": "https://github.com/koala73/worldmonitor/releases/tag/v2.6.7",
+  "url": "https://github.com/Iamirup/raworld/releases/tag/v2.6.7",
   "prerelease": false
 }
 ```
@@ -164,7 +164,7 @@ Settings-UI revocation of one Pro MCP token. Requires a Clerk session; the user 
 
 ## Operational endpoints
 
-These anonymous internal-operations surfaces are not part of the public API contract. `/api/analytics-health` and `/api/correlation-runtime-mode` are origin-gated to WorldMonitor origins (other origins get a plain `403 Forbidden`). `/api/security/report` is the bounded, wildcard-CORS exception described below.
+These anonymous internal-operations surfaces are not part of the public API contract. `/api/analytics-health` and `/api/correlation-runtime-mode` are origin-gated to RaWorld origins (other origins get a plain `403 Forbidden`). `/api/security/report` is the bounded, wildcard-CORS exception described below.
 
 ### `POST /api/security/report`
 
@@ -182,7 +182,7 @@ Read-only control-plane switch: returns `{"mode": "legacy"|"exact"|"fuzzy"}` tel
 
 ### `GET /api/download?platform=<id>&variant=<id>`
 
-Redirects to the matching asset on the latest GitHub release of `koala73/worldmonitor`. Returns `302` to the asset URL on success, or `302` to [releases/latest](https://github.com/koala73/worldmonitor/releases/latest) on any failure (unknown platform, no match, GitHub error).
+Redirects to the matching asset on the latest GitHub release of `Iamirup/raworld`. Returns `302` to the asset URL on success, or `302` to [releases/latest](https://github.com/Iamirup/raworld/releases/latest) on any failure (unknown platform, no match, GitHub error).
 
 **`platform`** (required, exact string):
 
@@ -198,10 +198,10 @@ Redirects to the matching asset on the latest GitHub release of `koala73/worldmo
 **`variant`** (optional): `full`, `world`, `tech`, `finance`, `commodity`, `energy`, `happy`.
 
 One desktop binary ships and every variant is selected in-app after install, so
-each supported value resolves to the same World Monitor asset for the requested
+each supported value resolves to the same RaWorld asset for the requested
 platform — the parameter records which variant the caller came from, it does not
 select a different download. An unrecognized value redirects to
-[releases/latest](https://github.com/koala73/worldmonitor/releases/latest)
+[releases/latest](https://github.com/Iamirup/raworld/releases/latest)
 without calling GitHub. Omitting `variant` resolves the same way a supported value does —
 the identity filter applies on every path, so a release carrying a stray asset that merely
 matches the platform suffix never wins.

@@ -130,7 +130,7 @@ describe('company-monitoring classifier client', () => {
     assert.equal(headers.Authorization, `Bearer ${apiKey}`);
     assert.equal(headers['Content-Type'], 'application/json');
     assert.equal(headers['HTTP-Referer'], 'https://worldmonitor.app');
-    assert.equal(headers['X-Title'], 'World Monitor');
+    assert.equal(headers['X-Title'], 'RaWorld');
     assert.equal(headers['X-OpenRouter-Metadata'], 'enabled');
     assert.match(headers['User-Agent'], /^WorldMonitor-CompanyMonitoring\//);
 

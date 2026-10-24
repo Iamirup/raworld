@@ -261,9 +261,9 @@ paths:
                                           "reportedUnit": "USD"
                                           "reportedValue": 2000000000
                                           "sourceLocator": "Issue #5504, unsupported crypto estimate"
-                                          "sourceName": "WorldMonitor issue #5504"
+                                          "sourceName": "RaWorld issue #5504"
                                           "sourcePublishedAt": ""
-                                          "sourceUrl": "https://github.com/koala73/worldmonitor/issues/5504"
+                                          "sourceUrl": "https://github.com/Iamirup/raworld/issues/5504"
                                           "status": "unverified"
                                           "subject": "Legacy crypto-giving annual volume"
                                           "valueQualifier": "approximately"
@@ -281,9 +281,9 @@ paths:
                                           "reportedUnit": "wallets"
                                           "reportedValue": 150
                                           "sourceLocator": "Issue #5504, unsupported wallet and receiver metrics"
-                                          "sourceName": "WorldMonitor issue #5504"
+                                          "sourceName": "RaWorld issue #5504"
                                           "sourcePublishedAt": ""
-                                          "sourceUrl": "https://github.com/koala73/worldmonitor/issues/5504"
+                                          "sourceUrl": "https://github.com/Iamirup/raworld/issues/5504"
                                           "status": "unverified"
                                           "subject": "Legacy crypto wallet and receiver coverage"
                                           "valueQualifier": "unverified"
@@ -300,9 +300,9 @@ paths:
                                           "reportedUnit": "index points"
                                           "reportedValue": 34
                                           "sourceLocator": "Issue #5504, unsupported CAF value"
-                                          "sourceName": "WorldMonitor issue #5504"
+                                          "sourceName": "RaWorld issue #5504"
                                           "sourcePublishedAt": ""
-                                          "sourceUrl": "https://github.com/koala73/worldmonitor/issues/5504"
+                                          "sourceUrl": "https://github.com/Iamirup/raworld/issues/5504"
                                           "status": "unverified"
                                           "subject": "Legacy CAF World Giving Index context"
                                           "valueQualifier": "unverified"
@@ -321,9 +321,9 @@ paths:
                                           "reportedUnit": "distribution total"
                                           "reportedValue": 1
                                           "sourceLocator": "Issue #5504, unsupported category values and trending semantics"
-                                          "sourceName": "WorldMonitor issue #5504"
+                                          "sourceName": "RaWorld issue #5504"
                                           "sourcePublishedAt": ""
-                                          "sourceUrl": "https://github.com/koala73/worldmonitor/issues/5504"
+                                          "sourceUrl": "https://github.com/Iamirup/raworld/issues/5504"
                                           "status": "unverified"
                                           "subject": "Legacy giving category shares"
                                           "valueQualifier": "unverified"
@@ -345,9 +345,9 @@ paths:
                                           "reportedUnit": "compatibility sentinel"
                                           "reportedValue": 0
                                           "sourceLocator": "Issue #5504, collector audit"
-                                          "sourceName": "WorldMonitor issue #5504"
+                                          "sourceName": "RaWorld issue #5504"
                                           "sourcePublishedAt": ""
-                                          "sourceUrl": "https://github.com/koala73/worldmonitor/issues/5504"
+                                          "sourceUrl": "https://github.com/Iamirup/raworld/issues/5504"
                                           "status": "not_collected"
                                           "subject": "Live platform and category activity collection"
                                           "valueQualifier": "not_measured"
@@ -366,9 +366,9 @@ paths:
                                           "reportedUnit": "compatibility sentinel"
                                           "reportedValue": 0
                                           "sourceLocator": "Issue #5504, index and trend audit"
-                                          "sourceName": "WorldMonitor issue #5504"
+                                          "sourceName": "RaWorld issue #5504"
                                           "sourcePublishedAt": ""
-                                          "sourceUrl": "https://github.com/koala73/worldmonitor/issues/5504"
+                                          "sourceUrl": "https://github.com/Iamirup/raworld/issues/5504"
                                           "status": "not_applicable"
                                           "subject": "Activity index and directional trend"
                                           "valueQualifier": "not_measured"
@@ -465,12 +465,12 @@ components:
             type: apiKey
             in: header
             name: X-WorldMonitor-Key
-            description: User-issued WorldMonitor API key.
+            description: User-issued RaWorld API key.
         ApiKeyHeader:
             type: apiKey
             in: header
             name: X-Api-Key
-            description: Alias header for the WorldMonitor API key (X-WorldMonitor-Key).
+            description: Alias header for the RaWorld API key (X-WorldMonitor-Key).
     schemas:
         JmespathProjectionError:
             description: Returned when a REST jmespath projection is invalid or exceeds the expression/output byte limits.

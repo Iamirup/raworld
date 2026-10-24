@@ -48,7 +48,7 @@ message IntelHistoryRecord {
   // When the event happened, Unix epoch milliseconds. This is the field the
   // timeline orders by and the from/to filters bound.
   int64 occurred_at = 9 [(sebuf.http.int64_encoding) = INT64_ENCODING_NUMBER];
-  // When WorldMonitor stored the event, Unix epoch milliseconds. Distinct from
+  // When RaWorld stored the event, Unix epoch milliseconds. Distinct from
   // occurred_at for backfills, and the field retention ages rows out by.
   int64 ingested_at = 10 [(sebuf.http.int64_encoding) = INT64_ENCODING_NUMBER];
   // Cosine similarity against the request's query vector, in [-1, 1]. Higher

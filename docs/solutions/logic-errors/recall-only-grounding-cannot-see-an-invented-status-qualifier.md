@@ -23,7 +23,7 @@ tags: [llm-hallucination, output-validation, status-qualifier, brief-digest, gro
 
 ## Problem
 
-The WorldMonitor email brief sent on 2026-09-20 called the sitting US president "former President Trump" in three places. A reader replied to the brief with "Former President Trump?".
+The RaWorld email brief sent on 2026-09-20 called the sitting US president "former President Trump" in three places. A reader replied to the brief with "Former President Trump?".
 
 ## Symptoms
 

@@ -19,7 +19,7 @@ tags: [llms-txt, agent-discovery, idempotent-splice, generated-block, single-own
 
 ## Context
 
-World Monitor ships two agent discovery files. `public/llms.txt` is a hand-maintained index, and `public/llms-full.txt` is a hand-authored brief followed by a `## Generated corpus` tail emitted by `scripts/build-llms-full.mjs`. Issue #7746 found that the 13 `/compare/` routes, emitted from the `COMPARISON_PAGES` registry in `scripts/build-comparison-pages.mjs`, appeared zero times in either file or on the homepage, even though they were in `sitemap-main.xml`, server-rendered, and linked from the corpus nav.
+RaWorld ships two agent discovery files. `public/llms.txt` is a hand-maintained index, and `public/llms-full.txt` is a hand-authored brief followed by a `## Generated corpus` tail emitted by `scripts/build-llms-full.mjs`. Issue #7746 found that the 13 `/compare/` routes, emitted from the `COMPARISON_PAGES` registry in `scripts/build-comparison-pages.mjs`, appeared zero times in either file or on the homepage, even though they were in `sitemap-main.xml`, server-rendered, and linked from the corpus nav.
 
 The gap is structural, not clerical. A generated tail can only carry what its generator knows about, and a hand-maintained index only carries what someone remembered to type. A page family that ships from a registry falls between the two forever. PR #7761 (open, unmerged as of this writing) closes it by giving one script ownership of the section on both surfaces.
 

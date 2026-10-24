@@ -36,7 +36,7 @@ permissions:
 
 jobs:
   measure:
-    if: (github.event_name != 'schedule' || github.repository == 'koala73/worldmonitor')
+    if: (github.event_name != 'schedule' || github.repository == 'Iamirup/raworld')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

@@ -722,7 +722,7 @@ paths:
                     application/json:
                         example:
                             "contact": "example"
-                            "message": "Example WorldMonitor observation."
+                            "message": "Example RaWorld observation."
                             "storyId": "example-id"
                             "url": "https://example.com/worldmonitor"
                         schema:
@@ -876,7 +876,7 @@ paths:
                                     - "contact": "example"
                                       "createdAt": 1717200000000
                                       "id": "example-id"
-                                      "message": "Example WorldMonitor observation."
+                                      "message": "Example RaWorld observation."
                                       "publicNote": "example"
                                 "state": "example"
                             schema:
@@ -959,7 +959,7 @@ paths:
                                     "contact": "example"
                                     "createdAt": 1717200000000
                                     "id": "example-id"
-                                    "message": "Example WorldMonitor observation."
+                                    "message": "Example RaWorld observation."
                                     "publicNote": "example"
                             schema:
                                 $ref: '#/components/schemas/ReviewErrorReportResponse'
@@ -1040,7 +1040,7 @@ paths:
                     content:
                         application/json:
                             example:
-                                "caveat": "Ratings are the fact-checkers' own, quoted with attribution from IFCN-verified signatories. WorldMonitor does not rate claims, and a rating never changes the coverage result above."
+                                "caveat": "Ratings are the fact-checkers' own, quoted with attribution from IFCN-verified signatories. RaWorld does not rate claims, and a rating never changes the coverage result above."
                                 "factChecks":
                                     - "claimReviewed": "A synthetic example claim, similar to the claim checked"
                                       "publisher": "Example Fact-Checker (synthetic)"
@@ -1183,17 +1183,17 @@ components:
             type: apiKey
             in: header
             name: X-WorldMonitor-Key
-            description: User-issued WorldMonitor API key.
+            description: User-issued RaWorld API key.
         ApiKeyHeader:
             type: apiKey
             in: header
             name: X-Api-Key
-            description: Alias header for the WorldMonitor API key (X-WorldMonitor-Key).
+            description: Alias header for the RaWorld API key (X-WorldMonitor-Key).
         TrustReviewKey:
             type: apiKey
             in: header
             name: X-Trust-Review-Key
-            description: Operator review key (the server TRUST_REVIEW_SECRET). Required by the error-report review operations; a WorldMonitor API key does not authorize them.
+            description: Operator review key (the server TRUST_REVIEW_SECRET). Required by the error-report review operations; a RaWorld API key does not authorize them.
     schemas:
         JmespathProjectionError:
             description: Returned when a REST jmespath projection is invalid or exceeds the expression/output byte limits.
@@ -1920,7 +1920,7 @@ components:
                 url:
                     type: string
                     maxLength: 2048
-                    description: Article or WorldMonitor URL the report concerns, when known.
+                    description: Article or RaWorld URL the report concerns, when known.
                 contact:
                     type: string
                     maxLength: 320
@@ -1928,7 +1928,7 @@ components:
                 website:
                     type: string
                     description: 'Honeypot. Leave empty: a filled value is accepted and discarded.'
-            description: SubmitErrorReportRequest is a reader's report that a WorldMonitor label or story is wrong. Stored for review; never applied automatically.
+            description: SubmitErrorReportRequest is a reader's report that a RaWorld label or story is wrong. Stored for review; never applied automatically.
         SubmitErrorReportResponse:
             type: object
             properties:
@@ -2047,7 +2047,7 @@ components:
                     description: The IFCN-allowlisted domain the link belongs to.
                 rating:
                     type: string
-                    description: The fact-checker's own rating, verbatim. WorldMonitor does not rate claims.
+                    description: The fact-checker's own rating, verbatim. RaWorld does not rate claims.
                 reviewedAt:
                     type: string
                     description: When the fact-check was published, ISO 8601.

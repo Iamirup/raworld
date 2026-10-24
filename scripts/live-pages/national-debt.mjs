@@ -94,8 +94,8 @@ export function nationalDebtRecord(payload, now = Date.now()) {
 }
 
 function answerText(record) {
-  if (!record) return 'World Monitor has no current national debt estimate. The seeded IMF data is older than 60 days or unavailable.';
-  return `As of ${formatStaticDateTime(record.asOf)}, World Monitor estimates US government debt at ${formatUsdCompact(record.us.debtUsd)}, growing by about ${formatUsdWhole(record.us.perSecondUsd)} per second, and total government debt across ${record.countryCount} countries at ${formatUsdCompact(record.worldDebtUsd)}. The estimate extrapolates the latest IMF figures by each country's projected deficit.`;
+  if (!record) return 'RaWorld has no current national debt estimate. The seeded IMF data is older than 60 days or unavailable.';
+  return `As of ${formatStaticDateTime(record.asOf)}, RaWorld estimates US government debt at ${formatUsdCompact(record.us.debtUsd)}, growing by about ${formatUsdWhole(record.us.perSecondUsd)} per second, and total government debt across ${record.countryCount} countries at ${formatUsdCompact(record.worldDebtUsd)}. The estimate extrapolates the latest IMF figures by each country's projected deficit.`;
 }
 
 function bodyHtml(record) {
@@ -123,7 +123,7 @@ export const nationalDebtPage = Object.freeze({
   slug: 'national-debt-clock',
   path: '/tools/national-debt-clock/',
   statusPath: '/api/economic/v1/get-national-debt?public=1',
-  title: 'National Debt Clock: US and World Government Debt Today | World Monitor',
+  title: 'National Debt Clock: US and World Government Debt Today | RaWorld',
   h1: 'National debt clock',
   question: 'How much is the US national debt right now?',
   description: 'US and world government debt estimated to the second from IMF World Economic Outlook data, with debt-to-GDP and the largest national debts, updated live.',
@@ -142,7 +142,7 @@ export const nationalDebtPage = Object.freeze({
     });
   },
   explainer: `      <h2>How the clock is estimated</h2>
-      <p>World Monitor starts from each country's government debt-to-GDP ratio and GDP in the IMF World Economic Outlook, which measures debt at the end of its reporting period. A country running a deficit accrues debt at its projected annual deficit spread evenly over the year, reaching the IMF figure at the period end; a country in surplus does not tick upward.</p>
+      <p>RaWorld starts from each country's government debt-to-GDP ratio and GDP in the IMF World Economic Outlook, which measures debt at the end of its reporting period. A country running a deficit accrues debt at its projected annual deficit spread evenly over the year, reaching the IMF figure at the period end; a country in surplus does not tick upward.</p>
       <p>These economies report government finance on a fiscal year, so their IMF figure is reached at the verified end of that year:</p>
 ${fiscalPeriodList()}
       <p>The clock uses midnight UTC immediately after each period ends. Other countries use the December 31 calendar-year fallback, as does Singapore, whose IMF calendar-year figures already blend two fiscal years. When US Treasury FiscalData is available, it replaces the IMF figure for the United States and the clock starts from its record date.</p>

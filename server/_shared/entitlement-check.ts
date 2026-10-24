@@ -456,8 +456,9 @@ function entitlementMarkerTtlSeconds(entitlements: CachedEntitlements): number |
  * Returns the minimum tier required for a given endpoint pathname.
  * Returns null if the endpoint is unrestricted (not in the map).
  */
-export function getRequiredTier(pathname: string): number | null {
-  return ENDPOINT_ENTITLEMENTS[pathname] ?? null;
+export function getRequiredTier(_pathname: string): number | null {
+  // RaWorld has no paid tiers: no endpoint is tier-gated.
+  return null;
 }
 
 /**

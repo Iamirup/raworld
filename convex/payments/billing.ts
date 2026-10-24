@@ -3044,7 +3044,7 @@ export const STUCK_PAYMENT_RECONCILIATION_BATCH_SIZE = 25;
 export const STUCK_PAYMENT_CUSTOMER_EMAIL_MAX_AGE_MS = 24 * 60 * 60 * 1000; // 24 hours
 const MAX_STUCK_PAYMENT_RECONCILIATION_BATCH_SIZE = 100;
 const MAX_STUCK_PAYMENT_RECONCILIATION_SCAN_ROWS = 500;
-const STUCK_PAYMENT_EMAIL_FROM = "World Monitor <noreply@worldmonitor.app>";
+const STUCK_PAYMENT_EMAIL_FROM = "RaWorld <noreply@worldmonitor.app>";
 const STUCK_PAYMENT_SUPPORT_EMAIL = "support@worldmonitor.app";
 // Bound the Resend POST so a hung socket can't stall the batch (a known repo
 // failure class — a network read with no timeout drains the event loop).
@@ -3159,13 +3159,13 @@ async function sendStuckPaymentEmail(
     return "ops_notified";
   }
 
-  const planName = planKey ? PRODUCT_CATALOG[planKey]?.displayName ?? "World Monitor" : "World Monitor";
+  const planName = planKey ? PRODUCT_CATALOG[planKey]?.displayName ?? "RaWorld" : "RaWorld";
   const safePlanName = escapeHtml(planName);
   const safeCheckoutUrl = escapeHtml(checkoutUrl);
   const safeSupportEmail = escapeHtml(STUCK_PAYMENT_SUPPORT_EMAIL);
   const html = `
     <div style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #111; line-height: 1.5;">
-      <h1 style="font-size: 20px;">Your World Monitor checkout still needs action</h1>
+      <h1 style="font-size: 20px;">Your RaWorld checkout still needs action</h1>
       <p>Your ${safePlanName} payment is still waiting for bank or card verification.</p>
       <p>You can safely continue checkout here:</p>
       <p><a href="${safeCheckoutUrl}" style="display: inline-block; background: #111; color: #fff; padding: 10px 14px; text-decoration: none;">Continue checkout</a></p>
@@ -3180,7 +3180,7 @@ async function sendStuckPaymentEmail(
       apiKey,
       from: STUCK_PAYMENT_EMAIL_FROM,
       to: email,
-      subject: "Complete your World Monitor checkout",
+      subject: "Complete your RaWorld checkout",
       html,
       replyTo: STUCK_PAYMENT_SUPPORT_EMAIL,
       purpose: "transactional",
@@ -3796,7 +3796,7 @@ export const internalGetCustomerPortalUrl = internalAction({
  * server-side during checkout creation; a leaked bare UUID is not sufficient
  * ownership proof.
  *
- * @see https://github.com/koala73/worldmonitor/issues/2078
+ * @see https://github.com/Iamirup/raworld/issues/2078
  */
 export const claimSubscription = mutation({
   args: { anonId: v.string(), claimToken: v.optional(v.string()) },

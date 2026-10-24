@@ -2,9 +2,9 @@
 
 [![npm version](https://img.shields.io/npm/v/worldmonitor?logo=npm)](https://www.npmjs.com/package/worldmonitor)
 [![npm downloads](https://img.shields.io/npm/dm/worldmonitor)](https://www.npmjs.com/package/worldmonitor)
-[![license](https://img.shields.io/npm/l/worldmonitor)](https://github.com/koala73/worldmonitor/blob/main/cli/LICENSE)
+[![license](https://img.shields.io/npm/l/worldmonitor)](https://github.com/Iamirup/raworld/blob/main/cli/LICENSE)
 
-Official command-line client for the [World Monitor](https://worldmonitor.app)
+Official command-line client for the [RaWorld](https://worldmonitor.app)
 global-intelligence platform. Run `worldmonitor` for a full terminal dashboard
 (news, markets, conflict, military flights, cyber, climate, predictions, live
 news channels and webcams, intel, platform health) with mouse support, themes
@@ -19,7 +19,7 @@ scripting commands are a thin wrapper over the
 
 📖 **Full documentation:** [Terminal dashboard](https://www.worldmonitor.app/docs/cli-dashboard) · [Command-line client](https://www.worldmonitor.app/docs/cli)
 
-![World Monitor terminal dashboard](https://raw.githubusercontent.com/koala73/worldmonitor/main/docs/images/tui/overview.webp)
+![RaWorld terminal dashboard](https://raw.githubusercontent.com/Iamirup/raworld/main/docs/images/tui/overview.webp)
 
 ## Install
 
@@ -179,5 +179,5 @@ const code = await run(['risk', 'IR'], { env: process.env });
 
 ## License
 
-MIT-licensed thin client (the World Monitor platform itself remains AGPL-3.0). Part of the
-[World Monitor](https://github.com/koala73/worldmonitor) project.
+MIT-licensed thin client (the RaWorld platform itself remains AGPL-3.0). Part of the
+[RaWorld](https://github.com/Iamirup/raworld) project.

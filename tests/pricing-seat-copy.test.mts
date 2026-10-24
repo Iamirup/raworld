@@ -125,7 +125,7 @@ const eula = read('docs/eula.mdx').replace(/\{\/\*[\s\S]*?\*\/\}/g, '');
   it('API Starter is stated as having no dashboard seat', () => {
     // The most common pre-sales question, and it has a real answer: none.
     // Leaving it unstated is what made it a question.
-    assert.match(eula, /includes no World Monitor dashboard seat/i);
+    assert.match(eula, /includes no RaWorld dashboard seat/i);
     assert.match(read('docs/terms.mdx'), /API Starter is an API plan: it includes \*\*no dashboard seat\*\*/i);
   });
 

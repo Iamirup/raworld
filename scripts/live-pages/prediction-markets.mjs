@@ -61,9 +61,9 @@ export function predictionMarketsRecord(payload, now = Date.now()) {
 }
 
 function answerText(record) {
-  if (!record) return 'World Monitor has no current prediction market reading. The captured markets are older than six hours or unavailable.';
+  if (!record) return 'RaWorld has no current prediction market reading. The captured markets are older than six hours or unavailable.';
   const top = record.markets[0];
-  return `As of ${formatStaticDateTime(record.asOf)}, World Monitor tracks ${record.total} Polymarket and Kalshi ${record.total === 1 ? 'market' : 'markets'}. The most traded is "${top.title}" on ${top.source}, priced at ${top.yesPct}% yes with ${formatUsdCompact(top.volumeUsd, 1)} traded.`;
+  return `As of ${formatStaticDateTime(record.asOf)}, RaWorld tracks ${record.total} Polymarket and Kalshi ${record.total === 1 ? 'market' : 'markets'}. The most traded is "${top.title}" on ${top.source}, priced at ${top.yesPct}% yes with ${formatUsdCompact(top.volumeUsd, 1)} traded.`;
 }
 
 function bodyHtml(record) {
@@ -90,7 +90,7 @@ export const predictionMarketsPage = Object.freeze({
   slug: 'prediction-markets',
   path: '/tools/prediction-markets/',
   statusPath: '/api/prediction/v1/list-prediction-markets?public=1',
-  title: 'Prediction Markets Today: Live Polymarket and Kalshi Odds | World Monitor',
+  title: 'Prediction Markets Today: Live Polymarket and Kalshi Odds | RaWorld',
   h1: 'Prediction markets today',
   question: 'What are prediction markets pricing right now?',
   description: 'The most traded Polymarket and Kalshi questions on geopolitics, economics and technology, with the current yes probability, volume and close date, updated live.',
@@ -105,11 +105,11 @@ export const predictionMarketsPage = Object.freeze({
       answer: answerText(record),
       bodyHtml: bodyHtml(record),
       asOf: record?.asOf,
-      sourceHtml: 'Sources: Polymarket (<a href="https://polymarket.com/" rel="nofollow">polymarket.com</a>) and Kalshi (<a href="https://kalshi.com/" rel="nofollow">kalshi.com</a>). Prices are market odds, not forecasts by World Monitor.',
+      sourceHtml: 'Sources: Polymarket (<a href="https://polymarket.com/" rel="nofollow">polymarket.com</a>) and Kalshi (<a href="https://kalshi.com/" rel="nofollow">kalshi.com</a>). Prices are market odds, not forecasts by RaWorld.',
     });
   },
   explainer: `      <h2>How to read a prediction market price</h2>
       <p>Each market is a yes-or-no question that pays out if the event happens. The price of a "yes" share, between 0 and 100 cents, is what traders currently pay for it, and is commonly read as the market's probability of the event. Thinly traded markets can move on small orders, so volume is shown beside each price.</p>
       <h2>Which markets are listed</h2>
-      <p>World Monitor follows geopolitical, economic and technology markets on Polymarket and Kalshi and ranks them here by volume traded. Markets whose titles name sports leagues, entertainment awards or celebrities are filtered out. World Monitor's own scenario forecasts, scored against outcomes, are published separately on the <a href="/accuracy/">forecast accuracy page</a>.</p>`,
+      <p>RaWorld follows geopolitical, economic and technology markets on Polymarket and Kalshi and ranks them here by volume traded. Markets whose titles name sports leagues, entertainment awards or celebrities are filtered out. RaWorld's own scenario forecasts, scored against outcomes, are published separately on the <a href="/accuracy/">forecast accuracy page</a>.</p>`,
 });

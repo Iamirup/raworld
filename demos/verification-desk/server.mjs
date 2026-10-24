@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // The Verification Desk: stage server.
-//   npm start                 live WorldMonitor data (needs .env)
+//   npm start                 live RaWorld data (needs .env)
 //   npm run offline           committed real snapshots only, no keys, no network
 // Open http://localhost:4317 on the stage laptop, press F for fullscreen.
 
@@ -54,7 +54,7 @@ async function recap() {
     const week = desk.source.weekClusters ? await desk.source.weekClusters() : [];
     let stories;
     let scope;
-    // Every story is graded by WorldMonitor: coverage state, publishers, credibility.
+    // Every story is graded by RaWorld: coverage state, publishers, credibility.
     const grade = (title, labels, reported, credibilityScore) => {
       const { verdict, roster } = coverage(labels, reported);
       const lead = roster[0];
@@ -81,7 +81,7 @@ async function recap() {
   });
 }
 
-// Today's board, rebuilt at most once per DESK_BOARD_REFRESH_MIN (WorldMonitor
+// Today's board, rebuilt at most once per DESK_BOARD_REFRESH_MIN (RaWorld
 // allowance: two MCP calls per rebuild, both cached by LiveSource).
 const BOARD_REFRESH_MS = Number(process.env.DESK_BOARD_REFRESH_MIN || 15) * 60_000;
 let boardMemo = null;
@@ -194,7 +194,7 @@ const server = createServer(async (req, res) => {
       res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-store', Connection: 'keep-alive' });
       const log = [];
       // When the deck replaces this check, stop at the next step instead of
-      // spending the rest of its WorldMonitor and Claude calls on a closed socket.
+      // spending the rest of its RaWorld and Claude calls on a closed socket.
       let gone = false;
       res.on('close', () => { gone = true; });
       try {

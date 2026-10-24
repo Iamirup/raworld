@@ -580,7 +580,7 @@ describe('getCompanyEnrichment', () => {
     }) as typeof fetch;
 
     await getCompanyEnrichment(ctx, { ticker: 'TSTA', name: '', domain: '' });
-    assert.match(userAgent, /WorldMonitor/);
+    assert.match(userAgent, /RaWorld/);
   });
 
   it('degrades truthfully when SEC is down: no fabricated filings, no sec_edgar source', async () => {

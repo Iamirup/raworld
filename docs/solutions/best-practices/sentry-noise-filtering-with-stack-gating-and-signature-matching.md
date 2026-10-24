@@ -40,7 +40,7 @@ Sentry noise filters must distinguish errors the application owns from errors th
 - **WORLDMONITOR-WR** was a Clerk SDK error loading Clerk’s own UI bundle from `clerk.worldmonitor.app`. Although the stack named the locally bundled `clerk-*.js` asset, the message itself carried a stable, SDK-owned prefix: `[clerk] failed to load …`.
 - **WORLDMONITOR-TZ** was a bare `Failed to fetch` rejection whose stack contained both a first-party Vite chunk and `chrome-extension://…/frame_ant.js`. The extension frame’s function was `r.class.c.value.window.fetch`, showing that an injected fetch wrapper—not necessarily the first-party caller—owned the orphan rejection.
 
-The fixes were merged in [PR #5360](https://github.com/koala73/worldmonitor/pull/5360) on July 17, 2026. The implementation puts the Clerk signature in `ignoreErrors` and keeps the fetch-wrapper classification in `beforeSend`, where stack provenance is available (`src/bootstrap/sentry-init.ts:321-324`, `src/bootstrap/sentry-init.ts:525-550`).
+The fixes were merged in [PR #5360](https://github.com/Iamirup/raworld/pull/5360) on July 17, 2026. The implementation puts the Clerk signature in `ignoreErrors` and keeps the fetch-wrapper classification in `beforeSend`, where stack provenance is available (`src/bootstrap/sentry-init.ts:321-324`, `src/bootstrap/sentry-init.ts:525-550`).
 
 ## Guidance
 
@@ -133,5 +133,5 @@ Recommended classification: keep the event. Substring matching would incorrectly
 
 ## Related Issues
 
-- [PR #5360](https://github.com/koala73/worldmonitor/pull/5360) — filters implemented and regression-tested
-- [Issue #4417](https://github.com/koala73/worldmonitor/issues/4417) — earlier work deferring Sentry SDK load; touches the same `src/bootstrap/sentry-init.ts` file but addresses bundle cost rather than filtering correctness
+- [PR #5360](https://github.com/Iamirup/raworld/pull/5360) — filters implemented and regression-tested
+- [Issue #4417](https://github.com/Iamirup/raworld/issues/4417) — earlier work deferring Sentry SDK load; touches the same `src/bootstrap/sentry-init.ts` file but addresses bundle cost rather than filtering correctness

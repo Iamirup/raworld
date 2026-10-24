@@ -26,7 +26,7 @@ export const SOURCE_VERSION = 'usgs-mcs-bgs-v1';
 export const MAX_STALE_MIN = 60 * 24 * 400;
 export const MAX_CONTENT_AGE_MIN = 18 * 30 * 24 * 60;
 
-const USGS_UA = 'WorldMonitor/1.0 (mineral-production seeder; +https://worldmonitor.app)';
+const USGS_UA = 'RaWorld/1.0 (mineral-production seeder; +https://worldmonitor.app)';
 const PINNED_MCS_2026_CSV = 'https://www.sciencebase.gov/catalog/file/get/69837e43b66b01367d7ec7c7?f=__disk__d3%2Fac%2F84%2Fd3ac8466552946c5e8caa2c2c6338d9e1aff655d';
 const SCIENCEBASE_SEARCH = 'https://www.sciencebase.gov/catalog/items?q=Mineral%20Commodity%20Summaries%20Commodity%20Salient&format=json&max=10&fields=title,files';
 const BGS_ITEMS = 'https://ogcapi.bgs.ac.uk/collections/world-mineral-statistics/items';

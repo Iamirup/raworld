@@ -23,7 +23,7 @@ tags:
 
 ## Problem
 
-Adding a fifth dimension to a scoring domain behind a default-off feature flag changed the published score for all 196 countries in the WorldMonitor Country Resilience Index, despite the dimension emitting `score=0, coverage=0, observedWeight=0, imputedWeight=0` and contributing nothing.
+Adding a fifth dimension to a scoring domain behind a default-off feature flag changed the published score for all 196 countries in the RaWorld Country Resilience Index, despite the dimension emitting `score=0, coverage=0, observedWeight=0, imputedWeight=0` and contributing nothing.
 
 The change had been reasoned about and verified at two aggregation layers, both of which behaved correctly. A third layer above them did not.
 

@@ -62,7 +62,7 @@ const CONVEX_SITE_URL = process.env.CONVEX_SITE_URL ?? CONVEX_URL.replace('.conv
 const RELAY_SECRET = process.env.CONVEX_NOTIFICATION_RELAY_SECRET ?? '';
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN ?? '';
 const RESEND_API_KEY = process.env.RESEND_API_KEY ?? '';
-const RESEND_FROM = process.env.RESEND_FROM_EMAIL ?? 'WorldMonitor <alerts@worldmonitor.app>';
+const RESEND_FROM = process.env.RESEND_FROM_EMAIL ?? 'RaWorld <alerts@worldmonitor.app>';
 // AI impact text is built from one user's profile, so it honours that user's
 // AI routing policy (docs/internal/ai-routing-policy.md).
 const resolveAiRoutingPolicy = createAiRoutingPolicyResolver({ siteUrl: CONVEX_SITE_URL, secret: RELAY_SECRET });
@@ -447,10 +447,10 @@ async function drainHeldForUser(userId, variant, allowedChannelTypes) {
   if (events.length === 0) { await upstashRest('DEL', key); return; }
 
   const heldLines = formatHeldAlertLines(events);
-  const lines = [`WorldMonitor — ${events.length} held alert${events.length !== 1 ? 's' : ''} from quiet hours`, '', ...heldLines];
+  const lines = [`RaWorld — ${events.length} held alert${events.length !== 1 ? 's' : ''} from quiet hours`, '', ...heldLines];
   lines.push('', 'View full dashboard → worldmonitor.app');
   const text = lines.join('\n');
-  const subject = `WorldMonitor — ${events.length} held alert${events.length !== 1 ? 's' : ''}`;
+  const subject = `RaWorld — ${events.length} held alert${events.length !== 1 ? 's' : ''}`;
 
   let channels = [];
   try {
@@ -508,7 +508,7 @@ async function drainHeldForUser(userId, variant, allowedChannelTypes) {
       }, ch.webhookSecret);
       else if (ch.channelType === 'web_push' && ch.endpoint && ch.p256dh && ch.auth) {
         ok = await sendWebPush(userId, ch, {
-          title: `WorldMonitor · ${events.length} held alert${events.length === 1 ? '' : 's'}`,
+          title: `RaWorld · ${events.length} held alert${events.length === 1 ? '' : 's'}`,
           body: subject,
           url: PUSH_DASHBOARD_PATH,
           tag: `quiet_hours_batch:${userId}`,
@@ -943,7 +943,7 @@ function ensureVapidConfigured(client) {
 // Article links are the point of an rss_alert, so off-origin https targets
 // are kept; what must never happen is the service worker NAVIGATING the
 // user's already-open dashboard tab to one, which would replace a trusted
-// surface with a page WorldMonitor does not control. public/push-handler.js
+// surface with a page RaWorld does not control. public/push-handler.js
 // owns that half: off-origin targets always get their own tab.
 //
 // The relay's half is scheme discipline — a javascript:, data: or http:
@@ -1047,7 +1047,7 @@ async function sendWebPush(userId, subscription, payload) {
   if (!ensureVapidConfigured(client)) return false;
 
   const body = JSON.stringify({
-    title: payload.title || 'WorldMonitor',
+    title: payload.title || 'RaWorld',
     body: payload.body || '',
     url: safePushClickUrl(payload.url, userId),
     tag: payload.tag || 'worldmonitor-generic',
@@ -1521,12 +1521,12 @@ function formatEventLinkForPush(event) {
 /**
  * Email subject for an event. Shaped with the same title boundary as
  * formatMessage — the subject carried the forged phishing title verbatim in
- * the #8397 PoC (`WorldMonitor Alert: Security notice: verify your
- * WorldMonitor account immediately`).
+ * the #8397 PoC (`RaWorld Alert: Security notice: verify your
+ * RaWorld account immediately`).
  */
 function formatSubject(event) {
   const title = formatEventTitle(event);
-  return event.userId ? title : `WorldMonitor Alert: ${title}`;
+  return event.userId ? title : `RaWorld Alert: ${title}`;
 }
 
 async function processWelcome(event) {
@@ -1556,20 +1556,20 @@ async function processWelcome(event) {
   if (!ch) return;
 
   // Telegram welcome is sent directly by convex/http.ts after claimPairingToken succeeds.
-  const text = `✅ WorldMonitor connected! You'll receive breaking news alerts here.`;
+  const text = `✅ RaWorld connected! You'll receive breaking news alerts here.`;
   if (channelType === 'slack' && ch.webhookEnvelope) {
     await sendSlack(userId, ch.webhookEnvelope, text);
   } else if (channelType === 'discord' && ch.webhookEnvelope) {
     await sendDiscord(userId, ch.webhookEnvelope, text);
   } else if (channelType === 'teams' && ch.webhookEnvelope) {
     await sendTeams(userId, ch.webhookEnvelope, buildTeamsNoticePayload({
-      title: '✅ WorldMonitor connected',
+      title: '✅ RaWorld connected',
       lines: ["You'll receive alerts here when events match your alert rules."],
       link: NOTIFY_DASHBOARD_URL,
-      linkTitle: 'Open WorldMonitor',
+      linkTitle: 'Open RaWorld',
     }));
   } else if (channelType === 'email' && ch.email) {
-    await sendEmail(ch.email, 'WorldMonitor Notifications Connected', text);
+    await sendEmail(ch.email, 'RaWorld Notifications Connected', text);
   } else if (channelType === 'web_push' && ch.endpoint && ch.p256dh && ch.auth) {
     // Welcome push on first web_push connect. Short body — Chrome's
     // notification shelf clips past ~80 chars on most OSes. Click
@@ -1578,7 +1578,7 @@ async function processWelcome(event) {
     // in sendWebPush — a welcome past 30 minutes after subscribe is
     // noise, not value.
     await sendWebPush(userId, ch, {
-      title: 'WorldMonitor connected',
+      title: 'RaWorld connected',
       body: "You'll receive alerts here when events match your sensitivity settings.",
       url: PUSH_DASHBOARD_PATH,
       tag: `channel_welcome:${userId}`,
@@ -1919,7 +1919,7 @@ async function processEvent(event) {
           // `payload.url` is a second, edge-unvalidated link field, so the
           // link wins and url is only a fallback before classification).
           await sendWebPush(rule.userId, ch, {
-            title: formatEventTitle(event, 'WorldMonitor'),
+            title: formatEventTitle(event, 'RaWorld'),
             body: formatPushBody(deliveryText, event),
             url: formatEventLinkForPush(event),
             tag: webPushTagFor(event, rule.userId),

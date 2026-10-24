@@ -14,7 +14,7 @@ import {
   parseMigrationArgs,
 } from '../scripts/configure-railway-native-autodeploy.mjs';
 
-const REPOSITORY = 'koala73/worldmonitor';
+const REPOSITORY = 'Iamirup/raworld';
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value));

@@ -18,7 +18,7 @@ tags: [bootstrap-hydration, seed-meta, freshness-tracking, redis, health]
 
 ## Problem
 
-[`/api/health`](../../../api/health.js) previously allowed every `EMPTY_DATA_OK` source to report `OK` when its `seed-meta` was fresh, even if its Redis payload was absent. That contract was too broad for compact bootstrap projections: a writer or transform failure could blank a user-facing panel while health remained green. The affected issue is [#5321](https://github.com/koala73/worldmonitor/issues/5321).
+[`/api/health`](../../../api/health.js) previously allowed every `EMPTY_DATA_OK` source to report `OK` when its `seed-meta` was fresh, even if its Redis payload was absent. That contract was too broad for compact bootstrap projections: a writer or transform failure could blank a user-facing panel while health remained green. The affected issue is [#5321](https://github.com/Iamirup/raworld/issues/5321).
 
 `api/health.js:710-725` puts both quiet metadata-only sources and bootstrap projections in `EMPTY_DATA_OK_KEYS`. Treating both categories alike erased the distinction between an expected quiet result and a missing required projection.
 
@@ -67,6 +67,6 @@ Extend `tests/health-empty-data-ok.test.mjs` with both the intended strict and q
 
 ## Related Issues
 
-- [#5321: health: EMPTY_DATA_OK bootstrap projections report OK while their key is GONE](https://github.com/koala73/worldmonitor/issues/5321)
+- [#5321: health: EMPTY_DATA_OK bootstrap projections report OK while their key is GONE](https://github.com/Iamirup/raworld/issues/5321)
 - [Health must not grade an unconfigured optional source](health-must-not-grade-an-unconfigured-optional-source.md) — related classifier precedent for preserving an actionable source-state distinction.
 - [Merged is not ran long cron seeders](../integration-issues/merged-is-not-ran-long-cron-seeders.md) — distinguishes this fresh-metadata/missing-payload condition from a producer that has not run.

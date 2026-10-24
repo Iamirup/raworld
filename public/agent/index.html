@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>World Monitor for AI agents: MCP server, API and skills</title>
-  <meta name="description" content="Connect Claude, ChatGPT, Cursor, Gemini or Grok Bot to the World Monitor MCP server: 90+ live intelligence tools, a REST API and skills you add in one command.">
+  <title>RaWorld for AI agents: MCP server, API and skills</title>
+  <meta name="description" content="Connect Claude, ChatGPT, Cursor, Gemini or Grok Bot to the RaWorld MCP server: 90+ live intelligence tools, a REST API and skills you add in one command.">
   <link rel="canonical" href="https://www.worldmonitor.app/agent/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="World Monitor for AI agents: MCP server, API and skills">
-  <meta property="og:description" content="Connect Claude, ChatGPT, Cursor, Gemini or Grok Bot to the World Monitor MCP server: 90+ live intelligence tools, a REST API and skills you add in one command.">
+  <meta property="og:title" content="RaWorld for AI agents: MCP server, API and skills">
+  <meta property="og:description" content="Connect Claude, ChatGPT, Cursor, Gemini or Grok Bot to the RaWorld MCP server: 90+ live intelligence tools, a REST API and skills you add in one command.">
   <meta property="og:url" content="https://www.worldmonitor.app/agent/">
   <meta property="og:image" content="https://www.worldmonitor.app/favico/og-image.png">
   <link rel="stylesheet" href="/agent/agent.css">
@@ -16,9 +16,9 @@
 <body>
   <main>
     <header>
-      <p class="eyebrow"><a href="/" data-umami-event="agent-nav-home">World Monitor</a></p>
-      <h1>World Monitor for AI agents</h1>
-      <p class="lede" id="approved-description">World Monitor: real-time geopolitical intelligence dashboard. A free live map of conflicts, shipping, flights, markets and cyber, with an API and MCP server.</p>
+      <p class="eyebrow"><a href="/" data-umami-event="agent-nav-home">RaWorld</a></p>
+      <h1>RaWorld for AI agents</h1>
+      <p class="lede" id="approved-description">RaWorld: real-time geopolitical intelligence dashboard. A free live map of conflicts, shipping, flights, markets and cyber, with an API and MCP server.</p>
       <p class="muted">Give Claude, ChatGPT, Cursor, Gemini, Grok Bot or any MCP client the same live data the dashboard shows: one remote MCP server with 90+ MCP tools, a REST API, and ready-made skills.</p>
     </header>
 
@@ -29,16 +29,16 @@
         <div class="tile"><dt>REST API</dt><dd>The same data as JSON over HTTPS with an <code>X-WorldMonitor-Key</code> header, described by an OpenAPI spec. <a href="/docs/api-reference" data-umami-event="agent-docs-click" data-umami-event-target="api-reference">API reference</a></dd></div>
         <div class="tile"><dt>Skills</dt><dd>Task recipes your agent can load on demand, installed with one command. <a href="#skills" data-umami-event="agent-jump-skills">Install skills</a></dd></div>
       </dl>
-      <p class="muted">Signing in needs only a free World Monitor account, and <code>get_sources</code> works without one. Most data tools need a Pro or API plan; see <a href="/pro" data-umami-event="agent-plans-click">plans</a>.</p>
+      <p class="muted">Signing in needs only a free RaWorld account, and <code>get_sources</code> works without one. Most data tools need a Pro or API plan; see <a href="/pro" data-umami-event="agent-plans-click">plans</a>.</p>
     </section>
 
     <section aria-labelledby="setup-heading">
       <h2 id="setup-heading">Connect your agent</h2>
-      <p class="muted">Every client uses the same server URL. When it connects, a browser window asks you to sign in to World Monitor and approve access (OAuth). No key to copy.</p>
+      <p class="muted">Every client uses the same server URL. When it connects, a browser window asks you to sign in to RaWorld and approve access (OAuth). No key to copy.</p>
 
       <article class="client" id="claude">
         <h3>Claude</h3>
-        <p><strong>Claude and Claude Desktop:</strong> open <em>Customize</em> &gt; <em>Connectors</em>, click <em>+ Add</em> and choose <em>Add custom connector</em> (some accounts show <em>Custom</em> &gt; <em>Web</em> instead). Name it World Monitor, paste the URL below, click <em>Continue</em>, keep the detected sign-in settings, click <em>Add</em>, then connect and sign in. On Team and Enterprise plans an owner adds it first under <em>Organization settings</em> &gt; <em>Connectors</em>, and members then click <em>Connect</em>. The Free plan allows one custom connector.</p>
+        <p><strong>Claude and Claude Desktop:</strong> open <em>Customize</em> &gt; <em>Connectors</em>, click <em>+ Add</em> and choose <em>Add custom connector</em> (some accounts show <em>Custom</em> &gt; <em>Web</em> instead). Name it RaWorld, paste the URL below, click <em>Continue</em>, keep the detected sign-in settings, click <em>Add</em>, then connect and sign in. On Team and Enterprise plans an owner adds it first under <em>Organization settings</em> &gt; <em>Connectors</em>, and members then click <em>Connect</em>. The Free plan allows one custom connector.</p>
         <div class="cmd"><pre><code>https://worldmonitor.app/mcp</code></pre><button type="button" class="copy" data-copy data-umami-event="agent-copy-command" data-umami-event-client="claude" aria-label="Copy Claude connector URL">Copy</button></div>
         <p><strong>Claude Code:</strong> add the server, then run <code>/mcp</code> in a session to sign in.</p>
         <div class="cmd"><pre><code>claude mcp add --transport http worldmonitor https://worldmonitor.app/mcp</code></pre><button type="button" class="copy" data-copy data-umami-event="agent-copy-command" data-umami-event-client="claude" aria-label="Copy Claude Code command">Copy</button></div>
@@ -47,7 +47,7 @@
       <article class="client" id="chatgpt">
         <h3>ChatGPT</h3>
         <p>Full MCP support is available on ChatGPT web for Business, Enterprise and Edu plans. On Business, only workspace admins and owners can create custom MCP connections. On Enterprise and Edu, admins can also give selected members permission to create connections. Only admins and owners can publish connections for the workspace. Pro supports custom MCP connections with read/fetch permissions. Check <a href="https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt" data-umami-event="agent-outbound-click" data-umami-event-target="chatgpt-requirements" rel="noopener">OpenAI’s current requirements</a> before setup.</p>
-        <p>With permission to create a connection, open <em>Plugins</em>, click the plus button and choose <em>Add custom MCP server</em>. Enter World Monitor as the name and the URL below as the server URL. Choose OAuth, confirm the warning, then create and install the plugin. Start a chat and pick World Monitor with <code>@</code>.</p>
+        <p>With permission to create a connection, open <em>Plugins</em>, click the plus button and choose <em>Add custom MCP server</em>. Enter RaWorld as the name and the URL below as the server URL. Choose OAuth, confirm the warning, then create and install the plugin. Start a chat and pick RaWorld with <code>@</code>.</p>
         <div class="cmd"><pre><code>https://worldmonitor.app/mcp</code></pre><button type="button" class="copy" data-copy data-umami-event="agent-copy-command" data-umami-event-client="chatgpt" aria-label="Copy ChatGPT server URL">Copy</button></div>
       </article>
 
@@ -79,7 +79,7 @@
 
       <article class="client" id="grok-bot">
         <h3>Grok Bot</h3>
-        <p>In a Grok Bot chat, ask it to add the server, confirm, and sign in when the approval window opens. Then mention World Monitor with <code>@</code> in any chat.</p>
+        <p>In a Grok Bot chat, ask it to add the server, confirm, and sign in when the approval window opens. Then mention RaWorld with <code>@</code> in any chat.</p>
         <div class="cmd"><pre><code>Add this MCP server: https://worldmonitor.app/mcp</code></pre><button type="button" class="copy" data-copy data-umami-event="agent-copy-command" data-umami-event-client="grok-bot" aria-label="Copy Grok Bot prompt">Copy</button></div>
         <p>On grok.com, open <a href="https://grok.com/connectors" data-umami-event="agent-outbound-click" data-umami-event-target="grok-connectors" rel="noopener">Connectors</a>, choose <em>New Connector</em>, then <em>Custom</em>, and paste the same URL.</p>
       </article>
@@ -95,11 +95,11 @@
 
     <section aria-labelledby="skills-heading" id="skills">
       <h2 id="skills-heading">Install the skills</h2>
-      <p class="muted">Skills are folders with a <code>SKILL.md</code> recipe that tells an agent which World Monitor endpoint answers which question. The <a href="https://skills.sh/koala73/worldmonitor" data-umami-event="agent-outbound-click" data-umami-event-target="skills-sh" rel="noopener">skills CLI</a> installs them into Claude Code, Cursor, Codex, Gemini CLI and other agents. Pick skills and agents interactively:</p>
-      <div class="cmd"><pre><code>npx skills add koala73/worldmonitor</code></pre><button type="button" class="copy" data-copy data-umami-event="agent-copy-command" data-umami-event-client="skills" aria-label="Copy skills install command">Copy</button></div>
+      <p class="muted">Skills are folders with a <code>SKILL.md</code> recipe that tells an agent which RaWorld endpoint answers which question. The <a href="https://skills.sh/Iamirup/raworld" data-umami-event="agent-outbound-click" data-umami-event-target="skills-sh" rel="noopener">skills CLI</a> installs them into Claude Code, Cursor, Codex, Gemini CLI and other agents. Pick skills and agents interactively:</p>
+      <div class="cmd"><pre><code>npx skills add Iamirup/raworld</code></pre><button type="button" class="copy" data-copy data-umami-event="agent-copy-command" data-umami-event-client="skills" aria-label="Copy skills install command">Copy</button></div>
       <p class="muted">Install one skill for one agent, or every skill for every supported agent in your user profile:</p>
-      <div class="cmd"><pre><code>npx skills add koala73/worldmonitor --skill check-chokepoint-status --agent claude-code</code></pre><button type="button" class="copy" data-copy data-umami-event="agent-copy-command" data-umami-event-client="skills" aria-label="Copy single skill install command">Copy</button></div>
-      <div class="cmd"><pre><code>npx skills add koala73/worldmonitor --all --global</code></pre><button type="button" class="copy" data-copy data-umami-event="agent-copy-command" data-umami-event-client="skills" aria-label="Copy global install command">Copy</button></div>
+      <div class="cmd"><pre><code>npx skills add Iamirup/raworld --skill check-chokepoint-status --agent claude-code</code></pre><button type="button" class="copy" data-copy data-umami-event="agent-copy-command" data-umami-event-client="skills" aria-label="Copy single skill install command">Copy</button></div>
+      <div class="cmd"><pre><code>npx skills add Iamirup/raworld --all --global</code></pre><button type="button" class="copy" data-copy data-umami-event="agent-copy-command" data-umami-event-client="skills" aria-label="Copy global install command">Copy</button></div>
       <p class="muted">Skills call the REST API, so set an API key from <a href="/pro" data-umami-event="agent-plans-click">your account</a> in <code>X-WorldMonitor-Key</code>. Available skills:</p>
       <ul class="skills" id="skill-list">
         <li><code>assess-energy-shock</code> Model oil or gas supply shock exposure for a country and chokepoint.</li>
@@ -109,8 +109,8 @@
         <li><code>check-forecast-signals</code> Retrieve probabilistic forecasts and their scorecard context.</li>
         <li><code>check-sanctions-pressure</code> Retrieve normalized OFAC sanctions pressure — designation summaries, recent additions, and per-country/per-program aggregates including sanctioned vessels and aircraft.</li>
         <li><code>compare-macro-history</code> Compare CPI, interest rates and sovereign yield histories from seeded official reports.</li>
-        <li><code>fetch-country-brief</code> Open the WorldMonitor country interface in a UI-capable MCP host.</li>
-        <li><code>fetch-news-digest</code> Retrieve the pre-aggregated digest of World Monitor&#x27;s curated news feeds, bucketed by category, with per-article threat classification and alert flags.</li>
+        <li><code>fetch-country-brief</code> Open the RaWorld country interface in a UI-capable MCP host.</li>
+        <li><code>fetch-news-digest</code> Retrieve the pre-aggregated digest of RaWorld&#x27;s curated news feeds, bucketed by category, with per-article threat classification and alert flags.</li>
         <li><code>fetch-resilience-score</code> Retrieve the composite country resilience score (0-100) and its domain/pillar breakdown for a single country.</li>
         <li><code>get-market-quotes</code> Retrieve real-time equity, index, and ETF quotes with price, change, and sparkline history.</li>
         <li><code>get-prediction-markets</code> Retrieve active prediction-market contracts (Polymarket) with live yes-price probabilities, volume, and close dates, filterable by category or keyword.</li>

@@ -7,13 +7,11 @@ import { widgetAgentHealthUrl, widgetAgentUrl } from '@/utils/proxy';
 import { wrapWidgetHtml, wrapProWidgetHtml } from '@/utils/widget-sanitizer';
 import { track } from '@/services/analytics';
 import { createFocusTrap, type FocusTrap } from '@/utils/focus-trap';
-import { reportEntitlementDesync } from '@/services/entitlement-desync-telemetry';
-import { classifyPremiumDenial, type ClientEntitlementBelief } from '@/services/premium-denial';
+import type { ClientEntitlementBelief } from '@/services/premium-denial';
 import { readClientEntitlementBelief } from '@/services/panel-gating';
 import { getAuthState } from '@/services/auth-state';
 import { setTrustedHtml, trustedHtml } from '@/utils/dom-utils';
 import { declareOverlay } from '@/utils/open-modal';
-
 
 interface WidgetChatOptions {
   mode: 'create' | 'modify';
@@ -70,22 +68,6 @@ interface BuiltAuthHeaders {
   sessionUnavailable: boolean;
 }
 
-function reportWidgetEntitlementDesync(
-  status: number,
-  payload: WidgetAgentHealth | null,
-  usedTesterKey: boolean,
-  requestBelief: ClientEntitlementBelief,
-  requestUserId: string | null,
-): void {
-  if (usedTesterKey || (getAuthState().user?.id ?? null) !== requestUserId) return;
-  const verdict = classifyPremiumDenial({
-    status,
-    errorCode: payload?.error ?? null,
-    belief: requestBelief,
-  });
-  if (verdict === 'entitlement_desync') reportEntitlementDesync('widget-chat');
-}
-
 async function buildWidgetAuthHeaders(isPro: boolean): Promise<BuiltAuthHeaders> {
   const testerKey = getBrowserTesterKey();
   const widgetKey = getWidgetAgentKey();
@@ -128,11 +110,10 @@ export function openWidgetChatModal(options: WidgetChatOptions): void {
 
   const isModify = options.mode === 'modify';
   const titleText = isModify ? t('widgets.modifyTitle') : t('widgets.chatTitle');
-  const proBadgeHtml = isPro ? `<span class="widget-pro-badge">${escapeHtml(t('widgets.proBadge'))}</span>` : '';
 
   setTrustedHtml(modal, trustedHtml(`
     <div class="modal-header">
-      <span class="modal-title">${escapeHtml(titleText)}${proBadgeHtml}</span>
+      <span class="modal-title">${escapeHtml(titleText)}</span>
       <button class="modal-close" aria-label="${escapeHtml(t('common.close'))}">\u2715</button>
     </div>
     <div class="widget-chat-layout">
@@ -321,9 +302,6 @@ export function openWidgetChatModal(options: WidgetChatOptions): void {
       const auth = await buildWidgetAuthHeaders(isPro);
       const unreachable = connectivityProblem(auth);
       if (unreachable) throw new Error(unreachable);
-      const requestAuthState = getAuthState();
-      const requestUserId = requestAuthState.user?.id ?? null;
-      const requestBelief = readClientEntitlementBelief(requestAuthState);
       const reqHeaders: Record<string, string> = {
         'Content-Type': 'application/json',
         ...auth.headers,
@@ -337,15 +315,6 @@ export function openWidgetChatModal(options: WidgetChatOptions): void {
       });
 
       if (!res.ok) {
-        let payload: WidgetAgentHealth | null = null;
-        try { payload = await res.json() as WidgetAgentHealth; } catch { /* ignore */ }
-        reportWidgetEntitlementDesync(
-          res.status,
-          payload,
-          auth.usedTesterKey,
-          requestBelief,
-          requestUserId,
-        );
         throw new Error(t('widgets.serverError', { status: res.status }));
       }
       if (!res.body) {
@@ -491,13 +460,12 @@ function resolvePreflightMessage(
   payload: WidgetAgentHealth | null,
   isPro: boolean,
   usedTesterKey: boolean,
-  requestBelief: ClientEntitlementBelief,
-  requestUserId: string | null,
+  _requestBelief: ClientEntitlementBelief,
+  _requestUserId: string | null,
 ): string {
   if (status === 403) {
     // Tester-key path: tell the operator to update the wm-*-key they actually have.
     if (usedTesterKey) return isPro ? t('widgets.preflightInvalidProKey') : t('widgets.preflightInvalidKey');
-    reportWidgetEntitlementDesync(status, payload, usedTesterKey, requestBelief, requestUserId);
     // Clerk-auth copy stays keyed to the requested widget tier. Telemetry above
     // separately classifies the account belief so the two concepts cannot be
     // conflated.
@@ -526,7 +494,7 @@ function setFooterStatus(container: HTMLElement, text: string, tone: 'muted' | '
 }
 
 function renderPreviewState(container: HTMLElement, phase: PreviewPhase, detail = ''): void {
-  // Web search, page reads and the source check are not WorldMonitor data.
+  // Web search, page reads and the source check are not RaWorld data.
   const webStep = phase === 'fetching' && /^(search|read|verify):/.test(detail);
   const heading = webStep ? t('widgets.phaseFetching') : getPreviewHeading(phase);
   const copy = detail || getPreviewCopy(phase);

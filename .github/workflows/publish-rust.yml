@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
   verify:
-    if: github.repository == 'koala73/worldmonitor' && github.ref == 'refs/heads/main'
+    if: github.repository == 'Iamirup/raworld' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     outputs:

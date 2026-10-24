@@ -1,6 +1,6 @@
 ---
 title: "Account deletion runbook"
-description: "Operator steps for fulfilling a World Monitor account-deletion request after the Clerk subject is confirmed. Public Mintlify docs never publish this command."
+description: "Operator steps for fulfilling a RaWorld account-deletion request after the Clerk subject is confirmed. Public Mintlify docs never publish this command."
 ---
 
 # Account deletion runbook

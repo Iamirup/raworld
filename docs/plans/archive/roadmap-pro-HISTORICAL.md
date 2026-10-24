@@ -10,7 +10,7 @@
 
 ---
 
-# World Monitor Pro — Implementation Roadmap
+# RaWorld Pro — Implementation Roadmap
 
 ## Context
 
@@ -84,7 +84,7 @@ Phase 0 (Decisions)
 **Priority**: P0 | **Size**: S | **Dependencies**: None
 
 **Description**:
-Evaluate and select an authentication provider for World Monitor Pro.
+Evaluate and select an authentication provider for RaWorld Pro.
 
 **Options**:
 
@@ -514,10 +514,10 @@ Create Stripe products and price objects for all tiers.
 
 **Products**:
 
-1. **World Monitor Pro Monthly** — $X/mo
-2. **World Monitor Pro Annual** — $X/yr (discount)
-3. **World Monitor API Starter** — $Y/mo (1,000 req/day, 5 webhook rules)
-4. **World Monitor API Business** — $Z/mo (50,000 req/day, unlimited webhooks + SLA)
+1. **RaWorld Pro Monthly** — $X/mo
+2. **RaWorld Pro Annual** — $X/yr (discount)
+3. **RaWorld API Starter** — $Y/mo (1,000 req/day, 5 webhook rules)
+4. **RaWorld API Business** — $Z/mo (50,000 req/day, unlimited webhooks + SLA)
 
 **Environment variables**:
 
@@ -1149,11 +1149,11 @@ Enhance existing risk analytics with scenario analysis and convergence alerting.
 **Priority**: P1 | **Size**: M | **Dependencies**: #4.1
 
 **Description**:
-Pro users should NOT need to configure individual API keys for Finnhub, FRED, ACLED, etc. A single World Monitor Pro subscription gives access to all 24 services.
+Pro users should NOT need to configure individual API keys for Finnhub, FRED, ACLED, etc. A single RaWorld Pro subscription gives access to all 24 services.
 
 **Implementation**:
 
-- Server-side: pro requests use World Monitor's own upstream API keys (already configured as env vars)
+- Server-side: pro requests use RaWorld's own upstream API keys (already configured as env vars)
 - Free tier: continues using BYOK via desktop settings panel
 - Gateway identifies pro user → skips BYOK requirement → uses server-side keys for upstream calls
 

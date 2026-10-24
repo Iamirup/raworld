@@ -1,9 +1,9 @@
 {
   "shell": {
-    "documentTitle": "World Monitor — Real-Time Global Intelligence Dashboard",
+    "documentTitle": "RaWorld — Real-Time Global Intelligence Dashboard",
     "metaDescription": "Платформа глобальної розвідки в реальному часі. Згадана у WIRED. Використовується 2M+ людей у 190 країнах. Конфлікти, ринки, військові операції, відкрита розвідка в одному місці.",
     "offlineTitle": "You're Offline",
-    "offlineMessage": "World Monitor requires an internet connection for real-time intelligence data.",
+    "offlineMessage": "RaWorld requires an internet connection for real-time intelligence data.",
     "offlineRetry": "Retry"
   },
   "widgets": {
@@ -41,16 +41,15 @@
     "phaseError": "Error",
     "previewCheckingHeading": "Connecting the widget builder",
     "previewReadyHeading": "Describe the widget you want",
-    "previewFetchingHeading": "Fetching live WorldMonitor data",
+    "previewFetchingHeading": "Fetching live RaWorld data",
     "previewComposingHeading": "Composing the widget layout",
     "previewErrorHeading": "The preview needs attention",
     "previewCheckingCopy": "We are validating your widget key and backend availability before enabling generation.",
     "previewReadyCopy": "Use a prompt example or describe the exact live view you want. The preview will update here before you save it.",
-    "previewFetchingCopy": "The agent is calling approved WorldMonitor endpoints and shaping the dataset for the widget.",
+    "previewFetchingCopy": "The agent is calling approved RaWorld endpoints and shaping the dataset for the widget.",
     "previewComposingCopy": "The preview is rendering with the latest live data and dashboard styling.",
     "previewErrorCopy": "Fix the issue, then retry. Your existing widgets are unaffected.",
     "createInteractive": "Create Interactive Widget",
-    "proBadge": "PRO",
     "preflightProUnavailable": "PRO widget agent unavailable. Check PRO_WIDGET_KEY on the server.",
     "preflightInvalidProKey": "PRO key rejected. Update wm-pro-key and reload.",
     "preflightProSubscriptionRequired": "Pro subscription required. If you just upgraded, refresh the page; otherwise contact support.",
@@ -271,7 +270,6 @@
     "foodStocksHelp": "Виробництво, пропозиція та розподіл запасів товарів USDA за маркетинговим роком із світовим співвідношенням як контекст. Продовольчі баланси FAOSTAT надають виробництво та внутрішню пропозицію, коли Production, Supply and Distribution не має повного балансу за країною.",
     "loadingFoodStocks": "Loading food stocks…",
     "foodStocksUnavailable": "Food stocks unavailable.",
-    "foodStocksProLocked": "Upgrade to PRO for commodity stocks-to-use",
     "foodStocksCommodity": "Commodity",
     "foodStocksMarketingYear": "Marketing year",
     "foodStocksRatio": "Stocks-to-use",
@@ -289,7 +287,6 @@
       "help": "Вікова структура, освітній потенціал та потужність виробничої робочої сили з UN World Population Prospects, UNESCO Institute for Statistics та World Bank World Development Indicators, та ILOSTAT.",
       "loading": "Loading demographics and workforce data…",
       "unavailable": "Demographics and workforce data unavailable.",
-      "proLocked": "Upgrade to PRO for demographics and workforce data",
       "notAvailable": "Not available",
       "ageStructure": "Age structure",
       "education": "Education pipeline",
@@ -315,7 +312,6 @@
       "help": "Зафіксовані оцінки доказів v1 для продовольства, енергетики, демографії, технологій та оборони. Розгорніть рядок, щоб переглянути вхідні дані, походження джерел та причини відсутності даних.",
       "loading": "Завантаження п'ятифакторної шкали…",
       "unavailable": "П'ятифакторна шкала недоступна.",
-      "proLocked": "Оновіть до PRO для доступу до п'ятифакторної шкали стійкості",
       "insufficient": "Недостатньо даних",
       "notAvailable": "Недоступно",
       "noEvidence": "Немає доступних доказів для цього фактора.",
@@ -372,9 +368,7 @@
         "defense_supplierDiversity": "Різноманітність постачальників озброєнь"
       }
     },
-    "defenseIndustrialBase": {
-      "proLocked": "Перейдіть на PRO для залежності від постачальників озброєння та військової потужності"
-    }
+    "defenseIndustrialBase": {}
   },
   "header": {
     "world": "WORLD",
@@ -787,8 +781,7 @@
       "alertTitle": {
         "configured": "Desktop settings configured",
         "needsKeys": "Configure API keys to unlock features",
-        "some": "Some features need API keys",
-        "pro": "World Monitor Pro активний"
+        "some": "Some features need API keys"
       },
       "summary": {
         "desktop": "Desktop mode",
@@ -817,18 +810,13 @@
         "NASA_FIRMS_API_KEY": "Fire Information for Resource Management System.",
         "OLLAMA_API_URL": "e.g. http://127.0.0.1:11434 (Ollama) or http://127.0.0.1:1234/v1 (LM Studio) — OpenAI-compatible endpoint.",
         "OLLAMA_MODEL": "e.g. llama3.1:8b — model tag to use for summarization."
-      },
-      "proCloud": "Функції без локального ключа API використовують хмарні дані World Monitor.",
-      "skipSetupPro": "Пропустити налаштування: увійдіть за допомогою World Monitor Pro, щоб використовувати хмарні дані замість своїх ключів API.",
-      "getPro": "Отримати World Monitor Pro"
+      }
     },
     "settingsWindow": {
-      "shellTitle": "World Monitor Settings",
+      "shellTitle": "RaWorld Settings",
       "shellSearchPlaceholder": "Search settings...",
       "shellCancel": "Cancel",
       "shellSaveClose": "Save & Close",
-      "freePanelLimit": "Free plan: max {{max}} panels. Upgrade to PRO for unlimited.",
-      "freeSourceLimit": "Free plan: max {{max}} sources. Upgrade to PRO for unlimited.",
       "validating": "Validating API keys...",
       "saved": "Settings saved",
       "failed": "Save failed: {{error}}",
@@ -847,12 +835,6 @@
           "title": "License / API Key",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "description": "API Starter and API Business subscribers create this key on the web dashboard under Settings → API Keys. If a full key is lost, revoke it and create a replacement."
-        },
-        "dividerOr": "OR",
-        "register": {
-          "title": "Need an API key?",
-          "description": "See worldmonitor.app/docs/api-keys for step-by-step help. Manual API keys require an API Starter or API Business plan.",
-          "submitBtn": "View API plans"
         }
       },
       "table": {
@@ -1099,8 +1081,7 @@
       "refineryStage": "Refine",
       "stageUnavailable": "No published figures for this stage",
       "withheldNote": "W withheld",
-      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them.",
-      "productionProLocked": "Виконайте оновлення до PRO для поділу гірництва та нафтопереробних заводів за країнами з концентрацією (індекс концентрації виробників) за етапом."
+      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them."
     },
     "tradePolicy": {
       "overview": "Overview",
@@ -1237,7 +1218,7 @@
       "skipToEnd": "Skip to end"
     },
     "pizzint": {
-      "indexSource": "Індекс: World Monitor · дані закладів:",
+      "indexSource": "Індекс: RaWorld · дані закладів:",
       "statusNormal": "НОРМА",
       "statusNoData": "НЕМАЄ ДАНИХ",
       "statusNoBaseline": "НЕМАЄ БАЗОВОГО РІВНЯ",
@@ -1246,7 +1227,7 @@
       "defcon": "DEFCON {{level}}",
       "updated": "Updated {{timeAgo}}",
       "tensionsTitle": "Geopolitical Tensions",
-      "tensionsSource": "Напруженість: World Monitor на основі подій GDELT",
+      "tensionsSource": "Напруженість: RaWorld на основі подій GDELT",
       "insufficientData": "Недостатньо даних",
       "pizzaUnavailable": "Дані про активність піцерій недоступні",
       "source": "Source:",
@@ -1927,7 +1908,7 @@
       "staleReport": "Застарілий звіт",
       "reported": "Кількість",
       "period": "Період",
-      "movementNote": "Кожен рядок зберігає своє джерело, дату звіту й показник. Чисельність населення, прибуття та події прикордонного контролю є різними показниками. Дані джерел можуть перетинатися; не підсумовуйте їхні значення. WorldMonitor формує це подання з указаних джерел; це не означає схвалення з боку постачальників.",
+      "movementNote": "Кожен рядок зберігає своє джерело, дату звіту й показник. Чисельність населення, прибуття та події прикордонного контролю є різними показниками. Дані джерел можуть перетинатися; не підсумовуйте їхні значення. RaWorld формує це подання з указаних джерел; це не означає схвалення з боку постачальників.",
       "recent": "Нещодавно",
       "last30Days": "За останні 30 днів",
       "newThisWeek": "Нове цього тижня",
@@ -2433,7 +2414,7 @@
       "loadError": "Climate news temporarily unavailable"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>WM Analyst</strong> AI analyst with live context across geopolitical, market, military, and economic domains. Powered by Claude with real-time data injected from active WorldMonitor feeds."
+      "infoTooltip": "<strong>RaWorld Analyst</strong> AI analyst with live context across geopolitical, market, military, and economic domains. Powered by Claude with real-time data injected from active RaWorld feeds."
     },
     "cotPositioning": {
       "infoTooltip": "<strong>Futures positioning</strong> Щотижневі чисті позиції комерційних трейдерів, великих спекулянтів та малих трейдерів у товарних та фінансових фʼютчерсах. Джерело — звіт Commitments of Traders Комісії з торгівлі товарними фʼютчерсами, опублікований у п'ятниці."
@@ -2531,7 +2512,7 @@
       "infoTooltip": "<strong>Economic Calendar</strong> Заплановані випуски макроекономічних даних: індекс цін споживача, несільськогосподарські робочі місця, валовий внутрішній продукт, індекс менеджерів закупівель та рішення центральних банків. Показує прогноз vs фактичні дані vs попередні. Висока-впливові події виділені. Джерело: постачальники економічних даних."
     },
     "fsi": {
-      "infoTooltip": "<strong>Financial Stress Indicator</strong> Коефіцієнт World Monitor високодохідного кредиту до довгострокових казначейських облігацій, скорегований на волатильність акцій та спред високодохідного кредиту: (HYG / TLT) / (VIX × High-yield spread / 100). Це не Індекс фінансового стресу Федеральної резервної системи Канзасу. Значення 1,5 або вище є низьким стресом; нижче 0,3 є високим стресом.",
+      "infoTooltip": "<strong>Financial Stress Indicator</strong> Коефіцієнт RaWorld високодохідного кредиту до довгострокових казначейських облігацій, скорегований на волатильність акцій та спред високодохідного кредиту: (HYG / TLT) / (VIX × High-yield spread / 100). Це не Індекс фінансового стресу Федеральної резервної системи Канзасу. Значення 1,5 або вище є низьким стресом; нижче 0,3 є високим стресом.",
       "title": "Financial Stress Indicator",
       "usFsiValue": "Значення показника фінансового стресу США",
       "cissTitle": "EU CISS (Euro Area Systemic Stress)",
@@ -2589,8 +2570,7 @@
       "dependentCommodities": "Залежні товари",
       "stateOk": "Актуально",
       "stateStale": "Застарілі вхідні дані",
-      "stateInsufficient": "Недостатньо даних",
-      "proLocked": "Перейдіть на PRO для оцінки вразливості сировини"
+      "stateInsufficient": "Недостатньо даних"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>Hormuz Trade Tracker</strong> Прямий моніторинг суден через Ормузьку протоку, найбільш критичну точку розподілу нафти у світі. Відстежує кількість танкерів, події перебоїв та щотижневі зміни потоків. Приблизно 20% світової нафти щодня проходить через цю протоку.",
@@ -2615,7 +2595,7 @@
       "infoTooltip": "<strong>Macro indicators</strong> Показники цін, активності, політики та валюти США, зони євро та Китаю. Китай вимагає поточного охоплення. Кожна плитка показує своє джерело та дату спостереження."
     },
     "monitors": {
-      "infoTooltip": "<strong>Keyword Monitors</strong> Add any term to track live news mentions across all WorldMonitor sources. Results update in real time as matching articles are ingested."
+      "infoTooltip": "<strong>Keyword Monitors</strong> Add any term to track live news mentions across all RaWorld sources. Results update in real time as matching articles are ingested."
     },
     "renewable": {
       "infoTooltip": "<strong>Renewable Energy</strong> Частка генерування електроенергії з відновлюваних джерел за регіонами та роками, а також встановлена потужність США для сонячної енергії, вітроенергії та вугілля (МВт). Джерела: Світовий банк (EG.ELC.RNEW.ZS) та Адміністрація інформації з енергетики США."
@@ -2635,124 +2615,17 @@
     "yieldCurve": {
       "infoTooltip": "<strong>Yield Curve &amp; Rates</strong> Крива дохідності казначейських облігацій США (2Y, 5Y, 10Y, 30Y) та ключові спреди ставок включаючи індикатор інверсії 10Y-2Y. Також показує ставки зони євро (EURIBOR, ESTR). Інвертована крива історично передує рецесіям. Джерело: Федеральні дані економічних досліджень."
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro is launched",
-      "tagline": "More Signal, Less Noise. More AI Briefings. A Geopolitical & Equity Researcher just for you.",
-      "cta": "Upgrade to Pro →",
-      "dismiss": "Dismiss"
-    },
-    "billingState": {
-      "onHoldDesc": "Payment failed. Update your payment method to restore premium access.",
-      "onHoldBannerMessage": "Payment failed. Update your payment method to keep your subscription active.",
-      "updatePayment": "Update Payment",
-      "renewalPendingDesc": "We're verifying your subscription renewal. Premium access will be restored automatically once confirmed.",
-      "refreshStatus": "Refresh Status",
-      "renewalFailedDesc": "We couldn't verify your subscription renewal. Manage billing or contact support if this persists.",
-      "manageBilling": "Manage Billing",
-      "lapsedDesc": "Your Pro subscription has ended. Resubscribe to regain premium access.",
-      "resubscribe": "Resubscribe"
-    },
     "exportGate": {
-      "signedOutDesc": "Sign in to export dashboard data as CSV, JSON or PDF.",
-      "upgradeDesc": "Data export (CSV, JSON, PDF) is included with Pro Business.",
-      "upgradeCta": "Upgrade to Pro Business",
       "lockedAriaLabel": "Export data — locked. {{reason}}",
       "unlockedAnnouncement": "Data export unlocked.",
       "preparingPdf": "Preparing PDF…",
       "pdfFailed": "The PDF report could not be generated. Try again, or use the JSON export."
-    },
-    "tabCap": {
-      "signedOutDesc": "Signed-out workspaces are limited to {{cap}} dashboard tabs. Sign in to add more.",
-      "upgradeDesc": "You've reached your limit of {{cap}} dashboard tabs.",
-      "upgradeCta": "Upgrade for more",
-      "lockedAriaLabel": "Add tab — locked. {{reason}}",
-      "unlockedAnnouncement": "Dashboard tab limit lifted."
     },
     "checkoutFailureBanner": {
       "message": "Payment couldn't be completed. No charge was made.",
       "retry": "Try again",
       "retrying": "Retrying…",
       "dismiss": "Dismiss"
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "Step {{current}} of {{total}}",
-      "closeLabel": "Skip setup",
-      "ariaLabel": "Pro activation setup",
-      "signedInAs": "Signed in as {{email}}",
-      "steps": {
-        "brief": {
-          "heading": "Your daily brief, every morning",
-          "body": "A curated intelligence briefing in your inbox each morning — the overnight signals that matter, distilled into a five-minute read.",
-          "confirmCta": "Turn on my morning brief",
-          "confirming": "Turning it on…",
-          "doneNote": "Your morning brief is already running.",
-          "scheduleNote": "We'll keep your current delivery time.",
-          "summaryLabel": "Morning brief",
-          "summaryVerified": "On — starts with your next morning brief.",
-          "deliverAt": "Deliver at",
-          "previewLoading": "Preparing a preview of your first brief…",
-          "previewLabel": "This morning's brief"
-        },
-        "alerts": {
-          "heading": "Critical alerts",
-          "body": "Get pinged in your browser when something big breaks — conflict escalations, market shocks, fresh sanctions. Tune the cadence anytime in Settings.",
-          "confirmCta": "Enable alerts",
-          "confirming": "Enabling…",
-          "doneNote": "Browser alerts are already on.",
-          "blockedNote": "Notifications are blocked in your browser. Turn them on in your browser's site settings to get alerts.",
-          "declinedNote": "No problem — we won't send browser alerts. You can turn them on later from your browser's site settings.",
-          "summaryLabel": "Critical alerts",
-          "summaryVerified": "On — critical signals will reach your browser."
-        },
-        "power": {
-          "heading": "Your Pro toolkit",
-          "body": "Custom widgets, MCP connections, and the AI researcher are unlocked. Build the board you actually want to watch.",
-          "confirmCta": "Explore Pro tools",
-          "confirming": "Opening…",
-          "doneNote": "You're already using your Pro tools.",
-          "summaryLabel": "Pro toolkit",
-          "summaryVerified": "Unlocked and ready when you are.",
-          "channelsNote": "Prefer Telegram, Slack, Discord, or a webhook?",
-          "pointers": {
-            "search": "Search the entire dashboard",
-            "widgets": "Build a custom widget",
-            "analyst": "Ask the AI analyst",
-            "mcpClients": "Set up MCP",
-            "channels": "Set those up in notification settings"
-          }
-        }
-      },
-      "status": {
-        "pending": "Not set up",
-        "inFlight": "Setting up…",
-        "verified": "Ready",
-        "failed": "Didn't work",
-        "blocked": "Blocked",
-        "unavailable": "Not available",
-        "blockedNote": "This isn't available right now — you can set it up later from settings.",
-        "unavailableNote": "This isn't available on your device — you can set it up later.",
-        "failedBody": "Something went wrong. You can try again, or set it up later from settings.",
-        "retry": "Try again"
-      },
-      "actions": {
-        "skip": "Skip for now",
-        "continue": "Continue"
-      },
-      "summary": {
-        "heading": "You're all set",
-        "subVerified": "Here's what's running on your account.",
-        "subPending": "You can finish setup any time from settings.",
-        "linePending": "Not set up yet — finish any time in settings.",
-        "lineFailed": "We couldn't set this up — try again from settings.",
-        "finish": "Go to my dashboard"
-      },
-      "chip": {
-        "message": "Finish setting up your Pro account.",
-        "action": "Finish setup",
-        "dismissLabel": "Dismiss"
-      }
     },
     "frameworkSelector": {
       "label": "Analysis Framework",
@@ -3021,18 +2894,6 @@
       "rubPerUnit": "Рублів за одиницю",
       "sourceCbr": "Джерело: Банк Росії"
     },
-    "passkeyOffer": {
-      "title": "Зберегти пропуск?",
-      "body": "Наступного разу увійдіть за допомогою відбитка пальця, обличчя або PIN-коду пристрою — без необхідності запам'ятовувати пароль.",
-      "accept": "Зберегти пропуск",
-      "dismiss": "Не зараз",
-      "close": "Закрити",
-      "announce": "Збережіть пропуск, щоб входити швидше наступного разу.",
-      "busy": "Очікування вашого пристрою…",
-      "succeeded": "Пропуск збережено. Ви можете використовувати його при наступному вході.",
-      "retryable": "Це не завершилось. Ви можете спробувати ще раз.",
-      "failed": "Нам не вдалося зберегти пропуск на цьому пристрої."
-    },
     "decisionBrief": {
       "commodityTitle": "Довідка для рішень щодо сировини",
       "commodity": "Сировина / продукт",
@@ -3051,8 +2912,7 @@
       "changed": "Вибір змінено. Завантажте обидва сценарії перед експортом.",
       "loading": "Завантаження обох сценаріїв…",
       "captured": "Завантажено. Перед збереженням перевірте дати спостережень та обмеження.",
-      "failed": "Не вдалося завантажити сценарії. Перевірте доступ і повторіть спробу. Немає результату для експорту.",
-      "locked": "Зведення для ухвалення рішення доступне в Pro."
+      "failed": "Не вдалося завантажити сценарії. Перевірте доступ і повторіть спробу. Немає результату для експорту."
     },
     "liveMedia": {
       "idleStatus": "Призупинено через бездіяльність",
@@ -3778,31 +3638,9 @@
     "panelFontScale": "Розмір тексту",
     "followGlobalFontScale": "Використовувати глобальний"
   },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "Requires a World Monitor license key",
-    "signInToUnlock": "Sign in to unlock premium features",
-    "signIn": "Sign In to Unlock",
-    "upgradeDesc": "Upgrade to Pro for full access to premium analytics",
-    "upgradeToPro": "Upgrade to Pro",
-    "features": {
-      "orefSirens1": "Real-time Israel missile & rocket alerts",
-      "orefSirens2": "Siren zone mapping with threat classification",
-      "telegramIntel1": "Кураторські канали відкритої розвідки Telegram",
-      "telegramIntel2": "Near-real-time conflict & geopolitical updates",
-      "xIntel1": "Curated public news accounts on X",
-      "xIntel2": "API-fresh posts with official permalinks"
-    }
-  },
   "contextMenu": {
     "openCountryBrief": "Open Country Brief",
     "copyCoordinates": "Copy Coordinates"
-  },
-  "auth": {
-    "signIn": "Sign In",
-    "createAccount": "Create account",
-    "settings": "Settings",
-    "passkeyOffer": {}
   },
   "mcp": {
     "connectPanel": "Connect MCP",
@@ -3891,8 +3729,6 @@
     "resilience": "Стійкість",
     "ciiMissing": "CII недоступний",
     "resilienceMissing": "Стійкість недоступна",
-    "noEvents": "Для цієї дати вибрані заголовки не записані. Це не доводить відсутності подій.",
-    "unlock90": "Відкрийте 90 днів із Pro",
-    "unlock365": "Відкрийте 365 днів із тарифом API"
+    "noEvents": "Для цієї дати вибрані заголовки не записані. Це не доводить відсутності подій."
   }
 }

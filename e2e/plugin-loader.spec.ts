@@ -42,7 +42,7 @@ for (const failure of ['stalled', 'unavailable'] as const) {
 }
 
 async function mount(page: Page, shell: string) {
-  await page.setContent('<iframe title="WorldMonitor" sandbox="allow-scripts" style="width:100%;height:600px;border:0"></iframe>');
+  await page.setContent('<iframe title="RaWorld" sandbox="allow-scripts" style="width:100%;height:600px;border:0"></iframe>');
   await page.locator('iframe').evaluate((frame, html) => { (frame as HTMLIFrameElement).srcdoc = html; }, shell);
   return page.frameLocator('iframe');
 }
@@ -159,7 +159,7 @@ test('host-injected about:blank document recovers without navigating away', asyn
     const css = route.request().url().endsWith('.css');
     return route.fulfill({ headers, contentType: css ? 'text/css' : 'application/javascript', body: css ? 'main{padding:24px}' : "function mountPlugin(){document.getElementById('countryRoot').textContent='Recovered injected panel';}document.addEventListener('wm-plugin-boot-'+new URL(import.meta.url).pathname.match(/boot-(\\d+)/)?.[1],mountPlugin,{once:true});" });
   });
-  await page.setContent('<iframe title="WorldMonitor" sandbox="allow-scripts" style="width:100%;height:600px;border:0"></iframe>');
+  await page.setContent('<iframe title="RaWorld" sandbox="allow-scripts" style="width:100%;height:600px;border:0"></iframe>');
   const injected = page.frames().find(frame => frame !== page.mainFrame())!;
   await injected.evaluate(html => { document.open(); document.write(html); document.close(); }, buildPluginShell({ origin, entry: 'country.html', root: 'countryRoot' }));
   const frame = page.frameLocator('iframe');

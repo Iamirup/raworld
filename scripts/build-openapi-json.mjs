@@ -193,7 +193,7 @@ export function shortenGeneratedSuccessDescriptions(spec) {
 /**
  * Operations left out of this scanner-facing JSON. The bundle has a hard byte
  * budget (SCANNER_BUDGET_BYTES) and the owner decided (#9093) that endpoints
- * built for WorldMonitor's own pages and for operators stay out of it, so the
+ * built for RaWorld's own pages and for operators stay out of it, so the
  * budget goes to the data APIs agents call. An excluded operation is still
  * served, still documented in its per-service spec and in the YAML bundle,
  * and still callable: only this one artifact omits it. Every entry names why.

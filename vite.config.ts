@@ -34,27 +34,6 @@ const brotliCompressAsync = promisify(brotliCompress);
 const BROTLI_EXTENSIONS = new Set(['.js', '.mjs', '.css', '.html', '.svg', '.json', '.txt', '.xml', '.wasm']);
 const STATIC_SCRIPT_NONCE = 'wm-static-bootstrap';
 
-// @clerk/clerk-js is loaded as a UMD bundle from the Clerk Frontend API at
-// runtime (src/services/clerk.ts), not bundled. Resolve the version from
-// package.json so the runtime SDK matches the @clerk/clerk-js types we compile
-// against, and inject it via `define` (__CLERK_JS_VERSION__). Fall back to
-// devDependencies in case the (types-only) dep is moved there, and fail the
-// build loudly if it can't be resolved — an empty version yields a `.../@/dist`
-// URL that 404s and silently breaks auth in production.
-const CLERK_DEPS = pkg.dependencies as Record<string, string>;
-const CLERK_DEV_DEPS = (pkg.devDependencies ?? {}) as Record<string, string>;
-const CLERK_JS_VERSION = (CLERK_DEPS['@clerk/clerk-js'] || CLERK_DEV_DEPS['@clerk/clerk-js'] || '')
-  .replace(/^[\^~>=<\s]*/, '');
-if (!CLERK_JS_VERSION) {
-  throw new Error('[vite] @clerk/clerk-js not found in package.json — __CLERK_JS_VERSION__ would be empty and 404 the Clerk Frontend API script URL.');
-}
-// @clerk/ui (the runtime UI controller, pinned by CLERK_UI_VERSION in
-// src/services/clerk.ts) is major 1, which pairs with @clerk/clerk-js major 6.
-// Fail the build if the SDK major drifts so the pairing is updated deliberately
-// rather than loading an incompatible UI controller and breaking auth at runtime.
-if (CLERK_JS_VERSION.split('.')[0] !== '6') {
-  throw new Error(`[vite] @clerk/clerk-js major is ${CLERK_JS_VERSION.split('.')[0]}, expected 6 — update CLERK_UI_VERSION in src/services/clerk.ts to the paired @clerk/ui major, then bump this guard.`);
-}
 
 const PANEL_CHUNK_NAMES = [
   'panels-markets',
@@ -230,7 +209,7 @@ function brotliPrecompressPlugin(): Plugin {
 // Pages whose title, description and canonical are their own; the dashboard
 // brand meta below would otherwise mark them duplicates of /dashboard, or title
 // the desktop sign-in tab as the dashboard.
-const PAGES_WITH_OWN_HEAD_META = new Set(['verify.html', 'desktop-sign-in.html']);
+const PAGES_WITH_OWN_HEAD_META = new Set(['verify.html']);
 
 function htmlVariantPlugin(activeMeta: VariantMeta, activeVariant: string, isDesktopBuild: boolean): Plugin {
   return {
@@ -252,8 +231,8 @@ function htmlVariantPlugin(activeMeta: VariantMeta, activeVariant: string, isDes
         .replace(/<meta name="twitter:url" content=".*?" \/>/, `<meta name="twitter:url" content="${activeMeta.url}" />`)
         .replace(/<meta name="twitter:title" content=".*?" \/>/, `<meta name="twitter:title" content="${activeMeta.title}" />`)
         .replace(/<meta name="twitter:description" content=".*?" \/>/, `<meta name="twitter:description" content="${activeMeta.description}" />`)
-        .replace(/"name": "World Monitor"/, `"name": "${activeMeta.siteName}"`)
-        .replace(/"alternateName": "WorldMonitor"/, `"alternateName": "${activeMeta.siteName.replace(' ', '')}"`)
+        .replace(/"name": "RaWorld"/, `"name": "${activeMeta.siteName}"`)
+        .replace(/"alternateName": "RaWorld"/, `"alternateName": "${activeMeta.siteName.replace(' ', '')}"`)
         .replace(/"url": "https:\/\/worldmonitor\.app\/"/, `"url": "${activeMeta.url}"`)
         .replace(/"description": "Real-time global intelligence dashboard with live news, markets, military tracking, infrastructure monitoring, and geopolitical data."/, `"description": "${activeMeta.description}"`)
         .replace(/"featureList": \[[\s\S]*?\]/, `"featureList": ${JSON.stringify(activeMeta.features, null, 8).replace(/\n/g, '\n      ')}`);
@@ -942,7 +921,6 @@ export default defineConfig(({ mode }) => {
       __APP_VERSION__: JSON.stringify(pkg.version),
       // Resolved + build-time validated above (devDependencies fallback +
       // non-empty + major-pairing guards).
-      __CLERK_JS_VERSION__: JSON.stringify(CLERK_JS_VERSION),
       // Vercel sets VERCEL_GIT_COMMIT_SHA on production + preview builds.
       // Local `vite build` falls back to 'dev' — installStaleBundleCheck
       // detects the marker and skips the comparison so dev tabs don't
@@ -1048,7 +1026,6 @@ export default defineConfig(({ mode }) => {
             '**/ml*.js',
             '**/onnx*.wasm',
             '**/locale-*.js',
-            '**/clerk-*.js',
             // Fonts are fetched only when their stylesheet applies. Precache
             // would pull every local weight into the first mobile visit.
             '**/*.woff2',
@@ -1212,9 +1189,7 @@ export default defineConfig(({ mode }) => {
           embed: resolve(__dirname, 'embed.html'),
           settings: resolve(__dirname, 'settings.html'),
           liveChannels: resolve(__dirname, 'live-channels.html'),
-          mcpGrant: resolve(__dirname, 'mcp-grant.html'),
           verify: resolve(__dirname, 'verify.html'),
-          desktopSignIn: resolve(__dirname, 'desktop-sign-in.html'),
         },
         output: {
           // onlyExplicitManualChunks keeps the panel clusters from forming
@@ -1284,11 +1259,6 @@ export default defineConfig(({ mode }) => {
               }
               if (id.includes('/@sentry/') || id.includes('/@sentry-internal/')) {
                 return 'sentry';
-              }
-              if (id.includes('/@clerk/clerk-js/')) {
-                // Clerk remains a runtime dynamic import; the stable chunk name
-                // lets Workbox keep the large auth SDK out of precache.
-                return 'clerk';
               }
             }
             // Large static config DATA TABLE (~62KB) with only lazy consumers

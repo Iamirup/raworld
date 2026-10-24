@@ -138,7 +138,7 @@ function runChangeClassifier(
         PATH: `${fakeBin}:${process.env.PATH}`,
         PR_AUTHOR: options.pullRequestAuthor ?? 'contributor',
         PR_NUMBER: '7397',
-        REPOSITORY: 'koala73/worldmonitor',
+        REPOSITORY: 'Iamirup/raworld',
         REPOSITORY_OWNER: options.repositoryOwner ?? 'koala73',
       },
     });
@@ -444,7 +444,7 @@ function runWriter(mode: 'valid' | 'valid-mirror' | 'unexpected' | 'lease-failur
       GITHUB_OUTPUT: output,
       PATH: `${fakeBin}:${process.env.PATH}`,
       PR_HEAD_REF: 'writer',
-      REPOSITORY: 'koala73/worldmonitor',
+      REPOSITORY: 'Iamirup/raworld',
       RUNNER_TEMP: temp,
     },
   });
@@ -618,7 +618,7 @@ describe('proto codegen workflow trust boundaries (#3340)', () => {
       [
         'same-repository head',
         ['proto/service.proto'],
-        { action: 'synchronize', actor: 'koala73', headRepository: 'koala73/worldmonitor' },
+        { action: 'synchronize', actor: 'koala73', headRepository: 'Iamirup/raworld' },
       ],
       [
         'Dependabot author',
@@ -655,7 +655,7 @@ describe('proto codegen workflow trust boundaries (#3340)', () => {
     const options = {
       action: 'synchronize',
       actor: 'koala73',
-      headRepository: 'koala73/worldmonitor',
+      headRepository: 'Iamirup/raworld',
       pullRequestAuthor: 'dependabot[bot]',
     };
     const files = ['package.json', 'package-lock.json', 'scripts/package.json', 'scripts/package-lock.json'];

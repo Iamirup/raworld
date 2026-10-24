@@ -1,4 +1,4 @@
-// Public-safe World Monitor data points the English country intel brief may
+// Public-safe RaWorld data points the English country intel brief may
 // cite (plan 2026-09-23-001, KTD2/KTD3/KTD5). Each item carries a `factText`
 // sentence stating exactly the values a claim citing it may use: the claim
 // validator grounds a claim against the fact texts it cites and nothing else,
@@ -245,7 +245,7 @@ function advisoryEvidence(raw: unknown, code: string, name: string, nowMs: numbe
     label: 'Travel advisory',
     value: label,
     // byCountry keeps the most severe level across the government feeds.
-    factText: `The most severe government travel advisory World Monitor tracks for ${name} is ${label}, as of ${formatDate(fetchedAt)}.`,
+    factText: `The most severe government travel advisory RaWorld tracks for ${name} is ${label}, as of ${formatDate(fetchedAt)}.`,
     asOf: new Date(fetchedAt).toISOString(),
   }];
 }
@@ -357,7 +357,7 @@ function chokepointEvidence(code: string, name: string, nowMs: number): Evidence
       kind: 'chokepoint',
       label: 'Chokepoint tracker',
       value: entry.displayName,
-      factText: `${entry.displayName} is a shipping chokepoint World Monitor tracks for ${name}.`,
+      factText: `${entry.displayName} is a shipping chokepoint RaWorld tracks for ${name}.`,
       // An editorial relation, not a measurement: dated to when it was read.
       asOf: new Date(nowMs).toISOString(),
       url: `${SITE_ORIGIN}/chokepoints/${chokepointTrackerSlug(entry.displayName)}/`,
@@ -413,9 +413,9 @@ function forecastEvidence(raw: unknown, code: string, name: string, nowMs: numbe
     const value = formatPercent(probability * 100);
     items.push({
       kind: 'forecast',
-      label: 'World Monitor forecast',
+      label: 'RaWorld forecast',
       value,
-      factText: `A World Monitor forecast related to ${name}, "${title}", gives a ${value} probability by ${formatDate(deadline)}, as of ${formatDate(generatedAt)}.`,
+      factText: `A RaWorld forecast related to ${name}, "${title}", gives a ${value} probability by ${formatDate(deadline)}, as of ${formatDate(generatedAt)}.`,
       asOf: new Date(generatedAt).toISOString(),
       url: FORECAST_SCORECARD_URL,
     });

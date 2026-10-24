@@ -1,14 +1,14 @@
 ---
-title: "MCP Apps: interactive ui:// widgets for WorldMonitor"
-description: "Complete contract for WorldMonitor's MCP Apps interactive ui:// resources, tool links, host flow, security posture, and drift checks."
+title: "MCP Apps: interactive ui:// widgets for RaWorld"
+description: "Complete contract for RaWorld's MCP Apps interactive ui:// resources, tool links, host flow, security posture, and drift checks."
 ---
 
-WorldMonitor supports [MCP Apps](https://modelcontextprotocol.io/extensions/apps/build) through the `io.modelcontextprotocol/ui` extension. The current fleet ships MCP Apps: `ui://` HTML resources that an MCP Apps host can render inline after a linked tool call.
+RaWorld supports [MCP Apps](https://modelcontextprotocol.io/extensions/apps/build) through the `io.modelcontextprotocol/ui` extension. The current fleet ships MCP Apps: `ui://` HTML resources that an MCP Apps host can render inline after a linked tool call.
 
 This page is the source-of-truth guide for the interactive surface. Use it with the [MCP Server overview](/mcp-overview) for auth, quota, transport, and general JSON-RPC behavior.
 
 <Note>
-MCP Apps render WorldMonitor UI inside an MCP host after a hosted tool call. [WebMCP](/webmcp) instead lets a browser agent operate the existing WorldMonitor website in its current tab. WebMCP is not an MCP App and does not replace the hosted MCP server behind these resources.
+MCP Apps render RaWorld UI inside an MCP host after a hosted tool call. [WebMCP](/webmcp) instead lets a browser agent operate the existing RaWorld website in its current tab. WebMCP is not an MCP App and does not replace the hosted MCP server behind these resources.
 </Note>
 
 ## Contract
@@ -45,8 +45,8 @@ Three discovery signals must stay aligned:
 | `ui://worldmonitor/natural-disasters-v3.html` | `get_natural_disasters` | Natural Disasters (interactive) | Recent M4.5+ earthquakes (USGS and Earthquakes Canada / NRCan: magnitude, place, time, source) and active wildfires (NASA FIRMS), grouped. |
 | `ui://worldmonitor/prediction-markets-v3.html` | `get_prediction_markets` | Prediction Markets (interactive) | Event-contract odds grouped by category (geopolitical, tech, finance) with a probability bar per market. Full-envelope projections and summary samples retain the loaded contracts and snapshot metadata. Missing or malformed categories and unknown freshness remain explicit. |
 | `ui://worldmonitor/forecasts-v4.html` | `get_forecast_predictions` | Forecasts (interactive) | Forecast cards, local domain/region filters and original case analysis, evidence and scenario branches loaded under the opening admission. |
-| `ui://worldmonitor/news-dashboard-v3.html` | `open_news_dashboard` | WorldMonitor news and maps | Dashboard news panels, current event markers, filters and country selection. |
-| `ui://worldmonitor/country-view-v3.html` | `open_country_brief` | WorldMonitor country view | Shared country sections, topics, evidence and exports with host-authorized reads. |
+| `ui://worldmonitor/news-dashboard-v3.html` | `open_news_dashboard` | RaWorld news and maps | Dashboard news panels, current event markers, filters and country selection. |
+| `ui://worldmonitor/country-view-v3.html` | `open_country_brief` | RaWorld country view | Shared country sections, topics, evidence and exports with host-authorized reads. |
 
 The compact Country Brief view accepts the original response and supported object projections. Retained news digest coverage shows a neutral notice without claiming that the assessment used retained grounding. Reported snapshot age and a valid UTC refresh-attempt time appear only when supplied. Missing or malformed coverage makes no freshness claim. Replacing a result clears prior paragraphs, evidence, source links, generation time and retained notice. Hosts advertise `country-brief-v3.html`; `country-brief-v2.html` and the original `country-brief.html` remain private read aliases until older installed metadata is retired. Ordinary country asks still open the full country view.
 
@@ -57,7 +57,7 @@ The original `ui://worldmonitor/prediction-markets.html` and previous `ui://worl
 ## Runtime Flow
 
 1. The host calls `initialize` on `https://worldmonitor.app/mcp`.
-2. WorldMonitor returns the normal MCP capabilities plus `capabilities.extensions["io.modelcontextprotocol/ui"]`.
+2. RaWorld returns the normal MCP capabilities plus `capabilities.extensions["io.modelcontextprotocol/ui"]`.
 3. The host calls `tools/list`. UI-linked tools carry `_meta.ui.resourceUri` and the deprecated flat `_meta["ui/resourceUri"]` alias.
 4. The host calls `resources/list` and sees the `ui://` app resources. Each UI entry includes `mimeType: text/html;profile=mcp-app` and `_meta.ui.csp`.
 5. The host calls `resources/read` for the chosen `ui://` URI. This read is public and quota-exempt because it returns only a static, data-free template.
@@ -72,7 +72,7 @@ Host -> View: ui/notifications/tool-result
 View -> Host: ui/notifications/size-changed
 ```
 
-The view never fetches live WorldMonitor data itself. Live data always reaches the app through the host after a normal tool call.
+The view never fetches live RaWorld data itself. Live data always reaches the app through the host after a normal tool call.
 
 ## Forecast List And Original Cases
 

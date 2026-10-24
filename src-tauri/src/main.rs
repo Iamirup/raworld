@@ -1406,7 +1406,7 @@ fn open_settings_window(app: &AppHandle) -> Result<(), String> {
 
     #[allow(unused_mut)]
     let mut settings_builder = WebviewWindowBuilder::new(app, "settings", WebviewUrl::App("settings.html".into()))
-        .title("World Monitor Settings")
+        .title("RaWorld Settings")
         .inner_size(980.0, 600.0)
         .min_inner_size(820.0, 480.0)
         .resizable(true)
@@ -1446,7 +1446,7 @@ fn open_live_channels_window(app: &AppHandle, base_url: Option<String>) -> Resul
 
     #[allow(unused_mut)]
     let mut channels_builder = WebviewWindowBuilder::new(app, "live-channels", url)
-        .title("Channel management - World Monitor")
+        .title("Channel management - RaWorld")
         .inner_size(680.0, 760.0)
         .min_inner_size(520.0, 600.0)
         .resizable(true)
@@ -1520,12 +1520,12 @@ fn build_app_menu(handle: &AppHandle) -> tauri::Result<Menu<tauri::Wry>> {
     // build generates into resources/, which carries the verbatim MIT/BSD/
     // Apache texts a binary distribution has to travel with.
     let about_metadata = AboutMetadata {
-        name: Some("World Monitor".into()),
+        name: Some("RaWorld".into()),
         version: Some(env!("CARGO_PKG_VERSION").into()),
         copyright: Some("\u{00a9} 2024-2026 Elie Habib".into()),
         license: Some("AGPL-3.0-only".into()),
         credits: Some(
-            "Licensed under AGPL-3.0-only.\nThird-party notices: resources/notices/THIRD-PARTY-NOTICES.md\nSource: https://github.com/koala73/worldmonitor"
+            "Licensed under AGPL-3.0-only.\nThird-party notices: resources/notices/THIRD-PARTY-NOTICES.md\nSource: https://github.com/Iamirup/raworld"
                 .into(),
         ),
         website: Some("https://worldmonitor.app".into()),
@@ -1533,7 +1533,7 @@ fn build_app_menu(handle: &AppHandle) -> tauri::Result<Menu<tauri::Wry>> {
         ..Default::default()
     };
     let about_item =
-        PredefinedMenuItem::about(handle, Some("About World Monitor"), Some(about_metadata))?;
+        PredefinedMenuItem::about(handle, Some("About RaWorld"), Some(about_metadata))?;
     let github_item = MenuItem::with_id(
         handle,
         MENU_HELP_GITHUB_ID,
@@ -1596,7 +1596,7 @@ fn handle_menu_event(app: &AppHandle, event: tauri::menu::MenuEvent) {
             }
         }
         MENU_HELP_GITHUB_ID => {
-            let _ = open_in_shell("https://github.com/koala73/worldmonitor");
+            let _ = open_in_shell("https://github.com/Iamirup/raworld");
         }
         #[cfg(feature = "devtools")]
         MENU_HELP_DEVTOOLS_ID => {

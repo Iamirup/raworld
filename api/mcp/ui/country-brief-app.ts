@@ -2,7 +2,7 @@
 // interactive app shell for the `get_country_brief` tool: the per-country
 // deep-dive companion to the country-risk widget. Renders the LLM-synthesised
 // country intelligence brief as paragraphs, the analytical framework lens (when
-// supplied), the grounding sources, and the World Monitor data points the
+// supplied), the grounding sources, and the RaWorld data points the
 // brief's `[En]` markers cite. Built on the shared shell foundation.
 //
 // Tool result shape (RPC tool — content[0].text JSON). The backing
@@ -44,7 +44,7 @@ const STYLES = `
 const BODY = `
   <div class="head">
     <div class="title" id="title">Country Brief</div>
-    <div class="badge">WorldMonitor Intelligence</div>
+    <div class="badge">RaWorld Intelligence</div>
   </div>
   <div class="lens" id="lens" style="display:none"></div>
   <div class="empty" id="empty">Waiting for country-brief data…</div>
@@ -56,7 +56,7 @@ const BODY = `
       <div class="sources" id="sources"></div>
     </div>
     <div class="section" id="ev-sec" style="display:none">
-      <div class="sec-label">World Monitor data</div>
+      <div class="sec-label">RaWorld data</div>
       <div id="evidence"></div>
     </div>
     <div class="foot" id="foot"></div>
@@ -223,7 +223,7 @@ const RENDER = `
 `;
 
 export const COUNTRY_BRIEF_APP_HTML = buildAppHtml({
-  title: 'Country Brief — WorldMonitor',
+  title: 'Country Brief — RaWorld',
   appName: 'worldmonitor-country-brief',
   styles: STYLES,
   body: BODY,

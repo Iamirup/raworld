@@ -306,7 +306,7 @@ describe('MCP tool aliases', { concurrency: false }, () => {
     assert.equal(alias.status, 403);
     assert.equal(alias.body.error.code, -32002);
     assert.equal(alias.body.error.data.reason, 'upgrade-required');
-    assert.equal(alias.body.error.message, 'This tool requires a WorldMonitor Pro subscription.');
+    assert.equal(alias.body.error.message, 'This tool requires a RaWorld Pro subscription.');
     assert.equal(alias.body.result, undefined);
     assert.equal(JSON.stringify(alias.body).includes('datapoints'), false);
     assert.equal(alias.pipe.count, 0);

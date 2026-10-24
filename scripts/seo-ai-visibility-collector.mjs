@@ -610,7 +610,7 @@ function normalizeBingAiWindow(window) {
     );
     invariant(
       isWorldMonitorUrl(parsed.toString()),
-      `citedPages[${index}].url must be a World Monitor HTTPS URL`,
+      `citedPages[${index}].url must be a RaWorld HTTPS URL`,
     );
     return {
       url: parsed.toString(),

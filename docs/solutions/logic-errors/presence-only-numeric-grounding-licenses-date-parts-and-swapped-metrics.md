@@ -20,7 +20,7 @@ tags: [llm-hallucination, output-validation, numeric-grounding, evidence-binding
 
 ## Problem
 
-The evidence-grounded country brief (PR #8548) validates each LLM claim against the World Monitor data points it cites. The numeric check it first used, `validateNoHallucinatedFacts` in `shared/brief-llm-core.js`, only asks whether each number in the claim appears somewhere in the ground text. That let invented scores through whenever the digits happened to exist elsewhere in the cited text.
+The evidence-grounded country brief (PR #8548) validates each LLM claim against the RaWorld data points it cites. The numeric check it first used, `validateNoHallucinatedFacts` in `shared/brief-llm-core.js`, only asks whether each number in the claim appears somewhere in the ground text. That let invented scores through whenever the digits happened to exist elsewhere in the cited text.
 
 ## Symptoms
 

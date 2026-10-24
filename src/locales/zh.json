@@ -196,7 +196,6 @@
     "foodStocksHelp": "USDA生产、供应和分配商品库存与用量比，按营销年度计算，并附带全球比率作为参考。FAOSTAT食物平衡表在生产、供应和分配数据不完整时提供生产和国内供应数据。",
     "loadingFoodStocks": "正在加载粮食库存…",
     "foodStocksUnavailable": "粮食库存不可用。",
-    "foodStocksProLocked": "升级至 PRO 查看农产品库存消费比",
     "foodStocksCommodity": "农产品",
     "foodStocksMarketingYear": "销售年度",
     "foodStocksRatio": "库存消费比",
@@ -214,7 +213,6 @@
       "help": "来自联合国《世界人口前景》、联合国教科文组织统计研究所和世界银行《世界发展指标》及国际劳工组织数据库的年龄结构、教育储备和产业劳动力能力。",
       "loading": "正在加载人口与劳动力数据…",
       "unavailable": "人口与劳动力数据不可用。",
-      "proLocked": "升级至 PRO 查看人口与劳动力数据",
       "notAvailable": "暂无数据",
       "ageStructure": "年龄结构",
       "education": "教育培养",
@@ -240,7 +238,6 @@
       "help": "食品、能源、人口、技术和国防领域的 v1 冻结证据得分。展开行以查看输入项、数据来源及缺失数据原因。",
       "loading": "正在加载五维记分卡…",
       "unavailable": "五维记分卡不可用。",
-      "proLocked": "升级至 PRO 以获取五维韧性记分卡",
       "insufficient": "数据不足",
       "notAvailable": "不可用",
       "noEvidence": "该支柱暂无可用证据。",
@@ -297,9 +294,7 @@
         "defense_supplierDiversity": "武器供应商多样性"
       }
     },
-    "defenseIndustrialBase": {
-      "proLocked": "升级至PRO以查看武器供应商依赖关系和军事能力"
-    }
+    "defenseIndustrialBase": {}
   },
   "header": {
     "world": "世界",
@@ -709,8 +704,7 @@
       "alertTitle": {
         "configured": "桌面端设置已配置",
         "needsKeys": "配置API密钥以解锁功能",
-        "some": "部分功能需要API密钥",
-        "pro": "World Monitor Pro 已激活"
+        "some": "部分功能需要API密钥"
       },
       "summary": {
         "desktop": "桌面模式",
@@ -739,10 +733,7 @@
         "NASA_FIRMS_API_KEY": "消防信息资源管理系统。",
         "OLLAMA_API_URL": "例如 http://127.0.0.1:11434 (Ollama) 或 http://127.0.0.1:1234/v1 (LM Studio) — OpenAI 兼容端点。",
         "OLLAMA_MODEL": "例如 llama3.1:8b — 用于摘要的模型标签。"
-      },
-      "proCloud": "没有本地 API 密钥的功能使用 World Monitor 云数据。",
-      "skipSetupPro": "跳过设置：使用 World Monitor Pro 登录以使用云数据，而不是您自己的 API 密钥。",
-      "getPro": "获取 World Monitor Pro"
+      }
     },
     "settingsWindow": {
       "validating": "正在验证API密钥...",
@@ -763,12 +754,6 @@
           "title": "许可证 / API 密钥",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "description": "API Starter 和 API Business 订阅者可在网页控制台的 Settings → API Keys 中创建此密钥。如果完整密钥丢失，请撤销并创建替代密钥。"
-        },
-        "dividerOr": "或",
-        "register": {
-          "title": "需要 API 密钥？",
-          "description": "请访问 worldmonitor.app/docs/api-keys 查看分步说明。手动 API 密钥需要 API Starter 或 API Business 方案。",
-          "submitBtn": "查看 API 方案"
         }
       },
       "table": {
@@ -778,12 +763,10 @@
         "status": "状态",
         "duration": "耗时"
       },
-      "shellTitle": "World Monitor 设置",
+      "shellTitle": "RaWorld 设置",
       "shellSearchPlaceholder": "搜索设置...",
       "shellCancel": "取消",
-      "shellSaveClose": "保存并关闭",
-      "freePanelLimit": "免费计划：最多 {{max}} 个面板。升级至 PRO 获得无限面板。",
-      "freeSourceLimit": "免费计划：最多 {{max}} 个信息源。升级至 PRO 获得无限信息源。"
+      "shellSaveClose": "保存并关闭"
     },
     "countryIntel": {
       "identifying": "正在识别国家...",
@@ -989,8 +972,7 @@
       "refineryStage": "冶炼",
       "stageUnavailable": "该阶段暂无公开数据",
       "withheldNote": "W 表示数据隐去",
-      "productionCaption": "各国在实际产量中的份额。地图矿藏图层显示资源分布，此表显示由谁开采或冶炼。",
-      "productionProLocked": "升级至PRO版本以获取按阶段分类的采矿和炼油厂国家份额及集中度（生产商集中度指数）。"
+      "productionCaption": "各国在实际产量中的份额。地图矿藏图层显示资源分布，此表显示由谁开采或冶炼。"
     },
     "tradePolicy": {
       "tariffs": "关税",
@@ -1084,7 +1066,7 @@
       "skipToEnd": "跳到结尾"
     },
     "pizzint": {
-      "indexSource": "指数：World Monitor · 场所数据：",
+      "indexSource": "指数：RaWorld · 场所数据：",
       "statusNormal": "正常",
       "statusNoData": "无数据",
       "statusNoBaseline": "无基准",
@@ -1093,7 +1075,7 @@
       "defcon": "DEFCON {{level}}",
       "updated": "更新于{{timeAgo}}",
       "tensionsTitle": "地缘政治紧张局势",
-      "tensionsSource": "紧张局势：World Monitor 根据 GDELT 事件计算",
+      "tensionsSource": "紧张局势：RaWorld 根据 GDELT 事件计算",
       "insufficientData": "数据不足",
       "pizzaUnavailable": "披萨店活动数据不可用",
       "source": "来源：",
@@ -1771,7 +1753,7 @@
       "staleReport": "报告已过期",
       "reported": "数量",
       "period": "期间",
-      "movementNote": "每行保留其来源、报告日期和衡量指标。存量人口、抵达人数和边境执法事件是不同指标。来源可能重叠，请勿将其计数相加。WorldMonitor 根据链接的来源生成此视图，并不意味着获得任何数据提供方的认可。",
+      "movementNote": "每行保留其来源、报告日期和衡量指标。存量人口、抵达人数和边境执法事件是不同指标。来源可能重叠，请勿将其计数相加。RaWorld 根据链接的来源生成此视图，并不意味着获得任何数据提供方的认可。",
       "recent": "最近",
       "last30Days": "过去30天",
       "newThisWeek": "本周新增",
@@ -2165,7 +2147,7 @@
       "tripDays": "行程天数"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>WM 分析师</strong> 具有地缘政治、市场、军事和经济领域实时上下文的AI分析师。由Claude驱动，注入WorldMonitor活跃数据源的实时数据。"
+      "infoTooltip": "<strong>WM 分析师</strong> 具有地缘政治、市场、军事和经济领域实时上下文的AI分析师。由Claude驱动，注入RaWorld活跃数据源的实时数据。"
     },
     "cotPositioning": {
       "infoTooltip": "<strong>期货定位</strong>商业交易者、大型投机者和小型交易者在商品及金融期货中的周度净头寸。数据来源是商品期货交易委员会交易者承诺报告，每周五发布。"
@@ -2223,7 +2205,7 @@
       "infoTooltip": "<strong>经济日历</strong>定期宏观经济数据发布：消费者价格指数、非农就业人数、国内生产总值、采购经理指数和央行决议。显示预期值与实际值与前值。高影响事件突出显示。数据来源：经济数据供应商。"
     },
     "fsi": {
-      "infoTooltip": "<strong>金融压力指标</strong>World Monitor高收益债券与长期国债比率，根据股票波动率和高收益利差调整：（HYG / TLT）/（VIX × 高收益利差 / 100）。这不是堪萨斯城联储金融压力指数。1.5或更高的读数表示低压力；低于0.3表示高压力。",
+      "infoTooltip": "<strong>金融压力指标</strong>RaWorld高收益债券与长期国债比率，根据股票波动率和高收益利差调整：（HYG / TLT）/（VIX × 高收益利差 / 100）。这不是堪萨斯城联储金融压力指数。1.5或更高的读数表示低压力；低于0.3表示高压力。",
       "title": "金融压力指标",
       "usFsiValue": "美国金融压力指标值",
       "cissTitle": "欧盟CISS（欧元区系统性压力）",
@@ -2281,8 +2263,7 @@
       "dependentCommodities": "依赖商品",
       "stateOk": "当前",
       "stateStale": "输入已过期",
-      "stateInsufficient": "数据不足",
-      "proLocked": "升级至PRO以查看商品脆弱性评分"
+      "stateInsufficient": "数据不足"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>荷尔木兹海峡贸易追踪器</strong>通过全球最关键油气运输通道荷尔木兹海峡的实时船舶追踪。监测油轮数量、中断事件和周度流量变化。全球约20%的日均石油供应通过此处。",
@@ -2307,7 +2288,7 @@
       "infoTooltip": "<strong>宏观指标</strong>美国、欧元区和中国价格、活动、政策和货币指标。中国需要当前新闻报道。每个区块显示其数据来源和观测日期。"
     },
     "monitors": {
-      "infoTooltip": "<strong>关键词监控</strong> 添加任何词汇，实时追踪WorldMonitor所有来源中的新闻提及。匹配文章被收录时结果实时更新。"
+      "infoTooltip": "<strong>关键词监控</strong> 添加任何词汇，实时追踪RaWorld所有来源中的新闻提及。匹配文章被收录时结果实时更新。"
     },
     "renewable": {
       "infoTooltip": "<strong>可再生能源</strong>各地区和年份可再生能源发电份额，以及美国太阳能、风能和煤炭的安装容量（兆瓦）。数据来源：世界银行（EG.ELC.RNEW.ZS）和美国能源信息署。"
@@ -2533,108 +2514,11 @@
     "wsbTickerScanner": {
       "infoTooltip": "<strong>华尔街赌徒股票代码扫描仪</strong>来自r/wallstreetbets、r/stocks和r/investing的实时股票代码提及。按提及频率和互动排名。速度衡量股票代码在帖子中获得动量的速度。"
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro已上线",
-      "tagline": "更多信号，更少噪音。更多AI简报。专属于您的地缘政治和股票研究员。",
-      "cta": "升级到Pro →",
-      "dismiss": "关闭"
-    },
-    "billingState": {
-      "onHoldDesc": "支付失败。请更新您的支付方式以恢复高级访问权限。",
-      "onHoldBannerMessage": "支付失败。请更新您的支付方式以保持订阅有效。",
-      "updatePayment": "更新支付方式",
-      "renewalPendingDesc": "我们正在核实您的订阅续订。确认后将自动恢复高级访问权限。",
-      "refreshStatus": "刷新状态",
-      "renewalFailedDesc": "我们无法核实您的订阅续订。请管理账单，如问题持续请联系支持。",
-      "manageBilling": "管理账单",
-      "lapsedDesc": "您的 Pro 订阅已结束。重新订阅以恢复高级访问权限。",
-      "resubscribe": "重新订阅"
-    },
     "checkoutFailureBanner": {
       "message": "支付无法完成。未进行任何扣款。",
       "retry": "重试",
       "retrying": "重试中…",
       "dismiss": "关闭"
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "第 {{current}} 步，共 {{total}} 步",
-      "closeLabel": "跳过设置",
-      "ariaLabel": "Pro 激活设置",
-      "signedInAs": "以 {{email}} 身份登录",
-      "steps": {
-        "brief": {
-          "heading": "您的每日简报，每天早晨送达",
-          "body": "每天早晨在您的收件箱中呈现精心策划的情报简报——夜间重要信号，浓缩成五分钟的阅读内容。",
-          "confirmCta": "开启我的晨间简报",
-          "confirming": "正在开启…",
-          "doneNote": "您的晨间简报已在运行。",
-          "scheduleNote": "我们将保留您当前的发送时间。",
-          "summaryLabel": "晨间简报",
-          "summaryVerified": "已开启——将从您的下一份晨间简报开始。",
-          "deliverAt": "发送时间",
-          "previewLoading": "正在准备您第一份简报的预览…",
-          "previewLabel": "今早的简报"
-        },
-        "alerts": {
-          "heading": "重大警报",
-          "body": "当发生重大事件时（冲突升级、市场震荡、新的制裁措施），在浏览器中接收提醒。随时可在设置中调整提醒频率。",
-          "confirmCta": "启用警报",
-          "confirming": "正在启用…",
-          "doneNote": "浏览器警报已开启。",
-          "blockedNote": "您的浏览器中通知已被屏蔽。请在浏览器的网站设置中开启通知以接收警报。",
-          "declinedNote": "没关系——我们不会发送浏览器警报。您可以稍后在浏览器的网站设置中开启。",
-          "summaryLabel": "重大警报",
-          "summaryVerified": "已开启——重大信号将发送至您的浏览器。"
-        },
-        "power": {
-          "heading": "您的 Pro 工具包",
-          "body": "自定义小组件、MCP 连接和 AI 研究员已解锁。构建您真正想要关注的看板。",
-          "confirmCta": "探索 Pro 工具",
-          "confirming": "正在打开…",
-          "doneNote": "您已经在使用 Pro 工具了。",
-          "summaryLabel": "Pro 工具包",
-          "summaryVerified": "已解锁，随时可用。",
-          "channelsNote": "更喜欢 Telegram、Slack、Discord 还是 Webhook？",
-          "pointers": {
-            "search": "搜索整个仪表板",
-            "widgets": "创建自定义小组件",
-            "analyst": "咨询 AI 分析师",
-            "mcpClients": "设置 MCP",
-            "channels": "在通知设置中进行配置"
-          }
-        }
-      },
-      "status": {
-        "pending": "尚未设置",
-        "inFlight": "正在设置…",
-        "verified": "已就绪",
-        "failed": "未能成功",
-        "blocked": "已屏蔽",
-        "unavailable": "不可用",
-        "blockedNote": "此功能目前不可用——您可以稍后在设置中进行配置。",
-        "unavailableNote": "此功能在您的设备上不可用——您可以稍后进行配置。",
-        "failedBody": "出现了问题。您可以重试，或稍后在设置中进行配置。",
-        "retry": "重试"
-      },
-      "actions": {
-        "skip": "暂时跳过",
-        "continue": "继续"
-      },
-      "summary": {
-        "heading": "一切就绪",
-        "subVerified": "以下是您账户中正在运行的内容。",
-        "subPending": "您可以随时在设置中完成配置。",
-        "linePending": "尚未设置——可随时在设置中完成。",
-        "lineFailed": "我们未能完成此设置——请在设置中重试。",
-        "finish": "前往我的仪表盘"
-      },
-      "chip": {
-        "message": "完成您的 Pro 账户设置。",
-        "action": "完成设置",
-        "dismissLabel": "关闭"
-      }
     },
     "frameworkSelector": {
       "label": "分析框架",
@@ -2848,20 +2732,10 @@
       }
     },
     "exportGate": {
-      "signedOutDesc": "登录以将仪表板数据导出为 CSV、JSON 或 PDF。",
-      "upgradeDesc": "数据导出（CSV、JSON、PDF）包含在 Pro Business 中。",
-      "upgradeCta": "升级到 Pro Business",
       "lockedAriaLabel": "导出数据 — 已锁定。{{reason}}",
       "unlockedAnnouncement": "数据导出已解锁。",
       "preparingPdf": "正在准备 PDF…",
       "pdfFailed": "无法生成 PDF 报告。请重试，或使用 JSON 导出。"
-    },
-    "tabCap": {
-      "signedOutDesc": "未登录的工作区限制为 {{cap}} 个仪表板标签页。登录以添加更多。",
-      "upgradeDesc": "您已达到 {{cap}} 个仪表板标签页的上限。",
-      "upgradeCta": "升级获取更多",
-      "lockedAriaLabel": "添加标签页 — 已锁定。{{reason}}",
-      "unlockedAnnouncement": "仪表板标签页限制已解除。"
     },
     "fx": {
       "infoTooltip": "<strong>货币汇率</strong>压力指数根据45种货币在24个月内的最大跌幅排名，包括12个月变化。现货汇率使用单独的美元和欧元基数。俄罗斯卢布汇率以每单位卢布计。数据来源包括雅虎财经、欧洲央行和俄罗斯央行。",
@@ -2895,18 +2769,6 @@
       "rubPerUnit": "每单位卢布",
       "sourceCbr": "来源：俄罗斯央行"
     },
-    "passkeyOffer": {
-      "title": "保存通行密钥？",
-      "body": "下次登录时使用指纹、面容或设备PIN即可——无需记住密码。",
-      "accept": "保存通行密钥",
-      "dismiss": "暂不保存",
-      "close": "关闭",
-      "announce": "保存通行密钥以便下次更快登录。",
-      "busy": "正在等待设备响应…",
-      "succeeded": "通行密钥已保存。下次登录时可以使用。",
-      "retryable": "操作未完成。您可以重试。",
-      "failed": "无法在此设备上保存通行密钥。"
-    },
     "decisionBrief": {
       "commodityTitle": "大宗商品决策简报",
       "commodity": "大宗商品 / 产品",
@@ -2925,8 +2787,7 @@
       "changed": "选择已更改。导出前请获取两个情景。",
       "loading": "正在获取两个情景…",
       "captured": "已获取。下载前请核查观测日期和限制条件。",
-      "failed": "无法获取情景。请检查访问权限并重试。没有可导出的结果。",
-      "locked": "决策简报面向 Pro 用户提供。"
+      "failed": "无法获取情景。请检查访问权限并重试。没有可导出的结果。"
     },
     "liveMedia": {
       "idleStatus": "因不活动已暂停",
@@ -3649,10 +3510,10 @@
     "copyCoordinates": "复制坐标"
   },
   "shell": {
-    "documentTitle": "World Monitor — 实时全球情报仪表板",
-    "metaDescription": "使用 World Monitor 实时仪表盘浏览全球态势，结合交互式地图与数据面板查看新闻、地缘政治、军事、金融、能源和基础设施信息。按所选产品视图探索相关图层、地区与事件，比较数据来源、观测时间和可用信号，跟踪变化并打开详情核查背景，为日常监测与研究提供可追溯的信息入口，同时关注来源覆盖及更新状态。",
+    "documentTitle": "RaWorld — 实时全球情报仪表板",
+    "metaDescription": "使用 RaWorld 实时仪表盘浏览全球态势，结合交互式地图与数据面板查看新闻、地缘政治、军事、金融、能源和基础设施信息。按所选产品视图探索相关图层、地区与事件，比较数据来源、观测时间和可用信号，跟踪变化并打开详情核查背景，为日常监测与研究提供可追溯的信息入口，同时关注来源覆盖及更新状态。",
     "offlineTitle": "您已离线",
-    "offlineMessage": "World Monitor 需要互联网连接来获取实时情报数据。",
+    "offlineMessage": "RaWorld 需要互联网连接来获取实时情报数据。",
     "offlineRetry": "重试"
   },
   "widgets": {
@@ -3690,16 +3551,15 @@
     "phaseError": "错误",
     "previewCheckingHeading": "连接小组件生成器中",
     "previewReadyHeading": "描述您想要的小组件",
-    "previewFetchingHeading": "正在获取实时 WorldMonitor 数据",
+    "previewFetchingHeading": "正在获取实时 RaWorld 数据",
     "previewComposingHeading": "正在构建小组件布局",
     "previewErrorHeading": "预览需要处理",
     "previewCheckingCopy": "我们正在验证您的小组件密钥和后端可用性，然后启用生成。",
     "previewReadyCopy": "使用提示示例或描述您想要的精确实时视图。预览将在此处更新，然后您可以保存。",
-    "previewFetchingCopy": "代理正在调用已批准的 WorldMonitor 端点并为小组件塑形数据集。",
+    "previewFetchingCopy": "代理正在调用已批准的 RaWorld 端点并为小组件塑形数据集。",
     "previewComposingCopy": "预览正在使用最新的实时数据和仪表板样式进行呈现。",
     "previewErrorCopy": "修复问题后重试。您现有的小组件不受影响。",
     "createInteractive": "创建交互式小组件",
-    "proBadge": "PRO",
     "preflightProUnavailable": "PRO 小组件代理不可用。请检查服务器上的 PRO_WIDGET_KEY。",
     "preflightInvalidProKey": "PRO 密钥被拒绝。请更新 wm-pro-key 并重新加载。",
     "preflightProSubscriptionRequired": "需要 Pro 订阅。如果您刚升级，请刷新页面；否则请联系支持。",
@@ -3721,28 +3581,6 @@
     "offlineCached": "离线——显示来自 {{freshness}} 的缓存数据。",
     "offlineUnavailable": "离线——实时数据目前不可用。",
     "cachedFallback": "实时数据不可用——显示来自 {{freshness}} 的缓存数据。"
-  },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "需要 World Monitor 许可证密钥",
-    "signInToUnlock": "登录以解锁高级功能",
-    "signIn": "登录以解锁",
-    "upgradeDesc": "升级到 Pro 以获得完整的高级分析访问权限",
-    "upgradeToPro": "升级到 Pro",
-    "features": {
-      "orefSirens1": "实时以色列导弹和火箭警报",
-      "orefSirens2": "警报区域地图及威胁分类",
-      "telegramIntel1": "精选Telegram开源情报频道",
-      "telegramIntel2": "近实时冲突与地缘政治更新",
-      "xIntel1": "Curated public news accounts on X",
-      "xIntel2": "API-fresh posts with official permalinks"
-    }
-  },
-  "auth": {
-    "signIn": "登录",
-    "createAccount": "创建账户",
-    "settings": "设置",
-    "passkeyOffer": {}
   },
   "mcp": {
     "connectPanel": "连接 MCP",
@@ -3831,8 +3669,6 @@
     "resilience": "韧性",
     "ciiMissing": "CII 不可用",
     "resilienceMissing": "韧性不可用",
-    "noEvents": "此日期未采集到精选新闻标题。这不代表没有事件发生。",
-    "unlock90": "使用 Pro 解锁 90 天历史",
-    "unlock365": "使用 API 套餐解锁 365 天历史"
+    "noEvents": "此日期未采集到精选新闻标题。这不代表没有事件发生。"
   }
 }

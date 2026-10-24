@@ -1,8 +1,8 @@
-# Crawlable Live Tools for World Monitor
+# Crawlable Live Tools for RaWorld
 
 ## Decision
 
-World Monitor should build search-intent tools as progressively enhanced pages on the main domain, not as a disconnected SEO subdomain. The static page must be useful and source-labelled before JavaScript runs; live API data should add utility without becoming the only crawlable content.
+RaWorld should build search-intent tools as progressively enhanced pages on the main domain, not as a disconnected SEO subdomain. The static page must be useful and source-labelled before JavaScript runs; live API data should add utility without becoming the only crawlable content.
 
 The first implementation upgrades the existing country corpus:
 

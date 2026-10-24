@@ -192,7 +192,7 @@ describe('SEO and AI visibility baseline', () => {
       'https://example.com/not-world-monitor';
     assert.throws(
       () => validateBaseline(external, querySet),
-      /must be a World Monitor HTTPS URL/,
+      /must be a RaWorld HTTPS URL/,
     );
 
     const insecure = structuredClone(available);
@@ -200,7 +200,7 @@ describe('SEO and AI visibility baseline', () => {
       'http://worldmonitor.app/docs/api-reference';
     assert.throws(
       () => validateBaseline(insecure, querySet),
-      /must be a World Monitor HTTPS URL/,
+      /must be a RaWorld HTTPS URL/,
     );
   });
 
@@ -279,7 +279,7 @@ describe('SEO and AI visibility baseline', () => {
       .citedPages[0].url = 'https://operator:secret@worldmonitor.app/docs/api-reference';
     assert.throws(
       () => validateBaseline(credentialUrl, querySet),
-      /World Monitor HTTPS URL/,
+      /RaWorld HTTPS URL/,
     );
   });
 
@@ -322,7 +322,7 @@ describe('SEO and AI visibility baseline', () => {
     invalid.aiObservations[0].citedUrls = [];
     assert.throws(
       () => validateBaseline(invalid, querySet),
-      /directCitation must match World Monitor cited URLs/,
+      /directCitation must match RaWorld cited URLs/,
     );
 
     const citationWithoutBrandText = structuredClone(baseline);
@@ -335,7 +335,7 @@ describe('SEO and AI visibility baseline', () => {
     contradictory.aiObservations[0].directCitation = false;
     assert.throws(
       () => validateBaseline(contradictory, querySet),
-      /directCitation must match World Monitor cited URLs/,
+      /directCitation must match RaWorld cited URLs/,
     );
   });
 
@@ -367,7 +367,7 @@ describe('SEO and AI visibility baseline', () => {
       platform: 'google_ai_mode',
       directCitation: false,
       citedUrls: [],
-      summary: 'Google AI Mode mentioned World Monitor without a direct citation.',
+      summary: 'Google AI Mode mentioned RaWorld without a direct citation.',
     };
     current.aiObservations.push(modeObservation);
     const perplexity = current.aiSurfaces.find(({ platform }) => platform === 'perplexity');
@@ -855,7 +855,7 @@ describe('scorecard computation', () => {
       platform: 'chatgpt_search',
       directCitation: false,
       citedUrls: [],
-      summary: 'World Monitor was mentioned without a direct citation.',
+      summary: 'RaWorld was mentioned without a direct citation.',
     });
     const previous = buildScorecard(querySet, previousBaseline);
     const nextBaseline = structuredClone(baseline);
@@ -1016,7 +1016,7 @@ describe('scorecard computation', () => {
     currentBaseline.aiObservations.push({
       ...structuredClone(currentOverview),
       platform: 'google_ai_mode',
-      summary: 'Google AI Mode directly cited World Monitor.',
+      summary: 'Google AI Mode directly cited RaWorld.',
     });
 
     const previous = buildScorecard(querySet, previousBaseline);
@@ -1054,7 +1054,7 @@ describe('scorecard computation', () => {
       platform: 'google_ai_mode',
       directCitation: false,
       citedUrls: [],
-      summary: 'Google AI Mode mentioned World Monitor without a direct citation.',
+      summary: 'Google AI Mode mentioned RaWorld without a direct citation.',
     });
     const currentBaseline = structuredClone(previousBaseline);
     currentBaseline.baselineId = '2026-08-27';
@@ -1064,7 +1064,7 @@ describe('scorecard computation', () => {
     );
     currentMode.directCitation = true;
     currentMode.citedUrls = ['https://www.worldmonitor.app/'];
-    currentMode.summary = 'Google AI Mode directly cited World Monitor.';
+    currentMode.summary = 'Google AI Mode directly cited RaWorld.';
 
     const comparison = compareScorecards(
       buildScorecard(querySet, previousBaseline),

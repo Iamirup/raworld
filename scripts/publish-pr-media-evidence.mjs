@@ -221,7 +221,7 @@ export async function validateAttachments(tempDirectory, fs = { lstat, open, rea
         throw new Error(`Screenshot has an invalid PNG signature: ${entry.name}`);
       }
       attachments.push({
-        alt: `WorldMonitor E2E visual evidence: ${titleFromFileName(entry.name)}`,
+        alt: `RaWorld E2E visual evidence: ${titleFromFileName(entry.name)}`,
         byteSize: fileStats.size,
         filename: entry.name,
         path: absolutePath,

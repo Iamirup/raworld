@@ -654,7 +654,7 @@ describe('Company Monitoring identity, confidence, and lifecycle invariants', ()
       { type: 'domain', value: 'example.com' },
     );
     assert.deepEqual(
-      normalizeCompanyClaimInput({ type: 'x_handle', value: '@WorldMonitor' }),
+      normalizeCompanyClaimInput({ type: 'x_handle', value: '@RaWorld' }),
       { type: 'x_handle', value: 'worldmonitor' },
     );
     assert.throws(

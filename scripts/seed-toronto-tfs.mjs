@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Toronto Fire Services live CAD (#6682). World Monitor has confirmed direct
+// Toronto Fire Services live CAD (#6682). RaWorld has confirmed direct
 // redistribution and public-display rights for this feed.
 // Own key — do not append to canadaAlerts / canadaRoads / torontoRoads.
 

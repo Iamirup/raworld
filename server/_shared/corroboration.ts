@@ -215,7 +215,7 @@ export function toCorroborationJson(c: Corroboration): CorroborationJson {
 /** One JSON Schema fragment, spread into every MCP tool that emits `corroboration`. */
 export const CORROBORATION_OUTPUT_SCHEMA: Readonly<Record<string, unknown>> = Object.freeze({
   type: 'object',
-  description: 'Coverage of this claim across the sources WorldMonitor monitors. Describes coverage, not accuracy: no state says the claim is true or false.',
+  description: 'Coverage of this claim across the sources RaWorld monitors. Describes coverage, not accuracy: no state says the claim is true or false.',
   required: ['state', 'publishers'],
   properties: {
     state: {
@@ -290,7 +290,7 @@ const TIER_LEGEND = ([1, 2, 3, 4] as const).map((tier) => `${tier} ${TIER_MEANIN
 export const DECLARED_TIER_SCHEMA: Readonly<Record<string, unknown>> = Object.freeze({
   type: ['integer', 'null'],
   enum: [1, 2, 3, 4, null],
-  description: `Tier declared for this source in WorldMonitor's source tables: ${TIER_LEGEND}. null means not declared, never tier 4. Tiers rank sources; they do not judge a claim.`,
+  description: `Tier declared for this source in RaWorld's source tables: ${TIER_LEGEND}. null means not declared, never tier 4. Tiers rank sources; they do not judge a claim.`,
 });
 
 /** Spread into every MCP tool row that emits a publisher roster. */

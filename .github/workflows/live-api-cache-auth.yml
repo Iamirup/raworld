@@ -84,7 +84,7 @@ jobs:
           github.event.deployment.environment == 'Production' &&
           github.event.deployment.creator.login == 'vercel[bot]'
         )
-      ) && (github.event_name != 'schedule' || github.repository == 'koala73/worldmonitor')
+      ) && (github.event_name != 'schedule' || github.repository == 'Iamirup/raworld')
     concurrency:
       group: live-api-cache-auth-${{ github.event_name == 'deployment_status' && github.event.deployment.environment || github.event_name }}
       cancel-in-progress: false

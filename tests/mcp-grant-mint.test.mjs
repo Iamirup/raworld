@@ -823,7 +823,7 @@ describe('grantContextHandler', () => {
  * Both endpoints answered every sub-Pro entitlement with a terminal 403
  * INSUFFICIENT_TIER, including the transient marker `getEntitlements`
  * synthesizes when the backend lookup FAILS. The SPA maps that code to
- * "A WorldMonitor Pro subscription is required to authorize MCP clients." — a
+ * "A RaWorld Pro subscription is required to authorize MCP clients." — a
  * paying customer told to buy what they already own because Convex blipped.
  *
  * The pair is asserted together on purpose: they share the gate

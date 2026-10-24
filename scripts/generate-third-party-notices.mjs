@@ -136,7 +136,7 @@ function render() {
   return [
     '# Third-party notices',
     '',
-    'World Monitor is licensed under AGPL-3.0-only (see `LICENSE`). It is built on the',
+    'RaWorld is licensed under AGPL-3.0-only (see `LICENSE`). It is built on the',
     'open-source packages below, each under its own license, and the notices here travel',
     'with every binary we distribute as those licenses require.',
     '',

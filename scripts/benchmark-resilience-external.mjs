@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// Cross-index benchmark: compares WorldMonitor resilience scores against
+// Cross-index benchmark: compares RaWorld resilience scores against
 // INFORM Risk (JRC), UNDP HDI, and WorldRiskIndex (HDX) using Spearman/Pearson.
 //
 // All three sources are CC-BY or open-licensed:

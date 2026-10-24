@@ -1,4 +1,4 @@
-// Phase 3b: LLM enrichment for the WorldMonitor Brief envelope.
+// Phase 3b: LLM enrichment for the RaWorld Brief envelope.
 //
 // Substitutes the stubbed `whyMatters` per story and the stubbed
 // executive summary (`digest.lead` / `digest.threads` / `digest.signals`)
@@ -287,7 +287,7 @@ export async function generateWhyMatters(story, deps) {
 // ── Per-story description (replaces title-verbatim fallback) ──────────────
 
 const STORY_DESCRIPTION_SYSTEM =
-  'You are the editor of WorldMonitor Brief, a geopolitical intelligence magazine. ' +
+  'You are the editor of RaWorld Brief, a geopolitical intelligence magazine. ' +
   'Given the story attributes below, write ONE concise sentence (16–30 words) that ' +
   'describes the development itself — not why it matters, not the reader reaction. ' +
   'Editorial, serious, past/present tense, named actors where possible. Do NOT ' +
@@ -453,7 +453,7 @@ export async function generateStoryDescription(story, deps) {
 // `publicLead` via `generateDigestProsePublic` for the share-URL surface.
 
 const DIGEST_PROSE_SYSTEM_BASE =
-  'You are the chief editor of WorldMonitor Brief. Given a ranked list of ' +
+  'You are the chief editor of RaWorld Brief. Given a ranked list of ' +
   "today's top stories for a reader, produce EXACTLY this JSON and nothing " +
   'else (no markdown, no code fences, no preamble):\n' +
   '{\n' +

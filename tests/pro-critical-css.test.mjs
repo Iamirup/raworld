@@ -264,9 +264,9 @@ describe('pro built HTML critical CSS contract', { skip: shouldSkipProBuiltOutpu
     const root = crawlerDocumentSnapshot(html).visibleRootMarkup;
     assert.equal([...root.matchAll(/<h1\b/g)].length, 1);
     assert.equal([...stripNoscript(html).matchAll(/<h1\b/g)].length, 1);
-    assert.match(root, /How much does World Monitor Pro cost\?/);
+    assert.match(root, /How much does RaWorld Pro cost\?/);
     assert.match(root, /\$39\.99/);
-    assert.match(html, /World Monitor Pro/);
+    assert.match(html, /RaWorld Pro/);
     assert.doesNotMatch(html, /id="seo-prerender"/);
     assert.doesNotMatch(html, /html\.js #seo-prerender/);
   });
@@ -283,7 +283,7 @@ describe('pro built HTML critical CSS contract', { skip: shouldSkipProBuiltOutpu
     assert.equal(headings.length, 1, 'exactly one <h1>');
     assert.match(
       headings[0][1],
-      /^<span class="sr-only">World Monitor Pro — The Geopolitical AI Layer <\/span>.*Noise.*Signal/,
+      /^<span class="sr-only">RaWorld Pro — The Geopolitical AI Layer <\/span>.*Noise.*Signal/,
       'the hero <h1> must lead with the curated title, visually hidden, before the visible hero words',
     );
     assert.equal([...root.matchAll(/<main\b/g)].length, 1, 'exactly one <main>');

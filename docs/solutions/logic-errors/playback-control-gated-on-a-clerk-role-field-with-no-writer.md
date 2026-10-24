@@ -26,7 +26,7 @@ The dashboard's historical-playback control (the header "rewind" toggle that scr
 
 This is the same dead-field trap the codebase had already diagnosed once for panel gating: `src/services/panel-gating.ts:41-46` documents that Clerk `publicMetadata.plan` is untrustworthy for exactly this reason, and `hasPremiumAccess()` instead resolves through `isProUser()`, which uses `role === 'pro'` only as one arm of a boolean union (`src/services/widget-store.ts:223-230`). The playback control's gate had never been migrated to that pattern and read the raw, unwritten field directly.
 
-Fixed in three commits on `fix/playback-gate-entitlement`, closing [#5632](https://github.com/koala73/worldmonitor/issues/5632). Unmerged as of this writing; the commits are identified below by what they change rather than by SHA, since a squash merge rewrites them.
+Fixed in three commits on `fix/playback-gate-entitlement`, closing [#5632](https://github.com/Iamirup/raworld/issues/5632). Unmerged as of this writing; the commits are identified below by what they change rather than by SHA, since a squash merge rewrites them.
 
 ## Symptoms
 
@@ -51,7 +51,7 @@ el.style.display = isPro ? '' : 'none';
 
 **After**, in three commits.
 
-> **Paths below are as-of #5632.** [#5813](https://github.com/koala73/worldmonitor/issues/5813) later moved these modules without changing behaviour: `src/services/playback-gate.ts` → `src/services/gates/playback-resolver.ts`, and `readPlaybackGateInputs` → `src/services/gates/playback.ts`, where it is now module-private (`evaluatePlaybackGate` was always its only caller). The snippets are left as they shipped.
+> **Paths below are as-of #5632.** [#5813](https://github.com/Iamirup/raworld/issues/5813) later moved these modules without changing behaviour: `src/services/playback-gate.ts` → `src/services/gates/playback-resolver.ts`, and `readPlaybackGateInputs` → `src/services/gates/playback.ts`, where it is now module-private (`evaluatePlaybackGate` was always its only caller). The snippets are left as they shipped.
 
 **1. The gate itself** — a zero-import pure leaf, `src/services/playback-gate.ts`, wired through `src/services/panel-gating.ts`:
 
@@ -166,6 +166,6 @@ isEntitled: () => actual.isEntitlementActive(entitlement, Date.now()),
 - [`verify-the-verifier-mutation-test-every-detection-layer.md`](../conventions/verify-the-verifier-mutation-test-every-detection-layer.md) — names the exact anti-pattern the `isEntitlementActive` extraction fixes: "a companion test has its own private read-and-match loop instead of calling the real scan, so it can never observe a regression."
 - [`denied-push-permission-rendered-as-retryable-failure.md`](denied-push-permission-rendered-as-retryable-failure.md) — shares two shapes: widening a binary result into a three-state union, and folding logic into a single accessor so there is no second implementation to drift.
 - [`checks-must-fail-closed-when-they-lose-their-target.md`](../best-practices/checks-must-fail-closed-when-they-lose-their-target.md) — **not** contradicted by this doc's fail-open choice, despite the surface tension. That doc governs CI/contract checks losing observability of their target; this is a product gating decision reasoned against a specific bounded-vs-unbounded tradeoff.
-- GitHub [#5632](https://github.com/koala73/worldmonitor/issues/5632) — the source issue.
-- GitHub [#5604](https://github.com/koala73/worldmonitor/issues/5604) — opposite-direction sibling: `exportFormats` and `maxDashboards` are advertised capabilities with no enforcement at all. Worth a sweep for other dead or unwired entitlement config keys.
-- GitHub [#4276](https://github.com/koala73/worldmonitor/issues/4276) — the tier-gated playback epic that spawned the original gate.
+- GitHub [#5632](https://github.com/Iamirup/raworld/issues/5632) — the source issue.
+- GitHub [#5604](https://github.com/Iamirup/raworld/issues/5604) — opposite-direction sibling: `exportFormats` and `maxDashboards` are advertised capabilities with no enforcement at all. Worth a sweep for other dead or unwired entitlement config keys.
+- GitHub [#4276](https://github.com/Iamirup/raworld/issues/4276) — the tier-gated playback epic that spawned the original gate.

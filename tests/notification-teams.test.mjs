@@ -85,7 +85,7 @@ describe('Teams Adaptive Card payloads', () => {
 
   it('a non-https or unparseable link falls back to the dashboard button', () => {
     const card = cardOf(teams.buildTeamsAlertPayload({ title: 't', severity: 'high', link: 'javascript:alert(1)' }));
-    assert.deepEqual(card.actions, [{ type: 'Action.OpenUrl', title: 'Open WorldMonitor', url: 'https://worldmonitor.app/' }]);
+    assert.deepEqual(card.actions, [{ type: 'Action.OpenUrl', title: 'Open RaWorld', url: 'https://worldmonitor.app/' }]);
   });
 
   it('a first-party link does not repeat the host', () => {
@@ -135,7 +135,7 @@ describe('Teams Adaptive Card payloads', () => {
 
   it('digest card lists stories, the summary, and the brief link', () => {
     const card = cardOf(teams.buildTeamsDigestPayload({
-      title: 'WorldMonitor Daily Digest — October 17, 2026',
+      title: 'RaWorld Daily Digest — October 17, 2026',
       summary: 'Two theatres escalated overnight.',
       stories: [
         { title: 'Story one', severity: 'critical', sources: ['Reuters', 'AP', 'BBC', 'AFP'] },
@@ -149,7 +149,7 @@ describe('Teams Adaptive Card payloads', () => {
     assert.match(text, /Story one/);
     assert.match(text, /Reuters, AP, BBC \+1/);
     assert.match(text, /Story two/);
-    assert.equal(card.actions[0].title, 'Open your WorldMonitor Brief');
+    assert.equal(card.actions[0].title, 'Open your RaWorld Brief');
     assert.equal(card.actions[0].url, 'https://www.worldmonitor.app/brief/abc');
   });
 
@@ -349,7 +349,7 @@ describe('realtime relay Teams dispatch', () => {
     const { relay, posts } = setup();
     await relay.processWelcome({ userId: 'owner', channelType: 'teams', welcomeId: 'teams-channel' });
     assert.equal(posts.length, 1);
-    assert.match(renderedText(cardOf(posts[0].body)), /WorldMonitor connected/);
+    assert.match(renderedText(cardOf(posts[0].body)), /RaWorld connected/);
     await relay.processWelcome({ userId: 'owner', channelType: 'teams', welcomeId: 'some-other-channel' });
     assert.equal(posts.length, 1, 'a welcome for a replaced channel is not delivered');
   });
@@ -429,7 +429,7 @@ describe('digest cron Teams dispatch', () => {
       digestWindowStartMs: () => 0,
       buildDigest: async () => [{ title: 'Synthetic digest story - Reuters', severity: 'critical', sources: ['Reuters'] }],
       buildDigestDeliveryPlan: ({ rawStories }) => ({ formatterStories: rawStories, cooldownIterableStories: [], sourceCountByClusterId: new Map() }),
-      formatDigest: () => 'WorldMonitor Daily Digest — October 17, 2026\n\nSynthetic digest story',
+      formatDigest: () => 'RaWorld Daily Digest — October 17, 2026\n\nSynthetic digest story',
       renderDigestEmailHtml: () => ({ html: '<p>x</p>', bytes: 0, truncated: false, shownStories: 1 }),
       buildChannelBodies: (text) => ({ text, telegramText: text, slackText: text, discordText: text }),
       subjectForBrief: () => 'Synthetic digest', issueSlotInTz: () => 'test-slot',
@@ -448,7 +448,7 @@ describe('digest cron Teams dispatch', () => {
     assert.equal(sends.length, 1);
     assert.equal(sends[0].url, TEAMS_URL);
     const text = renderedText(cardOf(sends[0].payload));
-    assert.match(text, /WorldMonitor Daily Digest — October 17, 2026/);
+    assert.match(text, /RaWorld Daily Digest — October 17, 2026/);
     assert.match(text, /Synthetic digest story/);
     assert.doesNotMatch(text, /Synthetic digest story - Reuters/, 'titles get the formatDigest source-suffix strip');
     assert.equal(metadata[0].sentCount, 1);

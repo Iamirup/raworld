@@ -1,7 +1,7 @@
 /**
  * Published fact-checks for a claim (#9094).
  *
- * WorldMonitor does not rate claims (#6419). This module finds ratings that
+ * RaWorld does not rate claims (#6419). This module finds ratings that
  * accredited fact-checkers have already published and returns them for
  * citation, the way a wire report is quoted: "Rated False by PolitiFact on
  * 3 Oct", with the fact-checker, date and link. The rating text is passed
@@ -45,7 +45,7 @@ export const FACT_CHECK_SEARCH_PAGE_SIZE = 20;
 export const FACT_CHECK_LABEL = 'A published fact-check of a similar claim';
 
 /** Shown with every fact-check list, found or not. */
-export const FACT_CHECK_CAVEAT = 'Ratings are the fact-checkers\' own, quoted with attribution from IFCN-verified signatories. WorldMonitor does not rate claims, and a rating never changes the coverage result above.';
+export const FACT_CHECK_CAVEAT = 'Ratings are the fact-checkers\' own, quoted with attribution from IFCN-verified signatories. RaWorld does not rate claims, and a rating never changes the coverage result above.';
 
 /**
  * Longest rating and rated claim accepted. Text is never cut: a longer one is

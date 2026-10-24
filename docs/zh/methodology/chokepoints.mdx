@@ -1,15 +1,15 @@
 ---
 title: "咽喉要道方法论"
-description: "World Monitor 如何对全球 13 个受监控的海事咽喉要道进行评分，其中包括基于 EIA 能源基线通行量校准的七项实时流量子集：霍尔木兹、马六甲、苏伊士、曼德海峡、土耳其海峡、丹麦海峡与巴拿马运河，详解评分算法权重、数据来源、更新频率与全球油气航运态势的方法论。"
+description: "RaWorld 如何对全球 13 个受监控的海事咽喉要道进行评分，其中包括基于 EIA 能源基线通行量校准的七项实时流量子集：霍尔木兹、马六甲、苏伊士、曼德海峡、土耳其海峡、丹麦海峡与巴拿马运河，详解评分算法权重、数据来源、更新频率与全球油气航运态势的方法论。"
 ---
 
-_本方法论由 World Monitor 创始人 [Elie Habib](https://www.worldmonitor.app/blog/authors/elie-habib/) 维护。已发布的修订记录在[更正日志](/zh/corrections)中。_
+_本方法论由 RaWorld 创始人 [Elie Habib](https://www.worldmonitor.app/blog/authors/elie-habib/) 维护。已发布的修订记录在[更正日志](/zh/corrections)中。_
 
 ## 从这里开始
 
 少数几条狭窄水道，承担着与其宽度极不相称的世界贸易份额。仅霍尔木兹海峡的基线通行量就约为每日 2100 万桶——大致相当于全球石油液体消费量的五分之一。关掉其中任何一条，影响会在几周内抵达每一块大陆。
 
-WorldMonitor 监控其中 13 条，并持续回答：**这里出问题了吗？谁会受影响？**
+RaWorld 监控其中 13 条，并持续回答：**这里出问题了吗？谁会受影响？**
 
 ### 一行咽喉要道数据告诉你什么
 
@@ -34,7 +34,7 @@ WorldMonitor 监控其中 13 条，并持续回答：**这里出问题了吗？�
 
 ## 我们追踪什么
 
-WorldMonitor 在规范咽喉要道注册表和 `GetChokepointStatus` RPC 中拥有 **13 个受监测水道**。状态 RPC 为每个规范 id 返回一行：
+RaWorld 在规范咽喉要道注册表和 `GetChokepointStatus` RPC 中拥有 **13 个受监测水道**。状态 RPC 为每个规范 id 返回一行：
 `suez`、`malacca_strait`、`hormuz_strait`、`bab_el_mandeb`、`panama`、
 `taiwan_strait`、`cape_of_good_hope`、`gibraltar`、`bosphorus`、
 `korea_strait`、`dover_strait`、`kerch_strait` 和 `lombok_strait`。
@@ -213,7 +213,7 @@ top1 * 0.5 + top2 * 0.3 + top3 * 0.2
   水道尚未发布 mb/d 估算。
 - 多佛尔海峡实时流量行当前映射到 EIA `danish` 基线 id。
   请将 `baselineMbd` 视为来源参考，将 `id` 视为规范的
-  WorldMonitor 行 id。
+  RaWorld 行 id。
 - AIS 和 PortWatch 覆盖在严重干扰或冲突密集
   地区附近可能下降。缺失的上游覆盖以不可用数据呈现，而非
   被合成为零交通。
@@ -225,4 +225,4 @@ top1 * 0.5 + top2 * 0.3 + top3 * 0.2
 
 请参阅 [`/corrections`](/zh/corrections) 了解计划的修订日志格式。如果您
 今天发现一个错误的数字，请在
-[公开仓库](https://github.com/koala73/worldmonitor/issues) 提交一个 GitHub issue。
+[公开仓库](https://github.com/Iamirup/raworld/issues) 提交一个 GitHub issue。

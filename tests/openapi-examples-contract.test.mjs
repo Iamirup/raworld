@@ -518,7 +518,7 @@ function assertScenarioStatusPollExample(spec, label) {
     assert.ok(example.result && typeof example.result === 'object', `${label}: done status must include result`);
     assert.ok(!Object.hasOwn(example, 'error') || example.error === '', `${label}: done status must not include a populated error`);
     assert.ok(example.result.template && typeof example.result.template === 'object', `${label}: done result must include template`);
-    assert.notEqual(example.result.template.name, 'WorldMonitor Analyst', `${label}: worker writes a template key, not a display name`);
+    assert.notEqual(example.result.template.name, 'RaWorld Analyst', `${label}: worker writes a template key, not a display name`);
     const affected = Array.isArray(example.result.affectedChokepointIds) ? example.result.affectedChokepointIds : [];
     for (const id of affected) {
       assert.ok(CURATED.chokepointIds.has(id), `${label}: affected chokepoint '${id}' is not registered`);

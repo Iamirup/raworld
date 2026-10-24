@@ -60,7 +60,7 @@ const USE_CASE_STRUCTURED_DATA = {
   'country-risk': {
     faq: [
       faqQuestion(
-        'How do you monitor country risk with World Monitor?',
+        'How do you monitor country risk with RaWorld?',
         'Establish a baseline with the Country Instability Index and Country Resilience Index, review live instability and forecasts, check corroborating economic and security signals, record uncertainty, then set the follow-up or escalation into an exact product state.',
       ),
       faqQuestion(
@@ -69,7 +69,7 @@ const USE_CASE_STRUCTURED_DATA = {
       ),
       faqQuestion(
         'What is the expected output of a country-risk watch?',
-        'A dated monitoring note with baseline, live pressure, corroboration, uncertainty, and the next action, continuing into an exact World Monitor country brief rather than a generic homepage.',
+        'A dated monitoring note with baseline, live pressure, corroboration, uncertainty, and the next action, continuing into an exact RaWorld country brief rather than a generic homepage.',
       ),
     ],
     itemListName: 'Country-risk end-to-end workflow',
@@ -84,15 +84,15 @@ const USE_CASE_STRUCTURED_DATA = {
   'breaking-news': {
     faq: [
       faqQuestion(
-        'How do you verify breaking news with World Monitor?',
-        'Treat a viral claim as a hypothesis: capture the exact claim and window, assess the source chain, test only the World Monitor signal families that can support or contradict it, record contradictions and coverage gaps, then assign a qualified outcome before you brief anyone.',
+        'How do you verify breaking news with RaWorld?',
+        'Treat a viral claim as a hypothesis: capture the exact claim and window, assess the source chain, test only the RaWorld signal families that can support or contradict it, record contradictions and coverage gaps, then assign a qualified outcome before you brief anyone.',
       ),
       faqQuestion(
         'Who is the breaking-news verification workflow for?',
         'Newsroom researchers, OSINT analysts, duty-of-care officers, and desk editors who need a bounded verification record in minutes — not a rewritten article and not a generic homepage tour.',
       ),
       faqQuestion(
-        'What can World Monitor not prove about a breaking claim?',
+        'What can RaWorld not prove about a breaking claim?',
         'That a quiet map means nothing happened, or that repeated headlines are independent confirmations. Correlated sensors are evidence, not certainty, and this workflow does not certify that an event is true.',
       ),
     ],
@@ -109,7 +109,7 @@ const USE_CASE_STRUCTURED_DATA = {
   'supply-chain': {
     faq: [
       faqQuestion(
-        'How do you monitor supply-chain disruptions with World Monitor?',
+        'How do you monitor supply-chain disruptions with RaWorld?',
         'Define the exposure first, keep a routine baseline, then switch to incident mode only when a signal can touch that exposure. Separate observed evidence, forecasts, and analyst inference before you escalate.',
       ),
       faqQuestion(
@@ -117,7 +117,7 @@ const USE_CASE_STRUCTURED_DATA = {
         'Routine monitoring defines exposure, establishes a baseline, runs the daily scan, and sets watch thresholds. Incident response identifies the first-order constraint, tests exposure fit, maps transmission paths, separates evidence classes, and records stale or contradictory sources before escalating.',
       ),
       faqQuestion(
-        'What can World Monitor not prove about a disruption?',
+        'What can RaWorld not prove about a disruption?',
         'That an event will cause a specific price, shortage, delay, or customer impact. Market moves are confirmation signals, not causal proof.',
       ),
     ],

@@ -178,7 +178,7 @@ function renderBoard(b) {
 async function runBoard({ narrate = true, refresh = false } = {}) {
   resetAll();
   const myRun = runId;
-  setAnchorState('reading WorldMonitor…');
+  setAnchorState('reading RaWorld…');
   let b;
   try {
     b = await fetch(`/api/board${refresh ? '?refresh=1' : ''}`).then((r) => r.json());
@@ -293,14 +293,14 @@ function fmtTime(iso) {
 const renderers = {
   who(d) {
     const out = el('div');
-    if (!d) { out.append(el('span', 'warn', 'No publisher WorldMonitor monitors carried it.')); return out; }
+    if (!d) { out.append(el('span', 'warn', 'No publisher RaWorld monitors carried it.')); return out; }
     const head = el('div', 'who-head');
     head.append(el('span', 'big', d.coverage.publishers ?? '?'), el('span', '', d.summary ?? ''));
     if (d.credibility) head.append(el('span', `cred band-${d.credibility.band}`, `CRED ${d.credibility.score}`));
     out.append(head);
     const flag = { 'single-publisher': 'Single publisher', 'tier4-only': 'Low-tier sources only' }[d.coverage.state];
     if (flag) out.append(el('div', 'warn', flag));
-    // WorldMonitor's roster order: best declared tier first.
+    // RaWorld's roster order: best declared tier first.
     const list = el('ol', 'ranked');
     for (const r of (d.rated ?? []).slice(0, 5)) {
       const li = el('li');
@@ -323,7 +323,7 @@ const renderers = {
     const out = el('div');
     if (!d) { out.append(el('span', 'warn', 'No timeline: nothing to trace.')); return out; }
     out.append(el('div', 'mono', `First seen ${fmtTime(d.firstSeen)}${d.spreadHours != null ? ` · spread over ${d.spreadHours}h` : ''}`));
-    if (d.mergedClusters > 1) out.append(el('div', '', `Found across ${d.mergedClusters} WorldMonitor clusters`));
+    if (d.mergedClusters > 1) out.append(el('div', '', `Found across ${d.mergedClusters} RaWorld clusters`));
     if (d.primarySource) out.append(el('div', '', `Lead source: ${d.primarySource}`));
     return out;
   },
@@ -335,7 +335,7 @@ const renderers = {
       else if (f.statedBy?.length === 1) out.append(el('div', 'warn', `✓ ${f.label} is grounded, but only one publisher states it: ${f.statedBy[0]}`));
       else out.append(el('div', 'good', `✓ ${f.label} is grounded in the sources${f.statedBy?.length > 1 ? ` (${f.statedBy.length} publishers)` : ''}`));
     }
-    out.append(el('div', 'mono', `WorldMonitor's fact-grounding gate · ${d.evidence}`));
+    out.append(el('div', 'mono', `RaWorld's fact-grounding gate · ${d.evidence}`));
     return out;
   },
   money(d) {
@@ -403,7 +403,7 @@ function runGrade(headline) {
       }
       if (ev.step === 'verdict') {
         const v = $('#verdict');
-        // Colour: WorldMonitor's coverage state; a corroborated story takes its credibility band.
+        // Colour: RaWorld's coverage state; a corroborated story takes its credibility band.
         v.className = `verdict v-${ev.data.key}${ev.data.key === 'corroborated' && ev.data.band ? ` cred-${ev.data.band}` : ''}`;
         $('#verdict-word').textContent = ev.data.word;
         $('#verdict-word').classList.toggle('long', ev.data.word.length > 16);
@@ -542,7 +542,7 @@ if ('speechSynthesis' in window) speechSynthesis.getVoices();
   if (config.backdropUrl) {
     const f = el('iframe');
     f.src = config.backdropUrl;
-    f.title = 'WorldMonitor live map';
+    f.title = 'RaWorld live map';
     f.setAttribute('tabindex', '-1');
     $('#backdrop').append(f);
   }

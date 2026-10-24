@@ -9,7 +9,7 @@ const COMPANY_MONITORING_CLASSIFIER_DEFAULT_TIMEOUT_MS = 20_000;
 export const COMPANY_MONITORING_CLASSIFIER_MAX_TIMEOUT_MS = 60_000;
 
 const OPENROUTER_SITE_URL = 'https://worldmonitor.app';
-const OPENROUTER_APP_TITLE = 'World Monitor';
+const OPENROUTER_APP_TITLE = 'RaWorld';
 const SERVICE_USER_AGENT = 'WorldMonitor-CompanyMonitoring/1.0 (+https://worldmonitor.app)';
 const MAX_PROVIDER_RESPONSE_BYTES = 256 * 1024;
 const ATTEMPT_ID = /^cm_attempt_[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;

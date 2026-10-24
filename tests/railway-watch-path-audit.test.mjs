@@ -58,7 +58,7 @@ describe('audit service identity boundary', () => {
   const inventory = [{
     id: 'svc-a',
     name: 'seed-a',
-    source: { repo: 'koala73/worldmonitor', image: null },
+    source: { repo: 'Iamirup/raworld', image: null },
   }];
 
   it('validates the immutable fleet before apply or deployment-only reads', () => {
@@ -74,7 +74,7 @@ describe('audit service identity boundary', () => {
     const replaced = [{
       id: 'svc-replacement',
       name: 'seed-a',
-      source: { repo: 'koala73/worldmonitor', image: null },
+      source: { repo: 'Iamirup/raworld', image: null },
     }];
     assert.throws(
       () => selectAuditServices(replaced, expected, { apply: true, deploymentOnly: false }),
@@ -86,7 +86,7 @@ describe('audit service identity boundary', () => {
       {
         id: 'svc-extra',
         name: 'seed-extra',
-        source: { repo: 'koala73/worldmonitor', image: null },
+        source: { repo: 'Iamirup/raworld', image: null },
       },
     ];
     assert.throws(
@@ -115,7 +115,7 @@ function service({
   watchPatterns = [],
 } = {}) {
   return {
-    source: { repo: 'koala73/worldmonitor', rootDirectory: 'scripts' },
+    source: { repo: 'Iamirup/raworld', rootDirectory: 'scripts' },
     build: {
       watchPatterns,
       ...(dockerfilePath === undefined ? {} : { dockerfilePath }),
@@ -1237,7 +1237,7 @@ describe('unmanaged live seeders', () => {
 
   function unmanagedSeeder({ watchPatterns, rootDirectory = 'scripts' }) {
     return {
-      source: { repo: 'koala73/worldmonitor', rootDirectory },
+      source: { repo: 'Iamirup/raworld', rootDirectory },
       build: { watchPatterns },
       deploy: { startCommand: 'node seed-forecasts.mjs' },
       variables: {},
@@ -1330,7 +1330,7 @@ describe('unmanaged live seeders', () => {
       services: {
         'svc-example': managedService(),
         'svc-web': {
-          source: { repo: 'koala73/worldmonitor', rootDirectory: '' },
+          source: { repo: 'Iamirup/raworld', rootDirectory: '' },
           build: { watchPatterns: ['src/**'] },
           deploy: { startCommand: 'npm run start' },
           variables: {},
@@ -1677,7 +1677,7 @@ describe('critical ingestion Railway registry contract', () => {
     assert.ok(desk.requiredEnv.includes('DESK_PASSWORD'), 'the hosted desk binds 0.0.0.0 and must stay behind its login');
 
     const liveDesk = {
-      source: { repo: 'koala73/worldmonitor', branch: 'claude/tender-gates-sr83m5', checkSuites: true },
+      source: { repo: 'Iamirup/raworld', branch: 'claude/tender-gates-sr83m5', checkSuites: true },
       build: { builder: 'RAILPACK' },
       deploy: {},
       variables: {

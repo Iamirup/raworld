@@ -2,7 +2,7 @@ export const LABELS = {
   'alerts.rules':['Custom alert rules','Trigger conditions, quiet hours, encrypted channels'],
   'alerts.sirens':['Israel siren alerts','Real-time siren panel (desktop-gated)'],
   'analysis.frameworks':['Analysis frameworks','Per-panel analytical framework selection'],
-  'analyst.chat':['WM Analyst','Conversational queries across live services, with citations'],
+  'analyst.chat':['RaWorld Analyst','Conversational queries across live services, with citations'],
   'api.keys':['API key creation','Mint a wm_ key for the REST API and desktop app'],
   'api.rest':['REST API','Programmatic access, daily and burst quotas'],
   'aviation.data':['Aviation data','Flight status, carrier ops, airport flights, callsign search'],

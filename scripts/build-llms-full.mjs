@@ -301,7 +301,7 @@ function renderSourceDirectory(rootDir) {
   return [
     '## Source provider directory',
     '',
-    `World Monitor publishes ${catalog.length} named providers across ${pages.length} source catalog pages. Each linked page contains provider names, source hosts, origins and coverage in static HTML; no search or JavaScript is required.`,
+    `RaWorld publishes ${catalog.length} named providers across ${pages.length} source catalog pages. Each linked page contains provider names, source hosts, origins and coverage in static HTML; no search or JavaScript is required.`,
     '',
     ...pages.map((page) => `- [${page.name}](${SITE_ORIGIN}${page.path}): ${page.providers.length} providers.`),
   ].join('\n');
@@ -369,7 +369,7 @@ export function buildLlmsFullText({ rootDir = ROOT } = {}) {
     renderChokepointBlurbs().trim(),
   ].join('\n');
   return withCorpusNavigation([
-    { title: 'World Monitor', text: prefix },
+    { title: 'RaWorld', text: prefix },
     { title: 'Generated corpus', text: introduction },
     { title: 'Forecast accuracy', text: renderAccuracyFromSnapshot(rootDir) },
     { title: 'Chokepoint methodology', text: `## Chokepoint methodology\n\n${stripMdx(read(rootDir, 'docs/methodology/chokepoints.mdx'))}` },

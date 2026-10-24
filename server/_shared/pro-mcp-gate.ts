@@ -228,14 +228,14 @@ export function grantSessionVerificationUnavailableResponse(): Response {
  */
 export function proMcpGateDenialResponse(gate: ProMcpGateDenial): Response {
   if (gate.kind === 'insufficient_tier' || gate.kind === 'free_account') {
-    return jsonError('INSUFFICIENT_TIER', 'A WorldMonitor Pro subscription is required.', 403, {});
+    return jsonError('INSUFFICIENT_TIER', 'A RaWorld Pro subscription is required.', 403, {});
   }
 
   const { denial } = gate;
   if (!denial.retryable) {
     return jsonError(
       'INSUFFICIENT_TIER',
-      'Your WorldMonitor Pro subscription is no longer active. Renew it, then start the connection again.',
+      'Your RaWorld Pro subscription is no longer active. Renew it, then start the connection again.',
       403,
       { 'X-Billing-Verification': denial.code },
     );

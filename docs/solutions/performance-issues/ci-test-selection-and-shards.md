@@ -14,7 +14,7 @@ tags: [ci-performance, test-selection, sharding, railway, codegen]
 # CI test selection and shards
 
 A Railway registry CLI repair ran unrelated browser and code-generation jobs.
-In [PR 7731's Test run](https://github.com/koala73/worldmonitor/actions/runs/33974053555),
+In [PR 7731's Test run](https://github.com/Iamirup/raworld/actions/runs/33974053555),
 the browser job took 484 seconds, the unit job 379 seconds, and its data tests
 252 seconds. The separate proto pipeline took about 312 seconds. These jobs
 overlapped; their durations are not additive savings.
@@ -138,7 +138,7 @@ The saved failed-attempt trace in the same baseline run records
 Only the test trace and source attachments survived. It cannot establish whether
 the cause was renderer loss, browser exit or protocol ordering.
 
-[PR 7718](https://github.com/koala73/worldmonitor/pull/7718) owns browser-loss
+[PR 7718](https://github.com/Iamirup/raworld/pull/7718) owns browser-loss
 diagnostics. This change retains retry reporting, failed-attempt artifacts and
 the negative request-budget observation windows. It does not claim a flake fix.
 
@@ -198,8 +198,8 @@ of variation: corpus 13.8%, calibration 7.2%); the medians are descriptive.
 Candidate ranges did not overlap their baseline ranges in this sample.
 
 Shard estimates use the per-file medians from successful hosted runs
-[39657393920](https://github.com/koala73/worldmonitor/actions/runs/39657393920),
-[39661108147](https://github.com/koala73/worldmonitor/actions/runs/39661108147) and
-[39661923668](https://github.com/koala73/worldmonitor/actions/runs/39661923668),
+[39657393920](https://github.com/Iamirup/raworld/actions/runs/39657393920),
+[39661108147](https://github.com/Iamirup/raworld/actions/runs/39661108147) and
+[39661923668](https://github.com/Iamirup/raworld/actions/runs/39661923668),
 covering 2,217 current files with executed passing tests. Local timings were not
 substituted into those estimates.

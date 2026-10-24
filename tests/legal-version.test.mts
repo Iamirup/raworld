@@ -131,7 +131,7 @@ describe('legal version ↔ published text', () => {
   it('points a reader at the history that holds previous versions', () => {
     assert.equal(
       legalHistoryUrl('docs/terms.mdx'),
-      'https://github.com/koala73/worldmonitor/commits/main/docs/terms.mdx',
+      'https://github.com/Iamirup/raworld/commits/main/docs/terms.mdx',
     );
     for (const doc of ['docs/terms.mdx', 'docs/eula.mdx']) {
       const text = readFileSync(join(ROOT, doc), 'utf8');

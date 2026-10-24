@@ -42,7 +42,7 @@ it('switches source attribution during fallback and restores it on recovery', ()
   expect(label()).toBe('−100% components.pizzint.vsUsual');
 });
 
-it('shows World Monitor tensions and missing-data states when pizza is unavailable', () => {
+it('shows RaWorld tensions and missing-data states when pizza is unavailable', () => {
   const indicator = new PizzIntIndicator();
   indicator.updateStatus({ defconLevel: 5, defconLabel: '', aggregateActivity: 0,
     activeSpikes: 0, locationsMonitored: 0, locationsOpen: 0, lastUpdate: new Date(),

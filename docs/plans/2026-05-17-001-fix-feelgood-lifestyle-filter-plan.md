@@ -11,7 +11,7 @@ date: 2026-05-17
 
 ## Overview
 
-The May 17 0802 brief shipped "Veterans reunite with their vintage war planes" — a feel-good local human-interest piece from Peru, Illinois (population 9,800) — at card **#4 (HIGH severity)**, sitting in a brief otherwise covering WHO's Ebola declaration, a Rwandan genocide-suspect death, Israeli airstrikes in Lebanon, US-Cuba escalation, and Iran's war-readiness warnings. Editorially out of place in a "WorldMonitor Intelligence Brief."
+The May 17 0802 brief shipped "Veterans reunite with their vintage war planes" — a feel-good local human-interest piece from Peru, Illinois (population 9,800) — at card **#4 (HIGH severity)**, sitting in a brief otherwise covering WHO's Ebola declaration, a Rwandan genocide-suspect death, Israeli airstrikes in Lebanon, US-Cuba escalation, and Iran's war-readiness warnings. Editorially out of place in a "RaWorld Intelligence Brief."
 
 This is the same *class* of problem PR #3690 closed for opinion/analysis pieces — editorially-unfit content the upstream importance/severity classifier wrongly tagged as High-severity. Different signals, identical pipeline shape: ingest-time stamp on `story:track:v1` + buildDigest read-time filter for residue + drop telemetry.
 

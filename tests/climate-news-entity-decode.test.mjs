@@ -1,4 +1,4 @@
-// Focused regression test for koala73/worldmonitor#5436 (seed-climate-news unit).
+// Focused regression test for Iamirup/raworld#5436 (seed-climate-news unit).
 //
 // The seeder's old private decoder ran `.replace(/&lt;/g …)` then
 // `.replace(/&amp;/g …)` then `.replace(/&quot;/g …)` in sequence, so one call

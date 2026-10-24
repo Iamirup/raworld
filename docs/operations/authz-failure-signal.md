@@ -5,7 +5,7 @@ description: "Alert-only observability for high distinct-route authz failures pe
 
 # Authorization-failure signal
 
-Issue [#8406](https://github.com/koala73/worldmonitor/issues/8406) records that
+Issue [#8406](https://github.com/Iamirup/raworld/issues/8406) records that
 volumetric rate limiting and entitlement enforcement work as designed, but
 nothing watches **authorization failures per identity**. A methodical scanner
 stays under the global request ceiling by construction, so request-rate limiting
@@ -215,4 +215,4 @@ make IP noisier than `principal_id`.
 - [Usage telemetry](../architecture/usage-telemetry.md) — field dictionary and other APL recipes
 - `server/_shared/usage-identity.ts` — `principal_id` is null for anon
 - `server/_shared/rate-limit.ts` — volumetric limits (out of scope for this signal)
-- Issue [#8406](https://github.com/koala73/worldmonitor/issues/8406)
+- Issue [#8406](https://github.com/Iamirup/raworld/issues/8406)

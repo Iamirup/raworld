@@ -30,7 +30,7 @@ A **hybrid scorer** combines an absolute ladder ("a 3% gold premium is `stressed
 with a relative one ("this print is in the 99th percentile of its own trailing history"), then
 takes the worse of the two. The absolute half survives a window where the whole baseline is
 already stressed; the relative half catches a move that is unusual *for this series* before it
-reaches an absolute floor. Both halves earn their place, and the design is deliberate — WorldMonitor
+reaches an absolute floor. Both halves earn their place, and the design is deliberate — RaWorld
 issue #6448 specifies it as "hybrid absolute + relative" for the SGE-vs-COMEX physical premium.
 
 `scripts/lib/physical-divergence.mjs` is this repo's first such scorer. It classifies the gold and

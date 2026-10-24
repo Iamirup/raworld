@@ -117,7 +117,7 @@ test('emits an allowlisted event with outcome kv on a fresh value', async () => 
     assert.equal(typeof event.kv_duration_ms, 'number');
     assert.equal(event.cf_colo, 'SIN');
     assert.equal(event.cf_country, 'SG');
-    assert.equal(requestInit.headers['User-Agent'], 'WorldMonitor Bootstrap KV Shadow/1.0');
+    assert.equal(requestInit.headers['User-Agent'], 'RaWorld Bootstrap KV Shadow/1.0');
     // Privacy: EXACTLY the allowlist (+ _time). No ip/user_agent/customer_id/etc. can appear.
     assert.deepEqual(
       Object.keys(event).sort(),

@@ -1,5 +1,5 @@
 /**
- * HMAC-signed URL helpers for the WorldMonitor Brief magazine route.
+ * HMAC-signed URL helpers for the RaWorld Brief magazine route.
  *
  * The hosted magazine at /api/brief/{userId}/{issueSlot} is auth-less
  * in the traditional sense (no Clerk session, no cookie). The signed

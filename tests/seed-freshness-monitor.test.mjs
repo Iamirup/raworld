@@ -1151,7 +1151,7 @@ describe('scheduled seed freshness monitor', () => {
             service: 'seed-supply-chain-trade',
             probeKey: 'seed-meta:trade:tariffs',
             compactHealthStatus: 'OK',
-            reference: 'https://github.com/koala73/worldmonitor/issues/6377#issuecomment-1',
+            reference: 'https://github.com/Iamirup/raworld/issues/6377#issuecomment-1',
           },
         };
         const headSeedMeta = {

@@ -416,7 +416,7 @@ describe('energy grounding in the actual corpus gate', () => {
   });
 
   it('rejects alternate wording, ids, sections, companions and conservative-policy controls', () => {
-    const companion = { id: 'E5', kind: 'chokepoint', value: '', factText: 'The Taiwan Strait is a shipping chokepoint World Monitor tracks for China.' };
+    const companion = { id: 'E5', kind: 'chokepoint', value: '', factText: 'The Taiwan Strait is a shipping chokepoint RaWorld tracks for China.' };
     const bad = [
       "China has a net energy import dependency of 24%, so its export control list may affect global supply chains. [1][E4]",
       `${energy.factText} [1][E4]`,
@@ -517,7 +517,7 @@ describe('evidence-grounded briefs', () => {
       { title: 'Côte d’Ivoire court reduces charges', source: 'BBC', url: 'https://bbc.com/ci' },
     ];
     const ciEvidence = [{ id: 'E1', kind: 'advisory', label: 'Travel advisory', value: 'Exercise Increased Caution', asOf: '2026-09-21T00:00:00.000Z',
-      factText: 'The most severe government travel advisory World Monitor tracks for Côte d’Ivoire is Exercise Increased Caution.' }];
+      factText: 'The most severe government travel advisory RaWorld tracks for Côte d’Ivoire is Exercise Increased Caution.' }];
     const text = 'SITUATION NOW\nCôte d’Ivoire signs LNG import deal [1]\n\nWHAT THIS MEANS FOR CÔTE D’IVOIRE\nCôte d’Ivoire signs LNG import deal while its travel advisory is Exercise Increased Caution. [1][E1]';
     assert.equal(briefCitationGroundingGap({ text, sources: ciSources, evidence: ciEvidence }, { countryCode: 'CI' }), null);
     assert.deepEqual(parseBriefSections(text, { countryCode: 'CI' }).map((section) => section.key), ['situation', 'implications']);

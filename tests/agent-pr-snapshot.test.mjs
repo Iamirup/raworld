@@ -34,7 +34,7 @@ function minimalPrResponse({ baseOid, headOid }) {
           author: { login: 'koala73' },
           baseRefName: 'main',
           baseRefOid: baseOid,
-          baseRepository: { nameWithOwner: 'koala73/worldmonitor' },
+          baseRepository: { nameWithOwner: 'Iamirup/raworld' },
           commits: {
             nodes: [{
               commit: {
@@ -48,9 +48,9 @@ function minimalPrResponse({ baseOid, headOid }) {
           headRefName: 'codex/agent-tools',
           headRefOid: headOid,
           headRepository: {
-            nameWithOwner: 'koala73/worldmonitor',
+            nameWithOwner: 'Iamirup/raworld',
             owner: { login: 'koala73' },
-            url: 'https://github.com/koala73/worldmonitor',
+            url: 'https://github.com/Iamirup/raworld',
           },
           isCrossRepository: false,
           isDraft: false,
@@ -59,7 +59,7 @@ function minimalPrResponse({ baseOid, headOid }) {
           number: 123,
           reviewThreads: { nodes: [], pageInfo: { endCursor: null, hasNextPage: false } },
           state: 'OPEN',
-          url: 'https://github.com/koala73/worldmonitor/pull/123',
+          url: 'https://github.com/Iamirup/raworld/pull/123',
         },
       },
     },
@@ -83,23 +83,23 @@ describe('agent PR snapshot', () => {
 
   it('parses HTTPS and SSH GitHub origins', () => {
     assert.equal(
-      parseGitHubRemote('https://github.com/koala73/worldmonitor.git').nameWithOwner,
-      'koala73/worldmonitor',
+      parseGitHubRemote('https://github.com/Iamirup/raworld.git').nameWithOwner,
+      'Iamirup/raworld',
     );
     assert.equal(
-      parseGitHubRemote('git@github.com:koala73/worldmonitor.git').nameWithOwner,
-      'koala73/worldmonitor',
+      parseGitHubRemote('git@github.com:Iamirup/raworld.git').nameWithOwner,
+      'Iamirup/raworld',
     );
-    const tokenized = parseGitHubRemote('https://secret-token@github.com/koala73/worldmonitor.git');
-    assert.equal(tokenized.canonicalUrl, 'https://github.com/koala73/worldmonitor');
+    const tokenized = parseGitHubRemote('https://secret-token@github.com/Iamirup/raworld.git');
+    assert.equal(tokenized.canonicalUrl, 'https://github.com/Iamirup/raworld');
     assert.equal(JSON.stringify(tokenized).includes('secret-token'), false);
   });
 
   it('accepts only a PR number or GitHub pull-request URL', () => {
     assert.equal(parsePrNumber('123'), 123);
-    assert.equal(parsePrNumber('https://github.com/koala73/worldmonitor/pull/123'), 123);
+    assert.equal(parsePrNumber('https://github.com/Iamirup/raworld/pull/123'), 123);
     assert.throws(
-      () => parsePrNumber('https://github.com/other/repo/pull/123', 'koala73/worldmonitor'),
+      () => parsePrNumber('https://github.com/other/repo/pull/123', 'Iamirup/raworld'),
       /not koala73\/worldmonitor/,
     );
     assert.throws(() => parsePrNumber('issue-123'), /Invalid pull request/);
@@ -109,7 +109,7 @@ describe('agent PR snapshot', () => {
     const runner = (file, args) => {
       const command = args.join(' ');
       if (file === 'git' && command === 'remote get-url origin') {
-        return { status: 0, stderr: '', stdout: 'https://github.com/koala73/worldmonitor.git\n' };
+        return { status: 0, stderr: '', stdout: 'https://github.com/Iamirup/raworld.git\n' };
       }
       if (file === 'git' && command === 'rev-parse HEAD') {
         return { status: 0, stderr: '', stdout: `${oid('a')}\n` };
@@ -135,7 +135,7 @@ describe('agent PR snapshot', () => {
     const runner = (file, args, options) => {
       const command = args.join(' ');
       if (file === 'git' && command === 'remote get-url origin') {
-        return { status: 0, stderr: '', stdout: 'https://github.com/koala73/worldmonitor.git\n' };
+        return { status: 0, stderr: '', stdout: 'https://github.com/Iamirup/raworld.git\n' };
       }
       if (file === 'git' && command === 'fetch --no-tags origin main') {
         fetchOptions = options;
@@ -171,7 +171,7 @@ describe('agent PR snapshot', () => {
         };
       }
       if (file === 'git' && command === 'remote get-url origin') {
-        return { status: 0, stderr: '', stdout: 'https://github.com/koala73/worldmonitor.git\n' };
+        return { status: 0, stderr: '', stdout: 'https://github.com/Iamirup/raworld.git\n' };
       }
       if (file === 'git' && command === 'fetch --no-tags origin main') {
         return { status: 0, stderr: '', stdout: '' };
@@ -211,7 +211,7 @@ describe('agent PR snapshot', () => {
     const runner = (file, args) => {
       const command = args.join(' ');
       if (file === 'git' && command === 'remote get-url origin') {
-        return { status: 0, stderr: '', stdout: 'https://github.com/koala73/worldmonitor.git\n' };
+        return { status: 0, stderr: '', stdout: 'https://github.com/Iamirup/raworld.git\n' };
       }
       if (file === 'git' && command === 'rev-parse HEAD') {
         return { status: 0, stderr: '', stdout: `${oid('a')}\n` };
@@ -309,7 +309,7 @@ describe('agent PR snapshot', () => {
           networkTimeouts.set(command.split(' ')[0], options.timeout);
         }
         if (command === 'remote get-url origin') {
-          return { status: 0, stderr: '', stdout: 'https://github.com/koala73/worldmonitor.git\n' };
+          return { status: 0, stderr: '', stdout: 'https://github.com/Iamirup/raworld.git\n' };
         }
         if (command === 'rev-parse HEAD') return { status: 0, stderr: '', stdout: `${headOid}\n` };
         if (command === 'rev-parse origin/main') {
@@ -321,7 +321,7 @@ describe('agent PR snapshot', () => {
         if (command.includes('@{upstream}')) {
           return { status: 0, stderr: '', stdout: 'origin/codex/agent-tools\n' };
         }
-        if (command === `ls-remote https://github.com/koala73/worldmonitor refs/heads/codex/agent-tools`) {
+        if (command === `ls-remote https://github.com/Iamirup/raworld refs/heads/codex/agent-tools`) {
           return { status: 0, stderr: '', stdout: `${headOid}\trefs/heads/codex/agent-tools\n` };
         }
         return { status: 0, stderr: '', stdout: '' };
@@ -338,7 +338,7 @@ describe('agent PR snapshot', () => {
                 author: { login: 'koala73' },
                 baseRefName: 'main',
                 baseRefOid: pullRequestBaseOid,
-                baseRepository: { nameWithOwner: 'koala73/worldmonitor' },
+                baseRepository: { nameWithOwner: 'Iamirup/raworld' },
                 commits: {
                   nodes: [{
                     commit: {
@@ -360,9 +360,9 @@ describe('agent PR snapshot', () => {
                 headRefName: 'codex/agent-tools',
                 headRefOid: headOid,
                 headRepository: {
-                  nameWithOwner: 'koala73/worldmonitor',
+                  nameWithOwner: 'Iamirup/raworld',
                   owner: { login: 'koala73' },
-                  url: 'https://github.com/koala73/worldmonitor',
+                  url: 'https://github.com/Iamirup/raworld',
                 },
                 isCrossRepository: false,
                 isDraft: false,
@@ -376,7 +376,7 @@ describe('agent PR snapshot', () => {
                         author: { login: 'reviewer' },
                         body: 'Please change the rendering path.',
                         createdAt: '2026-08-15T00:00:00Z',
-                        url: 'https://github.com/koala73/worldmonitor/pull/123#discussion_r1',
+                        url: 'https://github.com/Iamirup/raworld/pull/123#discussion_r1',
                       }],
                     },
                     diffSide: 'RIGHT',
@@ -390,7 +390,7 @@ describe('agent PR snapshot', () => {
                 },
                 state: 'OPEN',
                 title: 'Agent tools',
-                url: 'https://github.com/koala73/worldmonitor/pull/123',
+                url: 'https://github.com/Iamirup/raworld/pull/123',
               },
             },
           },
@@ -456,7 +456,7 @@ describe('agent PR snapshot', () => {
     mkdirSync(target, { mode: 0o700 });
     symlinkSync(target, cacheDir, 'dir');
     assert.throws(
-      () => readCachedSnapshot({ cacheDir, prNumber: 123, repoName: 'koala73/worldmonitor' }),
+      () => readCachedSnapshot({ cacheDir, prNumber: 123, repoName: 'Iamirup/raworld' }),
       /Unsafe PR snapshot cache directory/,
     );
   });

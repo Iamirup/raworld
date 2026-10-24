@@ -1,14 +1,14 @@
-# World Monitor — Community Promotion Guide
+# RaWorld — Community Promotion Guide
 
-Thank you for helping spread the word about World Monitor! This guide provides talking points, must-see features, and visual suggestions to help you create compelling content for your audience.
+Thank you for helping spread the word about RaWorld! This guide provides talking points, must-see features, and visual suggestions to help you create compelling content for your audience.
 
 ---
 
-## What is World Monitor?
+## What is RaWorld?
 
 **One-line pitch**: A free, open-source, real-time global intelligence dashboard — like Bloomberg Terminal meets OSINT, for everyone.
 
-**Longer description**: World Monitor aggregates curated news feeds, military tracking, financial markets, conflict data, protest monitoring, satellite imagery, and AI-powered analysis into a single unified dashboard with an interactive globe. Available as a web app, desktop app (macOS/Windows/Linux), and installable PWA.
+**Longer description**: RaWorld aggregates curated news feeds, military tracking, financial markets, conflict data, protest monitoring, satellite imagery, and AI-powered analysis into a single unified dashboard with an interactive globe. Available as a web app, desktop app (macOS/Windows/Linux), and installable PWA.
 
 ---
 
@@ -22,7 +22,7 @@ Thank you for helping spread the word about World Monitor! This guide provides t
 | [commodity.worldmonitor.app](https://commodity.worldmonitor.app) | Commodity variant — mining, metals, energy, supply chains |
 | [happy.worldmonitor.app](https://happy.worldmonitor.app) | Happy variant — positive news, breakthroughs, conservation |
 | [energy.worldmonitor.app](https://energy.worldmonitor.app) | Energy variant — oil, gas, chokepoints, energy security |
-| [GitHub](https://github.com/koala73/worldmonitor) | Source code (AGPL-3.0) |
+| [GitHub](https://github.com/Iamirup/raworld) | Source code (AGPL-3.0) |
 
 ---
 
@@ -171,10 +171,10 @@ Run AI summarization entirely on your own hardware — no API keys, no cloud, no
 
 ## Branding Notes
 
-- **Name**: "World Monitor" (two words, capitalized)
+- **Name**: "RaWorld" (two words, capitalized)
 - **Tagline**: "Real-time global intelligence dashboard"
 - **License**: AGPL-3.0 (free and open source)
-- **Creator**: Credit "World Monitor by Elie Habib" or link to the GitHub repo
+- **Creator**: Credit "RaWorld by Elie Habib" or link to the GitHub repo
 - **Variants**: You can mention all six (World/Tech/Finance/Commodity/Happy/Energy) or focus on the main one
 - **No login required**: Anyone can use the web app immediately — no signup, no paywall
 
@@ -182,6 +182,6 @@ Run AI summarization entirely on your own hardware — no API keys, no cloud, no
 
 ## Thank You
 
-We genuinely appreciate community members helping grow World Monitor's reach. Feel free to interpret these guidelines creatively — there's no strict template. The most compelling content comes from showing what YOU find most interesting or useful about the tool.
+We genuinely appreciate community members helping grow RaWorld's reach. Feel free to interpret these guidelines creatively — there's no strict template. The most compelling content comes from showing what YOU find most interesting or useful about the tool.
 
 If you have questions or want specific screenshots/assets, open a Discussion on the GitHub repo or reach out directly.

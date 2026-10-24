@@ -208,7 +208,7 @@ function repositoryFromEvent(event) {
   return event?.repository?.full_name
     || event?.repository?.fullName
     || process.env.GITHUB_REPOSITORY
-    || 'koala73/worldmonitor';
+    || 'Iamirup/raworld';
 }
 
 function defaultBranchFromEvent(event) {

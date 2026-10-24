@@ -190,7 +190,7 @@ describe('MCP preset catalog and probes', () => {
     assert.equal(redirect.observed, 'HTTP 308');
     assert.equal(requests.length, 1);
     assert.equal(requests[0].method, 'POST');
-    assert.match(requests[0].headers['user-agent'], /WorldMonitor/);
+    assert.match(requests[0].headers['user-agent'], /RaWorld/);
     assert.equal(requests[0].headers.authorization, undefined);
     const stream = await probePreset({ ...openPreset, serverUrl: `${base}/stream` });
     assert.equal(stream.ok, true);

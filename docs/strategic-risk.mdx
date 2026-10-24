@@ -150,9 +150,9 @@ Aggregate activity maps to a 5-level readiness scale:
 | **DEFCON 4** | 25% – 49% | Above Normal | Increased vigilance |
 | **DEFCON 5** | &lt;25% | Normal Activity | Normal peacetime operations |
 
-### World Monitor Tension Pairs
+### RaWorld Tension Pairs
 
-The indicator also displays World Monitor tension scores computed independently from GDELT event exports:
+The indicator also displays RaWorld tension scores computed independently from GDELT event exports:
 
 | Pair | Monitored Relationship |
 |------|----------------------|
@@ -163,7 +163,7 @@ The indicator also displays World Monitor tension scores computed independently 
 
 Each pair shows:
 
-- **Current tension score** (World Monitor's normalized score)
+- **Current tension score** (RaWorld's normalized score)
 - **7-day trend** (rising, falling, stable)
 - **Percentage change** from previous period
 
@@ -173,14 +173,14 @@ This provides context for the activity levels. See the country-pair tension sect
 
 | Surface | Endpoint | Notes |
 |---|---|---|
-| Pentagon Pizza Index + GDELT pairs | `GET /api/intelligence/v1/get-pizzint-status` | Reads pizza activity and, with `include_gdelt=true`, independently computed World Monitor tension pairs. |
+| Pentagon Pizza Index + GDELT pairs | `GET /api/intelligence/v1/get-pizzint-status` | Reads pizza activity and, with `include_gdelt=true`, independently computed RaWorld tension pairs. |
 | GPS/GNSS interference | `GET /api/intelligence/v1/list-gps-interference` | Reads normalized GPSJam Redis keys, with optional `region` filtering. |
 | OREF alerts for CII context | `GET /api/intelligence/v1/list-oref-alerts` | Direct RPC for live or history OREF data; see [Israel Sirens](/panels/oref-sirens) for the panel relay path. |
 | Security advisories | `GET /api/intelligence/v1/list-security-advisories` | Redis-backed advisory feed used by CII boosts and floors. |
 | Country energy profile | `GET /api/intelligence/v1/get-country-energy-profile` | Country-level energy context for country deep dives and strategic risk analysis. |
 | Energy shock scenario | `GET /api/intelligence/v1/compute-energy-shock` | On-demand country + chokepoint product supply shock. |
 
-### World Monitor country-pair tensions
+### RaWorld country-pair tensions
 
 Tensions use GDELT event exports, not PizzINT's GPR scale. The materializer counts
 both actor directions for US–Russia, Russia–Ukraine, US–China, and US–Iran.
@@ -287,7 +287,7 @@ Strategic risk and Country Instability Index (CII) scores are pre-computed serve
 
 The `GetRiskScores` RPC handler (`get-risk-scores.ts`):
 
-1. Fetches recent protest/riot/battle/explosion/civilian-violence data from ACLED. While ACLED returns no events (WorldMonitor has no ACLED access), Conflict and Unrest instead read GDELT terms (escalation or sustained level) from `gdelt:bulk:country-events:v1`.
+1. Fetches recent protest/riot/battle/explosion/civilian-violence data from ACLED. While ACLED returns no events (RaWorld has no ACLED access), Conflict and Unrest instead read GDELT terms (escalation or sustained level) from `gdelt:bulk:country-events:v1`.
 2. Fetches auxiliary sources from Redis, including UCDP conflicts, outages, climate, fires, GPS jamming, Iran events, OREF alerts, advisories, displacement, classified news summaries, aviation alerts, earthquakes, sanctions, and military/AIS CII aggregates.
 3. Computes CII v14 scores for 31 Tier-1 countries using the shared coefficient table documented in [CII Risk Scoring Methodology](/methodology/cii-risk-scores).
 4. Derives Strategic Risk from the weighted top 5 CII scores.

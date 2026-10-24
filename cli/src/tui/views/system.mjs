@@ -172,7 +172,7 @@ export class SystemView extends PaneView {
       [{ text: `worldmonitor cli v${VERSION}`, fg: t.text, attr: ATTR.BOLD }],
       [{ text: 'Terminal client for worldmonitor.app · public bootstrap tiers, no key required.', fg: t.dim }],
       [{ text: `worldmonitor web`, fg: t.accent }, { text: ' opens the original web dashboard.', fg: t.dim }],
-      [{ text: 'Source: github.com/koala73/worldmonitor (cli/)', fg: t.dim }],
+      [{ text: 'Source: github.com/Iamirup/raworld (cli/)', fg: t.dim }],
     ];
     lines.slice(0, inner.h).forEach((segs, i) => segments(ctx, inner.x, inner.y + i, segs, inner.w, { bg: t.panel }));
     void rect;

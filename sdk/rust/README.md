@@ -1,8 +1,8 @@
-# World Monitor Rust SDK
+# RaWorld Rust SDK
 
-The official Rust client for [World Monitor](https://worldmonitor.app), a global intelligence dashboard for geopolitical risk, markets, conflict, news, and other live data.
+The official Rust client for [RaWorld](https://worldmonitor.app), a global intelligence dashboard for geopolitical risk, markets, conflict, news, and other live data.
 
-This blocking client calls any [World Monitor MCP tool](https://www.worldmonitor.app/docs/mcp-overview) and host-relative REST endpoints. It uses `reqwest` with Rustls and `serde_json`. It does not require the desktop app or a system OpenSSL installation.
+This blocking client calls any [RaWorld MCP tool](https://www.worldmonitor.app/docs/mcp-overview) and host-relative REST endpoints. It uses `reqwest` with Rustls and `serde_json`. It does not require the desktop app or a system OpenSSL installation.
 
 ## Install
 
@@ -36,7 +36,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-`list_tools`, `list_prompts`, and `list_resources` are public. `get_sources` is the only data tool that needs no key and consumes no daily quota. Anonymous source requests have a separate limit of 10 calls per minute per IP. Other data tools require a subscription API key from [World Monitor Pro](https://worldmonitor.app/pro).
+`list_tools`, `list_prompts`, and `list_resources` are public. `get_sources` is the only data tool that needs no key and consumes no daily quota. Anonymous source requests have a separate limit of 10 calls per minute per IP. Other data tools require a subscription API key from [RaWorld Pro](https://worldmonitor.app/pro).
 
 Tool arguments must be a JSON object. `call_tool` returns the unwrapped JSON-RPC `result`, preserving MCP `content`, `structuredContent`, and `isError`. Inspect `isError` for tool-level failures. JSON-RPC failures return `Error::Mcp`, including code, message, and optional data. HTTP failures return `Error::Http`, including status and body. Network, JSON, and protocol failures have separate error variants.
 
@@ -84,4 +84,4 @@ cargo package --locked
 
 `cargo run --locked --example sources` makes one anonymous live data request. Tests use local HTTP fixtures and do not need an API key.
 
-See [the first-release runbook](https://github.com/koala73/worldmonitor/blob/main/sdk/rust/RELEASING.md) for account setup and publication. The package metadata links back to the official repository and product domain.
+See [the first-release runbook](https://github.com/Iamirup/raworld/blob/main/sdk/rust/RELEASING.md) for account setup and publication. The package metadata links back to the official repository and product domain.

@@ -96,7 +96,7 @@ describe('claim card on /verify', () => {
     const html = renderClaimCardHtml(checkClaim('Mars colony declares independence from Earth', search('Mars colony declares independence from Earth')), NOW);
     const host = document.createElement('div');
     host.innerHTML = html;
-    expect(host.querySelector('.vc-verdict-title')?.textContent).toBe('Not in WorldMonitor\'s current sources');
+    expect(host.querySelector('.vc-verdict-title')?.textContent).toBe('Not in RaWorld\'s current sources');
     expect(host.textContent).toContain('does not make it false');
     expect(host.textContent).not.toMatch(/\bfake\b|\bdebunked\b|\bis false\b|\bverified true\b/i);
     expect(host.querySelector('.hl-list')).toBeNull();
@@ -156,7 +156,7 @@ describe('published fact-checks on /verify (#9094)', () => {
     expect(render(null).textContent).toContain('Looking for published fact-checks');
   });
 
-  it('never grades the claim in WorldMonitor\'s own words', () => {
+  it('never grades the claim in RaWorld\'s own words', () => {
     for (const result of [FACT_CHECKS, { state: 'ok' as const, factChecks: [], caveat: FACT_CHECK_CAVEAT }]) {
       const text = render(result).textContent ?? '';
       expect(text.replace(/Rated “[^”]*”/g, '')).not.toMatch(/\bfalse\b|\bfake\b|\bdebunked\b|\btrue\b/i);
@@ -227,7 +227,7 @@ describe('/verify page bootstrap', () => {
     history.replaceState(null, '', '/verify?claim=Mars%20colony%20declares%20independence');
     await import('@/verify-main');
     await vi.waitFor(() => expect(document.querySelector('.vc-verdict-title')).not.toBeNull());
-    expect(document.querySelector('.vc-verdict-title')?.textContent).toBe('Not in WorldMonitor\'s current sources');
+    expect(document.querySelector('.vc-verdict-title')?.textContent).toBe('Not in RaWorld\'s current sources');
   });
 
   it('navigating away from a pending check drops its result', async () => {

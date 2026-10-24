@@ -46,7 +46,7 @@ fi
 # shells out to `git config user.name` without stripping them writes its fake
 # identity into the SHARED .git/config — poisoning every worktree's future
 # commits (2026-08-30 "Fixture <fixture@example.invalid>" incident; also
-# "test@example.com", "WorldMonitor Test", "e@e.co" before it). The hook needs
+# "test@example.com", "RaWorld Test", "e@e.co" before it). The hook needs
 # none of these vars: cwd-based discovery works in every worktree. Capture the
 # push stdin first (the gate consumes it), then strip the list git publishes.
 WM_PUSH_STDIN=$(cat || true)

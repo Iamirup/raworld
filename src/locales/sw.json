@@ -1,9 +1,9 @@
 {
   "shell": {
-    "documentTitle": "World Monitor — Dashibodi ya Ujasusi ya Ulimwenguni ya Wakati Halisi",
+    "documentTitle": "RaWorld — Dashibodi ya Ujasusi ya Ulimwenguni ya Wakati Halisi",
     "metaDescription": "Jukwaa la hekima halisi duniani kote. Linajulikana katika WIRED. Linalotumiwa na watu 2M+ katika nchi 190. Mizozo, soko, kijeshi, ujumbe halisi unaotoka kwa wenyeji katika mandhari moja.",
     "offlineTitle": "Uko Nje ya Mtandao",
-    "offlineMessage": "World Monitor inahitaji muunganisho wa intaneti kwa data ya wakati halisi ya kijasusi.",
+    "offlineMessage": "RaWorld inahitaji muunganisho wa intaneti kwa data ya wakati halisi ya kijasusi.",
     "offlineRetry": "Jaribu tena"
   },
   "widgets": {
@@ -41,16 +41,15 @@
     "phaseError": "Hitilafu",
     "previewCheckingHeading": "Kuunganisha kijenzi cha wijeti",
     "previewReadyHeading": "Eleza wijeti unayotaka",
-    "previewFetchingHeading": "Inaleta data ya moja kwa moja ya WorldMonitor",
+    "previewFetchingHeading": "Inaleta data ya moja kwa moja ya RaWorld",
     "previewComposingHeading": "Kuunda mpangilio wa wijeti",
     "previewErrorHeading": "Onyesho la kuchungulia linahitaji umakini",
     "previewCheckingCopy": "Tunathibitisha ufunguo wako wa wijeti na upatikanaji wa mandharinyuma kabla ya kuwezesha utengenezaji.",
     "previewReadyCopy": "Tumia mfano wa papo hapo au ueleze mwonekano halisi wa moja kwa moja unaotaka. Onyesho la kuchungulia litasasishwa hapa kabla ya kulihifadhi.",
-    "previewFetchingCopy": "Wakala anapiga simu kwenye sehemu za mwisho za WorldMonitor zilizoidhinishwa na kuunda mkusanyiko wa data wa wijeti.",
+    "previewFetchingCopy": "Wakala anapiga simu kwenye sehemu za mwisho za RaWorld zilizoidhinishwa na kuunda mkusanyiko wa data wa wijeti.",
     "previewComposingCopy": "Onyesho la kuchungulia linaonyesha data ya moja kwa moja na mitindo ya dashibodi ya hivi punde.",
     "previewErrorCopy": "Rekebisha suala hilo, kisha ujaribu tena. Wijeti zako zilizopo hazijaathiriwa.",
     "createInteractive": "Unda Wijeti inayoingiliana",
-    "proBadge": "PRO",
     "preflightProUnavailable": "Wakala wa wijeti ya PRO hapatikani. Angalia PRO_WIDGET_KEY kwenye seva.",
     "preflightInvalidProKey": "Ufunguo wa PRO umekataliwa. Sasisha ufunguo wa wm-pro na upakie upya.",
     "preflightProSubscriptionRequired": "Usajili wa Pro unahitajika. Ikiwa umesasisha hivi karibuni, onyesha upya ukurasa; vinginevyo wasiliana na usaidizi.",
@@ -267,7 +266,6 @@
     "foodStocksHelp": "Hifadhi za USDA za uzalishaji, ugavi na usambazaji kwa uwiano wa matumizi kupwa kwa mwaka wa soko, na uwiano wa dunia kando kwa muktadha. FAOSTAT Food Balances inatoa uzalishaji na ugavi wa ndani wakati Production, Supply and Distribution haina salio kamili la nchi.",
     "loadingFoodStocks": "Inapakia hifadhi za chakula…",
     "foodStocksUnavailable": "Hifadhi za chakula hazipatikani.",
-    "foodStocksProLocked": "Panda hadi PRO kwa uwiano wa hifadhi na matumizi ya bidhaa",
     "foodStocksCommodity": "Bidhaa",
     "foodStocksMarketingYear": "Mwaka wa masoko",
     "foodStocksRatio": "Uwiano wa hifadhi na matumizi",
@@ -285,7 +283,6 @@
       "help": "Muundo wa umri, njia ya elimu, na uwezo wa kazi ya viwanda kutoka kwa UN World Population Prospects, UNESCO Institute for Statistics na World Bank World Development Indicators, na ILOSTAT.",
       "loading": "Loading demographics and workforce data…",
       "unavailable": "Demographics and workforce data unavailable.",
-      "proLocked": "Upgrade to PRO for demographics and workforce data",
       "notAvailable": "Not available",
       "ageStructure": "Age structure",
       "education": "Education pipeline",
@@ -311,7 +308,6 @@
       "help": "Alama za ushahidi v1 zilizofungwa kwa chakula, nishati, demografia, teknolojia, na ulinzi. Panua mstari ili kuchunguza vyanzo, asili ya taarifa, na sababu za ukosefu wa data.",
       "loading": "Inapakia kadi ya alama za vipengele vitano…",
       "unavailable": "Kadi ya alama za vipengele vitano haipatikani.",
-      "proLocked": "Boleza hadi PRO kwa kadi ya alama za ustahimilivu ya vipengele vitano",
       "insufficient": "Data haitoshi",
       "notAvailable": "Haipatikani",
       "noEvidence": "Hakuna ushahidi unaopatikana kwa nguzo hii.",
@@ -368,9 +364,7 @@
         "defense_supplierDiversity": "Utengeneaji wa watoa huduma za silaha"
       }
     },
-    "defenseIndustrialBase": {
-      "proLocked": "Boreshaji hadi PRO kwa utegemezi wa wauzaji wa silaha na uwezo wa kijeshi"
-    }
+    "defenseIndustrialBase": {}
   },
   "header": {
     "world": "ULIMWENGU",
@@ -781,8 +775,7 @@
       "alertTitle": {
         "configured": "Mipangilio ya Eneo-kazi imesanidiwa",
         "needsKeys": "Sanidi vitufe vya API ili kufungua vipengele",
-        "some": "Baadhi ya vipengele vinahitaji funguo za API",
-        "pro": "World Monitor Pro inatumika"
+        "some": "Baadhi ya vipengele vinahitaji funguo za API"
       },
       "summary": {
         "desktop": "Hali ya eneo-kazi",
@@ -811,18 +804,13 @@
         "NASA_FIRMS_API_KEY": "Taarifa za Moto kwa Mfumo wa Usimamizi wa Rasilimali.",
         "OLLAMA_API_URL": "k.m. http://127.0.0.1:11434 (Ollama) au http://127.0.0.1:1234/v1 (LM Studio) - Mwisho unaoendana na OpenAI.",
         "OLLAMA_MODEL": "k.m. llama3.1:8b - lebo ya mfano ya kutumia kwa muhtasari."
-      },
-      "proCloud": "Vipengele bila ufunguo wa API wa ndani hutumia data ya wingu la World Monitor.",
-      "skipSetupPro": "Ruka usanidi: ingia kwa World Monitor Pro ili kutumia data ya wingu badala ya ufunguo wako wa API.",
-      "getPro": "Pata World Monitor Pro"
+      }
     },
     "settingsWindow": {
       "shellTitle": "Mipangilio ya Ufuatiliaji Ulimwenguni",
       "shellSearchPlaceholder": "Tafuta mipangilio...",
       "shellCancel": "Ghairi",
       "shellSaveClose": "Hifadhi na Ufunge",
-      "freePanelLimit": "Mpango usiolipishwa: paneli zisizozidi {{max}}. Boresha hadi PRO kwa ukomo.",
-      "freeSourceLimit": "Mpango usiolipishwa: upeo wa vyanzo {{max}}. Boresha hadi PRO kwa ukomo.",
       "validating": "Inathibitisha funguo za API...",
       "saved": "Mipangilio imehifadhiwa",
       "failed": "Imeshindwa kuhifadhi: {{error}}",
@@ -841,12 +829,6 @@
           "title": "Leseni / Kitufe cha API",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxx",
           "description": "API Starter na API Business waliojisajili huunda ufunguo huu kwenye dashibodi ya wavuti chini ya Settings → API Keys. Ufunguo kamili ukipotea, ubatilishe na uunde mbadala."
-        },
-        "dividerOr": "AU",
-        "register": {
-          "title": "Je, unahitaji ufunguo wa API?",
-          "description": "Tazama worldmonitor.app/docs/api-keys kwa usaidizi wa hatua kwa hatua. Vifunguo vya mwongozo vinahitaji API Starter au API Business plan.",
-          "submitBtn": "Tazama mipango ya API"
         }
       },
       "table": {
@@ -1093,8 +1075,7 @@
       "refineryStage": "Refine",
       "stageUnavailable": "No published figures for this stage",
       "withheldNote": "W withheld",
-      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them.",
-      "productionProLocked": "Panda kwa PRO kwa sehemu za nchi ya mgodi na rafinery na mkusanyiko (fahirisi ya mkusanyiko wa uzalishaji) kwa hatua."
+      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them."
     },
     "tradePolicy": {
       "overview": "Muhtasari",
@@ -1229,7 +1210,7 @@
       "skipToEnd": "Ruka hadi mwisho"
     },
     "pizzint": {
-      "indexSource": "Faharasa: World Monitor · data za maeneo:",
+      "indexSource": "Faharasa: RaWorld · data za maeneo:",
       "statusNormal": "KAWAIDA",
       "statusNoData": "HAKUNA DATA",
       "statusNoBaseline": "HAKUNA MSINGI",
@@ -1238,7 +1219,7 @@
       "defcon": "DEFCON {{level}}",
       "updated": "Ilisasishwa {{timeAgo}}",
       "tensionsTitle": "Mvutano wa Kijiografia",
-      "tensionsSource": "Mivutano: World Monitor kwa kutumia matukio ya GDELT",
+      "tensionsSource": "Mivutano: RaWorld kwa kutumia matukio ya GDELT",
       "insufficientData": "Data haitoshi",
       "pizzaUnavailable": "Data ya shughuli za migahawa ya pizza haipatikani",
       "source": "Chanzo:",
@@ -1917,7 +1898,7 @@
       "staleReport": "Ripoti iliyopitwa na wakati",
       "reported": "Idadi",
       "period": "Kipindi",
-      "movementNote": "Kila safu huhifadhi chanzo chake, tarehe ya ripoti na kipimo. Idadi ya watu waliopo, waliowasili na matukio ya udhibiti wa mipaka ni vipimo tofauti. Vyanzo vinaweza kuhesabu watu wale wale; usijumlishe idadi zao. WorldMonitor huunda mwonekano huu kutoka vyanzo vilivyounganishwa; hii haimaanishi uidhinishaji na watoa data.",
+      "movementNote": "Kila safu huhifadhi chanzo chake, tarehe ya ripoti na kipimo. Idadi ya watu waliopo, waliowasili na matukio ya udhibiti wa mipaka ni vipimo tofauti. Vyanzo vinaweza kuhesabu watu wale wale; usijumlishe idadi zao. RaWorld huunda mwonekano huu kutoka vyanzo vilivyounganishwa; hii haimaanishi uidhinishaji na watoa data.",
       "recent": "Hivi karibuni",
       "last30Days": "Siku 30 za mwisho",
       "newThisWeek": "Mpya wiki hii",
@@ -2423,7 +2404,7 @@
       "loadError": "Habari za hali ya hewa hazipatikani kwa sasa"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>Mchambuzi wa WM</strong> Mchambuzi wa AI aliye na muktadha wa moja kwa moja katika nyanja za jiografia, soko, kijeshi na kiuchumi. Inaendeshwa na Claude na data ya wakati halisi iliyoingizwa kutoka kwa milisho inayotumika ya WorldMonitor."
+      "infoTooltip": "<strong>Mchambuzi wa WM</strong> Mchambuzi wa AI aliye na muktadha wa moja kwa moja katika nyanja za jiografia, soko, kijeshi na kiuchumi. Inaendeshwa na Claude na data ya wakati halisi iliyoingizwa kutoka kwa milisho inayotumika ya RaWorld."
     },
     "cotPositioning": {
       "infoTooltip": "<strong>Futures positioning</strong> Maamuzi ya sehemu halisi kwa wiki kwa wafanyabiashara wa biashara, wanamvua mikakati kubwa na wanamvua mikakati wadogo katika soko la bidhaa na soko la fedha. Chanzo ni ripoti ya Commodity Futures Trading Commission Commitments of Traders, inayochapishwa Ijumaa."
@@ -2511,7 +2492,7 @@
       "infoTooltip": "<strong>Economic Calendar</strong> Kutolewa kwa uchumi wa jumla kulingana na ratiba: fahirisi ya bei ya watumiaji, mapato yasiyo na shambani, jumla ya bidhaa za ndani, fahirisi ya wanajasama wa ununuzi, na maamuzi ya benki kuu. Inaonyesha mkutano wa makadirio na halisi na iliyopita. Matukio ya athari kuu yanazingatiwa. Chanzo: wanatolea data ya uchumi."
     },
     "fsi": {
-      "infoTooltip": "<strong>Financial Stress Indicator</strong> WorldMonitor uwiano wa mikakati ya juu-ya mavuno kwa Hazina za muda mrefu, iliyosasushwa kwa mabadiliko ya sehemu halisi na sehemu ya juu-ya mavuno: (HYG / TLT) / (VIX × Sehemu ya juu-ya mavuno / 100). Hii sio Kansas City Fed Financial Stress Index. Kusoma kwa 1.5 au zaidi ni mkazo mdogo; chini ya 0.3 ni mkazo mkubwa.",
+      "infoTooltip": "<strong>Financial Stress Indicator</strong> RaWorld uwiano wa mikakati ya juu-ya mavuno kwa Hazina za muda mrefu, iliyosasushwa kwa mabadiliko ya sehemu halisi na sehemu ya juu-ya mavuno: (HYG / TLT) / (VIX × Sehemu ya juu-ya mavuno / 100). Hii sio Kansas City Fed Financial Stress Index. Kusoma kwa 1.5 au zaidi ni mkazo mdogo; chini ya 0.3 ni mkazo mkubwa.",
       "title": "Kiashiria cha Dhiki ya Kifedha",
       "usFsiValue": "Thamani ya US Financial Stress Indicator",
       "cissTitle": "EU CISS (Mfadhaiko wa Mfumo wa Eneo la Euro)",
@@ -2569,8 +2550,7 @@
       "dependentCommodities": "Bidhaa tegemezi",
       "stateOk": "Ya sasa",
       "stateStale": "Ingizo la zamani",
-      "stateInsufficient": "Data haitoshi",
-      "proLocked": "Boreshaji hadi PRO kwa alama ya kufa kwa kilicho haraka cha bidhaa"
+      "stateInsufficient": "Data haitoshi"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>Hormuz Trade Tracker</strong> Ufuatiliaji wa meli halisi kupitia Kifaranga cha Hormuz, hatua mbaya ya mafuta muhimu zaidi duniani. Inafuatilia hesabu za tanki, matukio ya kumwazimu, na mabadiliko ya mtiririko wa wiki. Takriban 20% ya ugavi wa mafuta wa jumla hupitia hapa kila siku.",
@@ -2595,7 +2575,7 @@
       "infoTooltip": "<strong>Macro indicators</strong> Wamarekani, eneo la euro na viashiria vya bei ya China, shughuli, sera na fedha. China inahitaji kufuatiliwa kwa sasa. Kila tile inaonyesha chanzo chake na tarehe ya uchunguzi."
     },
     "monitors": {
-      "infoTooltip": "<strong>Vichunguzi vya Neno Muhimu</strong> Ongeza neno lolote ili kufuatilia kutajwa kwa habari za moja kwa moja kwenye vyanzo vyote vya WorldMonitor. Matokeo husasishwa katika muda halisi huku makala yanayolingana yanapomezwa."
+      "infoTooltip": "<strong>Vichunguzi vya Neno Muhimu</strong> Ongeza neno lolote ili kufuatilia kutajwa kwa habari za moja kwa moja kwenye vyanzo vyote vya RaWorld. Matokeo husasishwa katika muda halisi huku makala yanayolingana yanapomezwa."
     },
     "renewable": {
       "infoTooltip": "<strong>Renewable Energy</strong> Sehemu ya kuzalisha umeme kutoka kwa nishati inayoweza kubalika kwa eneo na mwaka, pamoja na uwezo uliowekwa wa Wamarekani kwa jua, upepo, na kola (MW). Vyanzo: World Bank (EG.ELC.RNEW.ZS) na US Energy Information Administration."
@@ -2614,13 +2594,6 @@
     },
     "yieldCurve": {
       "infoTooltip": "<strong>Yield Curve &amp; Rates</strong> Curve ya mavuno ya Hazina za Wamarekani (2Y, 5Y, 10Y, 30Y) na viwango vya sehemu muhimu ikiwemo kiashiria cha 10Y-2Y inversion. Pia inaonyesha viwango vya eneo la euro (EURIBOR, ESTR). Curve inayobadilika kwa kawaida inakuwa kabla ya downturns. Chanzo: Federal Reserve Economic Data."
-    },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro imezinduliwa",
-      "tagline": "Mawimbi Zaidi, Kelele kidogo. Muhtasari zaidi wa AI. Mtafiti wa Kijiografia na Usawa kwa ajili yako.",
-      "cta": "Pata toleo jipya la Pro →",
-      "dismiss": "Ondoa"
     },
     "checkoutFailureBanner": {
       "message": "Malipo hayakuweza kukamilika. Hakuna malipo yaliyofanywa.",
@@ -2845,111 +2818,11 @@
         "compactDays": "{{count}}d"
       }
     },
-    "billingState": {
-      "onHoldDesc": "Payment failed. Update your payment method to restore premium access.",
-      "onHoldBannerMessage": "Payment failed. Update your payment method to keep your subscription active.",
-      "updatePayment": "Update Payment",
-      "renewalPendingDesc": "We're verifying your subscription renewal. Premium access will be restored automatically once confirmed.",
-      "refreshStatus": "Refresh Status",
-      "renewalFailedDesc": "We couldn't verify your subscription renewal. Manage billing or contact support if this persists.",
-      "manageBilling": "Manage Billing",
-      "lapsedDesc": "Your Pro subscription has ended. Resubscribe to regain premium access.",
-      "resubscribe": "Resubscribe"
-    },
     "exportGate": {
-      "signedOutDesc": "Sign in to export dashboard data as CSV, JSON or PDF.",
-      "upgradeDesc": "Data export (CSV, JSON, PDF) is included with Pro Business.",
-      "upgradeCta": "Upgrade to Pro Business",
       "lockedAriaLabel": "Export data — locked. {{reason}}",
       "unlockedAnnouncement": "Data export unlocked.",
       "preparingPdf": "Preparing PDF…",
       "pdfFailed": "The PDF report could not be generated. Try again, or use the JSON export."
-    },
-    "tabCap": {
-      "signedOutDesc": "Signed-out workspaces are limited to {{cap}} dashboard tabs. Sign in to add more.",
-      "upgradeDesc": "You've reached your limit of {{cap}} dashboard tabs.",
-      "upgradeCta": "Upgrade for more",
-      "lockedAriaLabel": "Add tab — locked. {{reason}}",
-      "unlockedAnnouncement": "Dashboard tab limit lifted."
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "Step {{current}} of {{total}}",
-      "closeLabel": "Skip setup",
-      "ariaLabel": "Pro activation setup",
-      "signedInAs": "Signed in as {{email}}",
-      "steps": {
-        "brief": {
-          "heading": "Your daily brief, every morning",
-          "body": "A curated intelligence briefing in your inbox each morning — the overnight signals that matter, distilled into a five-minute read.",
-          "confirmCta": "Turn on my morning brief",
-          "confirming": "Turning it on…",
-          "doneNote": "Your morning brief is already running.",
-          "scheduleNote": "We'll keep your current delivery time.",
-          "summaryLabel": "Morning brief",
-          "summaryVerified": "On — starts with your next morning brief.",
-          "deliverAt": "Deliver at",
-          "previewLoading": "Preparing a preview of your first brief…",
-          "previewLabel": "This morning's brief"
-        },
-        "alerts": {
-          "heading": "Critical alerts",
-          "body": "Get pinged in your browser when something big breaks — conflict escalations, market shocks, fresh sanctions. Tune the cadence anytime in Settings.",
-          "confirmCta": "Enable alerts",
-          "confirming": "Enabling…",
-          "doneNote": "Browser alerts are already on.",
-          "blockedNote": "Notifications are blocked in your browser. Turn them on in your browser's site settings to get alerts.",
-          "declinedNote": "No problem — we won't send browser alerts. You can turn them on later from your browser's site settings.",
-          "summaryLabel": "Critical alerts",
-          "summaryVerified": "On — critical signals will reach your browser."
-        },
-        "power": {
-          "heading": "Your Pro toolkit",
-          "body": "Custom widgets, MCP connections, and the AI researcher are unlocked. Build the board you actually want to watch.",
-          "confirmCta": "Explore Pro tools",
-          "confirming": "Opening…",
-          "doneNote": "You're already using your Pro tools.",
-          "summaryLabel": "Pro toolkit",
-          "summaryVerified": "Unlocked and ready when you are.",
-          "channelsNote": "Prefer Telegram, Slack, Discord, or a webhook?",
-          "pointers": {
-            "search": "Search the entire dashboard",
-            "widgets": "Build a custom widget",
-            "analyst": "Ask the AI analyst",
-            "mcpClients": "Set up MCP",
-            "channels": "Set those up in notification settings"
-          }
-        }
-      },
-      "status": {
-        "pending": "Not set up",
-        "inFlight": "Setting up…",
-        "verified": "Ready",
-        "failed": "Didn't work",
-        "blocked": "Blocked",
-        "unavailable": "Not available",
-        "blockedNote": "This isn't available right now — you can set it up later from settings.",
-        "unavailableNote": "This isn't available on your device — you can set it up later.",
-        "failedBody": "Something went wrong. You can try again, or set it up later from settings.",
-        "retry": "Try again"
-      },
-      "actions": {
-        "skip": "Skip for now",
-        "continue": "Continue"
-      },
-      "summary": {
-        "heading": "You're all set",
-        "subVerified": "Here's what's running on your account.",
-        "subPending": "You can finish setup any time from settings.",
-        "linePending": "Not set up yet — finish any time in settings.",
-        "lineFailed": "We couldn't set this up — try again from settings.",
-        "finish": "Go to my dashboard"
-      },
-      "chip": {
-        "message": "Finish setting up your Pro account.",
-        "action": "Finish setup",
-        "dismissLabel": "Dismiss"
-      }
     },
     "fx": {
       "infoTooltip": "<strong>Currency rates</strong> Mkazo ranki 45 fedha kwa kupungua kwao kubwa zaidi katika miezi 24, na mabadiliko ya miezi 12. Bei ya spot hutumia msingi tofauti wa dola ya Wamarekani na euro. Bei za ruble ya Kirusi ni rubles kwa kila kitengo. Vyanzo vinajumuisha Yahoo Finance, European Central Bank na Bank of Russia.",
@@ -2983,18 +2856,6 @@
       "rubPerUnit": "RUB per unit",
       "sourceCbr": "Source: Bank of Russia"
     },
-    "passkeyOffer": {
-      "title": "Hifadhi passkey?",
-      "body": "Ingia kwa haraka inayofuata kwa kutumia kidole chako, uso, au PIN ya kifaa — hakuna nenosiri la kukumbuka.",
-      "accept": "Hifadhi passkey",
-      "dismiss": "Sio sasa",
-      "close": "Funga",
-      "announce": "Hifadhi passkey ili kuingia kwa haraka inayofuata.",
-      "busy": "Kusubiri kifaa chako…",
-      "succeeded": "Passkey imehifadhiwa. Unaweza kuitumia wakati wa kuingia inayofuata.",
-      "retryable": "Hiyo haikumalizia. Unaweza kujaribu tena.",
-      "failed": "Hatuwezi kuhifadhi passkey kwenye kifaa hiki."
-    },
     "decisionBrief": {
       "commodityTitle": "Muhtasari wa uamuzi wa bidhaa",
       "commodity": "Bidhaa / zao",
@@ -3013,8 +2874,7 @@
       "changed": "Chaguo limebadilika. Pata hali zote mbili kabla ya kuhamisha matokeo.",
       "loading": "Inapata hali zote mbili…",
       "captured": "Imepatikana. Kagua tarehe za uchunguzi na vikwazo kabla ya kupakua.",
-      "failed": "Imeshindwa kupata hali hizo. Kagua ruhusa yako ya kufikia na ujaribu tena. Hakuna matokeo ya kuhamisha.",
-      "locked": "Muhtasari wa uamuzi unapatikana kwa Pro."
+      "failed": "Imeshindwa kupata hali hizo. Kagua ruhusa yako ya kufikia na ujaribu tena. Hakuna matokeo ya kuhamisha."
     },
     "liveMedia": {
       "idleStatus": "Iliyotegezwa kwa sababu ya kutokuwepo na kufanya kitu",
@@ -3738,31 +3598,9 @@
     "panelFontScale": "Ukubwa wa maandishi",
     "followGlobalFontScale": "Tumia kiwango cha ulimwengu"
   },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "Inahitaji ufunguo wa leseni ya Monitor Duniani",
-    "signInToUnlock": "Ingia katika akaunti ili ufungue vipengele vinavyolipiwa",
-    "signIn": "Ingia ili Kufungua",
-    "upgradeDesc": "Pata toleo jipya la Pro ili upate ufikiaji kamili wa uchanganuzi unaolipishwa",
-    "upgradeToPro": "Pata toleo jipya la Pro",
-    "features": {
-      "orefSirens1": "Arifa za wakati halisi za kombora na roketi za Israeli",
-      "orefSirens2": "Ramani ya eneo la king'ora na uainishaji wa vitisho",
-      "telegramIntel1": "Chaneli zilizochaguliwa za akili za chanzo wazi kwenye Telegram",
-      "telegramIntel2": "Mizozo ya wakati halisi na masasisho ya kijiografia na kisiasa",
-      "xIntel1": "Curated public news accounts on X",
-      "xIntel2": "API-fresh posts with official permalinks"
-    }
-  },
   "contextMenu": {
     "openCountryBrief": "Fungua Muhtasari wa Nchi",
     "copyCoordinates": "Nakili Viratibu"
-  },
-  "auth": {
-    "signIn": "Ingia",
-    "createAccount": "Fungua akaunti",
-    "settings": "Mipangilio",
-    "passkeyOffer": {}
   },
   "mcp": {
     "connectPanel": "Unganisha MCP",
@@ -3851,8 +3689,6 @@
     "resilience": "Ustahimilivu",
     "ciiMissing": "CII haipatikani",
     "resilienceMissing": "Ustahimilivu haupatikani",
-    "noEvents": "Hakuna vichwa vya habari vilivyochaguliwa vilivyorekodiwa kwa tarehe hii. Hii haithibitishi kwamba hakuna matukio yaliyotokea.",
-    "unlock90": "Fungua siku 90 kwa Pro",
-    "unlock365": "Fungua siku 365 kwa mpango wa API"
+    "noEvents": "Hakuna vichwa vya habari vilivyochaguliwa vilivyorekodiwa kwa tarehe hii. Hii haithibitishi kwamba hakuna matukio yaliyotokea."
   }
 }

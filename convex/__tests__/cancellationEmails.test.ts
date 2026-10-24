@@ -596,7 +596,7 @@ describe("cancellation confirmation copy (#7314)", () => {
   test("copy stays plan-neutral so API subscribers aren't told about Pro features", () => {
     // This step fires for EVERY plan key. The winback template names Pro
     // features unconditionally; this one must not copy that, or an
-    // api_starter canceller is told their "briefs and WM Analyst" continue.
+    // api_starter canceller is told their "briefs and RaWorld Analyst" continue.
     const { subject, html } = buildCancellationConfirmEmail(
       "API Starter (Monthly)",
       "https://www.worldmonitor.app/dashboard",
@@ -605,7 +605,7 @@ describe("cancellation confirmation copy (#7314)", () => {
     expect(subject).toContain("API Starter (Monthly)");
     expect(subject).toContain("28 September 2026");
     expect(html).toContain("28 September 2026");
-    for (const proOnly of ["WM Analyst", "Pro panels", "briefs"]) {
+    for (const proOnly of ["RaWorld Analyst", "Pro panels", "briefs"]) {
       expect(html).not.toContain(proOnly);
     }
     // And it must not claim the account drops to free — the canceller may

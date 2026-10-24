@@ -107,7 +107,7 @@ export class LiveView extends PaneView {
     const cand = this.candidate();
     if (!cur || !cand) return this.app.toast('no stream listed for this slot', 2000, 'warn');
     const player = this.app.player || {};
-    const title = `World Monitor · ${cur.name}`;
+    const title = `RaWorld · ${cur.name}`;
     const note = (text, kind) => this.app.toast(text, 3500, kind);
     if (mode === 'browser' || !player.mpv) {
       if (!player.mpv && mode !== 'browser') note('mpv not found: opening in the browser instead (brew install mpv yt-dlp)', 'warn');

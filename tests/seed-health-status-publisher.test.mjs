@@ -156,7 +156,7 @@ function runPublisher({
         FAKE_STATUS_DIR: statusesDir,
         FAKE_ANCESTRY_VALID: String(ancestryValid),
         GH_TOKEN: 'test-token',
-        GITHUB_REPOSITORY: 'koala73/worldmonitor',
+        GITHUB_REPOSITORY: 'Iamirup/raworld',
         SEED_STATUS_WRITER_LOGIN: WRITER,
         PATH: `${fakeBin}:${process.env.PATH}`,
       },

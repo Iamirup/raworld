@@ -28,7 +28,7 @@ related_components:
 
 ## Context
 
-`/sources/` is a generated static page listing World Monitor's whole provider catalog. Round 7 of the GEO audit found its schema.org `ItemList` announcing all of the catalog's elements as **bare strings**, with 43 of the display names repeated (`renderSourcesIndex()` in `scripts/crawlable-sources-page.mjs`). The repeats were not duplicate data: they are one publisher reached through several hosts — Yahoo Finance through three, Euronews through eight language editions — each of which is a distinct catalog entry that a display name alone cannot tell apart. A parser reading that list had 748 opaque labels, no way to key on them, and no way to distinguish the eight Euronews entries from each other.
+`/sources/` is a generated static page listing RaWorld's whole provider catalog. Round 7 of the GEO audit found its schema.org `ItemList` announcing all of the catalog's elements as **bare strings**, with 43 of the display names repeated (`renderSourcesIndex()` in `scripts/crawlable-sources-page.mjs`). The repeats were not duplicate data: they are one publisher reached through several hosts — Yahoo Finance through three, Euronews through eight language editions — each of which is a distinct catalog entry that a display name alone cannot tell apart. A parser reading that list had 748 opaque labels, no way to key on them, and no way to distinguish the eight Euronews entries from each other.
 
 The fix (issue #7869, PR #7881 — open and unmerged as of this writing) gave every provider card a stable `id` and gave every `ListItem` a `url` addressing one specific card:
 

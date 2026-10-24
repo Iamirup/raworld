@@ -30,7 +30,7 @@ tags:
 
 ## Problem
 
-`/mcp` served an unauthenticated `initialize` with `200` and only returned `401` later, when a paid tool was called. Hosted connectors (Cursor Agents, Grok Bot, ChatGPT) decide whether a server needs sign-in from how that opening handshake is answered, so they recorded WorldMonitor as "connected, nothing to authenticate" and had no authorization server on file when the mid-session `401` arrived. Their sign-in control could never work.
+`/mcp` served an unauthenticated `initialize` with `200` and only returned `401` later, when a paid tool was called. Hosted connectors (Cursor Agents, Grok Bot, ChatGPT) decide whether a server needs sign-in from how that opening handshake is answered, so they recorded RaWorld as "connected, nothing to authenticate" and had no authorization server on file when the mid-session `401` arrived. Their sign-in control could never work.
 
 ## Symptoms
 

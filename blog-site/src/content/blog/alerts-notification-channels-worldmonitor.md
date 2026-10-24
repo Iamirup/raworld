@@ -1,7 +1,7 @@
 ---
-title: "Seven Ways WorldMonitor Reaches You When the World Changes"
-description: "Telegram, Slack, Discord, Teams, email, webhooks, and web push: WorldMonitor alert rules deliver scoped intelligence with digests and quiet hours."
-metaTitle: "Intelligence Alerts: 7 Notification Channels | WorldMonitor"
+title: "Seven Ways RaWorld Reaches You When the World Changes"
+description: "Telegram, Slack, Discord, Teams, email, webhooks, and web push: RaWorld alert rules deliver scoped intelligence with digests and quiet hours."
+metaTitle: "Intelligence Alerts: 7 Notification Channels | RaWorld"
 keywords: "geopolitical alerts app, telegram news alerts, discord intelligence alerts, microsoft teams alerts, web push breaking news, alert fatigue quiet hours, intelligence notifications"
 audience: "Analysts, ops and security teams, traders, journalists, anyone who can't watch a dashboard all day"
 heroImage: "/blog/images/blog/alerts-notification-channels-worldmonitor.jpg"
@@ -11,7 +11,7 @@ modifiedDate: "2026-10-17"
 
 A dashboard you have to watch is a part-time job. The whole point of monitoring infrastructure is inverted attention: you ignore the world safely because the system knows what you care about and interrupts you only when it happens.
 
-WorldMonitor's alert system is built for that inversion — no code, no webhook glue, unless you want it.
+RaWorld's alert system is built for that inversion — no code, no webhook glue, unless you want it.
 
 ## Seven channels, your choice
 
@@ -29,7 +29,7 @@ The same rule can feed different channels for different severities — critical 
 
 ## Scoped rules, not firehoses
 
-An alert system that forwards everything is just a louder feed. WorldMonitor rules are scoped on three axes:
+An alert system that forwards everything is just a louder feed. RaWorld rules are scoped on three axes:
 
 - **What**: the event types you care about — not the whole stream.
 - **Where**: rules respect **Country Scope**, so "unrest events" can mean "unrest events in the four countries my team operates in," not the planet.

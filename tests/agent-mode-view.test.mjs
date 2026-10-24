@@ -94,7 +94,7 @@ describe('agent-mode view (/?mode=agent)', () => {
 
     assert.ok(wordCount >= 550, `public/home.md is too thin for agents (${wordCount} words)`);
     for (const heading of [
-      '## What World Monitor answers',
+      '## What RaWorld answers',
       '## How the correlation surface works',
       '## Sources, provenance, and freshness',
       '## Access and plans',

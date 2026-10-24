@@ -54,7 +54,7 @@ function assertWellFormed(html) {
   assert.equal(opens, closes, 'every <div> is closed');
   assert.equal((html.match(/<a\b/g) ?? []).length, (html.match(/<\/a>/g) ?? []).length, 'every <a> is closed');
   assert.ok(html.trimEnd().endsWith('</div>'), 'ends on the wrapper close');
-  assert.ok(html.includes('github.com/koala73/worldmonitor'), 'footer survives');
+  assert.ok(html.includes('github.com/Iamirup/raworld'), 'footer survives');
 }
 
 describe('digest email size cap', () => {

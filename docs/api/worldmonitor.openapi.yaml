@@ -1,9 +1,9 @@
 openapi: 3.1.0
 info:
-    title: WorldMonitor API
-    description: 'Unified OpenAPI bundle spanning all WorldMonitor services. Versioning and deprecation policy: https://www.worldmonitor.app/api-versioning.md (HTML: https://www.worldmonitor.app/docs/api-versioning)'
+    title: RaWorld API
+    description: 'Unified OpenAPI bundle spanning all RaWorld services. Versioning and deprecation policy: https://www.worldmonitor.app/api-versioning.md (HTML: https://www.worldmonitor.app/docs/api-versioning)'
     contact:
-        name: WorldMonitor
+        name: RaWorld
         email: support@worldmonitor.app
     version: 1.0.0
 servers:
@@ -642,7 +642,7 @@ paths:
                                       "carrier":
                                           "iataCode": "JFK"
                                           "icaoCode": "example"
-                                          "name": "WorldMonitor Analyst"
+                                          "name": "RaWorld Analyst"
                                 "source": "example"
                                 "updatedAt": 1717200000000
                             schema:
@@ -2741,8 +2741,8 @@ paths:
                                 "items":
                                     - "id": "example-id"
                                       "publishedAt": 1717200000000
-                                      "sourceName": "WorldMonitor Analyst"
-                                      "summary": "Example WorldMonitor observation."
+                                      "sourceName": "RaWorld Analyst"
+                                      "summary": "Example RaWorld observation."
                                       "title": "example"
                             schema:
                                 $ref: '#/components/schemas/worldmonitor_climate_v1_ListClimateNewsResponse'
@@ -2863,7 +2863,7 @@ paths:
                                     - "example-id"
                                 "locations":
                                     - "example"
-                                "name": "WorldMonitor Analyst"
+                                "name": "RaWorld Analyst"
                         schema:
                             $ref: '#/components/schemas/worldmonitor_company_monitoring_v1_CreateMonitoredCompanyRequest'
                 required: true
@@ -3059,7 +3059,7 @@ paths:
                                       "value": "example"
                                 "customerReference": "example"
                                 "domicileCountry": "DOMICILE_COUNTRY_US"
-                                "name": "WorldMonitor Analyst"
+                                "name": "RaWorld Analyst"
                                 "removeClaimIds":
                                     - "cm_claim_01ARZ3NDEKTSV4RRFFQ69G5FAV"
                         schema:
@@ -3444,7 +3444,7 @@ paths:
                                         - "example-id"
                                     "locations":
                                         - "example"
-                                    "name": "WorldMonitor Analyst"
+                                    "name": "RaWorld Analyst"
                                   "ordinal": 0
                         schema:
                             $ref: '#/components/schemas/worldmonitor_company_monitoring_v1_ImportMonitoredCompanyBatchRequest'
@@ -5124,7 +5124,7 @@ paths:
                                     - "category": "cs.AI"
                                       "id": "example-id"
                                       "latitude": 40.7128
-                                      "locationName": "WorldMonitor Analyst"
+                                      "locationName": "RaWorld Analyst"
                                       "longitude": -74.006
                                 "scrapedAt": "1717200000000"
                             schema:
@@ -5711,7 +5711,7 @@ paths:
                                       "currentIndex": 1.5
                                       "itemCount": 1
                                       "momPct": 1.5
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                 "marketCode": "US"
                                 "range": "7d"
                                 "upstreamUnavailable": false
@@ -6118,7 +6118,7 @@ paths:
                                 "retailers":
                                     - "freshnessMin": 1
                                       "lastRunAt": "1717200000000"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "parseSuccessRate": 75.25
                                       "slug": "example"
                                 "stalledCount": 1
@@ -6473,12 +6473,12 @@ paths:
                                           "asylumLocation":
                                               "latitude": 40.7128
                                               "longitude": -74.006
-                                          "asylumName": "WorldMonitor Analyst"
+                                          "asylumName": "RaWorld Analyst"
                                           "originCode": "US"
                                           "originLocation":
                                               "latitude": 40.7128
                                               "longitude": -74.006
-                                          "originName": "WorldMonitor Analyst"
+                                          "originName": "RaWorld Analyst"
                                           "refugees": 1
                                     "year": 2025
                             schema:
@@ -6762,7 +6762,7 @@ paths:
                                       "fetchedAt": 1717200000000
                                       "id": "example-id"
                                       "maxContentAgeMin": 1
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                             schema:
                                 $ref: '#/components/schemas/worldmonitor_displacement_v1_GetCrossBorderMovementsResponse'
                 "400":
@@ -6904,7 +6904,7 @@ paths:
                                 "countries":
                                     - "code": "US"
                                       "densityPerKm2": 1
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "population": 1
                                 "exposure":
                                     "densityPerKm2": 1
@@ -7224,7 +7224,7 @@ paths:
                                     - "countryCode": "US"
                                       "countryName": "US"
                                       "indicatorCode": "NY.GDP.MKTP.CD"
-                                      "indicatorName": "WorldMonitor Analyst"
+                                      "indicatorName": "RaWorld Analyst"
                                       "value": 1.5
                                       "year": 1
                                 "pagination":
@@ -7352,7 +7352,7 @@ paths:
                                 "prices":
                                     - "change": 1.5
                                       "commodity": "example"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "priceAt": 1717200000000
                                       "unit": "example"
@@ -7861,7 +7861,7 @@ paths:
                                         - "capacityMw": 1.5
                                           "year": 1
                                       "energySource": "example"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                             schema:
                                 $ref: '#/components/schemas/worldmonitor_economic_v1_GetEnergyCapacityResponse'
                 "400":
@@ -8508,7 +8508,7 @@ paths:
                                           - "available": true
                                             "currency": "USD"
                                             "itemId": "example-id"
-                                            "itemName": "WorldMonitor Analyst"
+                                            "itemName": "RaWorld Analyst"
                                             "localPrice": 75.25
                                 "fetchedAt": "2026-01-15T12:00:00Z"
                                 "mostExpensiveCountry": "US"
@@ -11943,7 +11943,7 @@ paths:
                                                 "projectedProbability": 0.62
                                                 "rounds":
                                                     - {}
-                                                "summary": "Example WorldMonitor observation."
+                                                "summary": "Example RaWorld observation."
                                           "changeItems":
                                               - "example"
                                       "confidence": 0.82
@@ -12850,9 +12850,9 @@ paths:
                                           "reportedUnit": "USD"
                                           "reportedValue": 2000000000
                                           "sourceLocator": "Issue #5504, unsupported crypto estimate"
-                                          "sourceName": "WorldMonitor issue #5504"
+                                          "sourceName": "RaWorld issue #5504"
                                           "sourcePublishedAt": ""
-                                          "sourceUrl": "https://github.com/koala73/worldmonitor/issues/5504"
+                                          "sourceUrl": "https://github.com/Iamirup/raworld/issues/5504"
                                           "status": "unverified"
                                           "subject": "Legacy crypto-giving annual volume"
                                           "valueQualifier": "approximately"
@@ -12870,9 +12870,9 @@ paths:
                                           "reportedUnit": "wallets"
                                           "reportedValue": 150
                                           "sourceLocator": "Issue #5504, unsupported wallet and receiver metrics"
-                                          "sourceName": "WorldMonitor issue #5504"
+                                          "sourceName": "RaWorld issue #5504"
                                           "sourcePublishedAt": ""
-                                          "sourceUrl": "https://github.com/koala73/worldmonitor/issues/5504"
+                                          "sourceUrl": "https://github.com/Iamirup/raworld/issues/5504"
                                           "status": "unverified"
                                           "subject": "Legacy crypto wallet and receiver coverage"
                                           "valueQualifier": "unverified"
@@ -12889,9 +12889,9 @@ paths:
                                           "reportedUnit": "index points"
                                           "reportedValue": 34
                                           "sourceLocator": "Issue #5504, unsupported CAF value"
-                                          "sourceName": "WorldMonitor issue #5504"
+                                          "sourceName": "RaWorld issue #5504"
                                           "sourcePublishedAt": ""
-                                          "sourceUrl": "https://github.com/koala73/worldmonitor/issues/5504"
+                                          "sourceUrl": "https://github.com/Iamirup/raworld/issues/5504"
                                           "status": "unverified"
                                           "subject": "Legacy CAF World Giving Index context"
                                           "valueQualifier": "unverified"
@@ -12910,9 +12910,9 @@ paths:
                                           "reportedUnit": "distribution total"
                                           "reportedValue": 1
                                           "sourceLocator": "Issue #5504, unsupported category values and trending semantics"
-                                          "sourceName": "WorldMonitor issue #5504"
+                                          "sourceName": "RaWorld issue #5504"
                                           "sourcePublishedAt": ""
-                                          "sourceUrl": "https://github.com/koala73/worldmonitor/issues/5504"
+                                          "sourceUrl": "https://github.com/Iamirup/raworld/issues/5504"
                                           "status": "unverified"
                                           "subject": "Legacy giving category shares"
                                           "valueQualifier": "unverified"
@@ -12934,9 +12934,9 @@ paths:
                                           "reportedUnit": "compatibility sentinel"
                                           "reportedValue": 0
                                           "sourceLocator": "Issue #5504, collector audit"
-                                          "sourceName": "WorldMonitor issue #5504"
+                                          "sourceName": "RaWorld issue #5504"
                                           "sourcePublishedAt": ""
-                                          "sourceUrl": "https://github.com/koala73/worldmonitor/issues/5504"
+                                          "sourceUrl": "https://github.com/Iamirup/raworld/issues/5504"
                                           "status": "not_collected"
                                           "subject": "Live platform and category activity collection"
                                           "valueQualifier": "not_measured"
@@ -12955,9 +12955,9 @@ paths:
                                           "reportedUnit": "compatibility sentinel"
                                           "reportedValue": 0
                                           "sourceLocator": "Issue #5504, index and trend audit"
-                                          "sourceName": "WorldMonitor issue #5504"
+                                          "sourceName": "RaWorld issue #5504"
                                           "sourcePublishedAt": ""
-                                          "sourceUrl": "https://github.com/koala73/worldmonitor/issues/5504"
+                                          "sourceUrl": "https://github.com/Iamirup/raworld/issues/5504"
                                           "status": "not_applicable"
                                           "subject": "Activity index and directional trend"
                                           "valueQualifier": "not_measured"
@@ -13491,7 +13491,7 @@ paths:
                                         - "example"
                                       "cause": "example"
                                       "country": "US"
-                                      "description": "Example WorldMonitor observation."
+                                      "description": "Example RaWorld observation."
                                       "detectedAt": 1717200000000
                                       "id": "example-id"
                                 "pagination":
@@ -13619,10 +13619,10 @@ paths:
                             example:
                                 "statuses":
                                     - "checkedAt": 1717200000000
-                                      "description": "Example WorldMonitor observation."
+                                      "description": "Example RaWorld observation."
                                       "id": "example-id"
                                       "latencyMs": 1
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                             schema:
                                 $ref: '#/components/schemas/worldmonitor_infrastructure_v1_ListServiceStatusesResponse'
                 "400":
@@ -14008,7 +14008,7 @@ paths:
                             example:
                                 "code": "example"
                                 "country": "US"
-                                "displayName": "WorldMonitor Analyst"
+                                "displayName": "RaWorld Analyst"
                                 "error": "example"
                             schema:
                                 $ref: '#/components/schemas/worldmonitor_infrastructure_v1_ReverseGeocodeResponse'
@@ -14440,7 +14440,7 @@ paths:
                                         "confidence": 0.82
                                         "evidence":
                                             - "source": "example"
-                                              "summary": "Example WorldMonitor observation."
+                                              "summary": "Example RaWorld observation."
                                               "ts": 1
                                         "lastUpdated": 1
                                         "score": 42.5
@@ -14556,7 +14556,7 @@ paths:
                                 "anomalies":
                                     - "currentCount": 1
                                       "expectedCount": 1
-                                      "message": "Example WorldMonitor observation."
+                                      "message": "Example RaWorld observation."
                                       "multiplier": 1.5
                                       "region": "example"
                                 "computedAt": "2026-01-15T12:00:00Z"
@@ -14799,7 +14799,7 @@ paths:
                             example:
                                 "anomalies":
                                     - "asn": "example"
-                                      "asnName": "WorldMonitor Analyst"
+                                      "asnName": "RaWorld Analyst"
                                       "endDate": 1717200000000
                                       "latitude": 40.7128
                                       "locationCode": "US"
@@ -15325,7 +15325,7 @@ paths:
                   in: query
                   description: Event description or body text.
                   required: false
-                  example: "Example WorldMonitor observation."
+                  example: "Example RaWorld observation."
                   schema:
                     type: string
                 - name: source
@@ -16788,7 +16788,7 @@ paths:
                                 "error": "example"
                                 "messages":
                                     - "channelId": "example-id"
-                                      "channelName": "WorldMonitor Analyst"
+                                      "channelName": "RaWorld Analyst"
                                       "id": "example-id"
                                       "mediaUrls":
                                           - "https://example.com/worldmonitor"
@@ -16929,7 +16929,7 @@ paths:
                                 "error": "example"
                                 "posts":
                                     - "accountId": "example-id"
-                                      "accountName": "WorldMonitor Analyst"
+                                      "accountName": "RaWorld Analyst"
                                       "contentState": "example"
                                       "facts":
                                           - "example"
@@ -17044,7 +17044,7 @@ paths:
                   in: query
                   description: Company name, such as "Apple Inc".
                   required: false
-                  example: "WorldMonitor Analyst"
+                  example: "RaWorld Analyst"
                   schema:
                     type: string
                 - name: ticker
@@ -18149,7 +18149,7 @@ paths:
                                     - "confidence": "example"
                                       "direction": "example"
                                       "driver": "example"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "narrative": "example"
                                 "degraded": true
                                 "emptyReason": "example"
@@ -18985,7 +18985,7 @@ paths:
                                         "allianceCohesion": 1.5
                                         "buffers":
                                             - "axis": "example"
-                                              "description": "Example WorldMonitor observation."
+                                              "description": "Example RaWorld observation."
                                               "evidenceIds":
                                                   - "example"
                                               "magnitude": 1.5
@@ -19962,8 +19962,8 @@ paths:
                     application/json:
                         example:
                             "email": "analyst@example.com"
-                            "message": "Example WorldMonitor observation."
-                            "name": "WorldMonitor Analyst"
+                            "message": "Example RaWorld observation."
+                            "name": "RaWorld Analyst"
                             "organization": "example"
                             "phone": "example"
                             "source": "example"
@@ -20334,17 +20334,17 @@ paths:
                                           "location":
                                               "latitude": 40.7128
                                               "longitude": -74.006
-                                          "name": "WorldMonitor Analyst"
+                                          "name": "RaWorld Analyst"
                                           "note": "example"
                                     "disruptions":
                                         - "changePct": 1.5
                                           "darkShips": 1
-                                          "description": "Example WorldMonitor observation."
+                                          "description": "Example RaWorld observation."
                                           "id": "example-id"
                                           "location":
                                               "latitude": 40.7128
                                               "longitude": -74.006
-                                          "name": "WorldMonitor Analyst"
+                                          "name": "RaWorld Analyst"
                                     "sequence": 1
                                     "snapshotAt": 1717200000000
                             schema:
@@ -20614,7 +20614,7 @@ paths:
                                 "quotes":
                                     - "change": 1.5
                                       "display": "example"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "sparkline":
                                           - 1.5
@@ -20747,7 +20747,7 @@ paths:
                                 "quotes":
                                     - "change": 1.5
                                       "change7d": 1.5
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "sparkline":
                                           - 1.5
@@ -20883,7 +20883,7 @@ paths:
                                 "quotes":
                                     - "change": 1.5
                                       "display": "example"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "sparkline":
                                           - 1.5
@@ -21297,7 +21297,7 @@ paths:
                             example:
                                 "sectors":
                                     - "change": 1.5
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "symbol": "AAPL"
                             schema:
                                 $ref: '#/components/schemas/worldmonitor_market_v1_GetSectorSummaryResponse'
@@ -21734,7 +21734,7 @@ paths:
                                 "code": "US"
                                 "currency": "USD"
                                 "fetchedAt": "2026-01-15T12:00:00Z"
-                                "indexName": "WorldMonitor Analyst"
+                                "indexName": "RaWorld Analyst"
                             schema:
                                 $ref: '#/components/schemas/worldmonitor_market_v1_GetCountryStockIndexResponse'
                 "400":
@@ -21999,7 +21999,7 @@ paths:
                                     - "change": 1.5
                                       "country": "US"
                                       "flag": "example"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                 "rateLimited": true
                             schema:
@@ -22110,7 +22110,7 @@ paths:
                   in: query
                   description: Optional company display name used to disambiguate the symbol.
                   required: false
-                  example: "WorldMonitor Analyst"
+                  example: "RaWorld Analyst"
                   schema:
                     type: string
                 - name: include_news
@@ -22403,7 +22403,7 @@ paths:
                   in: query
                   description: Optional company display name used to disambiguate the symbol.
                   required: false
-                  example: "WorldMonitor Analyst"
+                  example: "RaWorld Analyst"
                   schema:
                     type: string
                 - name: eval_window_days
@@ -22680,7 +22680,7 @@ paths:
                                 "sectors":
                                     - "change": 1.5
                                       "id": "example-id"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                             schema:
                                 $ref: '#/components/schemas/worldmonitor_market_v1_ListCryptoSectorsResponse'
                 "400":
@@ -22791,7 +22791,7 @@ paths:
                                 "tokens":
                                     - "change": 1.5
                                       "change7d": 1.5
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "sparkline":
                                           - 1.5
@@ -22906,7 +22906,7 @@ paths:
                                 "tokens":
                                     - "change": 1.5
                                       "change7d": 1.5
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "sparkline":
                                           - 1.5
@@ -23021,7 +23021,7 @@ paths:
                                 "tokens":
                                     - "change": 1.5
                                       "change7d": 1.5
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "sparkline":
                                           - 1.5
@@ -24633,7 +24633,7 @@ paths:
             tags:
                 - MilitaryService
             summary: GetWingbitsStatus
-            description: Check whether Wingbits aircraft enrichment is configured for World Monitor, using the configuration flag before requesting aircraft details or batch enrichment.
+            description: Check whether Wingbits aircraft enrichment is configured for RaWorld, using the configuration flag before requesting aircraft details or batch enrichment.
             operationId: GetWingbitsStatus
             parameters:
                 - name: jmespath
@@ -25103,7 +25103,7 @@ paths:
                         application/json:
                             example:
                                 "flight":
-                                    "airlineName": "WorldMonitor Analyst"
+                                    "airlineName": "RaWorld Analyst"
                                     "altitude": 1.5
                                     "arrDelayedMin": 1
                                     "arrEstimatedUtc": "example"
@@ -26315,7 +26315,7 @@ paths:
                     application/json:
                         example:
                             "contact": "example"
-                            "message": "Example WorldMonitor observation."
+                            "message": "Example RaWorld observation."
                             "storyId": "example-id"
                             "url": "https://example.com/worldmonitor"
                         schema:
@@ -26469,7 +26469,7 @@ paths:
                                     - "contact": "example"
                                       "createdAt": 1717200000000
                                       "id": "example-id"
-                                      "message": "Example WorldMonitor observation."
+                                      "message": "Example RaWorld observation."
                                       "publicNote": "example"
                                 "state": "example"
                             schema:
@@ -26552,7 +26552,7 @@ paths:
                                     "contact": "example"
                                     "createdAt": 1717200000000
                                     "id": "example-id"
-                                    "message": "Example WorldMonitor observation."
+                                    "message": "Example RaWorld observation."
                                     "publicNote": "example"
                             schema:
                                 $ref: '#/components/schemas/worldmonitor_news_v1_ReviewErrorReportResponse'
@@ -26633,7 +26633,7 @@ paths:
                     content:
                         application/json:
                             example:
-                                "caveat": "Ratings are the fact-checkers' own, quoted with attribution from IFCN-verified signatories. WorldMonitor does not rate claims, and a rating never changes the coverage result above."
+                                "caveat": "Ratings are the fact-checkers' own, quoted with attribution from IFCN-verified signatories. RaWorld does not rate claims, and a rating never changes the coverage result above."
                                 "factChecks":
                                     - "claimReviewed": "A synthetic example claim, similar to the claim checked"
                                       "publisher": "Example Fact-Checker (synthetic)"
@@ -26797,7 +26797,7 @@ paths:
                                       "count": 1
                                       "latitude": 40.7128
                                       "longitude": -74.006
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                 "fetchedAt": 1717200000000
                                 "stale": true
                             schema:
@@ -27239,7 +27239,7 @@ paths:
                                           - "example"
                                       "id": "example-id"
                                       "publishedAt": 1717200000000
-                                      "summary": "Example WorldMonitor observation."
+                                      "summary": "Example RaWorld observation."
                                       "title": "example"
                                       "url": "https://example.com/worldmonitor"
                             schema:
@@ -27382,9 +27382,9 @@ paths:
                                     "nextCursor": "next-page-token"
                                     "totalCount": 1
                                 "repos":
-                                    - "description": "Example WorldMonitor observation."
+                                    - "description": "Example RaWorld observation."
                                       "forks": 1
-                                      "fullName": "koala73/worldmonitor"
+                                      "fullName": "Iamirup/raworld"
                                       "language": "typescript"
                                       "stars": 1
                                       "starsToday": 1
@@ -27691,7 +27691,7 @@ paths:
                                         "lng": -74.006
                                         "original": "example"
                                         "virtual": true
-                                      "description": "Example WorldMonitor observation."
+                                      "description": "Example RaWorld observation."
                                       "endDate": "2026-01-15"
                                       "id": "example-id"
                                       "location": "example"
@@ -28510,7 +28510,7 @@ paths:
                                 "deployedCommitSha": "example"
                                 "flags":
                                     - "enabled": true
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                             schema:
                                 $ref: '#/components/schemas/worldmonitor_resilience_v1_GetResilienceRuntimeManifestResponse'
                 "400":
@@ -28892,7 +28892,7 @@ paths:
                                         - "US"
                                       "entityType": "all"
                                       "id": "example-id"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "programs":
                                           - "example"
                                 "source": "example"
@@ -30151,11 +30151,11 @@ paths:
                                       "addedCostMultiplier": 75.25
                                       "addedTransitDays": 7
                                       "id": "example-id"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                 "cargoType": "container"
                                 "chokepointExposures":
                                     - "chokepointId": "suez"
-                                      "chokepointName": "WorldMonitor Analyst"
+                                      "chokepointName": "RaWorld Analyst"
                                       "exposurePct": 1
                                 "disruptionScore": 42
                                 "fetchedAt": "2026-01-15T12:00:00Z"
@@ -31252,7 +31252,7 @@ paths:
                                 "carriers":
                                     - "carrierType": "all"
                                       "changePct": 1.5
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                       "price": 75.25
                                       "sparkline":
                                           - 1.5
@@ -31388,7 +31388,7 @@ paths:
                             example:
                                 "exposures":
                                     - "chokepointId": "suez"
-                                      "chokepointName": "WorldMonitor Analyst"
+                                      "chokepointName": "RaWorld Analyst"
                                       "coastSide": "example"
                                       "exposureScore": 42.5
                                       "shockSupported": true
@@ -31815,7 +31815,7 @@ paths:
                                 "iso2": "US"
                                 "products":
                                     - "denominatorBasis": "example"
-                                      "description": "Example WorldMonitor observation."
+                                      "description": "Example RaWorld observation."
                                       "hs4": "example"
                                       "topExporters":
                                           - "netWeightKg": 1.5
@@ -32255,11 +32255,11 @@ paths:
                                           "lat": 40.7128
                                           "lon": -74.006
                                       "id": "example-id"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                 "cargoType": "container"
                                 "chokepointExposures":
                                     - "chokepointId": "suez"
-                                      "chokepointName": "WorldMonitor Analyst"
+                                      "chokepointName": "RaWorld Analyst"
                                       "exposurePct": 1
                                 "disruptionScore": 42.5
                                 "estFreightUsdPerTeuRange":
@@ -33496,7 +33496,7 @@ paths:
                         application/json:
                             example:
                                 "generatedAt": "2026-07-25T12:00:00.000Z"
-                                "payloadJson": "{\"generatedAt\":\"2026-07-25T12:00:00.000Z\",\"corridors\":[{\"id\":\"china-yangtze-river-delta\",\"name\":\"Yangtze River Delta\",\"description\":\"Reviewed coastal logistics corridor joining Shanghai, Jiangsu, and Zhejiang gateways.\",\"boundary\":[{\"lat\":28.4,\"lon\":118.2},{\"lat\":28.4,\"lon\":123.2},{\"lat\":33.4,\"lon\":123.2},{\"lat\":33.4,\"lon\":118.2},{\"lat\":28.4,\"lon\":118.2}],\"nodes\":[{\"id\":\"china-node:yrd-port-shanghai\",\"name\":\"Shanghai\",\"type\":\"port\",\"lat\":31.1918,\"lon\":121.6442,\"sourceOwner\":\"IMF PortWatch\",\"sourceSelector\":{\"family\":\"port\",\"id\":\"port1188\"}}],\"availability\":\"partial\",\"conditions\":[{\"family\":\"port\",\"providerId\":\"portwatch\",\"availability\":\"available\",\"reason\":null,\"sourceSignals\":[{\"id\":\"signal:portwatch:port1188:2026-07-25T11:00:00.000Z\",\"family\":\"port\",\"selectorId\":\"port1188\",\"availability\":\"available\",\"publisher\":{\"id\":\"publisher:imf-portwatch\",\"name\":\"IMF PortWatch\",\"type\":\"official\"},\"sourceUrl\":\"https://portwatch.imf.org/\",\"sourceScope\":\"node\",\"observationTime\":\"2026-07-25T11:00:00.000Z\",\"observationTimePrecision\":\"instant\",\"releaseTime\":null,\"releaseTimePrecision\":\"unknown\",\"retrievalTime\":\"2026-07-25T11:05:00.000Z\",\"retrievalTimePrecision\":\"instant\",\"revision\":null,\"transportFreshness\":\"fresh\",\"contentFreshness\":\"current\",\"summary\":\"PortWatch activity observation available for Shanghai.\",\"metrics\":{\"tankerCalls30d\":14}}],\"provenance\":{\"contractVersion\":\"decision-signal-provenance/v1\",\"signalId\":\"signal:corridor-condition:china-yangtze-river-delta:port:2026-07-25T11:00:00.000Z\",\"familyId\":\"composed_corridor_condition\",\"claims\":{\"publisher\":{\"status\":\"known\",\"value\":{\"id\":\"publisher:worldmonitor-derived\",\"name\":\"WorldMonitor derived output\",\"type\":\"derived_output\",\"registryReference\":null}},\"observation_time\":{\"status\":\"known\",\"value\":{\"role\":\"observation\",\"value\":\"2026-07-25T11:00:00.000Z\",\"precision\":\"instant\"}},\"source_url\":{\"status\":\"not_applicable\",\"reason\":\"The corridor condition links source URLs through its input signals.\"},\"original_reference\":{\"status\":\"not_applicable\",\"reason\":\"The corridor condition is composed from multiple source records.\"},\"original_language\":{\"status\":\"not_applicable\",\"reason\":\"The deterministic composition has no original-language text.\"},\"translation\":{\"status\":\"not_applicable\",\"reason\":\"The deterministic composition has no translated source text.\"},\"effective_time\":{\"status\":\"known\",\"value\":{\"role\":\"effective\",\"value\":\"2026-07-25T11:00:00.000Z\",\"precision\":\"instant\"}},\"publication_time\":{\"status\":\"not_applicable\",\"reason\":\"The computed condition is not a publisher release.\"},\"retrieval_time\":{\"status\":\"known\",\"value\":{\"role\":\"retrieval\",\"value\":\"2026-07-25T11:05:00.000Z\",\"precision\":\"instant\"}},\"revision\":{\"status\":\"known\",\"value\":{\"vintageId\":\"china-yangtze-river-delta:port:2026-07-25T11:00:00.000Z\",\"sequence\":1,\"state\":\"original\"}},\"supersession\":{\"status\":\"known\",\"value\":{\"state\":\"current\"}},\"extraction_confidence\":{\"status\":\"not_applicable\",\"reason\":\"Each input signal owns its extraction confidence.\"},\"classification_confidence\":{\"status\":\"known\",\"value\":{\"score\":1,\"method\":\"exact-reviewed-selector/v1\"}},\"corroboration\":{\"status\":\"known\",\"value\":{\"state\":\"single_source\",\"sourceSignalIds\":[\"signal:portwatch:port1188:2026-07-25T11:00:00.000Z\"]}},\"transport_freshness\":{\"status\":\"known\",\"value\":{\"state\":\"fresh\",\"assessedAt\":\"2026-07-25T12:00:00.000Z\",\"lastSuccessAt\":\"2026-07-25T11:05:00.000Z\"}},\"content_freshness\":{\"status\":\"known\",\"value\":{\"state\":\"current\",\"assessedAt\":\"2026-07-25T12:00:00.000Z\",\"contentAsOf\":\"2026-07-25T11:00:00.000Z\"}},\"derivation\":{\"status\":\"known\",\"value\":{\"methodId\":\"worldmonitor:china-corridor-condition\",\"methodVersion\":\"1\",\"computedAt\":\"2026-07-25T12:00:00.000Z\",\"inputSignalIds\":[\"signal:portwatch:port1188:2026-07-25T11:00:00.000Z\"]}}}}},{\"family\":\"aviation\",\"providerId\":\"provider:aviation\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"hazard\",\"providerId\":\"provider:hazard\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"power_energy\",\"providerId\":\"provider:power_energy\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"strategic_industry\",\"providerId\":\"provider:strategic_industry\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"trade\",\"providerId\":\"provider:trade\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null}]},{\"id\":\"china-greater-bay-area\",\"name\":\"Greater Bay Area\",\"description\":\"Reviewed Pearl River Delta corridor connecting Guangdong, Hong Kong, and Macao-facing port, airport, and industrial gateways.\",\"boundary\":[{\"lat\":20.5,\"lon\":111.5},{\"lat\":20.5,\"lon\":115.8},{\"lat\":24.8,\"lon\":115.8},{\"lat\":24.8,\"lon\":111.5},{\"lat\":20.5,\"lon\":111.5}],\"nodes\":[{\"id\":\"china-node:gba-port-shekou\",\"name\":\"Shekou Shenzhen\",\"type\":\"port\",\"lat\":22.47,\"lon\":113.9,\"sourceOwner\":\"IMF PortWatch\",\"sourceSelector\":{\"family\":\"port\",\"id\":\"port1189\"}}],\"availability\":\"partial\",\"conditions\":[{\"family\":\"port\",\"providerId\":\"portwatch\",\"availability\":\"available\",\"reason\":null,\"sourceSignals\":[{\"id\":\"signal:portwatch:port1189:2026-07-25T11:00:00.000Z\",\"family\":\"port\",\"selectorId\":\"port1189\",\"availability\":\"available\",\"publisher\":{\"id\":\"publisher:imf-portwatch\",\"name\":\"IMF PortWatch\",\"type\":\"official\"},\"sourceUrl\":\"https://portwatch.imf.org/\",\"sourceScope\":\"node\",\"observationTime\":\"2026-07-25T11:00:00.000Z\",\"observationTimePrecision\":\"instant\",\"releaseTime\":null,\"releaseTimePrecision\":\"unknown\",\"retrievalTime\":\"2026-07-25T11:05:00.000Z\",\"retrievalTimePrecision\":\"instant\",\"revision\":null,\"transportFreshness\":\"fresh\",\"contentFreshness\":\"current\",\"summary\":\"PortWatch activity observation available for Shekou Shenzhen.\",\"metrics\":{\"tankerCalls30d\":14}}],\"provenance\":{\"contractVersion\":\"decision-signal-provenance/v1\",\"signalId\":\"signal:corridor-condition:china-greater-bay-area:port:2026-07-25T11:00:00.000Z\",\"familyId\":\"composed_corridor_condition\",\"claims\":{\"publisher\":{\"status\":\"known\",\"value\":{\"id\":\"publisher:worldmonitor-derived\",\"name\":\"WorldMonitor derived output\",\"type\":\"derived_output\",\"registryReference\":null}},\"observation_time\":{\"status\":\"known\",\"value\":{\"role\":\"observation\",\"value\":\"2026-07-25T11:00:00.000Z\",\"precision\":\"instant\"}},\"source_url\":{\"status\":\"not_applicable\",\"reason\":\"The corridor condition links source URLs through its input signals.\"},\"original_reference\":{\"status\":\"not_applicable\",\"reason\":\"The corridor condition is composed from multiple source records.\"},\"original_language\":{\"status\":\"not_applicable\",\"reason\":\"The deterministic composition has no original-language text.\"},\"translation\":{\"status\":\"not_applicable\",\"reason\":\"The deterministic composition has no translated source text.\"},\"effective_time\":{\"status\":\"known\",\"value\":{\"role\":\"effective\",\"value\":\"2026-07-25T11:00:00.000Z\",\"precision\":\"instant\"}},\"publication_time\":{\"status\":\"not_applicable\",\"reason\":\"The computed condition is not a publisher release.\"},\"retrieval_time\":{\"status\":\"known\",\"value\":{\"role\":\"retrieval\",\"value\":\"2026-07-25T11:05:00.000Z\",\"precision\":\"instant\"}},\"revision\":{\"status\":\"known\",\"value\":{\"vintageId\":\"china-greater-bay-area:port:2026-07-25T11:00:00.000Z\",\"sequence\":1,\"state\":\"original\"}},\"supersession\":{\"status\":\"known\",\"value\":{\"state\":\"current\"}},\"extraction_confidence\":{\"status\":\"not_applicable\",\"reason\":\"Each input signal owns its extraction confidence.\"},\"classification_confidence\":{\"status\":\"known\",\"value\":{\"score\":1,\"method\":\"exact-reviewed-selector/v1\"}},\"corroboration\":{\"status\":\"known\",\"value\":{\"state\":\"single_source\",\"sourceSignalIds\":[\"signal:portwatch:port1189:2026-07-25T11:00:00.000Z\"]}},\"transport_freshness\":{\"status\":\"known\",\"value\":{\"state\":\"fresh\",\"assessedAt\":\"2026-07-25T12:00:00.000Z\",\"lastSuccessAt\":\"2026-07-25T11:05:00.000Z\"}},\"content_freshness\":{\"status\":\"known\",\"value\":{\"state\":\"current\",\"assessedAt\":\"2026-07-25T12:00:00.000Z\",\"contentAsOf\":\"2026-07-25T11:00:00.000Z\"}},\"derivation\":{\"status\":\"known\",\"value\":{\"methodId\":\"worldmonitor:china-corridor-condition\",\"methodVersion\":\"1\",\"computedAt\":\"2026-07-25T12:00:00.000Z\",\"inputSignalIds\":[\"signal:portwatch:port1189:2026-07-25T11:00:00.000Z\"]}}}}},{\"family\":\"aviation\",\"providerId\":\"provider:aviation\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"hazard\",\"providerId\":\"provider:hazard\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"power_energy\",\"providerId\":\"provider:power_energy\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"strategic_industry\",\"providerId\":\"provider:strategic_industry\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"trade\",\"providerId\":\"provider:trade\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null}]},{\"id\":\"china-bohai-rim\",\"name\":\"Bohai Rim\",\"description\":\"Reviewed northern maritime-industrial corridor spanning Beijing-Tianjin, Hebei, Shandong, Liaoning, and their major gateways.\",\"boundary\":[{\"lat\":35.5,\"lon\":116},{\"lat\":35.5,\"lon\":123.5},{\"lat\":42.2,\"lon\":123.5},{\"lat\":42.2,\"lon\":116},{\"lat\":35.5,\"lon\":116}],\"nodes\":[{\"id\":\"china-node:bohai-port-qingdao\",\"name\":\"Qingdao\",\"type\":\"port\",\"lat\":36.07,\"lon\":120.32,\"sourceOwner\":\"IMF PortWatch\",\"sourceSelector\":{\"family\":\"port\",\"id\":\"port1069\"}}],\"availability\":\"unavailable\",\"conditions\":[{\"family\":\"port\",\"providerId\":\"provider:port\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"aviation\",\"providerId\":\"provider:aviation\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"hazard\",\"providerId\":\"provider:hazard\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"power_energy\",\"providerId\":\"provider:power_energy\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"strategic_industry\",\"providerId\":\"provider:strategic_industry\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"trade\",\"providerId\":\"provider:trade\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null}]},{\"id\":\"china-western-land-sea-corridor\",\"name\":\"Western Land-Sea Corridor\",\"description\":\"Reviewed western corridor linking inland manufacturing hubs, Xinjiang land crossings, and Guangxi gateways to regional and maritime routes.\",\"boundary\":[{\"lat\":20.4,\"lon\":106.2},{\"lat\":20.4,\"lon\":110.4},{\"lat\":32.5,\"lon\":110.4},{\"lat\":47,\"lon\":91},{\"lat\":47,\"lon\":78.5},{\"lat\":41,\"lon\":78.5},{\"lat\":27,\"lon\":99.7},{\"lat\":22,\"lon\":105.8},{\"lat\":20.4,\"lon\":106.2}],\"nodes\":[{\"id\":\"china-node:western-port-qinzhou\",\"name\":\"Qinzhou\",\"type\":\"port\",\"lat\":21.6788,\"lon\":108.6383,\"sourceOwner\":\"IMF PortWatch\",\"sourceSelector\":{\"family\":\"port\",\"id\":\"port1071\"}}],\"availability\":\"unavailable\",\"conditions\":[{\"family\":\"port\",\"providerId\":\"provider:port\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"aviation\",\"providerId\":\"provider:aviation\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"hazard\",\"providerId\":\"provider:hazard\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"power_energy\",\"providerId\":\"provider:power_energy\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"strategic_industry\",\"providerId\":\"provider:strategic_industry\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"trade\",\"providerId\":\"provider:trade\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null}]}]}"
+                                "payloadJson": "{\"generatedAt\":\"2026-07-25T12:00:00.000Z\",\"corridors\":[{\"id\":\"china-yangtze-river-delta\",\"name\":\"Yangtze River Delta\",\"description\":\"Reviewed coastal logistics corridor joining Shanghai, Jiangsu, and Zhejiang gateways.\",\"boundary\":[{\"lat\":28.4,\"lon\":118.2},{\"lat\":28.4,\"lon\":123.2},{\"lat\":33.4,\"lon\":123.2},{\"lat\":33.4,\"lon\":118.2},{\"lat\":28.4,\"lon\":118.2}],\"nodes\":[{\"id\":\"china-node:yrd-port-shanghai\",\"name\":\"Shanghai\",\"type\":\"port\",\"lat\":31.1918,\"lon\":121.6442,\"sourceOwner\":\"IMF PortWatch\",\"sourceSelector\":{\"family\":\"port\",\"id\":\"port1188\"}}],\"availability\":\"partial\",\"conditions\":[{\"family\":\"port\",\"providerId\":\"portwatch\",\"availability\":\"available\",\"reason\":null,\"sourceSignals\":[{\"id\":\"signal:portwatch:port1188:2026-07-25T11:00:00.000Z\",\"family\":\"port\",\"selectorId\":\"port1188\",\"availability\":\"available\",\"publisher\":{\"id\":\"publisher:imf-portwatch\",\"name\":\"IMF PortWatch\",\"type\":\"official\"},\"sourceUrl\":\"https://portwatch.imf.org/\",\"sourceScope\":\"node\",\"observationTime\":\"2026-07-25T11:00:00.000Z\",\"observationTimePrecision\":\"instant\",\"releaseTime\":null,\"releaseTimePrecision\":\"unknown\",\"retrievalTime\":\"2026-07-25T11:05:00.000Z\",\"retrievalTimePrecision\":\"instant\",\"revision\":null,\"transportFreshness\":\"fresh\",\"contentFreshness\":\"current\",\"summary\":\"PortWatch activity observation available for Shanghai.\",\"metrics\":{\"tankerCalls30d\":14}}],\"provenance\":{\"contractVersion\":\"decision-signal-provenance/v1\",\"signalId\":\"signal:corridor-condition:china-yangtze-river-delta:port:2026-07-25T11:00:00.000Z\",\"familyId\":\"composed_corridor_condition\",\"claims\":{\"publisher\":{\"status\":\"known\",\"value\":{\"id\":\"publisher:worldmonitor-derived\",\"name\":\"RaWorld derived output\",\"type\":\"derived_output\",\"registryReference\":null}},\"observation_time\":{\"status\":\"known\",\"value\":{\"role\":\"observation\",\"value\":\"2026-07-25T11:00:00.000Z\",\"precision\":\"instant\"}},\"source_url\":{\"status\":\"not_applicable\",\"reason\":\"The corridor condition links source URLs through its input signals.\"},\"original_reference\":{\"status\":\"not_applicable\",\"reason\":\"The corridor condition is composed from multiple source records.\"},\"original_language\":{\"status\":\"not_applicable\",\"reason\":\"The deterministic composition has no original-language text.\"},\"translation\":{\"status\":\"not_applicable\",\"reason\":\"The deterministic composition has no translated source text.\"},\"effective_time\":{\"status\":\"known\",\"value\":{\"role\":\"effective\",\"value\":\"2026-07-25T11:00:00.000Z\",\"precision\":\"instant\"}},\"publication_time\":{\"status\":\"not_applicable\",\"reason\":\"The computed condition is not a publisher release.\"},\"retrieval_time\":{\"status\":\"known\",\"value\":{\"role\":\"retrieval\",\"value\":\"2026-07-25T11:05:00.000Z\",\"precision\":\"instant\"}},\"revision\":{\"status\":\"known\",\"value\":{\"vintageId\":\"china-yangtze-river-delta:port:2026-07-25T11:00:00.000Z\",\"sequence\":1,\"state\":\"original\"}},\"supersession\":{\"status\":\"known\",\"value\":{\"state\":\"current\"}},\"extraction_confidence\":{\"status\":\"not_applicable\",\"reason\":\"Each input signal owns its extraction confidence.\"},\"classification_confidence\":{\"status\":\"known\",\"value\":{\"score\":1,\"method\":\"exact-reviewed-selector/v1\"}},\"corroboration\":{\"status\":\"known\",\"value\":{\"state\":\"single_source\",\"sourceSignalIds\":[\"signal:portwatch:port1188:2026-07-25T11:00:00.000Z\"]}},\"transport_freshness\":{\"status\":\"known\",\"value\":{\"state\":\"fresh\",\"assessedAt\":\"2026-07-25T12:00:00.000Z\",\"lastSuccessAt\":\"2026-07-25T11:05:00.000Z\"}},\"content_freshness\":{\"status\":\"known\",\"value\":{\"state\":\"current\",\"assessedAt\":\"2026-07-25T12:00:00.000Z\",\"contentAsOf\":\"2026-07-25T11:00:00.000Z\"}},\"derivation\":{\"status\":\"known\",\"value\":{\"methodId\":\"worldmonitor:china-corridor-condition\",\"methodVersion\":\"1\",\"computedAt\":\"2026-07-25T12:00:00.000Z\",\"inputSignalIds\":[\"signal:portwatch:port1188:2026-07-25T11:00:00.000Z\"]}}}}},{\"family\":\"aviation\",\"providerId\":\"provider:aviation\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"hazard\",\"providerId\":\"provider:hazard\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"power_energy\",\"providerId\":\"provider:power_energy\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"strategic_industry\",\"providerId\":\"provider:strategic_industry\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"trade\",\"providerId\":\"provider:trade\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null}]},{\"id\":\"china-greater-bay-area\",\"name\":\"Greater Bay Area\",\"description\":\"Reviewed Pearl River Delta corridor connecting Guangdong, Hong Kong, and Macao-facing port, airport, and industrial gateways.\",\"boundary\":[{\"lat\":20.5,\"lon\":111.5},{\"lat\":20.5,\"lon\":115.8},{\"lat\":24.8,\"lon\":115.8},{\"lat\":24.8,\"lon\":111.5},{\"lat\":20.5,\"lon\":111.5}],\"nodes\":[{\"id\":\"china-node:gba-port-shekou\",\"name\":\"Shekou Shenzhen\",\"type\":\"port\",\"lat\":22.47,\"lon\":113.9,\"sourceOwner\":\"IMF PortWatch\",\"sourceSelector\":{\"family\":\"port\",\"id\":\"port1189\"}}],\"availability\":\"partial\",\"conditions\":[{\"family\":\"port\",\"providerId\":\"portwatch\",\"availability\":\"available\",\"reason\":null,\"sourceSignals\":[{\"id\":\"signal:portwatch:port1189:2026-07-25T11:00:00.000Z\",\"family\":\"port\",\"selectorId\":\"port1189\",\"availability\":\"available\",\"publisher\":{\"id\":\"publisher:imf-portwatch\",\"name\":\"IMF PortWatch\",\"type\":\"official\"},\"sourceUrl\":\"https://portwatch.imf.org/\",\"sourceScope\":\"node\",\"observationTime\":\"2026-07-25T11:00:00.000Z\",\"observationTimePrecision\":\"instant\",\"releaseTime\":null,\"releaseTimePrecision\":\"unknown\",\"retrievalTime\":\"2026-07-25T11:05:00.000Z\",\"retrievalTimePrecision\":\"instant\",\"revision\":null,\"transportFreshness\":\"fresh\",\"contentFreshness\":\"current\",\"summary\":\"PortWatch activity observation available for Shekou Shenzhen.\",\"metrics\":{\"tankerCalls30d\":14}}],\"provenance\":{\"contractVersion\":\"decision-signal-provenance/v1\",\"signalId\":\"signal:corridor-condition:china-greater-bay-area:port:2026-07-25T11:00:00.000Z\",\"familyId\":\"composed_corridor_condition\",\"claims\":{\"publisher\":{\"status\":\"known\",\"value\":{\"id\":\"publisher:worldmonitor-derived\",\"name\":\"RaWorld derived output\",\"type\":\"derived_output\",\"registryReference\":null}},\"observation_time\":{\"status\":\"known\",\"value\":{\"role\":\"observation\",\"value\":\"2026-07-25T11:00:00.000Z\",\"precision\":\"instant\"}},\"source_url\":{\"status\":\"not_applicable\",\"reason\":\"The corridor condition links source URLs through its input signals.\"},\"original_reference\":{\"status\":\"not_applicable\",\"reason\":\"The corridor condition is composed from multiple source records.\"},\"original_language\":{\"status\":\"not_applicable\",\"reason\":\"The deterministic composition has no original-language text.\"},\"translation\":{\"status\":\"not_applicable\",\"reason\":\"The deterministic composition has no translated source text.\"},\"effective_time\":{\"status\":\"known\",\"value\":{\"role\":\"effective\",\"value\":\"2026-07-25T11:00:00.000Z\",\"precision\":\"instant\"}},\"publication_time\":{\"status\":\"not_applicable\",\"reason\":\"The computed condition is not a publisher release.\"},\"retrieval_time\":{\"status\":\"known\",\"value\":{\"role\":\"retrieval\",\"value\":\"2026-07-25T11:05:00.000Z\",\"precision\":\"instant\"}},\"revision\":{\"status\":\"known\",\"value\":{\"vintageId\":\"china-greater-bay-area:port:2026-07-25T11:00:00.000Z\",\"sequence\":1,\"state\":\"original\"}},\"supersession\":{\"status\":\"known\",\"value\":{\"state\":\"current\"}},\"extraction_confidence\":{\"status\":\"not_applicable\",\"reason\":\"Each input signal owns its extraction confidence.\"},\"classification_confidence\":{\"status\":\"known\",\"value\":{\"score\":1,\"method\":\"exact-reviewed-selector/v1\"}},\"corroboration\":{\"status\":\"known\",\"value\":{\"state\":\"single_source\",\"sourceSignalIds\":[\"signal:portwatch:port1189:2026-07-25T11:00:00.000Z\"]}},\"transport_freshness\":{\"status\":\"known\",\"value\":{\"state\":\"fresh\",\"assessedAt\":\"2026-07-25T12:00:00.000Z\",\"lastSuccessAt\":\"2026-07-25T11:05:00.000Z\"}},\"content_freshness\":{\"status\":\"known\",\"value\":{\"state\":\"current\",\"assessedAt\":\"2026-07-25T12:00:00.000Z\",\"contentAsOf\":\"2026-07-25T11:00:00.000Z\"}},\"derivation\":{\"status\":\"known\",\"value\":{\"methodId\":\"worldmonitor:china-corridor-condition\",\"methodVersion\":\"1\",\"computedAt\":\"2026-07-25T12:00:00.000Z\",\"inputSignalIds\":[\"signal:portwatch:port1189:2026-07-25T11:00:00.000Z\"]}}}}},{\"family\":\"aviation\",\"providerId\":\"provider:aviation\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"hazard\",\"providerId\":\"provider:hazard\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"power_energy\",\"providerId\":\"provider:power_energy\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"strategic_industry\",\"providerId\":\"provider:strategic_industry\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"trade\",\"providerId\":\"provider:trade\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null}]},{\"id\":\"china-bohai-rim\",\"name\":\"Bohai Rim\",\"description\":\"Reviewed northern maritime-industrial corridor spanning Beijing-Tianjin, Hebei, Shandong, Liaoning, and their major gateways.\",\"boundary\":[{\"lat\":35.5,\"lon\":116},{\"lat\":35.5,\"lon\":123.5},{\"lat\":42.2,\"lon\":123.5},{\"lat\":42.2,\"lon\":116},{\"lat\":35.5,\"lon\":116}],\"nodes\":[{\"id\":\"china-node:bohai-port-qingdao\",\"name\":\"Qingdao\",\"type\":\"port\",\"lat\":36.07,\"lon\":120.32,\"sourceOwner\":\"IMF PortWatch\",\"sourceSelector\":{\"family\":\"port\",\"id\":\"port1069\"}}],\"availability\":\"unavailable\",\"conditions\":[{\"family\":\"port\",\"providerId\":\"provider:port\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"aviation\",\"providerId\":\"provider:aviation\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"hazard\",\"providerId\":\"provider:hazard\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"power_energy\",\"providerId\":\"provider:power_energy\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"strategic_industry\",\"providerId\":\"provider:strategic_industry\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"trade\",\"providerId\":\"provider:trade\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null}]},{\"id\":\"china-western-land-sea-corridor\",\"name\":\"Western Land-Sea Corridor\",\"description\":\"Reviewed western corridor linking inland manufacturing hubs, Xinjiang land crossings, and Guangxi gateways to regional and maritime routes.\",\"boundary\":[{\"lat\":20.4,\"lon\":106.2},{\"lat\":20.4,\"lon\":110.4},{\"lat\":32.5,\"lon\":110.4},{\"lat\":47,\"lon\":91},{\"lat\":47,\"lon\":78.5},{\"lat\":41,\"lon\":78.5},{\"lat\":27,\"lon\":99.7},{\"lat\":22,\"lon\":105.8},{\"lat\":20.4,\"lon\":106.2}],\"nodes\":[{\"id\":\"china-node:western-port-qinzhou\",\"name\":\"Qinzhou\",\"type\":\"port\",\"lat\":21.6788,\"lon\":108.6383,\"sourceOwner\":\"IMF PortWatch\",\"sourceSelector\":{\"family\":\"port\",\"id\":\"port1071\"}}],\"availability\":\"unavailable\",\"conditions\":[{\"family\":\"port\",\"providerId\":\"provider:port\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"aviation\",\"providerId\":\"provider:aviation\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"hazard\",\"providerId\":\"provider:hazard\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"power_energy\",\"providerId\":\"provider:power_energy\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"strategic_industry\",\"providerId\":\"provider:strategic_industry\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null},{\"family\":\"trade\",\"providerId\":\"provider:trade\",\"availability\":\"unavailable\",\"reason\":\"No reviewed source observation is available in this example.\",\"sourceSignals\":[],\"provenance\":null}]}]}"
                                 "upstreamUnavailable": false
                             schema:
                                 $ref: '#/components/schemas/worldmonitor_supply_chain_v1_GetChinaCorridorControlTowersResponse'
@@ -33915,7 +33915,7 @@ paths:
                                                   - "detail": "example"
                                                     "fetchedAt": "2026-01-15T12:00:00Z"
                                                     "sourceKey": "example"
-                                                    "sourceName": "WorldMonitor Analyst"
+                                                    "sourceName": "RaWorld Analyst"
                                                     "sourceUrl": "https://example.com/worldmonitor"
                                               "kind": "example"
                                               "state": "ok"
@@ -33927,7 +33927,7 @@ paths:
                                                   - "detail": "example"
                                                     "fetchedAt": "2026-01-15T12:00:00Z"
                                                     "sourceKey": "example"
-                                                    "sourceName": "WorldMonitor Analyst"
+                                                    "sourceName": "RaWorld Analyst"
                                                     "sourceUrl": "https://example.com/worldmonitor"
                                               "mineHhi": 1.5
                                               "productionCoverage": "diesel"
@@ -33936,7 +33936,7 @@ paths:
                                                   - "id": "example-id"
                                                     "inputs":
                                                         []
-                                                    "name": "WorldMonitor Analyst"
+                                                    "name": "RaWorld Analyst"
                                                     "status": "example"
                                                     "transitShare": 1.5
                                               "value": 1.5
@@ -34203,7 +34203,7 @@ paths:
                                 "fetchedAt": "2026-01-15T12:00:00Z"
                                 "restrictions":
                                     - "affectedCountry": "US"
-                                      "description": "Example WorldMonitor observation."
+                                      "description": "Example RaWorld observation."
                                       "id": "example-id"
                                       "measureType": "all"
                                       "notifiedAt": "2026-01-15T12:00:00Z"
@@ -34375,7 +34375,7 @@ paths:
                                       "reportingCountry": "840"
                                 "effectiveTariffRate":
                                     "observationPeriod": "daily"
-                                    "sourceName": "WorldMonitor Analyst"
+                                    "sourceName": "RaWorld Analyst"
                                     "sourceUrl": "https://example.com/worldmonitor"
                                     "tariffRate": 75.25
                                     "updatedAt": "2026-01-15"
@@ -36082,7 +36082,7 @@ webhooks:
                 - ShippingV2Service
             summary: Chokepoint disruption alert (outbound, signed)
             description: |-
-                WorldMonitor POSTs this event to the `callbackUrl` you register via
+                RaWorld POSTs this event to the `callbackUrl` you register via
                 RegisterWebhook when a subscribed chokepoint's disruption score is at or
                 above your `alertThreshold` (and its live signals above `minLiveSignal`
                 when set), once per crossing, including one already in progress at
@@ -36210,12 +36210,12 @@ components:
             type: apiKey
             in: header
             name: X-WorldMonitor-Key
-            description: User-issued WorldMonitor API key.
+            description: User-issued RaWorld API key.
         ApiKeyHeader:
             type: apiKey
             in: header
             name: X-Api-Key
-            description: Alias header for the WorldMonitor API key (X-WorldMonitor-Key).
+            description: Alias header for the RaWorld API key (X-WorldMonitor-Key).
         BearerAuth:
             type: http
             scheme: bearer
@@ -36224,7 +36224,7 @@ components:
             type: apiKey
             in: header
             name: X-Trust-Review-Key
-            description: Operator review key (the server TRUST_REVIEW_SECRET). Required by the error-report review operations; a WorldMonitor API key does not authorize them.
+            description: Operator review key (the server TRUST_REVIEW_SECRET). Required by the error-report review operations; a RaWorld API key does not authorize them.
     schemas:
         worldmonitor_supply_chain_v1_ChinaCorridorControlTowerResponse:
             type: "object"
@@ -41224,7 +41224,7 @@ components:
                 companyId:
                     type: string
                     pattern: ^cm_company_[0-9A-HJKMNP-TV-Z]{26}$
-                    description: Stable WorldMonitor logical ID; never a storage-layer document ID.
+                    description: Stable RaWorld logical ID; never a storage-layer document ID.
                 name:
                     type: string
                 domicileCountry:
@@ -41280,7 +41280,7 @@ components:
                 claimId:
                     type: string
                     pattern: ^cm_claim_[0-9A-HJKMNP-TV-Z]{26}$
-                    description: Stable WorldMonitor logical ID; never a storage-layer document ID.
+                    description: Stable RaWorld logical ID; never a storage-layer document ID.
                 type:
                     type: string
                     enum:
@@ -41589,7 +41589,7 @@ components:
                 impactId:
                     type: string
                     pattern: ^cm_impact_[0-9A-HJKMNP-TV-Z]{26}$
-                    description: Stable WorldMonitor logical IDs; never storage-layer document IDs.
+                    description: Stable RaWorld logical IDs; never storage-layer document IDs.
                 eventId:
                     type: string
                     pattern: ^cm_event_[0-9A-HJKMNP-TV-Z]{26}$
@@ -41754,7 +41754,7 @@ components:
                 eventId:
                     type: string
                     pattern: ^cm_event_[0-9A-HJKMNP-TV-Z]{26}$
-                    description: Stable WorldMonitor logical ID; never a storage-layer document ID.
+                    description: Stable RaWorld logical ID; never a storage-layer document ID.
                 revision:
                     type: integer
                     minimum: 1
@@ -41784,7 +41784,7 @@ components:
                 evidenceId:
                     type: string
                     pattern: ^cm_evidence_[0-9A-HJKMNP-TV-Z]{26}$
-                    description: Stable WorldMonitor logical ID; never a storage-layer document ID.
+                    description: Stable RaWorld logical ID; never a storage-layer document ID.
                 provider:
                     type: string
                     enum:
@@ -49120,7 +49120,7 @@ components:
                     description: TLE line 2.
             required:
                 - id
-            description: Satellite represents an orbital asset tracked by WorldMonitor.
+            description: Satellite represents an orbital asset tracked by RaWorld.
         worldmonitor_intelligence_v1_ListGpsInterferenceRequest:
             type: object
             properties:
@@ -51385,7 +51385,7 @@ components:
                     type: integer
                     format: int64
                     description: |-
-                        When WorldMonitor stored the event, Unix epoch milliseconds. Distinct from
+                        When RaWorld stored the event, Unix epoch milliseconds. Distinct from
                          occurred_at for backfills, and the field retention ages rows out by.. Warning: Values > 2^53 may lose precision in JavaScript
                 score:
                     type: number
@@ -55600,7 +55600,7 @@ components:
                 url:
                     type: string
                     maxLength: 2048
-                    description: Article or WorldMonitor URL the report concerns, when known.
+                    description: Article or RaWorld URL the report concerns, when known.
                 contact:
                     type: string
                     maxLength: 320
@@ -55608,7 +55608,7 @@ components:
                 website:
                     type: string
                     description: 'Honeypot. Leave empty: a filled value is accepted and discarded.'
-            description: SubmitErrorReportRequest is a reader's report that a WorldMonitor label or story is wrong. Stored for review; never applied automatically.
+            description: SubmitErrorReportRequest is a reader's report that a RaWorld label or story is wrong. Stored for review; never applied automatically.
         worldmonitor_news_v1_SubmitErrorReportResponse:
             type: object
             properties:
@@ -55727,7 +55727,7 @@ components:
                     description: The IFCN-allowlisted domain the link belongs to.
                 rating:
                     type: string
-                    description: The fact-checker's own rating, verbatim. WorldMonitor does not rate claims.
+                    description: The fact-checker's own rating, verbatim. RaWorld does not rate claims.
                 reviewedAt:
                     type: string
                     description: When the fact-check was published, ISO 8601.
@@ -56721,10 +56721,10 @@ components:
                     type: integer
                     minimum: 0
                     format: int32
-                    description: Provider observation year, not the WorldMonitor retrieval year.
+                    description: Provider observation year, not the RaWorld retrieval year.
                 observationAgeAvailable:
                     type: boolean
-                    description: Age of the source observation, not the time since WorldMonitor fetched it.
+                    description: Age of the source observation, not the time since RaWorld fetched it.
                 observationAgeValue:
                     type: integer
                     minimum: 0

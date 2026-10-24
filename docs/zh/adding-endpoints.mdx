@@ -1,8 +1,8 @@
 ---
 title: "添加 API 端点"
-description: "在 World Monitor 中扩展 JSON API 的完整开发指南：所有端点必须使用 sebuf 定义类型安全的请求与响应契约。本文分步演示如何在现有服务中添加新 RPC、创建全新的服务模块、注册路由与生成客户端，并保持与 CLI、SDK、OpenAPI 与 MCP 工具生态的一致性。"
+description: "在 RaWorld 中扩展 JSON API 的完整开发指南：所有端点必须使用 sebuf 定义类型安全的请求与响应契约。本文分步演示如何在现有服务中添加新 RPC、创建全新的服务模块、注册路由与生成客户端，并保持与 CLI、SDK、OpenAPI 与 MCP 工具生态的一致性。"
 ---
-World Monitor 中的所有 JSON API 端点**必须**使用 sebuf。不要为新的数据 API 创建独立的 `api/*.js` 或 `api/*.ts` 文件——这一旧模式已被弃用并正在被移除。
+RaWorld 中的所有 JSON API 端点**必须**使用 sebuf。不要为新的数据 API 创建独立的 `api/*.js` 或 `api/*.ts` 文件——这一旧模式已被弃用并正在被移除。
 
 本指南将介绍如何为现有服务添加新的 RPC，以及如何添加一个全新的服务。
 
@@ -394,7 +394,7 @@ MCP 参考文档在 [MCP 概览](/zh/mcp-overview#api-覆盖) 中渲染当前的
 6. **工具契约。** 说明访问级别以及全部四个注解（`readOnlyHint`、`destructiveHint`、`idempotentHint`、`openWorldHint`）。说明下游路径。免费层工具不得访问任何需要凭据的下游，因此任何例外都必须明确说明并由测试固定。说明工具如何获取调用方的 IP、user agent 和请求 ID，因为 `_execute` 不会收到请求本身。
 7. **重新评估条件。** 哪些未来的变更会使该记录失效？
 
-[`agent-feedback-threat-model.md`](https://github.com/koala73/worldmonitor/blob/main/docs/architecture/agent-feedback-threat-model.md) 是第一份此类记录，可作为范例。第二个变更型工具需要自己的记录，不能沿用已有的记录及其例外。
+[`agent-feedback-threat-model.md`](https://github.com/Iamirup/raworld/blob/main/docs/architecture/agent-feedback-threat-model.md) 是第一份此类记录，可作为范例。第二个变更型工具需要自己的记录，不能沿用已有的记录及其例外。
 
 ## Proto 约定
 

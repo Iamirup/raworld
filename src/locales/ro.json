@@ -200,7 +200,6 @@
     "foodStocksHelp": "Producție USDA, aprovizionare și distribuție — stocuri de mărfuri raportate la consum pe an de comercializare, cu raportul mondial alături pentru context. Balanțe alimentare FAOSTAT furnizează producție și aprovizionare internă atunci când Producție, Aprovizionare și Distribuție nu are bilanț complet pe țară.",
     "loadingFoodStocks": "Loading food stocks…",
     "foodStocksUnavailable": "Food stocks unavailable.",
-    "foodStocksProLocked": "Upgrade to PRO for commodity stocks-to-use",
     "foodStocksCommodity": "Commodity",
     "foodStocksMarketingYear": "Marketing year",
     "foodStocksRatio": "Stocks-to-use",
@@ -218,7 +217,6 @@
       "help": "Structura pe vârste, progresie educațională și capacitate de forță de muncă industrială din UN World Population Prospects, UNESCO Institute for Statistics și World Bank World Development Indicators, și ILOSTAT.",
       "loading": "Loading demographics and workforce data…",
       "unavailable": "Demographics and workforce data unavailable.",
-      "proLocked": "Upgrade to PRO for demographics and workforce data",
       "notAvailable": "Not available",
       "ageStructure": "Age structure",
       "education": "Education pipeline",
@@ -244,7 +242,6 @@
       "help": "Score de dovezi înghețate v1 pentru alimente, energie, demografie, tehnologie și apărare. Extindeți o linie pentru a inspecta intrările, proveniența surselor și motivele datelor lipsă.",
       "loading": "Se încarcă scorul pe cinci factori…",
       "unavailable": "Scorul pe cinci factori nu este disponibil.",
-      "proLocked": "Actualizați la PRO pentru scorul de reziliență pe cinci factori",
       "insufficient": "Date insuficiente",
       "notAvailable": "Indisponibil",
       "noEvidence": "Nu există dovezi disponibile pentru acest pilon.",
@@ -301,9 +298,7 @@
         "defense_supplierDiversity": "Diversitate furnizori armament"
       }
     },
-    "defenseIndustrialBase": {
-      "proLocked": "Actualizare la PRO pentru dependența furnizorilor de arme și capacitatea militară"
-    }
+    "defenseIndustrialBase": {}
   },
   "header": {
     "world": "LUME",
@@ -715,8 +710,7 @@
       "alertTitle": {
         "configured": "Setări desktop configurate",
         "needsKeys": "Configurați cheile API pentru a debloca funcțiile",
-        "some": "Unele funcții necesită chei API",
-        "pro": "World Monitor Pro este activ"
+        "some": "Unele funcții necesită chei API"
       },
       "summary": {
         "desktop": "Modul desktop",
@@ -745,10 +739,7 @@
         "NASA_FIRMS_API_KEY": "Informații de incendiu pentru sistemul de management al resurselor.",
         "OLLAMA_API_URL": "de ex. http://127.0.0.1:11434 (Ollama) sau http://127.0.0.1:1234/v1 (LM Studio) — punct final compatibil cu OpenAI.",
         "OLLAMA_MODEL": "de ex. llama3.1:8b — etichetă model de utilizat pentru rezumat."
-      },
-      "proCloud": "Funcțiile fără o cheie API locală utilizează datele cloud World Monitor.",
-      "skipSetupPro": "Omiteți configurarea: conectați-vă cu World Monitor Pro pentru a utiliza datele cloud în loc de propriile chei API.",
-      "getPro": "Obțineți World Monitor Pro"
+      }
     },
     "settingsWindow": {
       "validating": "Se validează cheile API...",
@@ -769,12 +760,6 @@
           "title": "Cheie de licență / API",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "description": "Abonații API Starter și API Business creează această cheie în panoul web din Settings → API Keys. Dacă pierdeți cheia completă, revocați-o și creați una nouă."
-        },
-        "dividerOr": "SAU",
-        "register": {
-          "title": "Aveți nevoie de o cheie API?",
-          "description": "Consultați worldmonitor.app/docs/api-keys pentru instrucțiuni pas cu pas. Cheile API manuale necesită un plan API Starter sau API Business.",
-          "submitBtn": "Vedeți planurile API"
         }
       },
       "table": {
@@ -784,12 +769,10 @@
         "status": "Stare",
         "duration": "Durata"
       },
-      "shellTitle": "Setări World Monitor",
+      "shellTitle": "Setări RaWorld",
       "shellSearchPlaceholder": "Căutați setări...",
       "shellCancel": "Anulare",
-      "shellSaveClose": "Salvare & Închidere",
-      "freePanelLimit": "Plan gratuit: max {{max}} panouri. Upgrade la PRO pentru nelimitat.",
-      "freeSourceLimit": "Plan gratuit: max {{max}} surse. Upgrade la PRO pentru nelimitat."
+      "shellSaveClose": "Salvare & Închidere"
     },
     "countryIntel": {
       "identifying": "Se identifică țara...",
@@ -995,8 +978,7 @@
       "refineryStage": "Refine",
       "stageUnavailable": "No published figures for this stage",
       "withheldNote": "W withheld",
-      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them.",
-      "productionProLocked": "Upgrade la PRO pentru ponderi de țară ale minelor și rafinăriilor cu concentrare (indice de concentrare a producătorilor) pe etapă."
+      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them."
     },
     "tradePolicy": {
       "tariffs": "Tarife vamale",
@@ -1090,7 +1072,7 @@
       "skipToEnd": "Treci la final"
     },
     "pizzint": {
-      "indexSource": "Indice: World Monitor · date despre localuri:",
+      "indexSource": "Indice: RaWorld · date despre localuri:",
       "statusNormal": "NORMAL",
       "statusNoData": "FĂRĂ DATE",
       "statusNoBaseline": "FĂRĂ REFERINȚĂ",
@@ -1099,7 +1081,7 @@
       "defcon": "DEFCON {{level}}",
       "updated": "Actualizat {{timeAgo}}",
       "tensionsTitle": "Tensiuni geopolitice",
-      "tensionsSource": "Tensiuni: World Monitor pe baza evenimentelor GDELT",
+      "tensionsSource": "Tensiuni: RaWorld pe baza evenimentelor GDELT",
       "insufficientData": "Date insuficiente",
       "pizzaUnavailable": "Activitatea pizzeriilor nu este disponibilă",
       "source": "Sursa:",
@@ -1779,7 +1761,7 @@
       "staleReport": "Raport învechit",
       "reported": "Număr",
       "period": "Perioadă",
-      "movementNote": "Fiecare rând păstrează sursa, data raportului și măsura. Populațiile, sosirile și evenimentele de control la frontieră sunt măsuri diferite. Sursele se pot suprapune; nu adunați numerele lor. WorldMonitor derivă această vizualizare din sursele indicate; aceasta nu implică susținerea furnizorilor.",
+      "movementNote": "Fiecare rând păstrează sursa, data raportului și măsura. Populațiile, sosirile și evenimentele de control la frontieră sunt măsuri diferite. Sursele se pot suprapune; nu adunați numerele lor. RaWorld derivă această vizualizare din sursele indicate; aceasta nu implică susținerea furnizorilor.",
       "recent": "Recent",
       "last30Days": "Ultimele 30 de zile",
       "newThisWeek": "Nou această săptămână",
@@ -2173,7 +2155,7 @@
       "tripDays": "Zile de călătorie"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>Analist WM</strong> Analist AI cu context în timp real în domeniile geopolitic, piețe, militar și economic. Alimentat de Claude cu date în timp real injectate din fluxurile active WorldMonitor."
+      "infoTooltip": "<strong>Analist WM</strong> Analist AI cu context în timp real în domeniile geopolitic, piețe, militar și economic. Alimentat de Claude cu date în timp real injectate din fluxurile active RaWorld."
     },
     "cotPositioning": {
       "infoTooltip": "<strong>Futures positioning</strong> Poziții nete săptămânale pentru comercianți comerciali, speculatori mari și comercianți mici în futures pe mărfuri și futures financiare. Sursa este raportul Commitments of Traders al Comisiei pentru Comerțul cu Futures pe Mărfuri, publicat vineri."
@@ -2241,7 +2223,7 @@
       "infoTooltip": "<strong>Economic Calendar</strong> Lansări macroeconomice programate: indicele prețurilor de consum, salarii nefarmiere, produsul intern brut, indicele managerilor de achiziții și decizii ale băncilor centrale. Arată prognoză versus actual versus anterior. Evenimente cu impact ridicat sunt evidențiate. Sursă: furnizori de date economice."
     },
     "fsi": {
-      "infoTooltip": "<strong>Financial Stress Indicator</strong> Raport World Monitor dintre creditele cu randament ridicat și obligațiuni pe termen lung, ajustat pentru volatilitatea acțiunilor și spread-ul randamentului ridicat: (HYG / TLT) / (VIX × spread randament ridicat / 100). Aceasta nu este Indicele de Stres Financiar al Bancii Federale din Kansas City. O citire de 1,5 sau mai mare indică stres redus; sub 0,3 indică stres ridicat.",
+      "infoTooltip": "<strong>Financial Stress Indicator</strong> Raport RaWorld dintre creditele cu randament ridicat și obligațiuni pe termen lung, ajustat pentru volatilitatea acțiunilor și spread-ul randamentului ridicat: (HYG / TLT) / (VIX × spread randament ridicat / 100). Aceasta nu este Indicele de Stres Financiar al Bancii Federale din Kansas City. O citire de 1,5 sau mai mare indică stres redus; sub 0,3 indică stres ridicat.",
       "title": "Indicatorul de Stres Financiar",
       "usFsiValue": "Valoarea indicatorului de stres financiar al SUA",
       "cissTitle": "EU CISS (Stres Sistemic Zona Euro)",
@@ -2299,8 +2281,7 @@
       "dependentCommodities": "Materii prime dependente",
       "stateOk": "Actual",
       "stateStale": "Date de intrare învechite",
-      "stateInsufficient": "Date insuficiente",
-      "proLocked": "Actualizare la PRO pentru scoruri de vulnerabilitate a mărfurilor"
+      "stateInsufficient": "Date insuficiente"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>Hormuz Trade Tracker</strong> Urmărire live a vaselor prin Strâmtoarea Hormuz, cel mai critic punct de constrângere pentru petrol din lume. Monitorizează numărurile de tanagii, evenimente de perturbare și schimburi de flux săptămânale. Aproximativ 20% din aprovizionarea globală cu petrol tranzitează zilnic prin aici.",
@@ -2325,7 +2306,7 @@
       "infoTooltip": "<strong>Macro indicators</strong> Indicatori de prețuri, activitate, politică și valută pentru SUA, zona euro și China. China necesită cobertura curentă. Fiecare țiglă arată sursa și data observației."
     },
     "monitors": {
-      "infoTooltip": "<strong>Monitoare de cuvinte cheie</strong> Adăugați orice termen pentru a urmări mențiunile în știri în timp real din toate sursele WorldMonitor. Rezultatele se actualizează în timp real pe măsură ce articolele corespunzătoare sunt ingerate."
+      "infoTooltip": "<strong>Monitoare de cuvinte cheie</strong> Adăugați orice termen pentru a urmări mențiunile în știri în timp real din toate sursele RaWorld. Rezultatele se actualizează în timp real pe măsură ce articolele corespunzătoare sunt ingerate."
     },
     "renewable": {
       "infoTooltip": "<strong>Renewable Energy</strong> Ponderea generării de electricitate din surse regenerabile pe regiune și an, plus capacitate instalată în SUA pentru energie solară, vânt și cărbune (MW). Surse: Banca Mondială (EG.ELC.RNEW.ZS) și Administrația pentru Informații Energetice a SUA."
@@ -2553,108 +2534,11 @@
     "wsbTickerScanner": {
       "infoTooltip": "<strong>WallStreetBets Ticker Scanner</strong> Mențiuni de ticker în timp real din r/wallstreetbets, r/stocks și r/investing. Clasificate după frecvența mențiunilor și implicare. Viteza măsoară cât de rapid câștigă o ticker momentum în postări."
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro este lansat",
-      "tagline": "Mai mult semnal, mai puțin zgomot. Mai multe rapoarte AI. Un cercetător geopolitic și de capitaluri proprii special pentru tine.",
-      "cta": "Upgrade la Pro →",
-      "dismiss": "Închide"
-    },
-    "billingState": {
-      "onHoldDesc": "Plata a eșuat. Actualizează metoda de plată pentru a restabili accesul premium.",
-      "onHoldBannerMessage": "Plata a eșuat. Actualizează metoda de plată pentru a-ți menține abonamentul activ.",
-      "updatePayment": "Actualizează plata",
-      "renewalPendingDesc": "Verificăm reînnoirea abonamentului tău. Accesul premium va fi restabilit automat după confirmare.",
-      "refreshStatus": "Actualizează starea",
-      "renewalFailedDesc": "Nu am putut verifica reînnoirea abonamentului tău. Gestionează facturarea sau contactează asistența dacă problema persistă.",
-      "manageBilling": "Gestionează facturarea",
-      "lapsedDesc": "Abonamentul tău Pro s-a încheiat. Reabonează-te pentru a recâștiga accesul premium.",
-      "resubscribe": "Reabonare"
-    },
     "checkoutFailureBanner": {
       "message": "Plata nu a putut fi finalizată. Nu a fost făcută nicio încărcare.",
       "retry": "Încearcă din nou",
       "retrying": "Se încearcă din nou…",
       "dismiss": "Închide"
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "Pasul {{current}} din {{total}}",
-      "closeLabel": "Omite configurarea",
-      "ariaLabel": "Configurarea activării Pro",
-      "signedInAs": "Conectat ca {{email}}",
-      "steps": {
-        "brief": {
-          "heading": "Rezumatul tău zilnic, în fiecare dimineață",
-          "body": "Un rezumat de informații selectat în inboxul tău în fiecare dimineață — semnalele importante din timpul nopții, condensate într-o lectură de cinci minute.",
-          "confirmCta": "Activează rezumatul meu de dimineață",
-          "confirming": "Se activează…",
-          "doneNote": "Rezumatul tău de dimineață rulează deja.",
-          "scheduleNote": "Vom păstra ora ta actuală de livrare.",
-          "summaryLabel": "Rezumat de dimineață",
-          "summaryVerified": "Activat — începe cu următorul tău rezumat de dimineață.",
-          "deliverAt": "Livrare la",
-          "previewLoading": "Se pregătește o previzualizare a primului tău rezumat…",
-          "previewLabel": "Rezumatul de azi dimineață"
-        },
-        "alerts": {
-          "heading": "Alerte critice",
-          "body": "Primește o notificare în browser când se întâmplă ceva important — escaladări de conflicte, șocuri de piață, sancțiuni noi. Ajustează frecvența oricând din Setări.",
-          "confirmCta": "Activează alertele",
-          "confirming": "Se activează…",
-          "doneNote": "Alertele din browser sunt deja activate.",
-          "blockedNote": "Notificările sunt blocate în browserul tău. Activează-le din setările site-ului din browserul tău pentru a primi alerte.",
-          "declinedNote": "Nicio problemă — nu vom trimite alerte din browser. Le poți activa mai târziu din setările site-ului din browserul tău.",
-          "summaryLabel": "Alerte critice",
-          "summaryVerified": "Activate — semnalele critice vor ajunge la browserul tău."
-        },
-        "power": {
-          "heading": "Trusa ta de instrumente Pro",
-          "body": "Widget-uri personalizate, conexiuni MCP și cercetătorul AI sunt deblocate. Construiește panoul pe care chiar vrei să-l urmărești.",
-          "confirmCta": "Explorează instrumentele Pro",
-          "confirming": "Se deschide…",
-          "doneNote": "Deja folosești instrumentele tale Pro.",
-          "summaryLabel": "Trusă de instrumente Pro",
-          "summaryVerified": "Deblocată și pregătită oricând ești și tu.",
-          "channelsNote": "Preferi Telegram, Slack, Discord sau un webhook?",
-          "pointers": {
-            "search": "Caută în întregul tablou de bord",
-            "widgets": "Creează un widget personalizat",
-            "analyst": "Întreabă analistul AI",
-            "mcpClients": "Configurează MCP",
-            "channels": "Configurează-le în setările de notificare"
-          }
-        }
-      },
-      "status": {
-        "pending": "Neconfigurat",
-        "inFlight": "Se configurează…",
-        "verified": "Gata",
-        "failed": "Nu a funcționat",
-        "blocked": "Blocat",
-        "unavailable": "Indisponibil",
-        "blockedNote": "Acest lucru nu este disponibil acum — îl poți configura mai târziu din setări.",
-        "unavailableNote": "Acest lucru nu este disponibil pe dispozitivul tău — îl poți configura mai târziu.",
-        "failedBody": "Ceva n-a mers bine. Poți încerca din nou sau îl poți configura mai târziu din setări.",
-        "retry": "Încearcă din nou"
-      },
-      "actions": {
-        "skip": "Omite deocamdată",
-        "continue": "Continuă"
-      },
-      "summary": {
-        "heading": "Totul este gata",
-        "subVerified": "Iată ce rulează pe contul tău.",
-        "subPending": "Poți finaliza configurarea oricând din setări.",
-        "linePending": "Încă neconfigurat — finalizează oricând din setări.",
-        "lineFailed": "Nu am reușit să configurăm asta — încearcă din nou din setări.",
-        "finish": "Mergi la panoul meu"
-      },
-      "chip": {
-        "message": "Finalizează configurarea contului tău Pro.",
-        "action": "Finalizează configurarea",
-        "dismissLabel": "Închide"
-      }
     },
     "frameworkSelector": {
       "label": "Cadru de analiză",
@@ -2886,20 +2770,10 @@
       }
     },
     "exportGate": {
-      "signedOutDesc": "Autentifică-te pentru a exporta datele tabloului de bord ca CSV, JSON sau PDF.",
-      "upgradeDesc": "Exportul de date (CSV, JSON, PDF) este inclus în Pro Business.",
-      "upgradeCta": "Actualizează la Pro Business",
       "lockedAriaLabel": "Exportă date — blocat. {{reason}}",
       "unlockedAnnouncement": "Exportul de date a fost deblocat.",
       "preparingPdf": "Se pregătește PDF-ul…",
       "pdfFailed": "Raportul PDF nu a putut fi generat. Încearcă din nou sau folosește exportul JSON."
-    },
-    "tabCap": {
-      "signedOutDesc": "Spațiile de lucru fără autentificare sunt limitate la {{cap}} file. Autentifică-te pentru a adăuga mai multe.",
-      "upgradeDesc": "Ai atins limita de {{cap}} file ale tabloului de bord.",
-      "upgradeCta": "Actualizează pentru mai mult",
-      "lockedAriaLabel": "Adaugă filă — blocat. {{reason}}",
-      "unlockedAnnouncement": "Limita filelor tabloului de bord a fost ridicată."
     },
     "fx": {
       "infoTooltip": "<strong>Currency rates</strong> Stres clasifică 45 de valute după cea mai mare declin pe 24 de luni, cu schimbarea pe 12 luni. Ratele spot utilizează baze separate ale dolarului american și euro. Ratele rublei ruse sunt ruble pe unitate. Sursele includ Yahoo Finance, Banca Centrală Europeană și Banca Rusiei.",
@@ -2933,18 +2807,6 @@
       "rubPerUnit": "Ruble per unitate",
       "sourceCbr": "Sursă: Banca Rusiei"
     },
-    "passkeyOffer": {
-      "title": "Salvezi o cheie de acces?",
-      "body": "Autentifică-te data viitoare cu amprenta, fața sau codul PIN al dispozitivului — fără parolă de reținut.",
-      "accept": "Salvează cheia de acces",
-      "dismiss": "Acum nu",
-      "close": "Închide",
-      "announce": "Salvează o cheie de acces pentru a te autentifica mai repede data viitoare.",
-      "busy": "Se așteaptă dispozitivul…",
-      "succeeded": "Cheia de acces a fost salvată. O poți folosi data viitoare când te autentifici.",
-      "retryable": "Nu s-a finalizat. Poți încerca din nou.",
-      "failed": "Nu am putut salva o cheie de acces pe acest dispozitiv."
-    },
     "decisionBrief": {
       "commodityTitle": "Raport decizional privind materiile prime",
       "commodity": "Materie primă / produs",
@@ -2963,8 +2825,7 @@
       "changed": "Selecția s-a schimbat. Încărcați ambele scenarii înainte de export.",
       "loading": "Se încarcă ambele scenarii…",
       "captured": "Încărcare completă. Verificați datele observațiilor și constrângerile înainte de descărcare.",
-      "failed": "Scenariile nu au putut fi încărcate. Verificați accesul și încercați din nou. Nu există rezultate de exportat.",
-      "locked": "Sinteza pentru decizie este disponibilă cu Pro."
+      "failed": "Scenariile nu au putut fi încărcate. Verificați accesul și încercați din nou. Nu există rezultate de exportat."
     },
     "liveMedia": {
       "idleStatus": "Pausat din cauza inactivității",
@@ -3689,10 +3550,10 @@
     "copyCoordinates": "Copiază coordonatele"
   },
   "shell": {
-    "documentTitle": "World Monitor — Tabloul de Bord al Inteligenței Globale în Timp Real",
+    "documentTitle": "RaWorld — Tabloul de Bord al Inteligenței Globale în Timp Real",
     "metaDescription": "Platformă globală de informații în timp real. Prezentată în WIRED. Utilizată de 2M+ persoane în 190 de țări. Conflicte, piețe, domeniu militar, informații din surse deschise — toate într-o singură vedere.",
     "offlineTitle": "Sunteți Offline",
-    "offlineMessage": "World Monitor necesită o conexiune la internet pentru date de informații în timp real.",
+    "offlineMessage": "RaWorld necesită o conexiune la internet pentru date de informații în timp real.",
     "offlineRetry": "Încercați din nou"
   },
   "widgets": {
@@ -3730,16 +3591,15 @@
     "phaseError": "Eroare",
     "previewCheckingHeading": "Se conectează constructorul de widget",
     "previewReadyHeading": "Descrie widgetul pe care îl dorești",
-    "previewFetchingHeading": "Se preiau datele live WorldMonitor",
+    "previewFetchingHeading": "Se preiau datele live RaWorld",
     "previewComposingHeading": "Se compune aspectul widgetului",
     "previewErrorHeading": "Previzualizarea necesită atenție",
     "previewCheckingCopy": "Validăm cheia widgetului și disponibilitatea backend-ului înainte de a activa generarea.",
     "previewReadyCopy": "Folosește un exemplu de prompt sau descrie exact vizualizarea live pe care o dorești. Previzualizarea se va actualiza aici înainte să o salvezi.",
-    "previewFetchingCopy": "Agentul apelează punctele finale WorldMonitor aprobate și modelează setul de date pentru widget.",
+    "previewFetchingCopy": "Agentul apelează punctele finale RaWorld aprobate și modelează setul de date pentru widget.",
     "previewComposingCopy": "Previzualizarea se redă cu cele mai recente date live și stilul tabloului de bord.",
     "previewErrorCopy": "Remediază problema, apoi reîncearcă. Widgeturile existente nu sunt afectate.",
     "createInteractive": "Creează Widget Interactiv",
-    "proBadge": "PRO",
     "preflightProUnavailable": "Agentul widget PRO este indisponibil. Verifică PRO_WIDGET_KEY pe server.",
     "preflightInvalidProKey": "Cheia PRO respingă. Actualizează wm-pro-key și reîncarcă.",
     "preflightProSubscriptionRequired": "Abonament Pro necesar. Dacă tocmai ai upgrade-uit, reîmprospătează pagina; altfel contactează suportul.",
@@ -3761,28 +3621,6 @@
     "offlineCached": "Offline — afișare date cache din {{freshness}}.",
     "offlineUnavailable": "Offline — datele live sunt indisponibile în acest moment.",
     "cachedFallback": "Datele live indisponibile — afișare date cache din {{freshness}}."
-  },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "Necesită o cheie de licență World Monitor",
-    "signInToUnlock": "Conectați-vă pentru a debloca funcțiile premium",
-    "signIn": "Conectați-vă pentru a debloca",
-    "upgradeDesc": "Upgrade la Pro pentru acces deplin la analitica premium",
-    "upgradeToPro": "Upgrade la Pro",
-    "features": {
-      "orefSirens1": "Alerte în timp real pentru rachete și rachete Israel",
-      "orefSirens2": "Hartă zonelor de sirenă cu clasificare amenințărilor",
-      "telegramIntel1": "Canale de informații deschise Telegram selectate",
-      "telegramIntel2": "Actualizări conflicte și geopolitice aproape în timp real",
-      "xIntel1": "Curated public news accounts on X",
-      "xIntel2": "API-fresh posts with official permalinks"
-    }
-  },
-  "auth": {
-    "signIn": "Conectare",
-    "createAccount": "Creare cont",
-    "settings": "Setări",
-    "passkeyOffer": {}
   },
   "mcp": {
     "connectPanel": "Conectare MCP",
@@ -3871,8 +3709,6 @@
     "resilience": "Reziliență",
     "ciiMissing": "CII indisponibil",
     "resilienceMissing": "Reziliență indisponibilă",
-    "noEvents": "Nu au fost capturate titluri selectate pentru această dată. Acest lucru nu dovedește absența evenimentelor.",
-    "unlock90": "Deblocați 90 de zile cu Pro",
-    "unlock365": "Deblocați 365 de zile cu un plan API"
+    "noEvents": "Nu au fost capturate titluri selectate pentru această dată. Acest lucru nu dovedește absența evenimentelor."
   }
 }

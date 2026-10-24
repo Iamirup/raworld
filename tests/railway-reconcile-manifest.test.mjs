@@ -16,7 +16,7 @@ function intentInput(overrides = {}) {
   return {
     attemptId: 'attempt-0001',
     producer: {
-      repository: 'koala73/worldmonitor',
+      repository: 'Iamirup/raworld',
       workflow: 'railway-deploy-trigger.yml',
       runId: '31181545167',
       runAttempt: 1,

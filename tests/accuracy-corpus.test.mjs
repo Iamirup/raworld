@@ -505,16 +505,16 @@ const DATASET = Object.freeze({
     encodingFormat: 'application/json',
     contentUrl: 'https://www.worldmonitor.app/accuracy/scorecard.json',
   },
-  catalog: { '@type': 'DataCatalog', '@id': 'https://www.worldmonitor.app/#data-catalog', name: 'World Monitor open data catalog' },
+  catalog: { '@type': 'DataCatalog', '@id': 'https://www.worldmonitor.app/#data-catalog', name: 'RaWorld open data catalog' },
 });
 const DATA_CATALOG = Object.freeze({
   '@context': 'https://schema.org',
   '@type': 'DataCatalog',
   '@id': 'https://www.worldmonitor.app/#data-catalog',
-  name: 'World Monitor open data catalog',
+  name: 'RaWorld open data catalog',
   isAccessibleForFree: true,
-  publisher: { '@id': 'https://www.worldmonitor.app/#organization', '@type': 'Organization', name: 'World Monitor', url: 'https://www.worldmonitor.app/' },
-  creator: { '@id': 'https://www.worldmonitor.app/#organization', '@type': 'Organization', name: 'World Monitor', url: 'https://www.worldmonitor.app/' },
+  publisher: { '@id': 'https://www.worldmonitor.app/#organization', '@type': 'Organization', name: 'RaWorld', url: 'https://www.worldmonitor.app/' },
+  creator: { '@id': 'https://www.worldmonitor.app/#organization', '@type': 'Organization', name: 'RaWorld', url: 'https://www.worldmonitor.app/' },
 });
 
 // The corpus builder owns the real HTML shell and injects it. This stands in for
@@ -646,7 +646,7 @@ describe('accuracy page honesty rules', () => {
     assert.ok(result, 'the headline result must be a sentence an extractor can lift, not a tile');
     const sentence = stripTags(result[1]);
     assert.match(sentence, /180-day window/);
-    assert.match(sentence, /it is not yet clear whether World Monitor(?:'|&#39;)s headline forecasts beat always forecasting how often these events actually happened: a skill score of \+0\.32, 95% interval -0\.05 to \+0\.60/);
+    assert.match(sentence, /it is not yet clear whether RaWorld(?:'|&#39;)s headline forecasts beat always forecasting how often these events actually happened: a skill score of \+0\.32, 95% interval -0\.05 to \+0\.60/);
     assert.match(sentence, /Brier score was 0\.118/);
     assert.match(sentence, /over 180 scored forecasts from at least 30 forecast families/);
     // p = 40/180, p(1-p) = 0.1728.
@@ -1338,10 +1338,10 @@ describe('accuracy page forecast receipts (#5092)', () => {
       ],
     });
     const text = stripTags(receiptsOf(renderState(odd).html));
-    assert.match(text, /A World Monitor data feed read 100\.75/);
+    assert.match(text, /A RaWorld data feed read 100\.75/);
     assert.match(text, /Void 2026-09-09 Could not be resolved/);
     assert.doesNotMatch(text, /internal-feed|something_new|MAYBE|function|native code/);
-    assert.equal(text.match(/A World Monitor data feed read 100\.75/g).length, 2, 'an inherited key is not a label');
+    assert.equal(text.match(/A RaWorld data feed read 100\.75/g).length, 2, 'an inherited key is not a label');
     assert.equal(text.match(/Could not be resolved/g).length, 2);
   });
 
@@ -1606,9 +1606,9 @@ describe('accuracy verdict block', () => {
   });
 
   it('states the market comparison in words that follow the delta sign', () => {
-    assert.match(verdictText(renderState(LIVE_SECTION).html), /In the 78 graded cases of every origin, unpublished shadow bets included, that carried a liquid prediction market's price, the market's odds were closer to what happened than World Monitor's\. A market matched to a forecast, rather than one the forecast bet on, can ask a narrower or broader question\./);
+    assert.match(verdictText(renderState(LIVE_SECTION).html), /In the 78 graded cases of every origin, unpublished shadow bets included, that carried a liquid prediction market's price, the market's odds were closer to what happened than RaWorld's\. A market matched to a forecast, rather than one the forecast bet on, can ask a narrower or broader question\./);
     const flipped = sectionWith({ vsMarketSkill: { count: 78, forecastBrier: 0.073136, marketBrier: 0.154623, brierDelta: 0.081487 } });
-    assert.match(verdictText(renderState(flipped).html), /World Monitor's odds were closer to what happened than the market's/);
+    assert.match(verdictText(renderState(flipped).html), /RaWorld's odds were closer to what happened than the market's/);
     const tied = sectionWith({ vsMarketSkill: { count: 4, forecastBrier: 0.1, marketBrier: 0.1, brierDelta: 0 } });
     assert.match(verdictText(renderState(tied).html), /the two were equally close/);
     const absent = sectionWith({ vsMarketSkill: { count: 0, forecastBrier: 0, marketBrier: 0, brierDelta: 0 } });
@@ -1648,7 +1648,7 @@ describe('accuracy verdict block', () => {
     assert.equal(better.verdict, 'better');
     assert.match(better.text, /^Better than always forecasting how often these events actually happened\./);
     assert.match(better.text, /Of 180 graded forecasts, 30 came true: 16\.7% of 180 forecasts/);
-    assert.match(better.text, /Always forecasting that 16\.7% would have had an error of 0\.139\. World Monitor(?:'|&#39;)s error was 0\.100\./);
+    assert.match(better.text, /Always forecasting that 16\.7% would have had an error of 0\.139\. RaWorld(?:'|&#39;)s error was 0\.100\./);
     assert.match(better.text, /a skill score of \+0\.28, 95% interval \+0\.05 to \+0\.40\. The whole interval is above 0\./);
     assert.match(better.text, /They come from at least 30 forecast families\./);
   });
@@ -1664,7 +1664,7 @@ describe('accuracy verdict block', () => {
   it('cannot tell when the interval includes 0 or is missing, and never maps the Brier interval instead', () => {
     const straddles = skillParagraph(skillOf({ brier: 0.1, bssCi95: [-0.24, 0.48] }, { ci95: [0.083333, 0.131944] }));
     assert.equal(straddles.verdict, 'unclear');
-    assert.match(straddles.text, /^Cannot tell yet whether World Monitor beats always forecasting how often these events actually happened\./);
+    assert.match(straddles.text, /^Cannot tell yet whether RaWorld beats always forecasting how often these events actually happened\./);
     assert.match(straddles.text, /95% interval -0\.24 to \+0\.48\. The interval includes 0, so the difference may be chance\./);
     // Holding the rate fixed, that Brier interval maps to +0.05 to +0.40, which would wrongly read as better.
     const negativeStraddle = skillParagraph(skillOf({ brier: 0.2, bssCi95: [-0.9, 0.1] }));
@@ -2073,7 +2073,7 @@ describe('accuracy record under audit (#8990)', () => {
 
   it('states in the lede what the page does without claiming every forecast is scored', () => {
     const { html } = audited();
-    assert.match(html, /<p class="lede">World Monitor logs every forecast it publishes and aims to score each one once its outcome is known\. While the audit below is open, this page publishes no scores\.<\/p>/);
+    assert.match(html, /<p class="lede">RaWorld logs every forecast it publishes and aims to score each one once its outcome is known\. While the audit below is open, this page publishes no scores\.<\/p>/);
     assert.doesNotMatch(stripTags(html), /scores every forecast it publishes/);
   });
 
@@ -2163,7 +2163,7 @@ describe('accuracy record under audit (#8990)', () => {
     assert.match(lineWith('Once a forecast enters the resolution ledger'), /That is the design\. The October 2026 audit \(issue #8990\) found the scorer sometimes replaced a forecast's first probability with a later one, and that is being fixed\./);
     assert.match(lineWith('demonstrated track record of its domain'), /\(while the record is under audit, do not\)/);
     const description = post.match(/^description: "([^"]*)"$/m)[1];
-    assert.equal(description, 'How WorldMonitor scores its own AI forecasts, with a July 2026 snapshot of 32 forecasts. An audit found scoring errors and withdrew those figures in October 2026.');
+    assert.equal(description, 'How RaWorld scores its own AI forecasts, with a July 2026 snapshot of 32 forecasts. An audit found scoring errors and withdrew those figures in October 2026.');
   });
 
   // Public surfaces that describe the record. Each must be true in both states, so none may state a score
@@ -2183,7 +2183,7 @@ describe('accuracy record under audit (#8990)', () => {
   const CLAIM_PHRASES = [
     /carries\s+the\s+Brier/i,
     /with its Brier scores/i,
-    /how well World Monitor forecasts have scored/i,
+    /how well RaWorld forecasts have scored/i,
     /republishes the current scores/i,
     /ledger currently reads/i,
     /headline cohort scores a Brier/i,
@@ -2209,7 +2209,7 @@ describe('accuracy record under audit (#8990)', () => {
 
   it('catches a new numeric claim, not only the retired wording', () => {
     for (const planted of [
-      'World Monitor forecasts score a Brier of 0.111 over 243 forecasts, beating a coin flip.',
+      'RaWorld forecasts score a Brier of 0.111 over 243 forecasts, beating a coin flip.',
       'Brier score 0.074 for cyber.',
       'Our forecasts beat a coin flip.',
     ]) {
@@ -2316,7 +2316,7 @@ describe('ledger population follows the capture (#8990)', () => {
     for (const section of [PUBLISHED, POOLED]) {
       const text = verdictOf(renderState(section).html);
       assert.match(text, /Across all 490 graded forecasts of every origin, unpublished shadow bets included, /);
-      assert.match(text, /Over all 490 graded forecasts of every origin, unpublished shadow bets included: When World Monitor put the chance/);
+      assert.match(text, /Over all 490 graded forecasts of every origin, unpublished shadow bets included: When RaWorld put the chance/);
     }
   });
 

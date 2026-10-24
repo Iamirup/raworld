@@ -23,10 +23,10 @@ import {
 
 export { formatAccessEndDate } from "./cancellationEmailCopy";
 
-const FROM = "World Monitor <noreply@worldmonitor.app>";
+const FROM = "RaWorld <noreply@worldmonitor.app>";
 // Marketing sender (audit check 4): winback is a marketing email, so it goes
 // from news@ like the launch broadcast, with a one-click unsubscribe.
-const MARKETING_FROM = "World Monitor <news@worldmonitor.app>";
+const MARKETING_FROM = "RaWorld <news@worldmonitor.app>";
 const ADMIN_EMAIL = "elie@worldmonitor.app";
 
 const PLAN_DISPLAY: Record<string, string> = {
@@ -131,7 +131,7 @@ function featureCardsHtml(planKey: string): string {
         </td>
       </tr>`;
   }
-  // Pro plans: signature-first grid — leads with WM Analyst, Custom Widgets, MCP
+  // Pro plans: signature-first grid — leads with RaWorld Analyst, Custom Widgets, MCP
   // (the three differentiators the old email buried), followed by Brief +
   // Delivery + 50+ Panels. Source of truth: docs/plans/pro-welcome-email-playground.html.
   return `
@@ -139,7 +139,7 @@ function featureCardsHtml(planKey: string): string {
         <td style="width: 50%; padding: 12px; vertical-align: top;">
           <div style="background: #111; border: 1px solid #1a1a1a; padding: 16px; height: 100%;">
             <div style="font-size: 20px; margin-bottom: 8px;">&#129302;</div>
-            <div style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px;">WM Analyst</div>
+            <div style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px;">RaWorld Analyst</div>
             <div style="font-size: 12px; color: #888; line-height: 1.4;">Chat with your monitor. Ask anything, get cited answers.</div>
           </div>
         </td>
@@ -232,7 +232,7 @@ async function sendSignInPointer(
       ctx,
       apiKey,
       checkoutEmail,
-      `Your World Monitor subscription is active — where to sign in`,
+      `Your RaWorld subscription is active — where to sign in`,
       `<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #e0e0e0;">
         <div style="background: #4ade80; height: 4px;"></div>
         <div style="padding: 40px 32px;">
@@ -240,7 +240,7 @@ async function sendSignInPointer(
           <p style="font-size: 14px; color: #999; line-height: 1.5; margin: 0 0 12px;">Your ${planName} subscription is active. This address (${escapeHtml(checkoutEmail)}) is the billing contact for the subscription.</p>
           <p style="font-size: 14px; color: #999; line-height: 1.5; margin: 0 0 24px;">To open your dashboard, sign in with <strong style="color: #fff;">${escapeHtml(maskEmail(loginEmail))}</strong> — your sign-in code will arrive in that inbox.</p>
           <div style="text-align: center;">
-            <a href="https://worldmonitor.app" style="display: inline-block; background: #4ade80; color: #0a0a0a; padding: 14px 36px; text-decoration: none; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 2px;">Open World Monitor</a>
+            <a href="https://worldmonitor.app" style="display: inline-block; background: #4ade80; color: #0a0a0a; padding: 14px 36px; text-decoration: none; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 2px;">Open RaWorld</a>
           </div>
           <p style="font-size: 11px; color: #666; text-align: center; margin: 24px 0 0;">Questions? Reply to this email or contact ${ADMIN_EMAIL}.</p>
         </div>
@@ -277,10 +277,10 @@ function userWelcomeHtml(planName: string, planKey: string, signInEmail?: string
     <table cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto 32px;">
       <tr>
         <td style="width: 40px; height: 40px; vertical-align: middle;">
-          <img src="https://www.worldmonitor.app/favico/android-chrome-192x192.png" width="40" height="40" alt="WorldMonitor" style="border-radius: 50%; display: block;" />
+          <img src="https://www.worldmonitor.app/favico/android-chrome-192x192.png" width="40" height="40" alt="RaWorld" style="border-radius: 50%; display: block;" />
         </td>
         <td style="padding-left: 12px;">
-          <div style="font-size: 16px; font-weight: 800; color: #fff; letter-spacing: -0.5px;">WORLD MONITOR</div>
+          <div style="font-size: 16px; font-weight: 800; color: #fff; letter-spacing: -0.5px;">RAWORLD</div>
         </td>
       </tr>
     </table>
@@ -308,10 +308,10 @@ function userWelcomeHtml(planName: string, planKey: string, signInEmail?: string
   <div style="border-top: 1px solid #1a1a1a; padding: 24px 32px; text-align: center;">
     <div style="margin-bottom: 16px;">
       <a href="https://x.com/eliehabib" style="color: #666; text-decoration: none; font-size: 12px; margin: 0 12px;">X / Twitter</a>
-      <a href="https://github.com/koala73/worldmonitor" style="color: #666; text-decoration: none; font-size: 12px; margin: 0 12px;">GitHub</a>
+      <a href="https://github.com/Iamirup/raworld" style="color: #666; text-decoration: none; font-size: 12px; margin: 0 12px;">GitHub</a>
     </div>
     <p style="font-size: 11px; color: #444; margin: 0; line-height: 1.6;">
-      World Monitor \u2014 Real-time intelligence for a connected world.<br />
+      RaWorld \u2014 Real-time intelligence for a connected world.<br />
       <a href="https://worldmonitor.app" style="color: #4ade80; text-decoration: none;">worldmonitor.app</a>
     </p>
   </div>
@@ -444,7 +444,7 @@ export const sendSubscriptionEmails = internalAction({
         ctx,
         apiKey,
         args.userEmail,
-        `Welcome to World Monitor ${planName}`,
+        `Welcome to RaWorld ${planName}`,
         userWelcomeHtml(planName, args.planKey, args.checkoutEmail ? args.userEmail : undefined),
         { replyTo: ADMIN_EMAIL },
       );
@@ -537,7 +537,7 @@ export const sendReactivationEmail = internalAction({
         ctx,
         apiKey,
         args.userEmail,
-        `Welcome back to World Monitor ${planName}`,
+        `Welcome back to RaWorld ${planName}`,
         `<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #e0e0e0;">
         <div style="background: #4ade80; height: 4px;"></div>
         <div style="padding: 40px 32px;">
@@ -545,7 +545,7 @@ export const sendReactivationEmail = internalAction({
           <p style="font-size: 14px; color: #999; line-height: 1.5; margin: 0 0 ${args.checkoutEmail ? "12px" : "24px"};">Your ${planName} subscription is active again and your premium access has been restored.</p>
           ${signInLine}
           <div style="text-align: center;">
-            <a href="https://worldmonitor.app/dashboard" style="display: inline-block; background: #4ade80; color: #0a0a0a; padding: 14px 36px; text-decoration: none; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 2px;">Open World Monitor</a>
+            <a href="https://worldmonitor.app/dashboard" style="display: inline-block; background: #4ade80; color: #0a0a0a; padding: 14px 36px; text-decoration: none; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 2px;">Open RaWorld</a>
           </div>
           <p style="font-size: 11px; color: #666; text-align: center; margin: 24px 0 0;">Questions? Reply to this email or contact ${ADMIN_EMAIL}.</p>
         </div>
@@ -761,7 +761,7 @@ function dunningEmailShell(headline: string, bodyHtml: string, ctaLabel: string,
   // one-click URL could not be signed (EMAIL_UNSUBSCRIBE_SECRET unset); keep
   // a visible support opt-out instead of dropping the line.
   const unsubscribeLine = unsubscribeUrl
-    ? `<a href="${escapeHtml(unsubscribeUrl)}" style="color: #666; text-decoration: underline;">Unsubscribe from World Monitor product emails</a><br />`
+    ? `<a href="${escapeHtml(unsubscribeUrl)}" style="color: #666; text-decoration: underline;">Unsubscribe from RaWorld product emails</a><br />`
     : unsubscribeUrl === null
     ? `<a href="mailto:support@worldmonitor.app?subject=Unsubscribe%20from%20product%20emails" style="color: #666; text-decoration: underline;">Email support to unsubscribe from product emails</a><br />`
     : "";
@@ -772,10 +772,10 @@ function dunningEmailShell(headline: string, bodyHtml: string, ctaLabel: string,
     <table cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto 32px;">
       <tr>
         <td style="width: 40px; height: 40px; vertical-align: middle;">
-          <img src="https://www.worldmonitor.app/favico/android-chrome-192x192.png" width="40" height="40" alt="WorldMonitor" style="border-radius: 50%; display: block;" />
+          <img src="https://www.worldmonitor.app/favico/android-chrome-192x192.png" width="40" height="40" alt="RaWorld" style="border-radius: 50%; display: block;" />
         </td>
         <td style="padding-left: 12px;">
-          <div style="font-size: 16px; font-weight: 800; color: #fff; letter-spacing: -0.5px;">WORLD MONITOR</div>
+          <div style="font-size: 16px; font-weight: 800; color: #fff; letter-spacing: -0.5px;">RAWORLD</div>
         </td>
       </tr>
     </table>
@@ -819,8 +819,8 @@ export function buildDunningEmail(
     case "dunning_day0": {
       return {
         subject: stillCovered
-          ? `Your World Monitor payment failed — access continues while you fix it`
-          : `Your World Monitor payment failed — update your card to restore access`,
+          ? `Your RaWorld payment failed — access continues while you fix it`
+          : `Your RaWorld payment failed — update your card to restore access`,
         html: dunningEmailShell(
           "Your latest payment didn't go through.",
           stillCovered
@@ -828,7 +828,7 @@ export function buildDunningEmail(
             : `<p style="font-size: 14px; color: #999; margin: 0; line-height: 1.5;">Your ${planName} subscription is paused because the last charge failed — usually an expired card or a bank decline. Paid access has already ended. Update your payment method to restore briefs, alerts and Pro panels. No new checkout needed.</p>`,
           "Update payment method",
           ctaUrl,
-          "You're receiving this because a payment on your World Monitor subscription failed.",
+          "You're receiving this because a payment on your RaWorld subscription failed.",
         ),
       };
     }
@@ -846,12 +846,12 @@ export function buildDunningEmail(
             : `<p style="font-size: 14px; color: #999; margin: 0; line-height: 1.5;">Your ${planName} payment is still failing, so briefs, alerts and your Pro panels are off. Updating your card takes about two minutes and restores everything instantly.</p>`,
           "Update payment method",
           ctaUrl,
-          "You're receiving this because a payment on your World Monitor subscription failed.",
+          "You're receiving this because a payment on your RaWorld subscription failed.",
         ),
       };
     case "dunning_day7":
       return {
-        subject: `Final notice: your World Monitor ${planName} subscription is paused`,
+        subject: `Final notice: your RaWorld ${planName} subscription is paused`,
         html: dunningEmailShell(
           "Last reminder from us.",
           stillCovered && paidCovered
@@ -866,11 +866,11 @@ export function buildDunningEmail(
       };
     case "winback_day30":
       return {
-        subject: `Your World Monitor ${planName} access has ended — rejoin in one click`,
+        subject: `Your RaWorld ${planName} access has ended — rejoin in one click`,
         html: dunningEmailShell(
           "The map kept running. You're missed.",
-          `<p style="font-size: 14px; color: #999; margin: 0; line-height: 1.5;">Your ${planName} subscription ended about a month ago. The briefs, WM Analyst and your alert rules are exactly where you left them — rejoining takes one click and your setup is restored.</p>`,
-          "Rejoin World Monitor",
+          `<p style="font-size: 14px; color: #999; margin: 0; line-height: 1.5;">Your ${planName} subscription ended about a month ago. The briefs, RaWorld Analyst and your alert rules are exactly where you left them — rejoining takes one click and your setup is restored.</p>`,
+          "Rejoin RaWorld",
           ctaUrl,
           "This is a one-time note — we won't send more emails about this subscription.",
           unsubscribeUrl,

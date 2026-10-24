@@ -37,7 +37,7 @@ function resendBodies(fetchMock: ReturnType<typeof vi.fn>): Array<Record<string,
 
 const base = {
   apiKey: "re_test",
-  from: "World Monitor <noreply@worldmonitor.app>",
+  from: "RaWorld <noreply@worldmonitor.app>",
   to: "reader@example.com",
   subject: "Subject",
   html: "<p>hi</p>",

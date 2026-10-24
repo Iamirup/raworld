@@ -7,7 +7,7 @@ problem_type: security_issue
 component: background_job
 severity: medium
 symptoms:
-  - "/api/notify accepted a fully attacker-crafted payload and it was delivered end-to-end from the platform's own sending identity, so the notification carried WorldMonitor's icon, title and trust"
+  - "/api/notify accepted a fully attacker-crafted payload and it was delivered end-to-end from the platform's own sending identity, so the notification carried RaWorld's icon, title and trust"
   - "Clicking the notification did not open a new tab — notificationclick fed the payload URL to c.navigate() on the first same-origin window, so the dashboard tab itself became the attacker's page"
   - "No scheme discipline on either side of the boundary: javascript:, data: and http: targets were persisted into the notification payload too"
   - "Two pre-existing security regression suites were silently deleted by a truncating edit while the file's test count went UP, and both the local run and CI stayed green"
@@ -22,18 +22,18 @@ tags: [web-push, service-worker, notification-click, tab-nabbing, open-redirect,
 
 ## Problem
 
-The web-push service worker navigated the user's already-open WorldMonitor dashboard tab to whatever URL the push payload carried, and those URLs come from `event.payload.link` — published verbatim by a Pro account through `/api/notify`, or ingested verbatim from an external RSS feed. An attacker-supplied link therefore replaced a trusted, authenticated surface with an arbitrary external page (security review finding, severity MEDIUM).
+The web-push service worker navigated the user's already-open RaWorld dashboard tab to whatever URL the push payload carried, and those URLs come from `event.payload.link` — published verbatim by a Pro account through `/api/notify`, or ingested verbatim from an external RSS feed. An attacker-supplied link therefore replaced a trusted, authenticated surface with an arbitrary external page (security review finding, severity MEDIUM).
 
 ## Symptoms
 
-- `POST /api/notify` accepted a fully attacker-crafted payload — `{"eventType":"rss_alert","severity":"critical","payload":{"title":"Security notice: verify your WorldMonitor account immediately","link":"https://example.com/wm-verify-account", ...}}` — and it was delivered end-to-end from the platform's own sending identity, so the notification carried WorldMonitor's icon, title and trust.
+- `POST /api/notify` accepted a fully attacker-crafted payload — `{"eventType":"rss_alert","severity":"critical","payload":{"title":"Security notice: verify your RaWorld account immediately","link":"https://example.com/wm-verify-account", ...}}` — and it was delivered end-to-end from the platform's own sending identity, so the notification carried RaWorld's icon, title and trust.
 - Clicking it did not open a new tab. On `origin/main`, `notificationclick` took `const target = (event.notification.data && event.notification.data.url) || '/'` and fed it to `c.navigate(target)` on the first same-origin window — the dashboard tab itself became `https://example.com/wm-verify-account`.
 - No scheme discipline anywhere on the path: the relay stored `payload.url || 'https://worldmonitor.app/'` unchecked, and the push listener stored `typeof data.url === 'string' ? data.url : '/'`, so `javascript:`, `data:` and `http:` targets were persisted into the notification payload too.
 - Reproduced mechanically: running the new suite against the `origin/main` handler fails 5 of 6 new tests (20 tests, 15 pass, 5 fail), the first with `must NOT navigate the dashboard tab to https://example.com/wm-verify-account`.
 
 ## What Didn't Work
 
-**The host-allowlist reflex.** The obvious remedy is to validate the destination against a WorldMonitor origin allowlist and substitute the dashboard for anything else. That kills the feature: the article link *is* the payload of an `rss_alert`, and the identical link is already delivered verbatim in the email, Telegram, Slack and Discord message bodies (`scripts/notification-relay.cjs:1026`, where `formatMessage` appends `event.payload.link` to every channel's message text) — so the allowlist would degrade push to a strictly worse channel while closing nothing the other four channels leave open. Rejected.
+**The host-allowlist reflex.** The obvious remedy is to validate the destination against a RaWorld origin allowlist and substitute the dashboard for anything else. That kills the feature: the article link *is* the payload of an `rss_alert`, and the identical link is already delivered verbatim in the email, Telegram, Slack and Discord message bodies (`scripts/notification-relay.cjs:1026`, where `formatMessage` appends `event.payload.link` to every channel's message text) — so the allowlist would degrade push to a strictly worse channel while closing nothing the other four channels leave open. Rejected.
 
 **The first fix, which regressed tab reuse on every real host.** The initial version made the dispatcher normalize relative targets against a hardcoded apex constant (`https://worldmonitor.app/`) and had the worker compare `parsed.origin === self.location.origin`. Production never serves the worker from the apex: the canonical origin is `https://www.worldmonitor.app/`, and five vertical subdomains serve their own dashboards. So every first-party click compared unequal, took the cross-origin branch, and opened a duplicate tab instead of reusing the open dashboard — the exact behavior the fix was supposed to leave untouched. Measured base-vs-head, the base reused the tab and the first head did not.
 
@@ -103,7 +103,7 @@ The worker half is not redundant with the dispatcher half. A displayed notificat
 
 ## Why This Works
 
-Root cause: the handler conflated *where the user is sent* with *which surface gets consumed*. The payload URL was untrusted input, and the only navigation primitive it reached — `c.navigate()` on an existing same-origin client — is the one that destroys a trusted tab. The severity never came from the destination; it came from the destination landing in the dashboard's tab, wearing the dashboard's session and the user's belief that they were still inside WorldMonitor.
+Root cause: the handler conflated *where the user is sent* with *which surface gets consumed*. The payload URL was untrusted input, and the only navigation primitive it reached — `c.navigate()` on an existing same-origin client — is the one that destroys a trusted tab. The severity never came from the destination; it came from the destination landing in the dashboard's tab, wearing the dashboard's session and the user's belief that they were still inside RaWorld.
 
 So the fix **inverts the axis of control: it does not restrict WHICH URL, it restricts WHICH TAB.** Off-origin targets survive untouched and open in their own window (`public/push-handler.js:109`); the dashboard tab is reachable only on a branch the classifier proved resolves to the worker's own origin. The tab-replacement was the vulnerability; the destination is the feature. A host allowlist was the wrong instrument because it pays for the fix with the feature, while the tab rule costs nothing a user would notice and is exactly what the email, Telegram, Slack and Discord channels already do with the same link.
 

@@ -14,14 +14,14 @@ import { DATA_DIR } from './config.mjs';
 const CONTEXT_CACHE = path.join(DATA_DIR, 'liveavatar-context.json');
 const SILENT_CONTEXT_CACHE = path.join(DATA_DIR, 'liveavatar-context-silent.json');
 export const SANDBOX_AVATAR_ID = 'dd73ea75-1218-4ef3-92ce-606d5f7fbc0a';
-export const OPENING_TEXT = 'WorldMonitor desk. Live.';
+export const OPENING_TEXT = 'RaWorld desk. Live.';
 /** 1080p avatars freeze on a weak venue link while the audio carries on; medium is the stage default. */
 export const DEFAULT_VIDEO_QUALITY = 'MEDIUM';
 
-const PROMPT = 'You are the on-stage anchor of the WorldMonitor Verification Desk. You only say the exact lines the desk sends you. Never improvise, never answer questions, never call a claim true or false.';
+const PROMPT = 'You are the on-stage anchor of the RaWorld Verification Desk. You only say the exact lines the desk sends you. Never improvise, never answer questions, never call a claim true or false.';
 
 const CONTEXT = {
-  name: 'WorldMonitor Verification Desk',
+  name: 'RaWorld Verification Desk',
   prompt: PROMPT,
   opening_text: OPENING_TEXT,
 };
@@ -29,7 +29,7 @@ const CONTEXT = {
 // The warm standby session must not greet: it is promoted between sentences,
 // and a greeting still in flight would be heard twice.
 const SILENT_CONTEXT = {
-  name: 'WorldMonitor Verification Desk (standby, no opening line)',
+  name: 'RaWorld Verification Desk (standby, no opening line)',
   prompt: PROMPT,
   opening_text: '', // the field is required; an empty line is accepted and says nothing
 };

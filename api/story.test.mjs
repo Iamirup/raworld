@@ -111,6 +111,6 @@ test('every country with a corpus page also gets its display name from the map',
   // The hand-written 20-code table left 176 corpus countries titled by raw ISO2.
   const response = requestStory(GOOGLEBOT, 'c=SD&t=ciianalysis&ts=1');
 
-  assert.match(response.body, /<title>Sudan Intelligence Brief \| World Monitor<\/title>/);
+  assert.match(response.body, /<title>Sudan Intelligence Brief \| RaWorld<\/title>/);
   assert.equal(canonicalOf(response.body), 'https://www.worldmonitor.app/countries/sudan/');
 });

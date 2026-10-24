@@ -13,7 +13,7 @@ tags: [playwright, ci-artifacts, renderer-nodes, cold-load, performance-budget]
 
 # Cold-dashboard first-paint renderer budget
 
-[Issue #7867](https://github.com/koala73/worldmonitor/issues/7867) identified
+[Issue #7867](https://github.com/Iamirup/raworld/issues/7867) identified
 that the cold-load spec applied the settled-dashboard ceiling to the
 pre-hydration shell. The shell needs its own measured ceiling.
 
@@ -32,11 +32,11 @@ requires `wait.quiesced`, `initialDataReady`, and zero `elementDriftDuringRead`.
 
 | Run | Commit | First paint | Quiesced / total | Comparable settled / total | Comparable settled range |
 | --- | --- | --- | --- | --- | --- |
-| [34769842240](https://github.com/koala73/worldmonitor/actions/runs/34769842240) | `7c6618573ee5` | 8965–9477 | 3/3 | 3/3 | 10491–10537 |
-| [34706058324](https://github.com/koala73/worldmonitor/actions/runs/34706058324) | `d1e545f04b60` | 9229–9358 | 3/3 | 3/3 | 10730–10753 |
-| [34637125811](https://github.com/koala73/worldmonitor/actions/runs/34637125811) | `851467cf1891` | 9187–9526 | 3/3 | 2/3 | 10670–10671 |
-| [34517875660](https://github.com/koala73/worldmonitor/actions/runs/34517875660) | `d90686923197` | 9165–10065 | 3/3 | 2/3 | 10473–10497 |
-| [34391396339](https://github.com/koala73/worldmonitor/actions/runs/34391396339) | `e01b020d3441` | 8956–9327 | 3/3 | 2/3 | 10547–10557 |
+| [34769842240](https://github.com/Iamirup/raworld/actions/runs/34769842240) | `7c6618573ee5` | 8965–9477 | 3/3 | 3/3 | 10491–10537 |
+| [34706058324](https://github.com/Iamirup/raworld/actions/runs/34706058324) | `d1e545f04b60` | 9229–9358 | 3/3 | 3/3 | 10730–10753 |
+| [34637125811](https://github.com/Iamirup/raworld/actions/runs/34637125811) | `851467cf1891` | 9187–9526 | 3/3 | 2/3 | 10670–10671 |
+| [34517875660](https://github.com/Iamirup/raworld/actions/runs/34517875660) | `d90686923197` | 9165–10065 | 3/3 | 2/3 | 10473–10497 |
+| [34391396339](https://github.com/Iamirup/raworld/actions/runs/34391396339) | `e01b020d3441` | 8956–9327 | 3/3 | 2/3 | 10547–10557 |
 
 All 15 loads quiesced, and every element drift was zero. The last load on
 September 9, 10, and 11 missed the hydration-ready flag: their renderer counts

@@ -2,9 +2,9 @@
 noindex: true
 ---
 
-# WorldMonitor news and maps in an MCP App
+# RaWorld news and maps in an MCP App
 
-Issue #8741 is the news/map slice of epic #5198. The plugin mounts WorldMonitor's `NewsPanel`, `SearchModal`, and `MapContainer` with the dashboard styles. It does not implement a separate story-card design or generate another base map.
+Issue #8741 is the news/map slice of epic #5198. The plugin mounts RaWorld's `NewsPanel`, `SearchModal`, and `MapContainer` with the dashboard styles. It does not implement a separate story-card design or generate another base map.
 
 ## Entry and data
 
@@ -68,9 +68,9 @@ Follow [Build plugins](https://learn.chatgpt.com/docs/build-plugins) and the dev
 4. After changing metadata or UI resources, restart the server, refresh the connection, and use a fresh conversation.
 5. Package and install the complete plugin through a local marketplace. Retest its skills and MCP tools together. Test Chat and Work separately when supported; record unavailable extension surfaces explicitly.
 
-| Prompt or interaction | WorldMonitor acceptance |
+| Prompt or interaction | RaWorld acceptance |
 |---|---|
-| Open WorldMonitor news and maps | Actual news panels and map render; initial digest is not fetched twice |
+| Open RaWorld news and maps | Actual news panels and map render; initial digest is not fetched twice |
 | Show Reuters news from the last hour | Assistant filters and visible controls agree |
 | Focus Germany; select another time range while it loads | Country focus completes without losing the later time selection |
 | Search for energy, then select a returned article | Existing search opens; article and supplied location agree |

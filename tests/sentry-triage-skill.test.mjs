@@ -47,7 +47,7 @@ describe('cursor skill: sentry-triage', () => {
     assert.doesNotMatch(markdown, /mcp__sentry__/);
   });
 
-  it('binds WorldMonitor Sentry identity and Cursor MCP tools', () => {
+  it('binds RaWorld Sentry identity and Cursor MCP tools', () => {
     assert.match(markdown, /elie-habib/);
     assert.match(markdown, /worldmonitor/);
     assert.match(markdown, /search_issues/);

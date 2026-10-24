@@ -325,7 +325,7 @@ describe('WebMCP registry behavioral contract', () => {
     for (let i = 0; i < 20; i += 1) {
       const controller = new AbortController();
       const invocation = tool.execute({}, { signal: controller.signal });
-      const rejected = assert.rejects(invocation, i % 2 ? /World Monitor could not open search/ : { name: 'AbortError' });
+      const rejected = assert.rejects(invocation, i % 2 ? /RaWorld could not open search/ : { name: 'AbortError' });
       if (i % 2) t.mock.timers.tick(30_000);
       else controller.abort();
       await rejected;
@@ -456,7 +456,7 @@ describe('WebMCP registry behavioral contract', () => {
     const harness = trackedRuntime(provider);
     const controller = registerWebMcpTools(pending.promise, harness.runtime);
     const invocation = executeRegistered(provider, 'openSearch');
-    const rejected = assert.rejects(invocation, /World Monitor could not open search/);
+    const rejected = assert.rejects(invocation, /RaWorld could not open search/);
     await settlePromises();
     t.mock.timers.tick(30_000);
     await rejected;
@@ -806,7 +806,7 @@ describe('WebMCP registry behavioral contract', () => {
       ok: false,
       status: 'denied',
       reason: 'target_cancellation_unsupported',
-      message: 'This browser cannot cancel work already running in the page, so World Monitor '
+      message: 'This browser cannot cancel work already running in the page, so RaWorld '
         + 'will not run tools whose effects can outlive cancellation. Read-only and '
         + 'reversible view-state dashboard tools still work.',
     };
@@ -1261,7 +1261,7 @@ describe('registered WebMCP readiness behavior', () => {
     await assert.rejects(
       executeRegistered(provider, 'openSearch'),
       (error) => error.name === 'WebMcpToolError'
-        && error.message === 'World Monitor could not open search.'
+        && error.message === 'RaWorld could not open search.'
         && !error.message.includes('5ms'),
     );
     assert.deepEqual(harness.events.at(-1), {
@@ -1282,7 +1282,7 @@ describe('registered WebMCP readiness behavior', () => {
 
     const invocation = executeRegistered(provider, 'openSearch');
     destroyed.resolve();
-    await assert.rejects(invocation, /World Monitor could not open search/);
+    await assert.rejects(invocation, /RaWorld could not open search/);
     controller.abort();
     assert.deepEqual(await provider.getTools(), []);
   });

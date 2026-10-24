@@ -16,7 +16,7 @@ export const WORLD_BANK_RPC_CACHE_PREFIX = 'economic:worldbank:v2';
 export const WORLD_BANK_DEFAULT_CACHE_COUNTRY = '__default__';
 export const WORLD_BANK_LOOKBACKS = Object.freeze([5, 30]);
 export const WORLD_BANK_RPC_USER_AGENT =
-  'WorldMonitor/1.0 (+https://worldmonitor.app; list-world-bank-indicators)';
+  'RaWorld/1.0 (+https://worldmonitor.app; list-world-bank-indicators)';
 
 // Curated default country set for an omitted country_code. ISO-3 codes, same
 // order as the previous handler-local TECH_COUNTRIES list.

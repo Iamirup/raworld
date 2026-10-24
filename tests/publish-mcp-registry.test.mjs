@@ -24,11 +24,11 @@ import {
 const DESIRED = {
   $schema: 'https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json',
   name: 'app.worldmonitor/mcp',
-  title: 'World Monitor',
+  title: 'RaWorld',
   description: 'Live markets, conflicts, country risk, chokepoints, energy, and China decision signals. 69 tools.',
   websiteUrl: 'https://www.worldmonitor.app',
   repository: {
-    url: 'https://github.com/koala73/worldmonitor',
+    url: 'https://github.com/Iamirup/raworld',
     source: 'github',
   },
   version: '1.17.0',

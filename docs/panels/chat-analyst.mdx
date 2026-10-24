@@ -1,9 +1,9 @@
 ---
-title: "WM Analyst"
-description: "Conversational AI analyst that answers ad-hoc questions on geopolitics, markets, military, and forecasts using World Monitor's live cache layer."
+title: "RaWorld Analyst"
+description: "Conversational AI analyst that answers ad-hoc questions on geopolitics, markets, military, and forecasts using RaWorld's live cache layer."
 ---
 
-The **WM Analyst** panel (internal id `chat-analyst`) is the dashboard's conversational-intelligence surface: a chat interface you can drop a question into — "what's happening in the Red Sea today?", "which economies are most exposed to a Hormuz closure?" — and get a source-aware, structured answer grounded in the live WorldMonitor caches.
+The **RaWorld Analyst** panel (internal id `chat-analyst`) is the dashboard's conversational-intelligence surface: a chat interface you can drop a question into — "what's happening in the Red Sea today?", "which economies are most exposed to a Hormuz closure?" — and get a source-aware, structured answer grounded in the live RaWorld caches.
 
 ## What the panel shows
 
@@ -16,7 +16,7 @@ Panel-level controls:
 - **Dashboard control** — an opt-in `Control dashboard` toggle with a `Pause` control. When enabled, schema-validated Analyst action events can focus an already-live panel, move the map view, or toggle permitted map layers. When off or paused, the answer still streams but dashboard actions are skipped.
 - **Composer** — free-form text input; Enter to send.
 
-Panel id is `chat-analyst`; canonical component is `src/components/ChatAnalystPanel.ts`. Title "WM Analyst" per `src/config/panels.ts:52`.
+Panel id is `chat-analyst`; canonical component is `src/components/ChatAnalystPanel.ts`. Title "RaWorld Analyst" per `src/config/panels.ts:52`.
 
 ## How you reach it
 

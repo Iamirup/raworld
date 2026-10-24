@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Builds public/deck.html: the stage deck (deck/verified-truth-stage.html, or
-// a path you pass) with the live WorldMonitor scenes plugged in. The deck's
+// a path you pass) with the live RaWorld scenes plugged in. The deck's
 // own content is not edited; two tags are added, so a new version of the
 // deck can be dropped in and re-installed:
 //   npm run deck                      # from deck/verified-truth-stage.html

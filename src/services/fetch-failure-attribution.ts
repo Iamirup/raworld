@@ -66,7 +66,7 @@
  * parenthetical means BOTH the bare and the annotated form are dropped before
  * `beforeSend` runs. Annotating `Load failed` therefore changes no verdict
  * today — it is done for consistency, and so the value is already right if that
- * entry is ever narrowed. WorldMonitor is consequently blind to Safari-side
+ * entry is ever narrowed. RaWorld is consequently blind to Safari-side
  * origin failures; that is pre-existing and out of scope here (#6746 KTD5).
  */
 const FETCH_FAILURE_MESSAGE =

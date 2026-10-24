@@ -10,7 +10,7 @@ Use when the user asks to research a stock, inspect a technical backtest or revi
 
 ## Connected plugin
 
-Call `get_stock_research` on the connected WorldMonitor MCP server at `https://worldmonitor.app/mcp`. Use the user's existing connection; do not ask them to paste an API key into chat. This tool requires a subscription. Explain an access denial and stop; do not retry through a different credential path.
+Call `get_stock_research` on the connected RaWorld MCP server at `https://worldmonitor.app/mcp`. Use the user's existing connection; do not ask them to paste an API key into chat. This tool requires a subscription. Explain an access denial and stop; do not retry through a different credential path.
 
 | Operation | Arguments | Behavior |
 |---|---|---|

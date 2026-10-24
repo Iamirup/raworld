@@ -515,7 +515,7 @@ function stableStringify(value) {
 }
 
 /** Identifies this caller in Cloudflare's audit log; AGENTS.md requires it on server-side fetches. */
-const USER_AGENT = 'WorldMonitor Cloudflare Cache Rule/1.0';
+const USER_AGENT = 'RaWorld Cloudflare Cache Rule/1.0';
 
 /** Matches the ceiling scripts/_kv-storage.mjs uses for its Cloudflare API writes. */
 const REQUEST_TIMEOUT_MS = 15_000;

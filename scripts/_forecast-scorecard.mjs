@@ -1698,7 +1698,7 @@ export const RECEIPT_SOURCE_LABELS = Object.freeze({
   'correlation-cards': 'Market correlation signals',
   'eia-petroleum': 'EIA petroleum data',
   fred: 'FRED economic data',
-  other: 'A World Monitor data feed',
+  other: 'A RaWorld data feed',
 });
 export const RECEIPT_VOID_REASON_LABELS = Object.freeze({
   no_establishable_metric: 'The feed had no reading for this question',

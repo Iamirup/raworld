@@ -159,7 +159,7 @@ describe('mcp registry publication artifacts', () => {
       'a reworded description under a published version must fail in the PR, not in the publish job',
     );
     assert.throws(
-      () => buildMcpRegistryManifest({ ...serverJson, title: 'World Monitor MCP' }, serverCard, ledger),
+      () => buildMcpRegistryManifest({ ...serverJson, title: 'RaWorld MCP' }, serverCard, ledger),
       /published payload for version .* changed/,
       'every published field is pinned, not only the derived tool count',
     );

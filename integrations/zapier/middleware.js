@@ -29,16 +29,16 @@ const handleHttpError = (response, z) => {
   if (response.request && response.request.skipThrowForStatus) return response;
   if (response.status === 401) {
     throw new z.errors.ExpiredAuthError(
-      `WorldMonitor rejected the API key (${describeError(response)}). Reconnect with an active wm_ key from Settings, API Keys.`,
+      `RaWorld rejected the API key (${describeError(response)}). Reconnect with an active wm_ key from Settings, API Keys.`,
     );
   }
   // 403 also covers the User-Agent policy, which says nothing about the key.
   if (response.status === 403) {
-    throw new z.errors.Error(`WorldMonitor refused the request: ${describeError(response)}`, 'Forbidden', 403);
+    throw new z.errors.Error(`RaWorld refused the request: ${describeError(response)}`, 'Forbidden', 403);
   }
   if (response.status >= 400) {
     throw new z.errors.Error(
-      `WorldMonitor API error ${response.status}: ${describeError(response)}`,
+      `RaWorld API error ${response.status}: ${describeError(response)}`,
       'ApiError',
       response.status,
     );

@@ -1,27 +1,27 @@
 ---
 title: "ACLED alternatives for intelligence teams"
-description: "ACLED alternatives ranked by why people leave: access limits, live monitoring, alerts and API. Compare World Monitor, Liveuamap and Recorded Future, and when to stay with ACLED."
-metaTitle: "ACLED alternatives for conflict monitoring | World Monitor"
+description: "ACLED alternatives ranked by why people leave: access limits, live monitoring, alerts and API. Compare RaWorld, Liveuamap and Recorded Future, and when to stay with ACLED."
+metaTitle: "ACLED alternatives for conflict monitoring | RaWorld"
 keywords: "ACLED buyers, acled alternatives for intelligence teams, global intelligence tools"
 audience: "ACLED buyers"
 pubDate: "2026-10-02"
 modifiedDate: "2026-10-18"
-author: "World Monitor editorial team"
+author: "RaWorld editorial team"
 authorType: "Organization"
 authorUrl: "https://www.worldmonitor.app/"
 ---
 
-This guide is published by World Monitor. We compare public product documentation and our own documented capabilities. Recommendations are editorial judgments, not a hands-on benchmark. World Monitor's capabilities were rechecked on October 18, 2026, and competitor sources on October 2, 2026. Confirm current access and contracts before buying.
+This guide is published by RaWorld. We compare public product documentation and our own documented capabilities. Recommendations are editorial judgments, not a hands-on benchmark. RaWorld's capabilities were rechecked on October 18, 2026, and competitor sources on October 2, 2026. Confirm current access and contracts before buying.
 
 ## TL;DR
 
-> The right ACLED alternative depends on whether you are leaving the dataset or the access terms. If you need to follow conflict as it happens, choose World Monitor: a free live map with conflict beside shipping, aviation and markets, alert rules by country, event type and severity delivered to Slack, email or a signed webhook, and an API, SDKs and MCP at published prices. Choose Liveuamap for a cheap, focused conflict news map. Choose Recorded Future for facility and country risk under an enterprise contract. Stay with ACLED if your research depends on its coded events.
+> The right ACLED alternative depends on whether you are leaving the dataset or the access terms. If you need to follow conflict as it happens, choose RaWorld: a free live map with conflict beside shipping, aviation and markets, alert rules by country, event type and severity delivered to Slack, email or a signed webhook, and an API, SDKs and MCP at published prices. Choose Liveuamap for a cheap, focused conflict news map. Choose Recorded Future for facility and country risk under an enterprise contract. Stay with ACLED if your research depends on its coded events.
 
 ## Alternatives at a glance
 
 | Alternative | Why people switch to it | Access |
 | --- | --- | --- |
-| World Monitor | Live monitoring, alerts, multi-domain map, API and MCP | [Free map](https://www.worldmonitor.app/dashboard); [published paid prices](https://www.worldmonitor.app/pro#pricing) |
+| RaWorld | Live monitoring, alerts, multi-domain map, API and MCP | [Free map](https://www.worldmonitor.app/dashboard); [published paid prices](https://www.worldmonitor.app/pro#pricing) |
 | Liveuamap | Low-cost map of regional conflict reports | Free map; low-cost paid plans |
 | Recorded Future | Facility threats and country risk | Enterprise contract |
 | Stay with ACLED | Consistently coded conflict events | myACLED access level |
@@ -30,13 +30,13 @@ This guide is published by World Monitor. We compare public product documentatio
 
 Most people who look for an ACLED alternative are not unhappy with the methodology. They hit one of three limits: the access level they can get does not include the granularity, timing or API they need; they want to watch events as they happen rather than analyze them later; or they need conflict alongside other signals. A replacement for the access terms is a different purchase from a replacement for the dataset.
 
-## 1. World Monitor
+## 1. RaWorld
 
 **Best when you need live monitoring, alerts and an API rather than a coded dataset.**
 
 The [free map](https://www.worldmonitor.app/dashboard) needs no account and shows conflict alongside protests, shipping, aviation, infrastructure outages, hazards, cyber and markets. On the Pro plan, alert rules filter by event type, severity (all, high or critical) and country, and deliver to Slack, Microsoft Teams, Discord, Telegram, email, browser push, or a webhook signed with HMAC-SHA256. Delivery is real time or a daily, twice-daily or weekly digest. Real-time alerts link to the original report, and email digests link every item ([notifications reference](https://www.worldmonitor.app/docs/api-notifications)). Developers get a REST API on a separate API plan, Python, Go and Ruby SDKs, an npm CLI, and an MCP server with Pro. Each outlet has an editorial tier and a propaganda-risk band: the News panel shows them as badges, the free `get_sources` MCP tool returns them for any outlet, and the [data sources page](https://www.worldmonitor.app/docs/data-sources) explains the scheme.
 
-The tradeoff: World Monitor aggregates published reports and does not verify events on the ground. It is not a coded research dataset, so do not use map marker counts in place of ACLED event counts.
+The tradeoff: RaWorld aggregates published reports and does not verify events on the ground. It is not a coded research dataset, so do not use map marker counts in place of ACLED event counts.
 
 ## 2. Liveuamap
 
@@ -54,7 +54,7 @@ Consider its [Geopolitical Intelligence](https://www.recordedfuture.com/products
 
 Stay with ACLED if your work is event-level research, reproducible analysis, or a project that depends on its definitions. None of the alternatives here replaces a coded dataset with a published [methodology](https://acleddata.com/conflict-data/knowledge-base/methodology). If access is the problem, review the [myACLED access table](https://acleddata.com/myacled-faqs) before leaving; a different access level may solve it.
 
-## Pick World Monitor when
+## Pick RaWorld when
 
 - **You need to be told when something happens.** Alert rules by country, event type and severity deliver in real time or as a digest.
 - **Conflict is one part of the brief.** One map adds shipping, aviation, outages, hazards, cyber and markets.
@@ -64,7 +64,7 @@ Stay with ACLED if your work is event-level research, reproducible analysis, or 
 
 ## Our pick
 
-If you are leaving ACLED because you need live monitoring and alerts, pick World Monitor. If you only follow one conflict on a small budget, pick Liveuamap. If the job is facility and country risk for an organization, pick Recorded Future. If your research needs coded events, stay with ACLED and use World Monitor to notice what to measure.
+If you are leaving ACLED because you need live monitoring and alerts, pick RaWorld. If you only follow one conflict on a small budget, pick Liveuamap. If the job is facility and country risk for an organization, pick Recorded Future. If your research needs coded events, stay with ACLED and use RaWorld to notice what to measure.
 
 ## What to do before switching
 
@@ -74,11 +74,11 @@ List your required event types, countries, time span, update schedule, and permi
 
 **Is there a free ACLED alternative?**
 
-World Monitor's map is free with no account, and Liveuamap has a free map. Neither is a coded conflict dataset. World Monitor alert rules need the Pro plan.
+RaWorld's map is free with no account, and Liveuamap has a free map. Neither is a coded conflict dataset. RaWorld alert rules need the Pro plan.
 
 **Can I get conflict alerts instead of a dataset?**
 
-Yes. World Monitor alert rules filter by event type, severity and country and deliver to Slack, Microsoft Teams, Discord, Telegram, email, browser push or an HMAC-signed webhook, as documented in its [notifications reference](https://www.worldmonitor.app/docs/api-notifications).
+Yes. RaWorld alert rules filter by event type, severity and country and deliver to Slack, Microsoft Teams, Discord, Telegram, email, browser push or an HMAC-signed webhook, as documented in its [notifications reference](https://www.worldmonitor.app/docs/api-notifications).
 
 **What should a migration prove?**
 
@@ -86,7 +86,7 @@ The replacement must answer your research or monitoring question with acceptable
 
 ## More guides
 
-- [World Monitor vs ACLED](/blog/vs/acled/)
+- [RaWorld vs ACLED](/blog/vs/acled/)
 - [Conflict data platforms for researchers](/blog/best/conflict-data-platforms-for-researchers/)
 - [Compare all providers](/blog/guides/#vs)
 - [Best tools by audience](/blog/guides/#best)

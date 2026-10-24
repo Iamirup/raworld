@@ -1,5 +1,5 @@
 # =============================================================================
-# World Monitor — build image for Anthropic's OSS Scanner
+# RaWorld — build image for Anthropic's OSS Scanner
 # =============================================================================
 # The scanner builds this with the repository root as the context, then scans
 # the result with no Internet access. Everything a reproducer needs (npm trees,

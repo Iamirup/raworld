@@ -1,10 +1,10 @@
 ---
 title: "更新日志"
-description: "World Monitor 所有版本重要变更的完整发布记录：按语义化版本号有序组织，涵盖新增功能、错误修复、性能优化、UI 改进、API 新增与弃用端点、破坏性改动说明、安全公告及迁移指南，方便开发者、集成方与订阅用户跟踪产品演进、规划升级路径与查阅历史发布备注。"
+description: "RaWorld 所有版本重要变更的完整发布记录：按语义化版本号有序组织，涵盖新增功能、错误修复、性能优化、UI 改进、API 新增与弃用端点、破坏性改动说明、安全公告及迁移指南，方便开发者、集成方与订阅用户跟踪产品演进、规划升级路径与查阅历史发布备注。"
 rss: true
 ---
 
-World Monitor 的所有重要变更均记录于此。通过 [RSS](https://www.worldmonitor.app/docs/changelog/rss.xml) 订阅以获取最新动态。
+RaWorld 的所有重要变更均记录于此。通过 [RSS](https://www.worldmonitor.app/docs/changelog/rss.xml) 订阅以获取最新动态。
 
 <Update label="Unreleased" description="Unreleased" tags={["Trade", "Intelligence", "Search", "Supply Chain", "Maritime", "Security", "MCP"]}>
 
@@ -49,7 +49,7 @@ World Monitor 的所有重要变更均记录于此。通过 [RSS](https://www.wo
   - `/api/supply-chain/v1/country-products` → `/api/supply-chain/v1/get-country-products`
   - `/api/supply-chain/v1/multi-sector-cost-shock` → `/api/supply-chain/v1/get-multi-sector-cost-shock`
 
-  这些别名将在下一次 v1→v2 破坏性变更时退役（追踪于 [#3282](https://github.com/koala73/worldmonitor/issues/3282)）。
+  这些别名将在下一次 v1→v2 破坏性变更时退役（追踪于 [#3282](https://github.com/Iamirup/raworld/issues/3282)）。
 
 - `POST /api/scenario/v1/run-scenario` 在成功入队时**再次返回 `202 Accepted`**，恢复 sebuf 迁移前的契约（取代下方的 `200 OK` 条目）。响应现还携带一个 `Location` 头，指向 `get-scenario-status` 轮询 URL（与响应体 `statusUrl` 同值），完善标准 REST 异步任务模式。网关通过状态覆盖旁路将 sebuf 生成的 200 升级；错误状态码（400/403/429/502）不变。将任何 `2xx` 视为成功 —— 基于响应体 `status === "pending"` 分支判断的临时指南仍然有效。
 - `POST /api/scenario/v1/run-scenario` 现返回 `200 OK`，而非迁移前的 `202 Accepted`。sebuf 的 HTTP 注解不携带每个 RPC 的状态码。请基于响应体的 `status === "pending"` 判断，而非 `response.status === 202`。`statusUrl` 字段保留不变。

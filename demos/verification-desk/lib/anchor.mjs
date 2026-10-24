@@ -1,20 +1,20 @@
-// The anchor's voice. Claude turns WorldMonitor's findings into speech and
+// The anchor's voice. Claude turns RaWorld's findings into speech and
 // pulls search terms out of a shouted headline. It never judges: every
-// judgment on the card is WorldMonitor's (lib/wm.mjs). Before a generated
+// judgment on the card is RaWorld's (lib/wm.mjs). Before a generated
 // script is spoken it must pass the same hallucination validators
-// WorldMonitor runs on its own AI briefs; if it fails, or there is no API
-// key, the anchor reads a template built only from WorldMonitor's data.
+// RaWorld runs on its own AI briefs; if it fails, or there is no API
+// key, the anchor reads a template built only from RaWorld's data.
 
 import Anthropic from '@anthropic-ai/sdk';
 import { validateScript, WM_TEXT } from './wm.mjs';
 
 const DEFAULT_MODEL = 'claude-opus-5-5';
 
-const ANCHOR_PERSONA = `You are the anchor of "The Verification Desk", a live segment on a conference stage, powered by WorldMonitor.
+const ANCHOR_PERSONA = `You are the anchor of "The Verification Desk", a live segment on a conference stage, powered by RaWorld.
 You speak to a room, so write for the ear: short sentences, no lists, no markdown, no URLs, no emoji.
-You only state facts present in the JSON you are given, using WorldMonitor's own terms: publishers (several feeds or editions of one newsroom are one publisher), source tiers (${[1, 2, 3, 4].map((t) => WM_TEXT[`tierTitle${t}`]).join('; ')}), propaganda risk, state affiliation, and WorldMonitor's credibility score out of 100.
-You never say a claim is true or false. WorldMonitor's rule: tiers rank sources; they do not judge the claim, and coverage is not accuracy.
-"Not in WorldMonitor's sources" and "Unverifiable" are honest answers; say them plainly and without apology.
+You only state facts present in the JSON you are given, using RaWorld's own terms: publishers (several feeds or editions of one newsroom are one publisher), source tiers (${[1, 2, 3, 4].map((t) => WM_TEXT[`tierTitle${t}`]).join('; ')}), propaganda risk, state affiliation, and RaWorld's credibility score out of 100.
+You never say a claim is true or false. RaWorld's rule: tiers rank sources; they do not judge the claim, and coverage is not accuracy.
+"Not in RaWorld's sources" and "Unverifiable" are honest answers; say them plainly and without apology.
 Do not introduce any name, title or number that is not in the JSON.`;
 
 function textOf(message) {
@@ -75,14 +75,14 @@ export class Anchor {
     }
   }
 
-  /** Generated text is spoken only if WorldMonitor's brief validators find nothing invented. */
+  /** Generated text is spoken only if RaWorld's brief validators find nothing invented. */
   async grounded(prompt, facts, fallback, maxTokens = 1500) {
     if (!this.enabled) return fallback;
     try {
       const text = await this.complete({ system: ANCHOR_PERSONA, prompt, maxTokens });
       const check = validateScript(text, `${JSON.stringify(facts)}\n${FIXED_GROUND}`);
       if (!check.ok) {
-        console.warn(`[anchor] generated script failed WorldMonitor's grounding validators (${check.hallucinated.join(', ')}); using template`);
+        console.warn(`[anchor] generated script failed RaWorld's grounding validators (${check.hallucinated.join(', ')}); using template`);
         return fallback;
       }
       return text;
@@ -94,7 +94,7 @@ export class Anchor {
   narrateGrade(result) {
     const facts = compactForNarration(result);
     return this.grounded(
-      `The audience asked you to check this headline. Here is what WorldMonitor found:\n${JSON.stringify(facts)}\n\nSpeak it in 45 to 75 words, in order: who carried it (WorldMonitor's publisher count and the best-rated sources with their tier, propaganda risk and any state affiliation), WorldMonitor's credibility score, whether the headline's figures are grounded in the sources, what money says if there is a market, then the verdict exactly as given, followed by WorldMonitor's caveat that this describes coverage, not accuracy.`,
+      `The audience asked you to check this headline. Here is what RaWorld found:\n${JSON.stringify(facts)}\n\nSpeak it in 45 to 75 words, in order: who carried it (RaWorld's publisher count and the best-rated sources with their tier, propaganda risk and any state affiliation), RaWorld's credibility score, whether the headline's figures are grounded in the sources, what money says if there is a market, then the verdict exactly as given, followed by RaWorld's caveat that this describes coverage, not accuracy.`,
       facts,
       templateGrade(result),
     );
@@ -108,7 +108,7 @@ export class Anchor {
       thin: board.thin.slice(0, 3).map((x) => ({ title: x.title, verdict: x.state, publisher: x.top[0]?.name ?? null, stateAffiliated: x.stateAffiliated })),
     };
     return this.grounded(
-      `Open the show from WorldMonitor's board of today's news:\n${JSON.stringify(facts)}\n\nWrite about 110 words, spoken. One-line welcome. ${facts.asOf.live ? 'Say how many stories WorldMonitor is tracking right now' : `This board is WorldMonitor's last snapshot, taken ${facts.asOf.when}, not live: say so once, plainly, and never call it "today" or "right now". Say how many stories WorldMonitor was tracking`} and how many are corroborated by two or more independent publishers. Name the best-supported story with its publisher count. Then name the thin ones and why (one publisher; state-affiliated if so). Close by inviting the room to pick a story, or name their own.`,
+      `Open the show from RaWorld's board of today's news:\n${JSON.stringify(facts)}\n\nWrite about 110 words, spoken. One-line welcome. ${facts.asOf.live ? 'Say how many stories RaWorld is tracking right now' : `This board is RaWorld's last snapshot, taken ${facts.asOf.when}, not live: say so once, plainly, and never call it "today" or "right now". Say how many stories RaWorld was tracking`} and how many are corroborated by two or more independent publishers. Name the best-supported story with its publisher count. Then name the thin ones and why (one publisher; state-affiliated if so). Close by inviting the room to pick a story, or name their own.`,
       facts,
       templateBoard(board),
       1500,
@@ -117,7 +117,7 @@ export class Anchor {
 
   narrateRecap(stories, scope) {
     return this.grounded(
-      `Open the segment with a recap of ${scope}. Each story carries WorldMonitor's coverage state, publisher count and credibility score:\n${JSON.stringify(stories)}\n\nWrite about 200 words (90 seconds spoken). Lead with a one-line welcome. For each story say the headline in your own words, then tag it out loud with WorldMonitor's numbers, e.g. "six publishers, credibility seventy-nine" or "one publisher so far". Close by inviting the audience to name a headline from the week for the desk to check.`,
+      `Open the segment with a recap of ${scope}. Each story carries RaWorld's coverage state, publisher count and credibility score:\n${JSON.stringify(stories)}\n\nWrite about 200 words (90 seconds spoken). Lead with a one-line welcome. For each story say the headline in your own words, then tag it out loud with RaWorld's numbers, e.g. "six publishers, credibility seventy-nine" or "one publisher so far". Close by inviting the audience to name a headline from the week for the desk to check.`,
       { scope, stories },
       templateRecap(stories, scope),
       2000,
@@ -126,7 +126,7 @@ export class Anchor {
 
   narrateReveal(candidate) {
     return this.grounded(
-      `This is the reveal. A story looked big. Here is what WorldMonitor counts:\n${JSON.stringify(candidate)}\n\nWrite 90 to 130 words, spoken, building to the point that the number of headlines is not the number of publishers. Name the origin if the data names one. End with: "A headline in ${candidate.headlineCount ?? 'many'} places with one source is still one source."`,
+      `This is the reveal. A story looked big. Here is what RaWorld counts:\n${JSON.stringify(candidate)}\n\nWrite 90 to 130 words, spoken, building to the point that the number of headlines is not the number of publishers. Name the origin if the data names one. End with: "A headline in ${candidate.headlineCount ?? 'many'} places with one source is still one source."`,
       candidate,
       templateReveal(candidate),
       2000,
@@ -135,7 +135,7 @@ export class Anchor {
 }
 
 // Words the persona itself may always use without the validators objecting.
-const FIXED_GROUND = 'WorldMonitor World Monitor Verification Desk Polymarket Kalshi Corroborated Unverifiable Single publisher Low-tier sources only';
+const FIXED_GROUND = 'RaWorld RaWorld Verification Desk Polymarket Kalshi Corroborated Unverifiable Single publisher Low-tier sources only';
 
 function compactForNarration(r) {
   return {
@@ -161,7 +161,7 @@ const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 const TIER_WORDS = { 1: 'a wire service or official body', 2: 'a major outlet', 3: 'a specialist or regional source', 4: 'an aggregator or blog' };
 
 function describeSource(x) {
-  const bits = [x.tier ? `tier ${x.tier}, ${TIER_WORDS[x.tier]}` : 'a tier WorldMonitor has not declared'];
+  const bits = [x.tier ? `tier ${x.tier}, ${TIER_WORDS[x.tier]}` : 'a tier RaWorld has not declared'];
   if (x.stateAffiliated) bits.push(`state-affiliated, ${x.stateAffiliated}`);
   else if (x.risk && x.risk !== 'unknown') bits.push(`${x.risk} propaganda risk`);
   return `${x.name}: ${bits.join('; ')}`;
@@ -171,14 +171,14 @@ export function templateGrade(r) {
   const v = r.verdict;
   const parts = [];
   if (v?.key === 'unreachable') {
-    parts.push(`The desk can't reach WorldMonitor right now, so I won't pretend to know.`);
+    parts.push(`The desk can't reach RaWorld right now, so I won't pretend to know.`);
   } else if (v?.key === 'not-found') {
-    parts.push(`No publisher WorldMonitor monitors carried that headline.`);
+    parts.push(`No publisher RaWorld monitors carried that headline.`);
   } else {
     const who = r.who;
     if (who?.summary) parts.push(`${who.summary}.`);
     for (const x of (who?.rated ?? []).slice(0, 2)) parts.push(`${describeSource(x)}.`);
-    if (who?.credibility) parts.push(`WorldMonitor's credibility score: ${who.credibility.score} out of 100, ${who.credibility.band}.`);
+    if (who?.credibility) parts.push(`RaWorld's credibility score: ${who.credibility.score} out of 100, ${who.credibility.band}.`);
     for (const f of r.numbers?.facts ?? []) {
       if (!f.grounded) parts.push(`The figure ${f.label} is not in any source, so it is not grounded.`);
       else if (f.statedBy?.length === 1) parts.push(`The figure ${f.label} comes from one publisher only: ${f.statedBy[0]}.`);
@@ -188,7 +188,7 @@ export function templateGrade(r) {
   }
   parts.push(`Verdict: ${v?.word ?? 'Unverifiable'}.`);
   if (v?.key === 'not-found' || v?.key === 'unknown') parts.push(`That is not a dodge. It is the most honest thing a system can say.`);
-  else if (v?.key !== 'unreachable') parts.push(`As WorldMonitor puts it, this describes coverage, not accuracy.`);
+  else if (v?.key !== 'unreachable') parts.push(`As RaWorld puts it, this describes coverage, not accuracy.`);
   return parts.join(' ');
 }
 
@@ -205,8 +205,8 @@ export function templateBoard(b) {
   const parts = [
     `Good evening, and welcome to the Verification Desk.`,
     live
-      ? `Right now WorldMonitor is tracking ${t.stories} stories.`
-      : `This is WorldMonitor's last snapshot, from ${when}. Then it was tracking ${t.stories} stories.`,
+      ? `Right now RaWorld is tracking ${t.stories} stories.`
+      : `This is RaWorld's last snapshot, from ${when}. Then it was tracking ${t.stories} stories.`,
     `${cap(say(t.corroborated))} are corroborated by two or more independent publishers. ${cap(say(t.singlePublisher))} rest on a single publisher.`,
   ];
   const best = b.supported[0];
@@ -217,12 +217,12 @@ export function templateBoard(b) {
   }
   parts.push(live
     ? `Pick any story on this board, or name your own, and the desk will check it, live.`
-    : `Pick any story on this board, or name your own, and the desk will check it against WorldMonitor's data.`);
+    : `Pick any story on this board, or name your own, and the desk will check it against RaWorld's data.`);
   return parts.join(' ');
 }
 
 export function templateRecap(stories, scope) {
-  const lines = [`Good evening. This is the Verification Desk, and here is ${scope}, with every story graded by WorldMonitor.`];
+  const lines = [`Good evening. This is the Verification Desk, and here is ${scope}, with every story graded by RaWorld.`];
   for (const s of stories.slice(0, 6)) {
     const n = s.publishers ?? 0;
     const cred = s.credibility != null ? `, credibility ${s.credibility}` : '';
@@ -236,7 +236,7 @@ export function templateReveal(c) {
   return [
     `Here is a story a lot of you probably saw: "${c.title}".`,
     `It ran in ${c.headlineCount ?? 'many'} places.`,
-    c.origin ? `WorldMonitor traces every one of them to one publisher: ${c.origin}.` : `WorldMonitor traces every one of them to one publisher.`,
+    c.origin ? `RaWorld traces every one of them to one publisher: ${c.origin}.` : `RaWorld traces every one of them to one publisher.`,
     `A headline in ${c.headlineCount ?? 'many'} places with one source is still one source.`,
   ].join(' ');
 }

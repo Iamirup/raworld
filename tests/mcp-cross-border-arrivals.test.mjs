@@ -135,7 +135,7 @@ test('projection keeps the license, credit and transformation notice', async () 
   assert.deepEqual(value.data, ['Sahel', 'Mediterranean']);
   assert.equal(value._attribution.required, true);
   assert.equal(value._attribution.sources[0].attribution.licenseUrl, 'https://creativecommons.org/licenses/by/4.0/');
-  assert.match(value._attribution.sources[0].attribution.changes, /WorldMonitor/);
+  assert.match(value._attribution.sources[0].attribution.changes, /RaWorld/);
   assert.equal(value._attribution.sources[0].sourceUrl, snapshot.situations[0].sourceUrl);
   assert.equal(value._attribution.sources[0].asOf, snapshot.situations[0].asOf);
 });
@@ -168,7 +168,7 @@ test('summaries keep attribution and source URLs with and without projection', a
       assert.equal(data.situations.length, 3);
       assert.equal(data.attribution.license, 'CC BY 4.0');
       assert.equal(data.attribution.sourceUrl, 'https://data.unhcr.org/');
-      assert.match(data.attribution.changes, /WorldMonitor/);
+      assert.match(data.attribution.changes, /RaWorld/);
       assert.deepEqual(data.unavailable, ['sudan']);
       assert.ok(ajv.validate(tool.outputSchema, value.projection), ajv.errorsText());
     }

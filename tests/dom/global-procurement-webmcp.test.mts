@@ -6,7 +6,6 @@ import {
 } from '@/components/GlobalProcurementPanel';
 import type { ListGlobalTendersResponse, TenderSourceStatus } from '@/generated/client/worldmonitor/economic/v1/service_client';
 import type { GlobalTenderFilters } from '@/services/global-tenders';
-import { PanelGateReason } from '@/services/panel-gating';
 
 import { initTestI18n } from './helpers/i18n.mts';
 
@@ -272,54 +271,6 @@ describe('GlobalProcurementPanel declarative WebMCP tool', () => {
     expect(handler).not.toHaveBeenCalled();
   });
 
-  it('withholds the tool when the form is unusable, hidden, gated, unavailable, or destroyed', () => {
-    const unmountedPanel = new GlobalProcurementPanel();
-    panels.push(unmountedPanel);
-    unmountedPanel.setRequestHandler(() => undefined);
-    commitResponse(unmountedPanel);
-    expect(form(unmountedPanel).hasAttribute('toolname')).toBe(false);
-    document.body.appendChild(unmountedPanel.getElement());
-    unmountedPanel.notifyConnected();
-    expect(form(unmountedPanel).getAttribute('toolname')).toBe('search_procurement');
-
-    const panel = mount();
-    commitResponse(panel);
-    expect(form(panel).hasAttribute('toolname')).toBe(false);
-
-    panel.setRequestHandler(() => undefined);
-    expect(form(panel).getAttribute('toolname')).toBe('search_procurement');
-
-    panel.setLoading(true);
-    expect(form(panel).hasAttribute('toolname')).toBe(false);
-    expect(form(panel).getAttribute('aria-busy')).toBe('true');
-    commitResponse(panel);
-    expect(form(panel).getAttribute('toolname')).toBe('search_procurement');
-
-    panel.update(response({ dataAvailable: false, availability: 'unavailable' }));
-    expect(form(panel).hasAttribute('toolname')).toBe(false);
-    vi.advanceTimersByTime(CONTENT_DEBOUNCE_MS);
-    expect(form(panel).hasAttribute('toolname')).toBe(false);
-
-    commitResponse(panel);
-    panel.hide();
-    expect(form(panel).hasAttribute('toolname')).toBe(false);
-    panel.show();
-    expect(form(panel).getAttribute('toolname')).toBe('search_procurement');
-    vi.advanceTimersByTime(CONTENT_DEBOUNCE_MS);
-
-    panel.showGatedCta(PanelGateReason.FREE_TIER, () => undefined);
-    expect(panel.getElement().querySelector('form[toolname]')).toBeNull();
-    panel.unlockPanel();
-    expect(form(panel).getAttribute('toolname')).toBe('search_procurement');
-    expect(form(panel).hasAttribute('toolautosubmit')).toBe(true);
-
-    const destroyPanel = mount(() => undefined);
-    commitResponse(destroyPanel);
-    const destroyedForm = form(destroyPanel);
-    destroyPanel.destroy();
-    panels = panels.filter((candidate) => candidate !== destroyPanel);
-    expect(destroyedForm.hasAttribute('toolname')).toBe(false);
-  });
 
   it('fails closed when a stale agent submit targets an unavailable or detached form', async () => {
     const handler = vi.fn(() => undefined);
@@ -583,38 +534,6 @@ describe('GlobalProcurementPanel declarative WebMCP tool', () => {
     expect(panel.getElement().textContent).toContain('Showing 0 of 7 matching opportunities');
   });
 
-  it('does not let a same-turn gate preserve content cleared during settlement', async () => {
-    const sensitiveTitle = 'Sensitive procurement result that must stay cleared';
-    const panel = mount(() => new Promise<void>(() => undefined));
-    commitResponse(panel, response({
-      tenders: [{
-        id: 'sensitive-result',
-        source: 'sam',
-        sourceNoticeId: 'sensitive-result',
-        officialUrl: '',
-        title: sensitiveTitle,
-        description: '',
-        status: 'open',
-        categoryCodes: [],
-        sectors: [],
-        eligibilityRequirements: [],
-        submissionUrls: [],
-        participationMode: 'unknown',
-      }],
-      total: 1,
-    }));
-    expect(panel.getElement().textContent).toContain(sensitiveTitle);
-
-    const invocation = dispatchAgentSubmit(form(panel));
-    panel.clear();
-    panel.showGatedCta(PanelGateReason.FREE_TIER, () => undefined);
-
-    await expectRetryableFailure(invocation.response, 'panel_unavailable');
-    vi.advanceTimersByTime(0);
-    panel.unlockPanel();
-
-    expect(panel.getElement().textContent).not.toContain(sensitiveTitle);
-  });
 
   it('defers a superseding refresh repaint until the agent failure is observable', async () => {
     const panel = mount(() => new Promise<void>(() => undefined));
@@ -676,37 +595,7 @@ describe('GlobalProcurementPanel declarative WebMCP tool', () => {
     expect(panel.getElement().textContent).toContain('Showing 0 of 2 matching opportunities');
   });
 
-  it('invalidates a deferred gate when access is restored in the same tick', async () => {
-    const panel = mount(() => new Promise<void>(() => undefined));
-    commitResponse(panel);
-    const currentForm = form(panel);
-    const invocation = dispatchAgentSubmit(currentForm);
 
-    panel.showGatedCta(PanelGateReason.FREE_TIER, () => undefined);
-    panel.unlockPanel();
-    await expectRetryableFailure(invocation.response, 'panel_unavailable');
-    vi.advanceTimersByTime(0);
-
-    expect(panel.getElement().classList.contains('panel-is-locked')).toBe(false);
-    expect(currentForm.isConnected).toBe(true);
-    expect(currentForm.getAttribute('toolname')).toBe('search_procurement');
-  });
-
-  it('always completes base teardown after a pending invocation settles', async () => {
-    const panel = mount(() => new Promise<void>(() => undefined));
-    commitResponse(panel);
-    const lifecycleSignal = (panel as unknown as { signal: AbortSignal }).signal;
-    const invocation = dispatchAgentSubmit(form(panel));
-
-    panel.destroy();
-    panel.showGatedCta(PanelGateReason.FREE_TIER, () => undefined);
-    panel.unlockPanel();
-
-    await expectRetryableFailure(invocation.response, 'panel_unavailable');
-    expect(lifecycleSignal.aborted).toBe(false);
-    vi.advanceTimersByTime(0);
-    expect(lifecycleSignal.aborted).toBe(true);
-  });
 
   it('preserves unknown country coverage on zero results and bounds applied filter names', async () => {
     const panel = mount(() => new Promise<void>(() => undefined));
@@ -870,26 +759,6 @@ describe('GlobalProcurementPanel declarative WebMCP tool', () => {
     expect(panel.getElement().textContent).toContain('Showing 0 of 0 matching opportunities');
   });
 
-  it('restores human filters before a gate snapshots and later unlocks the form', () => {
-    let requestSignal: AbortSignal | null = null;
-    const panel = mount((_filters, _append, signal) => {
-      requestSignal = signal;
-      return new Promise<void>(() => undefined);
-    });
-    commitResponse(panel);
-    const currentForm = form(panel);
-    (currentForm.elements.namedItem('query') as HTMLInputElement).value = 'roads';
-    currentForm.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
-
-    panel.showGatedCta(PanelGateReason.FREE_TIER, () => undefined);
-    expectSignalAborted(requestSignal);
-    panel.unlockPanel();
-
-    const restoredForm = form(panel);
-    expect((restoredForm.elements.namedItem('query') as HTMLInputElement).value).toBe('');
-    expect([...restoredForm.elements].every((control) => !control.hasAttribute('disabled'))).toBe(true);
-    expect(restoredForm.getAttribute('toolname')).toBe('search_procurement');
-  });
 
   it('resolves unavailable and non-settling requests as explicit retryable failures', async () => {
     const unavailableCompletion = deferred<void>();

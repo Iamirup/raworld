@@ -79,11 +79,11 @@ paths:
                                       "addedCostMultiplier": 75.25
                                       "addedTransitDays": 7
                                       "id": "example-id"
-                                      "name": "WorldMonitor Analyst"
+                                      "name": "RaWorld Analyst"
                                 "cargoType": "container"
                                 "chokepointExposures":
                                     - "chokepointId": "suez"
-                                      "chokepointName": "WorldMonitor Analyst"
+                                      "chokepointName": "RaWorld Analyst"
                                       "exposurePct": 1
                                 "disruptionScore": 42
                                 "fetchedAt": "2026-01-15T12:00:00Z"
@@ -490,12 +490,12 @@ components:
             type: apiKey
             in: header
             name: X-WorldMonitor-Key
-            description: User-issued WorldMonitor API key.
+            description: User-issued RaWorld API key.
         ApiKeyHeader:
             type: apiKey
             in: header
             name: X-Api-Key
-            description: Alias header for the WorldMonitor API key (X-WorldMonitor-Key).
+            description: Alias header for the RaWorld API key (X-WorldMonitor-Key).
         BearerAuth:
             type: http
             scheme: bearer

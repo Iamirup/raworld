@@ -172,7 +172,7 @@ describe('CII docs drift guards', () => {
     const riskLevels = markdownSection(doc, '### Risk Levels');
     const trendSection = markdownSection(doc, '### Trend Detection');
     const pizzintSection = markdownSection(doc, '### DEFCON-Style Alerting');
-    const gdeltSection = markdownSection(doc, '### World Monitor Tension Pairs');
+    const gdeltSection = markdownSection(doc, '### RaWorld Tension Pairs');
     const multipliersSection = markdownSection(doc, '### Event Significance Multipliers');
 
     assert.match(
@@ -244,7 +244,7 @@ describe('CII docs drift guards', () => {
       /Israel ↔ Iran|China ↔ Taiwan|USA ↔ Venezuela/,
       'strategic-risk tension table must omit unsupported or low-volume pairs',
     );
-    assert.match(gdeltSection, /World Monitor tension scores computed independently from GDELT event exports/);
+    assert.match(gdeltSection, /RaWorld tension scores computed independently from GDELT event exports/);
     assert.equal(CII_COUNTRY_WEIGHTS.US.eventMultiplier, 0.3);
     assert.match(
       multipliersSection,

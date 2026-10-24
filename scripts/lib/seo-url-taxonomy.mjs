@@ -1,5 +1,5 @@
 /**
- * Classify a World Monitor URL into the reviewed page family, a response kind,
+ * Classify a RaWorld URL into the reviewed page family, a response kind,
  * and a host class.
  *
  * Three dimensions, deliberately kept apart:

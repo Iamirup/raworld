@@ -77,13 +77,13 @@ export function internetOutagesRecord(payload, now = Date.now()) {
 }
 
 function answerText(record) {
-  if (!record) return 'World Monitor has no current internet outage reading.';
-  if (record.total === 0) return `As of ${formatStaticDateTime(record.asOf)}, World Monitor lists no internet disruptions in the current Cloudflare Radar window.`;
+  if (!record) return 'RaWorld has no current internet outage reading.';
+  if (record.total === 0) return `As of ${formatStaticDateTime(record.asOf)}, RaWorld lists no internet disruptions in the current Cloudflare Radar window.`;
   const latest = record.outages[0];
   const disruptions = record.total === 1 ? '1 internet disruption' : `${record.total} internet disruptions`;
   const countries = record.countries === 1 ? '1 country' : `${record.countries} countries`;
   const status = record.total === 1 ? (record.ongoing ? 'still ongoing' : 'now ended') : `${record.ongoing} of them ongoing`;
-  return `As of ${formatStaticDateTime(record.asOf)}, World Monitor lists ${disruptions} in ${countries} reported by Cloudflare Radar since ${formatStaticDateTime(record.oldest)}, ${status}. ${record.total === 1 ? 'It was' : 'The most recent is'} a ${latest.severity.toLowerCase()} disruption in ${latest.country}${latest.cause ? ` (${latest.cause.toLowerCase()})` : ''}, detected ${formatStaticDateTime(latest.detectedAt)}.`;
+  return `As of ${formatStaticDateTime(record.asOf)}, RaWorld lists ${disruptions} in ${countries} reported by Cloudflare Radar since ${formatStaticDateTime(record.oldest)}, ${status}. ${record.total === 1 ? 'It was' : 'The most recent is'} a ${latest.severity.toLowerCase()} disruption in ${latest.country}${latest.cause ? ` (${latest.cause.toLowerCase()})` : ''}, detected ${formatStaticDateTime(latest.detectedAt)}.`;
 }
 
 function bodyHtml(record) {
@@ -111,7 +111,7 @@ export const internetOutagesPage = Object.freeze({
   slug: 'internet-outages',
   path: '/tools/internet-outages/',
   statusPath: '/api/infrastructure/v1/list-internet-outages?public=1',
-  title: 'Internet Outages Today: Country-Level Disruptions Worldwide | World Monitor',
+  title: 'Internet Outages Today: Country-Level Disruptions Worldwide | RaWorld',
   h1: 'Internet outages around the world',
   question: 'Where is the internet down right now?',
   description: 'Current internet disruptions worldwide from Cloudflare Radar: the country, how wide each outage is, its cause, and whether it is still ongoing, updated live.',

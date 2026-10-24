@@ -1,6 +1,6 @@
-// The desk's only link to WorldMonitor's grading. Nothing here re-implements
+// The desk's only link to RaWorld's grading. Nothing here re-implements
 // a rule: every judgment is a call into the same modules the dashboard, the
-// MCP tools and the brief seeders use. If WorldMonitor changes a rule, the
+// MCP tools and the brief seeders use. If RaWorld changes a rule, the
 // desk changes with it. Run under tsx (npm scripts do) so the TypeScript
 // modules load directly from the repo.
 //
@@ -31,7 +31,7 @@ import { briefGroundingGap, briefGroundingPublisherCount } from '../../../script
 export { MIN_CORROBORATING_PUBLISHERS, TIER_MEANING, briefGroundingGap, briefGroundingPublisherCount };
 
 const EN = JSON.parse(readFileSync(new URL('../../../src/locales/en.json', import.meta.url), 'utf8'));
-/** WorldMonitor's own UI strings for corroboration (components.corroboration in en.json). */
+/** RaWorld's own UI strings for corroboration (components.corroboration in en.json). */
 export const WM_TEXT = EN.components.corroboration;
 
 /**
@@ -56,7 +56,7 @@ export function sourceCredibility(sourceName, corroborationCount) {
 }
 
 /**
- * Coverage of one story: WorldMonitor's verdict and publisher roster over the
+ * Coverage of one story: RaWorld's verdict and publisher roster over the
  * feed labels of every matched cluster, with the digest's origin-aware count
  * as the reported floor (evidenceFromCluster takes the max the same way).
  */
@@ -67,7 +67,7 @@ export function coverage(labels, reportedPublishers) {
   return { verdict: toCorroborationJson(verdict), roster };
 }
 
-/** Each publisher in the roster, rated with WorldMonitor's tables. Order is the roster's: best tier first. */
+/** Each publisher in the roster, rated with RaWorld's tables. Order is the roster's: best tier first. */
 export function ratePublishers(roster, corroborationCount) {
   return roster.map((p) => {
     // A family is rated by its best-scoring label, the way the roster takes its best tier.
@@ -131,7 +131,7 @@ export function groundFigures(headline, groundText, bySource = []) {
 }
 
 /**
- * The anchor's script must pass the same validators WorldMonitor runs on its
+ * The anchor's script must pass the same validators RaWorld runs on its
  * own AI briefs before it is spoken: no invented names, titles or numbers.
  */
 export function validateScript(script, groundText) {

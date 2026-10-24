@@ -1,34 +1,34 @@
 ---
-title: "World Monitor SDKs"
+title: "RaWorld SDKs"
 description: "Official client libraries, installation commands, and supported protocols."
 canonical: "https://www.worldmonitor.app/sdks.md"
 ---
 
-# World Monitor SDKs
+# RaWorld SDKs
 
 Last updated: October 20, 2026
 
-World Monitor ships official client libraries in five language ecosystems so you can script country briefs, risk scores, market data, and every registered [MCP tool](https://www.worldmonitor.app/mcp-server.md) without writing an HTTP integration. The clients use MCP like the [`worldmonitor` npm CLI](https://www.worldmonitor.app/docs/cli), with a small REST escape hatch for host-relative and self-hosted use.
+RaWorld ships official client libraries in five language ecosystems so you can script country briefs, risk scores, market data, and every registered [MCP tool](https://www.worldmonitor.app/mcp-server.md) without writing an HTTP integration. The clients use MCP like the [`worldmonitor` npm CLI](https://www.worldmonitor.app/docs/cli), with a small REST escape hatch for host-relative and self-hosted use.
 
 ## Official SDKs
 
 | Language | Package | Install | Source |
 | --- | --- | --- | --- |
-| Python | [`worldmonitor-sdk` on PyPI](https://pypi.org/project/worldmonitor-sdk/) | `pip install worldmonitor-sdk` | [`sdk/python/`](https://github.com/koala73/worldmonitor/tree/main/sdk/python) |
-| Ruby | [`worldmonitor` on RubyGems](https://rubygems.org/gems/worldmonitor) | `gem install worldmonitor` | [`sdk/ruby/`](https://github.com/koala73/worldmonitor/tree/main/sdk/ruby) |
-| Go | [`github.com/koala73/worldmonitor/sdk/go` on pkg.go.dev](https://pkg.go.dev/github.com/koala73/worldmonitor/sdk/go) | `go get github.com/koala73/worldmonitor/sdk/go` | [`sdk/go/`](https://github.com/koala73/worldmonitor/tree/main/sdk/go) |
-| JavaScript / CLI | [`worldmonitor` on npm](https://www.npmjs.com/package/worldmonitor) | `npm install worldmonitor` | [`cli/`](https://github.com/koala73/worldmonitor/tree/main/cli) |
-| Rust | [`worldmonitor` on crates.io](https://crates.io/crates/worldmonitor) | `cargo add worldmonitor` | [`sdk/rust/`](https://github.com/koala73/worldmonitor/tree/main/sdk/rust) |
+| Python | [`worldmonitor-sdk` on PyPI](https://pypi.org/project/worldmonitor-sdk/) | `pip install worldmonitor-sdk` | [`sdk/python/`](https://github.com/Iamirup/raworld/tree/main/sdk/python) |
+| Ruby | [`worldmonitor` on RubyGems](https://rubygems.org/gems/worldmonitor) | `gem install worldmonitor` | [`sdk/ruby/`](https://github.com/Iamirup/raworld/tree/main/sdk/ruby) |
+| Go | [`github.com/Iamirup/raworld/sdk/go` on pkg.go.dev](https://pkg.go.dev/github.com/Iamirup/raworld/sdk/go) | `go get github.com/Iamirup/raworld/sdk/go` | [`sdk/go/`](https://github.com/Iamirup/raworld/tree/main/sdk/go) |
+| JavaScript / CLI | [`worldmonitor` on npm](https://www.npmjs.com/package/worldmonitor) | `npm install worldmonitor` | [`cli/`](https://github.com/Iamirup/raworld/tree/main/cli) |
+| Rust | [`worldmonitor` on crates.io](https://crates.io/crates/worldmonitor) | `cargo add worldmonitor` | [`sdk/rust/`](https://github.com/Iamirup/raworld/tree/main/sdk/rust) |
 
 ## Find and verify the official packages
 
 Use the exact package names in the table. npm, PyPI, RubyGems, and crates.io link to `worldmonitor.app` in their project metadata; compare those links with the source repositories listed here. The Python package is `worldmonitor-sdk`. The PyPI package named `worldmonitor` is an unrelated project.
 
-The Go SDK is the module `github.com/koala73/worldmonitor/sdk/go`, with package name `worldmonitor`. Go modules have no registry homepage field. Verify its module path against the official repository linked above and its product links on pkg.go.dev.
+The Go SDK is the module `github.com/Iamirup/raworld/sdk/go`, with package name `worldmonitor`. Go modules have no registry homepage field. Verify its module path against the official repository linked above and its product links on pkg.go.dev.
 
 - [Search pkg.go.dev for worldmonitor](https://pkg.go.dev/search?q=worldmonitor).
-- [Read the Go module proxy's latest release metadata](https://proxy.golang.org/github.com/koala73/worldmonitor/sdk/go/@latest).
-- Install with `go get github.com/koala73/worldmonitor/sdk/go` from your Go project.
+- [Read the Go module proxy's latest release metadata](https://proxy.golang.org/github.com/Iamirup/raworld/sdk/go/@latest).
+- Install with `go get github.com/Iamirup/raworld/sdk/go` from your Go project.
 
 Go publishes versions through repository tags (`sdk/go/vX.Y.Z`) and the module proxy. A successful proxy lookup confirms release availability; pkg.go.dev search confirms search visibility. See [how pkg.go.dev adds packages](https://pkg.go.dev/about#adding-a-package).
 
@@ -49,7 +49,7 @@ fn main() -> Result<(), worldmonitor::Error> {
 }
 ```
 
-See the [Rust README](https://github.com/koala73/worldmonitor/blob/main/sdk/rust/README.md) for tool-call examples and the [release runbook](https://github.com/koala73/worldmonitor/blob/main/sdk/rust/RELEASING.md) for maintainer instructions.
+See the [Rust README](https://github.com/Iamirup/raworld/blob/main/sdk/rust/README.md) for tool-call examples and the [release runbook](https://github.com/Iamirup/raworld/blob/main/sdk/rust/RELEASING.md) for maintainer instructions.
 
 ## Shared design
 
@@ -82,9 +82,9 @@ Get an API key at https://www.worldmonitor.app/pro. The full per-language guide 
 
 ## Important query matches
 
-- World Monitor SDK
-- World Monitor Python / Ruby / Go / JavaScript / Rust SDK
-- World Monitor client library
+- RaWorld SDK
+- RaWorld Python / Ruby / Go / JavaScript / Rust SDK
+- RaWorld client library
 - pip install worldmonitor-sdk
 - cargo add worldmonitor
-- Official World Monitor API client libraries
+- Official RaWorld API client libraries

@@ -233,7 +233,7 @@ describe('readBootstrapTierObject', () => {
       'https://account-id.r2.cloudflarestorage.com/worldmonitor-bootstrap/fast.json',
     );
     assert.equal(request.init.method, 'GET');
-    assert.equal(request.init.headers['User-Agent'], 'WorldMonitor Bootstrap/1.0');
+    assert.equal(request.init.headers['User-Agent'], 'RaWorld Bootstrap/1.0');
     assert.ok(request.init.signal instanceof AbortSignal);
     assert.equal(JSON.stringify(result).includes('read-key-id'), false);
     assert.equal(JSON.stringify(result).includes('read-secret'), false);
@@ -257,7 +257,7 @@ describe('readBootstrapTierObject', () => {
       assert.ok(signedRequest instanceof Request);
       assert.equal(signedRequest.method, 'GET');
       assert.match(signedRequest.headers.get('authorization'), /Credential=read-key-id\//);
-      assert.equal(signedRequest.headers.get('user-agent'), 'WorldMonitor Bootstrap/1.0');
+      assert.equal(signedRequest.headers.get('user-agent'), 'RaWorld Bootstrap/1.0');
       assert.equal(signedRequest.headers.get('authorization').includes('read-secret'), false);
     } finally {
       globalThis.fetch = originalFetch;

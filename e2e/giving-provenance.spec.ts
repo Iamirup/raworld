@@ -134,8 +134,8 @@ function givingResponse() {
         },
         {
           subject: 'Legacy giving category shares',
-          sourceName: 'WorldMonitor issue #5504',
-          sourceUrl: 'https://github.com/koala73/worldmonitor/issues/5504',
+          sourceName: 'RaWorld issue #5504',
+          sourceUrl: 'https://github.com/Iamirup/raworld/issues/5504',
           referencePeriod: 'Legacy snapshot; reference period not verified',
           sourcePublishedAt: '',
           measurementBasis: 'Unsupported static category distribution',

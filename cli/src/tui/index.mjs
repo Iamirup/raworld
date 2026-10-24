@@ -53,7 +53,7 @@ export async function launchTui({ options = {}, config = {}, env = process.env, 
   let active = true;
 
   const enter = () => {
-    stdout.write(SEQ.altScreenOn + SEQ.cursorHide + SEQ.mouseOn + setTitle('World Monitor'));
+    stdout.write(SEQ.altScreenOn + SEQ.cursorHide + SEQ.mouseOn + setTitle('RaWorld'));
     if (stdin.isTTY && stdin.setRawMode) stdin.setRawMode(true);
     stdin.resume();
   };

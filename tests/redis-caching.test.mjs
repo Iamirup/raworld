@@ -2392,7 +2392,7 @@ describe('country intel brief caching behavior', { concurrency: 1 }, () => {
     const setKeys = [];
     const userPrompts = [];
     store.set('intelligence:advisories:v1', JSON.stringify({ byCountry: { FI: 'caution' }, fetchedAt: new Date().toISOString() }));
-    const risk = 'The most severe government travel advisory World Monitor tracks for Finland is Exercise Increased Caution.';
+    const risk = 'The most severe government travel advisory RaWorld tracks for Finland is Exercise Increased Caution.';
     installIntelFetchMock({ store, setKeys, userPrompts, counters, completion: JSON.stringify({
       situation: [{ text: 'Finland completes border fence', sources: [1], evidence: [] }],
       implications: [], risks: [{ text: risk, sources: [], evidence: ['E1'] }], outlook: [], watch: [],
@@ -2536,7 +2536,7 @@ describe('country intel brief caching behavior', { concurrency: 1 }, () => {
     store.set('intelligence:advisories:v1', JSON.stringify({ byCountry: { FI: 'caution' }, fetchedAt: new Date().toISOString() }));
     const userPrompts = [];
     const systemPrompts = [];
-    const risk = 'The most severe government travel advisory World Monitor tracks for Finland is Exercise Increased Caution.';
+    const risk = 'The most severe government travel advisory RaWorld tracks for Finland is Exercise Increased Caution.';
     installIntelFetchMock({
       store, setKeys: [], userPrompts, systemPrompts, counters: { llmCalls: 0 },
       completion: JSON.stringify({
@@ -2556,7 +2556,7 @@ describe('country intel brief caching behavior', { concurrency: 1 }, () => {
         makeCtx(`https://example.com/api/intelligence/v1/get-country-intel-brief?country_code=FI&context=${encodeURIComponent(context)}`),
         { countryCode: 'FI' },
       );
-      assert.match(userPrompts[0], /World Monitor data points:\n\[E1\] \(advisory\) .*Exercise Increased Caution/);
+      assert.match(userPrompts[0], /RaWorld data points:\n\[E1\] \(advisory\) .*Exercise Increased Caution/);
       assert.match(systemPrompts[0], /never use a number from a headline/);
       assert.equal(out.brief, `SITUATION NOW\nFinland completes border fence [1]\n\nKEY RISKS\n${risk} [E1]`);
       assert.deepEqual(out.evidence.map((item) => [item.id, item.kind, item.value]), [['E1', 'advisory', 'Exercise Increased Caution']]);

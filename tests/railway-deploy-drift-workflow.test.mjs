@@ -19,7 +19,7 @@ const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const workflowPath = resolve(repoRoot, '.github/workflows/railway-deploy-drift.yml');
 const source = readFileSync(workflowPath, 'utf8');
 const workflow = YAML.parse(source);
-const MAIN_GUARD = "${{ (github.ref == 'refs/heads/main') && (github.event_name != 'schedule' || github.repository == 'koala73/worldmonitor') }}";
+const MAIN_GUARD = "${{ (github.ref == 'refs/heads/main') && (github.event_name != 'schedule' || github.repository == 'Iamirup/raworld') }}";
 
 function steps(job) {
   assert.ok(Array.isArray(job?.steps), 'job must define steps');
@@ -52,7 +52,7 @@ function gitRevision(revision) {
 function fakeRailwayCli({ repoRoot: fixtureRoot, headSha, previousSha, queryLog }) {
   const { appendFileSync, readFileSync: readFixture } = require('node:fs');
 
-  const repository = 'koala73/worldmonitor';
+  const repository = 'Iamirup/raworld';
   const manifest = JSON.parse(readFixture(`${fixtureRoot}/scripts/railway-native-autodeploy-fleet.json`, 'utf8'));
   const registry = JSON.parse(readFixture(`${fixtureRoot}/scripts/railway-services.json`, 'utf8'));
   const registryByName = new Map(registry.map((entry) => [entry.service, entry]));

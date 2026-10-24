@@ -418,7 +418,7 @@ The indexed country pages that carry no dated development in a given weekly capt
 
 ### Comparison Page
 
-A generated, crawlable page that sets World Monitor beside named competitors on a shared set of matrix columns (price, update latency, domains, signup, REST API, MCP server, licence, sources, archive), with prose on where each competitor wins. Competitor cells are claims about another company's product, so each one must trace to a source a reader can open; when no source states a value the cell says it is not published or unverified rather than guessing, and an MCP cell reads unverified unless the product is on a test allowlist, which should only be extended once public documentation for the server exists.
+A generated, crawlable page that sets RaWorld beside named competitors on a shared set of matrix columns (price, update latency, domains, signup, REST API, MCP server, licence, sources, archive), with prose on where each competitor wins. Competitor cells are claims about another company's product, so each one must trace to a source a reader can open; when no source states a value the cell says it is not published or unverified rather than guessing, and an MCP cell reads unverified unless the product is on a test allowlist, which should only be extended once public documentation for the server exists.
 
 One vendor appears in several comparison pages at once — the hub matrix, its head-to-head page, alternatives and topic pages, and narrative prose — and nothing reconciles them automatically, so a correction to one vendor's facts is only complete when every page that names it agrees.
 

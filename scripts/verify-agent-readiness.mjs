@@ -33,7 +33,7 @@ function markdown(response, body) {
 
 function authMarkdown(response, body) {
   assertMarkdownResponse(response, body);
-  assert.match(body, /^# WorldMonitor — Agent Authentication \(auth\.md\)\n/);
+  assert.match(body, /^# RaWorld — Agent Authentication \(auth\.md\)\n/);
   assert.match(response.headers.get('link') ?? '', /<https:\/\/www\.worldmonitor\.app\/auth\.md>;\s*rel="canonical"/);
 }
 

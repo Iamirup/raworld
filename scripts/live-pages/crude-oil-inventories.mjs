@@ -92,7 +92,7 @@ function weekNote(changeMb) {
 }
 
 function answerText(record) {
-  if (!record) return 'World Monitor has no current US crude oil inventory reading. The latest EIA week is older than 21 days or unavailable.';
+  if (!record) return 'RaWorld has no current US crude oil inventory reading. The latest EIA week is older than 21 days or unavailable.';
   const crude = `For the week ending ${formatStaticDate(record.asOf)}, US commercial crude oil inventories were ${record.crudeMb.toFixed(1)} million barrels${record.crudeChangeMb !== null ? `, ${changeText(record.crudeChangeMb, 'million barrels')}` : ''}, according to the EIA.`;
   const parts = [crude];
   if (record.sprMb !== null) parts.push(`The Strategic Petroleum Reserve held ${record.sprMb.toFixed(1)} million barrels.`);
@@ -130,7 +130,7 @@ export const crudeOilInventoriesPage = Object.freeze({
   slug: 'crude-oil-inventories',
   path: '/tools/crude-oil-inventories/',
   statusPath: '/api/economic/v1/get-oil-inventories?public=1',
-  title: 'Crude Oil Inventories This Week: EIA US Stocks and SPR | World Monitor',
+  title: 'Crude Oil Inventories This Week: EIA US Stocks and SPR | RaWorld',
   h1: 'US crude oil inventories this week',
   question: 'What are US crude oil inventories this week?',
   description: 'The latest weekly EIA figures for US commercial crude oil stocks and the Strategic Petroleum Reserve, with refinery inputs, US natural gas storage and EU gas storage.',

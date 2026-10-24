@@ -198,7 +198,6 @@
     "foodStocksHelp": "USDA Üretim, Arz ve Dağıtım emtia stokları-kullanım oranı pazarlama yılına göre, bağlam için dünya oranı da dahil. FAOSTAT Gıda Dengesi, Üretim, Arz ve Dağıtım'ın tam ülke dengesi olmadığı durumlarda üretim ve iç arz sağlar.",
     "loadingFoodStocks": "Loading food stocks…",
     "foodStocksUnavailable": "Food stocks unavailable.",
-    "foodStocksProLocked": "Upgrade to PRO for commodity stocks-to-use",
     "foodStocksCommodity": "Commodity",
     "foodStocksMarketingYear": "Marketing year",
     "foodStocksRatio": "Stocks-to-use",
@@ -216,7 +215,6 @@
       "help": "Yaş yapısı, eğitim hattı ve endüstriyel işgücü kapasitesi BM Dünya Nüfus Beklentileri, UNESCO İstatistik Enstitüsü ve Dünya Bankası Dünya Kalkınma Göstergeleri ve ILOSTAT'tan.",
       "loading": "Loading demographics and workforce data…",
       "unavailable": "Demographics and workforce data unavailable.",
-      "proLocked": "Upgrade to PRO for demographics and workforce data",
       "notAvailable": "Not available",
       "ageStructure": "Age structure",
       "education": "Education pipeline",
@@ -242,7 +240,6 @@
       "help": "Gıda, enerji, demografi, teknoloji ve savunma için dondurulmuş v1 kanıt puanları. Girdileri, kaynak kökenini ve eksik veri nedenlerini incelemek için bir satırı genişletin.",
       "loading": "Beş faktörlü puan kartı yükleniyor…",
       "unavailable": "Beş faktörlü puan kartı kullanılamıyor.",
-      "proLocked": "Beş faktörlü dayanıklılık puan kartı için PRO'ya yükseltin",
       "insufficient": "Yetersiz veri",
       "notAvailable": "Kullanılamıyor",
       "noEvidence": "Bu sütun için kanıt mevcut değil.",
@@ -299,9 +296,7 @@
         "defense_supplierDiversity": "Silah tedarikçi çeşitliliği"
       }
     },
-    "defenseIndustrialBase": {
-      "proLocked": "Silah tedarikçisi bağımlılığı ve askeri kapasite için PRO'ya yükseltin"
-    }
+    "defenseIndustrialBase": {}
   },
   "header": {
     "world": "DUNYA",
@@ -712,8 +707,7 @@
       "alertTitle": {
         "configured": "Masaustu ayarlari yapilandirildi",
         "needsKeys": "Ozellikleri etkinlestirmek icin API anahtarlarini yapilandiriniz",
-        "some": "Bazi ozellikler API anahtari gerektiriyor",
-        "pro": "World Monitor Pro etkin"
+        "some": "Bazi ozellikler API anahtari gerektiriyor"
       },
       "summary": {
         "desktop": "Masaustu modu",
@@ -742,10 +736,7 @@
         "NASA_FIRMS_API_KEY": "Kaynak Yonetimi icin Yangin Bilgi Sistemi.",
         "OLLAMA_API_URL": "e.g. http://127.0.0.1:11434 (Ollama) or http://127.0.0.1:1234/v1 (LM Studio) — OpenAI-compatible endpoint.",
         "OLLAMA_MODEL": "e.g. llama3.1:8b — model tag to use for summarization."
-      },
-      "proCloud": "Yerel API anahtarı olmayan özellikler World Monitor bulut verilerini kullanır.",
-      "skipSetupPro": "Kurulumu atlayın: Kendi API anahtarlarınız yerine bulut verilerini kullanmak için World Monitor Pro ile oturum açın.",
-      "getPro": "World Monitor Pro'yu edinin"
+      }
     },
     "settingsWindow": {
       "validating": "API anahtarlari dogrulaniyor...",
@@ -766,12 +757,6 @@
           "title": "Lisans / API Anahtarı",
           "placeholder": "wm_xxxxxxxxxxxxxxxxxxxxxxxx",
           "description": "API Starter ve API Business aboneleri bu anahtarı web panosunda Settings → API Keys bölümünden oluşturur. Tam anahtar kaybolursa anahtarı iptal edin ve yenisini oluşturun."
-        },
-        "dividerOr": "VEYA",
-        "register": {
-          "title": "API anahtarına mı ihtiyacınız var?",
-          "description": "Adım adım yardım için worldmonitor.app/docs/api-keys adresine bakın. Manuel API anahtarları için API Starter veya API Business planı gerekir.",
-          "submitBtn": "API planlarını görüntüle"
         }
       },
       "table": {
@@ -781,12 +766,10 @@
         "status": "Durum",
         "duration": "Sure"
       },
-      "shellTitle": "World Monitor Ayarları",
+      "shellTitle": "RaWorld Ayarları",
       "shellSearchPlaceholder": "Ayarları ara...",
       "shellCancel": "İptal",
-      "shellSaveClose": "Kaydet ve Kapat",
-      "freePanelLimit": "Ücretsiz plan: en fazla {{max}} panel. Sınırsız kullanım için PRO'ya yükseltin.",
-      "freeSourceLimit": "Ücretsiz plan: en fazla {{max}} kaynak. Sınırsız kullanım için PRO'ya yükseltin."
+      "shellSaveClose": "Kaydet ve Kapat"
     },
     "countryIntel": {
       "identifying": "Ulke belirleniyor...",
@@ -992,8 +975,7 @@
       "refineryStage": "Refine",
       "stageUnavailable": "No published figures for this stage",
       "withheldNote": "W withheld",
-      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them.",
-      "productionProLocked": "Madencilik ve rafineri ülke payları için (üretici yoğunlaşma endeksi) aşama bazında yoğunlaşma ile PRO sürümüne yükseltin."
+      "productionCaption": "Country shares of actual production. The map deposits layer shows where resources sit; this table shows who mines or refines them."
     },
     "tradePolicy": {
       "tariffs": "Gümrük Tarifeleri",
@@ -1087,7 +1069,7 @@
       "skipToEnd": "Skip to end"
     },
     "pizzint": {
-      "indexSource": "Endeks: World Monitor · mekân verileri:",
+      "indexSource": "Endeks: RaWorld · mekân verileri:",
       "statusNormal": "NORMAL",
       "statusNoData": "VERİ YOK",
       "statusNoBaseline": "REFERANS YOK",
@@ -1096,7 +1078,7 @@
       "defcon": "DEFCON {{level}}",
       "updated": "{{timeAgo}} guncellendi",
       "tensionsTitle": "Jeopolitik Gerilimler",
-      "tensionsSource": "Gerilimler: GDELT olaylarından World Monitor hesaplaması",
+      "tensionsSource": "Gerilimler: GDELT olaylarından RaWorld hesaplaması",
       "insufficientData": "Yetersiz veri",
       "pizzaUnavailable": "Pizzacıların etkinlik verileri kullanılamıyor",
       "source": "Kaynak:",
@@ -1775,7 +1757,7 @@
       "staleReport": "Güncelliğini yitirmiş rapor",
       "reported": "Sayı",
       "period": "Dönem",
-      "movementNote": "Her satır kaynağını, rapor tarihini ve ölçüsünü korur. Mevcut nüfus, varışlar ve sınır denetimi olayları farklı ölçülerdir. Kaynaklar örtüşebilir; sayılarını toplamayın. WorldMonitor bu görünümü bağlantılı kaynaklardan türetir; bu, sağlayıcıların onayını ima etmez.",
+      "movementNote": "Her satır kaynağını, rapor tarihini ve ölçüsünü korur. Mevcut nüfus, varışlar ve sınır denetimi olayları farklı ölçülerdir. Kaynaklar örtüşebilir; sayılarını toplamayın. RaWorld bu görünümü bağlantılı kaynaklardan türetir; bu, sağlayıcıların onayını ima etmez.",
       "recent": "Yakın dönem",
       "last30Days": "Son 30 gün",
       "newThisWeek": "Bu haftanın yenileri",
@@ -2169,7 +2151,7 @@
       "tripDays": "Gezi günleri"
     },
     "chatAnalyst": {
-      "infoTooltip": "<strong>WM Analist</strong> Jeopolitik, piyasa, askeri ve ekonomik alanlarda canlı bağlama sahip AI analisti. Aktif WorldMonitor beslemelerinden gerçek zamanlı veri enjekte edilen Claude tarafından desteklenmektedir."
+      "infoTooltip": "<strong>RaWorld Analist</strong> Jeopolitik, piyasa, askeri ve ekonomik alanlarda canlı bağlama sahip AI analisti. Aktif RaWorld beslemelerinden gerçek zamanlı veri enjekte edilen Claude tarafından desteklenmektedir."
     },
     "cotPositioning": {
       "infoTooltip": "<strong>Vadeli işlem konumlandırması</strong> Emtia ve finansal vadeli işlemler üzerinde ticari tüccarlar, büyük spekülatörler ve küçük tüccarlar için haftalık net pozisyonlar. Kaynak, Cuma günü yayınlanan Commodity Futures Trading Commission Traders Taahhütleri raporudur."
@@ -2232,7 +2214,7 @@
       "infoTooltip": "<strong>Ekonomik Takvim</strong> Planlanmış makroekonomik açıklamalar: tüketici fiyat endeksi, tarım dışı istihdam, gayri safi yurtiçi hasıla, satın alma müdürleri endeksi ve merkez bankası kararları. Tahmin vs gerçek vs önceki dönem gösterilir. Yüksek etkili olaylar vurgulanır. Kaynak: ekonomik veri sağlayıcıları."
     },
     "fsi": {
-      "infoTooltip": "<strong>Mali Stres Göstergesi</strong> WorldMonitor yüksek getirili kredi ile uzun dönem hazine bonolarının oranı, hisse senedi oynaklığı ve yüksek getirili spread'e göre ayarlanmış: (HYG / TLT) / (VIX × Yüksek getirili spread / 100). Bu Kansas City Fed Mali Stres Endeksi değildir. 1,5 ve üzeri bir ölçüm düşük strestir; 0,3'ün altı yüksek streştir.",
+      "infoTooltip": "<strong>Mali Stres Göstergesi</strong> RaWorld yüksek getirili kredi ile uzun dönem hazine bonolarının oranı, hisse senedi oynaklığı ve yüksek getirili spread'e göre ayarlanmış: (HYG / TLT) / (VIX × Yüksek getirili spread / 100). Bu Kansas City Fed Mali Stres Endeksi değildir. 1,5 ve üzeri bir ölçüm düşük strestir; 0,3'ün altı yüksek streştir.",
       "title": "Finansal Stres Göstergesi",
       "usFsiValue": "ABD Mali Stres Göstergesi değeri",
       "cissTitle": "EU CISS (Euro Bölgesi Sistematik Stres)",
@@ -2290,8 +2272,7 @@
       "dependentCommodities": "Bağımlı emtialar",
       "stateOk": "Güncel",
       "stateStale": "Eski girdi",
-      "stateInsufficient": "Yetersiz veri",
-      "proLocked": "Emtia kırılganlık puanlandırması için PRO'ya yükseltin"
+      "stateInsufficient": "Yetersiz veri"
     },
     "hormuzTracker": {
       "infoTooltip": "<strong>Hormuz Ticaret İzleyicisi</strong> Hormuz Boğazı'nda canlı gemi izleme, dünyanın en kritik petrol darboğazı. Tanker sayılarını, aksama olaylarını ve haftalık akış değişikliklerini izler. Günde yaklaşık olarak küresel petrol arzının %20'si buradan geçer.",
@@ -2316,7 +2297,7 @@
       "infoTooltip": "<strong>Makro göstergeler</strong> ABD, euro alanı ve Çin fiyatları, aktivite, politika ve döviz göstergeleri. Çin mevcut haber kapsamı gerektirir. Her döşeme kaynağını ve gözlem tarihini gösterir."
     },
     "monitors": {
-      "infoTooltip": "<strong>Anahtar Kelime Monitörleri</strong> Tüm WorldMonitor kaynaklarından gerçek zamanlı haber söz takibi için herhangi bir terim ekleyin. Eşleşen makaleler alındıkça sonuçlar gerçek zamanlı güncellenir."
+      "infoTooltip": "<strong>Anahtar Kelime Monitörleri</strong> Tüm RaWorld kaynaklarından gerçek zamanlı haber söz takibi için herhangi bir terim ekleyin. Eşleşen makaleler alındıkça sonuçlar gerçek zamanlı güncellenir."
     },
     "renewable": {
       "infoTooltip": "<strong>Yenilenebilir Enerji</strong> Bölge ve yıla göre yenilenebilir kaynaklardan elektrik üretimi payı, artı ABD güneş, rüzgar ve kömür için kurulu kapasitesi (MW). Kaynaklar: Dünya Bankası (EG.ELC.RNEW.ZS) ve ABD Enerji Bilgi İdaresi."
@@ -2543,108 +2524,11 @@
     "wsbTickerScanner": {
       "infoTooltip": "<strong>WallStreetBets Sembol Tarayıcısı</strong> r/wallstreetbets, r/stocks ve r/investing'den gerçek zamanlı sembol bahisleri. Bahis sıklığı ve katılım tarafından sıralanmış. Hız, bir sembolün yazılarda ne kadar hızlı momentum kazandığını ölçer."
     },
-    "proBanner": {
-      "badge": "PRO",
-      "headline": "Pro yayında",
-      "tagline": "Daha Fazla İşaret, Daha Az Gürültü. Daha Fazla AI Özeti. Sadece Sizin için Jeopolitik & Sermaye Piyasası Araştırmacısı.",
-      "cta": "Pro'ya Yükselt →",
-      "dismiss": "Kapat"
-    },
-    "billingState": {
-      "onHoldDesc": "Ödeme başarısız oldu. Premium erişimi geri yüklemek için ödeme yönteminizi güncelleyin.",
-      "onHoldBannerMessage": "Ödeme başarısız oldu. Aboneliğinizi aktif tutmak için ödeme yönteminizi güncelleyin.",
-      "updatePayment": "Ödemeyi Güncelle",
-      "renewalPendingDesc": "Aboneliğinizin yenilenmesini doğruluyoruz. Onaylandığında premium erişim otomatik olarak geri yüklenecek.",
-      "refreshStatus": "Durumu Yenile",
-      "renewalFailedDesc": "Aboneliğinizin yenilenmesini doğrulayamadık. Sorun devam ederse faturalandırmayı yönetin veya destekle iletişime geçin.",
-      "manageBilling": "Faturalandırmayı Yönet",
-      "lapsedDesc": "Pro aboneliğiniz sona erdi. Premium erişimi yeniden kazanmak için tekrar abone olun.",
-      "resubscribe": "Tekrar Abone Ol"
-    },
     "checkoutFailureBanner": {
       "message": "Ödeme tamamlanamadı. Herhangi bir ücret alınmadı.",
       "retry": "Tekrar Dene",
       "retrying": "Tekrar Deneniyor…",
       "dismiss": "Kapat"
-    },
-    "proActivation": {
-      "badge": "PRO",
-      "progress": "Adım {{current}} / {{total}}",
-      "closeLabel": "Kurulumu Atla",
-      "ariaLabel": "Pro Etkinleştirme Kurulumu",
-      "signedInAs": "{{email}} olarak oturum açıldı",
-      "steps": {
-        "brief": {
-          "heading": "Her sabah günlük özetiniz",
-          "body": "Her sabah gelen kutunuzda özenle hazırlanmış bir istihbarat özeti — gece boyunca önemli olan sinyaller, beş dakikalık bir okumaya sığdırılmış.",
-          "confirmCta": "Sabah Özetimi Aç",
-          "confirming": "Açılıyor…",
-          "doneNote": "Sabah özetiniz zaten çalışıyor.",
-          "scheduleNote": "Mevcut teslim saatinizi koruyacağız.",
-          "summaryLabel": "Sabah Özeti",
-          "summaryVerified": "Açık — bir sonraki sabah özetinizle başlar.",
-          "deliverAt": "Teslim saati",
-          "previewLoading": "İlk özetinizin önizlemesi hazırlanıyor…",
-          "previewLabel": "Bu sabahki özet"
-        },
-        "alerts": {
-          "heading": "Kritik Uyarılar",
-          "body": "Çatışma tırmanışları, piyasa şokları, yeni yaptırımlar gibi büyük bir şey olduğunda tarayıcınızda bildirim alın. Sıklığı istediğiniz zaman Ayarlar'dan değiştirebilirsiniz.",
-          "confirmCta": "Uyarıları Etkinleştir",
-          "confirming": "Etkinleştiriliyor…",
-          "doneNote": "Tarayıcı uyarıları zaten açık.",
-          "blockedNote": "Tarayıcınızda bildirimler engellenmiş. Uyarı alabilmek için tarayıcınızın site ayarlarından bunları açın.",
-          "declinedNote": "Sorun değil — tarayıcı uyarısı göndermeyeceğiz. Bunları daha sonra tarayıcınızın site ayarlarından açabilirsiniz.",
-          "summaryLabel": "Kritik Uyarılar",
-          "summaryVerified": "Açık — kritik sinyaller tarayıcınıza ulaşacak."
-        },
-        "power": {
-          "heading": "Pro Araç Setiniz",
-          "body": "Özel widget'lar, MCP bağlantıları ve yapay zeka araştırmacısının kilidi açıldı. Gerçekten izlemek istediğiniz paneli oluşturun.",
-          "confirmCta": "Pro Araçları Keşfet",
-          "confirming": "Açılıyor…",
-          "doneNote": "Pro araçlarınızı zaten kullanıyorsunuz.",
-          "summaryLabel": "Pro Araç Seti",
-          "summaryVerified": "Kilidi açıldı, siz hazır olduğunuzda kullanıma hazır.",
-          "channelsNote": "Telegram, Slack, Discord veya bir webhook mu tercih edersiniz?",
-          "pointers": {
-            "search": "Tüm panoda ara",
-            "widgets": "Özel bir widget oluşturun",
-            "analyst": "Yapay zeka analistine sorun",
-            "mcpClients": "MCP'yi kurun",
-            "channels": "Bunları bildirim ayarlarından yapılandırın"
-          }
-        }
-      },
-      "status": {
-        "pending": "Kurulmadı",
-        "inFlight": "Kuruluyor…",
-        "verified": "Hazır",
-        "failed": "Başarısız Oldu",
-        "blocked": "Engellendi",
-        "unavailable": "Kullanılamıyor",
-        "blockedNote": "Bu şu anda kullanılamıyor — daha sonra ayarlardan kurabilirsiniz.",
-        "unavailableNote": "Bu, cihazınızda kullanılamıyor — daha sonra kurabilirsiniz.",
-        "failedBody": "Bir şeyler ters gitti. Tekrar deneyebilir veya daha sonra ayarlardan kurabilirsiniz.",
-        "retry": "Tekrar Dene"
-      },
-      "actions": {
-        "skip": "Şimdilik Atla",
-        "continue": "Devam Et"
-      },
-      "summary": {
-        "heading": "Her Şey Hazır",
-        "subVerified": "Hesabınızda çalışan şeyler burada.",
-        "subPending": "Kurulumu istediğiniz zaman ayarlardan tamamlayabilirsiniz.",
-        "linePending": "Henüz kurulmadı — istediğiniz zaman ayarlardan tamamlayın.",
-        "lineFailed": "Bunu kuramadık — ayarlardan tekrar deneyin.",
-        "finish": "Panelime Git"
-      },
-      "chip": {
-        "message": "Pro hesabınızın kurulumunu tamamlayın.",
-        "action": "Kurulumu Tamamla",
-        "dismissLabel": "Kapat"
-      }
     },
     "frameworkSelector": {
       "label": "Analiz Çerçevesi",
@@ -2867,20 +2751,10 @@
       }
     },
     "exportGate": {
-      "signedOutDesc": "Panel verilerini CSV, JSON veya PDF olarak dışa aktarmak için giriş yapın.",
-      "upgradeDesc": "Veri dışa aktarma (CSV, JSON, PDF) Pro Business'a dahildir.",
-      "upgradeCta": "Pro Business'a yükselt",
       "lockedAriaLabel": "Veri dışa aktar — kilitli. {{reason}}",
       "unlockedAnnouncement": "Veri dışa aktarma kilidi açıldı.",
       "preparingPdf": "PDF hazırlanıyor…",
       "pdfFailed": "PDF raporu oluşturulamadı. Yeniden deneyin veya JSON dışa aktarmayı kullanın."
-    },
-    "tabCap": {
-      "signedOutDesc": "Oturum açılmamış çalışma alanları {{cap}} panel sekmesiyle sınırlıdır. Daha fazlası için giriş yapın.",
-      "upgradeDesc": "{{cap}} panel sekmesi sınırınıza ulaştınız.",
-      "upgradeCta": "Daha fazlası için yükseltin",
-      "lockedAriaLabel": "Sekme ekle — kilitli. {{reason}}",
-      "unlockedAnnouncement": "Panel sekmesi limiti kaldırıldı."
     },
     "fx": {
       "infoTooltip": "<strong>Döviz kurları</strong> Stres, 45 para birimini 24 aylık en büyük düşüşe göre sırayla gösterir, 12 aylık değişim ile. Spot oranlar ayrı ABD doları ve euro tabanları kullanır. Rus rublesinin oranları, birim başına rubledir. Kaynaklar Yahoo Finance, Avrupa Merkez Bankası ve Rusya Merkez Bankası'nı içerir.",
@@ -2914,18 +2788,6 @@
       "rubPerUnit": "Birim başına ruble",
       "sourceCbr": "Kaynak: Rusya Merkez Bankası"
     },
-    "passkeyOffer": {
-      "title": "Passkey kaydedilsin mi?",
-      "body": "Bir sonraki oturum açışında parmak izi, yüz veya cihaz PIN'i ile giriş yapın — hatırlanacak parola yok.",
-      "accept": "Passkey'i kaydet",
-      "dismiss": "Şimdi değil",
-      "close": "Kapat",
-      "announce": "Bir sonraki oturum açışında daha hızlı giriş yapmak için passkey'i kaydedin.",
-      "busy": "Cihazınızdan bekleniyor…",
-      "succeeded": "Passkey kaydedildi. Bir sonraki oturum açışında kullanabilirsiniz.",
-      "retryable": "Bu tamamlanmadı. Yeniden deneyebilirsiniz.",
-      "failed": "Bu cihaza passkey kaydedilemedi."
-    },
     "decisionBrief": {
       "commodityTitle": "Emtia karar özeti",
       "commodity": "Emtia / ürün",
@@ -2944,8 +2806,7 @@
       "changed": "Seçim değişti. Dışa aktarmadan önce iki senaryoyu da alın.",
       "loading": "İki senaryo alınıyor…",
       "captured": "Alındı. İndirmeden önce gözlem tarihlerini ve kısıtları inceleyin.",
-      "failed": "Senaryolar alınamadı. Erişiminizi kontrol edip yeniden deneyin. Dışa aktarılacak sonuç yok.",
-      "locked": "Karar özeti Pro ile kullanılabilir."
+      "failed": "Senaryolar alınamadı. Erişiminizi kontrol edip yeniden deneyin. Dışa aktarılacak sonuç yok."
     },
     "liveMedia": {
       "idleStatus": "Hareketsizlik nedeniyle duraklatıldı",
@@ -3669,10 +3530,10 @@
     "copyCoordinates": "Koordinatları kopyala"
   },
   "shell": {
-    "documentTitle": "World Monitor — Gerçek Zamanlı Küresel İstihbarat Paneli",
+    "documentTitle": "RaWorld — Gerçek Zamanlı Küresel İstihbarat Paneli",
     "metaDescription": "Gerçek zamanlı küresel istihbarat platformu. WIRED'da yer aldı. 190 ülkede 2 milyon+ kişi tarafından kullanılıyor. Çatışmalar, piyasalar, askeri, açık kaynak istihbaratı tek görünümde.",
     "offlineTitle": "Çevrimdışısınız",
-    "offlineMessage": "World Monitor, gerçek zamanlı istihbarat verileri için internet bağlantısı gerektirir.",
+    "offlineMessage": "RaWorld, gerçek zamanlı istihbarat verileri için internet bağlantısı gerektirir.",
     "offlineRetry": "Yeniden Dene"
   },
   "widgets": {
@@ -3710,16 +3571,15 @@
     "phaseError": "Hata",
     "previewCheckingHeading": "Widget oluşturucu bağlanıyor",
     "previewReadyHeading": "İstediğiniz widget'ı açıklayın",
-    "previewFetchingHeading": "Canlı WorldMonitor verileri getiriliyor",
+    "previewFetchingHeading": "Canlı RaWorld verileri getiriliyor",
     "previewComposingHeading": "Widget düzeni oluşturuluyor",
     "previewErrorHeading": "Önizleme dikkat gerektiriyor",
     "previewCheckingCopy": "Oluşturmayı etkinleştirmeden önce widget anahtarınızı ve arka uç kullanılabilirliğini doğruluyoruz.",
     "previewReadyCopy": "Bir istem örneği kullanın veya istediğiniz tam canlı görünümü açıklayın. Önizleme, kaydetmeden önce burada güncellenecektir.",
-    "previewFetchingCopy": "Ajan onaylı WorldMonitor uç noktalarını çağırıyor ve veri setini widget için şekillendiriyor.",
+    "previewFetchingCopy": "Ajan onaylı RaWorld uç noktalarını çağırıyor ve veri setini widget için şekillendiriyor.",
     "previewComposingCopy": "Önizleme, en son canlı veriler ve pano stillemesiyle işleniyor.",
     "previewErrorCopy": "Sorunu düzeltin, ardından yeniden deneyin. Mevcut widget'larınız etkilenmez.",
     "createInteractive": "Etkileşimli Widget Oluştur",
-    "proBadge": "PRO",
     "preflightProUnavailable": "PRO widget ajanı kullanılamıyor. Sunucudaki PRO_WIDGET_KEY kontrol edin.",
     "preflightInvalidProKey": "PRO anahtarı reddedildi. wm-pro-key'i güncelleyin ve yeniden yükleyin.",
     "preflightProSubscriptionRequired": "Pro aboneliği gerekli. Az önce yükseltildiyse sayfayı yenileyin; aksi takdirde desteğe başvurun.",
@@ -3741,28 +3601,6 @@
     "offlineCached": "Çevrimdışı — {{freshness}} tarihli önbelleğe alınan veriler gösteriliyor.",
     "offlineUnavailable": "Çevrimdışı — canlı veriler şu anda kullanılamıyor.",
     "cachedFallback": "Canlı veriler kullanılamıyor — {{freshness}} tarihli önbelleğe alınan veriler gösteriliyor."
-  },
-  "premium": {
-    "pro": "PRO",
-    "lockedDesc": "World Monitor lisans anahtarı gereklidir",
-    "signInToUnlock": "Premium özelliklerin kilidini açmak için oturum açın",
-    "signIn": "Kilidini Açmak İçin Oturum Aç",
-    "upgradeDesc": "Premium analitiğe tam erişim için Pro'ya yükseltin",
-    "upgradeToPro": "Pro'ya Yüksel",
-    "features": {
-      "orefSirens1": "Gerçek zamanlı İsrail füze ve roket uyarıları",
-      "orefSirens2": "Tehdit sınıflandırması ile siren bölgesi haritalaması",
-      "telegramIntel1": "Küratörlü Telegram açık kaynak istihbaratı kanalları",
-      "telegramIntel2": "Neredeyse gerçek zamanlı çatışma ve jeopolitik güncellemeleri",
-      "xIntel1": "Curated public news accounts on X",
-      "xIntel2": "API-fresh posts with official permalinks"
-    }
-  },
-  "auth": {
-    "signIn": "Oturum Aç",
-    "createAccount": "Hesap oluştur",
-    "settings": "Ayarlar",
-    "passkeyOffer": {}
   },
   "mcp": {
     "connectPanel": "MCP'yi Bağla",
@@ -3851,8 +3689,6 @@
     "resilience": "Dayanıklılık",
     "ciiMissing": "CII kullanılamıyor",
     "resilienceMissing": "Dayanıklılık kullanılamıyor",
-    "noEvents": "Bu tarih için seçili başlık kaydedilmedi. Bu, hiç olay yaşanmadığını kanıtlamaz.",
-    "unlock90": "Pro ile 90 günlük geçmişi açın",
-    "unlock365": "API planıyla 365 günlük geçmişi açın"
+    "noEvents": "Bu tarih için seçili başlık kaydedilmedi. Bu, hiç olay yaşanmadığını kanıtlamaz."
   }
 }

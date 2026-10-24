@@ -266,7 +266,7 @@ function validatePageLocation(value) {
     || url.hash
     || url.href !== value
   ) {
-    return `sitemap page URL is not an allowed canonical WorldMonitor URL: ${value}`;
+    return `sitemap page URL is not an allowed canonical RaWorld URL: ${value}`;
   }
   if (url.hostname === 'worldmonitor.app' && url.pathname !== '/mcp') {
     return `apex sitemap URL must be the canonical MCP endpoint: ${value}`;

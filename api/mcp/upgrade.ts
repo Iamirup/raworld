@@ -125,7 +125,7 @@ const DENIAL_COPY: Record<McpStaticDenialReason, { message: string; nextStep: st
   // gateway will reject. Terminal until upgrade: retrying and re-authenticating
   // both fail, which is why this rides the 403 envelope, not 401 or 429.
   'upgrade-required': {
-    message: 'This tool requires a WorldMonitor Pro subscription.',
+    message: 'This tool requires a RaWorld Pro subscription.',
     nextStep:
       'The free allowance covers cached-data tools only. Call one of those, '
       + 'or subscribe to Pro at the upgrade URL for the full tool set.',
@@ -135,7 +135,7 @@ const DENIAL_COPY: Record<McpStaticDenialReason, { message: string; nextStep: st
   // `nextStep` and `upgradeUrl` from here reach the wire for this reason. Do not
   // say "reconnect MCP" — that is the OAuth retry this envelope exists to prevent.
   'lapsed-subscription': {
-    message: 'Your WorldMonitor Pro subscription is no longer active.',
+    message: 'Your RaWorld Pro subscription is no longer active.',
     nextStep:
       'Resubscribe at the upgrade URL. The existing credential stays valid — '
       + 're-authenticating will not restore access.',
